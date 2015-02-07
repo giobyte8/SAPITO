@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 7/02/2015, 01:38:13 AM
-    Author     : Lore
+    Document   : indexactivofijo
+    Created on : Feb 7, 2015, 3:15:33 AM
+    Author     : Usuario
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello Activo!</h1>
     </body>
 </html>

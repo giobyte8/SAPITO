@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package com.sapito.inventarios;
+package com.sapito.contabilidad;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,17 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author Jovic
+ * @author Lore-Lap
  */
 @Controller
-
-public class InventariosController
-
-{
-    @RequestMapping(value="inventarios", method=RequestMethod.GET)
-    public String index(Model model)
-    {
-        return "sapoindex";
+public class controller_contabilidad {
+    @RequestMapping(value="contabilidad", method=RequestMethod.GET)
+    public String index(Model model){
+    return "Contabilidad/indexcontabilidad";
     }
-    
 }

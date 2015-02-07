@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.sapito.inventarios;
+package com.sapito.activofijo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,17 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author Jovic
+ * @author Usuario
  */
 @Controller
-
-public class InventariosController
-
-{
-    @RequestMapping(value="inventarios", method=RequestMethod.GET)
-    public String index(Model model)
-    {
-        return "sapoindex";
+public class ActivoFijoController {
+    @RequestMapping(value="activofijo", method=RequestMethod.GET)
+    public String index(Model model){
+        return "ActivoFijo/indexactivofijo";
     }
     
 }
