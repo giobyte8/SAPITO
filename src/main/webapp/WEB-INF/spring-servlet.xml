@@ -26,5 +26,13 @@
     </beans:bean>
 
     <context:component-scan base-package="com.sapito.controller" />
+    <context:component-scan base-package="com.sapito.ventas" />
+    <context:component-scan base-package="com.sapito.compras" />
+    <context:component-scan base-package="com.sapito.inventarios" />
+    <context:component-scan base-package="com.sapito.contabilidad" />
+    <context:component-scan base-package="com.sapito.direccion" />
+    <context:component-scan base-package="com.sapito.activofijo" />
+    <context:component-scan base-package="com.sapito.rh" />
+    <context:component-scan base-package="com.sapito.operaciones" />
 	
 </beans:beans>
