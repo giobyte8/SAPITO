@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RecursosHumanosController {
     
-    @RequestMapping(value="rh", method=RequestMethod.GET)
+    @RequestMapping(value="rh",method=RequestMethod.GET)
     public String index(Model model)
     {
         return "RH/index";
