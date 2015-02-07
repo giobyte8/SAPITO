@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 7/02/2015, 01:38:13 AM
-    Author     : Edgar
+    Document   : indexdireccion
+    Created on : Feb 7, 2015, 2:34:18 AM
+    Author     : LAWL
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hola index de RH</h1>
+        <h1>Hello World! + 1</h1>
     </body>
 </html>

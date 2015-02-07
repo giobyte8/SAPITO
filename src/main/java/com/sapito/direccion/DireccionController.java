@@ -3,28 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.sapito.direccion;
 
-package com.sapito.rh;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 /**
  *
- * @author Christian
+ * @author LAWL
  */
 @Controller
-public class RecursosHumanosController {
+public class DireccionController {
     
-    @RequestMapping(value="rh", method=RequestMethod.GET)
-    public String index(Model model)
-    {
-        return "RH/index";
+    @RequestMapping(value="direccion", method=RequestMethod.GET)
+  public String index(Model model){
+        return "Direccion/indexdireccion";
     }
-}
-
-
+    }
 
 

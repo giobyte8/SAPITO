@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 7/02/2015, 01:38:13 AM
+    Document   : template1
+    Created on : 7/02/2015, 02:34:44 AM
     Author     : Edgar
 --%>
 
@@ -193,7 +193,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Titulos de la view
+                                Titulo de la view
                             </h1>                        
                         </div>
                     </div>        
@@ -205,26 +205,30 @@
                                     <br/>                            
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title" >Titulo del panel </h3>
+                                            <h3 class="panel-title">Titulo del Panel</h3>
                                         </div>
                                         <div class="panel-body">
+                                            <!-- Fila de inputs/!-->
                                             <div class="row">
-                                                <div class="col-lg-12 text-left">                                                                                        
+                                                <div class="col-lg-6 text-left">
+                                                    <!-- inputs/!-->
                                                     <div class="form-group ">
-                                                        <label class="control-label" >Input 1</label>
-                                                        <input type="text" class="form-control" placeholder="Input 1">
-                                                    </div>                                                                                       
+                                                        <label class="control-label">Input 1</label>
+                                                        <input type="text" class="form-control" >
+                                                    </div>
+                                                    <!--Fin  inputs/!-->
+                                                </div>
+                                                <div class="col-lg-6 text-left">
+                                                    <!-- inputs/!-->
                                                     <div class="form-group">
                                                         <label class="control-label" >Input 2</label>
-                                                        <input type="text" class="form-control"  placeholder="Input 1">
-                                                    </div>                                            
+                                                        <input type="text" class="form-control">
+                                                    </div>                        
                                                 </div>
-                                            </div>
+                                            </div>                      
                                         </div>
-                                    </div>
-                                    <!--                          Fin Codigo Para panel 5 o menos input -->
-                                </div>
-                                <!--                      Fin TODO aqui abajo-->
+                                    </div>                        
+                                </div>                        
                             </div>  
                         </div>
                     </div><!--Fin del tag de fila-->
@@ -248,4 +252,5 @@
     </body>
 
 </html>
+
 

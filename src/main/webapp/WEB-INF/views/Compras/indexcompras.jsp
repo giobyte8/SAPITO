@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 7/02/2015, 01:38:13 AM
-    Author     : Edgar
+    Document   : ComprasIndex
+    Created on : 7/02/2015, 02:16:49 AM
+    Author     : chef
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hola index de RH</h1>
+        <h1>Hello Compras!</h1>
     </body>
 </html>
