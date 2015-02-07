@@ -23,6 +23,11 @@ public class RecursosHumanosController {
     {
         return "RH/index";
     }
+    @RequestMapping(value="alta",method=RequestMethod.GET)
+    public String AltaEmpleado(Model model)
+    {
+        return "RH/AltaEmpleado";
+    }
 }
 
 

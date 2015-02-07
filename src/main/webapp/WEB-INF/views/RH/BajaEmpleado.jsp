@@ -1,7 +1,7 @@
 <%-- 
-    Document   : addEmpleados
-    Created on : 7/02/2015, 02:26:03 AM
-    Author     : Jovic
+    Document   : BajaEmpleado
+    Created on : 7/02/2015, 04:28:06 AM
+    Author     : Christian
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

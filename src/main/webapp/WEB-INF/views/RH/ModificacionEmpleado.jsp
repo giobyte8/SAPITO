@@ -1,7 +1,7 @@
 <%-- 
-    Document   : sapoindex
-    Created on : Feb 6, 2015, 1:40:36 AM
-    Author     : giovanni
+    Document   : ModificacionEmpleado
+    Created on : 7/02/2015, 04:28:32 AM
+    Author     : Christian
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
