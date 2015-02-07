@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 7/02/2015, 01:38:13 AM
-    Author     : Edgar
+    Author     : Lore
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello Contabilidad!</h1>
     </body>
 </html>
