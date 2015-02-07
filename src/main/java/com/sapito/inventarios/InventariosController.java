@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 
-public class controller_inventarios
+public class InventariosController
 
 {
-    @RequestMapping(value="sapoindex", method=RequestMethod.GET)
+    @RequestMapping(value="inventarios", method=RequestMethod.GET)
     public String index(Model model)
     {
         return "sapoindex";
