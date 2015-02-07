@@ -3,12 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.sapito.rh;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 /**
  *
  * @author Christian
  */
+@Controller
 public class RecursosHumanosController {
     
+    @RequestMapping(value="rh", method=RequestMethod.GET)
+    public String index(Model model)
+    {
+        return "RH/index";
+    }
 }
+
+
+
+
