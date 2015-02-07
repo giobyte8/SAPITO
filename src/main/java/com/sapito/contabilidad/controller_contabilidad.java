@@ -9,16 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 /**
  *
  * @author Lore-Lap
  */
 @Controller
-public class ContabilidadController 
-{
+public class controller_contabilidad {
     @RequestMapping(value="contabilidad", method=RequestMethod.GET)
     public String index(Model model){
-    return "Contabilidad/index";
+    return "Contabilidad/indexcontabilidad";
     }
-    
 }
