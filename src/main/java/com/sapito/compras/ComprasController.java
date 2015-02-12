@@ -25,4 +25,25 @@ public class ComprasController
         return "Compras/indexcompras";
     }
     
+    @RequestMapping(value = "altaproveedor", method = RequestMethod.GET)
+    public String altaproveedor(Model model) {
+        return "Compras/altaproveedor";
+    }
+
+    @RequestMapping(value = "modificarproveedor", method = RequestMethod.GET)
+    public String modificarproveedor(Model model) {
+        return "Compras/modificarproveedor";
+    }
+
+    @RequestMapping(value = "bajaproveedor", method = RequestMethod.GET)
+    public String bajaproveedor(Model model) {
+        return "Compras/bajaproveedor";
+    }
+
+    @RequestMapping(value = "informacionproveedor", method = RequestMethod.GET)
+    public String informacionproveedor(Model model) {
+        return "Compras/informacionproveedor";
+    }
+
+    
 }
