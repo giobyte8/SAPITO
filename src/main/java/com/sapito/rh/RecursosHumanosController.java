@@ -18,15 +18,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RecursosHumanosController {
     
-    @RequestMapping(value="rh",method=RequestMethod.GET)
+    @RequestMapping(value="RecursosHumanos/index",method=RequestMethod.GET)
     public String index(Model model)
     {
         return "RH/index";
     }
-    @RequestMapping(value="alta",method=RequestMethod.GET)
+    @RequestMapping(value="RecursosHumanos/AltaEmpleado",method=RequestMethod.GET)
     public String AltaEmpleado(Model model)
     {
         return "RH/AltaEmpleado";
+    }
+     @RequestMapping(value="RecursosHumanos/BajaEmpleado",method=RequestMethod.GET)
+    public String BajaEmpleado(Model model)
+    {
+        return "RH/BajaEmpleado";
+    }
+     @RequestMapping(value="RecursosHumanos/ModificacionEmpleado",method=RequestMethod.GET)
+    public String ModificacionEmpleado(Model model)
+    {
+        return "RH/ModificacionEmpleado";
+    }
+     @RequestMapping(value="RecursosHumanos/HistorialEmpleado",method=RequestMethod.GET)
+    public String HistorialEmpleado(Model model)
+    {
+        return "RH/HistorialEmpleado";
+    }
+    @RequestMapping(value="RecursosHumanos/VacacionEmpleado",method=RequestMethod.GET)
+    public String VacacionEmpleado(Model model)
+    {
+        return "RH/VacacionEmpleado";
+    }
+     @RequestMapping(value="RecursosHumanos/AdmVacacionEmpleado",method=RequestMethod.GET)
+    public String AdmVacacionEmpleado(Model model)
+    {
+        return "RH/AdmVacacionEmpleado";
     }
 }
 
