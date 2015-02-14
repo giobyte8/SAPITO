@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 /**
  *
  * @author Edgar
@@ -23,16 +22,17 @@ public class OperacionesController {
         return "Operaciones/index";
     }
     
-    @RequestMapping(value="template1", method=RequestMethod.GET)
-    public String template1(Model model)
+    @RequestMapping(value="operaciones/produccion", method=RequestMethod.GET)
+    public String produccion(Model model)
     {
-        return "Operaciones/template1";
-    }
-    @RequestMapping(value="template2", method=RequestMethod.GET)
-    public String template2(Model model)
+        return "Operaciones/produccionView";
+    }  
+    
+    @RequestMapping(value="operaciones/consulta", method=RequestMethod.GET)
+    public String consulta(Model model)
     {
-        return "Operaciones/template2";
-    }
+        return "Operaciones/produccionView";
+    }  
 }
 
 

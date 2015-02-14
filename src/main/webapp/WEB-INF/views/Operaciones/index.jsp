@@ -36,7 +36,7 @@
     <body>
 
         <div id="wrapper">           
-            <%@include file="Menu/Menu.jsp"%>
+            <%@include file="Menu/menuProduccion.jsp"%>
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
@@ -48,9 +48,6 @@
                             </h1>                        
                         </div>
                     </div>
-
-
-
                     <!-- /#page-wrapper -->
                 </div>
                 <!-- /#wrapper -->
