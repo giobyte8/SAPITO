@@ -26,13 +26,7 @@ public class OperacionesController {
     public String produccion(Model model)
     {
         return "Operaciones/produccionView";
-    }  
-    
-    @RequestMapping(value="operaciones/consulta", method=RequestMethod.GET)
-    public String consulta(Model model)
-    {
-        return "Operaciones/produccionView";
-    }  
+    }    
 }
 
 

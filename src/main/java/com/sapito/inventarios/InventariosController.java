@@ -23,7 +23,7 @@ public class InventariosController
     @RequestMapping(value="inventarios", method=RequestMethod.GET)
     public String index(Model model)
     {
-        return "sapoindex";
+        return "Inventarios/index";
     }
     
 }
