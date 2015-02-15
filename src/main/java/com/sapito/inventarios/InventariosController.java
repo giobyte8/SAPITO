@@ -20,10 +20,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class InventariosController
 
 {
-    @RequestMapping(value="inventarios", method=RequestMethod.GET)
-    public String index(Model model)
+     @RequestMapping(value="inventarios", method=RequestMethod.GET)
+    public String indexOperaciones(Model model)
     {
         return "Inventarios/index";
     }
     
+    @RequestMapping(value="inventarios/checarInventarios", method=RequestMethod.GET)
+    public String produccion(Model model)
+    {
+        return "Inventarios/checarInventariosView";
+    }      
 }
