@@ -141,7 +141,7 @@
                     <a href="addSancionAdmin">Alta</a>
                   </li>
                   <li>
-                    <a href="morris.html">Administración</a>
+                    <a href="adminSancionAdmin">Administración</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
