@@ -145,4 +145,9 @@ public class RecursosHumanosController
     {
         return "RH/adminSancionesAdministrador";
     }
+    @RequestMapping(value = "adminCapacitacionOperativo", method = RequestMethod.GET)
+    public String adminCapacitacionOperativo(Model model)
+    {
+        return "RH/adminCapacitacionOperativo";
+    }
 }

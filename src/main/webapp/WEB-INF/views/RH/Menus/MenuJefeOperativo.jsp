@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">SAPITO</a>
+          <a class="navbar-brand" href="recursoshumanosOperativo">SAPITO</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -29,8 +29,7 @@
           </li>
           <!-- /.dropdown -->
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-             
+            <a class="dropdown-toggle" data-toggle="dropdown" href="indexMain">      
               <i class="fa fa-user fa-fw"></i>    Recurso Humanos <i class="fa fa-caret-down"></i>
             </a>
           </li>
@@ -66,10 +65,7 @@
                 <a href="#"><i class="fa fa-fw fa-plus"></i> Capacitaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="flot.html">Ver capacitaciones</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Historial empleados</a>
+                    <a href="adminCapacitacionOperativo">Ver capacitaciones</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
