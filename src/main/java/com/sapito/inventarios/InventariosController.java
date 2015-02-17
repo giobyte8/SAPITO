@@ -26,33 +26,35 @@ public class InventariosController
         return "Inventarios/index";
     }
     
-    @RequestMapping(value="inventarios/checarInventarios", method=RequestMethod.GET)
+    @RequestMapping(value="checarInventarios", method=RequestMethod.GET)
     public String checarInventarios(Model model)
     {
         return "Inventarios/checarInventariosView";
     }      
     
-    @RequestMapping(value="inventarios/materiaPrima", method=RequestMethod.GET)
+    @RequestMapping(value="materiaPrima", method=RequestMethod.GET)
     public String materiaPrima(Model model)
     {
         return "Inventarios/materiaPrimaView";
     }
     
-    @RequestMapping(value="inventarios/productoTerminado", method=RequestMethod.GET)
+    @RequestMapping(value="productoTerminado", method=RequestMethod.GET)
     public String productoTerminado(Model model)
     {
         return "Inventarios/productoTerminadoView";
     }
     
-    @RequestMapping(value="inventarios/registrarMateriaPrima", method=RequestMethod.GET)
+    @RequestMapping(value="registrarMateriaPrima", method=RequestMethod.GET)
     public String registrarMateriPrima(Model model)
     {
+        System.out.println("registraMaetria PRima ");
         return "Inventarios/registrarMateriaPrimaView";
     }
     
-    @RequestMapping(value="inventarios/registrarProductoTeminado", method=RequestMethod.GET)
+    @RequestMapping(value="registrarProductoTeminado", method=RequestMethod.GET)
     public String registratProductoTerminado(Model model)
     {
+        System.out.println("hola hola ");
         return "Inventarios/registrarProductoTerminadoView";
     }
 }

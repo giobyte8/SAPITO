@@ -19,16 +19,16 @@
         <title>SAPITO</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
-        <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin-2.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     </head>
 
@@ -51,16 +51,16 @@
                 </div>
                 <!-- /#wrapper -->
                 <!-- jQuery -->
-                <script src="../resources/js/libs/jquery.min.js"></script>
+                <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.min.js"></script>
 
                 <!-- Bootstrap Core JavaScript -->
-                <script src="../resources/js/libs/bootstrap.min.js"></script>
+                <script src="${pageContext.request.contextPath}/resources/js/libs/bootstrap.min.js"></script>
 
                 <!-- Metis Menu Plugin JavaScript -->
-                <script src="../resources/js/libs/metisMenu.min.js"></script>
+                <script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
 
                 <!-- Custom Theme JavaScript -->
-                <script src="../resources/js/libs/sb-admin-2.js"></script>
+                <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
 
                 </body>
 

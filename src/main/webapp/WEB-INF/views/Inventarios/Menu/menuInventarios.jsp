@@ -69,16 +69,16 @@
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="../inventarios/checarInventarios"> <i class="fa fa-list-alt fa-fw"></i> Checar inventarios </a>
+                    <a href="checarInventarios"> <i class="fa fa-list-alt fa-fw"></i> Checar inventarios </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-list-ol fa-fw"></i> Registro nuevo productos <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="../inventarios/registroMateriaPrima">Materia prima</a>
+                            <a href="registrarMateriaPrima">Materia prima</a>
                         </li>
                         <li>
-                            <a href="../inventarios/registroProductoTerminado">Producto terminado</a>
+                            <a href="registrarProductoTeminado">Producto terminado</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -87,10 +87,10 @@
                     <a href="#"><i class="fa fa-exchange fa-fw"></i> Control de máximos y mínimos <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="../inventarios/materiaPrima">Materia prima</a>
+                            <a href="materiaPrima">Materia prima</a>
                         </li>
                         <li>
-                            <a href="../inventarios/productoTerminado">Producto terminado</a>
+                            <a href="productoTerminado">Producto terminado</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
