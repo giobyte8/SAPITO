@@ -7,12 +7,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <%@include file="../RH/Librerias/headgeneral.jsp"%><!-- ESTO MANDA A TRAER Las cabeceras-->
+         <%@include file="Librerias/headgeneral.jsp"%><!-- ESTO MANDA A TRAER Las cabeceras-->
 
         <title>SAPITO ITT</title>
     </head>
     <body>
-        <%@include file="../RH/Menus/MenuJefeRH.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+        <%@include file="Menus/MenuJefeDepartamento.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
         <div id="page-wrapper">
             <!--  ################################################-->
             
@@ -72,7 +72,7 @@
 
             
         </div>
-        <%@include file="../RH/Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+        <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
     </body>
 </html>
 
