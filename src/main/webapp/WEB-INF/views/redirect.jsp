@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <body>
+   
         <% response.sendRedirect("indexMain");
         %>
     </body>
