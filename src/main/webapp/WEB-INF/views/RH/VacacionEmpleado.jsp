@@ -110,7 +110,6 @@
 
                             <div align="right">
                                 <button type="submit" class="btn btn-success" onclick="checarFecha()">Aceptar</button>
-                                <script src="js/fecha.js"></script>
                             </div>
                         </div>
                     </form>
