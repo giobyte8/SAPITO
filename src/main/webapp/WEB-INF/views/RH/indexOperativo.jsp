@@ -9,10 +9,10 @@
 <html>
     <head>
         <%@include file="Librerias/headgeneral.jsp"%>
-        <title>Jefe de Departamento RH</title>
+        <title>Jefe Operativo RH</title>
     </head>
     <body>
-        <%@include file="Menus/MenuJefeDepartamento.jsp"%>
+        <%@include file="Menus/MenuJefeOperativo.jsp"%>
         <link href="${pageContext.request.contextPath}/resources/css/rh/index.rh.css" rel="stylesheet">
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -80,10 +80,10 @@
             <div class="container-fluid">
                 <div class="row user-menu-container square">
                     <div class="col-md-7 user-details">
-                        <div class="row coralbg white">
+                        <div class="row coralbg2 white">
                             <div class="col-md-6 no-pad">
                                 <div class="user-pad">
-                                    <h3>Bienvenido Jefe de Departamento Recursos Humanos</h3>                                
+                                    <h3>Bienvenido Jefe Operativo de Recursos Humanos</h3>                                
                                 </div>
                             </div>
                             <div class="col-md-6 no-pad">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div class="col-md-1 user-menu-btns">
-                        <div class="btn-group-vertical square" id="responsive">
+                        <div class="btn-group-vertical2 square" id="responsive">
                             <a href="#" class="btn btn-block btn-default active">
                                 <i class="fa fa-bell-o fa-3x"></i>
                             </a>

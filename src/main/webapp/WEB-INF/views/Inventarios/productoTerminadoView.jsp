@@ -68,11 +68,11 @@
                                             </select>
 
                                             <label>Control Máximo</label>
-                                            <input class="form-control "autofocus autocomplete required placeholder="Ingrese cantidad máxima" pattern="[0-9]{5}">
+                                            <input onKeyup="isInteger(this.value)" class="form-control "autofocus autocomplete required placeholder="Ingrese cantidad máxima" pattern="[0-9]{5}">
                                             <p class="help-block" ></p>
 
                                             <label>Control Mínimo</label>
-                                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese cantidad mínima" pattern="[0-9]{5}">
+                                            <input onKeyup="isInteger(this.value)" class="form-control"autofocus autocomplete required placeholder="Ingrese cantidad mínima" pattern="[0-9]{5}">
                                             <p class="help-block"></p>
                                         </div>
                                     </div>
@@ -103,5 +103,24 @@
 
             <!-- Custom Theme JavaScript -->
             <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
+            
+            <script type="text/javascript">
+                function isInteger(s)
+                {
+                    var i;
+                    s = s.toString();
+                    for (i = 0; i < s.length; i++)
+                    {
+                        var c = s.charAt(i);
+                        if (isNaN(c))
+                        {
+                            alert("Given value is not a number");
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            </script>
+            
     </body>
 </html>

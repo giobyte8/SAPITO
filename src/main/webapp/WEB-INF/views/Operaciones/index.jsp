@@ -7,9 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,8 +27,6 @@
 
         <!-- Custom Fonts -->
         <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
     </head>
 
     <body>
@@ -44,8 +40,23 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Operaciones
-                            </h1>                        
+                                Módulo Operaciones
+                            </h1>  
+                            <!---->
+                            <ol class="breadcrumb">
+                                <li class="active">Bienvenido </li>
+                            </ol>
+                                                 
+                            <div class="row">
+                                <div class="col-md-offset-1 col-lg-4" align="right">
+                                    <img src="resources/img/operaciones/pIndexOper.jpg" class="img-rounded"  width="800" height="600"/>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div> 
+                            <!---->
                         </div>
                     </div>
                     <!-- /#page-wrapper -->
@@ -64,6 +75,4 @@
                 <script src="resources/js/libs/sb-admin-2.js"></script>
 
                 </body>
-
-                </html>
-
+            </html>

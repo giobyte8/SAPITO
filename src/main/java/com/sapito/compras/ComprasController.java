@@ -35,15 +35,53 @@ public class ComprasController
         return "Compras/modificarproveedor";
     }
 
-    @RequestMapping(value = "bajaproveedor", method = RequestMethod.GET)
+    @RequestMapping(value = "consultaproveedor", method = RequestMethod.GET)
     public String bajaproveedor(Model model) {
-        return "Compras/bajaproveedor";
+        return "Compras/consultaproveedor";
+    }
+    @RequestMapping(value = "consulta1proveedor", method = RequestMethod.GET)
+    public String consultaproveedor(Model model) {
+        return "Compras/consulta1proveedor";
     }
 
     @RequestMapping(value = "informacionproveedor", method = RequestMethod.GET)
-    public String informacionproveedor(Model model) {
+    public String informacion1proveedor(Model model) {
         return "Compras/informacionproveedor";
     }
 
+     @RequestMapping (value = "ordenCompra", method = RequestMethod.GET)
+    public String ordenCompra(Model model){
+        return "Compras/ordenCompra";        
+    }
     
+    @RequestMapping(value="AltaProducto", method=RequestMethod.GET)
+    public String AltaProducto(Model model)
+    {
+        return "Compras/AltaProducto";
+    }
+    
+  
+    
+    @RequestMapping (value = "ConsultaProducto", method = RequestMethod.GET)
+    public String ConsultaProducto(Model model){
+        return "Compras/ConsultaProducto";
+        
+    }
+    @RequestMapping (value = "ConsultarOrdenes", method = RequestMethod.GET)
+    public String ConsultarOrdenes(Model model){
+        return "Compras/ConsultarOrdenes";
+        
+    }
+    
+     @RequestMapping (value = "Consulta1Producto", method = RequestMethod.GET)
+    public String Consulta1Producto(Model model){
+        return "Compras/Consulta1Producto";
+    }
+ 
+    @RequestMapping (value = "Modifica1Producto", method = RequestMethod.GET)
+    public String Modifica1Producto(Model model){
+        return "Compras/Modifica1Producto";
+    }
+    
+
 }

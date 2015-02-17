@@ -1,7 +1,7 @@
 <%-- 
-    Document   : newjsp
-    Created on : 14/02/2015, 09:33:13 PM
-    Author     : Edgar
+    Document   : adminDepartamentosAdministrador
+    Created on : 17/02/2015, 02:06:41 AM
+    Author     : Jovic
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>addDepartamento</h1>
     </body>
 </html>
