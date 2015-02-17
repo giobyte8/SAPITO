@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SAPITO</title>
+        <title>SAPito</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
         <%@include file="../Default/Modal/proximamente.jsp"%>
         <div id="wrapper">           
             <%@include file="Menu/menuContabilidad.jsp"%>
-            
+
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
@@ -58,18 +58,18 @@
                                 </div>
 
                                 <div class="panel-body" >
-                                    
+
                                     <div class="col-md-12">
                                         <label class="control-label" style="font-size: 150px;" ><i class="fa fa-bar-chart"></i></label>
                                     </div>
                                     <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
                                 </div>
-                                
+
                             </div>
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="col-md-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
@@ -77,39 +77,39 @@
                                 </div>
 
                                 <div class="panel-body" >
-                                    
+
                                     <div class="col-md-12">
                                         <label class="control-label" style="font-size: 150px;" ><i class="fa fa-pie-chart"></i></label>
                                     </div>
                                     <div class="col-md-10">
-                                        
-                                        
-                                        <button data-toggle="modal" data-target="#proximamente"type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
+
+
+                                        <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
                                 </div>
-                                
+
                             </div>
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="col-md-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                      <h3 class="panel-title">Balance General</h3>
+                                    <h3 class="panel-title">Balance General</h3>
                                 </div>
 
                                 <div class="panel-body" >
-                                    
+
                                     <div class="col-md-12">
                                         <label class="control-label" style="font-size: 150px;" ><i class="fa fa-line-chart"></i></label>
                                     </div>
-                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente"type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
+                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
                                 </div>
-                                
+
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="col-md-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
@@ -117,46 +117,47 @@
                                 </div>
 
                                 <div class="panel-body" >
-                                    
+
                                     <div class="col-md-12">
                                         <label class="control-label" style="font-size: 150px;" ><i class="fa fa-money"></i></label>
                                     </div>
-                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente"type="button" class="btn btn-primary col-md-offset-11">Consultar</button></div>
+                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button></div>
                                 </div>
-                                
+
                             </div>
                         </div>
-                                                                       
-                        
-                         
+
+
+
                     </div>
                     <div class="row">
                         <div class="col-md-2">                                                                                  	
                         </div>
 
-                                                                                                                           
+
                     </div>
-                    
-                    
-                    
-                    
+
+
+
+
                 </div>
             </div>
         </div>
-                <!-- /#wrapper -->
-                <!-- jQuery -->
-                <script src="../resources/js/libs/jquery.min.js"></script>
 
-                <!-- Bootstrap Core JavaScript -->
-                <script src="../resources/js/libs/bootstrap.min.js"></script>
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="../resources/js/libs/jquery.min.js"></script>
 
-                <!-- Metis Menu Plugin JavaScript -->
-                <script src="../resources/js/libs/metisMenu.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../resources/js/libs/bootstrap.min.js"></script>
 
-                <!-- Custom Theme JavaScript -->
-                <script src="../resources/js/libs/sb-admin-2.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../resources/js/libs/metisMenu.min.js"></script>
 
-                </body>
+        <!-- Custom Theme JavaScript -->
+        <script src="../resources/js/libs/sb-admin-2.js"></script>
 
-                </html>
+    </body>
+
+</html>
 

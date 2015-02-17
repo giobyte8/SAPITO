@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SAPITO</title>
+        <title>SAPito</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <!-- /#page-wrapper -->
-        </div>
+        
         <!-- /#wrapper -->
         <!-- jQuery -->
         <script src="../resources/js/libs/jquery.min.js"></script>
