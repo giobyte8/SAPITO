@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Consulta Producto
+                                Consulta producto
                             </h1>                        
                         </div>
                     </div>        
@@ -51,7 +51,7 @@
                                     <br/>                            
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Datos Producto
+                                            <h3 class="panel-title">Datos producto
                                             </h3>
                                         </div>
                                         <div class="panel-body">
@@ -60,7 +60,7 @@
                                                 <div class="col-lg-6 text-left">
                                                     <!-- inputs/!-->
                                                     <div class="form-group ">
-                                                        <label class="control-label">Id Producto</label>
+                                                        <label class="control-label">Id</label>
                                                         <input placeholder="Ingrese Id" type="text" class="form-control" disabled>
                                                     </div>
 

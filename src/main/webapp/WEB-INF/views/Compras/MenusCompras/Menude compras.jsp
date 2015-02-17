@@ -15,7 +15,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">SAPITO</a>
+                    <a class="navbar-brand" href="#">SAPito</a>
                 </div>
                 <!-- /.navbar-header -->
 
@@ -138,7 +138,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Informacion</a>
+                                <a href="compras"><i class="fa fa-edit fa-fw"></i>Informacion</a>
                                 <ul class="nav nav-second-level">
 
                                 </ul>

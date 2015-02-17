@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Consulta de Ordenes Generadas 
+                                Consulta de ordenes generadas 
                             </h1>                        
                         </div>
                     </div>        
@@ -52,7 +52,7 @@
                                     <br/>                            
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title" >Solicitudes Generadas </h3>
+                                            <h3 class="panel-title" >Solicitudes generadas </h3>
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
@@ -82,9 +82,18 @@
                                                                 <td>  
                                                                     <div align="center">
                                                                         <div  class="btn-group">  
-                                                                            <input type="submit" value="Consultar" class="btn btn-warning" >  
-                                                                            <input type="submit" value="Modificar" class="btn btn-success ">  
-                                                                            <input type="submit" value="Cancelar" class="btn btn-danger "> 
+                                                                            <a class="btn-group" href="#">
+                                                                                    &nbsp;Cotsulta 
+                                                                                    <i class="fa fa-search " ></i>
+                                                                                </a>
+                                                                                <a class="btn-group" href="#">
+                                                                                    &nbsp;Modificar 
+                                                                                    <i class="fa fa-pencil-square-o " ></i>
+                                                                                </a>
+                                                                                <a class="btn-group" href="#">
+                                                                                    &nbsp;Eliminar 
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a> 
                                                                         </div>
                                                                     </div>
                                                                 </td> 

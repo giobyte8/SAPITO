@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Consulta  De Proveedores
+                                Consulta  de proveedores
                             </h1>                        
                         </div>
                     </div>        
@@ -57,7 +57,7 @@
                                     <br/>                            
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title" >Proveedores Registrados </h3>
+                                            <h3 class="panel-title" >Proveedores registrados </h3>
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
@@ -79,17 +79,27 @@
                                                                 <td><b><div align="center">RFC</div></b></td> 
                                                             </tr>
                                                             <tr>
-                                                                <td>img</td> 
-                                                                <td>src</td> 
-                                                                <td>no</td> 
-                                                                <td>si</td> 
-                                                                <td>si</td> 
+                                                                <td>150</td> 
+                                                                <td>Tambores y Mazas de Toluca</td> 
+                                                                <td>Josue Salvador</td> 
+                                                                <td>7223060631</td> 
+                                                                <td>facturasjosue@live.comm</td> 
+                                                                <td>TELJ92041719FQ0</td> 
                                                                 <td>  
                                                                     <div align="center">
                                                                         <div  class="btn-group">  
-                                                                            <input type="submit" value="Consultar" class="btn btn-warning" >  
-                                                                            <input type="submit" value="Modificar" class="btn btn-success ">  
-                                                                            <input type="submit" value="Eliminar" class="btn btn-danger "> 
+                                                                            <a class="btn-group" href="#">
+                                                                                    &nbsp;Cotsulta 
+                                                                                    <i class="fa fa-search " ></i>
+                                                                                </a>
+                                                                                <a class="btn-group" href="#">
+                                                                                    &nbsp;Modificar 
+                                                                                    <i class="fa fa-pencil-square-o " ></i>
+                                                                                </a>
+                                                                                <a class="btn-group" href="#">
+                                                                                    &nbsp;Eliminar 
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
                                                                         </div>
                                                                     </div>
                                                                 </td> 

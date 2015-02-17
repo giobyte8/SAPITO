@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Consulta De Proveedor
+                                Consulta de proveedor
                             </h1>                        
                         </div>
                     </div>        
@@ -52,7 +52,7 @@
                                     <br/>                            
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Datos Del Proveedor
+                                            <h3 class="panel-title">Datos del proveedor
                                             </h3>
                                         </div>
                                         <div class="panel-body">
@@ -61,25 +61,25 @@
                                                 <div class="col-lg-6 text-left">
                                                     <!-- inputs/!-->
                                                     <div class="form-group ">
-                                                        <label class="control-label">Nombre </label>
-                                                        <input placeholder="Ingrese Id" type="text" class="form-control" disabled>
+                                                        <label class="control-label">Nombre: </label>
+                                                        <input placeholder="tAMBORES Y MAZAZ NEVADO DE TOLUCA " type="text" class="form-control" disabled>
                                                     </div>
 
                                                     <div class="form-group ">
-                                                        <label class="control-label">Calle</label>
-                                                        <input placeholder="Ingrese Nombre" type="text" class="form-control" disabled>
+                                                        <label class="control-label">Calle:</label>
+                                                        <input placeholder="AV SOLIDARIDAD LAS TORRRES" type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label class="control-label">Colonia</label>
-                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
+                                                        <label class="control-label">Colonia:</label>
+                                                        <input placeholder="DEL PARQUE n" type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label class="control-label">Entidad Federativa</label>
-                                                        <input placeholder="Ingrese Marca" type="text" class="form-control" disabled >
+                                                        <label class="control-label">Entidad federativa:</label>
+                                                        <input placeholder="EDOMEX" type="text" class="form-control" disabled >
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label class="control-label">Telefono</label>
-                                                        <input placeholder="Ingrese Categoria" type="text" class="form-control" disabled>
+                                                        <label class="control-label">Telefono:</label>
+                                                        <input placeholder="7223060631" type="text" class="form-control" disabled>
                                                     </div>
 
 
@@ -88,25 +88,25 @@
                                                 <div class="col-lg-6 text-left">
                                                     <!-- inputs/!-->
                                                     <div class="form-group ">
-                                                        <label class="control-label">RFC</label>
-                                                        <input placeholder="Ingrese Sub-Categoria"type="text" class="form-control" disabled>
+                                                        <label class="control-label">RFC :</label>
+                                                        <input placeholder="TELJ9204171992FQ0"type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="col-lg-4 text-left">
                                                         <div class="form-group">
-                                                            <label class="control-label" >Numero Exterir</label>
-                                                            <input placeholder="Ingrese Unidad" type="text" class="form-control" disabled>
+                                                            <label class="control-label" >Numero exterior:</label>
+                                                            <input placeholder="254" type="text" class="form-control" disabled>
                                                         </div>    
                                                     </div>
                                                     <div class="col-lg-4 text-left">
                                                         <div class="form-group ">
-                                                            <label class="control-label">numero Interior</label>
-                                                            <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
+                                                            <label class="control-label">Numero interior:</label>
+                                                            <input placeholder="S/N"type="text" class="form-control" disabled >
                                                         </div>    
                                                     </div>
                                                     <div class="col-lg-4 text-left">
                                                         <div class="form-group ">
-                                                            <label class="control-label">Codigo Postal</label>
-                                                            <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
+                                                            <label class="control-label">Codigo postal</label>
+                                                            <input placeholder="50180"type="text" class="form-control" disabled >
                                                         </div>    
                                                     </div>
 
@@ -115,11 +115,11 @@
 
                                                     <div class="form-group ">
                                                         <label class="control-label">Municipio</label>
-                                                        <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
+                                                        <input placeholder="TOLUCA"type="text" class="form-control" disabled >
                                                     </div>
                                                     <div class="form-group ">
                                                         <label class="control-label">Email</label>
-                                                        <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
+                                                        <input placeholder="facturasjosue@live.com"type="text" class="form-control" disabled >
                                                     </div>
 
 
@@ -132,7 +132,7 @@
                                     </div> 
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Datos del Contacto</h3>
+                                            <h3 class="panel-title">Datos del contacto</h3>
                                         </div>
                                         <div class="panel-body">
                                             <!-- Fila de inputs/!-->
@@ -141,11 +141,11 @@
                                                     <!-- inputs/!-->
                                                     <div class="form-group ">
                                                         <label class="control-label">Nombre</label>
-                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
+                                                        <input placeholder="Josue Salvador" type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label class="control-label">Apellido Materno</label>
-                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
+                                                        <input placeholder="López" type="text" class="form-control" disabled>
                                                     </div>
                                                     <!--Fin  inputs/!-->
                                                 </div>
@@ -153,7 +153,7 @@
                                                     <!-- inputs/!-->
                                                     <div class="form-group">
                                                         <label class="control-label" >Apellido Paterno</label>
-                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
+                                                        <input placeholder="Tejocote" type="text" class="form-control" disabled>
                                                     </div>                        
                                                     <div class="form-group ">
                                                         <label class="control-label">Telefono</label>

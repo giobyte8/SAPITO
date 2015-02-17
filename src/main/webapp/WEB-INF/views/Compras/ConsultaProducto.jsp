@@ -31,7 +31,7 @@
 
         <div id="wrapper">
 
-           <%@include file="MenusCompras/Menude compras.jsp"%>
+            <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Consulta de Productos
+                                Consulta de productos
                             </h1>                        
                         </div>
                     </div>        
@@ -51,45 +51,56 @@
                                     <br/>                            
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title" >Productos Registrados </h3>
+                                            <h3 class="panel-title" >Productos registrados </h3>
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-lg-12 text-left">                                                                                        
                                                     <div class="panel panel-default">
                                                         <!-- <label class="control-label" >Id</label>
-                                                      <!--  <div class="panel-heading">........ </div> -->
-                                                        <table class="table table-bordered">
-                                                            <tr>
-                                                            
-                                                                <td><b>Id</b></td> 
-                                                                <td><b><div align="center">Nombre</div></b></td> 
-                                                                <td><b><div align="center">Descripcion</div></b></td> 
-                                                                <td><b><div align="center">Proveedor</div></b></td> 
-                                                                <td><b><div align="center">Categoria</div></b></td> 
-                                                                <td><b><div align="center">Precio</div></b></td> 
-                                                                <td><b><div align="center">Movimientos</div></b></td>
-                                                            
-                                                            </tr>
-                                                            <tr>
-                                                                <td>img</td> 
-                                                                <td>src</td> 
-                                                                <td>no</td> 
-                                                                <td>si</td> 
-                                                                <td>si</td> 
-                                                                <td>si</td> 
-                                                                <td>  
-                                                                    <div align="center">
-                                                                        <div  class="btn-group">  
-                                                                            <input type="submit" value="Consultar" class="btn btn-warning" >  
-                                                                            <input type="submit" value="Modificar" class="btn btn-success ">  
-                                                                            <input type="submit" value="Eliminar" class="btn btn-danger "> 
-                                                                        </div>
-                                                                    </div>
-                                                                </td> 
-                                                            </tr>
+                                                        <!--  <div class="panel-heading">........ </div> -->
+                                                        <form>
 
-                                                        </table>
+                                                            <table class="table table-bordered">
+                                                                <tr>
+
+                                                                    <td><b>Id</b></td> 
+                                                                    <td><b><div align="center">Nombre</div></b></td> 
+                                                                    <td><b><div align="center">Descripcion</div></b></td> 
+                                                                    <td><b><div align="center">Proveedor</div></b></td> 
+                                                                    <td><b><div align="center">Categoria</div></b></td> 
+                                                                    <td><b><div align="center">Precio</div></b></td> 
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>10</td> 
+                                                                    <td>Equipo de Computo</td> 
+                                                                    <td>Maquina de escritorio Dell Vostro</td> 
+                                                                    <td>Dell Corporation</td> 
+                                                                    <td>Activo Fijo</td> 
+                                                                    <td>$3000</td> 
+                                                                    <td>  
+                                                                        <div align="center">
+                                                                            <div  class="btn-group">  
+                                                                                <a class="btn-group" href="#">
+                                                                                    &nbsp;Cotsulta 
+                                                                                    <i class="fa fa-search " ></i>
+                                                                                </a>
+                                                                                <a class="btn-group" href="#">
+                                                                                    &nbsp;Modificar 
+                                                                                    <i class="fa fa-pencil-square-o " ></i>
+                                                                                </a>
+                                                                                <a class="btn-group" href="#">
+                                                                                    &nbsp;Eliminar 
+                                                                                    <i class="fa fa-times"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td> 
+                                                                </tr>
+
+                                                            </table>
+                                                        </form>
 
                                                     </div> 
 
@@ -97,12 +108,12 @@
                                                 </div>
 
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row">
-                                                <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
-                                            </div>
+                                        <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
+                                    </div>
                                     <!--                          Fin Codigo Para panel 5 o menos input -->
                                 </div>
                                 <!--                      Fin TODO aqui abajo-->
