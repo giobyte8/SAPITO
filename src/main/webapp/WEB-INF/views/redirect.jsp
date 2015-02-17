@@ -1,7 +1,7 @@
 <%-- 
-    Document   : newjsp
-    Created on : 14/02/2015, 09:33:13 PM
-    Author     : Edgar
+    Document   : redirect
+    Created on : 16/02/2015, 10:26:42 PM
+    Author     : Jovic
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+    <body>
+        <% response.sendRedirect("indexMain");
+        %>
     </body>
+</body>
 </html>
