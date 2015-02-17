@@ -16,6 +16,9 @@ and open the template in the editor.
 .coralbg {
     background-color: #4774C2;
 } 
+.coralbg2 {
+    background-color: #CB3535;
+} 
 
 .coral {
     color: #4774C2;
@@ -86,6 +89,11 @@ div.btn-group-vertical>a:hover {
 
 div.btn-group-vertical>a.active {
     background: #4774C2;
+    box-shadow: none;
+    color: white;
+}
+div.btn-group-vertical2>a.active {
+    background: #CB3535;
     box-shadow: none;
     color: white;
 }

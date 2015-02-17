@@ -19,9 +19,14 @@ public class RecursosHumanosController
 {
 
     @RequestMapping(value = "recursoshumanos", method = RequestMethod.GET)
-    public String index(Model model)
+    public String indexAdministrador(Model model)
     {
         return "RH/indexAdministrador";
+    }
+    @RequestMapping(value = "recursoshumanosOperativo", method = RequestMethod.GET)
+    public String indexOperativo(Model model)
+    {
+        return "RH/indexOperativo";
     }
 
     @RequestMapping(value = "AdminEmpleados", method = RequestMethod.GET)

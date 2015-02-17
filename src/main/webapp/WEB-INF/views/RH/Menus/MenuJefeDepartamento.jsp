@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="recursoshumanos">SAP</a>
+          <a class="navbar-brand" href="recursoshumanos">SAPITO</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -57,31 +57,31 @@
                 <!-- /.nav-second-level -->
               </li>
               <li>
-                <a href="#"><i class="fa fa-fw fa-users"></i> Capacitaciones<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-bell"></i> Capacitaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="AltaEmpleado.html">Alta</a>
+                    <a href="#">Alta</a>
                   </li>
                   <li>
-                    <a href="AdminEmpleados">Administrar</a>
+                    <a href="#">Administrar</a>
                   </li>
                   <li>
-                    <a href="HistorialEmpleado.html">Historial</a>
+                    <a href="#">Historial</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
               <li>
-                <a href="#"><i class="fa fa-fw fa-users"></i> Nomina<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-money"></i> Nomina<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="AltaEmpleado.html">Alta</a>
+                    <a href="#">Alta</a>
                   </li>
                   <li>
-                    <a href="AdminEmpleados">Administrar</a>
+                    <a href="#">Administrar</a>
                   </li>
                   <li>
-                    <a href="HistorialEmpleado.html">Historial</a>
+                    <a href="#">Historial</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -131,7 +131,7 @@
                 <!-- /.nav-second-level -->
               </li>
                <li>
-                <a href="#"><i class="fa fa-fw fa-file-text"></i>Departamentos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-warning"></i>Departamentos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="flot.html">Alta</a>
@@ -146,7 +146,7 @@
                 <!-- /.nav-second-level -->
               </li>
                <li>
-                <a href="#"><i class="fa fa-fw fa-file-text"></i>Roles<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-road"></i>Roles<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="flot.html">Alta</a>
@@ -161,7 +161,7 @@
                 <!-- /.nav-second-level -->
               </li>
                <li>
-                <a href="#"><i class="fa fa-fw fa-file-text"></i>Sanciones<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-magic"></i>Sanciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="flot.html">Alta</a>
@@ -176,7 +176,7 @@
                 <!-- /.nav-second-level -->
               </li>
                <li>
-                <a href="#"><i class="fa fa-fw fa-file-text"></i>Puestos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-arrow-circle-left"></i>Puestos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="flot.html">Alta</a>

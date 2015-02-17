@@ -17,57 +17,79 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController
 {
-    
-    @RequestMapping(value="/", method=RequestMethod.GET)
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(Model model)
     {
         return "redirect";
     }
-    
-        
-    @RequestMapping(value="indexMain", method=RequestMethod.GET)
+
+    @RequestMapping(value = "indexMain", method = RequestMethod.GET)
     public String index(Model model)
     {
         return "sapoindex";
     }
-    
-    @RequestMapping(value="loginIndex", method=RequestMethod.POST)
-    public String login(Model model,String username, String password)
+
+    @RequestMapping(value = "loginIndex", method = RequestMethod.POST)
+    public String login(Model model, String username, String password)
     {
         System.out.println(username);
         System.out.println(password);
-        
-        boolean b=true;
-        if("VENTAS".equals(username)){
-            return "redirect:ventas"; 
+
+        if ("VENTAS".equals(username))
+        {
+            return "redirect:ventas";
         }
-        if("RH".equals(username)){
-            return "redirect:recursoshumanos"; 
+        if ("RH".equals(username))
+        {
+
+            if ("JO".equals(password))
+            {
+                System.out.println("Menu operativo");
+                return "redirect:recursoshumanosOperativo";
+            }
+            if ("JD".equals(password))
+            {
+                System.out.println("Menu jefe departamento");
+                return "redirect:recursoshumanos";
+            }
+            if ("EM".equals(password))
+            {
+                return "redirect:recursoshumanos";
+            }
+
+            return "redirect:recursoshumanos";
         }
-        if("INVENTARIOS".equals(username)){
-            return "redirect:inventarios"; 
+        if ("INVENTARIOS".equals(username))
+        {
+            return "redirect:inventarios";
         }
-        if("CONTABILIDAD".equals(username)){
-            return "redirect:contabilidad"; 
+        if ("CONTABILIDAD".equals(username))
+        {
+            return "redirect:contabilidad";
         }
-        if("COMPRAS".equals(username)){
-            return "redirect:compras"; 
+        if ("COMPRAS".equals(username))
+        {
+            return "redirect:compras";
         }
-        if("ACTIVOFIJO".equals(username)){
-            return "redirect:activofijo"; 
+        if ("ACTIVOFIJO".equals(username))
+        {
+            return "redirect:activofijo";
         }
-        if("DIRECCION".equals(username)){
-            return "redirect:direccion"; 
+        if ("DIRECCION".equals(username))
+        {
+            return "redirect:direccion";
         }
-        if("OPERACIONES".equals(username)){
-            return "redirect:operaciones"; 
+        if ("OPERACIONES".equals(username))
+        {
+            return "redirect:operaciones";
+        } else
+        {
+
+            String error = "<br><div class='alert alert-danger' role='alert'>Usuario no encontrado</div>";
+            model.addAttribute("NotFound", error);
+            return "sapoindex";
         }
-        else{
-            
-           String error = "<br><div class='alert alert-danger' role='alert'>Usuario no encontrado</div>";
-          model.addAttribute( "NotFound", error );
-          return "sapoindex";
-        }
-       
+
     }
 }
