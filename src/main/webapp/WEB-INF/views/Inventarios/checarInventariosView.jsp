@@ -51,319 +51,125 @@
                                     <!-- /.panel-heading -->
                                     <div class="panel-body">
 
+                                        <select class= "form-control">
+                                            <option>
+                                                Total
+                                            </option>
+                                            <option>
+                                                Máximos
+                                            </option>
+                                            <option>
+                                                Mínimos
+                                            </option>
 
+                                        </select>
+                                        <br/>    
+                                        <div class="dataTable_wrapper">
+                                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID producto</th>
+                                                        <th>Nombre</th>
+                                                        <th>Categoría</th>
+                                                        <th>Subcategoría</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Mínimo</th>
+                                                        <th>Máximo</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="odd gradeX">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
 
-
-                                        <div class="row">
-                                            <div class="col-lg-12 text-left">
-                                                <ul id="myTab" class="nav nav-tabs" role="tablist">
-                                                    <li class="active"><a href="#totales" role="tab" data-toggle="tab">Totales</a></li>
-                                                    <li><a href="#minimos" role="tab" data-toggle="tab">Mínimos</a></li>
-                                                    <li><a href="#maximos" role="tab" data-toggle="tab">Máximos</a></li>
-                                                </ul>
-                                                <div id="myTabContent" class="tab-content">
-                                                    <div class="tab-pane fade in active" id="totales">
-                                                        <table id="rhTabla" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Nombre</th>
-                                                                    <th>Categoría</th>
-                                                                    <th>Subcatrgoría</th>
-                                                                    <th>Cantidad</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Producto 1</td>
-                                                                    <td>Categoría 1</td>
-                                                                    <td>Subcategoría 1</td>
-                                                                    <td>100</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div class="tab-pane fade" id="maximos">
-                                                        <table id="activosTabla" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Nombre</th>
-                                                                    <th>Categoría</th>
-                                                                    <th>Subcatrgoría</th>
-                                                                    <th>Cantidad</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Producto 3</td>
-                                                                    <td>Categoría 3</td>
-                                                                    <td>Subcategoría 3</td>
-                                                                    <td>1000</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div class="tab-pane fade" id="minimos">
-                                                        <table id="almacenTabla" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Nombre</th>
-                                                                    <th>Categoría</th>
-                                                                    <th>Subcatrgoría</th>
-                                                                    <th>Cantidad</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Producto 2</td>
-                                                                    <td>Categoría 2</td>
-                                                                    <td>Subcategoría 2</td>
-                                                                    <td>10</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                    <tr class="even gradeC">
+                                                        <td>1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>Categoría 1</td>
+                                                        <td>Subcatergoría 1</td>
+                                                        <td>100</td>
+                                                        <td>10</td>
+                                                        <td>300</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
-
-
-
-
-
-
-
-
+                                        <!-- /.table-responsive -->
                                     </div>
                                     <!-- /.panel-body -->
                                 </div>
 
                                 <div align=right>
-                                    <p >
-                                        <a class="btn btn-primary" href="inventarios" role="button">Regresar</a>  
-
-
-
-
-
-
-                                        </button>
+                                    <p>
+                                        <button type="submit" class="btn btn-primary" >Regresar</button>
                                     </p>
                                     <!-- /.panel -->
                                 </div>
@@ -389,5 +195,5 @@
 
                 <!-- Custom Theme JavaScript -->
                 <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
-                </body>
-                </html>
+    </body>
+</html>
