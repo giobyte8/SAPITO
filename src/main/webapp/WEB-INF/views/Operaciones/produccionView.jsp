@@ -44,54 +44,48 @@
                         <div class="col-lg-12 text-left">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title" >Busca Producción</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <!-------------------------->                                            
-                                            <div class="form-group">
-                                                <label>Producto</label>
-                                                <div class="form-group input-group">                                                
-                                                    <input type="text" class="form-control" placeholder="Busca Producto" disabled>
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" data-toggle="modal" data-target="#catalogoProducto"><i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>  
+                                    <form>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title" >Busca Producción</h3>
                                             </div>
-                                            <!-------------------------->
-                                            <label class="control-label" >Cantidad</label>
-                                            <input type="text" class="form-control" placeholder="Ingrese Cantidad" required>
-                                            <!-------------------------->
-                                            <label class="control-label" >Lote</label>
-                                            <input type="text" class="form-control" placeholder="Ingrese Lote" required>                                            
-                                            <label>Responsable</label>
-                                            <select class="form-control">
-                                                <option>Seleccione responsable</option>
-                                                <option>Admin1</option>
-                                                <option>Admin2</option>
-                                                <option>Admin3</option>
-                                            </select>
-<!--                                            <div class="form-group input-group">                                                
-                                                    <input type="text" class="form-control" placeholder="Busca Empleado" disabled="">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button" data-target="#catalogoEmpleado"><i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>  -->
-                                            <label>Fecha</label>
-                                            <input type="date"class="form-control"/>                                                                                   
-                                        </div>
+                                            <div class="panel-body">
+                                                <!-------------------------->                                            
+                                                <div class="form-group">
+                                                    <label>Producto</label>
+                                                    <div class="form-group input-group">                                                
+                                                        <input type="text" class="form-control" placeholder="Busca Producto" disabled>
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-default" data-toggle="modal" data-target="#catalogoProducto"><i class="fa fa-search"></i>
+                                                            </button>
+                                                        </span>
+                                                    </div>  
+                                                    <!-------------------------->
+                                                    <label class="control-label" >Cantidad</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese Cantidad" onkeypress="return soloNumeros(event);"required>
+                                                    <!-------------------------->
+                                                    <label class="control-label" >Lote</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese Lote" onkeypress="return soloNumeros(event);"required>                                            
+                                                    <label>Responsable</label>
+                                                    <select class="form-control">
+                                                        <option>Seleccione responsable</option>
+                                                        <option>Admin1</option>
+                                                        <option>Admin2</option>
+                                                        <option>Admin3</option>
+                                                    </select>
+                                                    <label>Fecha</label>
+                                                    <input type="date"class="form-control"/> 
+                                                </div>                                                                                                                              
+                                            </div>
 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">                                                                                  	
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-2">                                                                                  	
+                                            </div>
+                                            <button type="button" class="btn btn-primary col-md-offset-11">Aceptar</button>                                                                                                    
+                                        </div>      
+                                    </form>
 
-                                        <button type="button" class="btn btn-primary col-md-offset-11">Aceptar</button>                                                                                                    
-                                    </div>     
                                 </div>
                             </div>
                         </div>
@@ -163,9 +157,7 @@
         <script src="../resources/js/libs/metisMenu.min.js"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src="../resources/js/libs/sb-admin-2.js"></script>
-
-
-
+        <script src="../resources/js/libs/sb-admin-2.js"></script>        
+        <script src="../resources/js/operaciones/jsoperaciones.js"></script>
     </body>   
 </html>
