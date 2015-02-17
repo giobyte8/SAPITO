@@ -65,13 +65,10 @@
                   <li>
                     <a href="adminCapacitacionAdmin">Administrar</a>
                   </li>
-                  <li>
-                    <a href="historialCapacitacionAdmin">Historial</a>
-                  </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
-              <li>
+<!--              <li>
                 <a href="#"><i class="fa fa-fw fa-money"></i> Nomina<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
@@ -80,13 +77,10 @@
                   <li>
                     <a href="#">Administrar</a>
                   </li>
-                  <li>
-                    <a href="#">Historial</a>
-                  </li>
                 </ul>
-                <!-- /.nav-second-level -->
-              </li>
-              <li>
+                 /.nav-second-level 
+              </li>-->
+<!--              <li>
                 <a href="#"><i class="fa fa-fw fa-plus"></i> Incapacidades<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
@@ -99,8 +93,8 @@
                     <a href="morris.html">Modificacion</a>
                   </li>
                 </ul>
-                <!-- /.nav-second-level -->
-              </li>
+                 /.nav-second-level 
+              </li>-->
              <li>
                 <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -115,21 +109,7 @@
                 <!-- /.nav-second-level -->
               </li>
               
-               <li>
-                <a href="#"><i class="fa fa-fw fa-file-text"></i>Reportes<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                  <li>
-                    <a href="flot.html">Alta</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Baja</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Modificacion</a>
-                  </li>
-                </ul>
-                <!-- /.nav-second-level -->
-              </li>
+
                <li>
                 <a href="#"><i class="fa fa-fw fa-warning"></i>Departamentos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
