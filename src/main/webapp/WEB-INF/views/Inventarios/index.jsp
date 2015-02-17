@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SAPITO</title>
+        <title>SAPito</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
@@ -42,30 +42,25 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 align = "center">
-                                <b>BIENVENIDO</b>
-                            </h1>  
-                            
-                            
-                            <div id ="imagen" align = "center">
-                                <br/>
-                                <br/>
-                                <br/>
-                                <img src="${pageContext.request.contextPath}/resources/img/inventario.jpg">
-                                <br/>
-                                <br/>
-                                <br/>
-                            </div>
-                            
-                            
-                            <h1 align = "center">
-                                <b>
-                                    <font color = #337AB7>
-                                    MÓDULO DE INVENTARIOS
+                            <h1 class="page-header">
+                                Módulo Inventarios
                                 
-                                </b>
                             </h1>  
-                            
+                            <!---->
+                            <ol class="breadcrumb">
+                                <li class="active">Bienvenido </li>
+                            </ol>
+                                                 
+                            <div class="row">
+                                <div class="col-md-offset-1 col-lg-4" align="right">
+                                    <img src="${pageContext.request.contextPath}/resources/img/inventario.jpg" class="img-rounded"  width="700" height="400"/>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div> 
+                            <!---->
                         </div>
                     </div>
                     <!-- /#page-wrapper -->
