@@ -48,7 +48,7 @@
                     <a href="#">Asistencia</a>
                   </li>
                   <li>
-                    <a href="#">Ver empleados</a>
+                    <a href="adminEmpleadosOperativo">Ver empleados</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -57,7 +57,7 @@
                 <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="VacacionEmpleado.html">Alta</a>
+                    <a href="VacacionEmpleadoOperativo">Alta</a>
                   </li>                  
                 </ul>
                 <!-- /.nav-second-level -->

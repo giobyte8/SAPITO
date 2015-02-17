@@ -71,4 +71,14 @@ public class RecursosHumanosController
     {
         return "RH/AdmVacacionEmpleado";
     }
+    @RequestMapping(value = "adminEmpleadosOperativo", method = RequestMethod.GET)
+    public String adminEmpleadosOperativo(Model model)
+    {
+        return "RH/administrarEmpleadosOperativo";
+    }
+    @RequestMapping(value = "VacacionEmpleadoOperativo", method = RequestMethod.GET)
+    public String VacacionEmpleadoOperativo(Model model)
+    {
+        return "RH/VacacionEmpleadoOperativo";
+    }
 }

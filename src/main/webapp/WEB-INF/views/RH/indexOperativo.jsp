@@ -83,7 +83,7 @@
                         <div class="row coralbg2 white">
                             <div class="col-md-6 no-pad">
                                 <div class="user-pad">
-                                    <h3>Bienvenido JefeOperativo</h3>                                
+                                    <h3>Bienvenido Jefe Operativo de Recursos Humanos</h3>                                
                                 </div>
                             </div>
                             <div class="col-md-6 no-pad">
