@@ -60,7 +60,7 @@
                                 <div class="panel-body" >
                                     
                                     <div class="col-md-12">
-                                        <label class="control-label" style="font-size: 230px;" ><i class="fa fa-bar-chart"></i></label>
+                                        <label class="control-label" style="font-size: 150px;" ><i class="fa fa-bar-chart"></i></label>
                                     </div>
                                     <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
                                 </div>
@@ -79,7 +79,7 @@
                                 <div class="panel-body" >
                                     
                                     <div class="col-md-12">
-                                        <label class="control-label" style="font-size: 230px;" ><i class="fa fa-pie-chart"></i></label>
+                                        <label class="control-label" style="font-size: 150px;" ><i class="fa fa-pie-chart"></i></label>
                                     </div>
                                     <div class="col-md-10">
                                         
@@ -101,7 +101,7 @@
                                 <div class="panel-body" >
                                     
                                     <div class="col-md-12">
-                                        <label class="control-label" style="font-size: 230px;" ><i class="fa fa-line-chart"></i></label>
+                                        <label class="control-label" style="font-size: 150px;" ><i class="fa fa-line-chart"></i></label>
                                     </div>
                                     <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente"type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
                                 </div>
@@ -119,7 +119,7 @@
                                 <div class="panel-body" >
                                     
                                     <div class="col-md-12">
-                                        <label class="control-label" style="font-size: 230px;" ><i class="fa fa-money"></i></label>
+                                        <label class="control-label" style="font-size: 150px;" ><i class="fa fa-money"></i></label>
                                     </div>
                                     <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente"type="button" class="btn btn-primary col-md-offset-11">Consultar</button></div>
                                 </div>
