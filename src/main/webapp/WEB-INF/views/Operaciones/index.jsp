@@ -44,8 +44,24 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Operaciones
-                            </h1>                        
+                                Módulo Operaciones
+                                
+                            </h1>  
+                            <!---->
+                            <ol class="breadcrumb">
+                                <li class="active">Bienvenido </li>
+                            </ol>
+                                                 
+                            <div class="row">
+                                <div class="col-md-offset-1 col-lg-4" align="right">
+                                    <img src="resources/img/operaciones/pIndexOper.jpg" class="img-rounded"  width="700" height="400"/>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div> 
+                            <!---->
                         </div>
                     </div>
                     <!-- /#page-wrapper -->
