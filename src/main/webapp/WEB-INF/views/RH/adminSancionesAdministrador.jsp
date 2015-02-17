@@ -1,8 +1,9 @@
 <%-- 
-    Document   : adminDepartamentosAdministrador
-    Created on : 17/02/2015, 02:06:41 AM
+    Document   : adminSancionesAdministrador
+    Created on : 17/02/2015, 04:30:53 AM
     Author     : Jovic
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Ver Roles
+                        Ver sanciones
                     </h1>
                 </div>
             </div>
@@ -29,7 +30,7 @@
 
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Roles</h3>
+                                <h3 class="panel-title">Sanciones</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="input-group">
@@ -43,40 +44,45 @@
                             <table class="table table-list-search">
                                 <thead>
                                     <tr>
-                                        <th>Rol</th>
-                                        <th>Detalles</th>
+                                        <th>Sancion</th>
+                                        <th>Cantidad</th>
                                         <th>Editar</th>
                                         <th>Baja</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Dirección</td>
-                                       <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td>Sanción 1</td>
+                                       <!--<td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>-->
+                                       <td>1000</td>
+                                       <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                      </tr>
                                     <tr>
-                                        <td>Ventas</td>
-                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td>Sanción 2</td>
+                                       <td>2000</td>
+                                        <!--<td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>-->
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                     </tr>
                                     <tr>    
-                                        <td>Compras</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td>Sanción 3</td>
+                                        <td>3000</td>
+                                        <!--<td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>-->
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                     </tr>
                                     <tr>    
-                                        <td>Recursos Humanos</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td>Sanción 4</td>
+                                        <td>4000</td>
+                                        <!--<td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>-->
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                     </tr>
                                     <tr>    
-                                        <td>Inventarios</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td>Sanción 5</td>
+                                        <td>5000</td>
+                                        <!--<td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>-->
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                     </tr>

@@ -136,8 +136,13 @@ public class RecursosHumanosController
         return "RH/adminPuestosAdministrador";
     }
     @RequestMapping(value = "addSancionAdmin", method = RequestMethod.GET)
-    public String adminSancionAdmin(Model model)
+    public String addSancionAdmin(Model model)
     {
         return "RH/addSancionAdministrador";
+    }
+    @RequestMapping(value = "adminSancionAdmin", method = RequestMethod.GET)
+    public String adminSancionAdmin(Model model)
+    {
+        return "RH/adminSancionesAdministrador";
     }
 }
