@@ -41,16 +41,14 @@
                                                 <label>Departamento que lo solicita</label>
                                                 <div class="form-group input-group">
                                                     <select id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa">
-                                                        <option>Seleccione departamento</option>
                                                         <option>Recursos Humanos</option>
                                                         <option>Contabilidad</option>
                                                         <option>Ventas</option>
                                                         <option>Compras</option>
                                                         <option>Dirección</option>
-                                                        <option>Almacén</option>
-                                                        <option>Proveedor</option>
-                                                        <option>Clientes</option>
+                                                        <option>Almacén</option>                                
                                                         <option>Activos fijos</option>
+                                                        <option>Operaciones</option>                            
                                                     </select>
                                                 </div>
                                             </div>
@@ -59,10 +57,12 @@
                                             <div class="form-group">
                                                 <label>Puesto</label>
                                                 <div class="form-group input-group">
-                                                    <select id="disabledSelect" class="form-control selectpicker show-tick show-menu-arrow listaPuesto">
-                                                        <option>Seleccione puesto</option>
-                                                        <option>Director</option>
-                                                        <option>Gerente</option>
+                                                    <select id="disabledSelect" class="form-control selectpicker show-tick show-menu-arrow listaPuesto">                                                      
+                                                        <option>Director General</option>
+                                                        <option>Subdirectos General</option>
+                                                        <option>Director de Departamento</option>
+                                                        <option>Jefe de Departamento</option>
+                                                        <option>Jefe Operativo</option>
                                                         <option>Empleado</option>
                                                     </select>
                                                 </div>
@@ -89,7 +89,28 @@
                                                 <label>Apellido Paterno</label>
                                                 <input class="form-control" placeholder="Apellido Paterno" onkeypress="return soloTexto(event);" maxlength="40" required>
                                             </div>
-                                            <h5>Sexo</h5>
+                                             <div class="form-group">
+                                                <label>Apellido Materno</label>
+                                                <input class="form-control" placeholder="Apellido Materno" onkeypress="return soloTexto(event);" maxlength="40" required>
+                                            </div>
+
+                                            <div class="col-lg-6 text-left">
+                                             <div class="form-group">
+                                                <label>Estado civil</label>
+                                                <div class="form-group input-group">
+                                                    <select id="disabledSelect" class="form-control selectpicker show-tick show-menu-arrow listaPuesto">
+                                                        <option>Soltero(a)</option>
+                                                        <option>Casado(a)</option>
+                                                        <option>Divorciado(a)</option>
+                                                        <option>Viudo(a)</option>
+                                                        <option>Sin especificar</option>                                                        
+                                                    </select>
+                                                </div>
+                                             </div>
+                                            </div>
+                                            
+                                             
+                                            <h5><n>Sexo</n></h5>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
@@ -103,16 +124,21 @@
                                                 </label>
                                             </div>
                                         </div>
+                                       
                                         <div class="col-lg-6 text-left">
                                             <div class="form-group">
-                                                <label>Apellido Materno</label>
-                                                <input class="form-control" placeholder="Apellido Materno"  maxlength="20" onkeypress="return soloTexto(event);" required>
+                                                <label>Curp</label>
+                                                <input class="form-control" placeholder="Curp"  maxlength="20" onkeypress="return validarRFC();"required>
                                             </div>  
                                         </div>
                                         <div class="col-lg-6 text-left">
                                             <div class="form-group">
-                                                <label>RFC</label>
-                                                <input class="form-control" placeholder="RFC"  maxlength="20" onkeypress="return validarRFC();"required>
+                                                <label>e_mail</label>
+                                                <input class="form-control" placeholder="e_mail"  maxlength="20" onkeypress="return validarRFC();"required>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Num. Afiliación al seguro social</label>
+                                                <input class="form-control" placeholder="Num. Afiliación al seguro social"  maxlength="20" onkeypress="return validarRFC();"required>
                                             </div>  
                                         </div>
                                         <div class="col-lg-6 text-left">
@@ -143,16 +169,25 @@
                                                         <label>Ciudad</label>
                                                         <input class="form-control" id="numInt" placeholder="Ciudad"  maxlength="30" onkeypress="return soloTexto(event);"required>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label>N&uacute;mero Exterior</label>
+                                                        <input class="form-control" placeholder="N&uacute;mero exterior" onkeypress="return soloNumeros(event);" maxlength="4" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col-lg-6 text-left">
                                                     <div class="form-group">
                                                         <label>C&oacute;digo Postal</label>
                                                         <input class="form-control" placeholder="C.P."  maxlength="5" onkeypress="return soloNumeros(event);" required>
-                                                    </div>  
+                                                    </div> 
                                                     <div class="form-group">
-                                                        <label>N&uacute;mero Exterior</label>
-                                                        <input class="form-control" placeholder="N&uacute;mero exterior" onkeypress="return soloNumeros(event);" maxlength="4" required>
-                                                    </div>
+                                                        <label>Telefono Principal</label>
+                                                        <input class="form-control" placeholder="Telefono Principal"  maxlength="5" onkeypress="return soloNumeros(event);" required>
+                                                    </div> 
+                                                    <div class="form-group">
+                                                        <label>Telefono Auxiliar</label>
+                                                        <input class="form-control" placeholder="Telefono Auxiliar"  maxlength="5" onkeypress="return soloNumeros(event);" required>
+                                                    </div> 
+                                                    
                                                     <div class="form-group">
                                                         <label>Poblaci&oacute;n</label>
                                                         <div class="form-group input-group">
@@ -197,8 +232,9 @@
                                             </div>
                                         </div>
                                         <div align="right">
-                                            <button type="submit" class="btn btn-success">Aceptar</button>                                            
+                                            <button type="submit" class="btn btn-primary">Aceptar</button>                                            
                                         </div>
+                                        <br/>
                                     </div>
                                 </div>
                             </div>
