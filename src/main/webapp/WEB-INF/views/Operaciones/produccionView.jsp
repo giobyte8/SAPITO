@@ -25,6 +25,7 @@
         <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <%@include file="../Default/Modal/proximamente.jsp"%>
         <%@include file="modal/catalogoProductos.jsp"%>
         <div id="wrapper">           
             <%@include file="Menu/menuProduccion.jsp"%>
