@@ -248,16 +248,16 @@
           <a href="#"><i class="fa fa-files-o fa-fw"></i> Cliente<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a class="active" href="blank.html">Nuevo Cliente</a>
+              <a class="active" href="altaclientes">Nuevo Cliente</a>
             </li>
             <li>
-              <a href="Modificar.html">Modificar Cliente</a>
+              <a href="#">Modificar Cliente</a>
             </li>
             <li>
-              <a class="active" href="Consulta.html">Consulta Cliente</a>
+              <a class="active" href="consultaclientes">Consulta Cliente</a>
             </li>
             <li>
-              <a href="Eliminar.html">Eliminar Cliente</a>
+              <a href="#">Eliminar Cliente</a>
             </li>
 
           </ul>
@@ -267,10 +267,10 @@
           <a href="#"><i class="fa fa-files-o fa-fw"></i> Venta<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a class="active" href="venta.html">Generar Venta</a>
+              <a class="active" href="#">Generar Venta</a>
             </li>
             <li>
-              <a href="factura.html">Factura</a>
+              <a href="genfactura">Factura</a>
             </li>
 
 
