@@ -40,7 +40,7 @@
                                                         <th>Nombre</th>
                                                         <th>Inicio De Vacaciones</th>
                                                         <th>Fin De Vacaciones</th>
-                                                        <th>DÃ­as</th>
+                                                        <th>Dias</th>
                                                         <th>Validacion</th>
                                                         <th>Puesto</th>
                                                         <th>Departamento</th>

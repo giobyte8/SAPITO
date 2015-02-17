@@ -35,16 +35,14 @@
                                         <label>Seleccione el departamento</label>
                                         <div class="form-group input-group">
                                             <select id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa">
-                                                <option>Seleccione departamento</option>
                                                 <option>Recursos Humanos</option>
-                                                <option>Contabilidad</option>
-                                                <option>Ventas</option>
-                                                <option>Compras</option>
-                                                <option>Dirección</option>
-                                                <option>Almacén</option>
-                                                <option>Proveedor</option>
-                                                <option>Clientes</option>
-                                                <option>Activos fijos</option>
+                                                        <option>Contabilidad</option>
+                                                        <option>Ventas</option>
+                                                        <option>Compras</option>
+                                                        <option>Dirección</option>
+                                                        <option>Almacén</option>                                
+                                                        <option>Activos fijos</option>
+                                                        <option>Operaciones</option> 
                                             </select>
                                         </div>
                                     </div>
@@ -54,10 +52,13 @@
                                         <label>Seleccione el puesto</label>
                                         <div class="form-group input-group">
                                             <select id="disabledSelect" class="form-control selectpicker show-tick show-menu-arrow listaPuesto">
-                                                <option>Seleccione puesto</option>
-                                                <option>Director</option>
-                                                <option>Gerente</option>
-                                                <option>Empleado</option>
+                                               
+                                                        <option>Director General</option>
+                                                        <option>Subdirectos General</option>
+                                                        <option>Director de Departamento</option>
+                                                        <option>Jefe de Departamento</option>
+                                                        <option>Jefe Operativo</option>
+                                                        <option>Empleado</option>
                                             </select>
                                         </div>
                                     </div>

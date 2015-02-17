@@ -35,11 +35,12 @@
                         <div class="col-lg-12 text-left">
                             <ul id="myTab" class="nav nav-tabs" role="tablist">
                                 <li class="active"><a href="#rh" role="tab" data-toggle="tab">Recursos Humanos</a></li>
-                                <li><a href="#activos" role="tab" data-toggle="tab">Activos</a></li>
-                                <li><a href="#almacen" role="tab" data-toggle="tab">AlmacÃ©n</a></li>
+                                <li><a href="#activos" role="tab" data-toggle="tab">Activos Fijos</a></li>
+                                <li><a href="#almacen" role="tab" data-toggle="tab">Almacén</a></li>
                                 <li><a href="#compras" role="tab" data-toggle="tab">Compras</a></li>
-                                <li><a href="#direccion" role="tab" data-toggle="tab">DirecciÃ³n</a></li>
-                                <li><a href="#finanzas" role="tab" data-toggle="tab">Finanzas</a></li>
+                                    <li><a href="#compras" role="tab" data-toggle="tab">Contabilidad</a></li>
+                                <li><a href="#direccion" role="tab" data-toggle="tab">Dirección</a></li>
+                               <li><a href="#ventas" role="tab" data-toggle="tab">Operaciones</a></li>
                                 <li><a href="#ventas" role="tab" data-toggle="tab">Ventas</a></li> 
                             </ul>
                             <div id="myTabContent" class="tab-content">
