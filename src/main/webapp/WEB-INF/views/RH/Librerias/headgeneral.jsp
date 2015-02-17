@@ -5,7 +5,7 @@
 --%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="../resources/css/sapito.css">
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sapito.css">
 
         <!-- Bootstrap Core CSS -->
         <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
