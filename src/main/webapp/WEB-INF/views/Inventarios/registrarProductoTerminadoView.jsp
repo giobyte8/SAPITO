@@ -62,14 +62,14 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>ID</label> 
-                                                    <input class="form-control" autofocus placeholder="ID del producto" pattern="[0-9]{10}" required>
+                                                    <input onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="ID del producto" pattern="[0-9]{10}" required>
                                                     <p class="help-block" ></p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Nombre</label> 
-                                                    <input class="form-control" autofocus placeholder="Nombre del producto" pattern="[a-z]{20}" required>  
+                                                    <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Nombre del producto" pattern="[a-z]{20}" required>  
                                                     <p class="help-block" ></p>
                                                 </div>
                                             </div>
@@ -78,10 +78,10 @@
                                                     <label>Categor&iacute;a</label> 
                                                     <div class="form-group input-group col-lg-12">
                                                         <select class="form-control">
-                                                            <option>Electr&oacute;nica </option>
-                                                            <option>Ropa</option>
-                                                            <option>Calzado</option>
-                                                            <option>Alimentos</option>
+                                                            <option>Categoría 1</option>
+                                                            <option>Categoría 2</option>
+                                                            <option>Categoría 3</option>
+                                                            <option>Categoría 4</option>
                                                         </select>
                                                     </div>  
                                                 </div>
@@ -89,7 +89,7 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cantidad</label> 
-                                                    <input class="form-control" autofocus placeholder="Cantidad del producto" pattern="[0-9]{6}" required>  
+                                                    <input onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Cantidad del producto" pattern="[0-9]{6}" required>  
                                                     <p class="help-block" ></p>
                                                 </div>
                                             </div>
@@ -127,6 +127,36 @@
 
             <!-- Custom Theme JavaScript -->
             <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
+            
+            <script type="text/javascript">
+                function isInteger(s)
+                {
+                    var i;
+                    s = s.toString();
+                    for (i = 0; i < s.length; i++)
+                    {
+                        var c = s.charAt(i);
+                        if (isNaN(c))
+                        {
+                            alert("Given value is not a number");
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            </script>
+            
+            <script type="text/javascript">
+                function AllowAlphabet()
+                {
+                    if (!frm.alphabet.value.match(/^[a-zA-Z]+$/) && frm.alphabet.value !=="")
+                    {
+                        frm.alphabet.value="";
+                        frm.alphabet.focus();
+                        alert("Please Enter only alphabets in text");
+                    }
+                }
+            </script><!-- Script by hscripts.com -->
 
     </body>
 

@@ -60,18 +60,15 @@
                 <a href="#"><i class="fa fa-fw fa-bell"></i> Capacitaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="#">Alta</a>
+                    <a href="altaCapacitacionAdmin">Alta</a>
                   </li>
                   <li>
-                    <a href="#">Administrar</a>
-                  </li>
-                  <li>
-                    <a href="#">Historial</a>
+                    <a href="adminCapacitacionAdmin">Administrar</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
-              <li>
+<!--              <li>
                 <a href="#"><i class="fa fa-fw fa-money"></i> Nomina<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
@@ -80,13 +77,10 @@
                   <li>
                     <a href="#">Administrar</a>
                   </li>
-                  <li>
-                    <a href="#">Historial</a>
-                  </li>
                 </ul>
-                <!-- /.nav-second-level -->
-              </li>
-              <li>
+                 /.nav-second-level 
+              </li>-->
+<!--              <li>
                 <a href="#"><i class="fa fa-fw fa-plus"></i> Incapacidades<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
@@ -99,8 +93,8 @@
                     <a href="morris.html">Modificacion</a>
                   </li>
                 </ul>
-                <!-- /.nav-second-level -->
-              </li>
+                 /.nav-second-level 
+              </li>-->
              <li>
                 <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -115,32 +109,15 @@
                 <!-- /.nav-second-level -->
               </li>
               
-               <li>
-                <a href="#"><i class="fa fa-fw fa-file-text"></i>Reportes<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                  <li>
-                    <a href="flot.html">Alta</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Baja</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Modificacion</a>
-                  </li>
-                </ul>
-                <!-- /.nav-second-level -->
-              </li>
+
                <li>
                 <a href="#"><i class="fa fa-fw fa-warning"></i>Departamentos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="flot.html">Alta</a>
+                    <a href="altaDepAdmin">Alta</a>
                   </li>
                   <li>
-                    <a href="morris.html">Baja</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Modificacion</a>
+                    <a href="adminDepAdmin">Administrar</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -149,13 +126,10 @@
                 <a href="#"><i class="fa fa-fw fa-road"></i>Roles<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="flot.html">Alta</a>
+                    <a href="addRolesAdmin">Alta</a>
                   </li>
                   <li>
-                    <a href="morris.html">Baja</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Modificacion</a>
+                    <a href="adminRolesAdmin">Administrar</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -164,13 +138,10 @@
                 <a href="#"><i class="fa fa-fw fa-magic"></i>Sanciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="flot.html">Alta</a>
+                    <a href="addSancionAdmin">Alta</a>
                   </li>
                   <li>
-                    <a href="morris.html">Baja</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Modificacion</a>
+                    <a href="morris.html">Administración</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -179,13 +150,10 @@
                 <a href="#"><i class="fa fa-fw fa-arrow-circle-left"></i>Puestos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="flot.html">Alta</a>
+                    <a href="altaPuestoAdmin">Alta</a>
                   </li>
                   <li>
-                    <a href="morris.html">Baja</a>
-                  </li>
-                  <li>
-                    <a href="morris.html">Modificacion</a>
+                    <a href="adminPuestoAdmin">Administrar</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->

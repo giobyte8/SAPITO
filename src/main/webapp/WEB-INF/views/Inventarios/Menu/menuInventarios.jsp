@@ -13,7 +13,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="inventarios">SAPITO</a>
+        <a class="navbar-brand" href="inventarios">SAPito</a>
     </div>
     <!-- /.navbar-header -->
 

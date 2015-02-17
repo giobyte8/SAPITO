@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 7/02/2015, 01:38:13 AM
-    Author     : Lore
+    Document   : adminPuestosAdministrador
+    Created on : 17/02/2015, 02:07:16 AM
+    Author     : Jovic
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>adminPuesto</h1>
     </body>
 </html>

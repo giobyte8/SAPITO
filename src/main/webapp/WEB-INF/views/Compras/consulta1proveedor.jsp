@@ -1,9 +1,3 @@
-<%-- 
-    Document   : template1
-    Created on : 7/02/2015, 02:34:44 AM
-    Author     : Monse
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +31,8 @@
 
         <div id="wrapper">
 
-         <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form>
+           <%@include file="MenusCompras/Menude compras.jsp"%>
+
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
@@ -46,7 +40,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Modificar Infomacion De Proveedor
+                                Consulta De Proveedor
                             </h1>                        
                         </div>
                     </div>        
@@ -58,7 +52,8 @@
                                     <br/>                            
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Datos de la Empresa</h3>
+                                            <h3 class="panel-title">Datos Del Proveedor
+                                            </h3>
                                         </div>
                                         <div class="panel-body">
                                             <!-- Fila de inputs/!-->
@@ -66,75 +61,74 @@
                                                 <div class="col-lg-6 text-left">
                                                     <!-- inputs/!-->
                                                     <div class="form-group ">
-                                                        <label class="control-label">Nombre de la Empresa</label>
-                                                        <input type="text" class="form-control" maxlength="50" required>
+                                                        <label class="control-label">Nombre </label>
+                                                        <input placeholder="Ingrese Id" type="text" class="form-control" disabled>
                                                     </div>
 
                                                     <div class="form-group ">
                                                         <label class="control-label">Calle</label>
-                                                        <input type="text" class="form-control" maxlength="50" required >
+                                                        <input placeholder="Ingrese Nombre" type="text" class="form-control" disabled>
                                                     </div>
-
                                                     <div class="form-group ">
                                                         <label class="control-label">Colonia</label>
-                                                        <input type="text" class="form-control" maxlength="30" required>
+                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label class="control-label">Entidad Federativa</label>
-                                                        <input type="text" class="form-control" maxlength="30" required>
-                                                    </div>                                                   
+                                                        <input placeholder="Ingrese Marca" type="text" class="form-control" disabled >
+                                                    </div>
                                                     <div class="form-group ">
-                                                        <div class="col-lg-5 text-left">
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Telefono</label>
-                                                                <input type="text" class="form-control" maxlength="10"pattern="[0-9]{10}" required >
-                                                            </div>
+                                                        <label class="control-label">Telefono</label>
+                                                        <input placeholder="Ingrese Categoria" type="text" class="form-control" disabled>
+                                                    </div>
 
-                                                        </div>
-                                                    </div>                                                   
 
                                                     <!--Fin  inputs/!-->
                                                 </div>
                                                 <div class="col-lg-6 text-left">
                                                     <!-- inputs/!-->
-                                                    <div class="form-group">
-                                                        <label class="control-label" >RFC</label>
-                                                        <input type="text" class="form-control" maxlength="13" required>
-                                                    </div>                        
-                                                        <div class="col-lg-4 text-left">
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Número Exterior</label>
-                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" required>
-                                                            </div>
+                                                    <div class="form-group ">
+                                                        <label class="control-label">RFC</label>
+                                                        <input placeholder="Ingrese Sub-Categoria"type="text" class="form-control" disabled>
+                                                    </div>
+                                                    <div class="col-lg-4 text-left">
+                                                        <div class="form-group">
+                                                            <label class="control-label" >Numero Exterir</label>
+                                                            <input placeholder="Ingrese Unidad" type="text" class="form-control" disabled>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-lg-4 text-left">
+                                                        <div class="form-group ">
+                                                            <label class="control-label">numero Interior</label>
+                                                            <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
+                                                        </div>    
+                                                    </div>
+                                                    <div class="col-lg-4 text-left">
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Codigo Postal</label>
+                                                            <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
+                                                        </div>    
+                                                    </div>
 
-                                                        </div>
-                                                        <div class="col-lg-4 text-left">
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Número Interior</label>
-                                                                <input type="text" class="form-control"maxlength="5" autofocus  pattern="[0-9]{5}" required >
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 text-left">
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Codigo postal</label>
-                                                                <input type="text" class="form-control" maxlength="5" autofocus  pattern="[0-9]{5}" required>
 
-                                                            </div>
-                                                        </div>
 
-                                                    <br>
                                                     <div class="form-group ">
                                                         <label class="control-label">Municipio</label>
-                                                        <input type="text" class="form-control" maxlength="30" required >
+                                                        <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
                                                     </div>
                                                     <div class="form-group ">
                                                         <label class="control-label">Email</label>
-                                                        <input type="text" class="form-control" maxlength="30" required>
+                                                        <input placeholder="Ingrese Costo"type="text" class="form-control" disabled >
                                                     </div>
+
+
+
                                                 </div>
-                                            </div>                      
+                                            </div>  
+
                                         </div>
+
                                     </div> 
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
@@ -147,11 +141,11 @@
                                                     <!-- inputs/!-->
                                                     <div class="form-group ">
                                                         <label class="control-label">Nombre</label>
-                                                        <input type="text" class="form-control" maxlength="30" required>
+                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label class="control-label">Apellido Materno</label>
-                                                        <input type="text" class="form-control" maxlength="30" required>
+                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
                                                     </div>
                                                     <!--Fin  inputs/!-->
                                                 </div>
@@ -159,28 +153,30 @@
                                                     <!-- inputs/!-->
                                                     <div class="form-group">
                                                         <label class="control-label" >Apellido Paterno</label>
-                                                        <input type="text" class="form-control" maxlength="30" required>
+                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
                                                     </div>                        
                                                     <div class="form-group ">
                                                         <label class="control-label">Telefono</label>
-                                                        <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}" required >
+                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
                                                     </div>
                                                 </div>
                                             </div>                      
                                         </div>
-                                    </div>      
+                                    </div>
                                     <div class="row">
                                         <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
                                     </div> 
-                                </div>                        
+                                </div>  
+
                             </div>  
+
                         </div>
+
                     </div><!--Fin del tag de fila-->
                 </div><!-- Fin del tag del contenedor-->
             </div>
             <!-- /#page-wrapper -->
         </div>
-        </form>
         <!-- /#wrapper -->
         <!-- jQuery -->
         <script src="resources/js/libs/jquery.min.js"></script>
@@ -197,3 +193,7 @@
     </body>
 
 </html>
+
+
+
+
