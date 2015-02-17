@@ -21,7 +21,7 @@ public class VentasController
     @RequestMapping(value="ventas", method=RequestMethod.GET)
     public String index(Model model)
     {
-        return "Ventas/indexventas";
+        return "Ventas/indexVentas";
     }
     
     @RequestMapping(value="ventas/altaclientes", method=RequestMethod.GET)
@@ -34,5 +34,11 @@ public class VentasController
     public String consultaClientes(Model model)
     {
         return "Ventas/consultarClientes";
+    }
+    
+    @RequestMapping(value="ventas/genfactura", method=RequestMethod.GET)
+    public String generarFactura(Model model)
+    {
+        return "Ventas/generarFactura";
     }
 }

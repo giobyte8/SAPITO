@@ -100,9 +100,10 @@
                           <label class="control-label" >Email</label>
                           <input type="text" class="form-control" placeholder="Ingrese Email">
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group"> <br/><br/> </div>
+                        <div class="form-group text-right">
                           </br>
-                          <button type="submit" class="btn btn-primary">Guardar</button>
+                          <button type="submit" class="btn btn-primary btn-lg">Guardar cliente</button>
                         </div>
 
 
