@@ -21,8 +21,16 @@ public class MainController
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String redirect(Model model)
     {
+        return "redirect";
+    }
+    
+        
+    @RequestMapping(value="indexMain", method=RequestMethod.GET)
+    public String index(Model model)
+    {
         return "sapoindex";
     }
+    
     @RequestMapping(value="loginIndex", method=RequestMethod.POST)
     public String login(Model model,String username, String password)
     {
