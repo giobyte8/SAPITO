@@ -89,7 +89,7 @@
                 </div>
             </div>
             <!-- /#page-wrapper -->
-        </div>
+        
         <!-- /#wrapper -->
         <!-- jQuery -->
         <script src="../resources/js/libs/jquery.min.js"></script>

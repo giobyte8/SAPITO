@@ -84,8 +84,7 @@
                 </div>
                     <!-- /#page-wrapper -->
                 </div>
-        </div>
-                <!-- /#wrapper -->
+                        <!-- /#wrapper -->
                 <!-- jQuery -->
                 <script src="../resources/js/libs/jquery.min.js"></script>
 
