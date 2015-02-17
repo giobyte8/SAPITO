@@ -43,8 +43,29 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 align = "center">
-                                BIENVENIDO
-                            </h1>                        
+                                <b>BIENVENIDO</b>
+                            </h1>  
+                            
+                            
+                            <div id ="imagen" align = "center">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <img src="${pageContext.request.contextPath}/resources/img/inventario.jpg">
+                                <br/>
+                                <br/>
+                                <br/>
+                            </div>
+                            
+                            
+                            <h1 align = "center">
+                                <b>
+                                    <font color = #337AB7>
+                                    MÓDULO DE INVENTARIOS
+                                
+                                </b>
+                            </h1>  
+                            
                         </div>
                     </div>
                     <!-- /#page-wrapper -->
