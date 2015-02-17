@@ -21,5 +21,8 @@ public class ActivoFijoController {
     public String index(Model model){
         return "ActivoFijo/indexactivofijo";
     }
-    
+    @RequestMapping(value="altaActivofijo", method=RequestMethod.GET)
+    public String Alta(Model model){
+        return "ActivoFijo/index";
+    }
 }
