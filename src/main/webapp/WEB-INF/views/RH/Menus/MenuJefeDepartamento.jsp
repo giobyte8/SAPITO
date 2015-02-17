@@ -29,7 +29,7 @@
      
           </li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="indexMain">
              
               <i class="fa fa-user fa-fw"></i>    Recurso Humanos <i class="fa fa-caret-down"></i>
             </a>
