@@ -119,7 +119,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
+                                            <input type="submit" value="Agregar" class="btn btn-primary  col-md-offset-11"  role="button">                                                    
                                         </div> 
                                     </div>                        
                                 </div>  

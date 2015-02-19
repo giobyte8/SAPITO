@@ -88,24 +88,24 @@
                                                                 <td>  
                                                                     <div align="center">
                                                                         <div  class="btn-group">  
+                                                                            <a class="btn-group" href="consulta1proveedor">
+                                                                                &nbsp;Cotsulta 
+                                                                                <i class="fa fa-search " ></i>
+                                                                            </a>
+                                                                            <a class="btn-group" href="modificarproveedor">
+                                                                                &nbsp;Modificar 
+                                                                                <i class="fa fa-pencil-square-o " ></i>
+                                                                            </a>
                                                                             <a class="btn-group" href="#">
-                                                                                    &nbsp;Cotsulta 
-                                                                                    <i class="fa fa-search " ></i>
-                                                                                </a>
-                                                                                <a class="btn-group" href="#">
-                                                                                    &nbsp;Modificar 
-                                                                                    <i class="fa fa-pencil-square-o " ></i>
-                                                                                </a>
-                                                                                <a class="btn-group" href="#">
-                                                                                    &nbsp;Eliminar 
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
+                                                                                &nbsp;Eliminar 
+                                                                                <i class="fa fa-times"></i>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
                                                                 </td> 
                                                             </tr>
 
-                                                            
+
 
 
 

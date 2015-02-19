@@ -108,7 +108,7 @@
 
                                     </div> 
                                     <div class="row">
-                                        <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
+                                        <a class="btn btn-primary  col-md-offset-11"  type="button" href="ConsultaProducto">Aceptar</a>     
                                     </div> 
                                 </div>  
 

@@ -82,11 +82,11 @@
                                                                     <td>  
                                                                         <div align="center">
                                                                             <div  class="btn-group">  
-                                                                                <a class="btn-group" href="#">
+                                                                                <a class="btn-group" href="Consulta1Producto">
                                                                                     &nbsp;Cotsulta 
                                                                                     <i class="fa fa-search " ></i>
                                                                                 </a>
-                                                                                <a class="btn-group" href="#">
+                                                                                <a class="btn-group" href="Modifica1Producto">
                                                                                     &nbsp;Modificar 
                                                                                     <i class="fa fa-pencil-square-o " ></i>
                                                                                 </a>
@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
+                                        <a class="btn btn-primary  col-md-offset-11"  type="button" href="compras">Aceptar</a>     
                                     </div>
                                     <!--                          Fin Codigo Para panel 5 o menos input -->
                                 </div>
