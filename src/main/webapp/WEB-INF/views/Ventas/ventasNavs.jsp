@@ -218,7 +218,7 @@
         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
         </li>
         <li class="divider"></li>
-        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        <li><a href="/SAPITO"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
         </li>
       </ul>
       <!-- /.dropdown-user -->
@@ -248,17 +248,17 @@
           <a href="#"><i class="fa fa-files-o fa-fw"></i> Cliente<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a class="active" href="altaclientes">Nuevo Cliente</a>
+              <a class="active" href="/SAPITO/ventas/altaclientes">Nuevo Cliente</a>
             </li>
-            <li>
+            <!--li>
               <a href="#">Modificar Cliente</a>
-            </li>
+            </li-->
             <li>
-              <a class="active" href="consultaclientes">Consulta Cliente</a>
+              <a class="active" href="/SAPITO/ventas/consultaclientes">Consulta Cliente</a>
             </li>
-            <li>
+            <!--li>
               <a href="#">Eliminar Cliente</a>
-            </li>
+            </li-->
 
           </ul>
           <!-- /.nav-second-level -->
@@ -270,7 +270,7 @@
               <a class="active" href="#">Generar Venta</a>
             </li>
             <li>
-              <a href="genfactura">Factura</a>
+              <a href="/SAPITO/ventas/genfactura">Factura</a>
             </li>
 
 
