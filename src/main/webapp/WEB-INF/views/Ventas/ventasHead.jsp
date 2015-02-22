@@ -13,10 +13,13 @@
 <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css">
 
 <!-- MetisMenu CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet" type="text/css">
+<!--link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet" type="text/css"-->
+
+<!-- Morris css -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/morris.css" rel="stylesheet" type="text/css">
 
 <!-- Custom CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin-2.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
 
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
