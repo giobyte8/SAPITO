@@ -15,23 +15,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+            <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
         <title>SAPITO</title>
 
-        <!-- Bootstrap Core CSS -->
-        <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
-        <link href="resources/css/libs/metisMenu.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link href="resources/css/libs/sb-admin-2.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-    </head>
+         </head>
 
     <body>
 
@@ -146,6 +134,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
+            <%@include file="MenusCompras/Pie compras.jsp"%>
 
     </body>
 

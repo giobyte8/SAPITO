@@ -6,109 +6,166 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../../Default/Modal/proximamente.jsp"%>
-
 <!DOCTYPE html>
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="operaciones">SAPito</a>
+        <a class="navbar-brand" href="#">SAPito</a>
     </div>
-    <!-- /.navbar-header -->
 
-   <ul class="nav navbar-top-links navbar-right">       
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="modal" data-target="#proximamente">
-                <i class="fa fa-bell fa-fw"></i><i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-alerts">
-                <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu message-dropdown">
+                <li class="message-preview">
                     <a href="#">
-                        <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        <div class="media">
+                            <span class="pull-left">
+                                <img class="media-object" src="http://placehold.it/50x50" alt="">
+                            </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>Alejandro Medina</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                            </div>
                         </div>
                     </a>
+                </li>
+                <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                            <span class="pull-left">
+                                <img class="media-object" src="http://placehold.it/50x50" alt="">
+                            </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>Alejandro Medina</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                            <span class="pull-left">
+                                <img class="media-object" src="http://placehold.it/50x50" alt="">
+                            </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>Otro Alejandro</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-footer">
+                    <a href="#">Read All New Messages</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu alert-dropdown">
+                <li>
+                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="pull-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                </li>                                                                                                
+                    <a href="#">View All</a>
+                </li>
             </ul>
-            <!-- /.dropdown-alerts -->
         </li>
-        <!-- /.dropdown -->
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i> Compras <i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-                                
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> COMPRAS <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-user"></i> Perfile</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
                 </li>
             </ul>
-            <!-- /.dropdown-user -->
         </li>
-        <!-- /.dropdown -->
     </ul>
-    <!-- /.navbar-top-links -->
 
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu"> 
-                <li>
-                    <a href="compras">Home</a>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <li class="active">
+                <a href="compras"><i class="fa fa-fw fa-dashboard"></i> Home</a>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-exchange fa-fw"></i> Proveedores<span class="fa arrow"></span></a>
+                <ul id="demo" class="collapse">
+                    <li>
+                        <a href="altaproveedor">Alta Proveedor</a>
+                    </li>
+                    <li>
+                        <a href="consultaproveedor">Consulta Provedores</a>
+                    </li>
 
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-dashboard fa-fw"></i> Proveedor <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="altaproveedor">Alta  Proveedor</a>
-                            <a href="consultaproveedor">Consultar Proveedores</a>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-exchange fa-fw"></i> Productos<span class="fa arrow"></span></a>
+                <ul id="demo1" class="collapse">
+                    <li>
+                        <a href="AltaProducto">Alta Producto</a>
+                    </li>
+                    <li>
+                        <a href="ConsultaProducto">Consultar Productos</a>
+                    </li>
 
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Producto<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
+                </ul>            
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-exchange fa-fw"></i> Ordenes<span class="fa arrow"></span></a>
+                <ul id="demo2" class="collapse">
+                    <li>
+                        <a href="ordenCompra">Generar Orden </a>
+                    </li>
+                    <li>
+                        <a href="ConsultarOrdenes">Consultar Ordenes</a>
+                    </li>
 
-                            <a href="AltaProducto">Alta Producto</a>
-                            <a href="ConsultaProducto">Consultar Productos</a>
+                </ul>            
+            </li>
+            
+            
 
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-table fa-fw"></i>Order de Compra<span class="fa arrow"></span></a>
-
-                    <ul class="nav nav-second-level">
-                        <li>
-
-                            <a href="ordenCompra">Generar Orden</a>
-                            <a href="ConsultarOrdenes">Consulta de Ordenes</a>
-
-                        </li>
-                    </ul>
-                </li>
-
-            </ul>
-        </div>
-        <!-- /.sidebar-collapse -->
+        </ul>
     </div>
-    <!-- /.navbar-static-side -->
+    <!-- /.navbar-collapse -->
 </nav>
-
