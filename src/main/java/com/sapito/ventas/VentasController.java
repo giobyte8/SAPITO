@@ -59,5 +59,10 @@ public class VentasController
     {
         return "Ventas/ofertas";
     }
-
+    
+     @RequestMapping(value = "ventas/historial", method = RequestMethod.GET)
+    public String historial(Model model)
+    {
+        return "Ventas/historial";
+    }
 }

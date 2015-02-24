@@ -143,7 +143,7 @@
             <a href="/SAPITO/ventas/nvaorden"><i class="fa fa-fw fa-file-text"></i> Nueva orden de venta</a>
           </li>
           <li id="nb-histventas">
-            <a href="#"><i class="fa fa-fw fa-line-chart"></i> Historial de ventas</a>
+            <a href="/SAPITO/ventas/historial"><i class="fa fa-fw fa-line-chart"></i> Historial de ventas</a>
           </li>
           <li id="nb-ordenesp">
             <a href="/SAPITO/ventas/ordenes"><i class="fa fa-fw fa-truck"></i> Ordenes en producción</a>
