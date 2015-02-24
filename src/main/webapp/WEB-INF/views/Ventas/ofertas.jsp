@@ -9,7 +9,7 @@
 <html>
   <head>
     <%@include file="ventasHead.jsp" %>
-    <title>SAPito - Ventas - Vendedores</title>
+    <title>SAPito - Ventas - Ofertas</title>
   </head>
   <body>
    <div id="wrapper">
