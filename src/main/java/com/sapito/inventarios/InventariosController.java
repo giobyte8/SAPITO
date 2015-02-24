@@ -26,11 +26,29 @@ public class InventariosController
         return "Inventarios/index";
     }
     
-    @RequestMapping(value="checarInventarios", method=RequestMethod.GET)
-    public String checarInventarios(Model model)
+    @RequestMapping(value="inventarioMinimo", method=RequestMethod.GET)
+    public String inventarioMinimo(Model model)
     {
-        return "Inventarios/checarInventariosView";
-    }      
+        return "Inventarios/inventarioMinimoView";
+    } 
+    
+    @RequestMapping(value="inventarioMaximo", method=RequestMethod.GET)
+    public String inventarioMaximo(Model model)
+    {
+        return "Inventarios/inventarioMaximoView";
+    }
+    
+    @RequestMapping(value="inventarioTotal", method=RequestMethod.GET)
+    public String inventarioTotal(Model model)
+    {
+        return "Inventarios/inventarioTotalView";
+    }   
+    
+    @RequestMapping(value="buscarProducto", method=RequestMethod.GET)
+    public String buscarProducto(Model model)
+    {
+        return "Inventarios/buscarProductoView";
+    }
     
     @RequestMapping(value="materiaPrima", method=RequestMethod.GET)
     public String materiaPrima(Model model)
@@ -47,14 +65,18 @@ public class InventariosController
     @RequestMapping(value="registrarMateriaPrima", method=RequestMethod.GET)
     public String registrarMateriPrima(Model model)
     {
-        System.out.println("registraMaetria PRima ");
         return "Inventarios/registrarMateriaPrimaView";
     }
     
-    @RequestMapping(value="registrarProductoTeminado", method=RequestMethod.GET)
-    public String registratProductoTerminado(Model model)
+    @RequestMapping(value="registrarProductoTerminado", method=RequestMethod.GET)
+    public String registrarProductoTerminado(Model model)
     {
-        System.out.println("hola hola ");
         return "Inventarios/registrarProductoTerminadoView";
+    }
+    
+    @RequestMapping(value="bajaMateriaPrima", method=RequestMethod.GET)
+    public String bajaMateriaPrima(Model model)
+    {
+        return "Inventarios/bajaMateriaPrimaView";
     }
 }

@@ -22,13 +22,13 @@
 
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-bell fa-fw"></i><i class="fa fa-caret-down"></i>
+                <i class="fa fa-bell fa-fw" role = ></i><i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
                 <li>
                     <a href="#">
                         <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
+                            <i class="fa fa-comment fa-fw" role = "red" ></i> New Comment
                             
                         </div>
                     </a>
@@ -37,7 +37,7 @@
                 <li>
                     <a href="#">
                         <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                            <i class="fa fa-twitter fa-fw" role = "red"></i> 3 New Followers
                            
                         </div>
                     </a>

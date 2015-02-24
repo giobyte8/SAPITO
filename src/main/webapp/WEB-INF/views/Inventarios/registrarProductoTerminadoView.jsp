@@ -5,40 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
     <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>SAPITO</title>
-
-        <!-- Bootstrap Core CSS -->
-        <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
-        <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin-2.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
+        <%@include file="inventariosHead.jsp" %>
+        <title>SAPito</title>
     </head>
-
     <body>
-
-        <div id="wrapper"> 
-            <%@include file="Menu/menuInventarios.jsp"%>
-
+        <div id="wrapper">           
+            <%@include file="inventariosNavs.jsp" %>
             <form>
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -54,7 +29,7 @@
                         <div class="panel panel-default">
                             <div class="row">
                                 <div class="col-lg-12 text-left">
-                                    <div class="panel panel-primary">
+                                    <div class="panel panel-green">
                                         <div class="panel-heading">
                                             <h2 class="panel-title">Registro de producto terminado </h2>
                                         </div>
@@ -75,7 +50,7 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label>Categor&iacute;a</label> 
+                                                    <label>Categoría</label> 
                                                     <div class="form-group input-group col-lg-12">
                                                         <select class="form-control">
                                                             <option>Categoría 1</option>
@@ -98,13 +73,32 @@
                                                     <label>Fecha de entrada</label>
                                                     <input type="date" class="form-control" autofocus required>
                                                 </div>
-                                            </div>          
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Ubicación</label> 
+                                                    <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Ubicación del producto" pattern="[a-z]{40}" required>  
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Lote</label> 
+                                                    <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Lote del producto" pattern="[a-z]{10}" required>  
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <label>Precio</label> 
+                                                <div class="form-group input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Precio del producto M.N" pattern="[0-9]{10}" required>  
+                                                    <span class="input-group-addon">.00</span> 
+                                                </div>      
+                                            </div>
 
                                         </div>  <!-- /#fin del panel -->
                                     </div>
                                     <div align="right">
-                                        <button type="submit" class="btn btn-primary">Aceptar</button>
-                                        <button type="button" class="btn btn-danger">Cancelar</button>
+                                        <button type="submit" class="btn btn-success">Aceptar</button>
                                     </div> 
 
                                 </div>
@@ -114,50 +108,7 @@
                     </div>
                 </div>
             </form>
-
-            <!-- jQuery -->
-
-            <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.min.js"></script>
-
-            <!-- Bootstrap Core JavaScript -->
-            <script src="${pageContext.request.contextPath}/resources/js/libs/bootstrap.min.js"></script>
-
-            <!-- Metis Menu Plugin JavaScript -->
-            <script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
-
-            <!-- Custom Theme JavaScript -->
-            <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
-            
-            <script type="text/javascript">
-                function isInteger(s)
-                {
-                    var i;
-                    s = s.toString();
-                    for (i = 0; i < s.length; i++)
-                    {
-                        var c = s.charAt(i);
-                        if (isNaN(c))
-                        {
-                            alert("Given value is not a number");
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-            </script>
-            
-            <script type="text/javascript">
-                function AllowAlphabet()
-                {
-                    if (!frm.alphabet.value.match(/^[a-zA-Z]+$/) && frm.alphabet.value !=="")
-                    {
-                        frm.alphabet.value="";
-                        frm.alphabet.focus();
-                        alert("Please Enter only alphabets in text");
-                    }
-                }
-            </script><!-- Script by hscripts.com -->
-
+        </div>
+        <%@include file="inventariosFooter.jsp" %>
     </body>
-
 </html>
