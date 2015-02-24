@@ -31,10 +31,7 @@
           </div>
 
           <!-- Buttons bar -->
-          <div class="row">
-            <button class="btn btn-success" type="button">Nuevo cliente</button>
-          </div>
-
+          
           <!-- Data table -->
           <br/><br/>
           <table id="thistorial" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
