@@ -52,7 +52,7 @@
                     <!-- /#page-wrapper -->
                     <div class="col-lg-12">
                         <div class="col-md-3">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Estado de Resultados</h3>
                                 </div>
@@ -62,7 +62,7 @@
                                     <div class="col-md-12">
                                         <label class="control-label" style="font-size: 150px;" ><i class="fa fa-bar-chart"></i></label>
                                     </div>
-                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
+                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-success col-md-offset-11">Consultar</button> </div>
                                 </div>
 
                             </div>
@@ -71,7 +71,7 @@
 
 
                         <div class="col-md-3">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Variaciones de Capital</h3>
                                 </div>
@@ -84,7 +84,7 @@
                                     <div class="col-md-10">
 
 
-                                        <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
+                                        <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-success col-md-offset-11">Consultar</button> </div>
                                 </div>
 
                             </div>
@@ -93,7 +93,7 @@
 
 
                         <div class="col-md-3">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Balance General</h3>
                                 </div>
@@ -103,7 +103,7 @@
                                     <div class="col-md-12">
                                         <label class="control-label" style="font-size: 150px;" ><i class="fa fa-line-chart"></i></label>
                                     </div>
-                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button> </div>
+                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-success col-md-offset-11">Consultar</button> </div>
                                 </div>
 
                             </div>
@@ -111,7 +111,7 @@
 
 
                         <div class="col-md-3">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Flujo de Efectivo</h3>
                                 </div>
@@ -121,7 +121,7 @@
                                     <div class="col-md-12">
                                         <label class="control-label" style="font-size: 150px;" ><i class="fa fa-money"></i></label>
                                     </div>
-                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-primary col-md-offset-11">Consultar</button></div>
+                                    <div class="col-md-10"> <button data-toggle="modal" data-target="#proximamente" type="button" class="btn btn-success col-md-offset-11">Consultar</button></div>
                                 </div>
 
                             </div>

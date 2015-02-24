@@ -48,7 +48,7 @@
                             </h1>                        
                         </div>
                     </div>
-                    <div class="panel panel-primary">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">Recursos Humanos</h3>
                         </div>
@@ -97,7 +97,7 @@
                         <div class="col-md-2">                                                                                  	
                         </div>
 
-                        <button type="button" class="btn btn-primary col-md-offset-11">Guardar</button>                                                                                                    
+                        <button type="button" class="btn btn-success col-md-offset-11">Guardar</button>                                                                                                    
                     </div>     
                 </div>
                 <!-- /#page-wrapper -->
