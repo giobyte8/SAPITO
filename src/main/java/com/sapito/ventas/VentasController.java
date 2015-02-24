@@ -30,7 +30,7 @@ public class VentasController
         return "Ventas/clientes";
     }
     
-    @RequestMapping(value="vendedores", method=RequestMethod.GET)
+   @RequestMapping(value="vendedores", method=RequestMethod.GET)
     public String vendedores(Model model)
     {
         return "Ventas/vendedores";
@@ -47,4 +47,10 @@ public class VentasController
     {
         return "Ventas/generarFactura";
     }
+    @RequestMapping(value="ordenes", method=RequestMethod.GET)
+    public String ordenes(Model model)
+    {
+        return "Ventas/ordenes";
+    }
+    
 }
