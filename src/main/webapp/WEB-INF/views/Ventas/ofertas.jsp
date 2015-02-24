@@ -117,7 +117,6 @@
           </table>
          
        
-          <button class="btn btn-success btn-xs">Borrar</button>
         </div>
       </div>
     </div>
