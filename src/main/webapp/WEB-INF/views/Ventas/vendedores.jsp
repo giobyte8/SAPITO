@@ -12,7 +12,7 @@
     <title>SAPito - Ventas - Vendedores</title>
   </head>
   <body>
-    <div id="wrapper">
+   <div id="wrapper">
 
       <!-- Navigation bar -->
       <%@include file="ventasNavs.jsp" %>
@@ -25,20 +25,85 @@
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
-                Vendedores
+                Provedores registrados
               </h1>
             </div>
           </div>
 
+          <!-- Buttons bar -->
+          <div class="row">
+            <button class="btn btn-success" type="button">Nuevo Vendedor</button>
+          </div>
+
           <!-- Data table -->
           <br/><br/>
-          <table id="tvendedores" class="table table-bordered table-hover table-responsive">
-            <!-- Agrega el contenido de la tabla -->
+          <table id="tclientes" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th>Vendedor</th>
+                <th>Ventas</th>
+                <th>Meta de Venta</th>
+                <th>Monto Vendido</th>
+                <th>Fecha Limite Para Cumplir Meta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
+              </tr>
+              <tr>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
+              </tr>
+              <tr>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+              </tr>
+              <tr>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+              </tr>
+              <tr>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+              </tr>
+              <tr>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+              </tr>
+              <tr>
+                <td>Other data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Data more</td>
+                <td>Some data</td>
+              </tr>
+            </tbody>
           </table>
 
         </div>
       </div>
     </div>
+
 
     <!-- Footer and scripts -->
     <%@include file="ventasFooter.jsp" %>
