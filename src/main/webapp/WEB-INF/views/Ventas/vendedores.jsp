@@ -25,19 +25,17 @@
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
-                Provedores registrados
+               Vendedores registrados
               </h1>
             </div>
           </div>
 
           <!-- Buttons bar -->
-          <div class="row">
-            <button class="btn btn-success" type="button">Nuevo Vendedor</button>
-          </div>
+         
 
           <!-- Data table -->
           <br/><br/>
-          <table id="tclientes" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
+          <table id="tvendedores" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
                 <th>Vendedor</th>
