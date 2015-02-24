@@ -24,6 +24,12 @@ public class VentasController
         return "Ventas/indexVentas";
     }
     
+    @RequestMapping(value="clientes", method=RequestMethod.GET)
+    public String clientes(Model model)
+    {
+        return "Ventas/clientes";
+    }
+    
     @RequestMapping(value="ventas/altaclientes", method=RequestMethod.GET)
     public String altaClientes(Model model)
     {

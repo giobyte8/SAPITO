@@ -9,7 +9,7 @@
 <html>
   <head>
     <%@include file="ventasHead.jsp" %>
-    <title>JSP Page</title>
+    <title>SAPito - Ventas</title>
   </head>
   <body>
     <div id="wrapper">
@@ -159,5 +159,10 @@
 
     <!-- Footer and scripts -->
     <%@include file="ventasFooter.jsp" %>
+    <script type="text/javascript">
+      $(document).ready(function() {
+         activatenb('nb-dashboard');
+      });
+    </script>
   </body>
 </html>

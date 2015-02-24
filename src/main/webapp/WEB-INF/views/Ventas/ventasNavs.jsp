@@ -20,6 +20,7 @@
   
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav">
+    <!-- Messages -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu message-dropdown">
@@ -73,6 +74,8 @@
         </li>
       </ul>
     </li>
+    
+    <!-- Alerts -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu alert-dropdown">
@@ -100,6 +103,8 @@
         </li>
       </ul>
     </li>
+    
+    <!-- User menu -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Giovanni Aguirre <b class="caret"></b></a>
       <ul class="dropdown-menu">
@@ -120,40 +125,42 @@
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
-      <li class="active">
-        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+      <li id="nb-dashboard" class="">
+        <a href="/SAPITO/ventas"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+      </li>
+      <li id="nb-clientes">
+        <a href="/SAPITO/clientes"><i class="fa fa-fw fa-list-alt"></i> Clientes</a>
+      </li>
+      <li id="nb-vendedores">
+        <a href="#"><i class="fa fa-fw fa-users"></i> Vendedores</a>
       </li>
       <li>
-        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-table"></i> Tables</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-edit"></i> Forms</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-      </li>
-      <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="demo" class="collapse">
-          <li>
-            <a href="#">Dropdown Item</a>
+        <a href="javascript:;" data-toggle="collapse" data-target="#ventas-subviews">
+          <i class="fa fa-fw fa-money"></i> Ventas <i class="fa fa-fw fa-caret-down"></i>
+        </a>
+        <ul id="ventas-subviews" class="collapse">
+          <li id="nb-nvaorden">
+            <a href="#"><i class="fa fa-fw fa-file-text"></i> Nueva orden de venta</a>
           </li>
-          <li>
-            <a href="#">Dropdown Item</a>
+          <li id="nb-histventas">
+            <a href="#"><i class="fa fa-fw fa-line-chart"></i> Historial de ventas</a>
+          </li>
+          <li id="nb-ordenesp">
+            <a href="#"><i class="fa fa-fw fa-truck"></i> Ordenes en producción</a>
+          </li>
+          <li id="nb-facturas">
+            <a href="#"><i class="fa fa-fw fa-bank"></i> Facturas </a>
+          </li>
+          <li id="nb-ofertas">
+            <a href="#"><i class="fa fa-fw fa-tags"></i> Ofertas </a>
+          </li>
+          <li id="nb-devoluciones">
+            <a href="#"><i class="fa fa-fw fa-cubes"></i> Devoluciones</a>
+          </li>
+          <li id="nb-cambios">
+            <a href="#"><i class="fa fa-fw fa-exchange"></i> Cambios</a>
           </li>
         </ul>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
       </li>
     </ul>
   </div>

@@ -14,8 +14,15 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
 
-
+<!-- Raphael js -->
 <script src="${pageContext.request.contextPath}/resources/js/libs/raphael-min.js"></script>
 
-<script src="${pageContext.request.contextPath}/resources/js/libs/morris.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/libs/morris-data.js"></script>
+<!--script src="${pageContext.request.contextPath}/resources/js/libs/morris.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/libs/morris-data.js"></script-->
+
+<!-- Datatables js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
+
+<!-- Ventas js -->
+<script src="${pageContext.request.contextPath}/resources/js/ventas/ventas.js"></script>
