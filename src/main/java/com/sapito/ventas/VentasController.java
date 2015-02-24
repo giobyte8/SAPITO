@@ -53,5 +53,11 @@ public class VentasController
     {
         return "Ventas/ordenes";
     }
+    
+     @RequestMapping(value = "ventas/ofertas", method = RequestMethod.GET)
+    public String ofertas(Model model)
+    {
+        return "Ventas/ofertas";
+    }
 
 }

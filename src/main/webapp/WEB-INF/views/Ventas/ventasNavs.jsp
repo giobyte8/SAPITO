@@ -152,7 +152,7 @@
             <a href="#"><i class="fa fa-fw fa-bank"></i> Facturas </a>
           </li>
           <li id="nb-ofertas">
-            <a href="#"><i class="fa fa-fw fa-tags"></i> Ofertas </a>
+            <a href="/SAPITO/ventas/ofertas"><i class="fa fa-fw fa-tags"></i> Ofertas </a>
           </li>
           <li id="nb-devoluciones">
             <a href="#"><i class="fa fa-fw fa-cubes"></i> Devoluciones</a>
