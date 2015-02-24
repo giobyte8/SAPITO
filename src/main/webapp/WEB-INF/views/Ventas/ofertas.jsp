@@ -31,7 +31,9 @@
           </div>
 
           <!-- Buttons bar -->
-         
+          <div class="row">
+            <button class="btn btn-success" type="button">Agregar</button>
+          </div>
 
           <!-- Data table -->
           <br/><br/>
@@ -44,6 +46,7 @@
                 <th>Precio Actual</th>
                 <th>Descuento</th>
                  <th>Fecha Limite de Oferta</th>
+                  <th>Editar</th>
               </tr>
             </thead>
             <tbody>
@@ -54,59 +57,66 @@
                 <td>$8</td>
                   <td>20%</td>
                 <td>1 de marzo</td>
+                  <td> <button class="btn btn-success btn-xs">Editar</button></td>
               </tr>
-                <tr>
+                  <tr>
                 <td>Gansito</td>
                 <td>Rebaja</td>
                 <td>$10</td>
                 <td>$8</td>
                   <td>20%</td>
                 <td>1 de marzo</td>
+                  <td> <button class="btn btn-success btn-xs">Editar</button></td>
               </tr>
-                <tr>
+                 <tr>
                 <td>Gansito</td>
                 <td>Rebaja</td>
                 <td>$10</td>
                 <td>$8</td>
                   <td>20%</td>
                 <td>1 de marzo</td>
+                  <td> <button class="btn btn-success btn-xs">Editar</button></td>
               </tr>
-                <tr>
+                  <tr>
                 <td>Gansito</td>
                 <td>Rebaja</td>
                 <td>$10</td>
                 <td>$8</td>
                   <td>20%</td>
                 <td>1 de marzo</td>
+                  <td> <button class="btn btn-success btn-xs">Editar</button></td>
               </tr>
-                <tr>
+                  <tr>
                 <td>Gansito</td>
                 <td>Rebaja</td>
                 <td>$10</td>
                 <td>$8</td>
                   <td>20%</td>
                 <td>1 de marzo</td>
+                  <td> <button class="btn btn-success btn-xs">Editar</button></td>
               </tr>
-                <tr>
+                  <tr>
                 <td>Gansito</td>
                 <td>Rebaja</td>
                 <td>$10</td>
                 <td>$8</td>
                   <td>20%</td>
                 <td>1 de marzo</td>
+                  <td> <button class="btn btn-success btn-xs">Editar</button></td>
               </tr>
-                <tr>
+                  <tr>
                 <td>Gansito</td>
                 <td>Rebaja</td>
                 <td>$10</td>
                 <td>$8</td>
                   <td>20%</td>
                 <td>1 de marzo</td>
+                  <td> <button class="btn btn-success btn-xs">Editar</button></td>
               </tr>
             </tbody>
           </table>
-          <button class="btn btn-success btn-xs">Agregar</button>
-          <button class="btn btn-success btn-xs">Editar</button>
+         
+          <button class="btn btn-success btn-xs">Modificar</button>
           <button class="btn btn-success btn-xs">Borrar</button>
         </div>
       </div>
