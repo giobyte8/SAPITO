@@ -116,7 +116,7 @@
             </tbody>
           </table>
          
-          <button class="btn btn-success btn-xs">Modificar</button>
+       
           <button class="btn btn-success btn-xs">Borrar</button>
         </div>
       </div>
