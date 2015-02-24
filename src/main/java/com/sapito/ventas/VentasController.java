@@ -30,16 +30,16 @@ public class VentasController
         return "Ventas/clientes";
     }
     
+    @RequestMapping(value="vendedores", method=RequestMethod.GET)
+    public String vendedores(Model model)
+    {
+        return "Ventas/vendedores";
+    }
+    
     @RequestMapping(value="ventas/altaclientes", method=RequestMethod.GET)
     public String altaClientes(Model model)
     {
         return "Ventas/altaClientes";
-    }
-    
-    @RequestMapping(value="ventas/consultaclientes", method=RequestMethod.GET)
-    public String consultaClientes(Model model)
-    {
-        return "Ventas/consultarClientes";
     }
     
     @RequestMapping(value="ventas/genfactura", method=RequestMethod.GET)

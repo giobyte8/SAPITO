@@ -132,7 +132,7 @@
         <a href="/SAPITO/clientes"><i class="fa fa-fw fa-list-alt"></i> Clientes</a>
       </li>
       <li id="nb-vendedores">
-        <a href="#"><i class="fa fa-fw fa-users"></i> Vendedores</a>
+        <a href="/SAPITO/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
       </li>
       <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#ventas-subviews">

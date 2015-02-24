@@ -32,9 +32,7 @@
 
           <!-- Buttons bar -->
           <div class="row">
-            <button class="btn btn-success" type="button">Nuevo</button>
-            <button class="btn btn-success" type="button">Editar</button>
-            <button class="btn btn-success" type="button">Dar de baja</button>
+            <button class="btn btn-success" type="button">Nuevo cliente</button>
           </div>
 
           <!-- Data table -->
@@ -55,14 +53,14 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
