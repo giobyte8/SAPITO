@@ -31,8 +31,8 @@
           </div>
 
           <div class="col-md-6">
-            <h3>Detalles de la orden</h3>
-            <br/><label>Descuentos</label>
+            <h2>Detalles de la orden</h2>
+            <br/><h3>Descuentos</h3>
             <table id="tdescuentos" class="table table-bordered table-hover table-responsive">
               <thead>
                 <tr>
@@ -53,14 +53,14 @@
                 </tr>
               </tbody>
             </table>
-            <div class="col-sm-6 text-left">
-              <button class="btn btn-danger btn-sm">Agregar descuento</button>
+            <div class="col-sm-4 text-left">
+              <button class="btn btn-primary btn-sm">Agregar descuento</button>
             </div>
-            <div class="col-sm-6 text-right">
-              <h4>Total: $751.44 &nbsp;&nbsp;</h4>
+            <div class="col-sm-8 text-right bg-danger">
+              <h4>Descuento total: $751.44 &nbsp;&nbsp;</h4>
             </div>
 
-            <br/><br/><br/><label>Cargos extra</label>
+            <br/><br/><br/><h3>Cargos extra</h3>
             <table id="tcargos" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -81,17 +81,28 @@
                 </tr>
               </tbody>
             </table>
-            <div class="col-sm-6 text-left">
-              <button class="btn btn-danger btn-sm">Agregar cargo</button>
+            <div class="col-sm-4 text-left">
+              <button class="btn btn-primary btn-sm">Agregar cargo</button>
             </div>
-            <div class="col-sm-6 text-right">
-              <h4>Total: $5700.50 &nbsp;&nbsp;</h4>
+            <div class="col-sm-8 text-right bg-warning">
+              <h4>Cargo total: $5700.50 &nbsp;&nbsp;</h4>
             </div>
-            
-            <br/><br/><br/><br/>
+
+            <br/><br/><br/><h3>Facturación</h3>
+            <div class="btn-group">
+              <h5 class=""><input type="radio" name="genfactura" id="inputWalls" value="genfactura" checked>
+                Autogenerar factura 
+              </h5>
+
+              <h5 class=""><input type="radio" name="genfactura" id="inptWalls" value="nogenfactura">
+                Dejar pendiente la generacióñ de factura 
+              </h5>
+            </div>
+
           </div>
+
           <div class="col-md-6">
-            <h3>Productos en la orden</h3>
+            <h2>Productos en la orden</h2><br/>
             <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
               <thead>
                 <tr>
@@ -123,6 +134,44 @@
                 </tr>
               </tbody>
             </table>
+            <div class="col-sm-4 text-left">
+              <button class="btn btn-primary btn-sm">Agregar producto</button>
+            </div>
+            <div class="col-sm-8 text-right bg-info">
+              <h4>Total de orden: $7751.44 &nbsp;&nbsp;</h4>
+            </div>
+            
+            <br/><br/><h3>Entrega a cliente</h3>
+            <div class="btn-group">
+              <h5 class=""><input type="radio" name="entrega" id="inputWalls" value="inmediata" checked>
+                Entrega inmediata 
+              </h5>
+
+              <h5 class=""><input type="radio" name="entrega" id="inptWalls" value="noinmediata">
+                Solicitar fabricación a producción
+              </h5>
+            </div>
+
+            <br/><br/><br/>
+            <div class="col-sm-9 col-sm-offset-3 bg-info text-right">
+              <h4>Total de la orden: $7550.00</h4>
+            </div>
+            <div class="col-sm-10 col-sm-offset-2 bg-warning text-right">
+              <h4>Total con cargos extra: $10550.00</h4>
+            </div>
+            <div class="col-sm-11 col-sm-offset-1 bg-danger text-right">
+              <h4>Total con descuentos: $7550.00</h4>
+            </div>
+            <div class="col-sm-12 col-sm-offset-0 bg-success text-right">
+              <h2>Total final: $7550.00</h2>
+            </div>
+
+            <div class="col-sm-12 text-right">
+              <br/><br/>
+              <button type="button" class="btn btn-danger btn-lg">Cancelar orden</button>
+              &nbsp;&nbsp;
+              <button type="button" class="btn btn-success btn-lg">Guardar orden</button>
+            </div>
           </div>
 
         </div>
