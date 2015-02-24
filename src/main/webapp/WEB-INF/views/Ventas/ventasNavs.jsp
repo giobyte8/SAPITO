@@ -129,10 +129,10 @@
         <a href="/SAPITO/ventas"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
       </li>
       <li id="nb-clientes">
-        <a href="/SAPITO/clientes"><i class="fa fa-fw fa-list-alt"></i> Clientes</a>
+        <a href="/SAPITO/ventas/clientes"><i class="fa fa-fw fa-list-alt"></i> Clientes</a>
       </li>
       <li id="nb-vendedores">
-        <a href="/SAPITO/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
+        <a href="/SAPITO/ventas/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
       </li>
       <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#ventas-subviews">
@@ -140,13 +140,13 @@
         </a>
         <ul id="ventas-subviews" class="collapse">
           <li id="nb-nvaorden">
-            <a href="#"><i class="fa fa-fw fa-file-text"></i> Nueva orden de venta</a>
+            <a href="/SAPITO/ventas/nvaorden"><i class="fa fa-fw fa-file-text"></i> Nueva orden de venta</a>
           </li>
           <li id="nb-histventas">
             <a href="#"><i class="fa fa-fw fa-line-chart"></i> Historial de ventas</a>
           </li>
           <li id="nb-ordenesp">
-            <a href="/SAPITO/ordenes"><i class="fa fa-fw fa-truck"></i> Ordenes en producción</a>
+            <a href="/SAPITO/ventas/ordenes"><i class="fa fa-fw fa-truck"></i> Ordenes en producción</a>
           </li>
           <li id="nb-facturas">
             <a href="#"><i class="fa fa-fw fa-bank"></i> Facturas </a>
