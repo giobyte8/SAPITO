@@ -145,10 +145,10 @@
         </a>
         <ul id="transporte-subviews" class="collapse">
           <li id="nb-nvnacional">
-            <a href="#"><i class="fa fa-fw fa-lock"></i> Nacional</a>
+            <a href="/SAPITO/logistica/empresanacional"><i class="fa fa-fw fa-lock"></i> Nacional</a>
           </li>
           <li id="nb-histextranjero">
-            <a href="#"><i class="fa fa-fw fa-globe"></i> Extranjero</a>
+            <a href="/SAPITO/logistica/empresaextranjera"><i class="fa fa-fw fa-globe"></i> Extranjero</a>
           </li>          
         </ul>                            
       </li>

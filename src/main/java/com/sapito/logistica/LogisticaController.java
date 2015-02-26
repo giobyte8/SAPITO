@@ -23,10 +23,21 @@ public class LogisticaController
         return "Logistica/indexLogistica";
     }
     
-    @RequestMapping(value="logistica/envios", method=RequestMethod.GET)
-    public String envios(Model model)
+    @RequestMapping(value="logistica/empresanacional", method=RequestMethod.GET)
+    public String empresaNacional(Model model)
     {
-        return "Logistica/envios";
+        return "Logistica/nacionalPage";
+    }
+    @RequestMapping(value="logistica/empresaextranjera", method=RequestMethod.GET)
+    public String empresaExtranjera(Model model)
+    {
+        return "Logistica/extranjeraPage";
+    }
+    
+    @RequestMapping(value="logistica/empresa/camiones", method=RequestMethod.GET)
+    public String camiones(Model model)
+    {
+        return "Logistica/camiones";
     }
 //    
 //    @RequestMapping(value="logistica", method=RequestMethod.GET)
