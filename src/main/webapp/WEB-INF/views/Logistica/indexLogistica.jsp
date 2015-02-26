@@ -158,6 +158,7 @@ prueba
       </div> <!-- .page-wrapper -->
     </div> <!-- .wrapper -->
 
+    
     <!-- Footer and scripts -->
     <%@include file="logisticaFooter.jsp" %>
     
