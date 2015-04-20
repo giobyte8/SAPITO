@@ -38,11 +38,13 @@
           <table id="tvendedores" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Vendedor</th>
-                <th>Ventas</th>
-                <th>Meta de Venta</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Salarios</th>
+                <th>Bono</th>
+                <th>Periodo de venta</th>
                 <th>Monto Vendido</th>
-                <th>Fecha Limite Para Cumplir Meta</th>
+               
               </tr>
             </thead>
             <tbody>
@@ -51,12 +53,6 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
-              </tr>
-              <tr>
-                <td>Some data</td>
-                <td>Some data</td>
-                <td>Some data</td>
                 <td>Some data</td>
                 <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
               </tr>
@@ -66,6 +62,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+               
+                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -73,6 +71,7 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                  <td>Some data</td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -80,6 +79,7 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                  <td>Some data</td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -87,6 +87,15 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                  <td>Some data</td>
+              </tr>
+              <tr>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                  <td>Some data</td>
               </tr>
               <tr>
                 <td>Other data</td>
@@ -94,6 +103,7 @@
                 <td>Some data</td>
                 <td>Data more</td>
                 <td>Some data</td>
+                  <td>Some data</td>
               </tr>
             </tbody>
           </table>
