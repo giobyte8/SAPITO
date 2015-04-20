@@ -137,7 +137,7 @@
             <a href="/SAPITO/ventas/nvocliente"><i class="fa fa-fw fa-file-text"></i> Nuevo cliente</a>
           </li>
           <li id="nb-lista-clientes">
-            <a href="/SAPITO/ventas/listaclientes"><i class="fa fa-fw fa-list"></i> Clientes registrados</a>
+            <a href="/SAPITO/ventas/clientes"><i class="fa fa-fw fa-list"></i> Lista de clientes</a>
           </li>
         </ul>
       </li>

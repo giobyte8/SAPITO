@@ -30,21 +30,16 @@
             </div>
           </div>
 
-          <!-- Buttons bar -->
-          <div class="row">
-            <button class="btn btn-success" type="button">Nuevo cliente</button>
-          </div>
-
           <!-- Data table -->
           <br/><br/>
           <table id="tclientes" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
                 <th>Empresa</th>
-                <th>RFC</th>
+                <th>Sucursal</th>
                 <th>Nombre de contacto</th>
                 <th>Email</th>
-                <th>Prioridad</th>
+                <th>Mas ...</th>
               </tr>
             </thead>
             <tbody>
@@ -53,49 +48,56 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Other data</td>
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Data more</td>
-                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
             </tbody>
           </table>
