@@ -129,7 +129,17 @@
         <a href="/SAPITO/ventas"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
       </li>
       <li id="nb-clientes">
-        <a href="/SAPITO/ventas/clientes"><i class="fa fa-fw fa-list-alt"></i> Clientes</a>
+        <a href="javascript:;" data-toggle="collapse" data-target="#clientes-submenus">
+          <i class="fa fa-fw fa-money"></i> Clientes <i class="fa fa-fw fa-caret-down"></i>
+        </a>
+        <ul id="clientes-submenus" class="collapse">
+          <li id="nb-nvocliente">
+            <a href="/SAPITO/ventas/nvocliente"><i class="fa fa-fw fa-file-text"></i> Nuevo cliente</a>
+          </li>
+          <li id="nb-lista-clientes">
+            <a href="/SAPITO/ventas/listaclientes"><i class="fa fa-fw fa-list"></i> Clientes registrados</a>
+          </li>
+        </ul>
       </li>
       <li id="nb-vendedores">
         <a href="/SAPITO/ventas/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
@@ -151,9 +161,9 @@
           <li id="nb-facturas">
             <a href="#"><i class="fa fa-fw fa-bank"></i> Facturas </a>
           </li>
-          <li id="nb-ofertas">
+          <!--li id="nb-ofertas">
             <a href="/SAPITO/ventas/ofertas"><i class="fa fa-fw fa-tags"></i> Ofertas </a>
-          </li>
+          </li-->
           <li id="nb-devoluciones">
             <a href="#"><i class="fa fa-fw fa-cubes"></i> Devoluciones</a>
           </li>
