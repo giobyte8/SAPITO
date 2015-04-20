@@ -37,11 +37,16 @@
           <table id="thistorial" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Vendedor</th>
+             
+                    <th>Vendedor</th>
                 <th>Ventas Realizada</th>
                 <th>Fecha de la venta</th>
-                <th>Monto de la venta</th>
-                  <th>detalles</th>
+                    <th>Cliente</th>
+                    <th>Status Venta</th>
+                <th>Detalles</th>
+                
+                
+                
               </tr>
             </thead>
             <tbody>
@@ -50,6 +55,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                 <td>Some data</td>
+                
                 <td><button class="btn btn-xs btn-success" type="button">Detalles</button></td>
               </tr>
               <tr>
@@ -57,6 +64,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                 <td>Some data</td>
+               
                 <td><button class="btn btn-xs btn-success" type="button">Detalles</button></td>
               </tr>
               <tr>
@@ -64,6 +73,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                 <td>Some data</td>
+                
                 <td><button class="btn btn-xs btn-success" type="button">Detalles</button></td>
               </tr>
                <tr>
@@ -71,6 +82,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                 <td>Some data</td>
+              
                 <td><button class="btn btn-xs btn-success" type="button">Detalles</button></td>
               </tr>
                <tr>
@@ -78,6 +91,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                 <td>Some data</td>
+               
                 <td><button class="btn btn-xs btn-success" type="button">Detalles</button></td>
               </tr>
                <tr>
@@ -85,6 +100,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                 <td>Some data</td>
+              
                 <td><button class="btn btn-xs btn-success" type="button">Detalles</button></td>
               </tr>
                <tr>
@@ -92,6 +109,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
+                 <td>Some data</td>
+                
                 <td><button class="btn btn-xs btn-success" type="button">Detalles</button></td>
               </tr>
             </tbody>
