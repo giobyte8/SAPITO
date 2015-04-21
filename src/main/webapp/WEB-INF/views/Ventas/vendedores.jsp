@@ -12,7 +12,7 @@
     <title>SAPito - Ventas - Vendedores</title>
   </head>
   <body>
-   <div id="wrapper">
+    <div id="wrapper">
 
       <!-- Navigation bar -->
       <%@include file="ventasNavs.jsp" %>
@@ -25,26 +25,21 @@
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
-               Vendedores registrados
+                Vendedores registrados
               </h1>
             </div>
           </div>
 
-          <!-- Buttons bar -->
-         
-
           <!-- Data table -->
-          <br/><br/>
           <table id="tvendedores" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Nombre</th>
+                <th>Nombre (s)</th>
                 <th>Apellidos</th>
-                <th>Salarios</th>
-                <th>Bono</th>
-                <th>Periodo de venta</th>
-                <th>Monto Vendido</th>
-               
+                <th>Monto vendido hoy ($)</th>
+                <th>Meta de venta ($)</th>
+                <th>Salario</th>
+                <th>Detalles</th>
               </tr>
             </thead>
             <tbody>
@@ -54,7 +49,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -62,8 +58,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-               
-                <td><button class="btn btn-xs btn-success" type="button">Mas ...</button></td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -71,7 +67,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                  <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -79,7 +76,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                  <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -87,7 +85,8 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                  <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
                 <td>Some data</td>
@@ -95,15 +94,17 @@
                 <td>Some data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                  <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
               <tr>
-                <td>Other data</td>
                 <td>Some data</td>
                 <td>Some data</td>
-                <td>Data more</td>
                 <td>Some data</td>
-                  <td>Some data</td>
+                <td>Some data</td>
+                <td>Some data</td>
+                <td><button class="btn btn-xs btn-success" type="button">
+                    Detalles</button></td>
               </tr>
             </tbody>
           </table>

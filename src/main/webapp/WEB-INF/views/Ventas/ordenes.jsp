@@ -9,7 +9,7 @@
 <html>
   <head>
     <%@include file="ventasHead.jsp" %>
-    <title>SAPito - Ventas - Vendedores</title>
+    <title>SAPito - Ventas - Ordenes de producción</title>
   </head>
   <body>
    <div id="wrapper">
@@ -30,18 +30,14 @@
             </div>
           </div>
 
-          <!-- Buttons bar -->
-         
-
           <!-- Data table -->
-          <br/><br/>
           <table id="tordenes" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Orden de venta</th>
+                <th>Prioridad</th>
+                <th>Cliente</th>
                 <th>Fecha de entrega</th>
-                <th>Estatus</th>
-                <th>Monto Total</th>
+                <th>Estado de la orden</th>
                 <th>Detalles</th>
               </tr>
             </thead>
@@ -101,7 +97,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- Footer and scripts -->
     <%@include file="ventasFooter.jsp" %>

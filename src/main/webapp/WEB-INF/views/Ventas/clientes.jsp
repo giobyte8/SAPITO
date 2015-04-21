@@ -39,7 +39,7 @@
                 <th>Sucursal</th>
                 <th>Nombre de contacto</th>
                 <th>Email</th>
-                <th>Mas ...</th>
+                <th>Detalles</th>
               </tr>
             </thead>
             <tbody>

@@ -31,36 +31,47 @@
           </div>
 
           <div class="col-md-6">
-            <h2>Detalles de la orden</h2>
-            <br/><h3>Descuentos</h3>
-            <table id="tdescuentos" class="table table-bordered table-hover table-responsive">
-              <thead>
-                <tr>
-                  <th>Concepto</th>
-                  <th>Cantidad</th>
-                  <th>Editar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Oferta paquete xxx1</td>
-                  <td>$50.94</td>
-                  <td><button class="btn btn-success btn-xs">Editar</button></td>
-                <tr>
-                  <td>Retraso en producción</td>
-                  <td>$700.50</td>
-                  <td><button class="btn btn-success btn-xs">Editar</button></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="col-sm-4 text-left">
-              <button class="btn btn-primary btn-sm">Agregar descuento</button>
+            <h2>Cliente</h2>
+            <label for="fcliente-id">Buscar cliente</label>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="RFC del cliente"/>
+              <span class="input-group-btn">
+                <button class="btn btn-success">Buscar</button>
+                <button class="btn btn-primary">Registrar nuevo</button>
+              </span>
             </div>
-            <div class="col-sm-8 text-right bg-danger">
-              <h4>Descuento total: $751.44 &nbsp;&nbsp;</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <br/><label for="fcliente-empresa">Empresa:</label>
+                <input id="fcliente-empresa" readonly type="text" 
+                       class="form-control" placeholder="Empresa cliente"/>
+              </div>
+              <div class="col-md-6">
+                <br/><label for="fcliente-nombre">Nombre del contacto:</label>
+                <input readonly type="text" class="form-control" placeholder="Contacto en la empresa" />
+              </div>
             </div>
 
-            <br/><br/><br/><h3>Cargos extra</h3>
+            <br/><h2>Venta</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <br/><label for="ftipo-moneda">Tipo de cambio:</label>
+                <select class="form-control">
+                  <option value="dollar">Dollar</option>
+                  <option value="pesos">Pesos mexicanos</option>
+                  <option value="yenes">Yenes</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <br/><label>Entrega a cliente:</label>
+                <select class="form-control">
+                  <option value="inmediata">Entrega inmediata</option>
+                  <option value="solproduccion">Solicitar a producción</option>
+                </select>
+              </div>
+            </div>
+            
+            <br/><h3>Cargos extra:</h3>
             <table id="tcargos" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -82,23 +93,39 @@
               </tbody>
             </table>
             <div class="col-sm-4 text-left">
-              <button class="btn btn-primary btn-sm">Agregar cargo</button>
+              <button class="btn btn-primary">Agregar cargo</button>
             </div>
             <div class="col-sm-8 text-right bg-warning">
               <h4>Cargo total: $5700.50 &nbsp;&nbsp;</h4>
             </div>
-
-            <br/><br/><br/><h3>Facturación</h3>
-            <div class="btn-group">
-              <h5 class=""><input type="radio" name="genfactura" id="inputWalls" value="genfactura" checked>
-                Autogenerar factura 
-              </h5>
-
-              <h5 class=""><input type="radio" name="genfactura" id="inptWalls" value="nogenfactura">
-                Dejar pendiente la generacióñ de factura 
-              </h5>
+            
+            <br/><br/><h3>Descuentos:</h3>
+            <table id="tdescuentos" class="table table-bordered table-hover table-responsive">
+              <thead>
+                <tr>
+                  <th>Concepto</th>
+                  <th>Cantidad</th>
+                  <th>Editar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Oferta paquete xxx1</td>
+                  <td>$50.94</td>
+                  <td><button class="btn btn-success btn-xs">Editar</button></td>
+                <tr>
+                  <td>Retraso en producción</td>
+                  <td>$700.50</td>
+                  <td><button class="btn btn-success btn-xs">Editar</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="col-sm-4 text-left">
+              <button class="btn btn-primary">Agregar descuento</button>
             </div>
-
+            <div class="col-sm-8 text-right bg-danger">
+              <h4>Descuento total: $751.44 &nbsp;&nbsp;</h4>
+            </div>
           </div>
 
           <div class="col-md-6">
@@ -135,24 +162,24 @@
               </tbody>
             </table>
             <div class="col-sm-4 text-left">
-              <button class="btn btn-primary btn-sm">Agregar producto</button>
+              <button class="btn btn-primary">Agregar producto (+)</button>
             </div>
             <div class="col-sm-8 text-right bg-info">
               <h4>Total de orden: $7751.44 &nbsp;&nbsp;</h4>
             </div>
             
-            <br/><br/><h3>Entrega a cliente</h3>
+            <!--br/><br/><h3>Facturación</h3>
             <div class="btn-group">
-              <h5 class=""><input type="radio" name="entrega" id="inputWalls" value="inmediata" checked>
-                Entrega inmediata 
+              <h5 class=""><input type="radio" name="genfactura" id="inputWalls" value="genfactura" checked>
+                Autogenerar factura 
               </h5>
 
-              <h5 class=""><input type="radio" name="entrega" id="inptWalls" value="noinmediata">
-                Solicitar fabricación a producción
+              <h5 class=""><input type="radio" name="genfactura" id="inptWalls" value="nogenfactura">
+                Dejar pendiente la generacióñ de factura 
               </h5>
-            </div>
+            </div-->
 
-            <br/><br/><br/>
+            <br/><br/><br/><h2>Totales ($)</h2>
             <div class="col-sm-9 col-sm-offset-3 bg-info text-right">
               <h4>Total de la orden: $7550.00</h4>
             </div>

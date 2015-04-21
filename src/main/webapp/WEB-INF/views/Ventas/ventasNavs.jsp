@@ -159,16 +159,16 @@
             <a href="/SAPITO/ventas/ordenes"><i class="fa fa-fw fa-truck"></i> Ordenes en producción</a>
           </li>
           <li id="nb-facturas">
-            <a href="#"><i class="fa fa-fw fa-bank"></i> Facturas </a>
+            <a href="/SAPITO/ventas/facturas"><i class="fa fa-fw fa-bank"></i> Facturas </a>
           </li>
           <!--li id="nb-ofertas">
             <a href="/SAPITO/ventas/ofertas"><i class="fa fa-fw fa-tags"></i> Ofertas </a>
           </li-->
           <li id="nb-devoluciones">
-            <a href="#"><i class="fa fa-fw fa-cubes"></i> Devoluciones</a>
+            <a href="/SAPITO/ventas/devoluciones"><i class="fa fa-fw fa-cubes"></i> Devoluciones</a>
           </li>
           <li id="nb-cambios">
-            <a href="#"><i class="fa fa-fw fa-exchange"></i> Cambios</a>
+            <a href="/SAPITO/ventas/cambios"><i class="fa fa-fw fa-exchange"></i> Cambios</a>
           </li>
         </ul>
       </li>

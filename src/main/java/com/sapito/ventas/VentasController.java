@@ -69,6 +69,24 @@ public class VentasController
      @RequestMapping(value = "ventas/historial", method = RequestMethod.GET)
     public String historial(Model model)
     {
-        return "Ventas/historial";
+        return "Ventas/historialVentas";
+    }
+    
+    @RequestMapping(value = "ventas/facturas", method = RequestMethod.GET)
+    public String facturas(Model model)
+    {
+        return "Ventas/facturas";
+    }
+    
+    @RequestMapping(value = "ventas/devoluciones", method = RequestMethod.GET)
+    public String devolucion(Model model)
+    {
+        return "Ventas/nvaDevolucion";
+    }
+    
+    @RequestMapping(value = "ventas/cambios", method = RequestMethod.GET)
+    public String cambio(Model model)
+    {
+        return "Ventas/cambio";
     }
 }
