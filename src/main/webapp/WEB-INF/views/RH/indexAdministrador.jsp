@@ -200,7 +200,7 @@
                 </div>
             </div>
         </div>
-
+ </div>
         <%@include file="Librerias/piegeneral.jsp"%>
         <script src="${pageContext.request.contextPath}/resources/js/rh/indexRh.js"></script>
     </body>

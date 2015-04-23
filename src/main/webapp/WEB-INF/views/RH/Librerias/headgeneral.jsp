@@ -17,7 +17,8 @@
         <link href="${pageContext.request.contextPath}/resources/css/libs/timeline.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <!--<link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin-2.css" rel="stylesheet">-->
+        <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
 
         <!-- Morris Charts CSS -->
         <link href="${pageContext.request.contextPath}/resources/css/libs/morris.css" rel="stylesheet">
