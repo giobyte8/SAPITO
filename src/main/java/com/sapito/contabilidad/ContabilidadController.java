@@ -61,4 +61,25 @@ public class ContabilidadController {
     public String ContaAlmacen(Model model) {
         return "Contabilidad/contaAlmacen";
     }
+    
+    @RequestMapping(value = "contabilidad/contaMoneda", method = RequestMethod.GET)
+    public String ContaMoneda(Model model) {
+        return "Contabilidad/contaMoneda";
+    }
+    
+    @RequestMapping(value = "contabilidad/contaCatalogo", method = RequestMethod.GET)
+    public String ContaCatalogo(Model model) {
+        return "Contabilidad/contaCatalogo";
+    }
+    
+    @RequestMapping(value = "contabilidad/contaPresupuestos", method = RequestMethod.GET)
+    public String ContaPresupuestos(Model model) {
+        return "Contabilidad/contaPresupuestos";
+    }
+    
+    @RequestMapping(value = "contabilidad/contaFinanzas", method = RequestMethod.GET)
+    public String ContaFinanzas(Model model) {
+        return "Contabilidad/contaFinanzas";
+    }
+    
 }

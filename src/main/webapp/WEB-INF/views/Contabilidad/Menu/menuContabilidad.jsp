@@ -101,9 +101,17 @@
                     <a href="#"><i class="fa fa-wrench fa-fw"></i>Finanzas<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="contabilidad/contaPresupuesto">Presupuestos</a>
+                            <a href="contabilidad/contaPresupuesto">Presupuesto Area</a>
                         </li>
-                        
+                        <li>
+                            <a href="contabilidad/contaPresupuestos">Presupuestos Usuarios</a>
+                        </li>
+                        <li>
+                            <a href="contabilidad/contaCatalogo">Catalogo de Cuentas</a>
+                        </li>
+                        <li>
+                            <a href="contabilidad/contaMoneda">Moneda</a>
+                        </li>
                     </ul>
                 </li>
                 <%
@@ -143,9 +151,17 @@
                     <a href="#"><i class="fa fa-wrench fa-fw"></i>Finanzas<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="../contabilidad/contaPresupuesto">Presupuestos</a>
+                            <a href="../contabilidad/contaPresupuesto">Presupuesto Area</a>
                         </li>
-                        
+                        <li>
+                            <a href="../contabilidad/contaPresupuestos">Presupuestos Usuarios</a>
+                        </li>
+                        <li>
+                            <a href="../contabilidad/contaCatalogo">Catalogo de Cuentas</a>
+                        </li>
+                        <li>
+                            <a href="../contabilidad/contaMoneda">Moneda</a>
+                        </li>
                     </ul>
                 </li>
                 <%
