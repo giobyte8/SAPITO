@@ -37,7 +37,7 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
+          <a href="indexMain"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
         </li>
       </ul>
     </li>
@@ -61,7 +61,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
-              <li>
+<!--              <li>
                 <a href="#"><i class="fa fa-fw fa-bell"></i> Capacitaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
@@ -71,8 +71,8 @@
                     <a href="adminCapacitacionAdmin">Administrar</a>
                   </li>
                 </ul>
-                <!-- /.nav-second-level -->
-              </li>
+                 /.nav-second-level 
+              </li>-->
              <li>
                 <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -100,7 +100,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
-               <li>
+<!--               <li>
                 <a href="#"><i class="fa fa-fw fa-road"></i>Roles<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
@@ -110,7 +110,7 @@
                     <a href="adminRolesAdmin">Administrar</a>
                   </li>
                 </ul>
-                <!-- /.nav-second-level -->
+                 /.nav-second-level 
               </li>
                <li>
                 <a href="#"><i class="fa fa-fw fa-magic"></i>Sanciones<span class="fa arrow"></span></a>
@@ -122,8 +122,8 @@
                     <a href="adminSancionAdmin">Administración</a>
                   </li>
                 </ul>
-                <!-- /.nav-second-level -->
-              </li>
+                 /.nav-second-level 
+              </li>-->
                <li>
                 <a href="#"><i class="fa fa-fw fa-arrow-circle-left"></i>Puestos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
