@@ -142,3 +142,8 @@ function activatenb(nbtoactivate)
             break;
     }
 }
+
+function submitNvoCliente()
+{
+    swal("Guardado", "El cliente ha sido registrado", "success");
+}

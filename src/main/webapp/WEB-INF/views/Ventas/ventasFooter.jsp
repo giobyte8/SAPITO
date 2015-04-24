@@ -24,5 +24,8 @@
 <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
 
+<!-- Sweetalert js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/sweetalert.min.js"></script>
+
 <!-- Ventas js -->
 <script src="${pageContext.request.contextPath}/resources/js/ventas/ventas.js"></script>
