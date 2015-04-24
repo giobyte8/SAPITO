@@ -25,7 +25,7 @@
         <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <link href="../resources/css/libs/sb-admin.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,60 +44,75 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Reporte Ventas
+                               Moneda
                             </h1>                        
                         </div>
                     </div>
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Ventas</h3>
-                        </div>
-
-                        <div class="panel-body">
-                            <!-------------------------->                                            
-                            <div class="form-group">
-                               <label>Inicio del Ejercicio</label>
-                                <div class="form-group input-group">                                                
-                                    <input type="date" class="form-control"/>
-                                    
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" style="" data-toggle="modal" data-target="#catalogoProducto"><i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>  
-                            </div>
-                            <label>Fin del Ejercicio</label>
-                               <input type="date" class="form-control"/> 
-                            
-                            <!-------------------------->
-                            <label class="control-label">Total de Ventas</label>
-                            <input type="text" class="form-control" placeholder="" required/>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">                                                                                  	
-                        </div>
-
-                        <button type="button" class="btn btn-success col-md-offset-11">Guardar</button>                                                                                                    
-                    </div>     
-                </div>
                     <!-- /#page-wrapper -->
+                    		<div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Monedas</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Moneda</th>
+                                                    <th>Precio de Compra</th>
+                                                    <th>Precio de Venta</th>
+                                                    <th>Ultima fecha de actualizacion</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Dolar</td>
+                                                    <td><input type="number" value="15.4395"/></td>
+                                                    <td><input type="number" value="15.4444"/></td>
+                                                    <td><input type="date"/></td>
+                                                    <td align="center"><input type="submit" value="Generar Cambio" class="btn btn-success"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Yen</td>
+                                                    <td><input type="number" value="0.1287"/></td>
+                                                    <td><input type="number" value="0.1242"/></td>
+                                                    <td><input type="date"/></td>
+                                                    <td align="center"><input type="submit" value="Generar Cambio" class="btn btn-success"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Libra esterlina</td>
+                                                    <td><input type="number" value="23.203"/></td>
+                                                    <td><input type="number" value="23.203"/></td>
+                                                    <td><input type="date"/></td>
+                                                    <td align="center"><input type="submit" value="Generar Cambio" class="btn btn-success"/></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                        <!-- /#wrapper -->
-                <!-- jQuery -->
-                <script src="../resources/js/libs/jquery.min.js"></script>
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="../resources/js/libs/jquery.min.js"></script>
 
-                <!-- Bootstrap Core JavaScript -->
-                <script src="../resources/js/libs/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../resources/js/libs/bootstrap.min.js"></script>
 
-                <!-- Metis Menu Plugin JavaScript -->
-                <script src="../resources/js/libs/metisMenu.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../resources/js/libs/metisMenu.min.js"></script>
 
-                <!-- Custom Theme JavaScript -->
-                <script src="../resources/js/libs/sb-admin-2.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="../resources/js/libs/sb-admin-2.js"></script>
 
-                </body>
+    </body>
 
-                </html>
-
+</html>
