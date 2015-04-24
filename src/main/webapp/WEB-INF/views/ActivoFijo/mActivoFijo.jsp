@@ -12,16 +12,19 @@
         <link type="text/css" rel="stylesheet" href="resources/css/sapito.css">
     
     	<!-- Bootstrap Core CSS -->
-	    <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
+            <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    	<!-- MetisMenu CSS -->
-	    <link href="resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <!-- Morris css -->
+            <link href="resources/css/libs/morris.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom CSS -->
-	    <link href="resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <!-- Custom CSS -->
+            <link href="resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom Fonts -->
-	    <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts -->
+            <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+            
+        <!-- PARA FECHA -->
+        <link href="resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
     
         <title>SAPito</title>
     </head>
@@ -46,7 +49,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <br/>                            
-                                    <div class="panel panel-primary">
+                                    <div class="panel panel-green">
                                         <div class="panel-heading">
                                             <h3 class="panel-title" >Datos</h3>
                                         </div>
@@ -56,7 +59,7 @@
                                                 <form action="gdaModificacion" method="post">                                                                 
                                                     <div class="form-group ">
                                                         <label class="control-label" >Producto</label>
-                                                        <select name="sProducto" class="form-control" required>
+                                                        <select disabled="true" name="sProducto" class="form-control" required>
                                                         	<option value="">Selecciona Producto</option>
                                                 			<option selected>Laptop Lenovo</option>
 			                                            </select>
@@ -82,7 +85,7 @@
                                                 <div class="col-lg-6 text-left"> 
                                                     <div class="form-group ">
                                                         <label class="control-label" >Propietario</label>
-                                                        <select name="sProducto" class="form-control" required>
+                                                        <select disabled="true" name="sProducto" class="form-control" required>
                                                         	<option value="">Selecciona Propietario</option>
                                                 			<option selected>Ing. Daniel Sanchez</option>
                                                             <option>Lic. Geraldine Morales</option>
@@ -90,11 +93,7 @@
                                                     </div> 
                                                     <div class="form-group">
                                                         <label class="control-label" >Fecha de Adquisici&oacute;n</label>
-                                                        <input type="date" class="form-control" value="2015-01-17">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" >Cantidad</label>
-                                                        <input type="text" pattern="[0-9]{2}" title="Únicamente números enteros" name="cantidad" class="form-control" required  placeholder="Escribe n&uacute;mero" value="10">
+                                                        <input id="fecha" type="date" class="form-control" value="2015-01-17">
                                                     </div>
                                                 </div>
                                                 
@@ -104,7 +103,7 @@
                                     </div>                               
                                                     	<div class="form-group" style="text-align:right">
                                                         	<a href="consultar" onclick="return confirm('¿Est&aacute; seguro de cancelar la operaci&oacute;n?');"><input type="button" class="btn btn-primary" value="Cancelar"></a>
-                                                        	<input type="submit" class="btn btn-primary" value="Continuar">
+                                                        	<input type="submit" class="btn btn-success" value="Continuar">
 	                                                    </div>  
                                  
                                                 </form>
@@ -129,5 +128,18 @@
     
 	    <!-- Custom Theme JavaScript -->
     	<script src="resources/js/libs/sb-admin-2.js"></script>
+        
+        <!-- PARA FECHA -->
+	  	<script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
+        <script type="text/javascript">
+	  		$(document).ready(function(){
+	  			$( "#fecha" ).datepicker({
+					dateFormat: "yy-mm-dd",
+					dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+					dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+					monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
+				});		
+		  });
+	  	</script>
     </body>
 </html>

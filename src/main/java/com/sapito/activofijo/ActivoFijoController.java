@@ -32,10 +32,10 @@ public class ActivoFijoController {
         return "ActivoFijo/gdaAlta";
     }
     
-    @RequestMapping(value="asignar", method=RequestMethod.GET)
+    /*@RequestMapping(value="asignar", method=RequestMethod.GET)
     public String asignar(Model model){
         return "ActivoFijo/asignar";
-    }
+    }*/
     
     @RequestMapping(value="aActivoFijo", method=RequestMethod.GET)
     public String aActivoFijo(Model model){
@@ -77,22 +77,12 @@ public class ActivoFijoController {
         return "ActivoFijo/gdaBaja";
     }
     
-    @RequestMapping(value="existencia", method=RequestMethod.GET)
-    public String existencia(Model model){
-        return "ActivoFijo/existencia";
-    }
-    
-    @RequestMapping(value="historial", method=RequestMethod.GET)
-    public String historial(Model model){
-        return "ActivoFijo/historial";
-    }
-    
     @RequestMapping(value="rSolicitud", method=RequestMethod.GET)
     public String rSolicitud(Model model){
         return "ActivoFijo/rSolicitud";
     }
     
-    @RequestMapping(value="gdaSolicitud", method=RequestMethod.POST)
+    @RequestMapping(value="gdaSolicitud",method=RequestMethod.POST)
     public String gdaSolicitud(Model model){
         return "ActivoFijo/gdaSolicitud";
     }
@@ -100,5 +90,40 @@ public class ActivoFijoController {
     @RequestMapping(value="consultar", method=RequestMethod.GET)
     public String consultar(Model model){
         return "ActivoFijo/consultar";
+    }
+    
+    @RequestMapping(value="formularioSolicitudCorrecta", method=RequestMethod.GET)
+    public String formularioSolicitudCorrecta(Model model){
+        return "ActivoFijo/formularioSolicitudCorrecta";
+    }
+    @RequestMapping(value="formularioSolicitudErronea", method=RequestMethod.GET)
+    public String formularioSolicitudErronea(Model model){
+        return "ActivoFijo/formularioSolicitudErronea";
+    }
+
+    
+    @RequestMapping(value="gdaSolicitudError", method=RequestMethod.GET)
+    public String gdaSolicitudError(Model model){
+        return "ActivoFijo/gdaSolicitudError";
+    }
+    
+    @RequestMapping(value="gdaSolicitudCorrecta", method=RequestMethod.GET)
+    public String gdaSolicitudCorrecta(Model model){
+        return "ActivoFijo/gdaSolicitudCorrecta";
+    }
+    
+    @RequestMapping(value="reporteInversion", method=RequestMethod.GET)
+    public String reporteInversion(Model model){
+        return "ActivoFijo/reporteInversion";
+    }
+    
+    @RequestMapping(value="reporteDepreciacion", method=RequestMethod.GET)
+    public String reporteDepreciacion(Model model){
+        return "ActivoFijo/reporteDepreciacion";
+    }
+    
+    @RequestMapping(value="gdaReporte", method=RequestMethod.GET)
+    public String gdaReporte(Model model){
+        return "ActivoFijo/gdaReporte";
     }
 }

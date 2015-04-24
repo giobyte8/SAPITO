@@ -12,16 +12,16 @@
         <link type="text/css" rel="stylesheet" href="resources/css/sapito.css">
     
     	<!-- Bootstrap Core CSS -->
-	    <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
+            <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    	<!-- MetisMenu CSS -->
-	    <link href="resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <!-- Morris css -->
+            <link href="resources/css/libs/morris.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom CSS -->
-	    <link href="resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <!-- Custom CSS -->
+            <link href="resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom Fonts -->
-	    <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts -->
+            <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
         
         <!-- PARA FECHA -->
         <link href="resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <br/>                            
-                                    <div class="panel panel-primary">
+                                    <div class="panel panel-green">
                                         <div class="panel-heading">
                                             <h3 class="panel-title" >Mensaje</h3>
                                         </div>

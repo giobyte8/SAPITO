@@ -12,16 +12,19 @@
         <link type="text/css" rel="stylesheet" href="resources/css/sapito.css">
     
     	<!-- Bootstrap Core CSS -->
-	    <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
+            <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    	<!-- MetisMenu CSS -->
-	    <link href="resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <!-- Morris css -->
+            <link href="resources/css/libs/morris.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom CSS -->
-	    <link href="resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <!-- Custom CSS -->
+            <link href="resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom Fonts -->
-	    <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts -->
+            <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+            
+        <!-- PARA FECHA -->
+        <link href="resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
     
         <title>SAPito</title>
     </head>
@@ -46,7 +49,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <br/>                            
-                                    <div class="panel panel-primary">
+                                    <div class="panel panel-green">
                                         <div class="panel-heading">
                                             <h3 class="panel-title" >Datos</h3>
                                         </div>
@@ -55,9 +58,9 @@
                                                 <div class="col-lg-12 text-left"> 
                                                 <form action="gdaAlta" method="post">                                                                 
                                                     <div class="form-group ">
-                                                        <label class="control-label" >Producto</label>
-                                                        <select name="sProducto" class="form-control" required>
-                                                        	<option value="">Selecciona Producto</option>
+                                                        <label class="control-label" >Activo Fijo</label>
+                                                        <select name="sActivo Fijo" class="form-control" required>
+                                                        	<option value="">Selecciona Activo Fijo</option>
                                                 			<option>Laptop Lenovo</option>
 			                                            </select>
                                                     </div>                                                                                       
@@ -69,21 +72,21 @@
                                                     </div>                                                                                       
                                                     <div class="form-group">
                                                         <label class="control-label" >Fecha de Adquisici&oacute;n</label>
-                                                        <input type="date" class="form-control" required>
+                                                        <input id="fecha" type="date" class="form-control" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" >Cantidad</label>
-                                                        <input type="text" pattern="[0-9]{2}" title="Únicamente números enteros" name="cantidad" class="form-control" required  placeholder="Escribe n&uacute;mero">
+                                                        <input type="text" id="cantidad" title="Únicamente números enteros" name="cantidad" class="form-control" required  placeholder="Escribe n&uacute;mero">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>                               
                                                     	<div class="form-group" style="text-align:right">
-                                                        	<input type="reset" class="btn btn-primary" value="Cancelar">
-                                                        	<input type="submit" class="btn btn-primary" value="Continuar">
+                                                            <input type="reset" class="btn btn-success" value="Cancelar">
+                                                        	<input type="submit" class="btn btn-success" value="Continuar">
 	                                                    </div>  
-                                 
+                                
                                                 </form>
                                     <!--                          Fin Codigo Para panel 5 o menos input -->
                                 </div>
@@ -106,5 +109,26 @@
     
 	    <!-- Custom Theme JavaScript -->
     	<script src="resources/js/libs/sb-admin-2.js"></script>
+        
+        <!-- PARA FECHA -->
+	  	<script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
+        <script type="text/javascript">
+	  		$(document).ready(function(){
+	  			$( "#fecha" ).datepicker({
+					dateFormat: "yy-mm-dd",
+					dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+					dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+					monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
+				});		
+		  });
+	  	</script>
+                
+        <!--Para validar solo numeros-->
+        <script type="text/javascript" src="resources/js/activofijo/jquery.numeric.js"></script>
+        <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#cantidad').numeric({ decimal: false, negative: false });
+                });
+            </script>
     </body>
 </html>
