@@ -30,108 +30,121 @@
 
           <!-- Formulario de nuevo cliente -->
           <form id="fnvo-cliente">
-            <div class="row">
-              <h3>&nbsp;&nbsp;Datos de la empresa</h3>
-              <div class="col-md-6">
-                <br/><label for="fnvoc-empresa">Empresa</label>
-                <input type="text" class="form-control"/>
+
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4>Datos de la empresa</h4>
               </div>
-              
-              <div class="col-md-6">
-                <br/><label for="fnvoc-suc">Sucursal</label>
-                <input type="text" class="form-control"/>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label for="fnvoc-empresa">Empresa</label>
+                    <input type="text" class="form-control"/>
+                  </div>
+
+                  <div class="col-md-6">
+                    <br/><label for="fnvoc-suc">Sucursal</label>
+                    <input type="text" class="form-control"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label for="fnvoc-rfc">RFC</label>
+                    <input type="text" class="form-control"/>
+                  </div>
+
+                  <div class="col-md-6">
+                    <br/><label for="fnvoc-direccion">Calle y número</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <br/><label for="fnvoc-colonia">Código Postal</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-md-3">
+                    <br/><label for="fnvoc-colonia">Colonia</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="col-md-3">
+                    <br/><label for="fnvoc-municipio">Municipio o ciudad</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="col-md-3">
+                    <br/><label for="fnvoc-estado">Estado</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label for="fnvoc-rfc">RFC</label>
-                <input type="text" class="form-control"/>
-              </div>
-              
-              <div class="col-md-6">
-                <br/><label for="fnvoc-direccion">Calle y número</label>
-                <input type="text" class="form-control">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">
-                <br/><label for="fnvoc-colonia">Código Postal</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col-md-3">
-                <br/><label for="fnvoc-colonia">Colonia</label>
-                <input type="text" class="form-control" />
-              </div>
-              <div class="col-md-3">
-                <br/><label for="fnvoc-municipio">Municipio o ciudad</label>
-                <input type="text" class="form-control" />
-              </div>
-              <div class="col-md-3">
-                <br/><label for="fnvoc-estado">Estado</label>
-                <input type="text" class="form-control" />
-              </div>
-            </div>
-              
+
             <br/><br/>
-            <div class="row">
-              <h3>&nbsp;&nbsp;Datos del contacto</h3>
-              <div class="col-md-4">
-                <br/><label for="fnvoc-nombre">Nombre (s)</label>
-                <input type="text" class="form-control"/>
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4>Datos del contacto</h4>
               </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <br/><label for="fnvoc-nombre">Nombre (s)</label>
+                    <input type="text" class="form-control"/>
+                  </div>
 
-              <div class="col-md-4">
-                <br/><label for="fnvoc-apaterno">Apellido paterno</label>
-                <input type="text" class="form-control"/>
-              </div>
+                  <div class="col-md-4">
+                    <br/><label for="fnvoc-apaterno">Apellido paterno</label>
+                    <input type="text" class="form-control"/>
+                  </div>
 
-              <div class="col-md-4">
-                <br/><label for="fnvoc-amaterno">Apellido materno</label>
-                <input type="text" class="form-control"/>
+                  <div class="col-md-4">
+                    <br/><label for="fnvoc-amaterno">Apellido materno</label>
+                    <input type="text" class="form-control"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <br/><label for="fnvoc-email">Email</label>
+                    <input type="email" class="form-control" />
+                  </div>
+
+                  <div class="col-md-4">
+                    <br/><label for="fnvoc-empresa">Teléfono</label>
+                    <input type="text" class="form-control"/>
+                  </div>
+
+                  <div class="col-md-4">
+                    <br/><label for="fnvoc-rfc">Teléfono movil</label>
+                    <input id="fnvoc-rfc" type="text" class="form-control"/>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-4">
-                <br/><label for="fnvoc-email">Email</label>
-                <input type="email" class="form-control" />
-              </div>
 
-              <div class="col-md-4">
-                <br/><label for="fnvoc-empresa">Teléfono</label>
-                <input type="text" class="form-control"/>
-              </div>
-              
-              <div class="col-md-4">
-                <br/><label for="fnvoc-rfc">Teléfono movil</label>
-                <input id="fnvoc-rfc" type="text" class="form-control"/>
-              </div>
-            </div>
+                <div class="row text-right">
+                  <div class="col-md-12">
+                    <br/><br/>
+                    <button onclick="submitNvoCliente()" class="btn btn-success right" type="button">
+                      Guardar
+                    </button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-primary right" type="reset">
+                      Limpiar
+                    </button>
+                    <br/><br/>
+                  </div>
+                </div>
+                </form>
 
-            <div class="row text-right">
-              <div class="col-md-12">
-                <br/><br/>
-                <button onclick="submitNvoCliente()" class="btn btn-success right" type="button">
-                  Guardar
-                </button>
-                &nbsp;&nbsp;
-                <button class="btn btn-primary right" type="reset">
-                  Limpiar
-                </button>
-                <br/><br/>
               </div>
             </div>
-          </form>
+        </div>
 
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer and scripts -->
-  <%@include file="ventasFooter.jsp" %>
-  <script >
-      $(document).ready(function () {
-          activatenb('nb-nvocliente');
-      });
-  </script>
-</body>
-</html>
+        <!-- Footer and scripts -->
+        <%@include file="ventasFooter.jsp" %>
+        <script >
+            $(document).ready(function () {
+                activatenb('nb-nvocliente');
+            });
+        </script>
+        </body>
+        </html>
