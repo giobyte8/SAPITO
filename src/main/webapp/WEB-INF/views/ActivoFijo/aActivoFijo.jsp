@@ -10,29 +10,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="resources/css/sapito.css">
-    
-    	<!-- Bootstrap Core CSS -->
-	    <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
 
-    	<!-- MetisMenu CSS -->
-	    <link href="resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+            <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom CSS -->
-	    <link href="resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <!-- Morris css -->
+            <link href="resources/css/libs/morris.css" rel="stylesheet" type="text/css">
 
-    	<!-- Custom Fonts -->
-	    <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
-        
+        <!-- Custom CSS -->
+            <link href="resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
+
+        <!-- Custom Fonts -->
+            <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- PARA FECHA -->
         <link href="resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
-    
+
         <title>SAPito</title>
     </head>
     <body>
-    	<div id="wrapper">
-		    <%@include file="Menu.jsp"%>
+        <div id="wrapper">
+            <%@include file="Menu.jsp"%>
 
-        	<!-- Page Content -->
+            <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
 
@@ -43,78 +43,88 @@
                             </h1>                        
                         </div>
                     </div>        
-					<center>
-                    <div class="row">
-                        <div class="col-lg-12 text-left">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <br/>                            
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title" >Datos</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-lg-12 text-left"> 
-                                                <form action="gdaActivoFijo" method="post">                                                                 
-                                                    <div class="form-group ">
-                                                        <label class="control-label" >Departamento</label>
-                                                        <select name="sProducto" class="form-control" required>
-                                                        	<option value="">Selecciona Departamento</option>
-                                                            <option>Direcci&oacute;n</option>
-                                                			<option>Recursos Humanos</option>
-			                                            </select>
+                    <center>
+                        <div class="row">
+                            <div class="col-lg-12 text-left">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <br/>                            
+                                        <div class="panel panel-green">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title" >Datos</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 text-left"> 
+                                                        <form action="gdaActivoFijo" method="post">                                                                 
+                                                            <div class="form-group ">
+                                                                <label class="control-label" >Departamento</label>
+                                                                <select name="sProducto" class="form-control" required>
+                                                                    <option value="">Selecciona Departamento</option>
+                                                                    <option>Direcci&oacute;n</option>
+                                                                    <option>Recursos Humanos</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label class="control-label" >Propietario</label>
+                                                                <select name="sProducto" class="form-control" required>
+                                                                    <option value="">Selecciona Propietario</option>
+                                                                    <option>Ing. Daniel Sanchez</option>
+                                                                    <option>Lic. Geraldine Morales</option>
+                                                                </select>
+                                                            </div>   
+                                                            <div class="form-group ">
+                                                                <label class="control-label" >Depreciación</label>
+                                                                <select name="sProducto" class="form-control" required>
+                                                                    <option value="">Selecciona tipo de depreciación</option>
+                                                                    <option>Línea recta</option>
+                                                                    <option>Suma de dígitos anuales </option>
+                                                                    <option>Doble saldo decreciente </option>
+                                                                </select>
+                                                            </div>   
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <label class="control-label" >Propietario</label>
-                                                        <select name="sProducto" class="form-control" required>
-                                                        	<option value="">Selecciona Propietario</option>
-                                                			<option>Ing. Daniel Sanchez</option>
-                                                            <option>Lic. Geraldine Morales</option>
-			                                            </select>
-                                                    </div>   
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>                                 
-										<div class="form-group text-right">
-                                        	<a href="asignar" onclick="return confirm('¿Est&aacute; seguro de cancelar la operaci&oacute;n?');"><input type="button" class="btn btn-primary" value="Cancelar"></a>
-                                            <input type="submit" class="btn btn-primary" value="Continuar">
-	                                    </div>                                     
+                                        </div>                                 
+                                        <div class="form-group text-right">
+                                            <input type="reset" class="btn btn-success" value="Cancelar">
+                                            <!-- Bootstrap Core JavaScript 	<a href="asignar" onclick="return confirm('¿Est&aacute; seguro de cancelar la operaci&oacute;n?');"><input type="button" class="btn btn-primary" value="Cancelar"></a>-->
+                                            <input type="submit" class="btn btn-success" value="Continuar">
+                                        </div>                                     
                                         </form>
-                                    <!--                          Fin Codigo Para panel 5 o menos input -->
+                                        <!--                          Fin Codigo Para panel 5 o menos input -->
+                                    </div>
+                                    <!--                      Fin TODO aqui abajo-->               
                                 </div>
-                                <!--                      Fin TODO aqui abajo-->               
-							</div>
-						</div>
-					</div>
+                            </div>
+                        </div>
                     </center>
-				</div>
-			</div>
-		</div>
-	    <!-- jQuery -->
-    	<script src="resources/js/libs/jquery.min.js"></script>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery -->
+        <script src="resources/js/libs/jquery.min.js"></script>
 
-	    <!-- Bootstrap Core JavaScript -->
-    	<script src="resources/js/libs/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="resources/js/libs/bootstrap.min.js"></script>
 
-	    <!-- Metis Menu Plugin JavaScript -->
-    	<script src="resources/js/libs/metisMenu.min.js"></script>
-    
-	    <!-- Custom Theme JavaScript -->
-    	<script src="resources/js/libs/sb-admin-2.js"></script>
-        
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="resources/js/libs/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="resources/js/libs/sb-admin-2.js"></script>
+
         <!-- PARA FECHA -->
-	  	<script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
+        <script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
         <script type="text/javascript">
-	  		$(document).ready(function(){
-	  			$( "#fecha" ).datepicker({
-					dateFormat: "yy-mm-dd",
-					dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
-					dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
-					monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
-				});		
-		  });
-	  	</script>
+            $(document).ready(function() {
+                $("#fecha").datepicker({
+                    dateFormat: "yy-mm-dd",
+                    dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+                });
+            });
+        </script>
     </body>
 </html>

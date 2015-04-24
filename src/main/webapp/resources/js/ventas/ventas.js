@@ -143,6 +143,84 @@ function activatenb(nbtoactivate)
     }
 }
 
+function cancelarNvaOrdenVenta()
+{
+    swal({
+        title: '¿Seguro que desea cancelar?',
+        text: 'Esto eliminará los datos y productos de la orden de venta',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: 'Si, cancelar orden',
+        cancelButtonText: 'No',
+        closeOnConfirm: true
+    }, function () {
+        console.log('Limpiar el formulario de la orden de venta');
+    });
+}
+
+function guardarNvaOrdenVenta()
+{
+    swal({
+        title: '¿Generar factura?',
+        text: 'Indique si desea generar la factura de la orden de venta',
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#2ECC71',
+        confirmButtonText: 'Generar',
+        cancelButtonText: 'Ahora no',
+        closeOnConfirm: false,
+        closeOnCancel: false
+    }, function (isConfirm) {
+        if (isConfirm) {
+            swal({
+                title: 'Generada',
+                text: 'La factura ha sido generada con exito',
+                type: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#2ECC71',
+                confirmButtonText: 'Descargar',
+                cancelButtonText: 'Descargar luego',
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function () {
+                swal({
+                    title: '¿Imprimir ticket?',
+                    text: 'Indique si desea imprimir el ticket de la orden de venta',
+                    type: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#2ECC71',
+                    confirmButtonText: 'Imprimir',
+                    cancelButtonText: 'No imprimir',
+                    closeOnConfirm: false,
+                    closeOnCancel: true
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        swal("Listo", "El ticket ha sido impreso", "success");
+                    }
+                });
+            });
+        }
+        else {
+            swal({
+                title: '¿Imprimir ticket?',
+                text: 'Indique si desea imprimir el ticket de la orden de venta',
+                type: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#2ECC71',
+                confirmButtonText: 'Imprimir',
+                cancelButtonText: 'No imprimir',
+                closeOnConfirm: false,
+                closeOnCancel: true
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    swal("Listo", "El ticket ha sido impreso", "success");
+                }
+            });
+        }
+    })
+}
+
 function submitNvoCliente()
 {
     swal("Guardado", "El cliente ha sido registrado", "success");

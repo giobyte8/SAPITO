@@ -109,14 +109,12 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Modulo Logistica <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
-          <a href="#"><i class="fa fa-fw fa-user"></i> Perfile</a>
+          <a href="/SAPITO/logistica/perfil"><i class="fa fa-fw fa-user"></i> Perfile</a>
         </li>
-        <li>
-          <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-        </li>
+        
         <li class="divider"></li>
         <li>
-          <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
+          <a href="/SAPITO/indexMain"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
         </li>
       </ul>
     </li>

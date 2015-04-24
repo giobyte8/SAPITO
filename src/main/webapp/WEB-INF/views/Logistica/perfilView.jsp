@@ -26,81 +26,34 @@
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
-                Operadores
+                Logistica
               </h1>
             </div>
           </div>
-
-          <!-- Buttons bar -->
+          
           <div class="row">
-            <button class="btn btn-success" type="button">Nuevo operador</button>
+              
+              
+                
+                    <div class="col-md-7 user-details">
+                        <div class="row coralbg white">
+                            <div class="col-md-6 no-pad">
+                                <div class="user-pad">
+                                    <h3>Bienvenido Jefe de Logistica</h3>                                
+                                </div>
+                            </div>
+                            <div class="col-md-6 no-pad">
+                                <div class="user-image">
+                                    <img src="http://icons.iconarchive.com/icons/vargas21/aquave-metal/512/User-icon.png" class="img-responsive thumbnail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                                              
           </div>
-
-          <!-- Data table -->
-          <br/><br/>
-          <table id="toperadores" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th>Nombre</th>  
-                <th>Apellidos</th>
-                <th>Direccion</th>
-                <th>Numero Licencia</th>
-                <th>Pago por dia</th>                
-                <th>Opciones</th>
-              </tr>
-            </thead>
-            <tbody >
-              <tr>                                
-                <td>Pepe</td>
-                <td>Juarez</td>
-                <td>Toluca Lerma</td>
-                <td>30098FGT</td>
-                <td>450</td>
-                <td style="text-align: center">                
-                    <button class="btn btn-xs btn-success" type="button">Editar</button>
-                    <button class="btn btn-xs btn-success" type="button">Eliminar</button>
-                </td>
-              </tr>                            
-              <tr>                                
-                <td>Jose</td>
-                <td>Leon</td>
-                <td>Toluca Xona</td>
-                <td>123GHF</td>
-                <td>650</td>
-                <td style="text-align: center">                
-                    <button class="btn btn-xs btn-success" type="button">Editar</button>
-                    <button class="btn btn-xs btn-success" type="button">Eliminar</button>
-                </td>
-              </tr>               
-              <tr>                                
-                <td>Roberto</td>
-                <td>Campos</td>
-                <td>D.F</td>
-                <td>30098FGT</td>
-                <td>450</td>
-                <td style="text-align: center">                
-                    <button class="btn btn-xs btn-success" type="button">Editar</button>
-                    <button class="btn btn-xs btn-success" type="button">Eliminar</button>
-                </td>
-              </tr>                            
-            </tbody>
-          </table>
-
+          
         </div>
       </div>
-    </div>
-    
-    <!-- Footer and scripts -->
-    
-    
-    
-    <%@include file="logisticaFooter.jsp" %>
-    
-    <script >
-        $(document).ready(function () {
-            activatenb('nb-operadores');
-            $('#toperadores').DataTable();
-        });
-    </script>
+
+          <%@include file="logisticaFooter.jsp" %>
   </body>
 </html>

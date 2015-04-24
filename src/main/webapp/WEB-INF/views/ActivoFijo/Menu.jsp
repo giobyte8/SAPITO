@@ -1,79 +1,74 @@
 <!-- Navigation -->
 <%@include file="../Default/Modal/proximamente.jsp"%>
-            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">SAPito</a>
-                </div>
-                <!-- /.navbar-header -->
-
-                <ul class="nav navbar-top-links navbar-right">
-                    
-                    <!-- /.dropdown -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="modal" data-target="#proximamente">
-                			<i class="fa fa-bell fa-fw"></i><i class="fa fa-caret-down"></i>
-            			</a>
+            <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SAPito</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Solicitud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="formularioSolicitudCorrecta"><i class="fa fa-sign-out fa-fw"></i> AF: Producto1, cantidad:2 </a>
+                        </li>
+                        <li>
+                            <a href="formularioSolicitudErronea"><i class="fa fa-sign-out fa-fw"></i> AF: Producto2, cantidad:1 </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#proximamente">
+                        <i class="fa fa-bell"></i> <b class="caret"></b>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Activo Fijo <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="activofijo"><i class="fa fa-building fa-fw"></i> Activo Fijo</a>
                     </li>
-                    <!-- /.dropdown -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i>  Activo Fijo <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-exchange fa-fw"></i> Operaciones <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="alta">Alta de Activo Fijo</a>
+                            </li>
+                            <li>
+                                <a href="consultar">Consultar Activo Fijo</a>
+                            </li>
+                            <li>
+                                <a href="traslado">Traslado de Activo Fijo</a>
                             </li>
                         </ul>
-                        <!-- /.dropdown-user -->
                     </li>
-                    <!-- /.dropdown -->
+                    <li>
+                        <a href="rSolicitud"><i class="fa  fa-file-text  fa-fw"></i> Realizar Solicitud</a>
+                    </li>
+                    <li>
+                        <a href="reporteInversion"><i class="fa  fa-database fa-fw"></i> Reporte de inversi&oacute;n</a>
+                    </li>
+                    <li>
+                        <a href="reporteDepreciacion"><i class="fa fa-calendar fa-fw"></i> Reporte de depreciaci&oacute;n</a>
+                    </li>
                 </ul>
-                <!-- /.navbar-top-links -->
-
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            
-                            <li>
-                                <a href="activofijo"><i class="fa fa-building fa-fw"></i> Activo Fijo</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-exchange fa-fw"></i> Operaciones<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="alta">Alta de Activo Fijo</a>
-                                    </li>
-                                    <li>
-                                        <a href="asignar">Asignar Activo Fijo</a>
-                                    </li>
-                                    <li>
-                                        <a href="consultar">Consultar Activo Fijo</a>
-                                    </li>
-                                    <li>
-                                        <a href="traslado">Traslado de Activo Fijo</a>
-                                    </li>                                  
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="rSolicitud"><i class="fa  fa-file-text  fa-fw"></i> Realizar Solicitud</a>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="existencia"><i class="fa  fa-database fa-fw"></i> Existencias en Almac&eacute;n</a>
-                            </li>
-                            <li>
-                                <a href="historial"><i class="fa fa-calendar fa-fw"></i> Historial de Traslados</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.sidebar-collapse -->
-                </div>
-                <!-- /.navbar-static-side -->
-            </nav>
-
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
