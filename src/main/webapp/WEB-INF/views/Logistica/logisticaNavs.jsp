@@ -70,7 +70,7 @@
           </a>
         </li>
         <li class="message-footer">
-          <a href="#">Read All New Messages</a>
+          <a href="/SAPITO/logistica/mensajes">Read All New Messages</a>
         </li>
       </ul>
     </li>
@@ -99,7 +99,7 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="#">View All</a>
+          <a href="/SAPITO/logistica/alertas">View All</a>
         </li>
       </ul>
     </li>
