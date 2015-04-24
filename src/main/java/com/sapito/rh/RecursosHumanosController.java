@@ -48,10 +48,10 @@ public class RecursosHumanosController
         return "RH/BajaEmpleado";
     }
 
-    @RequestMapping(value = "ModificacionEmpleado", method = RequestMethod.GET)
-    public String ModificacionEmpleado(Model model)
+    @RequestMapping(value = "updateEmpleado", method = RequestMethod.GET)
+    public String updateEmpleado(Model model)
     {
-        return "RH/ModificacionEmpleado";
+        return "RH/updateEmpleado";
     }
 
     @RequestMapping(value = "HistorialEmpleado", method = RequestMethod.GET)
@@ -111,6 +111,17 @@ public class RecursosHumanosController
     public String adminDepAdmin(Model model)
     {
         return "RH/adminDepartamentosAdministrador";
+    }
+    
+    @RequestMapping(value = "updateDepAdmin", method = RequestMethod.GET)   
+    public String updateDepAdmin(Model model)
+    {
+        return "RH/updateDepartamentoAdministrador";
+    }
+    @RequestMapping(value = "deleteDepAdmin", method = RequestMethod.GET)   
+    public String deleteDepAdmin(Model model)
+    {
+        return "RH/deleteDepartamentoAdministrador";
     }
     
     @RequestMapping(value = "addRolesAdmin", method = RequestMethod.GET)

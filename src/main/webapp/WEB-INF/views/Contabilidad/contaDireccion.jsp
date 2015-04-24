@@ -25,7 +25,7 @@
         <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        <link href="../resources/css/libs/sb-admin.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">

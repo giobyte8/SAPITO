@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.sapito.logistica;
 
 import org.springframework.stereotype.Controller;
@@ -37,8 +31,59 @@ public class LogisticaController
     @RequestMapping(value="logistica/empresa/camiones", method=RequestMethod.GET)
     public String camiones(Model model)
     {
-        return "Logistica/camiones";
+        return "Logistica/transportePage";
     }
+    @RequestMapping(value="logistica/operadores", method=RequestMethod.GET)
+    public String operadores(Model model)
+    {
+        return "Logistica/operadoresPage";
+    }
+    
+    
+    @RequestMapping(value="logistica/gastosenvio", method=RequestMethod.GET)
+    public String gastos(Model model)
+    {
+        return "Logistica/gastosEnvioPage";
+    }
+    
+    
+    @RequestMapping(value="logistica/envios", method=RequestMethod.GET)
+    public String envios(Model model)
+    {
+        return "Logistica/enviosPage";
+    }
+    
+    @RequestMapping(value="logistica/mensajes", method=RequestMethod.GET)
+    public String mensajes(Model model)
+    {
+        return "Logistica/mensajesView";
+    }
+    
+    @RequestMapping(value="logistica/alertas", method=RequestMethod.GET)
+    public String alertas(Model model)
+    {
+        return "Logistica/alertView";
+    }
+    
+    @RequestMapping(value="logistica/perfil", method=RequestMethod.GET)
+    public String perfil(Model model)
+    {
+        return "Logistica/perfilView";
+    }
+    
+    public String hola(String hola)
+    {
+        System.out.println("Hola asas");
+        return "Logistica/operadores";
+    }
+    
+    @RequestMapping(value="logistica/empresa/altaEmpresa", method=RequestMethod.GET)
+    public String altaEmpresa(Model model)
+    {
+        return "Logistica/nacionalNew";
+    }
+    
+    
 //    
 //    @RequestMapping(value="logistica", method=RequestMethod.GET)
 //    public String index(Model model)

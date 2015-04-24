@@ -195,9 +195,15 @@
 
             <div class="col-sm-12 text-right">
               <br/><br/>
-              <button type="button" class="btn btn-danger btn-lg">Cancelar orden</button>
+              <button type="button" class="btn btn-danger btn-lg" 
+                      onclick="cancelarNvaOrdenVenta()">
+                Cancelar orden
+              </button>
               &nbsp;&nbsp;
-              <button type="button" class="btn btn-success btn-lg">Guardar orden</button>
+              <button type="button" class="btn btn-success btn-lg" 
+                      onclick="guardarNvaOrdenVenta()">
+                Guardar orden
+              </button>
             </div>
           </div>
 
