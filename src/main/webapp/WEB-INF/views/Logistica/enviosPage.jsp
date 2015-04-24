@@ -1,30 +1,15 @@
 <%-- 
-<<<<<<< HEAD
-    Document   : operadoresPage
-    Created on : 23/04/2015, 11:29:17 PM
-    Author     : logistica
-=======
     Document   : indexLogistica
     Created on : Feb 17, 2015, 4:33:38 AM
     Author     : nel
->>>>>>> origin/master
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-=======
   <head>
     <%@include file="LogisticaHead.jsp" %>
-    <title>SAPito - Operadores</title>
+    <title>SAPito - Envios</title>
   </head>
   <body>
     <div id="wrapper">
@@ -41,58 +26,53 @@
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
-                Operadores
+                Envios
               </h1>
             </div>
           </div>
 
           <!-- Buttons bar -->
           <div class="row">
-            <button class="btn btn-success" type="button">Nuevo operador</button>
+            <button class="btn btn-success" type="button">Nuevo envio</button>
           </div>
 
           <!-- Data table -->
           <br/><br/>
-          <table id="toperadores" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
+          <table id="tenviosPage" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Nombre</th>  
-                <th>Apellidos</th>
-                <th>Direccion</th>
-                <th>Numero Licencia</th>
-                <th>Pago por dia</th>                
-                <th>Opciones</th>
+                <th>Cliente</th>  
+                <th>Hora de entrega</th>
+                <th>Tiempo de entrega</th>
+                <th>Nombre del receptor</th>
+                <th>Transporte asignadoo</th>                
+                <th>Conductor asignado</th>
+                <th>Gastos para el envio</th>                
+                <th>Opciones</th>                
               </tr>
             </thead>
             <tbody >
               <tr>                                
-                <td>Pepe</td>
-                <td>Juarez</td>
-                <td>Toluca Lerma</td>
-                <td>30098FGT</td>
-                <td>450</td>
+                <td>VW</td>
+                <td>19:30</td>
+                <td>3 hr</td>
+                <td>Pedro Romero Morales</td>
+                <td>3FDRT</td>
+                <td>Jose Perez Leon</td>
+                <td>10000</td>
                 <td style="text-align: center">                
                     <button class="btn btn-xs btn-success" type="button">Editar</button>
                     <button class="btn btn-xs btn-success" type="button">Eliminar</button>
                 </td>
               </tr>                            
               <tr>                                
-                <td>Jose</td>
-                <td>Leon</td>
-                <td>Toluca Xona</td>
-                <td>123GHF</td>
-                <td>650</td>
-                <td style="text-align: center">                
-                    <button class="btn btn-xs btn-success" type="button">Editar</button>
-                    <button class="btn btn-xs btn-success" type="button">Eliminar</button>
-                </td>
-              </tr>               
-              <tr>                                
-                <td>Roberto</td>
-                <td>Campos</td>
-                <td>D.F</td>
-                <td>30098FGT</td>
-                <td>450</td>
+                <td>GM</td>
+                <td>13:30</td>
+                <td>6 hr</td>
+                <td>Juan Romero Hernandez</td>
+                <td>45ASDF</td>
+                <td>Felipe Cano Romero</td>
+                <td>80000</td>
                 <td style="text-align: center">                
                     <button class="btn btn-xs btn-success" type="button">Editar</button>
                     <button class="btn btn-xs btn-success" type="button">Eliminar</button>
@@ -113,10 +93,9 @@
     
     <script >
         $(document).ready(function () {
-            activatenb('nb-operadores');
-            $('#toperadores').DataTable();
+            activatenb('nb-enviosPage');
+            $('#tenviosPage').DataTable();
         });
     </script>
   </body>
->>>>>>> origin/master
 </html>

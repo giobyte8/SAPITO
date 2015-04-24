@@ -31,7 +31,44 @@ public class LogisticaController
     @RequestMapping(value="logistica/empresa/camiones", method=RequestMethod.GET)
     public String camiones(Model model)
     {
-        return "Logistica/camiones";
+        return "Logistica/transportePage";
+    }
+    @RequestMapping(value="logistica/operadores", method=RequestMethod.GET)
+    public String operadores(Model model)
+    {
+        return "Logistica/operadoresPage";
+    }
+    
+    
+    @RequestMapping(value="logistica/gastosenvio", method=RequestMethod.GET)
+    public String gastos(Model model)
+    {
+        return "Logistica/gastosEnvioPage";
+    }
+    
+    
+    @RequestMapping(value="logistica/envios", method=RequestMethod.GET)
+    public String envios(Model model)
+    {
+        return "Logistica/enviosPage";
+    }
+    
+    @RequestMapping(value="logistica/mensajes", method=RequestMethod.GET)
+    public String mensajes(Model model)
+    {
+        return "Logistica/mensajesView";
+    }
+    
+    @RequestMapping(value="logistica/alertas", method=RequestMethod.GET)
+    public String alertas(Model model)
+    {
+        return "Logistica/alertView";
+    }
+    
+    public String hola(String hola)
+    {
+        System.out.println("Hola asas");
+        return "Logistica/operadores";
     }
     
     @RequestMapping(value="logistica/empresa/altaEmpresa", method=RequestMethod.GET)

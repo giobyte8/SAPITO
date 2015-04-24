@@ -70,7 +70,7 @@
           </a>
         </li>
         <li class="message-footer">
-          <a href="#">Read All New Messages</a>
+          <a href="/SAPITO/logistica/mensajes">Read All New Messages</a>
         </li>
       </ul>
     </li>
@@ -99,7 +99,7 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="#">View All</a>
+          <a href="/SAPITO/logistica/alertas">View All</a>
         </li>
       </ul>
     </li>
@@ -129,13 +129,13 @@
         <a href="/SAPITO/logistica"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
       </li>      
       <li id="nb-vendedores">
-        <a href="/SAPITO/vendedores"><i class="fa fa-fw fa-send"></i> Envios</a>
+        <a href="/SAPITO/logistica/envios"><i class="fa fa-fw fa-send"></i> Envios</a>
       </li>
       <li id="nb-vendedores">
-        <a href="/SAPITO/vendedores"><i class="fa fa-fw fa-taxi"></i> Operadores </a>
+            <a href="/SAPITO/logistica/operadores"><i class="fa fa-fw fa-taxi"></i> Operadores </a>
       </li>
       <li id="nb-vendedores">
-        <a href="/SAPITO/vendedores"><i class="fa fa-fw fa-usd"></i> Gastos de envio</a>
+        <a href="/SAPITO/logistica/gastosenvio"><i class="fa fa-fw fa-usd"></i> Gastos de envio</a>
       </li>
       
 <!--      transporte-->

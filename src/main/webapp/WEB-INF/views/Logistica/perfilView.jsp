@@ -1,27 +1,12 @@
 <%-- 
-<<<<<<< HEAD
-    Document   : operadoresPage
-    Created on : 23/04/2015, 11:29:17 PM
-    Author     : logistica
-=======
     Document   : indexLogistica
     Created on : Feb 17, 2015, 4:33:38 AM
     Author     : nel
->>>>>>> origin/master
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-=======
   <head>
     <%@include file="LogisticaHead.jsp" %>
     <title>SAPito - Operadores</title>
@@ -118,5 +103,4 @@
         });
     </script>
   </body>
->>>>>>> origin/master
 </html>
