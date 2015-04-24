@@ -161,4 +161,19 @@ public class RecursosHumanosController
     {
         return "RH/adminCapacitacionOperativo";
     }
+    @RequestMapping(value = "adminPrestacionesAdmin", method = RequestMethod.GET)
+    public String adminPrestacionesAdministrador(Model model)
+    {
+        return "RH/adminPrestacionesAdmin";
+    }
+    @RequestMapping(value = "addPrestacionesAdministrador", method = RequestMethod.GET)
+    public String addPrestacionesAdministrador(Model model)
+    {
+        return "RH/addPrestacionesAdministrador";
+    }
+    @RequestMapping(value = "downPrestacionesAdministrador", method = RequestMethod.GET)
+    public String downPrestacionesAdministrador(Model model)
+    {
+        return "RH/downPrestacionesAdministrador";
+    }
 }

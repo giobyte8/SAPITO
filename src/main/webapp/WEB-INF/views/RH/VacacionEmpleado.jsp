@@ -32,7 +32,7 @@
                     <form onsubmit="return elementoSeleccionado()">
                         <div class="row">
                             <div class="col-lg-12 text-left">
-                                <div class="panel panel-primary">
+                                <div class="panel panel-green">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">Datos Del Empleado</h3>
                                     </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12 text-left">
-                                <div class="panel panel-primary">
+                                <div class="panel panel-green">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">Indique Las Fechas De Su Periodo De Vacaciones</h3>
                                     </div>

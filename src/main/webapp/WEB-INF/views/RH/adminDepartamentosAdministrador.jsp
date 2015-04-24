@@ -27,7 +27,7 @@
                     <div class="col-lg-12 text-left">
 
 
-                        <div class="panel panel-primary">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Departamentos</h3>
                             </div>
@@ -52,13 +52,13 @@
                                 <tbody>
                                     <tr>
                                         <td>Dirección</td>
-                                       <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                                     </tr>
+                                    </tr>
                                     <tr>
                                         <td>Ventas</td>
-                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                                     </tr>
@@ -136,7 +136,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
-                        <script src="${pageContext.request.contextPath}/resources/js/rh/empleadosRh.js"></script>
-                        </body>
-                        </html>
+                    </div>
+                </div>
+            </div>
+            <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+            <script src="${pageContext.request.contextPath}/resources/js/rh/empleadosRh.js"></script>
+    </body>
+</html>

@@ -22,7 +22,7 @@
                     </h1>
                 </div>
             </div>
-            <div class="panel panel-primary">
+            <div class="panel panel-green">
                 <div class="panel-heading">
                     <h3 class="panel-title">Departamento</h3>
                 </div>

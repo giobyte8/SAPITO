@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <%@include file="Librerias/headgeneral.jsp"%><!-- ESTO MANDA A TRAER Las cabeceras-->
+        <%@include file="Librerias/headgeneral.jsp"%><!-- ESTO MANDA A TRAER Las cabeceras-->
 
         <title>SAPITO ITT</title>
     </head>
@@ -15,19 +15,22 @@
         <%@include file="Menus/MenuJefeDepartamento.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
         <div id="page-wrapper">
             <!--  ################################################-->
-            
-           <div class="container-fluid">
-                    <!-- Page Heading -->
 
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1 class="page-header">
-                                    Empleados en Vacaciones
-                                </h1>                        
-                            </div>
-                        </div>        
+            <div class="container-fluid">
+                <!-- Page Heading -->
 
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Empleados en Vacaciones
+                            </h1>                        
+                        </div>
+                    </div>        
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Alta Prestaciones</h3>
+                        </div>
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <div class="row">
@@ -66,13 +69,15 @@
                     </div>
                 </div>
             </div>
-
-            
-            <!--  ################################################-->
-
-            
         </div>
-        <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
-    </body>
+    </div>
+
+
+    <!--  ################################################-->
+
+
+</div>
+<%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER las acciones del menu-->
+</body>
 </html>
 

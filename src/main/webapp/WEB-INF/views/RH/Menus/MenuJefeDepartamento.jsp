@@ -47,7 +47,7 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav"  id="side-menu">
         <li>
-                <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="AltaEmpleado">Nuevo</a>
@@ -56,7 +56,7 @@
                     <a href="AdminEmpleados">Administrar</a>
                   </li>
                   <li>
-                    <a href="HistorialEmpleado.html">Historial</a>
+                    <a href="HistorialEmpleado">Historial</a>
                   </li>
                    <li>
                     <a href="updateEmpleado">Editar</a>
@@ -77,7 +77,7 @@
                  /.nav-second-level 
               </li>-->
              <li>
-                <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="VacacionEmpleado.html">Alta</a>
@@ -92,7 +92,7 @@
               
 
                <li>
-                <a href="#"><i class="fa fa-fw fa-warning"></i>Departamentos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-warning"></i>Departamentos<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="altaDepAdmin">Alta</a>
@@ -131,13 +131,28 @@
                  /.nav-second-level 
               </li>-->
                <li>
-                <a href="#"><i class="fa fa-fw fa-arrow-circle-left"></i>Puestos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-arrow-circle-left"></i>Puestos<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="altaPuestoAdmin">Alta</a>
                   </li>
                   <li>
                     <a href="adminPuestoAdmin">Administrar</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+               <li>
+                <a href="#"><i class="fa fa-fw fa-arrow-circle-left"></i>Prestaciones<span class="fa fa-caret-down"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="addPrestacionesAdministrador">Alta</a>
+                  </li>
+                  <li>
+                    <a href="adminPrestacionesAdmin">Administrar</a>
+                  </li>
+                  <li>
+                    <a href="downPrestacionesAdministrador">Baja</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->

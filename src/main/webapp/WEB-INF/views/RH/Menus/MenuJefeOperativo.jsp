@@ -42,7 +42,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
+                        <a href="indexMain"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
                     </li>
                 </ul>
             </li>
@@ -52,7 +52,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav"  id="side-menu">
                 <li>
-                <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="#">Asistencia</a>
@@ -64,7 +64,7 @@
                 <!-- /.nav-second-level -->
               </li>
              <li>
-                <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-taxi"></i> Vacaciones<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="VacacionEmpleadoOperativo">Alta</a>
@@ -73,7 +73,7 @@
                 <!-- /.nav-second-level -->
               </li>
               <li>
-                <a href="#"><i class="fa fa-fw fa-plus"></i> Capacitaciones<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-fw fa-plus"></i> Capacitaciones<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                     <a href="adminCapacitacionOperativo">Ver capacitaciones</a>

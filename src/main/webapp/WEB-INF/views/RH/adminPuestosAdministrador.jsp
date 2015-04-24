@@ -27,7 +27,7 @@
                     <div class="col-lg-12 text-left">
 
 
-                        <div class="panel panel-primary">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Puestos</h3>
                             </div>

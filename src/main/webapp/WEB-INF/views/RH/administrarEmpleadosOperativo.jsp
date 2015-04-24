@@ -27,13 +27,13 @@
                     <div class="col-lg-12 text-left">
 
 
-                        <div class="panel panel-primary">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Empleados de Recursos HUmanos</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="input-group">
-                                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+                                    
                                     <input class="form-control" id="system-search" name="q" placeholder="Busqueda" required>
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>

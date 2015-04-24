@@ -16,30 +16,30 @@
         <%@include file="Menus/MenuJefeDepartamento.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">
-                        Editar Departamento
-                    </h1>
-                    <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Buscar Departamento</h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-lg-12 text-left">
-                                                <div class="form-group input-group">
-                                                    <input type="search" class="form-control" placeholder="nombre del departamento" onkeypress="return soloNumeros(event);" maxlength="10">
-                                                    <span class="input-group-btn">
-                                                        <button id="empId" type="button" class="btn btn-info" onclick="buscaNoValido()"><i class="fa fa-search"></i></button>
-                                                    </span>
-                                                </div>
-                                            </div>
+               <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Editar Departamento
+                        </h1>
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Buscar Departamento</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12 text-left">
+                                        <div class="form-group input-group">
+                                            <input type="search" class="form-control" placeholder="nombre del departamento" onkeypress="return soloNumeros(event);" maxlength="10">
+                                            <span class="input-group-btn">
+                                                <button id="empId" type="button" class="btn btn-info" onclick="buscaNoValido()"><i class="fa fa-search"></i></button>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-            <div class="panel panel-primary">
+            <div class="panel panel-green">
                 <div class="panel-heading">
                     <h3 class="panel-title">Departamento</h3>
                 </div>
