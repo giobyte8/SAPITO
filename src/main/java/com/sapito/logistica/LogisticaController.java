@@ -65,6 +65,12 @@ public class LogisticaController
         return "Logistica/alertView";
     }
     
+    @RequestMapping(value="logistica/perfil", method=RequestMethod.GET)
+    public String perfil(Model model)
+    {
+        return "Logistica/perfilView";
+    }
+    
     public String hola(String hola)
     {
         System.out.println("Hola asas");
@@ -76,6 +82,8 @@ public class LogisticaController
     {
         return "Logistica/nacionalNew";
     }
+    
+    
 //    
 //    @RequestMapping(value="logistica", method=RequestMethod.GET)
 //    public String index(Model model)
