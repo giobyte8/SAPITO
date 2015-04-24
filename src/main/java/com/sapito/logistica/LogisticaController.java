@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.sapito.logistica;
 
 import org.springframework.stereotype.Controller;
@@ -38,6 +32,12 @@ public class LogisticaController
     public String camiones(Model model)
     {
         return "Logistica/camiones";
+    }
+    
+    @RequestMapping(value="logistica/empresa/altaEmpresa", method=RequestMethod.GET)
+    public String altaEmpresa(Model model)
+    {
+        return "Logistica/nacionalNew";
     }
 //    
 //    @RequestMapping(value="logistica", method=RequestMethod.GET)
