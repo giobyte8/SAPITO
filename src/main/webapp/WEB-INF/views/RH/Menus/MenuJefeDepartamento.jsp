@@ -58,6 +58,9 @@
                   <li>
                     <a href="HistorialEmpleado.html">Historial</a>
                   </li>
+                   <li>
+                    <a href="updateEmpleado">Editar</a>
+                  </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
@@ -96,6 +99,9 @@
                   </li>
                   <li>
                     <a href="adminDepAdmin">Administrar</a>
+                  </li>
+                  <li>
+                    <a href="updateDepAdmin">Edicion</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
