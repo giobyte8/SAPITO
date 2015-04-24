@@ -33,7 +33,7 @@
 
           <!-- Buttons bar -->
           <div class="row">
-            <button class="btn btn-success" type="button">Nuevo envio</button>
+            <a href="/SAPITO/logistica/envios/altaEnvio"><button class="btn btn-success" type="button">Nuevo envio</button></a>
           </div>
 
           <!-- Data table -->
