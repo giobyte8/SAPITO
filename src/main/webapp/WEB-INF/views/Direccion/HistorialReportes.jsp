@@ -1,7 +1,7 @@
 <%-- 
     Document   : template1
     Created on : 7/02/2015, 02:34:44 AM
-    Author     : omar
+    Author     : Djx
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,18 +17,21 @@
         <meta name="author" content="">
 
         <title>SAPito</title>
+
+        <!--         Bootstrap Core CSS 
+                <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        
+                 MetisMenu CSS 
+                <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        
+                 Custom CSS 
+                <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        
+                 Custom Fonts 
+                <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">-->
         <%@include file="direccionHead.jsp" %>
-        <script src="../resources/js/direccion/Chart.js"></script>
-        <!--estilo operaciones-->
-        <style>
-            body{
-                padding: 0;
-                margin: 0;
-            }
-            #canvas-holder{
-                width:40%;
-            }
-        </style>
+
+
     </head>
 
     <body>
@@ -39,33 +42,28 @@
             <%@include file="dirNavs.jsp" %>
 
             <!-- Page Content -->
-            <div id="page-wrapper" >
+            <div id="page-wrapper">
                 <div class="container-fluid">
 
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Gráficas
+                                Consultar Reporte:
                             </h1>                        
                         </div>
-                    </div>   
+                        Fecha
+                        <input type="date" name="fecha">
+                        <hr>
+                        <div aling="left">
+                            
+                                <input type="submit" id="submit" name="submit" value="Aceptar"  class="btn btn-primary" required>
+
+                            
+                        </div>
+                    </div>        
 
 
-                    <div id="canvas-holder"align="left" >
-                        <canvas id="chart-area" width="200" height="200" align="right"/>
-                        <script src="../resources/js/direccion/rh.js"></script>
-                    </div>
-
-
-                    <div id="canvas-holder"align="right" >
-                        <canvas id="chart-area" width="200" height="200" align="right"/>
-                        <script src="../resources/js/direccion/operaciones.js"></script>
-                    </div>
-
-
-
-
-                </div><!-- Fin del tag del contenedor-->                            
+                </div><!-- Fin del tag del contenedor-->
             </div>
             <!-- /#page-wrapper -->
         </div>

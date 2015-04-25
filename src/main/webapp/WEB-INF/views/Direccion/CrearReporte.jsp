@@ -1,7 +1,7 @@
 <%-- 
     Document   : template1
     Created on : 7/02/2015, 02:34:44 AM
-    Author     : omar
+    Author     : Djx
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,18 +17,21 @@
         <meta name="author" content="">
 
         <title>SAPito</title>
+
+        <!--         Bootstrap Core CSS 
+                <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        
+                 MetisMenu CSS 
+                <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        
+                 Custom CSS 
+                <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        
+                 Custom Fonts 
+                <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">-->
         <%@include file="direccionHead.jsp" %>
-        <script src="../resources/js/direccion/Chart.js"></script>
-        <!--estilo operaciones-->
-        <style>
-            body{
-                padding: 0;
-                margin: 0;
-            }
-            #canvas-holder{
-                width:40%;
-            }
-        </style>
+
+
     </head>
 
     <body>
@@ -39,34 +42,34 @@
             <%@include file="dirNavs.jsp" %>
 
             <!-- Page Content -->
-            <div id="page-wrapper" >
+            <div id="page-wrapper">
                 <div class="container-fluid">
 
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Gráficas
+                                Generar Reporte: 4 de Abril del 2015
                             </h1>                        
                         </div>
-                    </div>   
-
-
-                    <div id="canvas-holder"align="left" >
-                        <canvas id="chart-area" width="200" height="200" align="right"/>
-                        <script src="../resources/js/direccion/rh.js"></script>
                     </div>
-
-
-                    <div id="canvas-holder"align="right" >
-                        <canvas id="chart-area" width="200" height="200" align="right"/>
-                        <script src="../resources/js/direccion/operaciones.js"></script>
+                    
+             <div class="panel panel-primary">
+              <div class="panel-heading">
+                 Ingrese la descripción del Reporte
+              </div>
+                 <div class="panel panel-body">
+                        <textarea name="Reporte" rows="15" cols="130"   ></textarea>
                     </div>
-
-
-
-
-                </div><!-- Fin del tag del contenedor-->                            
+              
+                <div class="panel-footer">
+                    <a class="btn btn-primary" type="button" href="#">Crear Reporte</a> 
+                    <a class="btn btn-primary" type="button" href="#">Cancelar</a>
+                 
+                </div>
+                 </div>
             </div>
+            <!-- /#page-wrapper -->
+        </div>
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->

@@ -1,7 +1,7 @@
 <%-- 
     Document   : template1
     Created on : 7/02/2015, 02:34:44 AM
-    Author     : Monse
+    Author     : Omar
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
+       <link type="text/css" rel="stylesheet" href="resources/css/sapito.css">
         <title>SAPito</title>
 
         <!-- Bootstrap Core CSS -->
@@ -26,6 +26,9 @@
 
         <!-- Custom CSS -->
         <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        
+        <!-- Morris Charts CSS -->
+        <link href="../resources/css/libs/morris.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -136,19 +139,11 @@
                         <ul class="nav" id="side-menu">                            
 
                             <li>
-                                <a href="#"><i class="fa fa-list-ul"></i> Opciones<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Menu<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
+                                    
                                     <li>
-                                        <a href="GenerarReporteFinanzas">Generar Reporte<span class="fa arrow"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="AbriReporteHoyFinanzas">Abrir Reporte de Hoy<span class="fa arrow"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="ConsultarReporteFechaFinanzas">Consultar Reporte por Fecha<span class="fa arrow"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="indexprincipal"><i class="fa fa-reply"></i> Regresar<span class="fa arrow"></span></a>
+                                        <a href="indexprincipal">Regresar<span class="fa arrow"></span></a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -169,13 +164,61 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Finanzas
+                                Direccion
                             </h1>                        
                         </div>
-                    </div>        
-
-
-                </div><!-- Fin del tag del contenedor-->
+                    </div>                          
+                </div>
+                
+                
+                <div class="row">
+                    <div class ="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="page-header"> 
+                                Gráfica: Comparción x
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-area-chart" style="position: relative;">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class ="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="page-header"> 
+                                Gráfica: Estadisticas Z
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-donut-chart"></div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                
+                <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-comments fa-5x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="huge">3</div>
+                    <div>Notifiaciones</div>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer">
+                  <span class="pull-left">Ver Detalles</span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                  <div class="clearfix"></div>
+                </div>
+              </a>
+            </div>
+                
+                <!-- Fin del tag del contenedor-->
+                <!--<img src="../../../resources/img/gente-docil.jpg" width="800" height="600" alt="gente-docil"/>-->
             </div>
             <!-- /#page-wrapper -->
         </div>
@@ -188,6 +231,11 @@
 
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../resources/js/libs/metisMenu.min.js"></script>
+        
+            <!-- Morris Charts JavaScript -->
+        <script src="../resources/js/libs/raphael-min.js"></script>
+        <script src="../resources/js/libs/morris.min.js"></script>
+        <script src="../resources/js/libs/morris-data.js"></script>
 
         <!-- Custom Theme JavaScript -->
         <script src="../resources/js/libs/sb-admin-2.js"></script>
