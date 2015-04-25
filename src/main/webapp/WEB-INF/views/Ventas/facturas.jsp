@@ -12,7 +12,7 @@
     <title>SAPito - Ventas - Facturas</title>
   </head>
   <body>
-   <div id="wrapper">
+    <div id="wrapper">
 
       <!-- Navigation bar -->
       <%@include file="ventasNavs.jsp" %>
@@ -25,7 +25,7 @@
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
-               Facturas
+                Facturas
               </h1>
             </div>
           </div>
@@ -34,7 +34,7 @@
           <table id="tordenes" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
-                  
+
                 <th>RFC del Cliente</th>
                 <th>Fecha de la venta</th>
                 <th>Monto de la venta</th>
@@ -49,48 +49,8 @@
                 <td>$ 78085.21</td>
                 <td><button class="btn btn-xs btn-primary" type="button">
                     Descargar</button></td>
-                  <td> <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td>
-              </tr>
-              <tr>
-                <td>12EPRO311D7GC</td>
-                <td>Jueves 14, Enero 2039</td>
-                <td>$ 78085.21</td>
-                <td><button class="btn btn-xs btn-primary" type="button">
-                    Descargar</button></td>
-                 <td> <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td>
-              </tr>
-              <tr>
-                <td>12EPRO311D7GC</td>
-                <td>Jueves 14, Enero 2039</td>
-                <td>$ 78085.21</td>
-                <td><button class="btn btn-xs btn-primary" type="button">
-                    Descargar</button></td>
-                 <td> <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td>
-              </tr>
-              <tr>
-                <td>12EPRO311D7GC</td>
-                <td>Jueves 14, Enero 2039</td>
-                <td>$ 78085.21</td>
-                <td><button class="btn btn-xs btn-primary" type="button">
-                    Descargar</button></td>
-                   <td> <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td>
-              </tr>
-              <tr>
-                <td>12EPRO311D7GC</td>
-                <td>Jueves 14, Enero 2039</td>
-                <td>$ 78085.21</td>
-                <td><button class="btn btn-xs btn-primary" type="button">
-                    Descargar</button></td>
-                   <td> <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal">
+                <td> <button class="btn btn-xs btn-success" type="button" 
+                             data-toggle="modal" data-target="#cts-modal">
                     Detalles</button></td>
               </tr>
               <tr>
@@ -100,7 +60,47 @@
                 <td><button class="btn btn-xs btn-primary" type="button">
                     Descargar</button></td>
                 <td> <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal">
+                             data-toggle="modal" data-target="#cts-modal">
+                    Detalles</button></td>
+              </tr>
+              <tr>
+                <td>12EPRO311D7GC</td>
+                <td>Jueves 14, Enero 2039</td>
+                <td>$ 78085.21</td>
+                <td><button class="btn btn-xs btn-primary" type="button">
+                    Descargar</button></td>
+                <td> <button class="btn btn-xs btn-success" type="button" 
+                             data-toggle="modal" data-target="#cts-modal">
+                    Detalles</button></td>
+              </tr>
+              <tr>
+                <td>12EPRO311D7GC</td>
+                <td>Jueves 14, Enero 2039</td>
+                <td>$ 78085.21</td>
+                <td><button class="btn btn-xs btn-primary" type="button">
+                    Descargar</button></td>
+                <td> <button class="btn btn-xs btn-success" type="button" 
+                             data-toggle="modal" data-target="#cts-modal">
+                    Detalles</button></td>
+              </tr>
+              <tr>
+                <td>12EPRO311D7GC</td>
+                <td>Jueves 14, Enero 2039</td>
+                <td>$ 78085.21</td>
+                <td><button class="btn btn-xs btn-primary" type="button">
+                    Descargar</button></td>
+                <td> <button class="btn btn-xs btn-success" type="button" 
+                             data-toggle="modal" data-target="#cts-modal">
+                    Detalles</button></td>
+              </tr>
+              <tr>
+                <td>12EPRO311D7GC</td>
+                <td>Jueves 14, Enero 2039</td>
+                <td>$ 78085.21</td>
+                <td><button class="btn btn-xs btn-primary" type="button">
+                    Descargar</button></td>
+                <td> <button class="btn btn-xs btn-success" type="button" 
+                             data-toggle="modal" data-target="#cts-modal">
                     Detalles</button></td>
               </tr>
             </tbody>
@@ -110,9 +110,9 @@
       </div>
     </div>
 
-      
-      
-      <!-- Modal dialog para detalles de clientes -->
+
+
+    <!-- Modal dialog para detalles de clientes -->
     <div id="cts-modal" class="modal fade" tabindex="-1" role="dialog" 
          aria-labelledby="cliente-modal-title" aria-hidden="true">
       <div class="modal-dialog">
@@ -125,7 +125,7 @@
             <h4 class="modal-title">Detalles de Facturas</h4>
           </div>
           <div class="modal-body">
-           
+
             <div class="row">
               <div class="col-md-6">
                 <br/><label>Cliente:</label>
@@ -146,26 +146,26 @@
                 <input type="text" class="form-control" readonly/>
               </div>
             </div>
-            
-            </div>
           </div>
           <div class="modal-footer">
+            <button type="button" class="btn btn-default">Ver orden de venta</button>
+            <button type="button" class="btn btn-info">Descargar como PDF</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">
               Cerrar
             </button>
           </div>
-
         </div>
       </div>
     </div>
-      
-    <!-- Footer and scripts -->
-    <%@include file="ventasFooter.jsp" %>
-    <script >
-        $(document).ready(function () {
-            activatenb('nb-ordenes');
-            $('#tordenes').DataTable();
-        });
-    </script>
-  </body>
+  </div>
+
+  <!-- Footer and scripts -->
+  <%@include file="ventasFooter.jsp" %>
+  <script >
+      $(document).ready(function () {
+          activatenb('nb-ordenes');
+          $('#tordenes').DataTable();
+      });
+  </script>
+</body>
 </html>

@@ -119,11 +119,17 @@
 
             <div class="col-sm-12 text-right">
               <br/><br/>
-              <button type="button" class="btn btn-primary">Imprimir ticket</button>
+              <button type="button" class="btn btn-primary" onclick="imprimirTicket()">
+                Imprimir ticket
+              </button>
               &nbsp;&nbsp;
-              <button type="button" class="btn btn-danger">Cancelar</button>
+              <button type="button" class="btn btn-danger" onclick="cancelarDevolucion()">
+                Cancelar
+              </button>
               &nbsp;&nbsp;
-              <button type="button" class="btn btn-success">Guardar</button>
+              <button type="button" class="btn btn-success" onclick="guardarDevolucion()">
+                Guardar
+              </button>
             </div>
             <br/><br/><br/><br/>&nbsp;
           </div>

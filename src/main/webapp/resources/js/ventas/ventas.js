@@ -143,6 +143,42 @@ function activatenb(nbtoactivate)
     }
 }
 
+function cancelarCambio()
+{
+    swal({
+        title: '¿Desea cancelar el cambio?',
+        text: 'Confirme que desea cancelar el cambio',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, cancelar',
+        cancelButtonText: 'No',
+        closeOnConfirm: false,
+        closeOnCancel: false
+    }, function(isConfirm) {
+        if (isConfirm) {
+            swal('Listo', 'El cambio ha sido cancelada', 'success');
+        }
+    });
+}
+
+function cancelarDevolucion()
+{
+    swal({
+        title: '¿Desea cancelar la devolución?',
+        text: 'Confirme que desea cancelar la devolución',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, cancelar',
+        cancelButtonText: 'No',
+        closeOnConfirm: false,
+        closeOnCancel: false
+    }, function(isConfirm) {
+        if (isConfirm) {
+            swal('Listo', 'La devolución ha sido cancelada', 'success');
+        }
+    });
+}
+
 function cancelarNvaOrdenVenta()
 {
     swal({
@@ -157,6 +193,16 @@ function cancelarNvaOrdenVenta()
     }, function () {
         console.log('Limpiar el formulario de la orden de venta');
     });
+}
+
+function guardarCambio()
+{
+    swal('Guardado', 'El cambio ha sido registrado exitosamente', 'success');
+}
+
+function guardarDevolucion()
+{
+    swal('Guardada', 'La devolución ha sido registrada exitosamente', 'success');
 }
 
 function guardarNvaOrdenVenta()
@@ -219,6 +265,16 @@ function guardarNvaOrdenVenta()
             });
         }
     })
+}
+
+function imprimirTicketCambio()
+{
+    swal('Listo', 'El ticket del cambio ha sido impreso', 'success');
+}
+
+function imprimirTicket()
+{
+    swal('Listo', 'El ticket de la devolución ha sido impreso', 'success');
 }
 
 function submitNvoCliente()
