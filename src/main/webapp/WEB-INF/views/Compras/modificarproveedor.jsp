@@ -26,7 +26,7 @@
         <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form>
+            <form action="confirmacionProveedorMod" method="get">
                 <!-- Page Content -->
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1 class="page-header">
-                                    Modificar infomacion de proveedor
+                                    Modificar Proveedor
                                 </h1>                        
                             </div>
                         </div>        
@@ -44,7 +44,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <br/>                            
-                                        <div class="panel panel-primary">
+                                        <div class="panel panel-green">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Datos de la empresa</h3>
                                             </div>
@@ -124,7 +124,7 @@
                                                 </div>                      
                                             </div>
                                         </div> 
-                                        <div class="panel panel-primary">
+                                        <div class="panel panel-green">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Datos del Contacto</h3>
                                             </div>
@@ -158,7 +158,7 @@
                                             </div>
                                         </div>      
                                         <div class="row">
-                                            <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
+                                            <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
                                         </div> 
                                     </div>                        
                                 </div>  

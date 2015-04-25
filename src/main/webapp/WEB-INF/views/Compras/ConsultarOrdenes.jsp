@@ -39,7 +39,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <br/>                            
-                                    <div class="panel panel-primary">
+                                    <div class="panel panel-green">
                                         <div class="panel-heading">
                                             <h3 class="panel-title" >Solicitudes generadas </h3>
                                         </div>
@@ -57,7 +57,7 @@
                                                                 <td><b><div align="center">Total de la solicitud</div></b></td> 
                                                                 <td><b><div align="center">Estado de Solicitud</div></b></td> 
                                                                 <td><b><div align="center">Fecha de Solicitud</div></b></td> 
-                                                                <td><b><div align="center">Fecha de Entrega</div></b></td> 
+                                                                
                                                                 <td><b><div align="center">Movimientos</div></b></td>
 
                                                             </tr>
@@ -67,22 +67,22 @@
                                                                 <td>15322.3684</td> 
                                                                 <td>Solicitada</td> 
                                                                 <td>16/02/2015</td> 
-                                                                <td>23/02/2015</td> 
+                                                                
                                                                 <td>  
                                                                     <div align="center">
                                                                         <div  class="btn-group">  
+                                                                            <a class="btn-group" href="Consulta1Orden">
+                                                                                &nbsp;Consulta 
+                                                                                <i class="fa fa-search " ></i>
+                                                                            </a>
+                                                                            <a class="btn-group" href="modificaOrden">
+                                                                                &nbsp;Modificar 
+                                                                                <i class="fa fa-pencil-square-o " ></i>
+                                                                            </a>
                                                                             <a class="btn-group" href="#">
-                                                                                    &nbsp;Cotsulta 
-                                                                                    <i class="fa fa-search " ></i>
-                                                                                </a>
-                                                                                <a class="btn-group" href="#">
-                                                                                    &nbsp;Modificar 
-                                                                                    <i class="fa fa-pencil-square-o " ></i>
-                                                                                </a>
-                                                                                <a class="btn-group" href="#">
-                                                                                    &nbsp;Eliminar 
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a> 
+                                                                                &nbsp;Eliminar 
+                                                                                <i class="fa fa-times"></i>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
                                                                 </td> 
@@ -100,7 +100,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
+                                        <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
                                     </div>
                                     <!--                          Fin Codigo Para panel 5 o menos input -->
                                 </div>
@@ -129,3 +129,6 @@
     </body>
 
 </html>
+
+
+

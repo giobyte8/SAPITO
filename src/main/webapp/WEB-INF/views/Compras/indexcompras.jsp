@@ -38,12 +38,13 @@
 
 
                 </div><!-- Fin del tag del contenedor-->
+                                <center><img  src ="../SAPITO/resources/img/compras.jpg" ></center> 
+
                 <center>
-                    <a class="btn btn-primary" type="button" href="ConsultaProducto">Consultar productos</a>      
-                    <a class="btn btn-primary" type="button" href="ConsultarOrdenes">Consultar ordenes</a>
-                    <a class="btn btn-primary" type="button" href="consultaproveedor">Consultar proveedores </a>
+                    <a class="btn btn-success" type="button" href="ConsultaProducto">Consultar productos</a>      
+                    <a class="btn btn-success" type="button" href="ConsultarOrdenes">Consultar ordenes</a>
+                    <a class="btn btn-success" type="button" href="consultaproveedor">Consultar proveedores </a>
                 </center>
-                <center><img  src ="../SAPITO/resources/img/compras.jpg" ></center> 
 
 
             </div>

@@ -19,27 +19,28 @@
 
     <body>
 
-        <div id="wrapper">
+      <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
+            <form action="ConsultaProducto" method="GET">
             <div id="page-wrapper">
                 <div class="container-fluid">
 
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Consulta producto
+                                Consulta Producto
                             </h1>                        
                         </div>
                     </div>        
 
                     <div class="row">
                         <div class="col-lg-12 text-left">
-                            <div class="panel panel-default">
+                            <div class="panel panel-green" >
                                 <div class="panel-body">
                                     <br/>                            
-                                    <div class="panel panel-primary">
+                                    <div class="panel panel-green">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Datos producto
                                             </h3>
@@ -59,8 +60,8 @@
                                                         <input placeholder="Ingrese Nombre" type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label class="control-label">Descripcion</label>
-                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
+                                                        <label class="control-label">Descripción</label>
+                                                        <input placeholder="Ingrese Descripción" type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label class="control-label">Marca</label>
@@ -74,8 +75,8 @@
                                                 <div class="col-lg-6 text-left">
                                                     <!-- inputs/!-->
                                                     <div class="form-group ">
-                                                        <label class="control-label">Categoria</label>
-                                                        <input placeholder="Categoria"type="text" class="form-control" disabled>
+                                                        <label class="control-label">Categoría</label>
+                                                        <input placeholder="Ingrese Categoría"type="text" class="form-control" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" >Unidad</label>
@@ -87,7 +88,7 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label class="control-label">Id Proveedor</label>
-                                                        <input placeholder="NOmbre del Provedor"type="text" class="form-control" disabled >
+                                                        <input placeholder="Nombre del Proveedor"type="text" class="form-control" disabled >
 
                                                     </div>
 
@@ -98,7 +99,7 @@
 
                                     </div> 
                                     <div class="row">
-                                        <a class="btn btn-primary  col-md-offset-11"  type="button" href="ConsultaProducto">Aceptar</a>     
+                                      <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">                                                    
                                     </div> 
                                 </div>  
 
@@ -110,6 +111,7 @@
                 </div><!-- Fin del tag del contenedor-->
             </div>
             <!-- /#page-wrapper -->
+            </form>
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->

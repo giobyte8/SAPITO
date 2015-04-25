@@ -15,11 +15,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-            <%@include file="MenusCompras/Cabesa compras.jsp"%>
+        <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
         <title>SAPITO</title>
 
-       
+
     </head>
 
     <body>
@@ -27,7 +27,7 @@
         <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form>
+            <form action="confirmacionProveedor" method="get">
                 <!-- Page Content -->
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -35,7 +35,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1 class="page-header">
-                                    Alta de proveedor
+                                    Alta Proveedor
                                 </h1>                        
                             </div>
                         </div>        
@@ -43,9 +43,9 @@
                         <div class="row">
                             <div class="col-lg-12 text-left">
                                 <div class="panel panel-default">
-                                    <div class="panel-body">
+                                    <div class="panel-body">                                        
                                         <br/>                            
-                                        <div class="panel panel-primary">
+                                        <div class="panel panel-green">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Datos de la empresa</h3>
                                             </div>
@@ -93,21 +93,21 @@
                                                         <div class="col-lg-4 text-left">
                                                             <div class="form-group ">
                                                                 <label class="control-label">Número exterior</label>
-                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{10}" required>
+                                                                <input type="text" class="form-control" required>
                                                             </div>
 
                                                         </div>
                                                         <div class="col-lg-4 text-left">
                                                             <div class="form-group ">
                                                                 <label class="control-label">Número interior</label>
-                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{10}" required >
+                                                                <input type="text" class="form-control" required >
 
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 text-left">
                                                             <div class="form-group ">
                                                                 <label class="control-label">Codigo postal</label>
-                                                                <input type="text" class="form-control"maxlength="5" pattern="[0-9]{5}" required>
+                                                                <input type="text" class="form-control" required>
 
                                                             </div>
                                                         </div>
@@ -122,10 +122,10 @@
                                                             <input type="text" class="form-control" maxlength="30" required>
                                                         </div>
                                                     </div>
-                                                </div>                      
+                                                </div>                                                 
                                             </div>
                                         </div> 
-                                        <div class="panel panel-primary">
+                                        <div class="panel panel-green">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Datos del contacto</h3>
                                             </div>
@@ -159,8 +159,8 @@
                                             </div>
                                         </div>      
                                         <div class="row">
-                                            <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
-                                        </div> 
+                                            <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
+                                        </div>                                         
                                     </div>                        
                                 </div>  
                             </div>
@@ -183,7 +183,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
-            <%@include file="MenusCompras/Pie compras.jsp"%>
+        <%@include file="MenusCompras/Pie compras.jsp"%>
 
     </body>
 

@@ -1,12 +1,10 @@
 <%-- 
-    Document   : ordenCompra
-    Created on : 14/02/2015, 01:49:39 AM
-    Author     : D4NY
+    Document   : modificaOrden
+    Created on : 23/04/2015, 11:47:57 PM
+    Author     : Dany
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +36,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1 class="page-header">
-                                    Orden de compra
+                                    Modificar Orden de compra
                                 </h1>                        
                             </div>
                         </div>        

@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Consulta  de proveedores
+                                Consulta Proveedores
                             </h1>                        
                         </div>
                     </div>        
@@ -43,9 +43,9 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <br/>                            
-                                    <div class="panel panel-primary">
+                                    <div class="panel panel-green">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title" >Proveedores registrados </h3>
+                                            <h3 class="panel-title" >Proveedores Registrados </h3>
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
@@ -77,14 +77,14 @@
                                                                     <div align="center">
                                                                         <div  class="btn-group">  
                                                                             <a class="btn-group" href="consulta1proveedor">
-                                                                                &nbsp;Cotsulta 
+                                                                                &nbsp;Consulta 
                                                                                 <i class="fa fa-search " ></i>
                                                                             </a>
                                                                             <a class="btn-group" href="modificarproveedor">
                                                                                 &nbsp;Modificar 
                                                                                 <i class="fa fa-pencil-square-o " ></i>
                                                                             </a>
-                                                                            <a class="btn-group" href="#">
+                                                                            <a class="btn-group" href="confirmacionProveedorEli">
                                                                                 &nbsp;Eliminar 
                                                                                 <i class="fa fa-times"></i>
                                                                             </a>
@@ -93,25 +93,12 @@
                                                                 </td> 
                                                             </tr>
 
-
-
-
-
-
                                                         </table>
-
                                                     </div> 
-
-
                                                 </div>
-
                                             </div>
-
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
-                                    </div>
+                                    </div>                                    
                                     <!--                          Fin Codigo Para panel 5 o menos input -->
                                 </div>
                                 <!--                      Fin TODO aqui abajo-->

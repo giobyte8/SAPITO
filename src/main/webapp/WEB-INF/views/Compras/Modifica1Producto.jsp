@@ -23,7 +23,7 @@
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
-            <form>
+            <form action="confirmacionProductoModificacion" method="GET">
 
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -31,19 +31,19 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1 class="page-header">
-                                    Modificar producto
+                                    Modificar Producto
                                 </h1>                        
                             </div>
                         </div>        
 
                         <div class="row">
                             <div class="col-lg-12 text-left">
-                                <div class="panel panel-default">
+                                <div class="panel panel-green">
                                     <div class="panel-body">
                                         <br/>                            
-                                        <div class="panel panel-primary">
+                                        <div class="panel panel-green">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title">Datos producto
+                                                <h3 class="panel-title">Datos Producto
                                                 </h3>
                                             </div>
                                             <div class="panel-body">
@@ -53,15 +53,25 @@
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
                                                             <label class="control-label">Nombre</label>
-                                                            <input type="text" class="form-control"pattern="[A-Z]{30}" required >
+                                                            <input type="text" pattern="[a-zA-Z]*" class="form-control" required placeholder="Ingrese Nombre">
                                                         </div>
                                                         <div class="form-group ">
-                                                            <label class="control-label">Descripcion</label>
-                                                            <input type="text" class="form-control"pattern="[A-Z]{30}" required >
+                                                            <label class="control-label">Descripción</label>
+                                                            <input type="text" class="form-control"  required placeholder="Ingrese Descripción">
                                                         </div>
                                                         <div class="form-group ">
                                                             <label class="control-label">Marca</label>
-                                                            <input type="text" class="form-control" name="marca" id="marca" pattern="[A-Z]{30}" required >
+                                                            <input type="text" class="form-control" name="marca" id="marca"  required placeholder="Ingrese Marca">
+                                                        </div>
+                                                         <div class="form-group ">
+                                                            <label class="control-label">Categoría</label>
+
+                                                            <select class="form-control" required>
+                                                                <option>Seleccione Categoría</option>
+                                                                <option>Activo Fijo</option>
+                                                                <option>Materia Prima</option>
+
+                                                            </select>
                                                         </div>
 
 
@@ -70,29 +80,26 @@
                                                     </div>
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Categoria</label>
-
-                                                            <select class="form-control" required>
-                                                                <option>Seleccione Categoria</option>
-                                                                <option>Activo Fijo</option>
-                                                                <option>Materia Prima</option>
-
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-lg-6 text-left">
+                                                       
+                                                        
                                                             <div class="form-group">
                                                                 <label class="control-label" >Unidad</label>
-                                                                <input type="text" class="form-control" pattern="[A-Z]{15}" required>
+                                                                 <select class="form-control">
+                                                                <option>Pieza</option>
+                                                                <option>Caja</option>
+                                                                <option>Lote</option>
+
+                                                            </select>
+                                                                
                                                             </div>    
-                                                        </div>
-                                                        <div class="col-lg-6 text-left">
+                                                        
+                                                        
                                                             <div class="form-group ">
                                                                 <label class="control-label">Costo</label>
-                                                                <input placeholder="Ingrese Costo" type="text" class="form-control"pattern="[0-9]{30}" required >
+                                                                <input placeholder="Ingrese Costo" type="text" pattern="[0-9]{10}" class="form-control"pattern="[0-9]{30}" required >
                                                             </div>
 
-                                                        </div>
+                                                        
 
 
                                                         <div class="form-group ">
@@ -112,7 +119,7 @@
 
                                         </div> 
                                         <div class="row">
-                                            <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
+                                            <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
                                         </div> 
                                     </div>  
 
@@ -142,7 +149,6 @@
             <%@include file="MenusCompras/Pie compras.jsp"%>
 
     </body>
-
 </html>
 
 

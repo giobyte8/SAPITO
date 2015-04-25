@@ -162,6 +162,17 @@
 
                 </ul>            
             </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-exchange fa-fw"></i> Reportes<span class="fa arrow"></span></a>
+                <ul id="demo3" class="collapse">
+                    <li>
+                        <a href="informacionproveedor">Información Proveedores</a>
+                    </li>          
+                    <li>
+                        <a href="InformacionProducto">Información Productos</a>
+                    </li>          
+                </ul>
+            </li>
             
             
 
