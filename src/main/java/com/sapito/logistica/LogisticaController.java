@@ -83,14 +83,14 @@ public class LogisticaController
         return "Logistica/nacionalNew";
     }
     
-<<<<<<< HEAD
+
     @RequestMapping(value="logistica/envios/altaEnvio", method=RequestMethod.GET)
     public String altaEnvio(Model model)
     {
         return "Logistica/enviosNew";
     }
     
-    @RequestMapping(value="logistica/enviosView", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/enviosV", method=RequestMethod.GET)
     public String enviosView(Model model)
     {
         return "Logistica/enviosView";
@@ -102,50 +102,47 @@ public class LogisticaController
         return "Logistica/operadoresNew";
     }
     
-    @RequestMapping(value="logistica/operadoresView", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/operadoresV", method=RequestMethod.GET)
     public String operadoresView(Model model)
     {
         return "Logistica/operadoresView";
     }
     
-    @RequestMapping(value="logistica/gastosEnvioNew", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/gastosEnvioN", method=RequestMethod.GET)
     public String gastosEnvioNew(Model model)
     {
         return "Logistica/gastosEnvioNew";
     }
     
-    @RequestMapping(value="logistica/nacionalView", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/nacionalV", method=RequestMethod.GET)
     public String nacionalView(Model model)
     {
         return "Logistica/nacionalView";
     }
     
-    @RequestMapping(value="logistica/transporteNew", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/transporteN", method=RequestMethod.GET)
     public String transporteNew(Model model)
     {
         return "Logistica/transporteNew";
     }
     
-    @RequestMapping(value="logistica/transporteView", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/transporteV", method=RequestMethod.GET)
     public String transporteView(Model model)
     {
         return "Logistica/transporteView";
     }
     
-    @RequestMapping(value="logistica/empresa/nacionalNew", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/empresa/nacionalN", method=RequestMethod.GET)
     public String nacionalNew(Model model)
     {
         return "Logistica/nacionalNew";
     }
     
-    @RequestMapping(value="logistica/extranjeraView", method=RequestMethod.GET)
+    @RequestMapping(value="logistica/extranjeraV", method=RequestMethod.GET)
     public String extranjeraView(Model model)
     {
         return "Logistica/extranjeraView";
     }
-=======
->>>>>>> origin/master
-    
 //    
 //    @RequestMapping(value="logistica", method=RequestMethod.GET)
 //    public String index(Model model)

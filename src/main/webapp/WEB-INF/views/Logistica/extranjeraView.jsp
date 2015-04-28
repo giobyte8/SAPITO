@@ -106,7 +106,8 @@
               <tr>                                
                 <td>Hitachi System</td>
                 <td>19 agosto 2014</td>
-                <td>Extranjera</td>                
+                <td>Extranjera</td>
+                <td>SGCJ800621HMCRF</td>
                 <td style="text-align: center">                
                     <button class="btn btn-xs btn-success" type="button">Ver</button>
                     <button class="btn btn-xs btn-success" type="button">Eliminar</button>
@@ -115,7 +116,8 @@
               <tr>                                
                 <td>Unisia</td>
                 <td>1 marzo 2015</td>
-                <td>Extranjera</td>                
+                <td>Extranjera</td>
+                <td>ASJE800621HMCRF</td>
                 <td style="text-align: center">                
                     <button class="btn btn-xs btn-success" type="button">Ver</button>
                     <button class="btn btn-xs btn-success" type="button">Eliminar</button>
