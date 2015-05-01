@@ -9,12 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-            <%@include file="MenusCompras/Cabesa compras.jsp"%>
+        <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
         <title>SAPITO</title>
 
         <!-- Bootstrap Core CSS -->
-        
+
 
     </head>
 
@@ -24,11 +24,11 @@
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
-          <form action="confirmacionProducto" method="GET">
+            <form action="confirmacionProducto" method="GET">
                 <div id="page-wrapper">
                     <div class="container-fluid">
 
-                       <div class="row">
+                        <div class="row">
                             <div class="col-lg-12">
                                 <h1 class="page-header">
                                     Alta Producto
@@ -52,17 +52,17 @@
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
                                                             <label class="control-label">Nombre</label>
-                                                            <input pattern="[A-Za-z]*"  type="text" class="form-control" maxlength="50" required placeholder="Ingrese Nombre">
+                                                            <input pattern="[A-Za-z]*"  type="text" class="form-control" name="nombre" maxlength="50" required placeholder="Ingrese Nombre">
                                                         </div>
                                                         <div class="form-group ">
                                                             <label class="control-label">Descripción</label>
-                                                            <input type="text" class="form-control" maxlength="50" required placeholder="Ingrese Descripción">
+                                                            <input type="text" class="form-control" maxlength="50" name="desc" required placeholder="Ingrese Descripción">
                                                         </div>
                                                         <div class="form-group ">
                                                             <label class="control-label">Marca</label>
-                                                            <input type="text" class="form-control" maxlength="10" required placeholder="Ingrese Marca">
+                                                            <input type="text" class="form-control" maxlength="10" name="marca" required placeholder="Ingrese Marca">
                                                         </div>
-                                                          <div class="form-group ">
+                                                        <div class="form-group ">
                                                             <label class="control-label">Categoría</label>
 
                                                             <select class="form-control">
@@ -78,26 +78,26 @@
                                                     </div>
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
-                                                      
-                                                        
-                                                            <div class="form-group">
-                                                                <label class="control-label" >Unidad</label>
-                                                                 <select class="form-control">
+
+
+                                                        <div class="form-group">
+                                                            <label class="control-label" >Unidad</label>
+                                                            <select class="form-control">
                                                                 <option>Pieza</option>
                                                                 <option>Caja</option>
                                                                 <option>Lote</option>
 
                                                             </select>
-                                                                
-                                                            </div>    
-                                                        
-                                                        
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Costo</label>
-                                                                <input type="text" class="form-control" pattern="[0-9]{10}" maxlength="10" required placeholder="Ingrese Costo">
-                                                            </div>
 
-                                                      
+                                                        </div>    
+
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Costo</label>
+                                                            <input type="text" class="form-control" pattern="[0-9]{10}" maxlength="10" required placeholder="Ingrese Costo">
+                                                        </div>
+
+
 
 
                                                         <div class="form-group ">
@@ -139,7 +139,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
-            <%@include file="MenusCompras/Pie compras.jsp"%>
+        <%@include file="MenusCompras/Pie compras.jsp"%>
 
     </body>
 
