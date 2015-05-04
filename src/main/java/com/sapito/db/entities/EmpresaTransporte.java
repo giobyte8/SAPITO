@@ -6,7 +6,7 @@
 package com.sapito.db.entities;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -31,29 +33,54 @@ public class EmpresaTransporte  implements Serializable{
     @Column(name = "ID")
     private long id;
     
+    @NotNull
+    @Size(min=1, max=500, message = "El nombre de la empresa debe tener entre 1 y 250 caracteres")
     @Column(name = "NOMBREEMPRESA")
     private String nombreEmpresa;
     
+    
+    @NotNull
+    @Size(min=12, max=13, message = "El RFC debe tener 12 o 13 caracteres")
+    //@Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "RFC")
     private String rfc;
     
+    @NotNull
     @Column(name = "TIPO")
     private boolean tipo;
     
+    @NotNull
+    @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
+    //@Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "PAIS")
     private String pais;
     
+    @NotNull
+    @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Column(name = "CIUDAD")
     private String ciudad;
     
+    @NotNull
+    @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Column(name = "CALLE")
     private String calle;
     
+    
+    //@Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "NUMERO")
     private int numero;
     
-    //@OneToMany(mappedBy="empresaTransporte",cascade= CascadeType.ALL)
-    //private Set<Transporte> transportes;          
+    @OneToMany(mappedBy="empresaTransporte",cascade= CascadeType.ALL)
+    private Collection<Transporte> transportes;          
+
+    public Collection<Transporte> getTransportes() {
+        return transportes;
+    }
+
+    public void setTransportes(Collection<Transporte> transportes) {
+        this.transportes = transportes;
+    }
+    
     
     public long getId() {
         return id;

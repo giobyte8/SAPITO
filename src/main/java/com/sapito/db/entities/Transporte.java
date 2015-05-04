@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -30,22 +31,36 @@ public class Transporte implements Serializable{
     private long id;
     
     
+    @NotNull
+    @Size(min=1, max=500, message = "Placas deben tener 7 caracteres")
     @Column(name = "PLACAS")
     private String placas;
     
+    @NotNull
     @Column(name = "TIPOTRANSPORTE")
     private String tipotransporte;
     
+    //@Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "DIMENSION")
-    private String dimension;
-    
+    private double dimension;
+    @NotNull
     @Column(name = "DISPONIBLETRANSPORTE")
     private boolean disponibleTransporte;
     
-//    @ManyToOne
-//    @JoinColumn(name="IDEMPRESA")
-//    private EmpresaTransporte empresaTransporte;
+    
+    @JoinColumn(name="IDEMPRESA")
+    @ManyToOne
+    private EmpresaTransporte empresaTransporte;
 
+    public EmpresaTransporte getEmpresaTransporte() {
+        return empresaTransporte;
+    }
+
+    public void setEmpresaTransporte(EmpresaTransporte empresaTransporte) {
+        this.empresaTransporte = empresaTransporte;
+    }
+
+    
     public long getId() {
         return id;
     }
@@ -70,11 +85,11 @@ public class Transporte implements Serializable{
         this.tipotransporte = tipotransporte;
     }
 
-    public String getDimension() {
+    public Double getDimension() {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public void setDimension(Double dimension) {
         this.dimension = dimension;
     }
 
