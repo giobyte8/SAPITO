@@ -11,7 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 /**
  *
  * @author logistica
@@ -25,10 +27,16 @@ public class OrdenEnvio implements Serializable
     @NotNull
     @Column(name = "ID")
     private long id;
+    @NotNull
+    @Future
     @Column(name = "HORA_ENTREGA")
     private Date horaEntrega;
+    @NotNull
+    @Future
     @Column(name = "TIEMPO_ENTREGA")
     private Date tiempoEntrega;
+    @NotNull
+    @Size(min=1, max=50, message = "El nombre de la empresa debe tener entre 1 y 50 caracteres")
     @Column(name = "NOMBRE_RECIBE")
     private String nombreRecibe;
     @OneToOne(cascade=CascadeType.ALL)

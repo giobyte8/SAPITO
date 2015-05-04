@@ -24,10 +24,13 @@ public class GastosEnvio
     @NotNull
     @Column(name = "ID")
     private long id;
+    @NotNull
     @Column(name = "GASTOS_ENVIO")
     private double gastosEnvio;
+    @NotNull
     @Column(name = "GASTOS_ALOJAMIENTO")
     private double gastosAlojamiento;
+    @NotNull
     @Column(name = "CASETAS")
     private double casetas;
     @OneToOne(cascade=CascadeType.ALL)
