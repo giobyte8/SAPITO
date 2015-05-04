@@ -44,15 +44,15 @@
               </tr>
             </thead>
             <tbody>
-              <c:forEach begin="1" end="20" varStatus="loop">
+              <c:forEach items="${clientes}" var="cliente">
                   <tr>
-                    <td>Some data</td>
-                    <td>Some data</td>
-                    <td>Some data</td>
-                    <td>Some data</td>
+                    <td>${cliente.empresa}</td>
+                    <td>${cliente.sucursal}</td>
+                    <td>${cliente.nombreContacto}</td>
+                    <td>${cliente.email}</td>
                     <td>
                       <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal">
+                              data-toggle="modal" data-target="#cts-modal${cliente.id}">
                         Detalles
                       </button>
                     </td>
@@ -66,99 +66,101 @@
     </div>
 
     <!-- Modal dialog para detalles de clientes -->
-    <div id="cts-modal" class="modal fade" tabindex="-1" role="dialog" 
-         aria-labelledby="cliente-modal-title" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
+    <c:forEach items="${clientes}" var="cliente">
+        <div id="cts-modal${cliente.id}" class="modal fade" tabindex="-1" role="dialog" 
+             aria-labelledby="cliente-modal-title" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
 
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" id="cliente-modal-title">&times;</span>
-            </button>
-            <h4 class="modal-title">Detalles de cliente</h4>
-          </div>
-          <div class="modal-body">
-            <h4>Datos de la empresa:</h4>
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label>Empresa</label>
-                <input type="text" class="form-control" readonly/>
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                </button>
+                <h4 class="modal-title">Detalles de cliente</h4>
               </div>
-              <div class="col-md-6">
-                <br/><label>Sucursal</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label>RFC</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-6">
-                <br/><label>Calle y número</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label>Código Postal</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-6">
-                <br/><label>Colonia</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label>Ciudad o Municipio</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-6">
-                <br/><label>Estado</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
+              <div class="modal-body">
+                <h4>Datos de la empresa:</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Empresa</label>
+                    <input type="text" class="form-control" readonly value="${cliente.empresa}"/>
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Sucursal</label>
+                    <input type="text" class="form-control" readonly value="${cliente.sucursal}"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>RFC</label>
+                    <input type="text" class="form-control" readonly value="${cliente.rfc}"/>
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Calle</label>
+                    <input type="text" class="form-control" readonly value="${cliente.calle}"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Código Postal</label>
+                    <input type="text" class="form-control" readonly value="${cliente.cp}"/>
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Colonia</label>
+                    <input type="text" class="form-control" readonly value="${cliente.colonia}"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Ciudad o Municipio</label>
+                    <input type="text" class="form-control" readonly value="${cliente.municipio}" />
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Estado</label>
+                    <input type="text" class="form-control" readonly value="${cliente.estado}" />
+                  </div>
+                </div>
 
-            <br/><br/><h4>Datos de contacto:</h4>
-            <div class="row">
-              <div class="col-md-4">
-                <br/><label>Nombre (s)</label>
-                <input type="text" class="form-control" readonly/>
+                <br/><br/><h4>Datos de contacto:</h4>
+                <div class="row">
+                  <div class="col-md-4">
+                    <br/><label>Nombre (s)</label>
+                    <input type="text" class="form-control" readonly value="${cliente.nombreContacto}" />
+                  </div>
+                  <div class="col-md-4">
+                    <br/><label>Apellido paterno</label>
+                    <input type="text" class="form-control" readonly value="${cliente.apellidoPaternoContacto}" />
+                  </div>
+                  <div class="col-md-4">
+                    <br/><label>Apellido materno</label>
+                    <input type="text" class="form-control" readonly value="${cliente.apellidoMaternoContacto}" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <br/><label>Email</label>
+                    <input type="text" class="form-control" readonly value="${cliente.email}" />
+                  </div>
+                  <div class="col-md-4">
+                    <br/><label>Teléfono</label>
+                    <input type="text" class="form-control" readonly value="${cliente.telefono1}" />
+                  </div>
+                  <div class="col-md-4">
+                    <br/><label>Teléfono 2.</label>
+                    <input type="text" class="form-control" readonly value="${cliente.telefono2}"/>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-4">
-                <br/><label>Apellido paterno</label>
-                <input type="text" class="form-control" readonly/>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                  Cerrar
+                </button>
               </div>
-              <div class="col-md-4">
-                <br/><label>Apellido materno</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <br/><label>Email</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-4">
-                <br/><label>Teléfono</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-4">
-                <br/><label>Teléfono movil.</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">
-              Cerrar
-            </button>
-          </div>
 
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+    </c:forEach>
 
 
     <!-- Footer and scripts -->

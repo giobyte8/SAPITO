@@ -5,7 +5,13 @@
 
 /* Hoja de estilos para SAPITO */
 
-body {
-    background: #000;
-    color: #FFF;
+
+/* Classes de utilidad */
+
+.pad-5 {
+  padding: 5px;
+}
+
+.pad-10 {
+  padding: 10px;
 }
