@@ -90,8 +90,8 @@ public class Inventario implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaProduccion;
      
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoIdinventario")
-    private Collection<ProductoAdquirido> productoadquiridoCollection;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoIdinventario")
+//    private Collection<ProductoAdquirido> productoadquiridoCollection;
 
     public Inventario() {
     }
