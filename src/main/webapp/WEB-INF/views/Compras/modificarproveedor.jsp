@@ -26,7 +26,7 @@
         <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form action="confirmacionProveedorMod" method="get">
+            <form onsubmit="return Confirmacion();">
                 <!-- Page Content -->
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -182,7 +182,10 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
-            <%@include file="MenusCompras/Cabesa compras.jsp"%>
+        
+        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
+        
+        <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
     </body>
 

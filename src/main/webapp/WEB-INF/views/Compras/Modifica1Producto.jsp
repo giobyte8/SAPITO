@@ -23,7 +23,7 @@
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
-            <form action="confirmacionProductoModificacion" method="GET">
+            <form onsubmit="return Confirmacion();">
 
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -132,7 +132,7 @@
                 </div>
                 <!-- /#page-wrapper -->
             </form>
-
+ 
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->
@@ -146,6 +146,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
+        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
             <%@include file="MenusCompras/Pie compras.jsp"%>
 
     </body>
