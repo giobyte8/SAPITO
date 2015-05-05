@@ -43,14 +43,13 @@ public class Historial implements Serializable
 @ManyToOne
 private ActivoFijo activofijo;
 
-//@JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
-//@ManyToOne
-//private Empleado empleado;
-//
-//@JoinColumn(name = "ID_EMPLEADO_ACTUAL")
-//@ManyToOne
-//private Empleado empleado;
+@JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
+@ManyToOne
+private Empleado empleadoAnterior;
 
+@JoinColumn(name = "ID_EMPLEADO_ACTUAL")
+@ManyToOne
+private Empleado empleadoActual;
 
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -82,6 +81,48 @@ private ActivoFijo activofijo;
      */
     public void setFechaMovimiento(String fechaMovimiento) {
         this.fechaMovimiento = fechaMovimiento;
+    }
+
+    /**
+     * @return the activofijo
+     */
+    public ActivoFijo getActivofijo() {
+        return activofijo;
+    }
+
+    /**
+     * @param activofijo the activofijo to set
+     */
+    public void setActivofijo(ActivoFijo activofijo) {
+        this.activofijo = activofijo;
+    }
+
+    /**
+     * @return the empleadoAnterior
+     */
+    public Empleado getEmpleadoAnterior() {
+        return empleadoAnterior;
+    }
+
+    /**
+     * @param empleadoAnterior the empleadoAnterior to set
+     */
+    public void setEmpleadoAnterior(Empleado empleadoAnterior) {
+        this.empleadoAnterior = empleadoAnterior;
+    }
+
+    /**
+     * @return the empleadoActual
+     */
+    public Empleado getEmpleadoActual() {
+        return empleadoActual;
+    }
+
+    /**
+     * @param empleadoActual the empleadoActual to set
+     */
+    public void setEmpleadoActual(Empleado empleadoActual) {
+        this.empleadoActual = empleadoActual;
     }
 
     

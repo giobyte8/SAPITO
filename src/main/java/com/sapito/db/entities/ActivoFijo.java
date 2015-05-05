@@ -143,4 +143,18 @@ private TipoActivoFijo tipoactivofijo;
     public void setTipoactivofijo(TipoActivoFijo tipoactivofijo) {
         this.tipoactivofijo = tipoactivofijo;
     }
+
+    /**
+     * @return the historialTraslado
+     */
+    public Collection<Historial> getHistorialTraslado() {
+        return historialTraslado;
+    }
+
+    /**
+     * @param historialTraslado the historialTraslado to set
+     */
+    public void setHistorialTraslado(Collection<Historial> historialTraslado) {
+        this.historialTraslado = historialTraslado;
+    }
 }

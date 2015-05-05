@@ -70,6 +70,10 @@ public class Empleado implements Serializable {
     private Collection<Nomina> nominaCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
     private Collection<Credencial> credencialCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoActual")
+    private Collection<Historial> empleadoActual;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoAnterior")
+    private Collection<Historial> empleadoAnterior;
     @JoinColumn(name = "puesto_idpuesto", referencedColumnName = "idpuesto")
     @ManyToOne(optional = false)
     private Puesto puestoIdpuesto;
@@ -194,6 +198,34 @@ public class Empleado implements Serializable {
     @Override
     public String toString() {
         return "com.sapito.db.entities.Empleado[ idempleado=" + idempleado + " ]";
+    }
+
+    /**
+     * @return the empleadoActual
+     */
+    public Collection<Historial> getEmpleadoActual() {
+        return empleadoActual;
+    }
+
+    /**
+     * @param empleadoActual the empleadoActual to set
+     */
+    public void setEmpleadoActual(Collection<Historial> empleadoActual) {
+        this.empleadoActual = empleadoActual;
+    }
+
+    /**
+     * @return the empleadoAnterior
+     */
+    public Collection<Historial> getEmpleadoAnterior() {
+        return empleadoAnterior;
+    }
+
+    /**
+     * @param empleadoAnterior the empleadoAnterior to set
+     */
+    public void setEmpleadoAnterior(Collection<Historial> empleadoAnterior) {
+        this.empleadoAnterior = empleadoAnterior;
     }
     
 }
