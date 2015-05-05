@@ -57,38 +57,45 @@
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-lg-12 text-left"> 
-                                                <form action="gdaAlta" method="post">                                                                 
-                                                    <div class="form-group ">
-                                                        <label class="control-label" >Activo Fijo</label>
-                                                        <select name="sActivo Fijo" class="form-control" required>
+                                                    <form:form modelAttribute="activofijo" action="gdaAlta" method="post">                                                                 
+                                             <!-- Page Content        <div class="form-group ">
+                                                        <label for="control-label" >Activo Fijo</label>
+                                                        <select path="producto" name="sActivo Fijo" class="form-control">
                                                         	<option value="">Selecciona Activo Fijo</option>
-                                                			<option>Laptop Lenovo</option>
-			                                            </select>
+                                                		<option value="1">Laptop Lenovo</option>
+			                                <select>
+                                             
                                                     </div>                                                                                       
+                                             -->
                                                     <div class="form-group ">
-                                                        <label class="control-label" >Tipo</label>
-                                                        <select class="form-control">
+                                                        <label for="control-label" >Tipo</label>
+                                                        <form:select path="tipoactivofijo" for="form-control">
                                                         	<option value="">Selecciona Tipo</option>
-                                                			<option>Equipo de Computo</option>			                                            </select>
+                                                			<option value="1">Equipo de Computo</option>
+                                                        </form:select>
+                                                        <form:errors path="tipoactivofijo" element="div" class="alert-danger pad-10" />
                                                     </div>                                                                                       
                                                     <div class="form-group">
-                                                        <label class="control-label" >Fecha de Adquisici&oacute;n</label>
-                                                        <input id="fecha" type="date" class="form-control" required>
+                                                        <label for="control-label" >Fecha de Adquisici&oacute;n</label>
+                                                        <form:input path="fechaAdquisicion" id="fecha" type="date" for="form-control"/>
+                                                        <form:errors path="fechaAdquisicion" element="div" class="alert-danger pad-10" />
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label" >Cantidad</label>
+                                                        <label for="control-label" >Cantidad</label>
                                                         <input type="text" id="cantidad" title="Únicamente números enteros" name="cantidad" class="form-control" required  placeholder="Escribe n&uacute;mero">
+                                                       
                                                     </div>
+                                
                                                 </div>
+                                                    
                                             </div>
                                         </div>
                                     </div>                               
                                                     	<div class="form-group" style="text-align:right">
-                                                            <input type="reset" class="btn btn-success" value="Cancelar">
-                                                        	<input type="submit" class="btn btn-success" value="Continuar">
+                                                            <input type="reset" for="btn btn-success" value="Cancelar">
+                                                        	<input type="submit" for="btn btn-success" value="Continuar">
 	                                                    </div>  
-                                
-                                                </form>
+                                                                                       </form:form>             
                                     <!--                          Fin Codigo Para panel 5 o menos input -->
                                 </div>
                                 <!--                      Fin TODO aqui abajo-->               
