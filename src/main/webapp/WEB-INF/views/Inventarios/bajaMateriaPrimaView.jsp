@@ -80,20 +80,6 @@
                                                 <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Ubicación de materia prima" pattern="[a-z]{40}" required>  
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label>Lote</label> 
-                                                <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Lote de materia prima" pattern="[a-z]{10}" required>  
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <label>Precio</label> 
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">$</span>
-                                                <input type="text" onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Precio de la materia prima M.N" pattern="[0-9]{10}" required>  
-                                                <span class="input-group-addon">.00</span> 
-                                            </div>      
-                                        </div>
                                         <div align="right">
                                             <button type="submit" class="btn btn-success">Aceptar</button>
                                         </div> 

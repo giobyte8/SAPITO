@@ -36,8 +36,8 @@
                                         <div class="panel-body">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label>ID</label> 
-                                                    <input onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="ID del producto" pattern="[0-9]{10}" required>
+                                                    <label>Codigo_Inventario</label> 
+                                                    <input onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Código de inventario" pattern="[0-9]{10}" required>
                                                     <p class="help-block" ></p>
                                                 </div>
                                             </div>
@@ -74,27 +74,19 @@
                                                     <input type="date" class="form-control" autofocus required>
                                                 </div>
                                             </div>
+                                           <div class="col-lg-12 text-left">
+                                                <div class="form-group">
+                                                    <label>Fecha de producción</label>
+                                                    <input type="date" class="form-control" autofocus required>
+                                                </div>
+                                            </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Ubicación</label> 
                                                     <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Ubicación del producto" pattern="[a-z]{40}" required>  
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Lote</label> 
-                                                    <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Lote del producto" pattern="[a-z]{10}" required>  
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <label>Precio</label> 
-                                                <div class="form-group input-group">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Precio del producto M.N" pattern="[0-9]{10}" required>  
-                                                    <span class="input-group-addon">.00</span> 
-                                                </div>      
-                                            </div>
-
+                               
                                         </div>  <!-- /#fin del panel -->
                                     </div>
                                     <div align="right">
