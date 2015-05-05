@@ -24,7 +24,7 @@
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
-            <form action="confirmacionProducto" method="GET">
+            <form onsubmit="return Confirmacion();">
                 <div id="page-wrapper">
                     <div class="container-fluid">
 
@@ -116,8 +116,10 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">                                                    
+                                            <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
+                                            
                                         </div> 
+                                        
                                     </div>                        
                                 </div>  
                             </div>
@@ -126,6 +128,7 @@
                 </div>
                 <!-- /#page-wrapper -->
             </form>
+            
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->
@@ -136,6 +139,7 @@
 
         <!-- Metis Menu Plugin JavaScript -->
         <script src="resources/js/libs/metisMenu.min.js"></script>
+        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
