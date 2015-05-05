@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -33,10 +35,12 @@ public class OrdenVenta implements Serializable
     private Long id;
 
     @Column(name = "FECHA_PEDIDO")
+    @Temporal(TemporalType.DATE)
     private Date fechaPedido;
     
     @NotNull
     @Column(name = "FECHA_ENTREGA")
+    @Temporal(TemporalType.DATE)
     private Date fechaEntrega;
     
     @NotNull
