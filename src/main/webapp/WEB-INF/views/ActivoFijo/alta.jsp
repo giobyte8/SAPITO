@@ -3,6 +3,7 @@
     Created on : Feb 7, 2015, 3:15:33 AM
     Author     : Usuario
 --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
