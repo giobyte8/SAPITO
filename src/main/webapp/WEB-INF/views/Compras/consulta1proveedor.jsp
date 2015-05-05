@@ -1,6 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
 
     <head>
 
@@ -45,111 +42,115 @@
                                         <div class="panel-body">
                                             <!-- Fila de inputs/!-->
                                             <div class="row">
-                                                <div class="col-lg-6 text-left">
-                                                    <!-- inputs/!-->
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Nombre: </label>
-                                                        <input placeholder="tAMBORES Y MAZAZ NEVADO DE TOLUCA " type="text" class="form-control" disabled>
-                                                    </div>
-
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Calle:</label>
-                                                        <input placeholder="AV SOLIDARIDAD LAS TORRRES" type="text" class="form-control" disabled>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Colonia:</label>
-                                                        <input placeholder="DEL PARQUE n" type="text" class="form-control" disabled>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Entidad federativa:</label>
-                                                        <input placeholder="EDOMEX" type="text" class="form-control" disabled >
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Telefono:</label>
-                                                        <input placeholder="7223060631" type="text" class="form-control" disabled>
-                                                    </div>
-
-
-                                                    <!--Fin  inputs/!-->
-                                                </div>
-                                                <div class="col-lg-6 text-left">
-                                                    <!-- inputs/!-->
-                                                    <div class="form-group ">
-                                                        <label class="control-label">RFC :</label>
-                                                        <input placeholder="TELJ9204171992FQ0"type="text" class="form-control" disabled>
-                                                    </div>
-                                                    <div class="col-lg-4 text-left">
-                                                        <div class="form-group">
-                                                            <label class="control-label" >Numero exterior:</label>
-                                                            <input placeholder="254" type="text" class="form-control" disabled>
-                                                        </div>    
-                                                    </div>
-                                                    <div class="col-lg-4 text-left">
+                                                    <div class="col-lg-6 text-left">
+                                                        <!-- inputs/!-->
                                                         <div class="form-group ">
-                                                            <label class="control-label">Numero interior:</label>
-                                                            <input placeholder="S/N"type="text" class="form-control" disabled >
-                                                        </div>    
-                                                    </div>
-                                                    <div class="col-lg-4 text-left">
+                                                            <label class="control-label">Nombre</label>
+                                                            <input type="text" class="form-control" maxlength="50" disabled>
+                                                        </div>
+
                                                         <div class="form-group ">
-                                                            <label class="control-label">Codigo postal</label>
-                                                            <input placeholder="50180"type="text" class="form-control" disabled >
-                                                        </div>    
+                                                            <label class="control-label">País</label>
+                                                            <input type="text" class="form-control" maxlength="50" disabled>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Municipio</label>
+                                                            <input type="text" class="form-control" maxlength="30" disabled>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Colonia</label>
+                                                            <input type="text" class="form-control" maxlength="30" disabled>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Calle</label>
+                                                            <input type="text" class="form-control" maxlength="50" disabled>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Número Interior</label>
+                                                            <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" disabled>
+                                                        </div>
+
                                                     </div>
 
+                                                    <div class="col-lg-6 text-left">                                                        
+                                                        <div class="form-group ">
 
+                                                            <div class="form-group ">
+                                                                <label class="control-label">Número Exterior</label>
+                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" disabled>
+                                                            </div>
 
+                                                            <div class="form-group ">
+                                                                <label class="control-label">Código Postal</label>
+                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" disabled>
+                                                            </div>
 
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Municipio</label>
-                                                        <input placeholder="TOLUCA"type="text" class="form-control" disabled >
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Email</label>
-                                                        <input placeholder="facturasjosue@live.com"type="text" class="form-control" disabled >
-                                                    </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label" >RFC</label>
+                                                                <input type="text" class="form-control" maxlength="13" disabled>
+                                                            </div>
 
+                                                            <div class="form-group ">
+                                                                <label class="control-label">Teléfono</label>
+                                                                <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}" disabled>
+                                                            </div>                                                           
+                                                        </div>
 
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Correo</label>
+                                                            <input type="text" class="form-control" maxlength="30" disabled>
+                                                        </div>
 
-                                                </div>
-                                            </div>  
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Forma de Pago</label>
+                                                            <input type="text" class="form-control" maxlength="50" disabled>
+                                                        </div>
+
+                                                        <!--Fin  inputs/!-->
+                                                    </div>                                                    
+                                                </div>  
 
                                         </div>
 
                                     </div> 
-                                    <div class="panel panel-green">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">Datos del Contacto</h3>
+                                   <div class="panel panel-green">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Datos Contacto</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <!-- Fila de inputs/!-->
+                                                <div class="row">
+                                                    <div class="col-lg-6 text-left">
+                                                        <!-- inputs/!-->
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Nombre</label>
+                                                            <input type="text" class="form-control" disabled>
+                                                        </div>
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Apellido Materno</label>
+                                                            <input type="text" class="form-control" disabled>
+                                                        </div>                                                       
+                                                        
+                                                        <!--Fin  inputs/!-->
+                                                    </div>
+                                                    <div class="col-lg-6 text-left">
+                                                        <!-- inputs/!-->
+                                                        <div class="form-group">
+                                                            <label class="control-label" >Apellido Paterno</label>
+                                                            <input type="text" class="form-control" disabled>
+                                                        </div>                        
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Teléfono</label>
+                                                            <input type="text" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>                      
+                                            </div>
                                         </div>
-                                        <div class="panel-body">
-                                            <!-- Fila de inputs/!-->
-                                            <div class="row">
-                                                <div class="col-lg-6 text-left">
-                                                    <!-- inputs/!-->
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Nombre</label>
-                                                        <input placeholder="Josue Salvador" type="text" class="form-control" disabled>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Apellido Materno</label>
-                                                        <input placeholder="LÃ³pez" type="text" class="form-control" disabled>
-                                                    </div>
-                                                    <!--Fin  inputs/!-->
-                                                </div>
-                                                <div class="col-lg-6 text-left">
-                                                    <!-- inputs/!-->
-                                                    <div class="form-group">
-                                                        <label class="control-label" >Apellido Paterno</label>
-                                                        <input placeholder="Tejocote" type="text" class="form-control" disabled>
-                                                    </div>                        
-                                                    <div class="form-group ">
-                                                        <label class="control-label">Telefono</label>
-                                                        <input placeholder="Ingrese Descripcion" type="text" class="form-control" disabled>
-                                                    </div>
-                                                </div>
-                                            </div>                      
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
                                     </div> 
@@ -182,7 +183,3 @@
     </body>
 
 </html>
-
-
-
-

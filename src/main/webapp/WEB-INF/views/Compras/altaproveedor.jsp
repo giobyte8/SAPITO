@@ -47,87 +47,7 @@
                                         <br/>                            
                                         <div class="panel panel-green">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title">Datos de la empresa</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <!-- Fila de inputs/!-->
-                                                <div class="row">
-                                                    <div class="col-lg-6 text-left">
-                                                        <!-- inputs/!-->
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Nombre de la empresa</label>
-                                                            <input type="text" class="form-control" maxlength="50"  required>
-                                                        </div>
-
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Calle</label>
-                                                            <input type="text" class="form-control" maxlength="50" required >
-                                                        </div>
-
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Colonia</label>
-                                                            <input type="text" class="form-control" maxlength="30" required>
-                                                        </div>
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Entidad federativa</label>
-                                                            <input type="text" class="form-control" maxlength="30" required>
-                                                        </div>                                                   
-                                                        <div class="form-group ">
-                                                            <div class="col-lg-5 text-left">
-                                                                <div class="form-group ">
-                                                                    <label class="control-label">Telefono</label>
-                                                                    <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}" required >
-                                                                </div>
-
-                                                            </div>
-                                                        </div>                                                   
-
-                                                        <!--Fin  inputs/!-->
-                                                    </div>
-                                                    <div class="col-lg-6 text-left">
-                                                        <!-- inputs/!-->
-                                                        <div class="form-group">
-                                                            <label class="control-label" >RFC</label>
-                                                            <input type="text" class="form-control" maxlength="13" required>
-                                                        </div>                        
-                                                        <div class="col-lg-4 text-left">
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Número exterior</label>
-                                                                <input type="text" class="form-control" required>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="col-lg-4 text-left">
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Número interior</label>
-                                                                <input type="text" class="form-control" required >
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 text-left">
-                                                            <div class="form-group ">
-                                                                <label class="control-label">Codigo postal</label>
-                                                                <input type="text" class="form-control" required>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <br>
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Municipio</label>
-                                                            <input type="text" class="form-control"maxlength="30" required >
-                                                        </div>
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Email</label>
-                                                            <input type="text" class="form-control" maxlength="30" required>
-                                                        </div>
-                                                    </div>
-                                                </div>                                                 
-                                            </div>
-                                        </div> 
-                                        <div class="panel panel-green">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">Datos del contacto</h3>
+                                                <h3 class="panel-title">Datos de la Empresa</h3>
                                             </div>
                                             <div class="panel-body">
                                                 <!-- Fila de inputs/!-->
@@ -136,23 +56,104 @@
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
                                                             <label class="control-label">Nombre</label>
-                                                            <input type="text" class="form-control" maxlength="20" required>
+                                                            <input type="text" class="form-control" maxlength="50" placeholder="Nombre" required>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">País</label>
+                                                            <input type="text" class="form-control" maxlength="50" placeholder="País" required>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Municipio</label>
+                                                            <input type="text" class="form-control" maxlength="30" placeholder="Municipio" required>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Colonia</label>
+                                                            <input type="text" class="form-control" maxlength="30" placeholder="Colonia" required>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Calle</label>
+                                                            <input type="text" class="form-control" maxlength="50" placeholder="Calle" required>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Número Interior</label>
+                                                            <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" placeholder="Número Interior" required >
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-lg-6 text-left">                                                        
+                                                        <div class="form-group ">
+
+                                                            <div class="form-group ">
+                                                                <label class="control-label">Número Exterior</label>
+                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" placeholder="Número Exterior" required>
+                                                            </div>
+
+                                                            <div class="form-group ">
+                                                                <label class="control-label">Código Postal</label>
+                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" placeholder="Código Postal" required>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label" >RFC</label>
+                                                                <input type="text" class="form-control" maxlength="13" placeholder="RFC" required>
+                                                            </div>
+
+                                                            <div class="form-group ">
+                                                                <label class="control-label">Teléfono</label>
+                                                                <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}" placeholder="Teléfono" required >
+                                                            </div>                                                           
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Correo</label>
+                                                            <input type="text" class="form-control" maxlength="30" placeholder="Correo" required>
+                                                        </div>
+
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Forma de Pago</label>
+                                                            <input type="text" class="form-control" maxlength="50" placeholder="Forma de Pago" required>
+                                                        </div>
+
+                                                        <!--Fin  inputs/!-->
+                                                    </div>                                                    
+                                                </div>                                                 
+                                            </div>
+                                        </div> 
+                                        <div class="panel panel-green">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Datos Contacto</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <!-- Fila de inputs/!-->
+                                                <div class="row">
+                                                    <div class="col-lg-6 text-left">
+                                                        <!-- inputs/!-->
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Nombre</label>
+                                                            <input type="text" class="form-control" maxlength="20" placeholder="Nombre" required>
                                                         </div>
                                                         <div class="form-group ">
-                                                            <label class="control-label">Apellido materno</label>
-                                                            <input type="text" class="form-control" maxlength="15" required>
-                                                        </div>
+                                                            <label class="control-label">Apellido Materno</label>
+                                                            <input type="text" class="form-control" maxlength="15" placeholder="Apellido Materno" required>
+                                                        </div>                                                       
+                                                        
                                                         <!--Fin  inputs/!-->
                                                     </div>
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
                                                         <div class="form-group">
-                                                            <label class="control-label" >Apellido paterno</label>
-                                                            <input type="text" class="form-control" maxlength="15" required>
+                                                            <label class="control-label" >Apellido Paterno</label>
+                                                            <input type="text" class="form-control" maxlength="15" placeholder="Apellido Paterno" required>
                                                         </div>                        
                                                         <div class="form-group ">
-                                                            <label class="control-label">Telefono</label>
-                                                            <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}"required >
+                                                            <label class="control-label">Teléfono</label>
+                                                            <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}" placeholder="Teléfono" required >
                                                         </div>
                                                     </div>
                                                 </div>                      
@@ -190,4 +191,6 @@
     </body>
 
 </html>
+
+
 
