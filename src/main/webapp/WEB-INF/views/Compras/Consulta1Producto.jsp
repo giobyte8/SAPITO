@@ -99,7 +99,8 @@
 
                                     </div> 
                                     <div class="row">
-                                      <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">                                                    
+                                      <input type="submit" value="Aceptar"  class="btn btn-success  col-md-offset-11"  role="button">                                                    
+                                            
                                     </div> 
                                 </div>  
 
