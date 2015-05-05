@@ -47,4 +47,12 @@ public class RExpErrors
      */
     public static final String digitosEspacios = 
             "Solo se admiten digitos y espacios";
+    
+    /**
+     * Validacion para la fecha (chequenlo antes de implementarlo)
+     *
+     */
+    
+    public static final String fecha =
+            "Formato de fecha incorrecto";
 }
