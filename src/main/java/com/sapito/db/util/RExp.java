@@ -75,4 +75,13 @@ public class RExp
      * Usar para teléfonos y similares. | Vacio
      */
     public static final String digitosEspaciosOrNull = "^([0-9]*\\s*)*$";
+    
+    
+    /**
+     * Validacion para la fecha (chequenlo antes de implementarlo)
+     *
+     */
+    
+    public static final String fecha = "^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[\\/](19|20)\\d{2}$";
+    
 }

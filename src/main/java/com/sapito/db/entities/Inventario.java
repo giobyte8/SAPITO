@@ -25,6 +25,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
+import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -43,50 +46,70 @@ public class Inventario implements Serializable {
     @NotNull
     @Column(name = "idinventario")
     private Integer idinventario;
+    
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 50, message ="El nombre debe contener entre 1 y 50 caracteres")
+    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "nombre")
     private String nombre;
+    
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 70)
+    @Size(min = 1, max = 70, message = "El nombre debe contener entre 1 y 70 caracteres")
+    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "codigoInventario")
     private String codigoInventario;
+    
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 45, message = "Se debe escoger entre materia o producto terminado")
+    @Pattern(regexp = RExp.letrasBasicas, message = RExpErrors.letrasBasicas)
     @Column(name = "tipoProducto")
     private String tipoProducto;
+    
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 70, message = "Se debe asignar una categoría")
     @Column(name = "categoria")
     private String categoria;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "cantidad")
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     private double cantidad;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "minimo")
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     private Integer minimo;
-     @Basic(optional = false)
+    
+    @Basic(optional = false)
     @NotNull
     @Column(name = "maximo")
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     private Integer maximo;
-      @Basic(optional = false)
+    
+    @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 70, message = "La ubicación debe contener entre 1 y 70 caracteres")
+    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "ubicacion")
     private String ubicacion;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "fechaEntrada")
+    @Pattern(regexp = RExp.fecha, message = RExpErrors.fecha)
     @Temporal(TemporalType.DATE)
     private Date fechaEntrada; 
-     @Basic(optional = false)
+    
+    @Basic(optional = false)
     @NotNull
     @Column(name = "fechaProduccion")
+    @Pattern(regexp = RExp.fecha, message = RExpErrors.fecha)
     @Temporal(TemporalType.DATE)
     private Date fechaProduccion;
      
