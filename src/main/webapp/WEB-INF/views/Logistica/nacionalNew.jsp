@@ -3,7 +3,7 @@
     Created on : 26/02/2015, 11:24:45 AM
     Author     : logistica
 --%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,68 +30,78 @@
               </h1>
             </div>
           </div>
-          <!--formulario alta-->
-          <form onsubmit="altaEmpresa()">
+          <!--formulario alta-->          
              <div class="row">
                             <div class="col-lg-12 text-left">
                                 <div class="panel panel-success">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">Datos de la Empresa</h3>
                                     </div>
+                                    
+                                    
+                                    <!--Inicio formulario-->
+                                    
+                                    <form:form id="fnvo-empresaTransporte" commandName="empresaTransporte" action="altaEmpresa" method="POST">
+                                        
+
                                     <div class="panel-success">
                                         <div class="col-lg-6 text-left">
-                                                <div class="form-group has-success">
-                                                    <label>Nombre(s) de la Empresa</label>
-                                                    <input class="form-control" placeholder="Nombre(s)" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label>Pais</label>
-                                                    <input class="form-control" placeholder="Pais" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label>Ciudad</label>
-                                                    <input class="form-control" placeholder="Ciudad" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label>Estado</label>
-                                                    <input class="form-control" placeholder="Estado" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                            </div>
-                                        <div class="col-lg-6 text-left">
-                                                <div class="form-group has-success">
-                                                    <label>Calle</label>
-                                                    <input class="form-control" placeholder="Calle" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label>No.</label>
-                                                    <input class="form-control" placeholder="No." onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label>Rfc</label>
-                                                    <input class="form-control" placeholder="Rfc" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                            <label>Tipo de Empresa</label>
-                                                <div class="form-group has-success input-group">
-                                                    <select  id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa ">
-                                                        <option>Nacional</option>
-                                                        
-                                                        <option>Extranjera</option>
-                                                        
-                                                    </select>
-                                                    
-                                                </div>
                                             
+                                            
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-nombreEmpresa">Nombre(s) de la Empresa</label>                                                
+                                                <form:input  path="nombreEmpresa" name="nombreEmpresa" id="fnoc-nombreEmpresa" type="text" class="form-control"/>
+                                                <form:errors path="nombreEmpresa" element="div" class="alert-danger pad-10" />
+                                            </div>
+                                            
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-pais">Pais</label>                                                
+                                                <form:input  path="pais" name="pais" id="fnoc-pais" type="text" class="form-control" placeholder="Pais"/>
+                                                <form:errors path="pais" element="div" class="alert-danger pad-10" />
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-ciudad">Ciudad</label>                                                
+                                                <form:input  path="ciudad" name="ciudad" id="fnoc-ciudad" type="text" class="form-control" placeholder="Ciudad"/>
+                                                <form:errors path="ciudad" element="div" class="alert-danger pad-10" />
+                                            </div>                                            
+                                        </div>
+                                        <div class="col-lg-6 text-left">
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-calle">Calle</label>                                                
+                                                <form:input  path="calle" name="calle" id="fnoc-calle" type="text" class="form-control" placeholder="Calle"/>
+                                                <form:errors path="calle" element="div" class="alert-danger pad-10" />
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-numero">Numero</label>                                                
+                                                <form:input  path="numero" name="numero" id="fnoc-numero" type="text" class="form-control" placeholder="Numero"/>
+                                                <form:errors path="numero" element="div" class="alert-danger pad-10" />
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-rfc">RFC</label>                                                
+                                                <form:input  path="rfc" name="rfc" id="fnoc-rfc" type="text" class="form-control" placeholder="RFC"/>
+                                                <form:errors path="rfc" element="div" class="alert-danger pad-10" />
+                                            </div>
+                                                <label for="fnvoc-tipo">Tipo empresa</label>                                                
+                                                <form:input  path="tipo" name="tipo" id="fnoc-tipo" type="text" class="form-control" placeholder="Tipo de empresa"/>
+                                                <form:errors path="tipo" element="div" class="alert-danger pad-10" />
+
                                             <div align="right">
-                                            <button type="submit" class="btn btn-success">Aceptar</button>                                            
+                                                <button type="submit" class="btn btn-success">Aceptar</button>                                            
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    </form:form>
+                                    <!--fin formulario-->
+                                    
+                                    
                                 </div>
                             </div>
                         </div> 
-          </form>
+          
         </div>
       </div>
         </div>
+      <%@include file="logisticaFooter.jsp" %>
     </body>
 </html>

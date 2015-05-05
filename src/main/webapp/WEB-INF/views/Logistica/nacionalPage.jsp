@@ -27,7 +27,26 @@
             <div class="col-lg-12">
               <h1 class="page-header">
                 Empresas Nacionales
+                
               </h1>
+              
+                <%                    
+                    
+                    if (request.getAttribute("imprime" )!=null) 
+                    {
+                            
+                        
+                    if (request.getAttribute("imprime").equals("1")) {
+
+                %>
+                <div class="alert alert-success" role="alert">Registro exitoso</div>
+                <%                            
+                    }
+                    }
+                %>
+                                
+              
+              
             </div>
           </div>
 

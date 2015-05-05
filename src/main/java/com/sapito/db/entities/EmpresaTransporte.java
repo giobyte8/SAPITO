@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.CascadeType;
@@ -26,53 +28,55 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "EMPRESATRANSPORTE")
 public class EmpresaTransporte  implements Serializable{
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
     @Column(name = "ID")
-    private long id;
-    
+    private long id;    
     @NotNull
     @Size(min=1, max=500, message = "El nombre de la empresa debe tener entre 1 y 250 caracteres")
     @Column(name = "NOMBREEMPRESA")
-    private String nombreEmpresa;
-    
-    
+    private String nombreEmpresa;            
     @NotNull
     @Size(min=12, max=13, message = "El RFC debe tener 12 o 13 caracteres")
-    //@Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "RFC")
-    private String rfc;
-    
+    private String rfc;    
     @NotNull
     @Column(name = "TIPO")
-    private boolean tipo;
-    
+    private boolean tipo;               
     @NotNull
     @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
-    //@Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
+    @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "PAIS")
-    private String pais;
-    
+    private String pais;    
     @NotNull
     @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Column(name = "CIUDAD")
-    private String ciudad;
-    
+    private String ciudad;            
     @NotNull
     @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Column(name = "CALLE")
-    private String calle;
-    
-    
-    //@Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    private String calle;        
+    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "NUMERO")
-    private int numero;
+    private String numero;    
+    @NotNull
+    @Column(name = "STATUS")
+    private boolean status;
     
     @OneToMany(mappedBy="empresaTransporte",cascade= CascadeType.ALL)
     private Collection<Transporte> transportes;          
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    
     public Collection<Transporte> getTransportes() {
         return transportes;
     }
@@ -138,11 +142,11 @@ public class EmpresaTransporte  implements Serializable{
         this.calle = calle;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
