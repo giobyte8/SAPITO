@@ -84,7 +84,7 @@
                                                                                 &nbsp;Modificar 
                                                                                 <i class="fa fa-pencil-square-o " ></i>
                                                                             </a>
-                                                                            <a class="btn-group" href="confirmacionProveedorEli">
+                                                                            <a class="btn-group" href="javascript:Eliminar()">
                                                                                 &nbsp;Eliminar 
                                                                                 <i class="fa fa-times"></i>
                                                                             </a>
@@ -121,10 +121,12 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
-            <%@include file="MenusCompras/Pie compras.jsp"%>
+        
+        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
+        
+        <%@include file="MenusCompras/Pie compras.jsp"%>
 
     </body>
 
 </html>
-
 
