@@ -7,6 +7,7 @@ package com.sapito.db.entities;
 
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ import javax.validation.constraints.Size;
 //PRIMARY KEY (idProveedor)) ;
 @Entity
 @Table(name = "Proveedor")
-public class Proveedor {
+public class Proveedor implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
