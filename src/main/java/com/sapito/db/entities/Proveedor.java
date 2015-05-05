@@ -17,130 +17,106 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 /**
  *
  * @author pablo
  */
-//CREATE TABLE IF NOT EXISTS mydb.Proveedor
-//( idProveedor INT NOT NULL,
-//Nombre VARCHAR(45) NOT NULL, 
-//Direccion VARCHAR(45) NOT NULL, 
-//RFC VARCHAR(45) NOT NULL, 
-//NombreContacto VARCHAR(45) NOT NULL,
-//Telefono INT NOT NULL,
-//TelefonoContacto INT NOT NULL, 
-//Activo SMALLINT NOT NULL, 
-//PRIMARY KEY (idProveedor)) ;
-@Entity
-@Table(name = "Proveedor")
 public class Proveedor implements Serializable{
+    
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @NotNull
-    @Column(name = "IdProveedor")
-    private long id;
+@Id 
+@GeneratedValue(strategy = GenerationType.SEQUENCE)
+@Column(name = "ID")
+private long id;
 
-    @Column(name = "Nombre")
-    @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
-    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
-    @NotNull
-    private String nombre;
+@NotNull
+@Size(min=1, max=500, message = "El nombre de la instancia debe tener entre 1 y 500 caracteres")
+@Column(name = "EMPRESA")
+private String empresa;
 
-    @Column(name = "Direccion")
-    @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
-    @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
-    @NotNull
-    private String direccion;
 
-    @Column(name = "RFC")
-    @Pattern(regexp = "[A-Z]{4}[0-9]{6}[A-Z0-9]{3}", message = "RFC incorrecto.")
-    @NotNull
-    private String rfc;
+@NotNull
+@Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres") 
+@Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
+@Column(name = "PAIS")
+private String pais; 
 
-    @Column(name = "NombreContacto")
-    @NotNull
-    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
-    @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
-    private String nombreContacto;
 
-    @Column(name = "Telefono")
-    @Pattern(regexp = RExp.digitosEspacios, message = RExpErrors.digitosEspacios)
-    @NotNull
-    private String telefono;
+@Column(name = "ESTADO")
+private String estado;
 
-    @Column(name = "TelefonoContacto")
-    @Pattern(regexp = RExp.digitosEspacios, message = RExpErrors.digitosEspacios)
-    @NotNull
-    private String telefonoContacto;
+@Column(name = "MUNICIPIO")
+private String municipio;
 
-    @Column(name = "Activo")
-    @NotNull
-    private int activo;
 
-    public long getId() {
-        return id;
-    }
+@Column(name = "COLONIA")
+private String colonia;
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public String getNombre() {
-        return nombre;
-    }
+@Column(name = "CALLE") 
+private String calle;
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
-    public String getDireccion() {
-        return direccion;
-    }
+@Pattern(regexp = RExp.letrasBasicasDigitosOrNull, message = RExpErrors.letrasBasicasDigitos) 
+@Column(name = "NUMERO_INTERIOR")
+private String numeroI;
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
 
-    public String getRfc() {
-        return rfc;
-    }
+@Pattern(regexp = RExp.letrasBasicasDigitosOrNull, message = RExpErrors.letrasBasicasDigitos)
+@Column(name = "NUMERO_EXTERIOR") 
+private String numeroE;
 
-    public void setRfc(String rfc) {
-        this.rfc = rfc;
-    }
 
-    public String getNombreContacto() {
-        return nombreContacto;
-    }
+@Column(name = "CP") 
+private int cp;
 
-    public void setNombreContacto(String nombreContacto) {
-        this.nombreContacto = nombreContacto;
-    }
 
-    public String getTelefono() {
-        return telefono;
-    }
+@NotNull
+@Size(min=12, max=13, message = "El RFC debe tener 12 o 13 caracteres") 
+@Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+@Column(name = "RFC") 
+private String rfc; 
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
 
-    public String getTelefonoContacto() {
-        return telefonoContacto;
-    }
+@Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
+@Column(name = "TELEFONO") 
+private String telefono;
 
-    public void setTelefonoContacto(String telefonoContacto) {
-        this.telefonoContacto = telefonoContacto;
-    }
 
-    public int getActivo() {
-        return activo;
-    }
+@NotNull 
+@Email(message = "Ingrese una direcciÃ³n de email valida")
+@Column(name = "EMAIL")
+private String email;
 
-    public void setActivo(int activo) {
-        this.activo = activo;
-    }
 
-}
+@NotNull
+@Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
+@Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
+@Column(name = "NOMBRE")
+private String nombreContacto;
+
+
+@NotNull
+@Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
+@Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
+@Column(name = "APELLIDO_PATERNO") 
+private String apellidoPaternoContacto;
+
+
+@Size(min=0, max=100, message = "Debe tener un mÃ¡ximo de 100 caracteres") 
+@Pattern(regexp = RExp.letrasAcentuadasPuntosOrNull, message = RExpErrors.letrasAcentuadasPuntos) 
+@Column(name = "APELLIDO_MATERNO") 
+private String apellidoMaternoContacto; 
+
+
+@Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios) 
+@Column(name = "TELEFONO")
+private String telefono1; 
+
+
+@NotNull @Column(name = "STATUS")
+private boolean status;
+        
+        }
