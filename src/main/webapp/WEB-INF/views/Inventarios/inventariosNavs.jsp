@@ -58,14 +58,14 @@
                     <li>
                         <a href="inventarioMaximo">Inventario máximo</a>
                     </li>
-                    <li>
-                        <a href="inventarioTotal">Inventario total</a>
-                    </li>
-                    <li>
-                        <a href="buscarProducto">Buscar un producto</a>
-                    </li>
                 </ul>
             </li>
+            
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-list-ol fa-fw"></i> Buscar un producto <span class="fa arrow"></span></a>
+                
+            </li>
+            
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-list-ol fa-fw"></i> Máximos y mínimos<span class="fa arrow"></span></a>
                 <ul id="demo1" class="collapse">
