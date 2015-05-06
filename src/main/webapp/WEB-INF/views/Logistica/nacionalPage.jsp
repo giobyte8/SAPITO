@@ -3,7 +3,7 @@
     Created on : Feb 17, 2015, 4:33:38 AM
     Author     : nel
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,68 +27,68 @@
             <div class="col-lg-12">
               <h1 class="page-header">
                 Empresas Nacionales
-                
-              </h1>
-              
-                <%                    
-                    
-                    if (request.getAttribute("imprime" )!=null) 
-                    {
-                            
-                        
-                    if (request.getAttribute("imprime").equals("1")) {
-
-                %>
-                <div class="alert alert-success" role="alert">Registro exitoso</div>
-                <%                            
-                    }
-                    }
-                %>
-                                
-              
-              
+              </h1>  
             </div>
+                
+              
+              
+              
+            
           </div>
 
           <!-- Buttons bar -->
           <div class="row">
+              <%
+                  if (request.getAttribute("imprime") != null) {
+
+                      if (request.getAttribute("imprime").equals("1")) {
+
+              %>                
+              <div class="alert alert-success" role="alert" style="text-align: center">Registro exitoso</div>
+              <%                        }
+                  }
+              %>
+
             <a href="/SAPITO/logistica/empresa/altaEmpresa"><button class="btn btn-success" type="button">Nueva empresa</button></a>
           </div>
 
           <!-- Data table -->
           <br/><br/>
-          <table id="tnacional" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th>Camiones</th>  
-                <th>Empresa</th>
-                <th>RFC</th>
-                <th>Estado</th>
-                <th>Municipio</th>
-                <th>Calle</th>
-                <th>Numero</th>
-                <th>Codigo postal</th>
-                <th>Opciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                 <td style="text-align: center"><a href="/SAPITO/logistica/empresa/camiones"><button class="btn btn-xs btn-success" type="button">Ver</button></a></td>  
-                <td>Tranporte Nacional</td>
-                <td>TRNA0009990D</td>
-                <td>Sinaloa</td>
-                <td>Mochis</td>
-                <td>Juarez</td>
-                <td>30</td>
-                <td>52080</td>
-                <td>                
-                    <button class="btn btn-xs btn-success" type="button">Editar</button>
-                    <button class="btn btn-xs btn-success" type="button">Eliminar</button>
-                </td>
-              </tr>                            
-            </tbody>
+          
+          <table id="tnacional" class="table table-bordered table-hover 
+           table-striped table-responsive" cellspacing="0" width="100%">
+              <thead>
+                  <tr>
+                      <!--                <th>Camiones</th>  -->
+                      <th>Id</th>
+                      <th>Empresa</th>
+                      <th>RFC</th>
+                      <th>Pais</th>
+                      <th>Ciudad</th>
+                      <th>Calle</th>
+                      <th>Numero</th>
+                      <th>Tipo</th>
+                      <th>Detalles</th>
+                      <!--                <th>Opciones</th>-->
+                  </tr>
+              </thead>
+              <tbody>
+              <c:forEach items="${empresas}" var="empresa">
+                  <tr>                              
+                      <td>${empresa.id}</td>                                
+                      <td>${empresa.nombreEmpresa}</td>                                
+                      <td>${empresa.rfc}</td>                                
+                      <td>${empresa.pais}</td>                                
+                      <td>${empresa.ciudad}</td>                                
+                      <td>${empresa.calle}</td>                                
+                      <td>${empresa.numero}</td>                                
+                      <td>${empresa.tipo}</td>                                
+                  </tr>                            
+              </c:forEach>                
+              </tbody>
           </table>
-
+          
+                
         </div>
       </div>
     </div>

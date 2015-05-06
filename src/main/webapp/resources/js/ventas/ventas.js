@@ -1,12 +1,12 @@
 /* 
- * Ventas.js
+ * logistica.js
  */
 
 /**
  * Marca como activos los elementos de la barrade navegación lateral
  * @param {type} nbtoactivate id del elemento a marcar como activo
  */
-function activatenb(nbtoactivate)
+function activatenbb(nbtoactivate)
 {
     switch (nbtoactivate)
     {
