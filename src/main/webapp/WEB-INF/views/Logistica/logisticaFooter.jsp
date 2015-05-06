@@ -25,4 +25,5 @@
 <script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
 
 <!-- Ventas js -->
-<script src="${pageContext.request.contextPath}/resources/js/ventas/ventas.js"></script>
+<!--<script src="${pageContext.request.contextPath}/resources/js/ventas/ventas.js"></script>-->
+<script src="${pageContext.request.contextPath}/resources/js/logistica/logistica.js"></script>

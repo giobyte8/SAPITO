@@ -62,7 +62,7 @@
             </li>
             
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-list-ol fa-fw"></i> Buscar un producto <span class="fa arrow"></span></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-search fa-fw"></i> Buscar un producto <span class="fa arrow"></span></a>
                 
             </li>
             

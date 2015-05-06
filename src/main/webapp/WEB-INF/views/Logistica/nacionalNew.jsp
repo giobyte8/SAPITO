@@ -50,7 +50,7 @@
                                             
                                             <div class="form-group has-success">
                                                 <label for="fnvoc-nombreEmpresa">Nombre(s) de la Empresa</label>                                                
-                                                <form:input  path="nombreEmpresa" name="nombreEmpresa" id="fnoc-nombreEmpresa" type="text" class="form-control"/>
+                                                <form:input  path="nombreEmpresa" name="nombreEmpresa" id="fnoc-nombreEmpresa" type="text" class="form-control" placeholder="Nombe de la empresa"/>
                                                 <form:errors path="nombreEmpresa" element="div" class="alert-danger pad-10" />
                                             </div>
                                             
@@ -82,9 +82,12 @@
                                                 <form:errors path="rfc" element="div" class="alert-danger pad-10" />
                                             </div>
                                                 <label for="fnvoc-tipo">Tipo empresa</label>                                                
-                                                <form:input  path="tipo" name="tipo" id="fnoc-tipo" type="text" class="form-control" placeholder="Tipo de empresa"/>
-                                                <form:errors path="tipo" element="div" class="alert-danger pad-10" />
-
+                                                
+                                                <select class="form-control" path="tipo" name="tipo" id="fnoc-tipo" type="text">
+                                                    <option value="true">Nacional</option>
+                                                    <option value="false">Extranjera</option>                                                    
+                                                </select>                                                                                                
+                                                <br>    
                                             <div align="right">
                                                 <button type="submit" class="btn btn-success">Aceptar</button>                                            
                                             </div>

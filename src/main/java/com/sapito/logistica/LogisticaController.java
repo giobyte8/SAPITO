@@ -1,5 +1,7 @@
 package com.sapito.logistica;
 
+
+import java.util.List;
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Cliente;
 import com.sapito.db.entities.EmpresaTransporte;
@@ -23,10 +25,7 @@ public class LogisticaController {
         return "Logistica/indexLogistica";
     }
 
-    @RequestMapping(value = "logistica/empresanacional", method = RequestMethod.GET)
-    public String empresaNacional(Model model) {
-        return "Logistica/nacionalPage";
-    }
+    
 
     @RequestMapping(value = "logistica/empresaextranjera", method = RequestMethod.GET)
     public String empresaExtranjera(Model model) {
@@ -79,7 +78,7 @@ public class LogisticaController {
     @Autowired
     public void setDaoEmpresaTransporte(GenericDao<EmpresaTransporte> daoEmpresaTransporte) {
         this.daoEmpresaTransporte = daoEmpresaTransporte;
-        daoEmpresaTransporte.setClass(Cliente.class); // Asignamos la clase que manipulará
+        daoEmpresaTransporte.setClass(EmpresaTransporte.class); // Asignamos la clase que manipulará
     }
 
     //---------------Alta empresa---------------
@@ -92,24 +91,38 @@ public class LogisticaController {
     }   
     
     @RequestMapping(value = "logistica/empresa/altaEmpresa", method = RequestMethod.POST)
-    public String regaltaEmpresa(Model model, @Valid EmpresaTransporte empresaTransporte, BindingResult bindingResult) {
+    public String regaltaEmpresa(Model model, @Valid EmpresaTransporte empresaTransporte, BindingResult bindingResult) 
+    {
         
         
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) 
+        {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
-            return "logistica/empresa/altaEmpresa";
+            return "Logistica/nacionalNew";
         } else 
-        {
+        {         
+            
             daoEmpresaTransporte.create(empresaTransporte);
-        
-            System.out.println("");
-            model.addAttribute("imprime", "1");            
-            return "Logistica/nacionalPage";
+            
+            model.addAttribute("imprime","1");
+            List<EmpresaTransporte> empresas=daoEmpresaTransporte.findAll();
+            model.addAttribute("empresas", empresas);
+            return "Logistica/nacionalPage";             
         }
     }
     //------------------Fin alta empresa--------------
 
+    //---- Consulta empresa----------
+    
+    @RequestMapping(value = "logistica/empresanacional", method = RequestMethod.GET)
+    public String empresaNacional(Model model) 
+    {        
+        List<EmpresaTransporte> empresas=daoEmpresaTransporte.findAll();
+        model.addAttribute("empresas", empresas);
+        return "Logistica/nacionalPage";
+    }
+    //---- Consulta empresa----------
     //---------------Fin Empresa--------------------------//
     
     

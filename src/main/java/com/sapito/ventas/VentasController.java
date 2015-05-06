@@ -71,8 +71,7 @@ public class VentasController
     public String clientes(Model model)
     {
         List<Cliente> clientes = daoCliente.findAll();
-        model.addAttribute("clientes", clientes);
-        
+        model.addAttribute("clientes", clientes);        
         return "Ventas/clientes";
     }
 
