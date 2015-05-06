@@ -86,8 +86,28 @@ public class InventariosController
    
     @RequestMapping(value="registrarProductoTerminado", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)
+    {    
+        Inventario inventario = new Inventario();
+      //preguntar si es necesario-  inventario.setStatus(true);
+       
+        model.addAttribute("inventario", inventario);
+       return "Inventarios/registrarProductoTerminadoView";
+    }
+    
+    @RequestMapping(value = "registrarProductoTerminado", method = RequestMethod.POST)
+    public String regProductoTerminado(Model model, @Valid Inventario inventario, BindingResult bindingResult)
     {
-        return "Inventarios/registrarProductoTerminadoView";
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Inventarios/registrarProductoTerminadoView";
+        }
+        else
+        {
+            daoInventario.create(inventario);
+            return "Inventarios/"; //duda que va en este
+        }
     }
     
     @RequestMapping(value="bajaMateriaPrima", method=RequestMethod.GET)
