@@ -66,8 +66,11 @@ public class Producto implements Serializable {
     @Column(name = "proveedor")
     private int proveedor;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-    private Collection<OrdenVenta> productoproveedor;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+//    private Collection<OrdenVenta> productoproveedor;
+    
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+//    private Collection<ActivoFijo> producto;
 
     public long getId() {
         return id;
@@ -125,18 +128,20 @@ public class Producto implements Serializable {
         this.proveedor = proveedor;
     }
 
-    /**
-     * @return the productoproveedor
-     */
-    public Collection<OrdenVenta> getProductoproveedor() {
-        return productoproveedor;
-    }
+//    /**
+//     * @return the producto
+//     */
+//    public Collection<ActivoFijo> getProducto() {
+//        return producto;
+//    }
+//
+//    /**
+//     * @param producto the producto to set
+//     */
+//    public void setProducto(Collection<ActivoFijo> producto) {
+//        this.producto = producto;
+//    }
 
-    /**
-     * @param productoproveedor the productoproveedor to set
-     */
-    public void setProductoproveedor(Collection<OrdenVenta> productoproveedor) {
-        this.productoproveedor = productoproveedor;
-    }
+
     
 }

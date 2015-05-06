@@ -26,6 +26,8 @@ import org.hibernate.validator.constraints.Email;
  *
  * @author pablo
  */
+@Entity
+@Table(name = "PROVEEDOR")
 public class Proveedor implements Serializable {
 
     @Id
@@ -74,8 +76,8 @@ public class Proveedor implements Serializable {
     private String rfc;
 
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
-    @Column(name = "TELEFONO")
-    private String telefono;
+    @Column(name = "TELEFONO1")
+    private String telefono1;
 
     @NotNull
     @Email(message = "Ingrese una direcciÃ³n de email valida")
@@ -100,15 +102,15 @@ public class Proveedor implements Serializable {
     private String apellidoMaternoContacto;
 
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
-    @Column(name = "TELEFONO")
-    private String telefono1;
+    @Column(name = "TELEFONO2")
+    private String telefono2;
 
     @NotNull
     @Column(name = "STATUS")
     private boolean status;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
-    private Collection<OrdenVenta> proveedorproducto;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
+//    private Collection<OrdenVenta> proveedorproducto;
 
     /**
      * @return the empresa
@@ -250,19 +252,6 @@ public class Proveedor implements Serializable {
         this.rfc = rfc;
     }
 
-    /**
-     * @return the telefono
-     */
-    public String getTelefono() {
-        return telefono;
-    }
-
-    /**
-     * @param telefono the telefono to set
-     */
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
 
     /**
      * @return the email
@@ -351,16 +340,16 @@ public class Proveedor implements Serializable {
     /**
      * @return the proveedorproducto
      */
-    public Collection<OrdenVenta> getProveedorproducto() {
-        return proveedorproducto;
-    }
-
-    /**
-     * @param proveedorproducto the proveedorproducto to set
-     */
-    public void setProveedorproducto(Collection<OrdenVenta> proveedorproducto) {
-        this.proveedorproducto = proveedorproducto;
-    }
+//    public Collection<OrdenVenta> getProveedorproducto() {
+//        return proveedorproducto;
+//    }
+//
+//    /**
+//     * @param proveedorproducto the proveedorproducto to set
+//     */
+//    public void setProveedorproducto(Collection<OrdenVenta> proveedorproducto) {
+//        this.proveedorproducto = proveedorproducto;
+//    }
 
     /**
      * @return the id
@@ -374,6 +363,20 @@ public class Proveedor implements Serializable {
      */
     public void setId(long id) {
         this.id = id;
+    }
+
+    /**
+     * @return the telefono2
+     */
+    public String getTelefono2() {
+        return telefono2;
+    }
+
+    /**
+     * @param telefono2 the telefono2 to set
+     */
+    public void setTelefono2(String telefono2) {
+        this.telefono2 = telefono2;
     }
 
 }
