@@ -36,7 +36,7 @@
                                         <div class="panel-body">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label>Codigo_Inventario</label> 
+                                                    <label>Código Inventario</label> 
                                                     <input onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Código de inventario" pattern="[0-9]{10}" required>
                                                     <p class="help-block" ></p>
                                                 </div>
