@@ -75,13 +75,7 @@ public class InventariosController
     @RequestMapping(value="productoTerminado", method=RequestMethod.GET)
     public String productoTerminado(Model model)
     {
-         {
-        Inventario inventario = new Inventario ();
-     // dudaaaaaa cual va  inventario.setCategoria(true);
-        
-        model.addAAttribute("inventario", inventario);
-    }
-        return "Inventarios/productoTerminadoView";
+      return "Inventarios/productoTerminadoView";
     }
     
     @RequestMapping(value="registrarMateriaPrima", method=RequestMethod.GET)
@@ -89,29 +83,7 @@ public class InventariosController
     {
         return "Inventarios/registrarMateriaPrimaView";
     }
-    
-     @RequestMapping(value = "ventas/nvocliente", method = RequestMethod.POST)
-    public String regNvoCliente(Model model, @Valid Cliente cliente, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
-            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
-            System.out.println("Error: " + bindingResult.getFieldError().getField());
-            return "Ventas/nvoCliente";
-        }
-        else
-        {
-            daoCliente.create(cliente);
-            return "Ventas/clientes";
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
+   
     @RequestMapping(value="registrarProductoTerminado", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)
     {
