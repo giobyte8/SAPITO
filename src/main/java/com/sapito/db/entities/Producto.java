@@ -8,11 +8,14 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -62,6 +65,9 @@ public class Producto implements Serializable {
     @NotNull
     @Column(name = "proveedor")
     private int proveedor;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+    private Collection<OrdenVenta> productoproveedor;
 
     public long getId() {
         return id;
@@ -118,9 +124,19 @@ public class Producto implements Serializable {
     public void setProveedor(int proveedor) {
         this.proveedor = proveedor;
     }
-    
-    
-    
-    
 
+    /**
+     * @return the productoproveedor
+     */
+    public Collection<OrdenVenta> getProductoproveedor() {
+        return productoproveedor;
+    }
+
+    /**
+     * @param productoproveedor the productoproveedor to set
+     */
+    public void setProductoproveedor(Collection<OrdenVenta> productoproveedor) {
+        this.productoproveedor = productoproveedor;
+    }
+    
 }
