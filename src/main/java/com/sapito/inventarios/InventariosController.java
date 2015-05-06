@@ -6,20 +6,41 @@
 
 package com.sapito.inventarios;
 
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Inventario;
+import java.util.List;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingErrorProcessor;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 /**
  *
- * @author Jovic
+ * @author Elizabeth
  */
 @Controller
 
 public class InventariosController
 
 {
+    private GenericDao<Inventario> daoInventario;
+    
+    @Autowired
+    public void setDaoInventario(GenericDao<Inventario> daoInventario)
+    {
+        this.daoInventario = daoInventario;
+        daoInventario.setClass(Inventario.class);
+    }
+    
+    
      @RequestMapping(value="inventarios", method=RequestMethod.GET)
     public String indexInventarios(Model model)
     {
@@ -37,12 +58,7 @@ public class InventariosController
     {
         return "Inventarios/inventarioMaximoView";
     }
-    
-    @RequestMapping(value="inventarioTotal", method=RequestMethod.GET)
-    public String inventarioTotal(Model model)
-    {
-        return "Inventarios/inventarioTotalView";
-    }   
+      
     
     @RequestMapping(value="buscarProducto", method=RequestMethod.GET)
     public String buscarProducto(Model model)
