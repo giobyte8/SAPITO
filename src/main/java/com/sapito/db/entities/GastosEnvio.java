@@ -1,5 +1,6 @@
 package com.sapito.db.entities;
 
+import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity 
 @Table(name="GastosEnvio")
-public class GastosEnvio 
+public class GastosEnvio implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,13 +27,16 @@ public class GastosEnvio
     private long id;
     @NotNull
     @Column(name = "GASTOS_ENVIO")
-    private double gastosEnvio;
+    private long gastosEnvio;
     @NotNull
     @Column(name = "GASTOS_ALOJAMIENTO")
-    private double gastosAlojamiento;
+    private long gastosAlojamiento;
     @NotNull
     @Column(name = "CASETAS")
-    private double casetas;
+    private long casetas;
+    @NotNull
+    @Column(name = "STATUS")
+    private boolean status;
     @OneToOne(cascade=CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private OrdenEnvio idOrdenEnvio;
@@ -52,7 +56,7 @@ public class GastosEnvio
         return gastosEnvio;
     }
 
-    public void setGastosEnvio(double gastosEnvio) 
+    public void setGastosEnvio(long gastosEnvio) 
     {
         this.gastosEnvio = gastosEnvio;
     }
@@ -62,7 +66,7 @@ public class GastosEnvio
         return gastosAlojamiento;
     }
 
-    public void setGastosAlojamiento(double gastosAlojamiento) 
+    public void setGastosAlojamiento(long gastosAlojamiento) 
     {
         this.gastosAlojamiento = gastosAlojamiento;
     }
@@ -72,7 +76,7 @@ public class GastosEnvio
         return casetas;
     }
 
-    public void setCasetas(double casetas) 
+    public void setCasetas(long casetas) 
     {
         this.casetas = casetas;
     }
@@ -85,5 +89,15 @@ public class GastosEnvio
     public void setIdOrdenEnvio(OrdenEnvio idOrdenEnvio) 
     {
         this.idOrdenEnvio = idOrdenEnvio;
+    }
+
+    public boolean isStatus() 
+    {
+        return status;
+    }
+
+    public void setStatus(boolean status) 
+    {
+        this.status = status;
     }
 }

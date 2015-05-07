@@ -1,5 +1,8 @@
 package com.sapito.db.entities;
 
+
+import com.sapito.db.entities.Conductor;
+import com.sapito.db.entities.Transporte;
 import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.CascadeType;
@@ -14,10 +17,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-/**
- *
- * @author logistica
- */
+
 @Entity 
 @Table(name="OrdenEnvio")
 public class OrdenEnvio implements Serializable
@@ -39,6 +39,9 @@ public class OrdenEnvio implements Serializable
     @Size(min=1, max=50, message = "El nombre de la empresa debe tener entre 1 y 50 caracteres")
     @Column(name = "NOMBRE_RECIBE")
     private String nombreRecibe;
+    @NotNull
+    @Column(name = "STATUS")
+    private boolean status;
     @OneToOne(cascade=CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Transporte idTransporte;
@@ -104,5 +107,15 @@ public class OrdenEnvio implements Serializable
     public void setIdConductor(Conductor idConductor) 
     {
         this.idConductor = idConductor;
+    }
+
+    public boolean isStatus() 
+    {
+        return status;
+    }
+
+    public void setStatus(boolean status) 
+    {
+        this.status = status;
     }
 }

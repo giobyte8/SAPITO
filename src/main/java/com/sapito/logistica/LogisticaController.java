@@ -1,10 +1,11 @@
 package com.sapito.logistica;
 
 
+import com.sapito.db.entities.OrdenEnvio;
 import java.util.List;
 import com.sapito.db.dao.GenericDao;
-import com.sapito.db.entities.Cliente;
 import com.sapito.db.entities.EmpresaTransporte;
+import com.sapito.db.entities.GastosEnvio;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -127,9 +128,39 @@ public class LogisticaController {
     
     
     
-    @RequestMapping(value = "logistica/envios/altaEnvio", method = RequestMethod.GET)
-    public String altaEnvio(Model model) {
+    private GenericDao<OrdenEnvio> daoOrdenE;
+    
+    @Autowired
+    public void setDaoOrdenEnvio(GenericDao<OrdenEnvio> daoOrdenE)
+    {
+        this.daoOrdenE = daoOrdenE;
+        daoOrdenE.setClass(OrdenEnvio.class);
+    }
+
+    @RequestMapping(value="logistica/envios/altaEnvio", method=RequestMethod.GET)
+    public String altaEnvio(Model model)
+    {
+        OrdenEnvio ordenE = new OrdenEnvio();
+        ordenE.setStatus(true);
+        
+        model.addAttribute("ordenE", ordenE);
         return "Logistica/enviosNew";
+    }
+    
+    @RequestMapping(value="logistica/envios/altaEnvio", method = RequestMethod.POST)
+    public String regNvoCliente(Model model, @Valid OrdenEnvio ordenE, BindingResult bindingResult)
+    {
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Logistica/enviosNew";
+        }
+        else
+        {
+            daoOrdenE.create(ordenE);
+            return "Logistica/enviosNew";
+        }
     }
 
     @RequestMapping(value = "logistica/enviosV", method = RequestMethod.GET)
@@ -147,9 +178,39 @@ public class LogisticaController {
         return "Logistica/operadoresView";
     }
 
-    @RequestMapping(value = "logistica/gastosEnvioN", method = RequestMethod.GET)
-    public String gastosEnvioNew(Model model) {
+    private GenericDao<GastosEnvio> daoGastosE;
+    
+    @Autowired
+    public void setDaoGastosE(GenericDao<GastosEnvio> daoGastosE)
+    {
+        this.daoGastosE = daoGastosE;
+        daoGastosE.setClass(GastosEnvio.class);
+    }
+    
+    @RequestMapping(value="logistica/gastosEnvioN", method=RequestMethod.GET)
+    public String gastosEnvioNew(Model model)
+    {
+        GastosEnvio gastosE = new GastosEnvio();
+        gastosE.setStatus(true);
+        
+        model.addAttribute("gastosE", gastosE);
         return "Logistica/gastosEnvioNew";
+    }
+    
+    @RequestMapping(value="logistica/gastosEnvioN", method = RequestMethod.POST)
+    public String regGastosEnvio(Model model, @Valid GastosEnvio gastosE, BindingResult bindingResult)
+    {
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Logistica/gastosEnvioNew";
+        }
+        else
+        {
+            daoGastosE.create(gastosE);
+            return "Logistica/gastosEnvioNew";
+        }
     }
 
     @RequestMapping(value = "logistica/nacionalV", method = RequestMethod.GET)
