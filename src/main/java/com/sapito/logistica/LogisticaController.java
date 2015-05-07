@@ -4,11 +4,8 @@ package com.sapito.logistica;
 import com.sapito.db.entities.OrdenEnvio;
 import java.util.List;
 import com.sapito.db.dao.GenericDao;
-<<<<<<< HEAD
-=======
 import com.sapito.db.entities.Cliente;
 import com.sapito.db.entities.Conductor;
->>>>>>> origin/master
 import com.sapito.db.entities.EmpresaTransporte;
 import com.sapito.db.entities.GastosEnvio;
 import javax.validation.Valid;

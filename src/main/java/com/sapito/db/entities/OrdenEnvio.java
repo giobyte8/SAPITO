@@ -18,20 +18,14 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-<<<<<<< HEAD
-@Entity 
-@Table(name="OrdenEnvio")
-=======
 /**
  *
  * @author logistica
  */
 @Entity
 @Table(name = "OrdenEnvio")
->>>>>>> origin/master
 public class OrdenEnvio implements Serializable
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
@@ -52,19 +46,18 @@ public class OrdenEnvio implements Serializable
     @Size(min = 1, max = 50, message = "El nombre de la empresa debe tener entre 1 y 50 caracteres")
     @Column(name = "NOMBRE_RECIBE")
     private String nombreRecibe;
-<<<<<<< HEAD
+
     @NotNull
     @Column(name = "STATUS")
     private boolean status;
-    @OneToOne(cascade=CascadeType.ALL)
-=======
+    
+
     
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 /* *** *** *** ***  RELACIONES *** *** *** *** ***/
     
     @OneToOne(cascade = CascadeType.ALL)
->>>>>>> origin/master
     @PrimaryKeyJoinColumn
     private Transporte idTransporte;
     
@@ -139,7 +132,7 @@ public class OrdenEnvio implements Serializable
         this.idConductor = idConductor;
     }
 
-<<<<<<< HEAD
+
     public boolean isStatus() 
     {
         return status;
@@ -149,8 +142,7 @@ public class OrdenEnvio implements Serializable
     {
         this.status = status;
     }
-}
-=======
+
     public OrdenVenta getOrdenVenta()
     {
         return ordenVenta;
@@ -161,4 +153,4 @@ public class OrdenEnvio implements Serializable
         this.ordenVenta = ordenVenta;
     }
 }
->>>>>>> origin/master
+
