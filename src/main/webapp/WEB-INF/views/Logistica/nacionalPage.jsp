@@ -29,11 +29,7 @@
                 Empresas Nacionales
               </h1>  
             </div>
-                
-              
-              
-              
-            
+
           </div>
 
           <!-- Buttons bar -->
@@ -59,34 +55,121 @@
            table-striped table-responsive" cellspacing="0" width="100%">
               <thead>
                   <tr>
-                      <!--                <th>Camiones</th>  -->
-                      <th>Id</th>
+                      <!--                <th>Camiones</th>  -->                      
                       <th>Empresa</th>
                       <th>RFC</th>
                       <th>Pais</th>
-                      <th>Ciudad</th>
-                      <th>Calle</th>
-                      <th>Numero</th>
-                      <th>Tipo</th>
+                      <th>Ciudad</th>                      
                       <th>Detalles</th>
                       <!--                <th>Opciones</th>-->
                   </tr>
               </thead>
               <tbody>
               <c:forEach items="${empresas}" var="empresa">
-                  <tr>                              
-                      <td>${empresa.id}</td>                                
+                  <tr>                                                    
                       <td>${empresa.nombreEmpresa}</td>                                
                       <td>${empresa.rfc}</td>                                
                       <td>${empresa.pais}</td>                                
-                      <td>${empresa.ciudad}</td>                                
-                      <td>${empresa.calle}</td>                                
-                      <td>${empresa.numero}</td>                                
-                      <td>${empresa.tipo}</td>                                
-                  </tr>                            
+                      <td>${empresa.ciudad}</td>                                                                            
+                      <td style="text-align: center;"><a href="#">
+                              <i class="btn-default fa fa-fw fa-search" 
+                                 data-toggle="modal" data-target="#cts-modal${empresa.id}"></i></a></td>
+                  </tr>                             
               </c:forEach>                
               </tbody>
           </table>
+          
+          
+          
+          <!-- Modal dialog para detalles de clientes -->
+    <c:forEach items="${empresas}" var="empresa">
+        <div id="cts-modal${empresa.id}" class="modal fade" tabindex="-1" role="dialog" 
+             aria-labelledby="cliente-modal-title" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+               <!--cabecera--> 
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                </button>                
+              </div>
+              <!--fin cabecera-->
+              
+              <!--cuerpo-->
+                <div class="modal-body">
+                
+                    <div class="row">
+                        <div class="col-lg-12 text-left">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Datos de la Empresa</h3>
+                                </div>                                                                                                                              
+                                    <div class="panel-success">
+                                        <div class="col-lg-6 text-left">
+
+
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-nombreEmpresa">Nombre(s) de la Empresa</label>                                                
+                                                <input value="${empresa.nombreEmpresa}" readonly="" path="nombreEmpresa" name="nombreEmpresa" id="fnoc-nombreEmpresa" type="text" class="form-control" placeholder="Nombe de la empresa" />                                                
+                                            </div>
+
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-pais">Pais</label>                                                
+                                                <input value="${empresa.pais}" readonly="" path="pais" name="pais" id="fnoc-pais" type="text" class="form-control" placeholder="Pais"/>
+                                                
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-ciudad">Ciudad</label>                                                
+                                                <input value="${empresa.ciudad}" readonly="" path="ciudad" name="ciudad" id="fnoc-ciudad" type="text" class="form-control" placeholder="Ciudad"/>
+                                                
+                                            </div>                                            
+                                        </div>
+                                        <div class="col-lg-6 text-left">
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-calle">Calle</label>                                                
+                                                <input value="${empresa.calle}" readonly="" path="calle" name="calle" id="fnoc-calle" type="text" class="form-control" placeholder="Calle"/>                                                
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-numero">Numero</label>                                                
+                                                <input value="${empresa.numero}" readonly="" path="numero" name="numero" id="fnoc-numero" type="text" class="form-control" placeholder="Numero"/>                                                
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="fnvoc-rfc">RFC</label>                                                
+                                                <input value="${empresa.rfc}" readonly="" path="rfc" name="rfc" id="fnoc-rfc" type="text" class="form-control" placeholder="RFC"/>
+                                                
+                                            </div>
+                                            
+                                                <div class="form-group has-success">
+                                                    <label for="fnvoc-tipo">Tipo empresa</label>                                                
+                                                    <c:if test="${empresa.tipo = true}">
+                                                        <input value="Nacional" readonly="" path="tipo" name="tipo" id="fnoc-tipo" type="text" class="form-control" placeholder="tipo"/>
+                                                    </c:if>                                            
+                                                    <c:if test="${empresa.tipo = false}">
+                                                        <input value="Extranjera" readonly="" path="tipo" name="tipo" id="fnoc-tipo" type="text" class="form-control" placeholder="tipo"/>
+                                                    </c:if>                                                
+                                                </div>
+                                            <br>                                                
+                                        </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div> 
+                  
+                </div>
+              <!--fin cuerpo-->    
+              
+              <!--pie-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">
+                  Cerrar
+                </button>
+              </div>
+              <!--fin pie-->
+            </div>
+          </div>
+        </div>
+    </c:forEach>
           
                 
         </div>
