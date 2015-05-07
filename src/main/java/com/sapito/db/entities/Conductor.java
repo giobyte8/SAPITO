@@ -57,11 +57,32 @@ public class Conductor implements Serializable{
     @NotNull
     @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "PAGODIA")
-    private long pagoDia;
+    private String pagoDia;
     
     @NotNull
     @Column(name = "DISPONIBLECONDUCTOR")
     private boolean disponibleConductor;
+    @NotNull
+    @Column(name = "STATUS")
+    private boolean status;
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    
+    public String getPagoDia() {
+        return pagoDia;
+    }
+
+    public void setPagoDia(String pagoDia) {
+        this.pagoDia = pagoDia;
+    }
+    
     /**
      * @return the id
      */

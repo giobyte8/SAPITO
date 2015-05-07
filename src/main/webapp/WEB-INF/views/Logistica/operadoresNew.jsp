@@ -3,7 +3,7 @@
     Created on : 24/04/2015, 03:01:47 AM
     Author     : logistica
 --%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
       <!-- Page content -->
       
       <div id="page-wrapper">
-        <div class="container-fluid">
+        
 
           <!-- Page title -->
           <div class="row">
@@ -30,67 +30,78 @@
               </h1>
             </div>
           </div>
+          
           <!--formulario alta-->
-          <form onsubmit="altaOperador()">
-             <div class="row">
-                            <div class="col-lg-12 text-left">
-                                <div class="panel panel-success">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Datos Personales</h3>
-                                    </div>
-                                    <div class="panel-success">
-                                        <div class="col-lg-6 text-left">
-                                                <div class="form-group has-success">
-                                                    <label>Nombre(s) </label>
-                                                    <input class="form-control" placeholder="Nombre(s)" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label>Apellidos</label>
-                                                    <input class="form-control" placeholder="Pais" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                        
+          
+          <form:form id="fnvo-conductor" commandName="conductor" action="altaOperador" method="POST">
+                        
+                           
+              <div class="row">
+                        <div class="col-lg-12 text-left">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Datos Personales</h3>
+                                </div>
+                                <div class="panel-success">
+                                    <div class="col-lg-6 text-left">
+                                        <div class="form-group has-success">
+                                            <label for="fnvoc-nombre">Nombre(s)</label>                                                
+                                            <form:input  path="nombre" name="nombre" id="fnoc-nombre" type="text" class="form-control" placeholder="Nombre"/>
+                                            <form:errors path="nombre" element="div" class="alert-danger pad-10" />                                            
+                                        </div>
+                                        <div class="form-group has-success">
+                                            <label for="fnvoc-apellidoPaterno">Apellido Paterno</label>                                                
+                                            <form:input  path="apellidoPaterno" name="apellidoPaterno" id="fnoc-apellidoPaterno" type="text" class="form-control" placeholder="Apellido Paterno"/>
+                                            <form:errors path="apellidoPaterno" element="div" class="alert-danger pad-10" />                                                                                                                                    
+                                        </div>                                        
+                                        <div class="form-group has-success">
+                                            <label for="fnvoc-apellidoMaterno">Apellido Materno</label>                                                
+                                            <form:input  path="apellidoMaterno" name="apellidoMaterno" id="fnoc-apellidoMaterno" type="text" class="form-control" placeholder="Apellido Materno"/>
+                                            <form:errors path="apellidoMaterno" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div> 
-             </div> 
-            <div class="row">
-                <div class="col-lg-12 text-left">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Datos de Referencia y Documentos</h3>
-                        </div>
-                        <div class="panel-success">
-                                        <div class="col-lg-6 text-left">
-                                                <div class="form-group has-success">
-                                                    <label>Dirección </label>
-                                                    <input class="form-control" placeholder="Dirección" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label>Licencia</label>
-                                                    <input class="form-control" placeholder="Licencia" onkeypress="return soloTexto(event);" maxlength="40" required>
-                                                </div>
-                                            <label>Disponibilidad</label>
-                                                <div class="form-group has-success input-group">
-                                                    <select  id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa ">
-                                                        <option>Disponible</option>
-                                                        
-                                                        <option>No Disponible</option>
-                                                        
-                                                    </select>
-                                                    
-                                                </div>
-                                            
-                                            <div align="right">
-                                            <button type="submit" class="btn btn-success">Aceptar</button>
-                                            </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-lg-12 text-left">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Datos de Referencia y Documentos</h3>
+                                </div>
+                                <div class="panel-success">
+                                    <div class="col-lg-6 text-left">                                                
+                                        <div class="form-group has-success">
+                                            <label for="fnvoc-licencia">Licencia</label>                                                
+                                            <form:input  path="licencia" name="licencia" id="fnoc-licencia" type="text" class="form-control" placeholder="Licencia"/>
+                                            <form:errors path="licencia" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                                                                        
+                                        </div>
+                                        <div class="form-group has-success">
+                                            <label for="fnvoc-pagoDia">Pago por dia</label>                                                
+                                            <form:input  path="pagoDia" name="pagoDia" id="fnoc-pagoDia" type="text" class="form-control" placeholder="Pago por dia"/>
+                                            <form:errors path="pagoDia" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                                                                                                                                                                
+                                        </div>
+                                        <div class="form-group has-success">
+                                            <label for="fnvoc-tipo">Disponible</label>                                                
+                                            <select class="form-control" path="disponibleConductor" name="disponibleConductor" id="fnoc-disponibleConductor" type="text">
+                                                    <option value="true">Si</option>
+                                                    <option value="false">No</option>                                                    
+                                            </select>                                                                                                
+                                        </div>
+                                        <br>    
+                                        <div align="right">
+                                            <button type="submit" class="btn btn-success">Aceptar</button>                                            
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-          </form>
-      </div>
+              
+                    </form:form>
+                                                
+      
         </div>
         </div>
     </body>

@@ -6,7 +6,9 @@
 package com.sapito.db.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -61,8 +64,18 @@ public class OrdenVenta implements Serializable
     private Cliente cliente;
     
     @OneToOne
-    @JoinColumn(name = "ORDEN_VENTA_ID")
+    @JoinColumn(name = "ID_FACTURA")
     private Factura factura;
+    
+    @OneToOne
+    @JoinColumn(name = "ID_ORDEN_ENVIO")
+    private OrdenEnvio ordenEnvio;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenVenta")
+    private Collection<SancionCliente> sancionesCliente;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenVenta")
+    private Collection<ProductoVendido> productosVendidos;
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
@@ -146,6 +159,36 @@ public class OrdenVenta implements Serializable
     public void setFactura(Factura factura)
     {
         this.factura = factura;
+    }
+
+    public OrdenEnvio getOrdenEnvio()
+    {
+        return ordenEnvio;
+    }
+
+    public void setOrdenEnvio(OrdenEnvio ordenEnvio)
+    {
+        this.ordenEnvio = ordenEnvio;
+    }
+
+    public Collection<SancionCliente> getSancionesCliente()
+    {
+        return sancionesCliente;
+    }
+
+    public void setSancionesCliente(Collection<SancionCliente> sancionesCliente)
+    {
+        this.sancionesCliente = sancionesCliente;
+    }
+
+    public Collection<ProductoVendido> getProductosVendidos()
+    {
+        return productosVendidos;
+    }
+
+    public void setProductosVendidos(Collection<ProductoVendido> productosVendidos)
+    {
+        this.productosVendidos = productosVendidos;
     }
     
 }

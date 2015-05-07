@@ -32,7 +32,7 @@ public class PersistenceConfig
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean()
     {
         LocalContainerEntityManagerFactoryBean em = 
-                new LocalContainerEntityManagerFactoryBean();
+         new LocalContainerEntityManagerFactoryBean();
         
         em.setDataSource(dataSource());
         em.setPackagesToScan(new String[] {"com.sapito.db.entities"});
