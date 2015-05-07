@@ -14,95 +14,123 @@ import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 /**
  *
  * @author logistica
  */
-@Entity 
-@Table(name="OrdenEnvio")
+@Entity
+@Table(name = "OrdenEnvio")
 public class OrdenEnvio implements Serializable
 {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
     @Column(name = "ID")
     private long id;
+
     @NotNull
     @Future
     @Column(name = "HORA_ENTREGA")
     private Date horaEntrega;
+
     @NotNull
     @Future
     @Column(name = "TIEMPO_ENTREGA")
     private Date tiempoEntrega;
+
     @NotNull
-    @Size(min=1, max=50, message = "El nombre de la empresa debe tener entre 1 y 50 caracteres")
+    @Size(min = 1, max = 50, message = "El nombre de la empresa debe tener entre 1 y 50 caracteres")
     @Column(name = "NOMBRE_RECIBE")
     private String nombreRecibe;
-    @OneToOne(cascade=CascadeType.ALL)
+    
+    
+/* *** *** *** *** *** *** *** *** *** *** *** ***/
+/* *** *** *** ***  RELACIONES *** *** *** *** ***/
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Transporte idTransporte;
-    @OneToOne(cascade=CascadeType.ALL)
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Conductor idConductor;
+    
+    @OneToOne(mappedBy = "ordenEnvio")
+    private OrdenVenta ordenVenta;
+    
+/* *** *** *** *** *** *** *** *** *** *** *** ***/
+/* *** *** *** *** *** *** *** *** *** *** *** ***/
+    
 
-    public long getId() 
+    public long getId()
     {
         return id;
     }
 
-    public void setId(long id) 
+    public void setId(long id)
     {
         this.id = id;
     }
 
-    public Date getHoraEntrega() 
+    public Date getHoraEntrega()
     {
         return horaEntrega;
     }
 
-    public void setHoraEntrega(Date horaEntrega) 
+    public void setHoraEntrega(Date horaEntrega)
     {
         this.horaEntrega = horaEntrega;
     }
 
-    public Date getTiempoEntrega() 
+    public Date getTiempoEntrega()
     {
         return tiempoEntrega;
     }
 
-    public void setTiempoEntrega(Date tiempoEntrega) 
+    public void setTiempoEntrega(Date tiempoEntrega)
     {
         this.tiempoEntrega = tiempoEntrega;
     }
 
-    public String getNombreRecibe() 
+    public String getNombreRecibe()
     {
         return nombreRecibe;
     }
 
-    public void setNombreRecibe(String nombreRecibe) 
+    public void setNombreRecibe(String nombreRecibe)
     {
         this.nombreRecibe = nombreRecibe;
     }
 
-    public Transporte getIdTransporte() 
+    public Transporte getIdTransporte()
     {
         return idTransporte;
     }
 
-    public void setIdTransporte(Transporte idTransporte) 
+    public void setIdTransporte(Transporte idTransporte)
     {
         this.idTransporte = idTransporte;
     }
 
-    public Conductor getIdConductor() 
+    public Conductor getIdConductor()
     {
         return idConductor;
     }
 
-    public void setIdConductor(Conductor idConductor) 
+    public void setIdConductor(Conductor idConductor)
     {
         this.idConductor = idConductor;
+    }
+
+    public OrdenVenta getOrdenVenta()
+    {
+        return ordenVenta;
+    }
+
+    public void setOrdenVenta(OrdenVenta ordenVenta)
+    {
+        this.ordenVenta = ordenVenta;
     }
 }

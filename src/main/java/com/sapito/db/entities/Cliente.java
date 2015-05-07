@@ -127,6 +127,9 @@ public class Cliente implements Serializable
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     private Collection<OrdenVenta> ordenesVenta;
     
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    private Collection<GastosEnvio> gastosEnvio;
+    
     
     
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -351,6 +354,16 @@ public class Cliente implements Serializable
     public void setOrdenesVenta(Collection<OrdenVenta> ordenesVenta)
     {
         this.ordenesVenta = ordenesVenta;
+    }
+
+    public Collection<GastosEnvio> getGastosEnvio()
+    {
+        return gastosEnvio;
+    }
+
+    public void setGastosEnvio(Collection<GastosEnvio> gastosEnvio)
+    {
+        this.gastosEnvio = gastosEnvio;
     }
     
 }
