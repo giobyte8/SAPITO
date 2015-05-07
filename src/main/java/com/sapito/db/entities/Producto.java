@@ -66,6 +66,8 @@ public class Producto implements Serializable {
     @Column(name = "proveedor")
     private int proveedor;
     
+    
+    
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
 //    private Collection<OrdenVenta> productoproveedor;
     

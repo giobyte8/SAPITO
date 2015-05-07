@@ -25,7 +25,7 @@ public class ActivoFijoController {
     private GenericDao<ActivoFijo> daoActivoFijo;
 
     @Autowired
-    public void setDaoCliente(GenericDao<ActivoFijo> daoActivoFijo) {
+    public void setDaoActivoFijo(GenericDao<ActivoFijo> daoActivoFijo) {
         this.daoActivoFijo = daoActivoFijo;
         daoActivoFijo.setClass(ActivoFijo.class);
     }

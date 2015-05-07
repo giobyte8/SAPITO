@@ -60,6 +60,10 @@ private Collection<Historial> historialTraslado;
 @ManyToOne
 private TipoActivoFijo tipoactivofijo;
 
+//@JoinColumn(name = "ID_PRODUCTO")
+//@ManyToOne
+//private Producto producto;
+
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 
@@ -77,19 +81,21 @@ private TipoActivoFijo tipoactivofijo;
         this.id = id;
     }
 
-    /**
-     * @return the fechaAdquisicion
-     */
-    public Date getFechaAdquisicion() {
-        return fechaAdquisicion;
-    }
-
-    /**
-     * @param fechaAdquisicion the fechaAdquisicion to set
-     */
-    public void setFechaAdquisicion(Date fechaAdquisicion) {
-        this.fechaAdquisicion = fechaAdquisicion;
-    }
+//    /**
+//     * @return the fechaAdquisicion
+//     */
+//    public Date getFechaAdquisicion() {
+//        return fechaAdquisicion;
+//    }
+//
+//    /**
+//     * @param fechaAdquisicion the fechaAdquisicion to set
+//     */
+//    public void setFechaAdquisicion(Date fechaAdquisicion) {
+//        this.fechaAdquisicion = fechaAdquisicion;
+//        System.out.println(this.fechaAdquisicion);
+//    }
+    
     
     /**
      * @return the tipoDepreciacion
@@ -160,4 +166,19 @@ private TipoActivoFijo tipoactivofijo;
     public void setHistorialTraslado(Collection<Historial> historialTraslado) {
         this.historialTraslado = historialTraslado;
     }
+
+//    /**
+//     * @return the productoRef
+//     */
+//    public Producto getProductoRef() {
+//        return producto;
+//    }
+//
+//    /**
+//     * @param productoRef the productoRef to set
+//     */
+//    public void setProductoRef(Producto producto) {
+//        this.producto = producto;
+//    }
+
 }
