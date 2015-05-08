@@ -19,6 +19,7 @@
         <title>SAPito</title>
         <%@include file="direccionHead.jsp" %>
         <script src="../resources/js/direccion/Chart.js"></script>
+        <script src="../resources/js/direccion/ChartData.js"></script>
         <!--estilo operaciones-->
         <style>
             body{
@@ -26,7 +27,7 @@
                 margin: 0;
             }
             #canvas-holder{
-                width:40%;
+                width:75%;
             }
         </style>
     </head>
@@ -51,18 +52,170 @@
                     </div>   
 
 
-                    <div id="canvas-holder"align="left" >
-                        <canvas id="chart-area" width="200" height="200" align="right"/>
-                        <script src="../resources/js/direccion/rh.js"></script>
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Ventas
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-barData" width="200" height="200" align="center"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Compras
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-barData2" width="200" height="200" align="center"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Recursos Humanos - Sueldos
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-pieData" width="150" height="150" align="center"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
                     </div>
 
 
-                    <div id="canvas-holder"align="right" >
-                        <canvas id="chart-area" width="200" height="200" align="right"/>
-                        <script src="../resources/js/direccion/operaciones.js"></script>
+
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Recursos Humanos - Empleados
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-pieData2" width="150" height="150" align="center"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Finanzas
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-barData3" width="150" height="150" align="left"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Activos Fijos
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-pieData3" width="150" height="150" align="left"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
                     </div>
 
 
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Operaciones
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-doughnutData" width="150" height="150" align="left"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Logistica
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-pieData4" width="150" height="150" align="left"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" align="center">
+                        <div class="panel panel-green" >
+                            <div class="panel-heading" >
+                                Inventarios
+                            </div>
+
+                            <div class="panel panel-body">
+                                <div id="canvas-holder" align="center" >
+                                    <canvas id="chart-barData4" width="150" height="150" align="left"/>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <%@include file="footer_hist.jsp" %>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div><!-- Fin del tag del contenedor-->                            
@@ -70,8 +223,6 @@
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->
-
-
 
 
         <!-- jQuery -->

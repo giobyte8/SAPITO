@@ -66,7 +66,7 @@
                     <a class="btn btn-primary" type="button" href="#">Cancelar</a>
                  
                 </div>
-                 </div>
+              </div>
             </div>
             <!-- /#page-wrapper -->
         </div>
