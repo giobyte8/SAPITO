@@ -1,9 +1,9 @@
 <%-- 
     Document   : checarInventariosView
     Created on : Feb 14, 2015, 10:45:59 PM
-    Author     : R2R
+    Author     : Elizabeth
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,22 +37,20 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Código Inventario</label> 
-                                                    <input onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Código de inventario" pattern="[0-9]{10}" required>
-                                                    <p class="help-block" ></p>
+                                                    <input type="text" class="form-control" autofocus placeholder="Código de inventario" readonly value="${inventario.codigoInventario}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Nombre</label> 
-                                                    <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Nombre del producto" pattern="[a-z]{20}" required>  
-                                                    <p class="help-block" ></p>
+                                                    <input type="text" class="form-control" autofocus placeholder="Nombre del producto" readonly value="${inventario.nombre}"/>  
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Categoría</label> 
                                                     <div class="form-group input-group col-lg-12">
-                                                        <select class="form-control">
+                                                        <select class="form-control" readonly value="${inventario.categoria}">
                                                             <option>Categoría 1</option>
                                                             <option>Categoría 2</option>
                                                             <option>Categoría 3</option>
@@ -64,8 +62,7 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cantidad</label> 
-                                                    <input onKeyup="isInteger(this.value)" class="form-control" autofocus placeholder="Cantidad del producto" pattern="[0-9]{6}" required>  
-                                                    <p class="help-block" ></p>
+                                                    <input type="text" class="form-control" autofocus placeholder="Cantidad del producto" readonly value="${inventario.cantidad}" />  
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-left">
