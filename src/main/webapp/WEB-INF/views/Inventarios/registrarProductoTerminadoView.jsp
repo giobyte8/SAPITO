@@ -62,25 +62,25 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cantidad</label> 
-                                                    <input type="text" class="form-control" autofocus placeholder="Cantidad del producto" readonly value="${inventario.cantidad}" />  
+                                                    <input type="text" class="form-control" autofocus placeholder="Cantidad del producto" readonly value="${inventario.cantidad}"/>  
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-left">
                                                 <div class="form-group">
                                                     <label>Fecha de entrada</label>
-                                                    <input type="date" class="form-control" autofocus required>
+                                                    <input type="date" class="form-control" autofocus readonly value="${inventario.fechaEntrada}"/>
                                                 </div>
                                             </div>
                                            <div class="col-lg-12 text-left">
                                                 <div class="form-group">
                                                     <label>Fecha de producción</label>
-                                                    <input type="date" class="form-control" autofocus required>
+                                                    <input type="date" class="form-control" autofocus readonly value="${inventario.fechaProduccion}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Ubicación</label> 
-                                                    <input onKeyup="AllowAlphabet()" class="form-control" autofocus placeholder="Ubicación del producto" pattern="[a-z]{40}" required>  
+                                                    <input type="text" class="form-control" autofocus placeholder="Ubicación del producto" readonly value="${inventario.ubicacion}"/>  
                                                 </div>
                                             </div>
                                
