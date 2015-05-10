@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,10 +32,19 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "empleado")
-@XmlRootElement
+@XmlRootElement 
 @NamedQueries({
-    @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
+    @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
+    @NamedQuery(name = "Empleado.findByIdempleado", query = "SELECT e FROM Empleado e WHERE e.idempleado = :idempleado"),
+    @NamedQuery(name = "Empleado.findByNomre", query = "SELECT e FROM Empleado e WHERE e.nomre = :nomre"),
+    @NamedQuery(name = "Empleado.findByApaterno", query = "SELECT e FROM Empleado e WHERE e.apaterno = :apaterno"),
+    @NamedQuery(name = "Empleado.findByAmaterno", query = "SELECT e FROM Empleado e WHERE e.amaterno = :amaterno"),
+    @NamedQuery(name = "Empleado.findByRfc", query = "SELECT e FROM Empleado e WHERE e.rfc = :rfc"),
+    @NamedQuery(name = "Empleado.findByCalle", query = "SELECT e FROM Empleado e WHERE e.calle = :calle"),
+    @NamedQuery(name = "Empleado.findByColonia", query = "SELECT e FROM Empleado e WHERE e.colonia = :colonia"),
+    @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")})
 public class Empleado implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -75,10 +85,10 @@ public class Empleado implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoAnterior")
     private Collection<Historial> empleadoAnterior;
     @JoinColumn(name = "puesto_idpuesto", referencedColumnName = "idpuesto")
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Puesto puestoIdpuesto;
     @JoinColumn(name = "departamento_iddepartamento", referencedColumnName = "iddepartamento")
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Departamento departamentoIddepartamento;
 
     public Empleado() {
@@ -227,5 +237,5 @@ public class Empleado implements Serializable {
     public void setEmpleadoAnterior(Collection<Historial> empleadoAnterior) {
         this.empleadoAnterior = empleadoAnterior;
     }
-    
+
 }

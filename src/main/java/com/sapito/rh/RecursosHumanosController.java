@@ -5,6 +5,10 @@
  */
 package com.sapito.rh;
 
+import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Credencial;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +21,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RecursosHumanosController
 {
+    
+        private GenericDao<Credencial> daoCredencial;
+    
+    @Autowired
+    public void setDaoCredencial(GenericDao<Credencial> daoCredencial)
+    {
+        this.daoCredencial = daoCredencial;
+        daoCredencial.setClass(Credencial.class);
+    }
+    
 
     @RequestMapping(value = "recursoshumanos", method = RequestMethod.GET)
     public String indexAdministrador(Model model)
     {
+        List<Credencial> credenciales = daoCredencial.findAll();
+
         return "RH/indexAdministrador";
     }
     @RequestMapping(value = "recursoshumanosOperativo", method = RequestMethod.GET)

@@ -9,8 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,17 +22,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Jorge Muñoz
+ * @author Jovic
  */
 @Entity
 @Table(name = "credencial")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Credencial.findAll", query = "SELECT c FROM Credencial c")})
+    @NamedQuery(name = "Credencial.findAll", query = "SELECT c FROM Credencial c"),
+    @NamedQuery(name = "Credencial.findByIdcredencial", query = "SELECT c FROM Credencial c WHERE c.idcredencial = :idcredencial"),
+    @NamedQuery(name = "Credencial.findByUsuario", query = "SELECT c FROM Credencial c WHERE c.usuario = :usuario"),
+    @NamedQuery(name = "Credencial.findByContrasena", query = "SELECT c FROM Credencial c WHERE c.contrasena = :contrasena"),
+    @NamedQuery(name = "Credencial.findByStatus", query = "SELECT c FROM Credencial c WHERE c.status = :status")})
 public class Credencial implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     @NotNull
     @Column(name = "idcredencial")
@@ -45,15 +48,15 @@ public class Credencial implements Serializable {
     private String usuario;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "contrase\u00f1a")
-    private String contraseña;
+    @Size(min = 1, max = 100)
+    @Column(name = "contrasena")
+    private String contrasena;
     @Basic(optional = false)
     @NotNull
     @Column(name = "status")
     private short status;
-    @JoinColumn(name = "empleado_idempleado", referencedColumnName = "idempleado")
-    @ManyToOne(optional = false)
+    @JoinColumn(name = "empleado_idempleado")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Empleado empleadoIdempleado;
 
     public Credencial() {
@@ -63,10 +66,10 @@ public class Credencial implements Serializable {
         this.idcredencial = idcredencial;
     }
 
-    public Credencial(Integer idcredencial, String usuario, String contraseña, short status) {
+    public Credencial(Integer idcredencial, String usuario, String contrasena, short status) {
         this.idcredencial = idcredencial;
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.status = status;
     }
 
@@ -86,12 +89,12 @@ public class Credencial implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public short getStatus() {
@@ -118,8 +121,21 @@ public class Credencial implements Serializable {
     }
 
     @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Credencial)) {
+            return false;
+        }
+        Credencial other = (Credencial) object;
+        if ((this.idcredencial == null && other.idcredencial != null) || (this.idcredencial != null && !this.idcredencial.equals(other.idcredencial))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "com.sapito.db.entities.Credencial[ idcredencial=" + idcredencial + " ]";
     }
-    
+
 }
