@@ -7,6 +7,8 @@ package com.sapito.ventas;
 
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Cliente;
+import com.sapito.db.entities.Inventario;
+import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -24,12 +27,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class VentasController
 {
     private GenericDao<Cliente> daoCliente;
+    private GenericDao<Inventario> daoInventario;
     
     @Autowired
     public void setDaoCliente(GenericDao<Cliente> daoCliente)
     {
         this.daoCliente = daoCliente;
         daoCliente.setClass(Cliente.class);
+    }
+    
+    @Autowired
+    public void setDaoInventario(GenericDao<Inventario> daoInventario)
+    {
+        this.daoInventario = daoInventario;
+        daoInventario.setClass(Inventario.class);
     }
     
     
@@ -55,13 +66,16 @@ public class VentasController
     {
         if(bindingResult.hasErrors())
         {
-            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
-            System.out.println("Error: " + bindingResult.getFieldError().getField());
+//            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+//            System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Ventas/nvoCliente";
         }
         else
         {
             daoCliente.create(cliente);
+            
+            List<Cliente> clientes = daoCliente.findAll();
+            model.addAttribute("clientes", clientes);
             return "Ventas/clientes";
         }
     }
@@ -72,6 +86,38 @@ public class VentasController
         List<Cliente> clientes = daoCliente.findAll();
         model.addAttribute("clientes", clientes);        
         return "Ventas/clientes";
+    }
+    
+    @RequestMapping(value = "ventas/buscarcliente", method = RequestMethod.GET)
+    public @ResponseBody Cliente buscarCliente(Model model, String rfc)
+    {
+        List<Cliente> clientes = daoCliente
+                .findBySpecificField("rfc", rfc.trim(), "equal", null, null);
+        
+        if(clientes.size() > 0)
+        {
+            return clientes.get(0);
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    @RequestMapping(value = "ventas/buscarproducto", method = RequestMethod.GET)
+    public @ResponseBody Inventario buscarProductoInventario(Model model, String cinventario)
+    {
+        List<Inventario> productos = daoInventario
+                .findBySpecificField("codigoInventario", cinventario.trim(), "equal", null, null);
+        
+        if(productos.size() > 0)
+        {
+            return productos.get(0);
+        }
+        else
+        {
+            return null;
+        }
     }
 
     @RequestMapping(value = "ventas/vendedores", method = RequestMethod.GET)
@@ -126,5 +172,28 @@ public class VentasController
     public String cambio(Model model)
     {
         return "Ventas/cambio";
+    }
+    
+    @RequestMapping(value = "ventas/demoin", method = RequestMethod.GET)
+    public @ResponseBody List<Inventario> demoInserts(Model model)
+    {
+        for(int i=0; i<5; i++)
+        {
+            Inventario inv = new Inventario();
+            inv.setCantidad(i + 10);
+            inv.setCategoria("Electronicos");
+            inv.setCodigoInventario("ABC123" + i);
+            inv.setFechaEntrada(new Date(2015, 02, 25));
+            inv.setFechaProduccion(new Date(2014, 01, 05));
+            inv.setMaximo(50);
+            inv.setMinimo(i);
+            inv.setNombre("Producto" + i);
+            inv.setUbicacion("Almacen" + i);
+            inv.setTipoProducto("MATERIAPRIMA");
+            
+            daoInventario.create(inv);
+        }
+        
+        return daoInventario.findAll();
     }
 }

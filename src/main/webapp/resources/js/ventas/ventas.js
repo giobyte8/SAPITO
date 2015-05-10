@@ -6,7 +6,7 @@
  * Marca como activos los elementos de la barrade navegación lateral
  * @param {type} nbtoactivate id del elemento a marcar como activo
  */
-function activatenbb(nbtoactivate)
+function activatenb(nbtoactivate)
 {
     switch (nbtoactivate)
     {

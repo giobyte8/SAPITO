@@ -52,7 +52,7 @@ public class Cliente implements Serializable
     @NotNull
     @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
-    @Column(name = "NOMBRE")
+    @Column(name = "NOMBRE_CONTACTO")
     private String nombreContacto;
     
     @NotNull
