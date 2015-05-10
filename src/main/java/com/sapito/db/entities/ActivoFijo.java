@@ -36,9 +36,9 @@ public class ActivoFijo implements Serializable
     @Column(name = "ID")
     private long id;
     
-    @Column(name = "FECHA_ADQUISICION")
+    /*@Column(name = "FECHA_ADQUISICION")
     @Temporal(TemporalType.DATE)
-    private Date fechaAdquisicion;    
+    private Date fechaAdquisicion;  */  
     
     @Column(name = "TIPO_DEPRECIACION")
     private String tipoDepreciacion;
@@ -60,9 +60,9 @@ private Collection<Historial> historialTraslado;
 @ManyToOne
 private TipoActivoFijo tipoactivofijo;
 
-//@JoinColumn(name = "ID_PRODUCTO")
-//@ManyToOne
-//private Producto producto;
+@JoinColumn(name = "ID_PRODUCTO")
+@ManyToOne
+private Producto producto;
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -95,7 +95,6 @@ private TipoActivoFijo tipoactivofijo;
 //        this.fechaAdquisicion = fechaAdquisicion;
 //        System.out.println(this.fechaAdquisicion);
 //    }
-    
     
     /**
      * @return the tipoDepreciacion
@@ -167,18 +166,18 @@ private TipoActivoFijo tipoactivofijo;
         this.historialTraslado = historialTraslado;
     }
 
-//    /**
-//     * @return the productoRef
-//     */
-//    public Producto getProductoRef() {
-//        return producto;
-//    }
-//
-//    /**
-//     * @param productoRef the productoRef to set
-//     */
-//    public void setProductoRef(Producto producto) {
-//        this.producto = producto;
-//    }
+    /**
+     * @return the productoRef
+     */
+    public Producto getProductoRef() {
+        return producto;
+    }
+
+    /**
+     * @param productoRef the productoRef to set
+     */
+    public void setProductoRef(Producto producto) {
+        this.producto = producto;
+    }
 
 }

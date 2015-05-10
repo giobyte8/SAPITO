@@ -43,13 +43,13 @@ public class Historial implements Serializable
 @ManyToOne
 private ActivoFijo activofijo;
 
-@JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
+/*@JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
 @ManyToOne
 private Empleado empleadoAnterior;
 
 @JoinColumn(name = "ID_EMPLEADO_ACTUAL")
 @ManyToOne
-private Empleado empleadoActual;
+private Empleado empleadoActual;*/
 
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -100,30 +100,30 @@ private Empleado empleadoActual;
     /**
      * @return the empleadoAnterior
      */
-    public Empleado getEmpleadoAnterior() {
+    /*public Empleado getEmpleadoAnterior() {
         return empleadoAnterior;
     }
 
     /**
      * @param empleadoAnterior the empleadoAnterior to set
      */
-    public void setEmpleadoAnterior(Empleado empleadoAnterior) {
+    /*public void setEmpleadoAnterior(Empleado empleadoAnterior) {
         this.empleadoAnterior = empleadoAnterior;
     }
 
     /**
      * @return the empleadoActual
      */
-    public Empleado getEmpleadoActual() {
+    /*public Empleado getEmpleadoActual() {
         return empleadoActual;
     }
 
     /**
      * @param empleadoActual the empleadoActual to set
      */
-    public void setEmpleadoActual(Empleado empleadoActual) {
+    /*public void setEmpleadoActual(Empleado empleadoActual) {
         this.empleadoActual = empleadoActual;
-    }
+    }*/
 
     
 }
