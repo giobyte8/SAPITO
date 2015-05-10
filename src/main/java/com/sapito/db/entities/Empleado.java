@@ -32,8 +32,9 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "empleado")
-@XmlRootElement 
-@NamedQueries({
+@XmlRootElement
+@NamedQueries(
+{
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
     @NamedQuery(name = "Empleado.findByIdempleado", query = "SELECT e FROM Empleado e WHERE e.idempleado = :idempleado"),
     @NamedQuery(name = "Empleado.findByNomre", query = "SELECT e FROM Empleado e WHERE e.nomre = :nomre"),
@@ -42,8 +43,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Empleado.findByRfc", query = "SELECT e FROM Empleado e WHERE e.rfc = :rfc"),
     @NamedQuery(name = "Empleado.findByCalle", query = "SELECT e FROM Empleado e WHERE e.calle = :calle"),
     @NamedQuery(name = "Empleado.findByColonia", query = "SELECT e FROM Empleado e WHERE e.colonia = :colonia"),
-    @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")})
-public class Empleado implements Serializable {
+    @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")
+})
+public class Empleado implements Serializable
+{
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -76,166 +79,203 @@ public class Empleado implements Serializable {
     private String email;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
     private Collection<Capacitacion> capacitacionCollection;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
     private Collection<Nomina> nominaCollection;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
     private Collection<Credencial> credencialCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoActual")
-    private Collection<Historial> empleadoActual;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoAnterior")
-    private Collection<Historial> empleadoAnterior;
+    
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoActual")
+//    private Collection<Historial> empleadoActual;
+    
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoAnterior")
+//    private Collection<Historial> empleadoAnterior;
+    
     @JoinColumn(name = "puesto_idpuesto", referencedColumnName = "idpuesto")
     @ManyToOne(fetch = FetchType.EAGER)
     private Puesto puestoIdpuesto;
+    
     @JoinColumn(name = "departamento_iddepartamento", referencedColumnName = "iddepartamento")
     @ManyToOne(fetch = FetchType.EAGER)
     private Departamento departamentoIddepartamento;
 
-    public Empleado() {
+    public Empleado()
+    {
     }
 
-    public Empleado(Integer idempleado) {
+    public Empleado(Integer idempleado)
+    {
         this.idempleado = idempleado;
     }
 
-    public Integer getIdempleado() {
+    public Integer getIdempleado()
+    {
         return idempleado;
     }
 
-    public void setIdempleado(Integer idempleado) {
+    public void setIdempleado(Integer idempleado)
+    {
         this.idempleado = idempleado;
     }
 
-    public String getNomre() {
+    public String getNomre()
+    {
         return nomre;
     }
 
-    public void setNomre(String nomre) {
+    public void setNomre(String nomre)
+    {
         this.nomre = nomre;
     }
 
-    public String getApaterno() {
+    public String getApaterno()
+    {
         return apaterno;
     }
 
-    public void setApaterno(String apaterno) {
+    public void setApaterno(String apaterno)
+    {
         this.apaterno = apaterno;
     }
 
-    public String getAmaterno() {
+    public String getAmaterno()
+    {
         return amaterno;
     }
 
-    public void setAmaterno(String amaterno) {
+    public void setAmaterno(String amaterno)
+    {
         this.amaterno = amaterno;
     }
 
-    public String getRfc() {
+    public String getRfc()
+    {
         return rfc;
     }
 
-    public void setRfc(String rfc) {
+    public void setRfc(String rfc)
+    {
         this.rfc = rfc;
     }
 
-    public String getCalle() {
+    public String getCalle()
+    {
         return calle;
     }
 
-    public void setCalle(String calle) {
+    public void setCalle(String calle)
+    {
         this.calle = calle;
     }
 
-    public String getColonia() {
+    public String getColonia()
+    {
         return colonia;
     }
 
-    public void setColonia(String colonia) {
+    public void setColonia(String colonia)
+    {
         this.colonia = colonia;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
     @XmlTransient
-    public Collection<Capacitacion> getCapacitacionCollection() {
+    public Collection<Capacitacion> getCapacitacionCollection()
+    {
         return capacitacionCollection;
     }
 
-    public void setCapacitacionCollection(Collection<Capacitacion> capacitacionCollection) {
+    public void setCapacitacionCollection(Collection<Capacitacion> capacitacionCollection)
+    {
         this.capacitacionCollection = capacitacionCollection;
     }
 
     @XmlTransient
-    public Collection<Nomina> getNominaCollection() {
+    public Collection<Nomina> getNominaCollection()
+    {
         return nominaCollection;
     }
 
-    public void setNominaCollection(Collection<Nomina> nominaCollection) {
+    public void setNominaCollection(Collection<Nomina> nominaCollection)
+    {
         this.nominaCollection = nominaCollection;
     }
 
     @XmlTransient
-    public Collection<Credencial> getCredencialCollection() {
+    public Collection<Credencial> getCredencialCollection()
+    {
         return credencialCollection;
     }
 
-    public void setCredencialCollection(Collection<Credencial> credencialCollection) {
+    public void setCredencialCollection(Collection<Credencial> credencialCollection)
+    {
         this.credencialCollection = credencialCollection;
     }
 
-    public Puesto getPuestoIdpuesto() {
+    public Puesto getPuestoIdpuesto()
+    {
         return puestoIdpuesto;
     }
 
-    public void setPuestoIdpuesto(Puesto puestoIdpuesto) {
+    public void setPuestoIdpuesto(Puesto puestoIdpuesto)
+    {
         this.puestoIdpuesto = puestoIdpuesto;
     }
 
-    public Departamento getDepartamentoIddepartamento() {
+    public Departamento getDepartamentoIddepartamento()
+    {
         return departamentoIddepartamento;
     }
 
-    public void setDepartamentoIddepartamento(Departamento departamentoIddepartamento) {
+    public void setDepartamentoIddepartamento(Departamento departamentoIddepartamento)
+    {
         this.departamentoIddepartamento = departamentoIddepartamento;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "com.sapito.db.entities.Empleado[ idempleado=" + idempleado + " ]";
     }
 
     /**
      * @return the empleadoActual
      */
-    public Collection<Historial> getEmpleadoActual() {
-        return empleadoActual;
-    }
-
+//    public Collection<Historial> getEmpleadoActual() {
+////        return empleadoActual;
+//    }
     /**
      * @param empleadoActual the empleadoActual to set
      */
-    public void setEmpleadoActual(Collection<Historial> empleadoActual) {
-        this.empleadoActual = empleadoActual;
+    public void setEmpleadoActual(Collection<Historial> empleadoActual)
+    {
+        //      this.empleadoActual = empleadoActual;
     }
 
-    /**
-     * @return the empleadoAnterior
-     */
-    public Collection<Historial> getEmpleadoAnterior() {
-        return empleadoAnterior;
-    }
-
-    /**
-     * @param empleadoAnterior the empleadoAnterior to set
-     */
-    public void setEmpleadoAnterior(Collection<Historial> empleadoAnterior) {
-        this.empleadoAnterior = empleadoAnterior;
-    }
+//    /**
+//     * @return the empleadoAnterior
+//     */
+//    public Collection<Historial> getEmpleadoAnterior()
+//    {
+//        return empleadoAnterior;
+//    }
+//
+//    /**
+//     * @param empleadoAnterior the empleadoAnterior to set
+//     */
+//    public void setEmpleadoAnterior(Collection<Historial> empleadoAnterior)
+//    {
+//        this.empleadoAnterior = empleadoAnterior;
+//    }
 
 }

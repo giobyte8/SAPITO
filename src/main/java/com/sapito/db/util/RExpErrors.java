@@ -30,11 +30,20 @@ public class RExpErrors
     public static final String letrasBasicas = 
             "Solo se admiten letras no acentuadas";
     
+    public static final String letrasBasicasEspacios =
+            "Solo se admiten letras no acentuadas y espacios";
+    
     /**
      * Solo caracteres A-Z, a-z y 0-9 (Al menos uno)
      */
     public static final String letrasBasicasDigitos = 
             "Solo se admiten letras no acentuadas y digitos";
+    
+    /**
+     * Solo caracteres A-Z, a-z, acentuadas, espacios y 0-9
+     */
+    public static final String letrasAcentuadasDigitosEspacios = 
+            "Solo se admiten letras acentuadas y no acentuadas, digitos y espacios";
     
     /**
      * Almenos un número
