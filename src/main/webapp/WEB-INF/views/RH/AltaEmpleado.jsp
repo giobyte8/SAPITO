@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <!-- /.row -->
-                    <form onsubmit="validaNuevoUsuario()">
+                    <form:form onsubmit="validaNuevoUsuario()">
                         <div class="row">
                             <div class="col-lg-12 text-left">
                                 <div class="panel panel-green">
@@ -40,7 +40,7 @@
                                             <div class="form-group">
                                                 <label>Departamento que lo solicita</label>
                                                 <div class="form-group input-group">
-                                                    <select id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa">
+                                                    <form:select id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa" path="">
                                                         <option>Recursos Humanos</option>
                                                         <option>Contabilidad</option>
                                                         <option>Ventas</option>
@@ -49,7 +49,7 @@
                                                         <option>Almacén</option>                                
                                                         <option>Activos fijos</option>
                                                         <option>Operaciones</option>                            
-                                                    </select>
+                                                    </form:select>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,13 +133,9 @@
                                         </div>
                                         <div class="col-lg-6 text-left">
                                             <div class="form-group">
-                                                <label>e_mail</label>
+                                                <label>E-mail</label>
                                                 <input class="form-control" placeholder="e_mail"  maxlength="20" onkeypress="return validarRFC();"required>
                                             </div> 
-                                            <div class="form-group">
-                                                <label>Num. Afiliación al seguro social</label>
-                                                <input class="form-control" placeholder="Num. Afiliación al seguro social"  maxlength="20" onkeypress="return validarRFC();"required>
-                                            </div>  
                                         </div>
                                         <div class="col-lg-6 text-left">
                                             <div class="form-group">
@@ -189,7 +185,7 @@
                                                     </div> 
                                                     
                                                     <div class="form-group">
-                                                        <label>Poblaci&oacute;n</label>
+                                                        <label>Estado</label>
                                                         <div class="form-group input-group">
                                                             <select id="etados" class="form-control selectpicker show-tick show-menu-arrow" data-size="6">
                                                                 <option>Aguascalientes</option>
@@ -239,7 +235,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
           <!--  </div>-->
 
