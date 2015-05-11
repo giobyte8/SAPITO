@@ -234,6 +234,9 @@ function ordenRegistrada()
                             location.reload();
                         });
                     }
+                    else {
+                        location.reload();
+                    }
                 });
             });
         }
@@ -257,6 +260,8 @@ function ordenRegistrada()
                     }, function (isConfirm) {
                         location.reload();
                     });
+                } else {
+                    location.reload();
                 }
             });
         }
