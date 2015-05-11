@@ -4,6 +4,7 @@
     Author     : irving c
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -44,83 +45,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Nombre Apellido Otro</td>
-                <td>RBNB Refacciones</td>
-                <td>12EPRO311D123</td>
-                <td>Lunes 26, Mayo 2019</td>
-                <td>$ 3769.87</td>
-                <td>Venta</td>
-                <td><button class="btn btn-xs btn-success" type="button"
-                            data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td></td>
-              </tr>
-              <tr>
-                <td>Nombre Apellido Otro</td>
-                <td>RBNB Refacciones</td>
-                <td>12EPRO311D123</td>
-                <td>Lunes 26, Mayo 2019</td>
-                <td>$ 3769.87</td>
-                <td>Venta</td>
-                <td><button class="btn btn-xs btn-success" type="button"
-                            data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td></td>
-              </tr>
-              <tr>
-                <td>Nombre Apellido Otro</td>
-                <td>RBNB Refacciones</td>
-                <td>12EPRO311D123</td>
-                <td>Lunes 26, Mayo 2019</td>
-                <td>$ 3769.87</td>
-                <td>Cambio</td>
-                <td><button class="btn btn-xs btn-success" type="button"
-                            data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td></td>
-              </tr>
-              <tr>
-                <td>Nombre Apellido Otro</td>
-                <td>RBNB Refacciones</td>
-                <td>12EPRO311D123</td>
-                <td>Lunes 26, Mayo 2019</td>
-                <td>$ 3769.87</td>
-                <td>Venta</td>
-                <td><button class="btn btn-xs btn-success" type="button"
-                            data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td>></td>
-              </tr>
-              <tr>
-                <td>Nombre Apellido Otro</td>
-                <td>RBNB Refacciones</td>
-                <td>12EPRO311D123</td>
-                <td>Lunes 26, Mayo 2019</td>
-                <td>$ 3769.87</td>
-                <td>Cambio</td>
-                <td><button class="btn btn-xs btn-success" type="button"
-                            data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td></td>
-              </tr>
-              <tr>
-                <td>Nombre Apellido Otro</td>
-                <td>RBNB Refacciones</td>
-                <td>12EPRO311D123</td>
-                <td>Lunes 26, Mayo 2019</td>
-                <td>$ 3769.87</td>
-                <td>Devolución</td>
-                <td><button class="btn btn-xs btn-success" type="button"
-                            data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td>
-              </tr>
-              <tr>
-                <td>Nombre Apellido Otro</td>
-                <td>RBNB Refacciones</td>
-                <td>12EPRO311D123</td>
-                <td>Lunes 26, Mayo 2019</td>
-                <td>$ 3769.87</td>
-                <td>Venta</td>
-                <td><button class="btn btn-xs btn-success" type="button"
-                            data-toggle="modal" data-target="#cts-modal">
-                    Detalles</button></td>
-              </tr>
+              <c:forEach items="${ordenes}" var="orden">
+                  <tr>
+                    <td>Some vendor</td>
+                    <td>${orden.cliente.empresa}</td>
+                    <td>${orden.cliente.rfc}</td>
+                    <td>${orden.fechaEntrega}</td>
+                    <td>${orden.montoConCargos}</td>
+                    <td>no yet implemented</td>
+                    <td><button class="btn btn-xs btn-success" type="button"
+                                data-toggle="modal" data-target="#cts-modal${orden.id}">
+                        Detalles</button></td>
+                  </tr>
+              </c:forEach>
             </tbody>
           </table>
           <br/><br/>
@@ -131,105 +68,93 @@
 
 
     <!-- Modal dialog para detalles de clientes -->
-    <div id="cts-modal" class="modal fade" tabindex="-1" role="dialog" 
-         aria-labelledby="cliente-modal-title" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
+    <c:forEach items="${ordenes}" var="orden">
+        <div id="cts-modal${orden.id}" class="modal fade" tabindex="-1" role="dialog" 
+             aria-labelledby="cliente-modal-title" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
 
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" id="cliente-modal-title">&times;</span>
-            </button>
-            <h4 class="modal-title">Detalles de la venta</h4>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label>Vendedor:</label>
-                <input type="text" class="form-control" readonly/>
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                </button>
+                <h4 class="modal-title">Detalles de la venta</h4>
               </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Vendedor:</label>
+                    <input type="text" class="form-control" readonly/>
+                  </div>
 
-              <div class="col-md-6">
-                <br/><label>Fecha en que se realizo:</label>
-                <input type="text" class="form-control" readonly/>
+                  <div class="col-md-6">
+                    <br/><label>Fecha en que se realizo:</label>
+                    <input type="text" class="form-control" readonly value="${orden.fechaPedido}"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Cliente:</label>
+                    <input type="text" class="form-control" readonly value="${orden.cliente.empresa}"/>
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>RFC del Cliente:</label>
+                    <input type="text" class="form-control" readonly value="${orden.cliente.rfc}"/>
+                  </div>
+                </div>
+                <div class="rw">
+                  <h2>Productos en la orden</h2><br/>
+                  <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
+                    <thead>
+                      <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio c/u</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <c:forEach items="${orden.productosVendidos}" var="producto">
+                          <tr>
+                            <td>${producto.productoInventario.nombre}</td>
+                            <td>${producto.cantidad}</td>
+                            <td>No yet implemented</td>
+                          </tr>
+                      </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Monto de la Venta</label>
+                    <input type="text" class="form-control" readonly value="${orden.montoConCargos}"/>
+                  </div>
+
+                  <div class="col-md-6">
+                    <br/><label>Status de Venta</label>
+                    <input type="text" class="form-control" readonly/>
+                  </div>
+                </div> 
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                  Cerrar
+                </button>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label>Cliente:</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-6">
-                <br/><label>RFC del Cliente:</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-            <div class="rw">
-              <h2>Productos en la orden</h2><br/>
-              <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
-                <thead>
-                  <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio c/u</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Gansito de prueba</td>
-                    <td>50</td>
-                    <td>$7.20</td>
-                  </tr>
-                  <tr>
-                    <td>Motores diesel</td>
-                    <td>10</td>
-                    <td>$7000.50</td>
-                  </tr>
-                  <tr>
-                    <td>Parabrisas xtreme</td>
-                    <td>80</td>
-                    <td>$850.00</td>
-                  </tr>
-                  <tr>
-                    <td>Tires</td>
-                    <td>40</td>
-                    <td>$585.00</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <br/><label>Monto de la Venta</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
 
-              <div class="col-md-6">
-                <br/><label>Status de Venta</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div> 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">
-              Cerrar
-            </button>
           </div>
         </div>
-
-      </div>
-    </div>
-  </div>
+    </c:forEach>
 
 
 
-  <!-- Footer and scripts -->
-  <%@include file="ventasFooter.jsp" %>
-  <script >
-      $(document).ready(function () {
-          activatenb('nb-historial');
-          $('#thistorial').DataTable();
-      });
-  </script>
-</body>
+    <!-- Footer and scripts -->
+    <%@include file="ventasFooter.jsp" %>
+    <script >
+        $(document).ready(function () {
+            activatenb('nb-historial');
+            $('#thistorial').DataTable();
+        });
+    </script>
+  </body>
 </html>

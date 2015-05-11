@@ -186,6 +186,7 @@ public class VentasController
             pv.setProductoInventario(producto);
             pv.setOrdenVenta(orden);
             
+            // TODO: Decrement available quantity on Inventario
             orden.getProductosVendidos().add(pv);
         }
         
@@ -207,27 +208,17 @@ public class VentasController
         return orden;
     }
 
-    @RequestMapping(value = "ventas/altaclientes", method = RequestMethod.GET)
-    public String altaClientes(Model model)
-    {
-        return "Ventas/altaClientes";
-    }
-
     @RequestMapping(value = "ventas/ordenes", method = RequestMethod.GET)
     public String ordenes(Model model)
     {
         return "Ventas/ordenes";
     }
 
-    @RequestMapping(value = "ventas/ofertas", method = RequestMethod.GET)
-    public String ofertas(Model model)
-    {
-        return "Ventas/ofertas";
-    }
-
     @RequestMapping(value = "ventas/historial", method = RequestMethod.GET)
     public String historial(Model model)
     {
+        List<OrdenVenta> ordenes = daoOrdenVenta.findAll();
+        model.addAttribute("ordenes", ordenes);
         return "Ventas/historialVentas";
     }
 
