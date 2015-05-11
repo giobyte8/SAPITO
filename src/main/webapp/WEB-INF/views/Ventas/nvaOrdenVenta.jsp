@@ -40,6 +40,9 @@
                 <a href="nvocliente" class="btn btn-primary">Registrar nuevo</a>
               </span>
             </div>
+            <div id="alert-rfc" class="alert alert-danger hidden">
+              <h5>Ingrese el RFC del cliente.</h5>
+            </div>
             <div class="row">
               <div class="col-md-6">
                 <br/><label for="fcliente-empresa">Empresa:</label>
@@ -130,6 +133,9 @@
 
           <div class="col-md-6">
             <h2>Productos en la orden</h2><br/>
+            <div id="alert-productos" class="alert alert-danger hidden">
+              <h5>Agregue al menos un producto al a orden</h5>
+            </div>
             <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
               <thead>
                 <tr>
@@ -169,16 +175,13 @@
 
             <br/><br/><br/><h2>Totales ($)</h2>
             <div class="col-sm-9 col-sm-offset-3 bg-info text-right">
-              <h4>Total de la orden: $7550.00</h4>
+              <h4 id="total-orden">Total de la orden: 00.00</h4>
             </div>
             <div class="col-sm-10 col-sm-offset-2 bg-warning text-right">
-              <h4>Total con cargos extra: $10550.00</h4>
-            </div>
-            <div class="col-sm-11 col-sm-offset-1 bg-danger text-right">
-              <h4>Total con descuentos: $7550.00</h4>
+              <h4 id="total-concargos">Total con cargos extra: $00.00</h4>
             </div>
             <div class="col-sm-12 col-sm-offset-0 bg-success text-right">
-              <h2>Total final: $7550.00</h2>
+              <h2 id="total-final">Total final: $00.00</h2>
             </div>
 
             <div class="col-sm-12 text-right">
@@ -189,7 +192,7 @@
               </button>
               &nbsp;&nbsp;
               <button type="button" class="btn btn-success btn-lg" 
-                      onclick="guardarNvaOrdenVenta()">
+                      onclick="enviarOrden()">
                 Guardar orden
               </button>
             </div>
@@ -324,8 +327,8 @@
     <!-- Footer and scripts -->
     <%@include file="ventasFooter.jsp" %>
     <script >
-                $(document).ready(function () {
-        activatenb('nb-nvaorden');
+        $(document).ready(function () {
+            activatenb('nb-nvaorden');
         });</script>
     <script src="${pageContext.request.contextPath}/resources/js/ventas/nvaOrdenVenta.js"></script>
   </body>
