@@ -10,6 +10,7 @@ import com.sapito.db.entities.Credencial;
 import com.sapito.db.entities.Departamento;
 import com.sapito.db.entities.Empleado;
 import com.sapito.db.entities.Puesto;
+import com.sapito.general.SHA1;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +57,7 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "recursoshumanos", method = RequestMethod.GET)
     public String indexAdministrador(Model model) {
-        List<Credencial> credenciales = daoCredencial.findAll();
+        
 
         return "RH/indexAdministrador";
     }
@@ -68,17 +69,38 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "AdminEmpleados", method = RequestMethod.GET)
     public String AdminEmpleados(Model model) {
+        
+        
 
         return "RH/administrarEmpleados";
     }
-    
-      @RequestMapping(value = "newUser", method = RequestMethod.POST)
-    public String newUser(String puestoId,String departamentoId , Model model, Empleado empleado,BindingResult result) {
-          
-          
-          daoEmpleado.create(empleado);
-        
-          model.addAttribute("Empleado" , new Empleado());
+
+    @RequestMapping(value = "newUser", method = RequestMethod.POST)
+    public String newUser(String puestoId, String departamentoId, Model model, Empleado empleado, BindingResult result) {
+
+            List<Empleado> empleados = daoEmpleado.findAll();
+            System.out.println(empleados.size()+"Cantidad de empleados");
+            System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
+            
+            int ultimo_empleado = empleados.get(empleados.size() - 1).getIdempleado();
+            System.out.println("ultimo_empeado"+ultimo_empleado);
+            empleado.setIdempleado(ultimo_empleado + 2);
+            daoEmpleado.create(empleado);
+            List<Credencial> credenciales = daoCredencial.findAll();
+            int ultima_credencial = credenciales.size() - 1;
+            Credencial credencial_empleado = new Credencial();
+            credencial_empleado.setIdcredencial(ultima_credencial +2);
+            credencial_empleado.setUsuario(empleado.getEmail());
+            String passSHA1 = SHA1.getStringMessageDigest("newuser", SHA1.SHA1);
+            credencial_empleado.setContrasena(passSHA1);
+            credencial_empleado.setStatus((short) 1);
+            credencial_empleado.setEmpleadoIdempleado(empleado);
+            daoCredencial.create(credencial_empleado);
+             model.addAttribute("Empleado", new Empleado());
+
+   
+
+       
 
         return "RH/AltaEmpleado";
     }
@@ -92,7 +114,7 @@ public class RecursosHumanosController {
         model.addAttribute("puesto", puesto);
         Empleado empleado = new Empleado();
         model.addAttribute("Empleado", empleado);
-        
+
         return "RH/AltaEmpleado";
     }
 

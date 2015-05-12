@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,14 +55,14 @@ public class Departamento implements Serializable {
     @NotNull
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departamentoIddepartamento")
     private Collection<Empleado> empleadoCollection;
-    @JoinColumn(name = "metastopes_idmetastopes", referencedColumnName = "idmetastopes")
-    @ManyToOne(optional = false)
+    @JoinColumn(name = "metastopes_idmetastopes")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Metastopes metastopesIdmetastopes;
-    @JoinColumn(name = "empresa_idempresa", referencedColumnName = "idempresa")
-    @ManyToOne(optional = false)
+    @JoinColumn(name = "empresa_idempresa")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Empresa empresaIdempresa;
-    @JoinColumn(name = "cuentabancaria_idcuentabancaria", referencedColumnName = "idcuentabancaria")
-    @ManyToOne(optional = false)
+    @JoinColumn(name = "cuentabancaria_idcuentabancaria")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Cuentabancaria cuentabancariaIdcuentabancaria;
 
     public Departamento() {

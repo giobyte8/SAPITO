@@ -54,7 +54,7 @@ public class Empleado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
     @Column(name = "idempleado")
     private Integer idempleado;
@@ -120,11 +120,11 @@ public class Empleado implements Serializable {
 //    private Collection<Historial> empleadoActual;
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoAnterior")
 //    private Collection<Historial> empleadoAnterior;
-    @JoinColumn(name = "puesto_idpuesto", referencedColumnName = "idpuesto")
+    @JoinColumn(name = "puesto_idpuesto")
     @ManyToOne(fetch = FetchType.EAGER)
     private Puesto puestoIdpuesto;
 
-    @JoinColumn(name = "departamento_iddepartamento", referencedColumnName = "iddepartamento")
+    @JoinColumn(name = "departamento_iddepartamento")
     @ManyToOne(fetch = FetchType.EAGER)
     private Departamento departamentoIddepartamento;
 
