@@ -57,7 +57,7 @@ public class OrdenVenta implements Serializable
     private double montoConCargos;
     
     /**
-     * Can be: 'VENTA' | 'DEVOLUCION' | 'CAMBIO' | 'VENTA-CAMBIO'
+     * Can be: 'VENTA' | 'DEVOLUCION' | 'CAMBIO'? | 'VENTA-CAMBIO'
      */
     @NotNull
     @Column(name = "STATUS")
@@ -86,6 +86,7 @@ public class OrdenVenta implements Serializable
     
     @OneToOne
     @JoinColumn(name = "ID_FACTURA")
+    @JsonManagedReference
     private Factura factura;
     
     @OneToOne

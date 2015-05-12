@@ -19,6 +19,7 @@ public class OrdenVentaTransport
     private List<ProductoEnOrden> productosEnOrden;
     private double monto;
     private double montoConCargos;
+    private String status;
 
     public Long getClientId()
     {
@@ -68,6 +69,16 @@ public class OrdenVentaTransport
     public void setMontoConCargos(double montoConCargos)
     {
         this.montoConCargos = montoConCargos;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(String status)
+    {
+        this.status = status;
     }
 }
 

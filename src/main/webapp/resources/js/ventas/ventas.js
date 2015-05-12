@@ -143,29 +143,6 @@ function activatenb(nbtoactivate)
     }
 }
 
-function cancelarCambio()
-{
-    swal({
-        title: '¿Desea cancelar el cambio?',
-        text: 'Confirme que desea cancelar el cambio',
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Si, cancelar',
-        cancelButtonText: 'No',
-        closeOnConfirm: false,
-        closeOnCancel: false
-    }, function(isConfirm) {
-        if (isConfirm) {
-            swal('Listo', 'El cambio ha sido cancelada', 'success');
-        }
-    });
-}
-
-function guardarCambio()
-{
-    swal('Guardado', 'El cambio ha sido registrado exitosamente', 'success');
-}
-
 function guardarDevolucion()
 {
     swal('Guardada', 'La devolución ha sido registrada exitosamente', 'success');

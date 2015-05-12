@@ -5,6 +5,7 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,6 +44,7 @@ public class Factura implements Serializable
 /* *** *** *** ***  RELACIONES *** *** *** *** ***/
     
     @OneToOne(mappedBy = "factura")
+    @JsonBackReference
     private OrdenVenta ordenVenta;
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/

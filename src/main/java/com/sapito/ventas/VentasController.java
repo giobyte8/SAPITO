@@ -7,19 +7,23 @@ package com.sapito.ventas;
 
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Cliente;
+import com.sapito.db.entities.Factura;
 import com.sapito.db.entities.Inventario;
 import com.sapito.db.entities.OrdenVenta;
 import com.sapito.db.entities.ProductoVendido;
 import com.sapito.db.entities.SancionCliente;
-import java.util.AbstractList;
+import com.sapito.pdf.PDFView.PDFGeneratorVentas;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,6 +42,7 @@ public class VentasController
     private GenericDao<Cliente> daoCliente;
     private GenericDao<Inventario> daoInventario;
     private GenericDao<OrdenVenta> daoOrdenVenta;
+    private GenericDao<Factura> daoFactura;
     
     @Autowired
     public void setDaoCliente(GenericDao<Cliente> daoCliente)
@@ -58,6 +63,13 @@ public class VentasController
     {
         this.daoOrdenVenta = daoOrdenVenta;
         daoOrdenVenta.setClass(OrdenVenta.class);
+    }
+    
+    @Autowired
+    public void setDaoFactura(GenericDao<Factura> daoFactura)
+    {
+        this.daoFactura = daoFactura;
+        daoFactura.setClass(Factura.class);
     }
     
     
@@ -174,7 +186,7 @@ public class VentasController
         orden.setFechaPedido(new Date());
         orden.setMonto(ordenVentaTransport.getMonto());
         orden.setMontoConCargos(ordenVentaTransport.getMontoConCargos());
-        orden.setStatus("VENTA");
+        orden.setStatus(ordenVentaTransport.getStatus());
         
         // Productos en la orden
         List<ProductoVendido> lpv = new ArrayList<>();
@@ -247,6 +259,52 @@ public class VentasController
     public String facturas(Model model)
     {
         return "Ventas/facturas";
+    }
+    
+    @RequestMapping(value = "ventas/registrarfactura", method = RequestMethod.GET)
+    @ResponseBody
+    public Factura registrarFactura(Model model, String idOrden)
+    {
+        try { Long.valueOf(idOrden); } catch(NumberFormatException ex) { return null; }
+        
+        OrdenVenta orden = (OrdenVenta) daoOrdenVenta.find(Long.valueOf(idOrden));
+        if(orden != null)
+        {
+            double iva = orden.getMontoConCargos() * 0.16;
+            
+            Factura factura = new Factura();
+            factura.setIVA(iva);
+            factura.setSubTotal(orden.getMontoConCargos());
+            factura.setTotal(orden.getMontoConCargos() + iva);
+            factura.setOrdenVenta(orden);
+            
+            daoFactura.create(factura);
+            
+            orden.setFactura(factura);
+            daoOrdenVenta.edit(orden);
+            
+            return factura;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    @RequestMapping(value = "ventas/testpdf.pdf", method = RequestMethod.GET)
+    @ResponseBody
+    public String descargarFactura(Model model, HttpServletRequest request, HttpServletResponse response)
+    {
+        PDFGeneratorVentas pdfView = new PDFGeneratorVentas();
+        try
+        {
+            pdfView.crearPDFFactura(response);
+        } catch(Exception ex)
+        {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return "OK";
     }
 
     @RequestMapping(value = "ventas/devoluciones", method = RequestMethod.GET)
