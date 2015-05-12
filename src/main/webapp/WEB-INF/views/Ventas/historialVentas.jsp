@@ -35,6 +35,7 @@
           <table id="thistorial" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
+                <th>Id Orden</th>
                 <th>Vendedor</th>
                 <th>Cliente</th>
                 <th>RFC del Cliente</th>
@@ -47,12 +48,13 @@
             <tbody>
               <c:forEach items="${ordenes}" var="orden">
                   <tr>
+                    <td>${orden.id}</td>
                     <td>Some vendor</td>
                     <td>${orden.cliente.empresa}</td>
                     <td>${orden.cliente.rfc}</td>
                     <td>${orden.fechaEntrega}</td>
                     <td>${orden.montoConCargos}</td>
-                    <td>no yet implemented</td>
+                    <td>${orden.status}</td>
                     <td><button class="btn btn-xs btn-success" type="button"
                                 data-toggle="modal" data-target="#cts-modal${orden.id}">
                         Detalles</button></td>
@@ -117,7 +119,7 @@
                           <tr>
                             <td>${producto.productoInventario.nombre}</td>
                             <td>${producto.cantidad}</td>
-                            <td>No yet implemented</td>
+                            <td>${producto.productoInventario.precioUnitario}</td>
                           </tr>
                       </c:forEach>
                     </tbody>
@@ -131,7 +133,7 @@
 
                   <div class="col-md-6">
                     <br/><label>Status de Venta</label>
-                    <input type="text" class="form-control" readonly/>
+                    <input type="text" class="form-control" readonly value="${orden.status}"/>
                   </div>
                 </div> 
               </div>
