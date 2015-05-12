@@ -14,11 +14,11 @@ package com.sapito.inventarios;
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Inventario;
 import java.util.List;
+import javax.persistence.Query;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingErrorProcessor;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -78,11 +78,50 @@ public class InventariosController
       return "Inventarios/productoTerminadoView";
     }
     
-    @RequestMapping(value="registrarMateriaPrima", method=RequestMethod.GET)
-    public String registrarMateriPrima(Model model)
+    //------------Materia prima--------------------
+    
+    
+    
+    
+     @RequestMapping(value = "Inventarios/registrarMateriaPrima", method = RequestMethod.GET)
+    public String registrarMateriaPrima(Model model) 
     {
+        Inventario inventario = new Inventario();        
+        model.addAttribute("inventario", inventario);        
         return "Inventarios/registrarMateriaPrimaView";
     }
+    
+    @RequestMapping(value = "Inventarios/registrarMateriaPrima", method = RequestMethod.POST)
+    public String regRegistrarMateriaPrima(Model model, @Valid Inventario inventario, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Logistica/operadoresNew";
+        } else 
+        {
+            inventario.setStatus(true);
+            inventario.setTipoProducto("Materia prima");
+            daoInventario.create(inventario);            
+
+            Query query1 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.status=:status and a.tipoProducto=:tipo");
+            query1.setParameter("status", true);
+            query1.setParameter("tipo","Materia prima");
+            List<Inventario> inventarios = query1.getResultList();
+            model.addAttribute("inventario", inventarios);
+            return "Inventario/materiaPrimaView";
+        }
+    }
+    
+    
+    //------------Fin Materia Prima----------------
+    
+    
+//    @RequestMapping(value="registrarMateriaPrima", method=RequestMethod.GET)
+//    public String registrarMateriPrima(Model model)
+//    {
+//        return "Inventarios/registrarMateriaPrimaView";
+//    }
    
     @RequestMapping(value="registrarProductoTerminado", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)

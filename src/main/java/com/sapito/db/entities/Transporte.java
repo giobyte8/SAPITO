@@ -45,16 +45,51 @@ public class Transporte implements Serializable{
     
     @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "DIMENSION")
-    private double dimension;
+    private String dimension;
+    
+    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    @Column(name = "COSTODIA")
+    private String costoDia;
+    
     @NotNull
     @Column(name = "DISPONIBLETRANSPORTE")
     private boolean disponibleTransporte;
     
+    @NotNull
+    @Column(name = "STATUS")
+    private boolean status;
     
     @JoinColumn(name="IDEMPRESA")
     @ManyToOne
     private EmpresaTransporte empresaTransporte;
 
+    
+    public String getDimension() {
+        return dimension;
+    }
+
+    public String getCostoDia() {
+        return costoDia;
+    }
+
+    public void setCostoDia(String costoDia) {
+        this.costoDia = costoDia;
+    }
+
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    
+    
     public EmpresaTransporte getEmpresaTransporte() {
         return empresaTransporte;
     }
@@ -87,14 +122,7 @@ public class Transporte implements Serializable{
     public void setTipotransporte(String tipotransporte) {
         this.tipotransporte = tipotransporte;
     }
-
-    public Double getDimension() {
-        return dimension;
-    }
-
-    public void setDimension(Double dimension) {
-        this.dimension = dimension;
-    }
+    
 
     public boolean isDisponibleTransporte() {
         return disponibleTransporte;

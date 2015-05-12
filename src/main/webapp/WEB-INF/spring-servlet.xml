@@ -15,6 +15,17 @@
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp 
     resources in the /WEB-INF/views directory -->
+    
+    <beans:bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+            
+    <beans:bean class="org.springframework.web.servlet.view.XmlViewResolver">
+        <beans:property name="location">
+            <beans:value>/WEB-INF/spring-pdf-views.xml</beans:value>
+	</beans:property>
+	   <beans:property name="order" value="0" />
+    </beans:bean>
+   
+    
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/" />
         <beans:property name="suffix" value=".jsp" />

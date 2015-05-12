@@ -100,11 +100,25 @@ public class Inventario implements Serializable
     @Column(name = "fechaProduccion")
     @Temporal(TemporalType.DATE)
     private Date fechaProduccion;
+    
+    @NotNull
+    @Column(name = "STATUS")
+    private boolean status;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoIdinventario")
 //    private Collection<ProductoAdquirido> productoadquiridoCollection;
     
     public Inventario() { }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+    
+    
 
     public Integer getIdinventario()
     {
