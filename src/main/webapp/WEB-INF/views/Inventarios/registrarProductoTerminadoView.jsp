@@ -3,7 +3,7 @@
     Created on : Feb 14, 2015, 10:45:59 PM
     Author     : Elizabeth
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <!-- /.col-lg-4 -->
-                        <div class="panel panel-default">
+                        <form:form action="newProducto" method="POST" commandName="Inventario">
                             <div class="row">
                                 <div class="col-lg-12 text-left">
                                     <div class="panel panel-green">
@@ -34,53 +34,73 @@
                                             <h2 class="panel-title">Registro de producto terminado </h2>
                                         </div>
                                         <div class="panel-body">
+                                            
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Código Inventario</label> 
-                                                    <input type="text" class="form-control" autofocus placeholder="Código de inventario" readonly value="${inventario.codigoInventario}"/>
-                                                </div>
+                                                   <form:input path="codigoInventario" class="form-control" autofocus placeholder="Código de inventario" required="required"/>
+                                                 </div>
                                             </div>
+                                            
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label>Nombre</label> 
-                                                    <input type="text" class="form-control" autofocus placeholder="Nombre del producto" readonly value="${inventario.nombre}"/>  
+                                                    <label>Nombre</label>  
+                                                    <form:input path="nombre" class="form-control" autofocus placeholder="Nombre del producto" required="required"/>
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Categoría</label> 
                                                     <div class="form-group input-group col-lg-12">
-                                                        <select class="form-control" readonly value="${inventario.categoria}">
-                                                            <option>Categoría 1</option>
-                                                            <option>Categoría 2</option>
-                                                            <option>Categoría 3</option>
-                                                            <option>Categoría 4</option>
-                                                        </select>
+                                                        <form:select path="categoria" id="disableSelect" class="form-control selectpicker show-tick show-menu-arrow listaCategoria">
+                                                            <option>Refacciones</option>
+                                                            <option>Maquinaria</option>
+                                                            <option>Auto</option>
+                                                            <option>Otra</option>
+                                                        </form:select>
                                                     </div>  
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cantidad</label> 
-                                                    <input type="text" class="form-control" autofocus placeholder="Cantidad del producto" readonly value="${inventario.cantidad}"/>  
+                                                    <form:input path="cantidad" class="form-control" autofocus placeholder="Cantidad del producto" required="required"/>
                                                 </div>
                                             </div>
+                                                
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Máximo</label>   
+                                                   <form:input path="maximo" class="form-control" autofocus placeholder="Cantidad máxima de producto" required="required"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Mínimo</label> 
+                                                    <form:input path="minimo" class="form-control" autofocus placeholder="Cantidad mínima de producto" required="required"/>
+                                                </div>
+                                            </div>
+                                            
                                             <div class="col-lg-12 text-left">
                                                 <div class="form-group">
                                                     <label>Fecha de entrada</label>
-                                                    <input type="date" class="form-control" autofocus readonly value="${inventario.fechaEntrada}"/>
+                                                     <form:input path="fechaEntrada" type="date" class="form-control" autofocus required="required"/>
                                                 </div>
                                             </div>
                                            <div class="col-lg-12 text-left">
                                                 <div class="form-group">
                                                     <label>Fecha de producción</label>
-                                                    <input type="date" class="form-control" autofocus readonly value="${inventario.fechaProduccion}"/>
+                                                    <form:input path="fechaProduccion" type="date" class="form-control" autofocus required="required"/>
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Ubicación</label> 
-                                                    <input type="text" class="form-control" autofocus placeholder="Ubicación del producto" readonly value="${inventario.ubicacion}"/>  
+                                                    <form:input path="ubicacion" class="form-control" autofocus placeholder="Ubicación del producto" required="required"/>
                                                 </div>
                                             </div>
                                
@@ -92,6 +112,7 @@
 
                                 </div>
                             </div>
+                            </form:form>
                             <!-- /.col-lg-4 -->
                         </div>
                     </div>

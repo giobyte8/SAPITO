@@ -22,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 /**
  *
  * @author Elizabeth
@@ -61,9 +62,19 @@ public class InventariosController
       
     
     @RequestMapping(value="buscarProducto", method=RequestMethod.GET)
-    public String buscarProducto(Model model)
+    public @ResponseBody Inventario buscarProducto(Model model, String nombre, String codigoInventario)
     {
-        return "Inventarios/buscarProductoView";
+        List<Inventario> productos = daoInventario
+                .findBySpecificField("codigoInventario", codigoInventario.trim(), "equal", null, null);
+        
+        if(productos.size() > 0)
+        {
+            return productos.get(0);
+        }
+        else
+        {
+            return null;
+        }
     }
     
     @RequestMapping(value="materiaPrima", method=RequestMethod.GET)
@@ -123,32 +134,23 @@ public class InventariosController
 //        return "Inventarios/registrarMateriaPrimaView";
 //    }
    
+    
+    @RequestMapping(value = "newProducto", method = RequestMethod.POST)
+    public String newProducto(Model model, Inventario inventario, BindingResult result)
+    {
+      daoInventario.create(inventario);
+      model.addAttribute("Inventario", new Inventario());
+      return "Inventarios/registrarProductoTerminadoView";
+    }
+   
     @RequestMapping(value="registrarProductoTerminado", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)
     {    
-        Inventario inventario = new Inventario();
-      //preguntar si es necesario-  inventario.setStatus(true);
-       
-        model.addAttribute("inventario", inventario);
+       Inventario inventario = new Inventario();
+       model.addAttribute("Inventario", inventario);
        return "Inventarios/registrarProductoTerminadoView";
     }
-    
-    @RequestMapping(value = "registrarProductoTerminado", method = RequestMethod.POST)
-    public String regProductoTerminado(Model model, @Valid Inventario inventario, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
-            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
-            System.out.println("Error: " + bindingResult.getFieldError().getField());
-            return "Inventarios/registrarProductoTerminadoView";
-        }
-        else
-        {
-            daoInventario.create(inventario);
-            return "Inventarios/"; //duda que va en este
-        }
-    }
-    
+   
     @RequestMapping(value="bajaMateriaPrima", method=RequestMethod.GET)
     public String bajaMateriaPrima(Model model)
     {

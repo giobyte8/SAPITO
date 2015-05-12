@@ -56,9 +56,23 @@ public class OrdenVenta implements Serializable
     @Column(name = "MONTO_CONCARGOS")
     private double montoConCargos;
     
+    /**
+     * Can be: 'VENTA' | 'DEVOLUCION' | 'CAMBIO'? | 'VENTA-CAMBIO'
+     */
+    @NotNull
+    @Column(name = "STATUS")
+    private String status;
+    
+    /**
+     * TODO: Could we remove this field?
+     */
     @Column(name = "FACTuRADA")
     private boolean facturada;
     
+    /**
+     * true : Order paid with electronic transfer
+     * false: Order was paid with cash
+     */
     @Column(name = "DEPOSITO")
     private boolean deposito;
     
@@ -72,6 +86,7 @@ public class OrdenVenta implements Serializable
     
     @OneToOne
     @JoinColumn(name = "ID_FACTURA")
+    @JsonManagedReference
     private Factura factura;
     
     @OneToOne
@@ -150,6 +165,7 @@ public class OrdenVenta implements Serializable
         this.deposito = deposito;
     }
 
+    @JsonBackReference
     public Cliente getCliente()
     {
         return cliente;
@@ -208,6 +224,16 @@ public class OrdenVenta implements Serializable
     public void setMontoConCargos(double montoConCargos)
     {
         this.montoConCargos = montoConCargos;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(String status)
+    {
+        this.status = status;
     }
     
 }

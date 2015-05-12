@@ -14,7 +14,7 @@ var API_URL = 'http://localhost:8080/SAPITO/ventas/';
 var ordenVentaTransport = {
     clientId: null,
     monto: null,
-    montoConCargos: null,
+    montoConCargos: 0,
     cargosExtra: [],
     productosEnOrden: []
 };
@@ -82,20 +82,36 @@ function buscarProducto()
 
 function agregarAOrden()
 {
-    var trow = '<tr><td>' + $('#addp-nombre').val() + '</td>'
-            + '<td>' + $('#addp-cantidad').val() + '</td>'
-            + '<td>' + $('#addp-costo').val() + ' </td>';
-    $('#tproductos > tbody:last').append(trow);
-    ordenVentaTransport.productosEnOrden.push({
-        idInventario: idProductoActual,
-        cantidad: +$('#addp-cantidad').val()
-    });
-    $('#alert-productos').addClass('hidden');
+    // Validar que haya un producto valido
+    if ($('#addp-nombre').val().length > 0) {
 
-    costoTotalOrden = +costoTotalOrden + (+$('#addp-costo').val() * +$('#addp-cantidad').val());
-    ordenVentaTransport.monto = costoTotalOrden;
-    updateCostos();
-    clearAddPForm();
+        // Validar cantidad ingresada
+        var cantidad = $('#addp-cantidad').val();
+        if (/^\d+$/.test(cantidad)) {
+            $('#addp-cantidad-alert').addClass('hidden');
+            var trow = '<tr><td>' + $('#addp-nombre').val() + '</td>'
+                    + '<td>' + $('#addp-cantidad').val() + '</td>'
+                    + '<td>' + $('#addp-costo').val() + ' </td>';
+            $('#tproductos > tbody:last').append(trow);
+            ordenVentaTransport.productosEnOrden.push({
+                idInventario: idProductoActual,
+                cantidad: +$('#addp-cantidad').val()
+            });
+            $('#alert-productos').addClass('hidden');
+
+            costoTotalOrden = +costoTotalOrden + (+$('#addp-costo').val() * +$('#addp-cantidad').val());
+            ordenVentaTransport.monto = costoTotalOrden;
+            updateCostos();
+            $('#addp-modal').modal('hide');
+            clearAddPForm();
+        }
+        else {
+            $('#addp-cantidad-alert').removeClass('hidden');
+        }
+    }
+    else {
+        $('#addp-notfound-alert').removeClass('hidden');
+    }
 }
 
 function clearAddPForm()
@@ -167,6 +183,7 @@ function clearAddCForm()
 function enviarOrden()
 {
     if (validateNOForm()) {
+        ordenVentaTransport.status = 'VENTA';
         var reqUrl = API_URL + 'nvaorden';
         $.ajax({
             headers: {
@@ -177,7 +194,7 @@ function enviarOrden()
             url: reqUrl,
             data: JSON.stringify(ordenVentaTransport),
             success: function (data) {
-                ordenRegistrada();
+                ordenRegistrada(data);
             },
             dataType: 'json'
         });
@@ -187,9 +204,11 @@ function enviarOrden()
 /**
  * Executes this function when OrdenVenta is registered.
  * Confirms registration and Ask to user for generate Factura
+ * 
+ * @param {JSON} data Registered Order as JSON
  * @returns {undefined}
  */
-function ordenRegistrada()
+function ordenRegistrada(data)
 {
     swal({
         title: 'La orden ha sido registrada',
@@ -203,41 +222,50 @@ function ordenRegistrada()
         closeOnCancel: false
     }, function (isConfirm) {
         if (isConfirm) {
-            swal({
-                title: 'Generada',
-                text: 'La factura ha sido generada con exito',
-                type: 'success',
-                showCancelButton: true,
-                //confirmButtonColor: '#2ECC71',
-                confirmButtonText: 'Descargar',
-                cancelButtonText: 'Descargar luego',
-                closeOnConfirm: false,
-                closeOnCancel: false
-            }, function (isConfirm) {
-                swal({
-                    title: '¿Imprimir ticket?',
-                    text: 'Indique si desea imprimir el ticket de la orden de venta',
-                    type: 'info',
-                    showCancelButton: true,
-                    confirmButtonColor: '#2ECC71',
-                    confirmButtonText: 'Imprimir',
-                    cancelButtonText: 'No imprimir',
-                    closeOnConfirm: false,
-                    closeOnCancel: true
-                }, function (isConfirm) {
-                    if (isConfirm) {
+
+            var reqUrl = API_URL + 'registrarfactura';
+            var params = {idOrden: data.id};
+            $.get(reqUrl, params, function (factura) {
+                if (factura.total) {
+                    swal({
+                        title: 'Generada',
+                        text: 'La factura ha sido generada con exito',
+                        type: 'success',
+                        showCancelButton: true,
+                        confirmButtonText: 'Descargar',
+                        cancelButtonText: 'Descargar luego',
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            console.log('Call to download facura PDF')
+                        }
                         swal({
-                            title: 'Listo',
-                            text: 'El ticket ha sido impreso',
-                            type: 'success'
+                            title: '¿Imprimir ticket?',
+                            text: 'Indique si desea imprimir el ticket de la orden de venta',
+                            type: 'info',
+                            showCancelButton: true,
+                            confirmButtonColor: '#2ECC71',
+                            confirmButtonText: 'Imprimir',
+                            cancelButtonText: 'No imprimir',
+                            closeOnConfirm: false,
+                            closeOnCancel: true
                         }, function (isConfirm) {
-                            location.reload();
+                            if (isConfirm) {
+                                swal({
+                                    title: 'Listo',
+                                    text: 'El ticket ha sido impreso',
+                                    type: 'success'
+                                }, function (isConfirm) {
+                                    location.reload();
+                                });
+                            }
+                            else {
+                                location.reload();
+                            }
                         });
-                    }
-                    else {
-                        location.reload();
-                    }
-                });
+                    });
+                }
             });
         }
         else {

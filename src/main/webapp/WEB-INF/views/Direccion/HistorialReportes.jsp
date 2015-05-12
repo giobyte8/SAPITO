@@ -50,15 +50,28 @@
                             <h1 class="page-header">
                                 Consultar Reporte:
                             </h1>                        
-                        </div>
-                        Fecha
-                        <input type="date" name="fecha">
-                        <hr>
-                        <div aling="left">
-                            
-                                <input type="submit" id="submit" name="submit" value="Aceptar"  class="btn btn-primary" required>
 
-                            
+                            Fecha
+                            <input type="date" name="fecha">
+                            <hr>
+                            <select class="form-control" style="width: 200px">
+                                <option>Ventas</option>
+                                <option>Compras</option>
+                                <option>Activos Fijos</option>
+                                <option>Operaciones</option>
+                                <option>Logística</option>
+                                <option>Recursos Humanos</option>
+                                <option>Inventarios</option>
+                                <option>Finanzas</option>
+                            </select>
+                            <hr>
+
+                            <div aling="left">
+
+                                <input type="submit" id="submit" name="submit" value="Aceptar"  class="btn btn-success" required>
+
+                            </div>
+
                         </div>
                     </div>        
 

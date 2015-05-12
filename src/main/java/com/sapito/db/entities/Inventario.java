@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +30,12 @@ import javax.validation.constraints.Pattern;
  */
 @Entity
 @Table(name = "inventario")
+@NamedQueries(
+        {
+            @NamedQuery(name = "Inventario.findAll", query = "SELECT i FROM Inventario i"),
+            @NamedQuery(name = "Inventario.findByIdempleado", query = "SELECT i FROM Inventario i WHERE i.codigoInventario = :codigoInventario"),
+            @NamedQuery(name = "Inventario.findByNombre", query = "SELECT i FROM Inventario i WHERE i.nombre = :nombre")
+        })
 public class Inventario implements Serializable
 {
 
@@ -62,7 +70,7 @@ public class Inventario implements Serializable
     @Size(min = 1, max = 70, message = "La categoria de ser tener entre 1 y 70 caracteres")
     @Column(name = "categoria")
     private String categoria;
-    
+
     @NotNull
     @Column(name = "PRECIO_UNITARIO")
     private double precioUnitario;
@@ -107,8 +115,9 @@ public class Inventario implements Serializable
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoIdinventario")
 //    private Collection<ProductoAdquirido> productoadquiridoCollection;
-    
-    public Inventario() { }
+    public Inventario()
+    {
+    }
 
     public boolean isStatus() {
         return status;
@@ -239,5 +248,5 @@ public class Inventario implements Serializable
     {
         this.precioUnitario = precioUnitario;
     }
-    
+
 }

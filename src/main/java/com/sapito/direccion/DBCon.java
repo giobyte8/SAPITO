@@ -5,6 +5,7 @@
  */
 package com.sapito.direccion;
 
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,43 +14,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author LAWL
+ * @author Djx
  */
-@Controller
-public class DireccionController {
-
-    @RequestMapping(value = "Direccion/indexprincipal", method = RequestMethod.GET)
-    public String indexprinvipal(Model model) {
-        return "Direccion/indexprincipal";
-    }
-    
-    @RequestMapping(value = "Direccion/Reportes", method = RequestMethod.GET)
-    public String Reportes(Model model) {
-        return "Direccion/Reportes";
-    }
-
-    @RequestMapping(value = "Direccion/HistorialReportes", method = RequestMethod.GET)
-    public String HistReportes(Model model) {
-        return "Direccion/HistorialReportes";
-    }
-    
-    @RequestMapping(value = "Direccion/CrearReporte", method = RequestMethod.GET)
-    public String CrearReportes(Model model) {
-        return "Direccion/CrearReporte";
-    }
-
-
-    @RequestMapping(value = "Direccion/Graficas", method = RequestMethod.GET)
-    public String Graficas(Model model) {
-        return "Direccion/Graficas";
-    }
+public class DBCon {
 
     public static void main(String argv[]) throws Exception {
 
@@ -115,7 +85,5 @@ public class DireccionController {
         }
 
     }
-    
-    
-}
 
+}
