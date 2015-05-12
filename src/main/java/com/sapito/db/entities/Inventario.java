@@ -6,28 +6,20 @@
 package com.sapito.db.entities;
 
 import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import javax.validation.constraints.Pattern;
@@ -38,15 +30,12 @@ import javax.validation.constraints.Pattern;
  */
 @Entity
 @Table(name = "inventario")
-@XmlRootElement
 @NamedQueries(
         {
-            @NamedQuery(name = "Inventario.findAll", query = "SELECT e FROM Inventario i"),
-            @NamedQuery(name = "Inventario.findByIdempleado", query = "SELECT e FROM Inventario e WHERE i.codigoInventario = :codigoInventario"),
-            @NamedQuery(name = "Inventario.findByNombre", query = "SELECT e FROM Inventario e WHERE i.nombre = :nombre")
+            @NamedQuery(name = "Inventario.findAll", query = "SELECT i FROM Inventario i"),
+            @NamedQuery(name = "Inventario.findByIdempleado", query = "SELECT i FROM Inventario i WHERE i.codigoInventario = :codigoInventario"),
+            @NamedQuery(name = "Inventario.findByNombre", query = "SELECT i FROM Inventario i WHERE i.nombre = :nombre")
         })
-
-
 public class Inventario implements Serializable
 {
 
@@ -81,7 +70,7 @@ public class Inventario implements Serializable
     @Size(min = 1, max = 70, message = "La categoria de ser tener entre 1 y 70 caracteres")
     @Column(name = "categoria")
     private String categoria;
-    
+
     @NotNull
     @Column(name = "PRECIO_UNITARIO")
     private double precioUnitario;
@@ -122,8 +111,9 @@ public class Inventario implements Serializable
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoIdinventario")
 //    private Collection<ProductoAdquirido> productoadquiridoCollection;
-    
-    public Inventario() { }
+    public Inventario()
+    {
+    }
 
     public Integer getIdinventario()
     {
@@ -244,5 +234,5 @@ public class Inventario implements Serializable
     {
         this.precioUnitario = precioUnitario;
     }
-    
+
 }
