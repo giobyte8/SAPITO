@@ -349,6 +349,7 @@ public class Cliente implements Serializable
         this.status = status;
     }
 
+    @JsonManagedReference
     public Collection<OrdenVenta> getOrdenesVenta()
     {
         return ordenesVenta;

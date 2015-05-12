@@ -82,20 +82,36 @@ function buscarProducto()
 
 function agregarAOrden()
 {
-    var trow = '<tr><td>' + $('#addp-nombre').val() + '</td>'
-            + '<td>' + $('#addp-cantidad').val() + '</td>'
-            + '<td>' + $('#addp-costo').val() + ' </td>';
-    $('#tproductos > tbody:last').append(trow);
-    ordenVentaTransport.productosEnOrden.push({
-        idInventario: idProductoActual,
-        cantidad: +$('#addp-cantidad').val()
-    });
-    $('#alert-productos').addClass('hidden');
+    // Validar que haya un producto valido
+    if ($('#addp-nombre').val().length > 0) {
+        
+        // Validar cantidad ingresada
+        var cantidad = $('#addp-cantidad').val();
+        if (/^\d+$/.test(cantidad)) {
+            $('#addp-cantidad-alert').addClass('hidden');
+            var trow = '<tr><td>' + $('#addp-nombre').val() + '</td>'
+                    + '<td>' + $('#addp-cantidad').val() + '</td>'
+                    + '<td>' + $('#addp-costo').val() + ' </td>';
+            $('#tproductos > tbody:last').append(trow);
+            ordenVentaTransport.productosEnOrden.push({
+                idInventario: idProductoActual,
+                cantidad: +$('#addp-cantidad').val()
+            });
+            $('#alert-productos').addClass('hidden');
 
-    costoTotalOrden = +costoTotalOrden + (+$('#addp-costo').val() * +$('#addp-cantidad').val());
-    ordenVentaTransport.monto = costoTotalOrden;
-    updateCostos();
-    clearAddPForm();
+            costoTotalOrden = +costoTotalOrden + (+$('#addp-costo').val() * +$('#addp-cantidad').val());
+            ordenVentaTransport.monto = costoTotalOrden;
+            updateCostos();
+            $('#addp-modal').modal('hide');
+            clearAddPForm();
+        }
+        else {
+            $('#addp-cantidad-alert').removeClass('hidden');
+        }
+    }
+    else {
+        $('#addp-notfound-alert').removeClass('hidden');
+    }
 }
 
 function clearAddPForm()

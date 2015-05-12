@@ -161,26 +161,6 @@ function cancelarCambio()
     });
 }
 
-function cancelarDevolucion()
-{
-    swal({
-        title: '¿Desea cancelar la devolución?',
-        text: 'Confirme que desea cancelar la devolución',
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Si, cancelar',
-        cancelButtonText: 'No',
-        closeOnConfirm: false,
-        closeOnCancel: false
-    }, function(isConfirm) {
-        if (isConfirm) {
-            swal('Listo', 'La devolución ha sido cancelada', 'success');
-        }
-    });
-}
-
-
-
 function guardarCambio()
 {
     swal('Guardado', 'El cambio ha sido registrado exitosamente', 'success');

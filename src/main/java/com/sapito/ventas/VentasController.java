@@ -174,6 +174,7 @@ public class VentasController
         orden.setFechaPedido(new Date());
         orden.setMonto(ordenVentaTransport.getMonto());
         orden.setMontoConCargos(ordenVentaTransport.getMontoConCargos());
+        orden.setStatus("VENTA");
         
         // Productos en la orden
         List<ProductoVendido> lpv = new ArrayList<>();
@@ -203,11 +204,31 @@ public class VentasController
             orden.getSancionesCliente().add(sc);
         }
         
-        // Persiste and return 201 http status
         daoOrdenVenta.create(orden);
         return orden;
     }
 
+    @RequestMapping(value = "ventas/buscarorden", method = RequestMethod.GET)
+    public @ResponseBody Cliente buscarOrdenVenta(Model model, String idOrden)
+    {
+        try { Long.valueOf(idOrden); } catch(NumberFormatException ex) { return null; }
+        
+        OrdenVenta orden = (OrdenVenta) daoOrdenVenta.find(Long.valueOf(idOrden));
+        return (orden != null) ? orden.getCliente() : null;
+    }
+    
+    @RequestMapping(value = "ventas/devolverorden", method = RequestMethod.GET)
+    @ResponseBody
+    public OrdenVenta devolverOrdenVenta(Model model, String idOrden)
+    {
+        try { Long.valueOf(idOrden); } catch(NumberFormatException ex) { return null; }
+        
+        OrdenVenta orden = (OrdenVenta) daoOrdenVenta.find(Long.valueOf(idOrden));
+        orden.setStatus("DEVOLUCION");
+        orden = (OrdenVenta) daoOrdenVenta.edit(orden);
+        return (orden != null) ? orden : null;
+    }
+    
     @RequestMapping(value = "ventas/ordenes", method = RequestMethod.GET)
     public String ordenes(Model model)
     {
@@ -233,7 +254,7 @@ public class VentasController
     {
         return "Ventas/nvaDevolucion";
     }
-
+    
     @RequestMapping(value = "ventas/cambios", method = RequestMethod.GET)
     public String cambio(Model model)
     {
