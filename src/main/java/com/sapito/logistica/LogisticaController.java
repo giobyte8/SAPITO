@@ -456,13 +456,9 @@ public class LogisticaController {
     }
 
     //---------------Fin Empresa--------------------------//
-<<<<<<< HEAD
-    
-    
     
     //--------------Envio---------------
-=======
->>>>>>> origin/master
+
     private GenericDao<OrdenEnvio> daoOrdenE;
 
     @Autowired
@@ -475,26 +471,15 @@ public class LogisticaController {
     public String altaEnvio(Model model) {
         OrdenEnvio ordenE = new OrdenEnvio();
         ordenE.setStatus(true);
-<<<<<<< HEAD
         model.addAttribute("ordenEnvio", ordenE);
-        return "Logistica/enviosNew";
-    }
-    
-    @RequestMapping(value="logistica/envios/altaEnvio", method = RequestMethod.POST)
-    public String regNvoEnvio(Model model, @Valid OrdenEnvio ordenE, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
-=======
-
-        model.addAttribute("ordenE", ordenE);
         return "Logistica/enviosNew";
     }
 
     @RequestMapping(value = "logistica/envios/altaEnvio", method = RequestMethod.POST)
-    public String regNvoCliente(Model model, @Valid OrdenEnvio ordenE, BindingResult bindingResult) {
+    public String regNvoE(Model model, @Valid OrdenEnvio ordenE, BindingResult bindingResult) 
+    {
         if (bindingResult.hasErrors()) {
->>>>>>> origin/master
+
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Logistica/enviosNew";
