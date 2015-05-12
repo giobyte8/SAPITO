@@ -105,7 +105,7 @@ public class LogisticaController {
     }
     
     public Transporte findTransporte(String id) {
-        Query query2 = daoTransporte.getEntityMgr().createQuery("SELECT a FROM Transporte a where a.id=:idtransporte");
+        Query query2 = daoTransporte.getEntityMgr().createQuery("SELECT a FROM Transporte a where  a.id=:idtransporte");
         query2.setParameter("idtransporte", Long.parseLong(id));
         List<Transporte> transporte = query2.getResultList();
         return transporte.get(0);

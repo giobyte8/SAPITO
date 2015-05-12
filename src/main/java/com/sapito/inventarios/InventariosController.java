@@ -15,6 +15,7 @@ import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Inventario;
 import java.util.List;
 import javax.persistence.Query;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -94,7 +95,7 @@ public class InventariosController
     
     
     
-     @RequestMapping(value = "Inventarios/registrarMateriaPrima", method = RequestMethod.GET)
+    @RequestMapping(value = "Inventarios/registrarMateriaPrima", method = RequestMethod.GET)
     public String registrarMateriaPrima(Model model) 
     {
         Inventario inventario = new Inventario();        
@@ -103,26 +104,53 @@ public class InventariosController
     }
     
     @RequestMapping(value = "Inventarios/registrarMateriaPrima", method = RequestMethod.POST)
-    public String regRegistrarMateriaPrima(Model model, @Valid Inventario inventario, BindingResult bindingResult) {
+    public String regRegistrarMateriaPrima(Model model, @Valid Inventario inventario, BindingResult bindingResult) 
+    {
 
         if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
-            return "Logistica/operadoresNew";
+            return "Inventarios/registrarMateriaPrimaView";
         } else 
-        {
+        {            
             inventario.setStatus(true);
-            inventario.setTipoProducto("Materia prima");
+            //inventario.setTipoProducto("Materia");
+            
             daoInventario.create(inventario);            
 
             Query query1 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.status=:status and a.tipoProducto=:tipo");
             query1.setParameter("status", true);
-            query1.setParameter("tipo","Materia prima");
+            query1.setParameter("tipo","Materia");
             List<Inventario> inventarios = query1.getResultList();
-            model.addAttribute("inventario", inventarios);
-            return "Inventario/materiaPrimaView";
+            model.addAttribute("inventarios", inventarios);
+            return "Inventarios/bajaMateriaPrimaView";
         }
     }
+    
+    
+    @RequestMapping(value = "Inventarios/bajaMateriaPrima", method = RequestMethod.GET)
+    public String eliminarTransporte(Model model, HttpServletRequest request) {
+        
+        Inventario em = findInventario(request.getParameter("id"));
+        em.setStatus(false);
+        daoInventario.edit(em);
+
+        Query query1 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.status=:status and a.tipoProducto=:tipo");
+        query1.setParameter("status", true);
+        query1.setParameter("tipo", "Materia");
+        List<Inventario> inventarios = query1.getResultList();
+        model.addAttribute("inventarios", inventarios);
+        return "Inventarios/bajaMateriaPrimaView";
+    }
+    
+    
+    public Inventario findInventario(String id) {
+        Query query2 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.idinventario=:idinventario");
+        query2.setParameter("idinventario", Integer.parseInt(id));
+        List<Inventario> inventario = query2.getResultList();
+        return inventario.get(0);
+    }
+    
     
     
     //------------Fin Materia Prima----------------
