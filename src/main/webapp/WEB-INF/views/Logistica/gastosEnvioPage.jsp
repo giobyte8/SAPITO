@@ -4,6 +4,7 @@
     Author     : nel
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.sapito.logistica.LogisticaController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -51,12 +52,7 @@
               </tr>
             </thead>
             <tbody>
-              <%
-                  LogisticaController obj=new LogisticaController();
-                  obj.hola("Hola mundo");
-                      for(int i=0;i<12;i++)
-                      {
-              %>
+                <%--<c:forEach items="${envios}">--%>
               
               <tr>                         
                   
@@ -74,10 +70,7 @@
                     <button class="btn btn-xs btn-success" type="button">Eliminar</button>
                 </td>
               </tr>                                          
-              
-                  <%
-                      }
-                  %>
+                <%--</c:forEach>--%>
             </tbody>
           </table>
 

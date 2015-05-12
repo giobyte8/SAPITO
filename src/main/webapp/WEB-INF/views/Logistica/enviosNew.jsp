@@ -27,7 +27,7 @@
             </div>
           </div>
               <!--<form onsubmit="altaEnvio()">-->
-              <form:form id="fnvo-ordenE" commandName="ordenE" action="altaEnvio" method="POST">
+              <form:form id="fnvo-ordenE" commandName="ordenEnvio" action="altaEnvio" method="POST">
                   <div class="row">
                       <div class="col-lg-12 text-left">
                           <div class="panel panel-success">
@@ -36,7 +36,7 @@
                               </div>
                               <div class="panel-success">
                                   <div class="col-lg-6 text-left">
-                                      <label  for="fnvoc-horaEntrega">Hora de entrega</label>
+                                      <label  >Hora de entrega</label>
                                       <%--<form:input path="horaEntrega" name="horaEntrega" id="fnoc-horaEntrega"--%> 
                                                   <!--type="text" class="form-control"/>-->
                                       <%--<form:errors path="horaEntrega" element="div" class="alert-danger pad-10" />--%>
@@ -73,12 +73,26 @@
                               <div class="panel-success">
                                   <div class="col-lg-6 text-left">
                                       <div class="form-group has-success">
+                                          <!--<label>Nombre (s)</label>-->
                                           <label for="fnvoc-nombreRecibe">Nombre (s)</label>
-                                          <form:input path="nombreRecibe" name="nombreRecibe" id="fnvoc-nombreRecibe" 
-                                                      type="text" class="form-control"/>
+                                          <!--<input class="form-control" placeholder="Nombre (s)" onkeypress="return soloTexto(event);" maxlength="40" required class="alert-danger pad-10">-->
+                                          <form:input  path="nombreRecibe" name="nombreRecibe" id="fnoc-nombreRecibe" type="text" class="form-control" placeholder="Nombre (s)"/>
                                           <form:errors path="nombreRecibe" element="div" class="alert-danger pad-10" />
                                       </div>
                                   </div>
+                                  
+                                      <div class="panel-success">
+                                        <div class="col-lg-6 text-left">
+                                            <div class="form-group has-success">
+                                                <!--<label>Nombre (s)</label>-->
+                                                <label for="fnvoc-tiempoEntrega">Tiempo de Entrega</label>
+                                          <!--<input class="form-control" placeholder="Nombre (s)" onkeypress="return soloTexto(event);" maxlength="40" required class="alert-danger pad-10">-->
+                                                <form:input  path="tiempoEntrega" name="tiempoEntrega" id="fnoc-tiempoEntrega" type="text" class="form-control" placeholder="Tiempo de Entrega"/>
+                                                <form:errors path="tiempoEntrega" element="div" class="alert-danger pad-10" />
+                                            </div>
+                                        </div>
+                                      </div>
+                                  
                               </div>
                           </div>
                       </div>
@@ -90,18 +104,22 @@
                                </div>
                                <div class="col-lg-6 text-left">
                                    <div class="form-group has-success">
-                                       <label>Transporte Asignado</label>
-                                       <input class="form-control" placeholder="Nombre(s)" onkeypress="return soloTexto(event);" maxlength="40" required>
+                                       <label for ="fnvoc-transporteAsignado">Transporte Asignado</label>
+                                       <input class="form-control" placeholder="Transporte Asignado" onkeypress="return soloTexto(event);" maxlength="40" required alert-danger pad-10>
+                                       <%--<form:input  path="transporteAsignado" name="transporteAsignado" id="fnoc-transporteAsignado" type="text" class="form-control" placeholder="Transporte Asignado"/>--%>
+                                       <%--<form:errors path="transporteAsignado" element="div" class="alert-danger pad-10" />--%>
                                    </div>
                                    <div class="form-group has-success">
-                                       <label>Nombre del Conductor</label>
-                                       <input class="form-control" placeholder="Nombre(s)" onkeypress="return soloTexto(event);" maxlength="40" required>
+                                       <label for="fnvoc-nombreConductor">Nombre del Conductor</label>
+                                       <input class="form-control" placeholder="Nombre del Conductor" onkeypress="return soloTexto(event);" maxlength="40" required alert-danger pad-10>
+                                       <%--<form:input  path="nombreConductor" name="nombreConductor" id="fnoc-nombreConductor" type="text" class="form-control" placeholder="Nombre del Conductor"/>--%>
+                                       <%--<form:errors path="nombreConductor" element="div" class="alert-danger pad-10" />--%>
                                    </div>
                                </div>
                                <div class="col-lg-6 text-left">
                                        <div class="form-group has-success">
                                        <label>Gastos para el envio</label>
-                                       <input class="form-control" placeholder="Nombre(s)" onkeypress="return soloTexto(event);" maxlength="40" required>
+                                       <input class="form-control" placeholder="Gastos para el envio" onkeypress="return soloNumeros(event);" maxlength="40" required alert-danger pad-10>
                                    </div>
                                    <div align="right">
                                             <button type="submit" class="btn btn-success">Aceptar</button>                                            

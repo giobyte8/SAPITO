@@ -3,6 +3,8 @@ package com.sapito.db.entities;
 
 import com.sapito.db.entities.Conductor;
 import com.sapito.db.entities.Transporte;
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.CascadeType;
@@ -16,6 +18,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -32,18 +35,17 @@ public class OrdenEnvio implements Serializable
     @Column(name = "ID")
     private long id;
 
-    @NotNull
-    @Future
     @Column(name = "HORA_ENTREGA")
-    private Date horaEntrega;
+    private String horaEntrega;
 
     @NotNull
-    @Future
+    @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Column(name = "TIEMPO_ENTREGA")
-    private Date tiempoEntrega;
+    private String tiempoEntrega;
 
     @NotNull
-    @Size(min = 1, max = 50, message = "El nombre de la empresa debe tener entre 1 y 50 caracteres")
+    @Size(min=1, max=500, message = "El nombre de la empresa debe tener entre 1 y 250 caracteres")
+    @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "NOMBRE_RECIBE")
     private String nombreRecibe;
 
@@ -82,22 +84,22 @@ public class OrdenEnvio implements Serializable
         this.id = id;
     }
 
-    public Date getHoraEntrega()
+    public String getHoraEntrega()
     {
         return horaEntrega;
     }
 
-    public void setHoraEntrega(Date horaEntrega)
+    public void setHoraEntrega(String horaEntrega)
     {
         this.horaEntrega = horaEntrega;
     }
 
-    public Date getTiempoEntrega()
+    public String getTiempoEntrega()
     {
         return tiempoEntrega;
     }
 
-    public void setTiempoEntrega(Date tiempoEntrega)
+    public void setTiempoEntrega(String tiempoEntrega)
     {
         this.tiempoEntrega = tiempoEntrega;
     }
@@ -153,4 +155,3 @@ public class OrdenEnvio implements Serializable
         this.ordenVenta = ordenVenta;
     }
 }
-

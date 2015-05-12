@@ -3,7 +3,7 @@
     Created on : Feb 17, 2015, 4:33:38 AM
     Author     : nel
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -41,7 +41,7 @@
           <table id="tenviosPage" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Cliente</th>  
+                <!--<th>Cliente</th>-->  
                 <th>Hora de entrega</th>
                 <th>Tiempo de entrega</th>
                 <th>Nombre del receptor</th>
@@ -52,11 +52,12 @@
               </tr>
             </thead>
             <tbody >
+             <c:forEach items="${envios}" var="envio">
               <tr>                                
-                <td>VW</td>
-                <td>19:30</td>
-                <td>3 hr</td>
-                <td>Pedro Romero Morales</td>
+                <!--<td>VW</td>-->
+                <td>${envio.id}</td>
+                <td>${envio.tiempoEntrega}</td>
+                <td>${envio.nombreRecibe}</td>
                 <td>3FDRT</td>
                 <td>Jose Perez Leon</td>
                 <td>10000</td>
@@ -64,20 +65,8 @@
                     <button class="btn btn-xs btn-success" type="button">Editar</button>
                     <button class="btn btn-xs btn-success" type="button">Eliminar</button>
                 </td>
-              </tr>                            
-              <tr>                                
-                <td>GM</td>
-                <td>13:30</td>
-                <td>6 hr</td>
-                <td>Juan Romero Hernandez</td>
-                <td>45ASDF</td>
-                <td>Felipe Cano Romero</td>
-                <td>80000</td>
-                <td style="text-align: center">                
-                    <button class="btn btn-xs btn-success" type="button">Editar</button>
-                    <button class="btn btn-xs btn-success" type="button">Eliminar</button>
-                </td>
-              </tr>                            
+              </tr>
+              </c:forEach>
             </tbody>
           </table>
 

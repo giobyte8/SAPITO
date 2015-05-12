@@ -31,7 +31,7 @@
             </div>
           </div>
           <!--formulario alta-->
-          <form:form id="fnvo-gastosE" commandName="gastosE" action="altaGastosEnvio" method="POST">
+          <form:form id="fnvo-gastosE" commandName="gastosE" action="gastosEnvioNew" method="POST">
              <div class="row">
                             <div class="col-lg-12 text-left">
                                 <div class="panel panel-success">

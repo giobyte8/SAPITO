@@ -176,6 +176,7 @@ public class LogisticaController {
     
     
     
+    //--------------Envio---------------
     private GenericDao<OrdenEnvio> daoOrdenE;
     
     @Autowired
@@ -190,13 +191,12 @@ public class LogisticaController {
     {
         OrdenEnvio ordenE = new OrdenEnvio();
         ordenE.setStatus(true);
-        
-        model.addAttribute("ordenE", ordenE);
+        model.addAttribute("ordenEnvio", ordenE);
         return "Logistica/enviosNew";
     }
     
     @RequestMapping(value="logistica/envios/altaEnvio", method = RequestMethod.POST)
-    public String regNvoCliente(Model model, @Valid OrdenEnvio ordenE, BindingResult bindingResult)
+    public String regNvoEnvio(Model model, @Valid OrdenEnvio ordenE, BindingResult bindingResult)
     {
         if(bindingResult.hasErrors())
         {
@@ -207,9 +207,20 @@ public class LogisticaController {
         else
         {
             daoOrdenE.create(ordenE);
-            return "Logistica/enviosNew";
+            List<OrdenEnvio> ordenEnvio=daoOrdenE.findAll();
+            model.addAttribute("envios",ordenEnvio);
+            return "Logistica/enviosPage";
         }
     }
+    
+    @RequestMapping(value = "logistica/altaEnvio", method = RequestMethod.GET)
+    public String enviosF(Model model) 
+    {        
+        List<OrdenEnvio> ordenEnvios=daoOrdenE.findAll();
+        model.addAttribute("envios", ordenEnvios);
+        return "Logistica/enviosPage";
+    }
+    
 
     @RequestMapping(value = "logistica/enviosV", method = RequestMethod.GET)
     public String enviosView(Model model) {
