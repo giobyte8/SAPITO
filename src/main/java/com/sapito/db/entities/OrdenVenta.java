@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -50,9 +52,27 @@ public class OrdenVenta implements Serializable
     @Column(name = "MONTO")
     private double monto;
     
+    @NotNull
+    @Column(name = "MONTO_CONCARGOS")
+    private double montoConCargos;
+    
+    /**
+     * Can be: 'VENTA' | 'DEVOLUCION' | 'CAMBIO'? | 'VENTA-CAMBIO'
+     */
+    @NotNull
+    @Column(name = "STATUS")
+    private String status;
+    
+    /**
+     * TODO: Could we remove this field?
+     */
     @Column(name = "FACTuRADA")
     private boolean facturada;
     
+    /**
+     * true : Order paid with electronic transfer
+     * false: Order was paid with cash
+     */
     @Column(name = "DEPOSITO")
     private boolean deposito;
     
@@ -61,10 +81,12 @@ public class OrdenVenta implements Serializable
     
     @JoinColumn(name = "ID_CLIENTE")
     @ManyToOne
+    @JsonBackReference
     private Cliente cliente;
     
     @OneToOne
     @JoinColumn(name = "ID_FACTURA")
+    @JsonManagedReference
     private Factura factura;
     
     @OneToOne
@@ -72,9 +94,11 @@ public class OrdenVenta implements Serializable
     private OrdenEnvio ordenEnvio;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenVenta")
+    @JsonManagedReference
     private Collection<SancionCliente> sancionesCliente;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenVenta")
+    @JsonManagedReference
     private Collection<ProductoVendido> productosVendidos;
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
@@ -141,6 +165,7 @@ public class OrdenVenta implements Serializable
         this.deposito = deposito;
     }
 
+    @JsonBackReference
     public Cliente getCliente()
     {
         return cliente;
@@ -189,6 +214,26 @@ public class OrdenVenta implements Serializable
     public void setProductosVendidos(Collection<ProductoVendido> productosVendidos)
     {
         this.productosVendidos = productosVendidos;
+    }
+
+    public double getMontoConCargos()
+    {
+        return montoConCargos;
+    }
+
+    public void setMontoConCargos(double montoConCargos)
+    {
+        this.montoConCargos = montoConCargos;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(String status)
+    {
+        this.status = status;
     }
     
 }

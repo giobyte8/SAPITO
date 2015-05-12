@@ -155,9 +155,9 @@
           <li id="nb-histventas">
             <a href="/SAPITO/ventas/historial"><i class="fa fa-fw fa-line-chart"></i> Historial de ventas</a>
           </li>
-          <li id="nb-ordenesp">
+          <!--li id="nb-ordenesp">
             <a href="/SAPITO/ventas/ordenes"><i class="fa fa-fw fa-truck"></i> Ordenes en producción</a>
-          </li>
+          </li-->
           <li id="nb-facturas">
             <a href="/SAPITO/ventas/facturas"><i class="fa fa-fw fa-bank"></i> Facturas </a>
           </li>

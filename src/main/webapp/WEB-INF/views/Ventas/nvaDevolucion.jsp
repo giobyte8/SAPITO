@@ -34,21 +34,26 @@
             <h2>Venta</h2>
             <label for="fcliente-id">Buscar venta</label>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="ID de venta"/>
+              <input id="id-orden" type="text" class="form-control" placeholder="ID de orden de venta"/>
               <span class="input-group-btn">
-                <button class="btn btn-primary">Buscar</button>
+                <button class="btn btn-primary" onclick="buscarOrdenVenta()">Buscar</button>
               </span>
             </div>
-            <br/><br/><h4>Cliente:</h4>
+            <div id="alert-orden-notfound" class="alert alert-danger hidden">
+              <span class="fa fa-exclamation-triangle"></span>
+              <span>&nbsp;No se encontro ninguna venta con el ID ingresado</span>
+            </div>
+
+            <br/><h3>Cliente:</h3>
             <div class="row">
               <div class="col-md-6">
                 <br/><label for="fcliente-empresa">Empresa:</label>
-                <input id="fcliente-empresa" readonly type="text" 
+                <input id="orden-empresa" readonly type="text" 
                        class="form-control" placeholder="Empresa cliente"/>
               </div>
               <div class="col-md-6">
                 <br/><label for="fcliente-nombre">Nombre del contacto:</label>
-                <input readonly type="text" class="form-control" placeholder="Contacto en la empresa" />
+                <input id="orden-cliente" readonly type="text" class="form-control" placeholder="Contacto en la empresa" />
               </div>
             </div>
 
@@ -64,8 +69,8 @@
               </div>
             </div>
           </div>
-                     
-            
+
+
           <div class="col-md-6">
             <h2>Productos a devolver:</h2><br/>
             <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
@@ -77,57 +82,33 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Gansito de prueba</td>
-                  <td>50</td>
-                  <td>$7.20</td>
-                </tr>
-                <tr>
-                  <td>Motores diesel</td>
-                  <td>10</td>
-                  <td>$7000.50</td>
-                </tr>
-                <tr>
-                  <td>Parabrisas xtreme</td>
-                  <td>80</td>
-                  <td>$850.00</td>
-                </tr>
-                <tr>
-                  <td>Tires</td>
-                  <td>40</td>
-                  <td>$585.00</td>
-                </tr>
               </tbody>
             </table>
             <div class="col-sm-4 text-left">
-              
+
             </div>
             <div class="col-sm-8 text-right bg-info">
-              <h4>Total de orden: $7751.44 &nbsp;&nbsp;</h4>
+              <h4 id="total-orden">Total de orden: $00.00 &nbsp;&nbsp;</h4>
             </div>
 
             <br/><br/><br/><h2>Totales ($)</h2>
             <div class="col-sm-9 col-sm-offset-3 bg-info text-right">
-              <h4>Total de la orden devuelta: $7550.00</h4>
+              <h4 id="total-orden-devuelta">Total de la orden devuelta: $00.00</h4>
             </div>
             <div class="col-sm-11 col-sm-offset-1 bg-danger text-right">
-              <h4>Total con otros cargos $7550.00</h4>
+              <h4 id="total-orden-devuelta-cargos">Total con otros cargos $00.00</h4>
             </div>
             <div class="col-sm-12 col-sm-offset-0 bg-success text-right">
-              <h2>Total final: $7550.00</h2>
+              <h2 id="total-final">Total final: $00.00</h2>
             </div>
 
             <div class="col-sm-12 text-right">
               <br/><br/>
-              <button type="button" class="btn btn-primary" onclick="imprimirTicket()">
-                Imprimir ticket
-              </button>
-              &nbsp;&nbsp;
               <button type="button" class="btn btn-danger" onclick="cancelarDevolucion()">
                 Cancelar
               </button>
               &nbsp;&nbsp;
-              <button type="button" class="btn btn-success" onclick="guardarDevolucion()">
+              <button type="button" class="btn btn-success" onclick="devolverOrden()">
                 Guardar
               </button>
             </div>
@@ -145,5 +126,6 @@
             activatenb('nb-devoluciones');
         });
     </script>
+    <script src="${pageContext.request.contextPath}/resources/js/ventas/nvaDevolucion.js"></script>
   </body>
 </html>

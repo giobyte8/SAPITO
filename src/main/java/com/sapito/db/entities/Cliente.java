@@ -5,6 +5,7 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
@@ -125,9 +126,11 @@ public class Cliente implements Serializable
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private Collection<OrdenVenta> ordenesVenta;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private Collection<GastosEnvio> gastosEnvio;
     
     
@@ -346,6 +349,7 @@ public class Cliente implements Serializable
         this.status = status;
     }
 
+    @JsonManagedReference
     public Collection<OrdenVenta> getOrdenesVenta()
     {
         return ordenesVenta;

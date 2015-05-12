@@ -57,8 +57,8 @@
                 </div><!-- Fin del tag del contenedor-->
                 <center><img  src ="../resources/img/img11.jpg" ></center> 
                 <center>
-                    <a class="btn btn-primary" type="button" href="Reportes">Ver reportes</a>  
-                    <a class="btn btn-primary" type="button" href="Graficas">Visualizar Gráficas</a>
+                    <a class="btn btn-success" type="button" href="Reportes">Ver reportes</a>  
+                    <a class="btn btn-success" type="button" href="Graficas">Visualizar Gráficas</a>
                 </center>
 
             </div>

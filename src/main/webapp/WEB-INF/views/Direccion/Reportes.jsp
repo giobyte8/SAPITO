@@ -18,18 +18,18 @@
 
         <title>SAPito</title>
 
-<!--         Bootstrap Core CSS 
-        <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
-
-         MetisMenu CSS 
-        <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
-
-         Custom CSS 
-        <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
-
-         Custom Fonts 
-        <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-<%@include file="direccionHead.jsp" %>
+        <!--         Bootstrap Core CSS 
+                <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        
+                 MetisMenu CSS 
+                <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        
+                 Custom CSS 
+                <link href="../resources/css/libs/sb-admin-2.css" rel="stylesheet">
+        
+                 Custom Fonts 
+                <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+        <%@include file="direccionHead.jsp" %>
 
 
     </head>
@@ -53,15 +53,41 @@
                         </div>
                     </div>        
 
-                    <div aling="left">
-                        <a class="btn btn-primary" type="button" href="Reportes">Cargar Reporte</a>
-                        <a class="btn btn-primary" type="button" href="HistorialReportes">Historial reportes</a>
-                        <a class="btn btn-primary" type="button" href="CrearReporte">Crear Reporte</a>
+                    <div aling="left" >
+                        <table  >
+                            <tr>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Ventas</option>
+                                        <option>Compras</option>
+                                        <option>Activos Fijos</option>
+                                        <option>Operaciones</option>
+                                        <option>Logística</option>
+                                        <option>Recursos Humanos</option>
+                                        <option>Inventarios</option>
+                                        <option>Finanzas</option>
+                                    </select>
+                                    <a class="btn btn-success" type="button" href="Reportes">Cargar Reporte</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <hr/>
+                                    <a class="btn btn-success" type="button" href="HistorialReportes">Historial reportes</a>
+                                    <a class="btn btn-success" type="button" href="CrearReporte">Crear Reporte</a>
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+
                     </div>
                     <div align="center">
-                         <center>
-                            
-                            
+                        <center>
+
+
                         </center>
                     </div>
 
@@ -71,10 +97,10 @@
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->
-        
-        
-        
-        
+
+
+
+
         <!-- jQuery -->
         <script src="../resources/js/libs/jquery.min.js"></script>
 

@@ -40,6 +40,9 @@
                 <a href="nvocliente" class="btn btn-primary">Registrar nuevo</a>
               </span>
             </div>
+            <div id="alert-rfc" class="alert alert-danger hidden">
+              <h5>Ingrese el RFC del cliente.</h5>
+            </div>
             <div class="row">
               <div class="col-md-6">
                 <br/><label for="fcliente-empresa">Empresa:</label>
@@ -61,13 +64,6 @@
                   <option value="dollar">Dollar</option>
                   <option value="pesos">Pesos mexicanos</option>
                   <option value="yenes">Yenes</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <br/><label>Entrega a cliente:</label>
-                <select class="form-control">
-                  <option value="inmediata">Entrega inmediata</option>
-                  <option value="solproduccion">Solicitar a producción</option>
                 </select>
               </div>
             </div>
@@ -99,37 +95,13 @@
               <h4 id="cargos-total">Cargo total: $00.00 &nbsp;&nbsp;</h4>
             </div>
 
-            <!--br/><br/><h3>Descuentos:</h3>
-            <table id="tdescuentos" class="table table-bordered table-hover table-responsive">
-              <thead>
-                <tr>
-                  <th>Concepto</th>
-                  <th>Cantidad</th>
-                  <th>Editar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Oferta paquete xxx1</td>
-                  <td>$50.94</td>
-                  <td><button class="btn btn-success btn-xs">Editar</button></td>
-                <tr>
-                  <td>Retraso en producción</td>
-                  <td>$700.50</td>
-                  <td><button class="btn btn-success btn-xs">Editar</button></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="col-sm-4 text-left">
-              <button class="btn btn-primary">Agregar descuento</button>
-            </div>
-            <div class="col-sm-8 text-right bg-danger">
-              <h4>Descuento total: $751.44 &nbsp;&nbsp;</h4>
-            </div-->
           </div>
 
           <div class="col-md-6">
             <h2>Productos en la orden</h2><br/>
+            <div id="alert-productos" class="alert alert-danger hidden">
+              <h5>Agregue al menos un producto al a orden</h5>
+            </div>
             <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
               <thead>
                 <tr>
@@ -139,11 +111,6 @@
                 </tr>
               </thead>
               <tbody>
-                <!--tr>
-                  <td>Gansito de prueba</td>
-                  <td>50</td>
-                  <td>$7.20</td>
-                </tr-->
               </tbody>
             </table>
             <div class="col-sm-5 text-left">
@@ -156,29 +123,15 @@
               <h4 id="costo-totalorden">Total de orden: $00.0 &nbsp;&nbsp;</h4>
             </div>
 
-            <!--br/><br/><h3>Facturación</h3>
-            <div class="btn-group">
-              <h5 class=""><input type="radio" name="genfactura" id="inputWalls" value="genfactura" checked>
-                Autogenerar factura 
-              </h5>
-
-              <h5 class=""><input type="radio" name="genfactura" id="inptWalls" value="nogenfactura">
-                Dejar pendiente la generacióñ de factura 
-              </h5>
-            </div-->
-
             <br/><br/><br/><h2>Totales ($)</h2>
             <div class="col-sm-9 col-sm-offset-3 bg-info text-right">
-              <h4>Total de la orden: $7550.00</h4>
+              <h4 id="total-orden">Total de la orden: 00.00</h4>
             </div>
             <div class="col-sm-10 col-sm-offset-2 bg-warning text-right">
-              <h4>Total con cargos extra: $10550.00</h4>
-            </div>
-            <div class="col-sm-11 col-sm-offset-1 bg-danger text-right">
-              <h4>Total con descuentos: $7550.00</h4>
+              <h4 id="total-concargos">Total con cargos extra: $00.00</h4>
             </div>
             <div class="col-sm-12 col-sm-offset-0 bg-success text-right">
-              <h2>Total final: $7550.00</h2>
+              <h2 id="total-final">Total final: $00.00</h2>
             </div>
 
             <div class="col-sm-12 text-right">
@@ -189,7 +142,7 @@
               </button>
               &nbsp;&nbsp;
               <button type="button" class="btn btn-success btn-lg" 
-                      onclick="guardarNvaOrdenVenta()">
+                      onclick="enviarOrden()">
                 Guardar orden
               </button>
             </div>
@@ -221,16 +174,22 @@
                     <button class="btn btn-primary" onclick="buscarProducto()">Buscar</button>
                   </span>
                 </div>
+                <div id="addp-notfound-alert" class="alert alert-danger hidden text-center">
+                  <span class="fa fa-exclamation-triangle"></span>
+                  <span>No se encontro ningún producto con el código ingresado</span>
+                </div>
               </div>
               <div class="col-md-6">
                 <br/><label>Cantidad a agregar</label>
-                <input id="addp-cantidad" type="number" min="1"
+                <input id="addp-cantidad" type="number" min="1" max="1000000"
                        class="form-control" name="addp-cantidad" value="1" />
+                <div id="addp-cantidad-alert" class="alert alert-danger hidden text-center">
+                  <span class="fa fa-exclamation-triangle"></span>
+                  <span>Ingrese una cantidad valida</span>
+                </div>
               </div>
             </div>
-            <div id="addp-notfound-alert" class="alert alert-danger row hidden">
-              <h5>No se encontro ningun producto con el código ingresado</h5>
-            </div>
+
             <div class="row">
               <div class="col-md-4">
                 <br/><label>Nombre</label>
@@ -272,7 +231,7 @@
                     onclick="clearAddPForm()">
               Cancelar
             </button>
-            <button class="btn btn-success" data-dismiss="modal"
+            <button class="btn btn-success"
                     onclick="agregarAOrden()">
               Agregar a la orden
             </button>
@@ -303,8 +262,9 @@
                 <input id="addc-cantidad" type="number" class="form-control" />
               </div>
             </div>
-            <div id="addc-alert" class="alert alert-danger row hidden">
-              <h5>Asegurese de ingresar concepto y cantidad</h5>
+            <div id="addc-alert" class="alert alert-danger hidden">
+              <span class="fa fa-exclamation-triangle"></span>
+              <span>Asegurese de ingresar un concepto y cantidad validos</span>
             </div>
           </div>
 
@@ -324,8 +284,8 @@
     <!-- Footer and scripts -->
     <%@include file="ventasFooter.jsp" %>
     <script >
-                $(document).ready(function () {
-        activatenb('nb-nvaorden');
+        $(document).ready(function () {
+            activatenb('nb-nvaorden');
         });</script>
     <script src="${pageContext.request.contextPath}/resources/js/ventas/nvaOrdenVenta.js"></script>
   </body>

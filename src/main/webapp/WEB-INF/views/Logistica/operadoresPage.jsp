@@ -35,15 +35,21 @@
           <!-- Buttons bar -->
           <div class="row">
             <%
-                  if (request.getAttribute("imprime") != null) {
+                            if (request.getAttribute("imprime") != null) {
 
-                      if (request.getAttribute("imprime").equals("1")) {
+                                if (request.getAttribute("imprime").equals("1")) {
 
-              %>                
-              <div class="alert alert-success" role="alert" style="text-align: center">Registro exitoso</div>
-              <%                        }
-                  }
-              %>  
+                        %>                
+                        <div class="alert alert-success" role="alert" style="text-align: center">Registro exitoso</div>
+                        <%  }else
+                                {
+                                    %>
+                        <div class="alert alert-success" role="alert" style="text-align: center">Modificacion Exitosa</div>            
+                                    <%
+                                }
+                                
+                            }
+                        %>
             <a href="/SAPITO/logistica/altaOperador"><button class="btn btn-success" type="button">Nuevo operador</button></a>
           </div>
 
@@ -159,9 +165,17 @@
               
               <!--pie-->
               <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">
-                  Cerrar
-                </button>
+                  <button type="button" class="btn btn-success" data-dismiss="modal">
+                      Cerrar
+                  </button>
+                  
+                  <a href="/SAPITO/logistica/bajaOperador?id=${conductor.id}">
+                      <button class="btn btn-success" type="button">Elimniar</button>
+                  </a>
+
+                  <a href="/SAPITO/logistica/modificaOperador?id=${conductor.id}" data-toggle="modal">
+                      <button class="btn btn-success" type="button" >Actualizar</button>                                            
+                  </a>      
               </div>
               <!--fin pie-->
             </div>

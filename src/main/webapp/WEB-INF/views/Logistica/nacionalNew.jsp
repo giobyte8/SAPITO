@@ -39,8 +39,81 @@
                                         <h3 class="panel-title">Datos de la Empresa</h3>
                                     </div>                                                                        
                                     <!--Inicio formulario-->
-                                    
-                                    <form:form id="fnvo-empresaTransporte" commandName="empresaTransporte" action="altaEmpresa" method="POST">
+                                    <%
+                            if (request.getAttribute("modificar") != null) 
+                            {
+
+                                    if (request.getAttribute("modificar").equals("1")) {
+                                        %>
+                                        
+                                        <form:form id="fnvo-empresaTransporte" 
+                                                   commandName="empresaTransporte" action="modificaEmpresa" method="POST">
+
+
+                                        <div class="panel-success">
+                                            <div class="col-lg-6 text-left">
+
+
+                                                <div class="form-group has-success">
+                                                    <label for="fnvoc-nombreEmpresa">Nombre(s) de la Empresa</label>                                                
+                                                    <form:input  value="${empresaTransporte.nombreEmpresa}" path="nombreEmpresa" name="nombreEmpresa" id="fnoc-nombreEmpresa" type="text" class="form-control" placeholder="Nombe de la empresa"/>
+                                                    <form:errors path="nombreEmpresa" element="div" class="alert-danger pad-10" />
+                                                </div>
+
+                                                <div class="form-group has-success">
+                                                    <label for="fnvoc-pais">Pais</label>                                                
+                                                    <form:input value="${empresaTransporte.pais}" path="pais" name="pais" id="fnoc-pais" type="text" class="form-control" placeholder="Pais"/>
+                                                    <form:errors path="pais" element="div" class="alert-danger pad-10" />
+                                                </div>
+                                                <div class="form-group has-success">
+                                                    <label for="fnvoc-ciudad">Ciudad</label>                                                
+                                                    <form:input value="${empresaTransporte.ciudad}" path="ciudad" name="ciudad" id="fnoc-ciudad" type="text" class="form-control" placeholder="Ciudad"/>
+                                                    <form:errors path="ciudad" element="div" class="alert-danger pad-10" />
+                                                </div>                                            
+                                            </div>
+                                            <div class="col-lg-6 text-left">
+                                                <div class="form-group has-success">
+                                                    <label for="fnvoc-calle">Calle</label>                                                
+                                                    <form:input value="${empresaTransporte.calle}" path="calle" name="calle" id="fnoc-calle" type="text" class="form-control" placeholder="Calle"/>
+                                                    <form:errors path="calle" element="div" class="alert-danger pad-10" />
+                                                </div>
+                                                <div class="form-group has-success">
+                                                    <label for="fnvoc-numero">Numero</label>                                                
+                                                    <form:input  value="${empresaTransporte.numero}" path="numero" name="numero" id="fnoc-numero" type="text" class="form-control" placeholder="Numero"/>
+                                                    <form:errors path="numero" element="div" class="alert-danger pad-10" />
+                                                </div>
+                                                <div class="form-group has-success">
+                                                    <label for="fnvoc-rfc">RFC</label>                                                
+                                                    <form:input value="${empresaTransporte.rfc}" path="rfc" name="rfc" id="fnoc-rfc" type="text" class="form-control" placeholder="RFC"/>
+                                                    <form:errors path="rfc" element="div" class="alert-danger pad-10" />
+                                                </div>
+                                                
+                                                <label for="fnvoc-tipo">Tipo empresa</label>                                                
+
+                                                <select class="form-control" path="tipo" name="tipo" id="fnoc-tipo" type="text">
+                                                    <option value="true">Nacional</option>
+                                                    <option value="false">Extranjera</option>                                                    
+                                                </select>                                                                                                
+                                                <input value="${empresaTransporte.id}" path="id" name="id" id="fnoc-id" type="hidden" class="form-control" />
+                                                <input value="${empresaTransporte.status}" path="status" name="status" id="fnoc-status" type="hidden" class="form-control" />
+                                                <br>    
+                                                <div align="right">
+                                                    <button type="submit" class="btn btn-success">Aceptar</button>                                            
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form:form>
+                                    <!--fin formulario-->
+                                        
+                                        
+                                        <%
+                                    }
+                             }else
+                            {
+                              %>
+                              
+                              <form:form id="fnvo-empresaTransporte" commandName="empresaTransporte" action="altaEmpresa" method="POST">
 
 
                                         <div class="panel-success">
@@ -96,6 +169,14 @@
 
                                     </form:form>
                                     <!--fin formulario-->
+                              
+                              <%
+                            }
+
+                        %>                
+                                    
+                                    
+                                    
 
                                     
                                 </div>

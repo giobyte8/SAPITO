@@ -3,7 +3,6 @@
     Created on : 22-feb-2015, 22:08:25
     Author     : Elizabeth
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,6 +25,7 @@
                             </h1>
                         </div>
                     </div>
+
                     <!-- /.col-lg-4 -->
                     <div class="panel panel-default">
                         <div class="row">
@@ -47,8 +47,33 @@
                                             </div>
                                         </div>  <!-- /#fin del panel -->
                                     </div>
+                                    <!-- Data table -->
+                                    <table id="tbusqueda" class="table table-bordered table-hover table-striped table-responsive" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Código Inventario</th>
+                                                <th>Nombre</th>
+                                                <th>Categoría</th>
+                                                <th>Cantidad</th>
+                                                <th>Fecha de entrada</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${buscarProducto}" var="inventario">
+                                            <tr>
+                                                <td>${inventario.codigoInventario}</td>
+                                                <td>${inventario.nombre}</td>
+                                                <td>${inventario.categoria}</td>
+                                                <td>${inventario.cantidad}</td>
+                                                <td>${inventario.fechaEntrada}</td>
+                                                
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
 
-                                </div>
+
+                                </div> 
                             </div>
                             <!-- /.col-lg-4 -->
                         </div>
@@ -56,7 +81,7 @@
                 </div>
             </div>
         </div>
-            <%@include file="inventariosFooter.jsp" %>
+        <%@include file="inventariosFooter.jsp" %>
     </body>
 </html>
 
