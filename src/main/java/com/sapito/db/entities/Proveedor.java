@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-//import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Email;
 
 /**
  *
@@ -80,7 +80,7 @@ public class Proveedor implements Serializable {
     private String telefono1;
 
     @NotNull
-//    @Email(message = "Ingrese una direcciÃ³n de email valida")
+    @Email(message = "Ingrese una direcciÃ³n de email valida")
     @Column(name = "EMAIL")
     private String email;
 

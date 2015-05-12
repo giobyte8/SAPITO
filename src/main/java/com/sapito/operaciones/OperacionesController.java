@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 /**
  *
  * @author Edgar
@@ -17,33 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class OperacionesController {
 
-    @RequestMapping(value = "operaciones", method = RequestMethod.GET)
-    public String indexOperaciones(Model model) {
-        return "Operaciones/indexOperaciones";
-    }
-
-    @RequestMapping(value = "operaciones/produccion", method = RequestMethod.GET)
-    public String produccion(Model model) {
-        return "Operaciones/produccionView";
-    }
-
-    @RequestMapping(value = "AltaLineaProduccionJO", method = RequestMethod.GET)
-    public String AltaLineaProduccionJO(Model model) {
-        return "Operaciones/AltaLineaProduccionJO";
-    }
-
-    @RequestMapping(value = "BuscarLineaProduccion", method = RequestMethod.GET)
-    public String BuscarLinaProduccion(Model model) {
-        return "Operaciones/BuscarLineaProduccion";
-    }
-
-    @RequestMapping(value = "AdministrarLineasProduccion", method = RequestMethod.GET)
-    public String AdministrarLineasProduccion(Model model) {
-        return "Operaciones/AdministrarLineasProduccion";
+    @RequestMapping(value="operaciones", method=RequestMethod.GET)
+    public String indexOperaciones(Model model)
+    {
+        return "Operaciones/index";
     }
     
-     @RequestMapping(value = "AdministrarLineasProduccion", method = RequestMethod.GET)
-    public String AdministrarLi(Model model) {
-        return "Operaciones/AdministrarLineasProduccion";
-    }
+    @RequestMapping(value="operaciones/produccion", method=RequestMethod.GET)
+    public String produccion(Model model)
+    {
+        return "Operaciones/produccionView";
+    }    
 }
+
+
