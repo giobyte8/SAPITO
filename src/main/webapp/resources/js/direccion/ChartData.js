@@ -237,6 +237,9 @@ var barData4 = {
 	]
 };
 
+
+
+
 window.onload = function () {
     var ctx = document.getElementById("chart-pieData").getContext("2d");
     window.myPie = new Chart(ctx).Pie(pieData, {responsive: true});

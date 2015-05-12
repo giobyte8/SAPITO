@@ -1,9 +1,14 @@
 <%-- 
     Document   : template1
     Created on : 7/02/2015, 02:34:44 AM
-    Author     : omar
+    Author     : Djx
 --%>
 
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -225,6 +230,10 @@
         <!-- /#wrapper -->
 
 
+        
+        <%@include file="" %>
+        
+        
         <!-- jQuery -->
         <script src="../resources/js/libs/jquery.min.js"></script>
 
@@ -239,6 +248,8 @@
 
     </body>
 
+
+    
 </html>
 
 

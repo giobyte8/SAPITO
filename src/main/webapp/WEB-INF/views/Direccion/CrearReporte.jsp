@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     
-             <div class="panel panel-primary">
+             <div class="panel panel-green">
               <div class="panel-heading">
                  Ingrese la descripción del Reporte
               </div>
@@ -61,9 +61,9 @@
                         <textarea name="Reporte" rows="15" cols="130"   ></textarea>
                     </div>
               
-                <div class="panel-footer">
-                    <a class="btn btn-primary" type="button" href="#">Crear Reporte</a> 
-                    <a class="btn btn-primary" type="button" href="#">Cancelar</a>
+                <div class="panel-footer" >
+                    <a class="btn btn-success" style="color: white" type="button" href="#">Crear Reporte</a> 
+                    <a class="btn btn-success" style="color: white" type="button" href="#">Cancelar</a>
                  
                 </div>
               </div>
