@@ -21,6 +21,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -34,6 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d")})
 public class Departamento implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -45,6 +47,11 @@ public class Departamento implements Serializable {
     @NotNull
     @Column(name = "presupuesto")
     private double presupuesto;
+    @Size(min = 1, max = 45)
+    @Column(name = "nombre_departamento")
+    private String nombreDepartamento;
+    @Basic(optional = false)
+    @NotNull
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departamentoIddepartamento")
     private Collection<Empleado> empleadoCollection;
     @JoinColumn(name = "metastopes_idmetastopes", referencedColumnName = "idmetastopes")
@@ -85,6 +92,14 @@ public class Departamento implements Serializable {
         this.presupuesto = presupuesto;
     }
 
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
+    }
+
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
+    }
+
     @XmlTransient
     public Collection<Empleado> getEmpleadoCollection() {
         return empleadoCollection;
@@ -122,5 +137,5 @@ public class Departamento implements Serializable {
     public String toString() {
         return "com.sapito.db.entities.Departamento[ iddepartamento=" + iddepartamento + " ]";
     }
-    
+
 }

@@ -3,7 +3,6 @@
     Created on : Feb 7, 2015, 3:15:33 AM
     Author     : Usuario
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,7 +40,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Alta de Activo Fijo
+                                Nuevo Tipo de Activo Fijo
                             </h1>                        
                         </div>
                     </div>        
@@ -58,33 +57,10 @@
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-lg-12 text-left"> 
-                                                <form:form id="fa-activofijo" commandName="activofijo" action="gdaAlta" method="POST">                                                                
-                                                    <div class="form-group ">
-                                                        <label class="control-label" >Activo Fijo</label>
-                                                        <select name="productoS" class="form-control">
-                                                            <option value="">Selecciona ActivoFijo</option>
-                                                            <c:forEach items="${producto}" var="producto">
-                                                                <option value="${producto.id}">${producto.marca}</option>
-                                                            </c:forEach>
-                                                        </select>
-                                                    </div>                                                                                       
-                                                    <div class="form-group ">
-                                                        <label class="control-label" >Tipo</label>
-                                                        <select name="tipoactivofijoS" class="form-control">
-                                                            <option value="">Selecciona Tipo</option>
-                                                            <c:forEach items="${tipoAF}" var="tipo">
-                                                                <option value="${tipo.id}">${tipo.nombre}</option>
-                                                            </c:forEach>
-                                                        </select>
-                                                        <a href="addTipoAF">Agregar nuevo Tipo de Activo Fijo</a>
-                                                    </div>                                                                                       
+                                                <form:form id="fa-addTipoAF" commandName="tipoAF" action="gdaAddTipoAF" method="POST">                                                                
                                                     <div class="form-group">
-                                                        <label class="control-label" >Fecha de Adquisici&oacute;n</label>
-                                                        <input id="fecha" type="date" class="form-control" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" >Años de vida útil</label>
-                                                        <form:input path="anosVidaUtil" name="anosVidaUtil" id="fa-anosVidaUtil" 
+                                                        <label class="control-label" >Tipo de Activo Fijo</label>
+                                                        <form:input path="nombre" name="nombre" id="fa-nombre" 
                                   type="text" class="form-control"/>
                                                         <!--<input type="text" id="cantidad" title="Únicamente números enteros" name="cantidad" class="form-control" required  placeholder="Escribe n&uacute;mero">-->
                                                     </div>

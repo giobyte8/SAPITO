@@ -5,6 +5,7 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
@@ -52,7 +53,7 @@ public class Cliente implements Serializable
     @NotNull
     @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
-    @Column(name = "NOMBRE")
+    @Column(name = "NOMBRE_CONTACTO")
     private String nombreContacto;
     
     @NotNull
@@ -125,9 +126,11 @@ public class Cliente implements Serializable
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private Collection<OrdenVenta> ordenesVenta;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private Collection<GastosEnvio> gastosEnvio;
     
     

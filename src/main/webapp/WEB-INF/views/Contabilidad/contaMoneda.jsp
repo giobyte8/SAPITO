@@ -3,7 +3,8 @@
     Created on : 7/02/2015, 01:38:13 AM
     Author     : Edgar
 --%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,12 +45,12 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                               Moneda
+                                Moneda
                             </h1>                        
                         </div>
                     </div>
                     <!-- /#page-wrapper -->
-                    		<div class="panel panel-success">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">Monedas</h3>
                         </div>
@@ -63,32 +64,23 @@
                                                     <th>Moneda</th>
                                                     <th>Precio de Compra</th>
                                                     <th>Precio de Venta</th>
-                                                    <th>Ultima fecha de actualizacion</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Dolar</td>
-                                                    <td><input type="number" value="15.4395"/></td>
-                                                    <td><input type="number" value="15.4444"/></td>
-                                                    <td><input type="date"/></td>
-                                                    <td align="center"><input type="submit" value="Generar Cambio" class="btn btn-success"/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Yen</td>
-                                                    <td><input type="number" value="0.1287"/></td>
-                                                    <td><input type="number" value="0.1242"/></td>
-                                                    <td><input type="date"/></td>
-                                                    <td align="center"><input type="submit" value="Generar Cambio" class="btn btn-success"/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Libra esterlina</td>
-                                                    <td><input type="number" value="23.203"/></td>
-                                                    <td><input type="number" value="23.203"/></td>
-                                                    <td><input type="date"/></td>
-                                                    <td align="center"><input type="submit" value="Generar Cambio" class="btn btn-success"/></td>
-                                                </tr>
+                                                <c:forEach items="${Monedas}" var="moneda">
+                                                    <tr>
+                                                        <form:form id="MONEDA${moneda.idtipomodena}" commandName="mon" action="redirec" method="POST">
+                                                            <td>${moneda.nombremodena}</td>
+                                                            <td>${moneda.valorC}-<form:input path="Valor de Compra" name="valorC" type="number" class="form-control"/>
+                                                                <form:errors path="Valor de Compra" element="div" class="alert-danger pad-10" /></td>
+                                                            <td>${moneda.valorV}-<form:input path="Valor de Venta" name="valorV" type="number" class="form-control"/>
+                                                                <form:errors path="Valor de Compra" element="div" class="alert-danger pad-10" /></td>
+                                                            <td><button type="submit" form="MONEDA${moneda.idtipomodena}" class="btn btn-success right">Guardar</button></td>
+                                                        </form:form>
+                                                    </tr>
+
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>

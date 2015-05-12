@@ -4,6 +4,7 @@
     Author     : Usuario
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -59,15 +60,16 @@
                                                         <form action="gdaActivoFijo" method="post">                                                                 
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Departamento</label>
-                                                                <select name="sProducto" class="form-control" required>
+                                                                <select name="sProducto" class="form-control">
                                                                     <option value="">Selecciona Departamento</option>
                                                                     <option>Direcci&oacute;n</option>
                                                                     <option>Recursos Humanos</option>
                                                                 </select>
+                                                                <input type="hidden" name="idAF" class="form-control" value="${lastAF.id}" />
                                                             </div>
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Propietario</label>
-                                                                <select name="sProducto" class="form-control" required>
+                                                                <select name="sProducto" class="form-control">
                                                                     <option value="">Selecciona Propietario</option>
                                                                     <option>Ing. Daniel Sanchez</option>
                                                                     <option>Lic. Geraldine Morales</option>
@@ -75,11 +77,11 @@
                                                             </div>   
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Depreciación</label>
-                                                                <select name="sProducto" class="form-control" required>
+                                                                <select name="depreciacion" class="form-control">
                                                                     <option value="">Selecciona tipo de depreciación</option>
-                                                                    <option>Línea recta</option>
-                                                                    <option>Suma de dígitos anuales </option>
-                                                                    <option>Doble saldo decreciente </option>
+                                                                    <option value="Linea recta">Línea recta</option>
+                                                                    <option value="Suma de digitos anuales">Suma de dígitos anuales</option>
+                                                                    <option value="Doble saldo decreciente">Doble saldo decreciente</option>
                                                                 </select>
                                                             </div>   
                                                     </div>

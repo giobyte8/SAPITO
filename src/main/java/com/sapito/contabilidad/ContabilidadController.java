@@ -5,8 +5,14 @@
  */
 package com.sapito.contabilidad;
 
+import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Tipomodena;
+import java.util.List;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,7 +22,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ContabilidadController {
-
+private GenericDao<Tipomodena> daomodena;
+    
+    @Autowired
+    public void setDaomodena(GenericDao<Tipomodena> moneda)
+    {
+        this.daomodena = moneda;
+        daomodena.setClass(Tipomodena.class);
+    }
+    
     @RequestMapping(value = "contabilidad", method = RequestMethod.GET)
     public String index(Model model) {
         return "Contabilidad/indexcontabilidad";
@@ -25,6 +39,21 @@ public class ContabilidadController {
     @RequestMapping(value = "contabilidad/contaActivoFijo", method = RequestMethod.GET)
     public String ContaActivoFijoo(Model model) {
         return "Contabilidad/contaActivoFijo";
+    }
+    @RequestMapping(value = "contabilidad/redirec", method = RequestMethod.POST)
+    public String ContaRedirec(Model model, @Valid Tipomodena moneda, BindingResult bindingResult)
+    {
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Contabilidad/redirec";
+        }
+        else
+        {
+            daomodena.edit(moneda);
+            return "Contabilidad/redirec";
+        }
     }
 
     @RequestMapping(value = "contabilidad/contaCompras", method = RequestMethod.GET)
@@ -64,6 +93,8 @@ public class ContabilidadController {
     
     @RequestMapping(value = "contabilidad/contaMoneda", method = RequestMethod.GET)
     public String ContaMoneda(Model model) {
+        List<Tipomodena> moneda = daomodena.findAll();
+        model.addAttribute("Monedas", moneda);
         return "Contabilidad/contaMoneda";
     }
     

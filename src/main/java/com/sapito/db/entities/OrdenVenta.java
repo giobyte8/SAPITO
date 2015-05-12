@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -50,6 +52,10 @@ public class OrdenVenta implements Serializable
     @Column(name = "MONTO")
     private double monto;
     
+    @NotNull
+    @Column(name = "MONTO_CONCARGOS")
+    private double montoConCargos;
+    
     @Column(name = "FACTuRADA")
     private boolean facturada;
     
@@ -61,6 +67,7 @@ public class OrdenVenta implements Serializable
     
     @JoinColumn(name = "ID_CLIENTE")
     @ManyToOne
+    @JsonBackReference
     private Cliente cliente;
     
     @OneToOne
@@ -72,9 +79,11 @@ public class OrdenVenta implements Serializable
     private OrdenEnvio ordenEnvio;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenVenta")
+    @JsonManagedReference
     private Collection<SancionCliente> sancionesCliente;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenVenta")
+    @JsonManagedReference
     private Collection<ProductoVendido> productosVendidos;
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
@@ -189,6 +198,16 @@ public class OrdenVenta implements Serializable
     public void setProductosVendidos(Collection<ProductoVendido> productosVendidos)
     {
         this.productosVendidos = productosVendidos;
+    }
+
+    public double getMontoConCargos()
+    {
+        return montoConCargos;
+    }
+
+    public void setMontoConCargos(double montoConCargos)
+    {
+        this.montoConCargos = montoConCargos;
     }
     
 }

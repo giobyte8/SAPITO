@@ -9,7 +9,13 @@
 
 <head>
 
-
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@taglib prefix="tags" uri="http://www.springframework.org/tags" %>
+    <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     <title>Topicos Avanzados de Ingenieria</title>
 
     <!-- Bootstrap Core CSS -->
@@ -41,17 +47,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <form method="POST" action="loginIndex">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="username" placeholder="Nombre de usuario">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-xl">Entrar</button>
-                    <br>
-                    ${NotFound}
-                    </form>
+                    <form:form method="POST" action="loginIndex" name="credenciales">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" placeholder="Nombre de usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-xl">Entrar</button>
+                        <br>
+                        ${NotFound}
+                    </form:form>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
