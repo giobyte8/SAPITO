@@ -27,7 +27,7 @@ import org.hibernate.validator.constraints.Email;
  * @author pablo
  */
 @Entity
-@Table(name = "PROVEEDOR")
+@Table(name = "Proveedor")
 public class Proveedor implements Serializable {
 
     @Id

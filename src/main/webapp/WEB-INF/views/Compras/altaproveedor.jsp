@@ -27,7 +27,7 @@
         <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form onsubmit="return Confirmacion();">
+            <form:form id="nuv-proveedor" commandName="proveedor" action="altaprovedor" method="POST">
                 <!-- Page Content -->
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -55,33 +55,45 @@
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
-                                                            <label class="control-label">Nombre</label>
-                                                            <input type="text" class="form-control" maxlength="50" placeholder="Nombre" required>
+                                                            <label for="alp-empresa">Empresa</label>
+                                                            <form:input path="empresa" name="empresa" id="nombreC" type="text" class="form-control"  
+                                                                        placeholder="Empresa" />
+                                                            <form:errors path="empresa" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                         <div class="form-group ">
-                                                            <label class="control-label">País</label>
-                                                            <input type="text" class="form-control" maxlength="50" placeholder="País" required>
+                                                            <label for="alp-pais" class="control-label">País</label>
+                                                            <form:input path="pais" name="pais" type="text" class="form-control" 
+                                                                   id="paisC" placeholder="País" />
+                                                            <form:errors path="pais" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                         <div class="form-group ">
-                                                            <label class="control-label">Municipio</label>
-                                                            <input type="text" class="form-control" maxlength="30" placeholder="Municipio" required>
+                                                            <label for="alp-mun" class="control-label">Municipio</label>
+                                                            <form:input path="municipio" name="municipio" type="text" class="form-control" 
+                                                                        id="municipioC" placeholder="Municipio" />
+                                                            <form:errors path="municipio" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                         <div class="form-group ">
-                                                            <label class="control-label">Colonia</label>
-                                                            <input type="text" class="form-control" maxlength="30" placeholder="Colonia" required>
+                                                            <label for="alp-col" class="control-label">Colonia</label>
+                                                            <form:input path="colonia" name="colonia" type="text" class="form-control" 
+                                                                        id="coloniaC" placeholder="Colonia" />
+                                                            <form:errors path="colonia" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                         <div class="form-group ">
-                                                            <label class="control-label">Calle</label>
-                                                            <input type="text" class="form-control" maxlength="50" placeholder="Calle" required>
+                                                            <label for="alp-calle" class="control-label">Calle</label>
+                                                            <form:input path="calle" name="calle" type="text" class="form-control" 
+                                                                        id="calleC" placeholder="Calle" />
+                                                            <form:errors path="calle" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                         <div class="form-group ">
-                                                            <label class="control-label">Número Interior</label>
-                                                            <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" placeholder="Número Interior" required >
+                                                            <label for="alp-numint" class="control-label">Número Interior</label>
+                                                            <form:input path="numint" name="numint" type="text" class="form-control" id="numextC" 
+                                                                        placeholder="Número Interior" />
+                                                            <form:errors path="numint" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                     </div>
@@ -90,34 +102,47 @@
                                                         <div class="form-group ">
 
                                                             <div class="form-group ">
-                                                                <label class="control-label">Número Exterior</label>
-                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" placeholder="Número Exterior" required>
+                                                                <label for="alp-numext" class="control-label">Número Exterior</label>
+                                                                <form:input path="numext" name="numext" type="text" class="form-control" id="numintC" 
+                                                                       placeholder="Número Exterior" />
+                                                                <form:errors path="numext" element="div" class="alert-danger pad-10" />
                                                             </div>
 
                                                             <div class="form-group ">
-                                                                <label class="control-label">Código Postal</label>
-                                                                <input type="text" class="form-control" maxlength="5" pattern="[0-9]{5}" placeholder="Código Postal" required>
+                                                                <label for="alp-cp" class="control-label">Código Postal</label>
+                                                                <form:input path="cp" name="cp" type="text" class="form-control" id="cpC" 
+                                                                            placeholder="Código Postal" />
+                                                                <form:errors path="cp" element="div" class="alert-danger pad-10" />
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <label class="control-label" >RFC</label>
-                                                                <input type="text" class="form-control" maxlength="13" placeholder="RFC" required>
+                                                                <label for="alp-rfc" class="control-label" >RFC</label>
+                                                                <form:input path="rfc" name="rfc" type="text" class="form-control" id="rfcC" 
+                                                                      placeholder="RFC" />
+                                                                <form:errors path="rfc" element="div" class="alert-danger pad-10" />
                                                             </div>
 
                                                             <div class="form-group ">
-                                                                <label class="control-label">Teléfono</label>
-                                                                <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}" placeholder="Teléfono" required >
+                                                                <label for="alp-tel1" class="control-label">Teléfono</label>
+                                                                <form:input path="tel1" name="tel1" type="text" class="form-control" id="telefono1C" 
+                                                                            placeholder="Teléfono" />
+                                                                <form:errors path="tel1" element="div" class="alert-danger pad-10" />
                                                             </div>                                                           
                                                         </div>
 
                                                         <div class="form-group ">
-                                                            <label class="control-label">Correo</label>
-                                                            <input type="text" class="form-control" maxlength="30" placeholder="Correo" required>
+                                                            <label for="alp-email" class="control-label">Correo</label>
+                                                            <form:input path="email" name="email" type="email" class="form-control" id="emailC" 
+                                                                        placeholder="Correo" />
+                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                            
                                                         </div>
 
                                                         <div class="form-group ">
-                                                            <label class="control-label">Forma de Pago</label>
-                                                            <input type="text" class="form-control" maxlength="50" placeholder="Forma de Pago" required>
+                                                            <label for="alp-forma" class="control-label">Forma de Pago</label>
+                                                            <form:input path="forma" name="forma" type="text" class="form-control" id="formaC" 
+                                                                        placeholder="Forma de Pago" />
+                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                         <!--Fin  inputs/!-->
@@ -135,12 +160,16 @@
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
-                                                            <label class="control-label">Nombre</label>
-                                                            <input type="text" class="form-control" maxlength="20" placeholder="Nombre" required>
+                                                            <label for="nombre" class="control-label">Nombre</label>
+                                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
+                                                                   id="nombreCC" placeholder="Nombre" />
+                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
                                                         </div>
                                                         <div class="form-group ">
-                                                            <label class="control-label">Apellido Materno</label>
-                                                            <input type="text" class="form-control" maxlength="15" placeholder="Apellido Materno" required>
+                                                            <label for="alp-apm" class="control-label">Apellido Materno</label>
+                                                            <form:input path="apm" name="apm" type="text" class="form-control" id="apMC" 
+                                                                        placeholder="Apellido Materno" />
+                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
                                                         </div>                                                       
                                                         
                                                         <!--Fin  inputs/!-->
@@ -148,12 +177,16 @@
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
                                                         <div class="form-group">
-                                                            <label class="control-label" >Apellido Paterno</label>
-                                                            <input type="text" class="form-control" maxlength="15" placeholder="Apellido Paterno" required>
+                                                            <label for="alp-app" class="control-label" >Apellido Paterno</label>
+                                                            <form:input path="app" name="app" type="text" class="form-control" id="apPC" 
+                                                                   placeholder="Apellido Paterno" />
+                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
                                                         </div>                        
                                                         <div class="form-group ">
-                                                            <label class="control-label">Teléfono</label>
-                                                            <input type="text" class="form-control" maxlength="10" pattern="[0-9]{10}" placeholder="Teléfono" required >
+                                                            <label for="alp-tel2" class="control-label">Teléfono</label>
+                                                            <form:input path="tel2" name="tel2" type="text" class="form-control" id="telefonoC" 
+                                                                        placeholder="Teléfono" />
+                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
                                                         </div>
                                                     </div>
                                                 </div>                      
@@ -169,7 +202,7 @@
                     </div><!-- Fin del tag del contenedor-->
                 </div>
                 <!-- /#page-wrapper -->
-            </form>
+            </form:form>
 
         </div>
         <!-- /#wrapper -->

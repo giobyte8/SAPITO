@@ -52,6 +52,15 @@ public class ComprasController {
     public String informacion1proveedor(Model model) {
         return "Compras/informacionproveedor";
     }
+    
+    @RequestMapping(value = "Consulta1Orden", method = RequestMethod.GET)
+    public String Consulta1Orden(Model model) {
+        return "Compras/Consulta1Orden";
+    }    
+    @RequestMapping(value = "modificaOrden", method = RequestMethod.GET)
+    public String modificaOrden(Model model) {
+        return "Compras/modificaOrden";
+    }
 
     @RequestMapping(value = "ordenCompra", method = RequestMethod.GET)
     public String ordenCompra(Model model) {
@@ -84,6 +93,7 @@ public class ComprasController {
         return "Compras/ConsultarOrdenes";
 
     }
+
 
     @RequestMapping(value = "Consulta1Producto", method = RequestMethod.GET)
     public String Consulta1Producto(Model model) {

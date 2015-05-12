@@ -30,7 +30,7 @@
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
-            <form>
+            <form id="orden">
 
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -63,7 +63,7 @@
 
                                                         <div class="form-group ">
                                                             <label class="control-label">Empresa</label>
-                                                            <select class="form-control" required>
+                                                            <select class="form-control" name="empresa" required>
                                                                 <option>Fulanito 1</option>
                                                                 <option>Fulanito 2</option>
                                                                 <option>Fulanito 3</option>
@@ -71,12 +71,12 @@
                                                             </select>
                                                         </div>
                                                         <div class="form-group ">
-                                                            <label class="control-label">RfC</label>
-                                                            <input placeholder="Ingrese RFC" type="text" disabled="disabled" class="form-control" required>
+                                                            <label class="control-label ">RfC</label>
+                                                            <input name="rfc" placeholder="Ingrese RFC" type="text" disabled="disabled" class="form-control" required>
                                                         </div>                                                    
                                                         <div class="form-group ">
                                                             <label class="control-label">Contacto</label>
-                                                            <input placeholder="Ingrese Nombre del Contacto" type="text" disabled="disabled" class="form-control"required >
+                                                            <input name="contacto" placeholder="Ingrese Nombre del Contacto" type="text" disabled="disabled" class="form-control" required >
                                                         </div>
                                                         
                                                       <div class="col-lg-6 text-left">  
@@ -84,7 +84,7 @@
                                                             <br>                                                            
                                                             <label class="control-label">Forma de pago </label> &nbsp;&nbsp;&nbsp;&nbsp;
                                                             
-                                                            <select name="select" size="1" id="select">
+                                                            <select name="forPago" size="1" id="select">
                                                                 <option value="1">Efectivo</option>
                                                                 <option value="2">Crédito</option>
                                                             </select>
@@ -98,15 +98,15 @@
 
                                                         <div class="form-group ">
                                                             <label class="control-label">Dirección</label>
-                                                            <input placeholder="Ingrese Dirección" type="text" disabled="disabled" class="form-control" required>
+                                                            <input name="direccion" placeholder="Ingrese Dirección" type="text" disabled="disabled" class="form-control" required>
                                                         </div>        
                                                         <div class="form-group ">
                                                             <label class="control-label">E-mail</label>
-                                                            <input placeholder="Ingrese E-mail" type="text" disabled="disabled" class="form-control" required>
+                                                            <input name="email" placeholder="Ingrese E-mail" type="text" disabled="disabled" class="form-control" required>
                                                         </div>
                                                         <div class="form-group ">
                                                             <label class="control-label">Teléfono</label>
-                                                            <input placeholder="Ingrese Teléfono" type="text" disabled="disabled" class="form-control" required>
+                                                            <input name="telefono" placeholder="Ingrese Teléfono" type="text" disabled="disabled" class="form-control" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -122,8 +122,8 @@
 
                                                     <div class="col-lg-6 text-left">                                                
                                                         <div class="panel panel-default">
-                                                            <label class="control-label">Producuctos a ingresar</label>
-                                                             <select class="form-control">
+                                                            <label class="control-label">Productos a ingresar</label>
+                                                            <select name="prodIngresar" class="form-control">
                                                                 <option>Monitor HP 12000</option>
                                                                 <option>Computadora Dell Inspiron seires 500</option>
                                                                 <option>HDD Extaernal case 2.5"</option>
@@ -132,7 +132,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-lg-6 text-left">                                                                                                   
+                                                    <div class="col-lg-5">                                                                                                   
                                                         <input type="submit" value="Agregar" class="btn btn-success  col-md-offset-11"  role="button">                                                    
                                                     </div>
 
@@ -141,12 +141,12 @@
                                                     <div class="col-lg-12 text-left">                                                                                                                                            
                                                         <table class="table table-bordered">
                                                             <tr>
-                                                                <td><b><div align="center">Cantidad</div></b></td> 
-                                                                <td><b><div align="center">Producto</div></b></td> 
-                                                                <td><b><div align="center">Descripcion</div></b></td> 
-                                                                <td><b><div align="center">Cantidad</div></b></td>                                                                 
-                                                                <td><b><div align="center">Precio</div></b></td> 
-                                                                <td><b><div align="center">Importe</div></b></td>
+                                                                <td><div align="center">Cantidad</div></td> 
+                                                                <td><div align="center">Producto</div></td> 
+                                                                <td><div align="center">Descripcion</div></td> 
+                                                                <td><div align="center">Cantidad</div></td>                                                                 
+                                                                <td><div align="center">Precio</div></td> 
+                                                                <td><div align="center">Importe</div></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>5</td> 
@@ -191,8 +191,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
+                                    <div >
+                                        <input type="reset" value="Eliminar Datos" class="btn btn-success"  role="button">
+                                        <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-9"  role="button">
                                     </div> 
                                 </div>                        
                             </div>  
