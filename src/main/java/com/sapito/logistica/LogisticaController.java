@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.sapito.logistica;
 
 import com.itextpdf.text.Document;
@@ -585,7 +585,7 @@ public class LogisticaController {
 //    @RequestMapping(value="logistica", method=RequestMethod.GET)
 //    public String index(Model model)
 //    {
-=======
+
 //package com.sapito.logistica;
 //
 //import com.itextpdf.text.Document;
@@ -631,7 +631,7 @@ public class LogisticaController {
 //
 //    @RequestMapping(value = "logistica", method = RequestMethod.GET)
 //    public String index(Model model) {
->>>>>>> origin/master
+
 //        return "Logistica/indexLogistica";
 //    }
 //
@@ -1019,7 +1019,7 @@ public class LogisticaController {
 //    //------------------Fin alta empresa--------------
 //
 //    
-<<<<<<< HEAD
+
 
     @RequestMapping(value = "logistica/pdfRecpcion", method = RequestMethod.GET)
     public ModelAndView indexpdf(Model model,HttpServletRequest request) throws ServletRequestBindingException 
@@ -1051,7 +1051,6 @@ public class LogisticaController {
 //    
 
 }
-=======
 //    //---- Consulta empresa----------
 //    @RequestMapping(value = "logistica/empresanacional", method = RequestMethod.GET)
 //    public String empresaNacional(Model model) {
@@ -1221,4 +1220,3 @@ public class LogisticaController {
 ////    
 //
 //}
->>>>>>> origin/master
