@@ -33,7 +33,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="input-group">
-                                    
+
                                     <input class="form-control" id="system-search" name="q" placeholder="Busqueda" required>
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -43,31 +43,28 @@
                             <table class="table table-list-search">
                                 <thead>
                                     <tr>
-                                        <th>Curp</th>
                                         <th>Nombre</th>
-                                        <th>Edad</th>
+                                        <th>RFC</th>
+                                        <th>Fecha Nacimiento</th>
+                                        <th>Telefono</th>
                                         <th>Detalles</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>BADD110313HCMLNS12</td>
-                                        <td>Roberto Hernandez Gomez</td>
-                                        <td>34</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-danger fa fa-user" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td>JOSD110313HCMLPL87</td>
-                                        <td>Jesus Montes Cruz</td>
-                                        <td>23</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-danger fa fa-user" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                                    </tr>
-                                    <tr>    
-                                        <td>PODD110313HCSER781</td>
-                                        <td>Samantha Flores Ruiz</td>
-                                        <td>38</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-danger fa fa-user" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                                    </tr>
+                                    <core:forEach items="${Empleado}" var="current">
+                                        <tr class='gradeX' id="${current.idempleado}">
+
+
+                                            <td><core:out value="${current.nomre}" /></td>
+                                            <td><core:out value="${current.rfc}" /></td>
+                                            <td><core:out value="${current.telefono}" /></td>
+                                            <td>
+                                                <a href="verAlumnosProyecto.do?id=${current.idempleado}" class="fancyFU">
+                                                    <span class="btn  btn-warning fa fa-user"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </core:forEach>
                                 </tbody>
                             </table>   
                         </div>
