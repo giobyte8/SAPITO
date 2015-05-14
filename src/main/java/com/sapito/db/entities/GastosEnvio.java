@@ -43,10 +43,7 @@ public class GastosEnvio implements Serializable
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 /* *** *** *** ***  RELACIONES *** *** *** *** ***/
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private OrdenEnvio idOrdenEnvio;
+    
     
     @JoinColumn(name = "ID_CLIENTE")
     @ManyToOne
@@ -91,15 +88,7 @@ public class GastosEnvio implements Serializable
         this.casetas = casetas;
     }
 
-    public OrdenEnvio getIdOrdenEnvio()
-    {
-        return idOrdenEnvio;
-    }
 
-    public void setIdOrdenEnvio(OrdenEnvio idOrdenEnvio)
-    {
-        this.idOrdenEnvio = idOrdenEnvio;
-    }
 
     public boolean isStatus() 
     {
