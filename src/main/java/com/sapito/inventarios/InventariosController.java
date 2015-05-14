@@ -6,10 +6,10 @@
 
 package com.sapito.inventarios;
 
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Inventario;
@@ -24,10 +24,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-/**
- *
- * @author Elizabeth
- */
+
+
 @Controller
 
 public class InventariosController
@@ -65,23 +63,33 @@ public class InventariosController
     @RequestMapping(value="buscarProducto", method=RequestMethod.GET)
     public @ResponseBody Inventario buscarProducto(Model model, String nombre, String codigoInventario)
     {
-        List<Inventario> productos = daoInventario
+        List<Inventario> inventario = daoInventario
                 .findBySpecificField("codigoInventario", codigoInventario.trim(), "equal", null, null);
         
-        if(productos.size() > 0)
+        if(inventario.size() > 0)
         {
-            return productos.get(0);
+            return inventario.get(0);
         }
         else
         {
             return null;
         }
+        
+        
+//        public Inventario findInventario(String id) {
+//        Query query1 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.idinventario=:idinventario");
+//        query1.setParameter("idinventario", Integer.parseInt(id));
+//        List<Inventario> inventario = query1.getResultList();
+//        return inventario.get(0);
+//    }
     }
+    
+    
     
     @RequestMapping(value="materiaPrima", method=RequestMethod.GET)
     public String materiaPrima(Model model)
     {
-        return "Inventarios/materiaPrimaView";
+        return "Inventarios/registrarMateriaPrima";
     }
     
     @RequestMapping(value="productoTerminado", method=RequestMethod.GET)
@@ -114,7 +122,6 @@ public class InventariosController
         } else 
         {            
             inventario.setStatus(true);
-            //inventario.setTipoProducto("Materia");
             
             daoInventario.create(inventario);            
 
@@ -155,33 +162,46 @@ public class InventariosController
     
     //------------Fin Materia Prima----------------
     
-    
-//    @RequestMapping(value="registrarMateriaPrima", method=RequestMethod.GET)
-//    public String registrarMateriPrima(Model model)
-//    {
-//        return "Inventarios/registrarMateriaPrimaView";
-//    }
-   
-    
-    @RequestMapping(value = "newProducto", method = RequestMethod.POST)
-    public String newProducto(Model model, Inventario inventario, BindingResult result)
-    {
-      daoInventario.create(inventario);
-      model.addAttribute("Inventario", new Inventario());
-      return "Inventarios/registrarProductoTerminadoView";
+  
+   @RequestMapping(value = "nvoproducto", method = RequestMethod.POST)
+    public String regNvoProducto(Model model,@Valid Inventario inventario, BindingResult bindingResult)
+     {
+        if(bindingResult.hasErrors())
+        {
+           System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+           System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Inventarios/registrarProductoTerminadoView";
+        }
+        else
+        {
+            daoInventario.create(inventario);
+            
+            List<Inventario> clientes = daoInventario.findAll();
+            model.addAttribute("clientes", clientes);
+            return "Ventas/clientes";
+        }
     }
    
-    @RequestMapping(value="registrarProductoTerminado", method=RequestMethod.GET)
+    @RequestMapping(value="nvoproducto", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)
     {    
        Inventario inventario = new Inventario();
-       model.addAttribute("Inventario", inventario);
+       model.addAttribute("inventario", inventario);
        return "Inventarios/registrarProductoTerminadoView";
     }
+    
+    
+    
    
     @RequestMapping(value="bajaMateriaPrima", method=RequestMethod.GET)
     public String bajaMateriaPrima(Model model)
     {
         return "Inventarios/bajaMateriaPrimaView";
+    }
+    
+    @RequestMapping(value="existencias", method=RequestMethod.GET)
+    public String existencias(Model model)
+    {
+        return "Inventarios/existenciasView";
     }
 }
