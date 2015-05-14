@@ -163,20 +163,30 @@ public class InventariosController
     //------------Fin Materia Prima----------------
     
   
-    @RequestMapping(value = "newProducto", method = RequestMethod.POST)
-    public String newProducto(Model model, Inventario inventario, BindingResult result)
-    {
-      daoInventario.create(inventario);
-      model.addAttribute("Inventario", new Inventario());
-      return "Inventarios/registrarProductoTerminadoView";
+   @RequestMapping(value = "nvoproducto", method = RequestMethod.POST)
+    public String regNvoProducto(Model model,@Valid Inventario inventario, BindingResult bindingResult)
+     {
+        if(bindingResult.hasErrors())
+        {
+           System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+           System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Inventarios/registrarProductoTerminadoView";
+        }
+        else
+        {
+            daoInventario.create(inventario);
+            
+            List<Inventario> clientes = daoInventario.findAll();
+            model.addAttribute("clientes", clientes);
+            return "Ventas/clientes";
+        }
     }
-    
    
-    @RequestMapping(value="registrarProductoTerminado", method=RequestMethod.GET)
+    @RequestMapping(value="nvoproducto", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)
     {    
        Inventario inventario = new Inventario();
-     model.addAttribute("Inventario", inventario);
+       model.addAttribute("inventario", inventario);
        return "Inventarios/registrarProductoTerminadoView";
     }
     
