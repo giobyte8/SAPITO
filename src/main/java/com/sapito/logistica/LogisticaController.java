@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
@@ -99,8 +100,12 @@ public class LogisticaController {
         
         Transporte transporte = new Transporte();
         
+        EmpresaTransporte eT=findEmpresaTransporte(request.getParameter("empresaid"));
+        model.addAttribute("Empresa",eT);
+        
         model.addAttribute("transporte",transporte);
         model.addAttribute("idempresa", request.getParameter("empresaid"));
+        
         model.addAttribute("transportes", transportes);
     }
     
@@ -154,7 +159,8 @@ public class LogisticaController {
             query.setParameter("empresaid", Long.parseLong(request.getParameter("empresaid")));
             query.setParameter("status", true);
             List<Transporte> transportes = query.getResultList();
-
+            EmpresaTransporte eT=findEmpresaTransporte(request.getParameter("empresaid"));
+        model.addAttribute("Empresa",eT);
             model.addAttribute("transporte",transporte);
             model.addAttribute("idempresa", request.getParameter("empresaid"));
             model.addAttribute("transportes", transportes);
@@ -212,7 +218,8 @@ public class LogisticaController {
             query.setParameter("empresaid", Long.parseLong(request.getParameter("empresaid")));
             query.setParameter("status", true);
             List<Transporte> transportes = query.getResultList();
-
+            EmpresaTransporte eT=findEmpresaTransporte(request.getParameter("empresaid"));
+        model.addAttribute("Empresa",eT);
             model.addAttribute("transporte",transporte);
             model.addAttribute("idempresa", request.getParameter("empresaid"));
             model.addAttribute("transportes", transportes);
@@ -376,12 +383,10 @@ public class LogisticaController {
             empresaTransporte.setStatus(true);
             daoEmpresaTransporte.create(empresaTransporte);
             model.addAttribute("imprime", "1");
-
-            Query query1 = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM EmpresaTransporte a where a.status=:status");
-            query1.setParameter("status", true);
-            List<EmpresaTransporte> empresas = query1.getResultList();
             model.addAttribute("empresaT", empresaTransporte);
-            model.addAttribute("empresas", empresas);
+            
+            
+            consultaEmpresa(model);
             return "Logistica/nacionalPage";
 
         }
@@ -416,13 +421,11 @@ public class LogisticaController {
 
             daoEmpresaTransporte.edit(empresaTransporte);
 
-            model.addAttribute("imprime", "2");
-
-            Query query1 = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM EmpresaTransporte a where a.status=:status");
-            query1.setParameter("status", true);
-            List<EmpresaTransporte> empresas = query1.getResultList();
+            model.addAttribute("imprime", "2");                        
             model.addAttribute("empresaT", empresaTransporte);
-            model.addAttribute("empresas", empresas);
+            
+            consultaEmpresa(model);
+            
             return "Logistica/nacionalPage";
         }
 
@@ -432,7 +435,7 @@ public class LogisticaController {
     
     //---- Consulta empresa----------
     @RequestMapping(value = "logistica/empresanacional", method = RequestMethod.GET)
-    public String empresaNacional(Model model) {
+    public String empresaNacional(Model model,HttpServletRequest request) {                
         consultaEmpresa(model);
         return "Logistica/nacionalPage";
     }
@@ -446,12 +449,31 @@ public class LogisticaController {
     }
 
     public void consultaEmpresa(Model model) {
-        Query query1 = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM EmpresaTransporte a where a.status=:status");
-        query1.setParameter("status", true);
-        List<EmpresaTransporte> empresas = query1.getResultList();
+        
+        
         EmpresaTransporte empresaTransporte = new EmpresaTransporte();
         model.addAttribute("empresaT", empresaTransporte);
-        model.addAttribute("empresas", empresas);
+        
+            Query query1 = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM EmpresaTransporte a where a.status=:status");
+            query1.setParameter("status", true);                        
+            List<EmpresaTransporte> empresas = query1.getResultList();            
+            List<EmpresaTransporte> empresasN=new LinkedList();
+            List<EmpresaTransporte> empresasE=new LinkedList();
+            
+            for (int i = 0; i < empresas.size(); i++) {
+                if (empresas.get(i).isTipo() == true) 
+                {
+                    empresasN.add(empresas.get(i));
+                }else
+                {
+                    empresasE.add(empresas.get(i));
+                }
+        }
+            
+            model.addAttribute("empresas", empresas);            
+            model.addAttribute("empresasNacional", empresasN);
+            model.addAttribute("empresasExtranjera", empresasE);
+        
 
     }
 
@@ -566,11 +588,10 @@ public class LogisticaController {
 //    }
 //    
 
-    @RequestMapping(value = "logistica/pdf", method = RequestMethod.GET)
+    @RequestMapping(value = "logistica/pdfRecpcion", method = RequestMethod.GET)
     public ModelAndView indexpdf(Model model,HttpServletRequest request) throws ServletRequestBindingException 
     {
-        String output =
-			ServletRequestUtils.getStringParameter(request, "output");
+        String output=ServletRequestUtils.getStringParameter(request, "output");
 		
 		//dummy data
 		Map<String,String> revenueData = new HashMap<String,String>();
@@ -580,17 +601,15 @@ public class LogisticaController {
 		revenueData.put("1/23/2010", "$400,000");
 		revenueData.put("1/24/2010", "$500,000");
 		
-		if(output ==null || "".equals(output)){
-			//return normal view
-			return new ModelAndView("RevenueSummary","revenueData",revenueData);
+		if("REPORTE".equals(output.toUpperCase())){			
+			return new ModelAndView("PdfReporte","revenueData",revenueData);
 			
-		}else if("PDF".equals(output.toUpperCase())){
-			//return excel view
-			return new ModelAndView("PdfRevenueSummary","revenueData",revenueData);
+		}else if("RECEPCION".equals(output.toUpperCase())){
 			
-		}else{
-			//return normal view
-			return new ModelAndView("RevenueSummary","revenueData",revenueData);
+			return new ModelAndView("PdfRecepcion","revenueData",revenueData);
+			
+		}else{			
+			return new ModelAndView("Logistica/indexLogistica");
 			
 		}
 
