@@ -59,7 +59,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${buscarProducto}" var="inventario">
+                                        <c:forEach items="${inventario}" var="inventario">
                                             <tr>
                                                 <td>${inventario.codigoInventario}</td>
                                                 <td>${inventario.nombre}</td>
@@ -82,6 +82,12 @@
             </div>
         </div>
         <%@include file="inventariosFooter.jsp" %>
+         <script >
+            $(document).ready(function () {
+                activatenb('nb-buscarproducto');
+                $('#buscarproducto').DataTable();
+            });
+    </script>
     </body>
 </html>
 
