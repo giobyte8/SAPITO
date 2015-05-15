@@ -52,7 +52,7 @@
                     <!-- /#page-wrapper -->
                     <div class="col-lg-12">
                         <div class="col-md-3">
-                            <div class="panel panel-success">
+                            <div class="panel panel-green">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Estado de Resultados</h3>
                                 </div>

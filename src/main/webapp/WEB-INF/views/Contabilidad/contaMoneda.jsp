@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <!-- /#page-wrapper -->
-                    <div class="panel panel-success">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <h3 class="panel-title">Monedas</h3>
                         </div>
@@ -70,13 +70,11 @@
                                             <tbody>
                                                 <c:forEach items="${Monedas}" var="moneda">
                                                     <tr>
-                                                        <form:form id="MONEDA${moneda.idtipomodena}" commandName="mon" action="redirec" method="POST">
-                                                            <td>${moneda.nombremodena}</td>
-                                                            <td>${moneda.valorC}-<form:input path="Valor de Compra" name="valorC" type="number" class="form-control"/>
+                                                        <form:form id="MONEDA${moneda.id}" commandName="mon" action="redirec" method="POST">
+                                                            <td>${moneda.nombreModena}</td>
+                                                            <td>${moneda.valorenPesos}-<form:input path="Valor de Compra" name="valorC" type="number" class="form-control"/>
                                                                 <form:errors path="Valor de Compra" element="div" class="alert-danger pad-10" /></td>
-                                                            <td>${moneda.valorV}-<form:input path="Valor de Venta" name="valorV" type="number" class="form-control"/>
-                                                                <form:errors path="Valor de Compra" element="div" class="alert-danger pad-10" /></td>
-                                                            <td><button type="submit" form="MONEDA${moneda.idtipomodena}" class="btn btn-success right">Guardar</button></td>
+                                                            <td><button type="submit" form="MONEDA${moneda.id}" class="btn btn-success right">Guardar</button></td>
                                                         </form:form>
                                                     </tr>
 

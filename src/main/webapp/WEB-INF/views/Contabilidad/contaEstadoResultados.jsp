@@ -33,7 +33,7 @@
                             </h1>                        
                         </div>
                     </div>
-                    <div class="panel panel-success">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <h3 class="panel-title"></h3>
                         </div>

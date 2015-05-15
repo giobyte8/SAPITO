@@ -7,6 +7,7 @@ package com.sapito.contabilidad;
 
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.TipoMoneda;
+import java.io.IOException;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,4 +130,26 @@ public class ContabilidadController {
     public String ContaVariaciondeCapital(Model model) {
         return "Contabilidad/contaVariaciondeCapital";
     }
+    
+    @RequestMapping(value = "contabilidad/balance", method = RequestMethod.GET)
+    public String balance(Model model) throws IOException {        
+
+        return "Contabilidad/Reportes/balanceGeneral";
+    }
+    @RequestMapping(value = "contabilidad/flujo", method = RequestMethod.GET)
+    public String flujo(Model model) throws IOException {        
+
+        return "Contabilidad/Reportes/flijoEfectivo";
+    }
+    @RequestMapping(value = "contabilidad/variaciones", method = RequestMethod.GET)
+    public String variaciones(Model model) throws IOException {        
+
+        return "Contabilidad/Reportes/variacionesCapital";
+    }
+    @RequestMapping(value = "contabilidad/estado", method = RequestMethod.GET)
+    public String estado(Model model) throws IOException {        
+
+        return "Contabilidad/Reportes/estadoResultados";
+    }
+
 }

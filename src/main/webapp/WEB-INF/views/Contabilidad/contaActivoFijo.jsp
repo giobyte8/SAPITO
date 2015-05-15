@@ -48,7 +48,7 @@
 
                     <!-- /#page-wrapper -->
 
-                    <div class="panel panel-success">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <h3 class="panel-title">Activo Fijo</h3>
                         </div>
