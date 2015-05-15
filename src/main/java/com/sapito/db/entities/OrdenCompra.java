@@ -8,16 +8,16 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
-import java.util.Collection;
+
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import sun.util.calendar.BaseCalendar.Date;
+
 
 /**
  *
@@ -35,7 +35,7 @@ import sun.util.calendar.BaseCalendar.Date;
 @Table(name = "OrdenCompra")
 public class OrdenCompra implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -47,20 +47,20 @@ public class OrdenCompra implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "fechaOrden")
-    @Pattern(regexp = RExp.fecha, message = RExpErrors.fecha)
+    @Column(name = "fechaPedido")
+    
     @Temporal(TemporalType.DATE)
-    private java.util.Date fechaOrden;
+    private java.util.Date fechaPedido;
     
     @Basic(optional = false)
     @Column(name = "fechaEntrega")
-    @Pattern(regexp = RExp.fecha, message = RExpErrors.fecha)
+    
     @Temporal(TemporalType.DATE)
     private java.util.Date fechaEntrega;
     
     @NotNull
     @Column(name = "costoTotal")
-    @Pattern(regexp = "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?", message = "Numero Decimal")
+    
     private double costoTotal;
 
     @NotNull
@@ -69,9 +69,9 @@ public class OrdenCompra implements Serializable {
     private String formapago;
     
     @NotNull
-    @Size(min=1, max=500, message = "Seleccione una forma de pago")
-    @Column(name = "aprobacion")
-    private boolean aprobacion;
+    
+    @Column(name = "aprobada")
+    private boolean aprobada;
     
     @OneToOne
     @JoinColumn(name = "ORDENID_PROVEEDOR")
@@ -108,14 +108,14 @@ public class OrdenCompra implements Serializable {
      * @return the fechaOrden
      */
     public java.util.Date getFechaOrden() {
-        return fechaOrden;
+        return fechaPedido;
     }
 
     /**
      * @param fechaOrden the fechaOrden to set
      */
     public void setFechaOrden(java.util.Date fechaOrden) {
-        this.fechaOrden = fechaOrden;
+        this.fechaPedido = fechaOrden;
     }
 
     /**
@@ -199,14 +199,14 @@ public class OrdenCompra implements Serializable {
      * @return the aprobacion
      */
     public boolean isAprobacion() {
-        return aprobacion;
+        return aprobada;
     }
 
     /**
      * @param aprobacion the aprobacion to set
      */
     public void setAprobacion(boolean aprobacion) {
-        this.aprobacion = aprobacion;
+        this.aprobada = aprobacion;
     }
 
 }

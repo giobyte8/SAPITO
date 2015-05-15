@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+
 
 /**
  *
@@ -28,7 +28,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "ProductoEnOrden")
 public class ProductoEnOrden implements Serializable {
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -36,7 +36,7 @@ public class ProductoEnOrden implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "cantdad")
-    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
+    
     private Integer cantidad;
     
     
