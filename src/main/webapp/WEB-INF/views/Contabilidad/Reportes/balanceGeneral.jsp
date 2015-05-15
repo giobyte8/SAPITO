@@ -71,17 +71,17 @@
                         document.addSubject("Pdf de sapito");
                                
                         //------------------------ TAIS  ______________________________
-                        Image tais = Image.getInstance(new URL("http://localhost:8080/trunk/resources/img/tais-banner.jpg"));
+                        Image tais = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/tais-banner.jpg"));
                         document.add(tais);
                                                 
                         //---------------------  BODY    ---------------------------------------------------------
-                        Image body = Image.getInstance(new URL("http://localhost:8080/trunk/resources/img/body.png"));
+                        Image body = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/body.png"));
                         body.setAlignment( Image.UNDERLYING);
                         body.setTransparency(new int[]{ 0x00, 0x10 });
                         body.setAbsolutePosition(50, 250);
                         document.add(body);
                         //-------------------------------------------------------------------------------------------
-                        Image footer = Image.getInstance(new URL("http://localhost:8080/trunk/resources/img/footer.jpg"));
+                        Image footer = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/footer.jpg"));
                         footer.setAbsolutePosition(50, 20);
                         document.add(footer);
                         //----------------------  TITLE ---------------------------
