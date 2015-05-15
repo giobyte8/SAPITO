@@ -16,9 +16,9 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/libs/raphael-min.js"></script>
 
-<script src="${pageContext.request.contextPath}/resources/js/libs/morris.min.js"></script>
-
-<script src="${pageContext.request.contextPath}/resources/js/libs/morris-data.js"></script>
+<!-- Datatables js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
 
 <script type="text/javascript">
                 function isInteger(s)

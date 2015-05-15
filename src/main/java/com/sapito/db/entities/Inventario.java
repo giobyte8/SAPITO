@@ -22,6 +22,7 @@ import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -96,12 +97,14 @@ public class Inventario implements Serializable
     @NotNull
     @Column(name = "fechaEntrada")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date fechaEntrada;
 
     @Basic(optional = false)
     @NotNull
     @Column(name = "fechaProduccion")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date fechaProduccion;
     
     @NotNull

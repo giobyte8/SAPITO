@@ -6,13 +6,9 @@
 
 package com.sapito.inventarios;
 
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Inventario;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-
 public class InventariosController
 
 {
@@ -61,27 +56,19 @@ public class InventariosController
       
     
     @RequestMapping(value="buscarProducto", method=RequestMethod.GET)
-    public @ResponseBody Inventario buscarProducto(Model model, String codigoInventario)
+    public String buscarProducto(Model model)
     {
-        List<Inventario> inventarios = daoInventario
-                .findBySpecificField("codigoInventario", codigoInventario.trim(), "equal", null, null);
+        List<Inventario> inventario = daoInventario.findAll();
         
-        if(inventarios.size() > 0)
+        if(inventario != null && inventario.size() > 0)
         {
-            return inventarios.get(0);
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/buscarProductoView";
         }
         else
         {
             return null;
         }
-        
-        
-//        public Inventario findInventario(String id) {
-//        Query query1 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.idinventario=:idinventario");
-//        query1.setParameter("idinventario", Integer.parseInt(id));
-//        List<Inventario> inventario = query1.getResultList();
-//        return inventario.get(0);
-//    }
     }
     
     
@@ -89,7 +76,7 @@ public class InventariosController
     @RequestMapping(value="materiaPrima", method=RequestMethod.GET)
     public String materiaPrima(Model model)
     {
-        return "Inventarios/registrarMateriaPrima";
+        return "Inventarios/materiaPrimaView";
     }
     
     @RequestMapping(value="productoTerminado", method=RequestMethod.GET)
@@ -163,8 +150,8 @@ public class InventariosController
     //------------Fin Materia Prima----------------
     
   
-   @RequestMapping(value = "Inventarios/registrarProductoTerminado", method = RequestMethod.POST)
-    public String registrarProductoTerminado(Model model,@Valid Inventario inventario, BindingResult bindingResult)
+   @RequestMapping(value = "nvoproducto", method = RequestMethod.POST)
+    public String regNvoProducto(Model model,@Valid Inventario inventario, BindingResult bindingResult)
      {
         if(bindingResult.hasErrors())
         {
@@ -174,21 +161,28 @@ public class InventariosController
         }
         else
         {
+            System.out.println("Insertando");
             daoInventario.create(inventario);
-            
-            List<Inventario> inventarios = daoInventario.findAll();
-            model.addAttribute("inventarios", inventarios);
             return "Inventarios/registrarProductoTerminadoView";
         }
-    } //fin de la alta
+    }
    
-    @RequestMapping(value="Inventarios/registrarProductoTerminado", method=RequestMethod.GET)
+    @RequestMapping(value="nvoproducto", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)
     {    
        Inventario inventario = new Inventario();
+       inventario.setFechaEntrada(new Date());
+       inventario.setFechaProduccion(new Date());
+       inventario.setPrecioUnitario(44);
+       inventario.setStatus(true);
+       inventario.setCategoria("NA");
+       inventario.setTipoProducto("asd");
+       
        model.addAttribute("inventario", inventario);
        return "Inventarios/registrarProductoTerminadoView";
     }
+    
+    
     
    
     @RequestMapping(value="bajaMateriaPrima", method=RequestMethod.GET)
