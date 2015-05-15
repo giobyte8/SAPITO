@@ -8,12 +8,15 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -65,8 +68,8 @@ public class Producto implements Serializable {
     @Pattern(regexp = RExp.letrasBasicas, message = RExpErrors.letrasBasicas)
     private String categoria;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-//    private Collection<OrdenVenta> productoproveedor;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+    private Collection<ProducoProveedor> productoproveedor;
     
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
 //    private Collection<ActivoFijo> producto;
@@ -103,21 +106,19 @@ public class Producto implements Serializable {
         this.categoria = categoria;
     }
 
-    
-//    /**
-//     * @return the producto
-//     */
-//    public Collection<ActivoFijo> getProducto() {
-//        return producto;
-//    }
-//
-//    /**
-//     * @param producto the producto to set
-//     */
-//    public void setProducto(Collection<ActivoFijo> producto) {
-//        this.producto = producto;
-//    }
+    /**
+     * @return the productoproveedor
+     */
+    public Collection<ProducoProveedor> getProductoproveedor() {
+        return productoproveedor;
+    }
 
+    /**
+     * @param productoproveedor the productoproveedor to set
+     */
+    public void setProductoproveedor(Collection<ProducoProveedor> productoproveedor) {
+        this.productoproveedor = productoproveedor;
+    }
 
     
 }

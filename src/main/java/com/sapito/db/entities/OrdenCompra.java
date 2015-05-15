@@ -8,8 +8,10 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -73,14 +76,8 @@ public class OrdenCompra implements Serializable {
     @Column(name = "aprobada")
     private boolean aprobada;
     
-    @OneToOne
-    @JoinColumn(name = "ORDENID_PROVEEDOR")
-    private ProducoProveedor proveedor;
-    
-    @OneToOne(mappedBy = "ordendcompra")
-    private ProductoEnOrden describirorden;
-
-    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordencompra")
+    private Collection<ProductoEnOrden> productoorden;   
     
     public Long getId() {
         return id;
@@ -108,14 +105,14 @@ public class OrdenCompra implements Serializable {
      * @return the fechaOrden
      */
     public java.util.Date getFechaOrden() {
-        return fechaPedido;
+        return getFechaPedido();
     }
 
     /**
      * @param fechaOrden the fechaOrden to set
      */
     public void setFechaOrden(java.util.Date fechaOrden) {
-        this.fechaPedido = fechaOrden;
+        this.setFechaPedido(fechaOrden);
     }
 
     /**
@@ -146,34 +143,7 @@ public class OrdenCompra implements Serializable {
         this.formapago = formapago;
     }
 
-    /**
-     * @return the proveedor
-     */
-    public ProducoProveedor getProveedor() {
-        return proveedor;
-    }
-
-    /**
-     * @param proveedor the proveedor to set
-     */
-    public void setProveedor(ProducoProveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
-    /**
-     * @return the describirorden
-     */
-    public ProductoEnOrden getDescribirorden() {
-        return describirorden;
-    }
-
-    /**
-     * @param describirorden the describirorden to set
-     */
-    public void setDescribirorden(ProductoEnOrden describirorden) {
-        this.describirorden = describirorden;
-    }
-
+    
     /**
      * @return the Folio
      */
@@ -199,14 +169,56 @@ public class OrdenCompra implements Serializable {
      * @return the aprobacion
      */
     public boolean isAprobacion() {
-        return aprobada;
+        return isAprobada();
     }
 
     /**
      * @param aprobacion the aprobacion to set
      */
     public void setAprobacion(boolean aprobacion) {
-        this.aprobada = aprobacion;
+        this.setAprobada(aprobacion);
+    }
+
+    /**
+     * @return the fechaPedido
+     */
+    public java.util.Date getFechaPedido() {
+        return fechaPedido;
+    }
+
+    /**
+     * @param fechaPedido the fechaPedido to set
+     */
+    public void setFechaPedido(java.util.Date fechaPedido) {
+        this.fechaPedido = fechaPedido;
+    }
+
+    /**
+     * @return the aprobada
+     */
+    public boolean isAprobada() {
+        return aprobada;
+    }
+
+    /**
+     * @param aprobada the aprobada to set
+     */
+    public void setAprobada(boolean aprobada) {
+        this.aprobada = aprobada;
+    }
+
+    /**
+     * @return the productoorden
+     */
+    public Collection<ProductoEnOrden> getProductoorden() {
+        return productoorden;
+    }
+
+    /**
+     * @param productoorden the productoorden to set
+     */
+    public void setProductoorden(Collection<ProductoEnOrden> productoorden) {
+        this.productoorden = productoorden;
     }
 
 }

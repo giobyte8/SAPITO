@@ -8,12 +8,15 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -116,8 +119,8 @@ public class Proveedor implements Serializable {
     @Column(name = "STATUS")
     private boolean status;
     
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
-//    private Collection<OrdenVenta> proveedorproducto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
+    private Collection<ProducoProveedor> proveedorproducto;
 
     /**
      * @return the empresa
@@ -347,16 +350,16 @@ public class Proveedor implements Serializable {
     /**
      * @return the proveedorproducto
      */
-//    public Collection<OrdenVenta> getProveedorproducto() {
-//        return proveedorproducto;
-//    }
-//
-//    /**
-//     * @param proveedorproducto the proveedorproducto to set
-//     */
-//    public void setProveedorproducto(Collection<OrdenVenta> proveedorproducto) {
-//        this.proveedorproducto = proveedorproducto;
-//    }
+    public Collection<ProducoProveedor> getProveedorproducto() {
+        return proveedorproducto;
+    }
+
+    /**
+     * @param proveedorproducto the proveedorproducto to set
+     */
+    public void setProveedorproducto(Collection<ProducoProveedor> proveedorproducto) {
+        this.proveedorproducto = proveedorproducto;
+    }
 
     /**
      * @return the id

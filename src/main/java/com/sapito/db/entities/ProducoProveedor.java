@@ -60,6 +60,10 @@ public class ProducoProveedor implements Serializable {
     @ManyToOne
     private Producto producto;
 
+    @JoinColumn(name = "ID_PRODUCTOSENORDEN")
+    @ManyToOne
+    private ProducoProveedor productocomprado;
+    
     public Long getId() {
         return id;
     }
@@ -136,6 +140,20 @@ public class ProducoProveedor implements Serializable {
      */
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    /**
+     * @return the productocomprado
+     */
+    public ProducoProveedor getProductocomprado() {
+        return productocomprado;
+    }
+
+    /**
+     * @param productocomprado the productocomprado to set
+     */
+    public void setProductocomprado(ProducoProveedor productocomprado) {
+        this.productocomprado = productocomprado;
     }
 
 }
