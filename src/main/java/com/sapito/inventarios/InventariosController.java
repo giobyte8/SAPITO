@@ -6,10 +6,10 @@
 
 package com.sapito.inventarios;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Inventario;
@@ -61,14 +61,14 @@ public class InventariosController
       
     
     @RequestMapping(value="buscarProducto", method=RequestMethod.GET)
-    public @ResponseBody Inventario buscarProducto(Model model, String nombre, String codigoInventario)
+    public @ResponseBody Inventario buscarProducto(Model model, String codigoInventario)
     {
-        List<Inventario> inventario = daoInventario
+        List<Inventario> inventarios = daoInventario
                 .findBySpecificField("codigoInventario", codigoInventario.trim(), "equal", null, null);
         
-        if(inventario.size() > 0)
+        if(inventarios.size() > 0)
         {
-            return inventario.get(0);
+            return inventarios.get(0);
         }
         else
         {
@@ -82,7 +82,6 @@ public class InventariosController
 //        List<Inventario> inventario = query1.getResultList();
 //        return inventario.get(0);
 //    }
-        
     }
     
     
@@ -90,7 +89,7 @@ public class InventariosController
     @RequestMapping(value="materiaPrima", method=RequestMethod.GET)
     public String materiaPrima(Model model)
     {
-        return "Inventarios/materiaPrimaView";
+        return "Inventarios/registrarMateriaPrima";
     }
     
     @RequestMapping(value="productoTerminado", method=RequestMethod.GET)
@@ -164,8 +163,8 @@ public class InventariosController
     //------------Fin Materia Prima----------------
     
   
-   @RequestMapping(value = "nvoproducto", method = RequestMethod.POST)
-    public String regNvoProducto(Model model,@Valid Inventario inventario, BindingResult bindingResult)
+   @RequestMapping(value = "Inventarios/registrarProductoTerminado", method = RequestMethod.POST)
+    public String registrarProductoTerminado(Model model,@Valid Inventario inventario, BindingResult bindingResult)
      {
         if(bindingResult.hasErrors())
         {
@@ -177,21 +176,19 @@ public class InventariosController
         {
             daoInventario.create(inventario);
             
-            List<Inventario> clientes = daoInventario.findAll();
-            model.addAttribute("clientes", clientes);
-            return "Ventas/clientes";
+            List<Inventario> inventarios = daoInventario.findAll();
+            model.addAttribute("inventarios", inventarios);
+            return "Inventarios/registrarProductoTerminadoView";
         }
-    }
+    } //fin de la alta
    
-    @RequestMapping(value="nvoproducto", method=RequestMethod.GET)
+    @RequestMapping(value="Inventarios/registrarProductoTerminado", method=RequestMethod.GET)
     public String registrarProductoTerminado(Model model)
     {    
        Inventario inventario = new Inventario();
        model.addAttribute("inventario", inventario);
        return "Inventarios/registrarProductoTerminadoView";
     }
-    
-    
     
    
     @RequestMapping(value="bajaMateriaPrima", method=RequestMethod.GET)
