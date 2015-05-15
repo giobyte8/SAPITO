@@ -81,7 +81,7 @@ public class ActivoFijoController {
             TipoActivoFijo tipoactivofijo = (TipoActivoFijo) daoTipoActivoFijo.find(Long.valueOf(tipoactivofijoS));
             Producto prod = (Producto) daoProducto.find(Long.valueOf(productoS));
             activofijo.setTipoactivofijo(tipoactivofijo);
-            activofijo.setProductoRef(prod);
+            activofijo.setProducto(prod);
             activofijo.setStatus(true);
             daoActivoFijo.create(activofijo);
             return "ActivoFijo/gdaAlta";
@@ -104,7 +104,10 @@ public class ActivoFijoController {
         List<ActivoFijo> af = daoActivoFijo.findAll();
         ActivoFijo lastAF = af.get(af.size() -1 );
         
+        List<ActivoFijo> af2 = daoActivoFijo.findAll();
+        
         model.addAttribute("lastAF", lastAF);
+        model.addAttribute("lastAF2", af2);
         return "ActivoFijo/aActivoFijo";
     }
 
