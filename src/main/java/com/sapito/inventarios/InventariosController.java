@@ -82,6 +82,7 @@ public class InventariosController
 //        List<Inventario> inventario = query1.getResultList();
 //        return inventario.get(0);
 //    }
+        
     }
     
     
@@ -89,7 +90,7 @@ public class InventariosController
     @RequestMapping(value="materiaPrima", method=RequestMethod.GET)
     public String materiaPrima(Model model)
     {
-        return "Inventarios/registrarMateriaPrima";
+        return "Inventarios/materiaPrimaView";
     }
     
     @RequestMapping(value="productoTerminado", method=RequestMethod.GET)

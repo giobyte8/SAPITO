@@ -62,7 +62,7 @@
                 <a href="javascript:" data-toggle="collapse" data-target="#demo1"><i class="fa fa-expand fa-fw"></i> Máximos y mínimos<span class="fa arrow"></span></a>
                 <ul id="demo1" class="collapse">
                     <li>
-                        <a href="Inventarios/registrarMateriaPrima">Materia prima</a>
+                        <a href="materiaPrima">Materia prima</a>
                     </li>
                     <li>
                         <a href="productoTerminado">Producto terminado</a>
@@ -73,7 +73,7 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-arrow-up fa-fw"></i>Alta nuevos productos<span class="fa arrow"></span></a>
                 <ul id="demo2" class="collapse">
                     <li>
-                        <a href="Inventarios/registrarMateriaPrima">Materia prima</a>
+                        <a href="registrarMateriaPrima">Materia prima</a>
                     </li>
                     <li>
                         <a href="registrarProductoTerminado">Producto terminado</a>
@@ -81,7 +81,7 @@
                 </ul>            
             </li>
             <li>
-                <a href="Inventarios/bajaMateriaPrima"><i class="fa fa-fw fa-mail-forward"></i> Salida materia prima</a>
+                <a href="bajaMateriaPrima"><i class="fa fa-fw fa-mail-forward"></i> Salida materia prima</a>
             </li>
         </ul>
     </div>
