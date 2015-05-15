@@ -7,8 +7,15 @@ package com.sapito.contabilidad;
 
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.TipoMoneda;
+import com.sapito.pdf.PDFView.PDFGeneratorContabilidad;
+import com.sapito.pdf.PDFView.PDFGeneratorVentas;
+import com.sapito.ventas.VentasController;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level; 
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -129,27 +137,68 @@ public class ContabilidadController {
     @RequestMapping(value = "contabilidad/contaVariaciondeCapital", method = RequestMethod.GET)
     public String ContaVariaciondeCapital(Model model) {
         return "Contabilidad/contaVariaciondeCapital";
-    }
+    }    
     
-    @RequestMapping(value = "contabilidad/balance", method = RequestMethod.GET)
-    public String balance(Model model) throws IOException {        
-
-        return "Contabilidad/Reportes/balanceGeneral";
-    }
-    @RequestMapping(value = "contabilidad/flujo", method = RequestMethod.GET)
-    public String flujo(Model model) throws IOException {        
-
-        return "Contabilidad/Reportes/flijoEfectivo";
-    }
-    @RequestMapping(value = "contabilidad/variaciones", method = RequestMethod.GET)
-    public String variaciones(Model model) throws IOException {        
-
-        return "Contabilidad/Reportes/variacionesCapital";
-    }
+    
+    @RequestMapping(value = "contabilidad/variacion", method = RequestMethod.GET)
+    @ResponseBody
+     public String variacion(Model model, HttpServletRequest request, HttpServletResponse response)
+    {
+        PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
+        try
+        {
+            pdfView.crearVariacionContable(response);
+        } catch(Exception ex)
+        {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return "OK";
+    }    
+    
     @RequestMapping(value = "contabilidad/estado", method = RequestMethod.GET)
-    public String estado(Model model) throws IOException {        
-
-        return "Contabilidad/Reportes/estadoResultados";
+    @ResponseBody
+     public String estado(Model model, HttpServletRequest request, HttpServletResponse response)
+    {
+        PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
+        try
+        {
+            pdfView.crearEstadoResultados(response);
+        } catch(Exception ex)
+        {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return "OK";
+    }
+     
+     
+     @RequestMapping(value = "contabilidad/balance", method = RequestMethod.GET)
+    @ResponseBody
+     public String balance(Model model, HttpServletRequest request, HttpServletResponse response)
+    {
+        PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
+        try
+        {
+            pdfView.crearBalance(response);
+        } catch(Exception ex)
+        {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return "OK";
+    }
+     
+      @RequestMapping(value = "contabilidad/flujo", method = RequestMethod.GET)
+    @ResponseBody
+     public String flujo(Model model, HttpServletRequest request, HttpServletResponse response)
+    {
+        PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
+        try
+        {
+            pdfView.crearFlujo(response);
+        } catch(Exception ex)
+        {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return "OK";
     }
 
 }
