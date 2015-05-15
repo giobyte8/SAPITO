@@ -19,6 +19,8 @@
 <script src="${pageContext.request.contextPath}/resources/js/libs/raphael-min.js"></script>
 <!--   <script src="../resources/js/libs/morris.min.js"></script>
    <script src="../resources/js/libs/morris-data.js"></script>-->
+<script src="${pageContext.request.contextPath}/resources/js/rh/confirmaOperacionRH.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/rh/validacionRH.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
