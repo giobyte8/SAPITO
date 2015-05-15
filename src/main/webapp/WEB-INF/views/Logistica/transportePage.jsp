@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Camiones de la empresa XXXXX
+                                Camiones de la empresa " ${Empresa.nombreEmpresa} "
                             </h1>
                         </div>
                     </div>

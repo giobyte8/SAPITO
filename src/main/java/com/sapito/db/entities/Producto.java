@@ -10,12 +10,14 @@ import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -32,9 +34,23 @@ public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
-    @Column(name = "IdProducto")
+    @Column(name = "ID")
     private long id;
 
+    @NotNull
+    @Column(name = "Nombre")
+    @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
+    @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
+    private String nombreproducto;
+
+    public String getNombreproducto() {
+        return nombreproducto;
+    }
+
+    public void setNombreproducto(String nombreproducto) {
+        this.nombreproducto = nombreproducto;
+    }
+    
     @NotNull
     @Column(name = "Descripcion")
     @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
@@ -52,24 +68,8 @@ public class Producto implements Serializable {
     @Pattern(regexp = RExp.letrasBasicas, message = RExpErrors.letrasBasicas)
     private String categoria;
 
-    @NotNull
-    @Column(name = "Unidad")
-    @Pattern(regexp = RExp.letrasBasicas, message = RExpErrors.letrasBasicas)
-    private String unidad;
-
-    @NotNull
-    @Column(name = "costo")
-    @Pattern(regexp = "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?", message = "Numero Decimal")
-    private double costo;
-    
-    @NotNull
-    @Column(name = "proveedor")
-    private int proveedor;
-    
-    
-    
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-//    private Collection<OrdenVenta> productoproveedor;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+    private Collection<ProducoProveedor> productoproveedor;
     
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
 //    private Collection<ActivoFijo> producto;
@@ -106,44 +106,19 @@ public class Producto implements Serializable {
         this.categoria = categoria;
     }
 
-    public String getUnidad() {
-        return unidad;
+    /**
+     * @return the productoproveedor
+     */
+    public Collection<ProducoProveedor> getProductoproveedor() {
+        return productoproveedor;
     }
 
-    public void setUnidad(String unidad) {
-        this.unidad = unidad;
+    /**
+     * @param productoproveedor the productoproveedor to set
+     */
+    public void setProductoproveedor(Collection<ProducoProveedor> productoproveedor) {
+        this.productoproveedor = productoproveedor;
     }
-
-    public double getCosto() {
-        return costo;
-    }
-
-    public void setCosto(double costo) {
-        this.costo = costo;
-    }
-
-    public int getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(int proveedor) {
-        this.proveedor = proveedor;
-    }
-
-//    /**
-//     * @return the producto
-//     */
-//    public Collection<ActivoFijo> getProducto() {
-//        return producto;
-//    }
-//
-//    /**
-//     * @param producto the producto to set
-//     */
-//    public void setProducto(Collection<ActivoFijo> producto) {
-//        this.producto = producto;
-//    }
-
 
     
 }

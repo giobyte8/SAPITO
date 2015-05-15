@@ -26,34 +26,34 @@
                             </div>
                         </div>
                         <!-- /.col-lg-4 -->
-                        <form:form action="newProducto" method="POST" commandName="Inventario">
+                        <form:form action="fnvo-producto" commandName="inventario" action="nvoproducto" method="POST" >
                             <div class="row">
                                 <div class="col-lg-12 text-left">
                                     <div class="panel panel-green">
                                         <div class="panel-heading">
-                                            <h2 class="panel-title">Datos de producto terminado </h2>
+                                            <h2 class="panel-title">Registro de producto terminado </h2>
                                         </div>
                                         <div class="panel-body">
 
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="fnvoc-codigoInventario">Código Inventario</label> 
-                                                    <form:input  path="codigoInventario" name="codigoInventario" id="fnoc-codigoInventario" type="text" class="form-control" placeholder="Codigo de Inventario"/>
-                                                    <form:errors path="codigoInventario" element="div" class="alert-danger pad-10" />                                                                 
+                                                    <label for="fnvoc-codigoInventario">Código Inventario</label>
+                                                    <form:input path="codigoInventario" name="codigoInventario" id="fnoc-codigoInventario" type="text" class="form-control" placeholder="Código de inventario" required="required"/>
+                                                    <form:errors path="codigoInventario" element="div" class="alert-danger pad-10"/>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="fnvoc-nombre">Nombre</label>  
-                                                    <<form:input  path="nombre" name="nombre" id="fnoc-nombre" type="text" class="form-control" placeholder="Nombre del producto"/>
-                                                    <form:errors path="nombre" element="div" class="alert-danger pad-10" />
+                                                    <form:input path="nombre" name="nombre" id="fnoc-nombre" type="text" class="form-control" placeholder="Nombre del producto" required="required"/>
+                                                    <form:errors path="nombre" element="div" class="alert-danger pad-10"/>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label "fnvoc-categoria">Categoría</label> 
+                                                    <label for="fnvoc-categoria">Categoría</label> 
                                                     <div class="form-group input-group col-lg-12">
                                                         <form:select path="categoria" id="disableSelect" class="form-control selectpicker show-tick show-menu-arrow listaCategoria">
                                                             <option>Refacciones</option>
@@ -67,32 +67,32 @@
 
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label>Cantidad</label> 
-                                                    <form:input  path="cantidad" name="cantidad" id="fnoc-cantidad" type="text" class="form-control" placeholder="Cantidad de producto"/>
-                                                    <form:errors path="cantidad" element="div" class="alert-danger pad-10" />          
+                                                    <label for="fnvoc-cantidad">Cantidad</label> 
+                                                    <form:input path="cantidad" name="cantidad" id="fnoc-cantidad" type="text" class="form-control" placeholder="Cantidad del producto" required="required"/>
+                                                    <form:errors path="cantidad" element="div" class="alert-danger pad-10"/>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="fnvoc-maximo">Máximo</label>   
-                                                    <form:input  path="maximo" name="maximo" id="fnoc-maximo" type="text" class="form-control" placeholder="Maximo"/>
-                                                    <form:errors path="maximo" element="div" class="alert-danger pad-10" />    
+                                                    <label for="fnvoc-maximo">Máximo</label>
+                                                    <form:input path="maximo" name="maximo" id="fnoc-maximo" type="text" class="form-control" placeholder="Cantidad máxima de producto" required="required"/>
+                                                    <form:errors path="maximo" element="div" class="alert-danger pad-10"/>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label "fnvoc-minimo">Mínimo</label> 
-                                                    <form:input  path="minimo" name="minimo" id="fnoc-minimo" type="text" class="form-control" placeholder="Minimo"/>
-                                                    <form:errors path="minimo" element="div" class="alert-danger pad-10" />
+                                                    <label for="fnvoc-minimo">Mínimo</label>
+                                                    <form:input path="minimo" name="minimo" id="fnoc-minimo" type="text" class="form-control" placeholder="Cantidad mínima de producto" required="required"/>
+                                                    <form:errors path="minimo" element="div" class="alert-danger pad-10"/>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12 text-left">
                                                 <div class="form-group">
                                                     <label for="fnvoc-fechaEntrada">Fecha de entrada</label>
-                                                     <form:input  path="fechaEntrada" name="fechaEntrada" id="fnoc-fechaEntrada" type="text" class="form-control"/>
+                                                   <form:input  path="fechaEntrada" name="fechaEntrada" id="fnoc-fechaEntrada" type="text" class="form-control"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-left">
@@ -105,8 +105,8 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Ubicación</label> 
-                                                    <form:input  path="ubicacion" name="ubicacion" id="fnoc-ubicacion" type="text" class="form-control" placeholder="Ubicacion"/>
-                                        <form:errors path="ubicacion" element="div" class="alert-danger pad-10" />  
+                                                    <form:input path="ubicacion" name="ubicacion" id="fnoc-ubicacion" type="text" class="form-control" placeholder="Ubicación del producto" required="required"/>
+                                                    <form:errors path="ubicacion" element="div" class="alert-danger pad-10"/>
                                                 </div>
                                             </div>
 
@@ -126,5 +126,10 @@
     </form>
 </div>
 <%@include file="inventariosFooter.jsp" %>
+<script >
+        $(document).ready(function () {
+            activatenb('nb-nvoproducto');
+        });
+    </script>
 </body>
 </html>

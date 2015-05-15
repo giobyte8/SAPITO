@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.CascadeType;
@@ -13,11 +15,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -33,6 +34,7 @@ public class TipoActivoFijo implements Serializable
     @Column(name = "ID")
     private long id;
     
+    @Pattern(regexp = RExp.letrasAcentuadas, message = RExpErrors.letrasAcentuadas)
     @Column(name = "NOMBRE")
     private String nombre;
     
@@ -42,7 +44,7 @@ public class TipoActivoFijo implements Serializable
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
-@OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoactivofijo")
+@OneToOne(cascade = CascadeType.ALL, mappedBy = "tipoactivofijo")
 private Collection<ActivoFijo> activofijo;
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */

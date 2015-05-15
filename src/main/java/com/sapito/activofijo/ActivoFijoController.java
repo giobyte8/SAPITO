@@ -9,7 +9,7 @@ import com.sapito.db.dao.GenericDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import com.sapito.db.entities.ActivoFijo;
-import com.sapito.db.entities.Historial;
+import com.sapito.db.entities.HistorialActivoFijo;
 import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.TipoActivoFijo;
 import java.text.DateFormat;
@@ -81,7 +81,7 @@ public class ActivoFijoController {
             TipoActivoFijo tipoactivofijo = (TipoActivoFijo) daoTipoActivoFijo.find(Long.valueOf(tipoactivofijoS));
             Producto prod = (Producto) daoProducto.find(Long.valueOf(productoS));
             activofijo.setTipoactivofijo(tipoactivofijo);
-            activofijo.setProductoRef(prod);
+            activofijo.setProducto(prod);
             activofijo.setStatus(true);
             daoActivoFijo.create(activofijo);
             return "ActivoFijo/gdaAlta";
@@ -104,7 +104,10 @@ public class ActivoFijoController {
         List<ActivoFijo> af = daoActivoFijo.findAll();
         ActivoFijo lastAF = af.get(af.size() -1 );
         
+        List<ActivoFijo> af2 = daoActivoFijo.findAll();
+        
         model.addAttribute("lastAF", lastAF);
+        model.addAttribute("lastAF2", af2);
         return "ActivoFijo/aActivoFijo";
     }
 
@@ -115,12 +118,12 @@ public class ActivoFijoController {
         activofijo.setTipoDepreciacion(depreciacion);
         daoActivoFijo.edit(activofijo);
         
-        Historial historial = new Historial();
+        HistorialActivoFijo historial = new HistorialActivoFijo();
         historial.setActivofijo(activofijo);
         Date fecha = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String fechaFormato = df.format(fecha);
-        historial.setFechaMovimiento(fechaFormato);
+        //historial.setFechaMovimiento(fechaFormato);
         daoActivoFijo.create(historial);
         
         return "ActivoFijo/gdaActivoFijo";

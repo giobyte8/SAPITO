@@ -17,9 +17,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -36,15 +38,16 @@ public class ActivoFijo implements Serializable
     @Column(name = "ID")
     private long id;
     
-    /*@Column(name = "FECHA_ADQUISICION")
+    @Column(name = "FECHA_ADQUISICION")
     @Temporal(TemporalType.DATE)
-    private Date fechaAdquisicion;  */  
+    private Date fechaAdquisicion;  
     
     @Column(name = "TIPO_DEPRECIACION")
     private String tipoDepreciacion;
     
+    @Min(value = 1, message = "Debe ser mayor de 0")
     @Column(name = "ANOS_VIDA_UTIL")
-    private String anosVidaUtil;
+    private int anosVidaUtil;
     
     @Column(name = "STATUS")
     private boolean status;
@@ -54,14 +57,14 @@ public class ActivoFijo implements Serializable
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "activofijo")
-private Collection<Historial> historialTraslado;
+private Collection<HistorialActivoFijo> historialTraslado;
 
 @JoinColumn(name = "ID_TIPO_ACTIVO_FIJO")
-@ManyToOne
+@OneToOne
 private TipoActivoFijo tipoactivofijo;
 
 @JoinColumn(name = "ID_PRODUCTO")
-@ManyToOne
+@OneToOne
 private Producto producto;
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -81,21 +84,20 @@ private Producto producto;
         this.id = id;
     }
 
-//    /**
-//     * @return the fechaAdquisicion
-//     */
-//    public Date getFechaAdquisicion() {
-//        return fechaAdquisicion;
-//    }
-//
-//    /**
-//     * @param fechaAdquisicion the fechaAdquisicion to set
-//     */
-//    public void setFechaAdquisicion(Date fechaAdquisicion) {
-//        this.fechaAdquisicion = fechaAdquisicion;
-//        System.out.println(this.fechaAdquisicion);
-//    }
-    
+    /**
+     * @return the fechaAdquisicion
+     */
+    public Date getFechaAdquisicion() {
+        return fechaAdquisicion;
+    }
+
+    /**
+     * @param fechaAdquisicion the fechaAdquisicion to set
+     */
+    public void setFechaAdquisicion(Date fechaAdquisicion) {
+        this.fechaAdquisicion = fechaAdquisicion;
+    }
+   
     /**
      * @return the tipoDepreciacion
      */
@@ -113,14 +115,14 @@ private Producto producto;
     /**
      * @return the anosVidaUtil
      */
-    public String getAnosVidaUtil() {
+    public int getAnosVidaUtil() {
         return anosVidaUtil;
     }
 
     /**
      * @param anosVidaUtil the anosVidaUtil to set
      */
-    public void setAnosVidaUtil(String anosVidaUtil) {
+    public void setAnosVidaUtil(int anosVidaUtil) {
         this.anosVidaUtil = anosVidaUtil;
     }
 
@@ -138,6 +140,22 @@ private Producto producto;
         this.status = status;
     }
 
+    
+
+    /**
+     * @return the historialTraslado
+     */
+    public Collection<HistorialActivoFijo> getHistorialTraslado() {
+        return historialTraslado;
+    }
+
+    /**
+     * @param historialTraslado the historialTraslado to set
+     */
+    public void setHistorialTraslado(Collection<HistorialActivoFijo> historialTraslado) {
+        this.historialTraslado = historialTraslado;
+    }
+
     /**
      * @return the tipoactivofijo
      */
@@ -153,31 +171,19 @@ private Producto producto;
     }
 
     /**
-     * @return the historialTraslado
+     * @return the producto
      */
-    public Collection<Historial> getHistorialTraslado() {
-        return historialTraslado;
-    }
-
-    /**
-     * @param historialTraslado the historialTraslado to set
-     */
-    public void setHistorialTraslado(Collection<Historial> historialTraslado) {
-        this.historialTraslado = historialTraslado;
-    }
-
-    /**
-     * @return the productoRef
-     */
-    public Producto getProductoRef() {
+    public Producto getProducto() {
         return producto;
     }
 
     /**
-     * @param productoRef the productoRef to set
+     * @param producto the producto to set
      */
-    public void setProductoRef(Producto producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+    
 
 }

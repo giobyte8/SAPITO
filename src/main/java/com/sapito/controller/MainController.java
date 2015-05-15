@@ -147,9 +147,9 @@ public class MainController {
                     b = true;
                     return "redirect:operaciones";
                 }
-//                if (idRol == 1 && idPuesto == 9) {
-//                    return "redirect:logistica";
-//                }
+                if (idRol == 2 && idDeparamento == 9) {
+                    return "redirect:logistica";
+                }
 
                 if (b == false) {
                     String error = "<br><div class='alert alert-danger' role='alert'>No se encontro usuario (Rol o Puesto)</div>";

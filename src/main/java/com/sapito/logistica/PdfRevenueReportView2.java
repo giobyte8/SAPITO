@@ -12,14 +12,14 @@ import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.Paragraph;
-import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfPCell;
-import com.lowagie.text.pdf.PdfPCellEvent;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-public class PdfRevenueReportView extends AbstractPdfView
+public class PdfRevenueReportView2 extends AbstractPdfView
 {
 
 	@Override
@@ -28,29 +28,36 @@ public class PdfRevenueReportView extends AbstractPdfView
 			HttpServletResponse response) throws Exception {
                 
 //                Font.COURIER
-                        
+            
+                Calendar c2 = new GregorianCalendar();
+                Calendar c1 = Calendar.getInstance();
+                
+                String dia = Integer.toString(c1.get(Calendar.DATE));
+                String mes = Integer.toString(c1.get(Calendar.MONTH));
+                String annio = Integer.toString(c1.get(Calendar.YEAR));
+            
                 document.open();
-                Paragraph p1=generaParrafo("Nombre de la empresa xxx",14,Font.BOLD,Color.BLACK,Element.ALIGN_CENTER,20);
+                Paragraph p1=generaParrafo("SAPITO V 1.0                                                                 Reporte Estadístico  de envios",13,Font.BOLD,Color.BLACK,Element.ALIGN_LEFT,20);
                 document.add(p1);
                 
-                Paragraph p2=generaParrafo("Orden de envio: No :xxx",13,Font.BOLD,Color.BLACK,Element.ALIGN_CENTER,20);
+                Paragraph p2=generaParrafo("Fecha del día: "+dia+" - "+mes+" - "+annio,13,Font.BOLD,Color.BLACK,Element.ALIGN_LEFT,20);
                 document.add(p2);
                 
-                Paragraph p3=generaParrafo("Fecha de envio: xxx",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
+                Paragraph p3=generaParrafo("Desde Fecha:__________Hasta Fecha:__________",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
                 document.add(p3);
                 //Tabla
                 
                 PdfPTable tabla=new PdfPTable(5);
                 
-                PdfPCell celda1=new PdfPCell(generaParrafo("No.", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
+                PdfPCell celda1=new PdfPCell(generaParrafo("Nombre del receptor", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda1.setBackgroundColor(new Color(30, 144, 255));
-                PdfPCell celda2=new PdfPCell(generaParrafo("ARTICULO", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
+                PdfPCell celda2=new PdfPCell(generaParrafo("Fecha de envio", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda2.setBackgroundColor(new Color(30, 144, 255));
-                PdfPCell celda3=new PdfPCell(generaParrafo("CANTIDAD", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
+                PdfPCell celda3=new PdfPCell(generaParrafo("Productos ", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda3.setBackgroundColor(new Color(30, 144, 255));
-                PdfPCell celda4=new PdfPCell(generaParrafo("PRECIO UNITARIO", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
+                PdfPCell celda4=new PdfPCell(generaParrafo("Tranporte", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda4.setBackgroundColor(new Color(30, 144, 255));
-                PdfPCell celda5=new PdfPCell(generaParrafo("PRECIO TOTAL", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
+                PdfPCell celda5=new PdfPCell(generaParrafo("Conductor", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda5.setBackgroundColor(new Color(30, 144, 255));
                 
                 tabla.addCell(celda1);
@@ -100,28 +107,13 @@ public class PdfRevenueReportView extends AbstractPdfView
                     }
                 }
                 
-                
-                PdfPCell celda11=new PdfPCell(generaParrafo(" ", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
-                PdfPCell celda22=new PdfPCell(generaParrafo(" ", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
-                PdfPCell celda33=new PdfPCell(generaParrafo(" ", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
-                PdfPCell celda44=new PdfPCell(generaParrafo("COSTO TOTAL", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
-                PdfPCell celda55=new PdfPCell(generaParrafo("956 ", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
-                
-                tabla.addCell(celda11);
-                tabla.addCell(celda22);
-                tabla.addCell(celda33);
-                tabla.addCell(celda44);
-                tabla.addCell(celda55);
+                                
                 
                 document.add(tabla);
                 
                 Paragraph p44=generaParrafo(" ",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
                 document.add(p44);
-                
-                Paragraph p4=generaParrafo("Recibe: xxx",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
-                document.add(p4);
-                Paragraph p444=generaParrafo("Firma:____________________________________________",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
-                document.add(p444);
+                                
                 
                 Paragraph p5=generaParrafo("Observaciones:",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
                 document.add(p5);

@@ -6,7 +6,7 @@
 package com.sapito.contabilidad;
 
 import com.sapito.db.dao.GenericDao;
-import com.sapito.db.entities.Tipomodena;
+import com.sapito.db.entities.Tipomoneda;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +22,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ContabilidadController {
-private GenericDao<Tipomodena> daomodena;
-    
+
+    private GenericDao<Tipomoneda> daomodena;
+
     @Autowired
-    public void setDaomodena(GenericDao<Tipomodena> moneda)
-    {
+    public void setDaomodena(GenericDao<Tipomoneda> moneda) {
         this.daomodena = moneda;
-        daomodena.setClass(Tipomodena.class);
+        daomodena.setClass(Tipomoneda.class);
     }
-    
+
     @RequestMapping(value = "contabilidad", method = RequestMethod.GET)
     public String index(Model model) {
         return "Contabilidad/indexcontabilidad";
@@ -40,17 +40,14 @@ private GenericDao<Tipomodena> daomodena;
     public String ContaActivoFijoo(Model model) {
         return "Contabilidad/contaActivoFijo";
     }
+
     @RequestMapping(value = "contabilidad/redirec", method = RequestMethod.POST)
-    public String ContaRedirec(Model model, @Valid Tipomodena moneda, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+    public String ContaRedirec(Model model, @Valid Tipomoneda moneda, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Contabilidad/redirec";
-        }
-        else
-        {
+        } else {
             daomodena.edit(moneda);
             return "Contabilidad/redirec";
         }
@@ -80,37 +77,56 @@ private GenericDao<Tipomodena> daomodena;
     public String ContaPresupuesto(Model model) {
         return "Contabilidad/contaPresupuesto";
     }
-    
+
     @RequestMapping(value = "contabilidad/contaInformes", method = RequestMethod.GET)
     public String ContaInformes(Model model) {
         return "Contabilidad/contaInformes";
     }
-    
+
     @RequestMapping(value = "contabilidad/contaAlmacen", method = RequestMethod.GET)
     public String ContaAlmacen(Model model) {
         return "Contabilidad/contaAlmacen";
     }
-    
+
     @RequestMapping(value = "contabilidad/contaMoneda", method = RequestMethod.GET)
     public String ContaMoneda(Model model) {
-        List<Tipomodena> moneda = daomodena.findAll();
+        List<Tipomoneda> moneda = daomodena.findAll();
         model.addAttribute("Monedas", moneda);
         return "Contabilidad/contaMoneda";
     }
-    
+
     @RequestMapping(value = "contabilidad/contaCatalogo", method = RequestMethod.GET)
     public String ContaCatalogo(Model model) {
         return "Contabilidad/contaCatalogo";
     }
-    
+
     @RequestMapping(value = "contabilidad/contaPresupuestos", method = RequestMethod.GET)
     public String ContaPresupuestos(Model model) {
         return "Contabilidad/contaPresupuestos";
     }
-    
+
     @RequestMapping(value = "contabilidad/contaFinanzas", method = RequestMethod.GET)
     public String ContaFinanzas(Model model) {
         return "Contabilidad/contaFinanzas";
     }
-    
+
+    @RequestMapping(value = "contabilidad/contaBalanceGeneral", method = RequestMethod.GET)
+    public String ContaBalanceGeneral(Model model) {
+        return "Contabilidad/contaBalanceGeneral";
+    }
+
+    @RequestMapping(value = "contabilidad/contaEstadoFlujo", method = RequestMethod.GET)
+    public String ContaEstadoFlujo(Model model) {
+        return "Contabilidad/contacontaEstadoFlujo";
+    }
+
+    @RequestMapping(value = "contabilidad/contaEstadoResultados", method = RequestMethod.GET)
+    public String ContaEstadoResultados(Model model) {
+        return "Contabilidad/contaEstadoResultados";
+    }
+
+    @RequestMapping(value = "contabilidad/contaVariaciondeCapital", method = RequestMethod.GET)
+    public String ContaVariaciondeCapital(Model model) {
+        return "Contabilidad/contaVariaciondeCapital";
+    }
 }

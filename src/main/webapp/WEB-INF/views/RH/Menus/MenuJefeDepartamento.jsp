@@ -55,12 +55,6 @@
                   <li>
                     <a href="AdminEmpleados">Administrar</a>
                   </li>
-                  <li>
-                    <a href="HistorialEmpleado">Historial</a>
-                  </li>
-                   <li>
-                    <a href="updateEmpleado">Editar</a>
-                  </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>

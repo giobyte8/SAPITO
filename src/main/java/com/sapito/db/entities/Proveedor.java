@@ -10,12 +10,14 @@ import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -78,9 +80,17 @@ public class Proveedor implements Serializable {
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "TELEFONO1")
     private String telefono1;
+    
+    @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
+    @Column(name = "EXTENSION1")
+    private String extension1;
+    
+    @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
+    @Column(name = "EXTENSION2")
+    private String extension2;
 
     @NotNull
-    @Email(message = "Ingrese una direcciÃ³n de email valida")
+    @Email(message = "Ingrese una direccion de email valida")
     @Column(name = "EMAIL")
     private String email;
 
@@ -96,7 +106,7 @@ public class Proveedor implements Serializable {
     @Column(name = "APELLIDO_PATERNO")
     private String apellidoPaternoContacto;
 
-    @Size(min = 0, max = 100, message = "Debe tener un mÃ¡ximo de 100 caracteres")
+    @Size(min = 0, max = 100, message = "Debe tener un maximo de 100 caracteres")
     @Pattern(regexp = RExp.letrasAcentuadasPuntosOrNull, message = RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "APELLIDO_MATERNO")
     private String apellidoMaternoContacto;
@@ -109,8 +119,8 @@ public class Proveedor implements Serializable {
     @Column(name = "STATUS")
     private boolean status;
     
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
-//    private Collection<OrdenVenta> proveedorproducto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
+    private Collection<ProducoProveedor> proveedorproducto;
 
     /**
      * @return the empresa
@@ -340,16 +350,16 @@ public class Proveedor implements Serializable {
     /**
      * @return the proveedorproducto
      */
-//    public Collection<OrdenVenta> getProveedorproducto() {
-//        return proveedorproducto;
-//    }
-//
-//    /**
-//     * @param proveedorproducto the proveedorproducto to set
-//     */
-//    public void setProveedorproducto(Collection<OrdenVenta> proveedorproducto) {
-//        this.proveedorproducto = proveedorproducto;
-//    }
+    public Collection<ProducoProveedor> getProveedorproducto() {
+        return proveedorproducto;
+    }
+
+    /**
+     * @param proveedorproducto the proveedorproducto to set
+     */
+    public void setProveedorproducto(Collection<ProducoProveedor> proveedorproducto) {
+        this.proveedorproducto = proveedorproducto;
+    }
 
     /**
      * @return the id
@@ -377,6 +387,34 @@ public class Proveedor implements Serializable {
      */
     public void setTelefono2(String telefono2) {
         this.telefono2 = telefono2;
+    }
+
+    /**
+     * @return the extension1
+     */
+    public String getExtension1() {
+        return extension1;
+    }
+
+    /**
+     * @param extension1 the extension1 to set
+     */
+    public void setExtension1(String extension1) {
+        this.extension1 = extension1;
+    }
+
+    /**
+     * @return the extension2
+     */
+    public String getExtension2() {
+        return extension2;
+    }
+
+    /**
+     * @param extension2 the extension2 to set
+     */
+    public void setExtension2(String extension2) {
+        this.extension2 = extension2;
     }
 
 }
