@@ -5,8 +5,6 @@
  */
 package com.sapito.db.entities;
 
-import com.sapito.db.util.RExp;
-import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -19,12 +17,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -48,9 +46,8 @@ public class ActivoFijo implements Serializable
     private String tipoDepreciacion;
     
     @Min(value = 1, message = "Debe ser mayor de 0")
-    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "ANOS_VIDA_UTIL")
-    private String anosVidaUtil;
+    private int anosVidaUtil;
     
     @Column(name = "STATUS")
     private boolean status;
@@ -60,14 +57,14 @@ public class ActivoFijo implements Serializable
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "activofijo")
-private Collection<Historial> historialTraslado;
+private Collection<HistorialActivoFijo> historialTraslado;
 
 @JoinColumn(name = "ID_TIPO_ACTIVO_FIJO")
-@ManyToOne
+@OneToOne
 private TipoActivoFijo tipoactivofijo;
 
 @JoinColumn(name = "ID_PRODUCTO")
-@ManyToOne
+@OneToOne
 private Producto producto;
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -118,14 +115,14 @@ private Producto producto;
     /**
      * @return the anosVidaUtil
      */
-    public String getAnosVidaUtil() {
+    public int getAnosVidaUtil() {
         return anosVidaUtil;
     }
 
     /**
      * @param anosVidaUtil the anosVidaUtil to set
      */
-    public void setAnosVidaUtil(String anosVidaUtil) {
+    public void setAnosVidaUtil(int anosVidaUtil) {
         this.anosVidaUtil = anosVidaUtil;
     }
 
@@ -148,14 +145,14 @@ private Producto producto;
     /**
      * @return the historialTraslado
      */
-    public Collection<Historial> getHistorialTraslado() {
+    public Collection<HistorialActivoFijo> getHistorialTraslado() {
         return historialTraslado;
     }
 
     /**
      * @param historialTraslado the historialTraslado to set
      */
-    public void setHistorialTraslado(Collection<Historial> historialTraslado) {
+    public void setHistorialTraslado(Collection<HistorialActivoFijo> historialTraslado) {
         this.historialTraslado = historialTraslado;
     }
 

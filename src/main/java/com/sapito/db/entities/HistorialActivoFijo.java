@@ -6,6 +6,7 @@
 package com.sapito.db.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -21,8 +24,8 @@ import javax.validation.constraints.NotNull;
  * @author giovanni
  */
 @Entity
-@Table(name = "HISTORIAL")
-public class Historial implements Serializable
+@Table(name = "HISTORIAL_ACTIVOFIJO")
+public class HistorialActivoFijo implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -31,7 +34,8 @@ public class Historial implements Serializable
     private long id;
     
     @Column(name = "FECHA_MOVIMIENTO")
-    private String fechaMovimiento;
+    @Temporal(TemporalType.DATE)
+    private Date fechaMovimiento;
         
     
     
@@ -72,14 +76,14 @@ private Empleado empleadoActual;*/
     /**
      * @return the fechaMovimiento
      */
-    public String getFechaMovimiento() {
+    public Date getFechaMovimiento() {
         return fechaMovimiento;
     }
 
     /**
      * @param fechaMovimiento the fechaMovimiento to set
      */
-    public void setFechaMovimiento(String fechaMovimiento) {
+    public void setFechaMovimiento(Date fechaMovimiento) {
         this.fechaMovimiento = fechaMovimiento;
     }
 
