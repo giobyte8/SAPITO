@@ -17,5 +17,5 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/libs/raphael-min.js"></script>
 
-<script src="${pageContext.request.contextPath}/resources/js/libs/morris.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/libs/morris-data.js"></script>
+<!--<script src="${pageContext.request.contextPath}/resources/js/libs/morris.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/libs/morris-data.js"></script>-->

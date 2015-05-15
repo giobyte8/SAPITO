@@ -6,6 +6,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,7 @@
         <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form:form id="nuv-proveedor" commandName="proveedor" action="altaproveedor" method="POST">
+            <form:form id="nuv-proveedor" commandName="proveedor" action="altaproveedor"  method="POST">
                 <!-- Page Content -->
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -73,7 +74,7 @@
                                                         <div class="form-group">
                                                             <label for="fnvoc-edo">Estado</label>
                                                             <form:input path="estado" name="estado" id="fnvoc-edo"
-                                                                        type="text" class="form-control" />
+                                                                        type="text" class="form-control" placeholder="Estado" />
                                                             <form:errors path="estado" element="div" class="alert-danger pad-10" />
                                                         </div>
 
@@ -99,9 +100,8 @@
                                                         </div>
                                                     </div>
 
-
-                                                    <div class="col-lg-6 text-left">                                                        
-                                                        <div class="form-group ">                                                            
+                                                    <div class="form-group ">                                                            
+                                                        <div class="col-lg-6 text-left"> 
                                                             <div class="form-group ">
                                                                 <label for="alp-numint" class="control-label">Número Interior</label>
                                                                 <form:input path="numeroI" name="numeroI" type="text" class="form-control" id="numextC" 
@@ -131,24 +131,30 @@
                                                             </div>
 
                                                             <div class="form-group ">
-                                                                <label for="alp-tel1" class="control-label">Teléfono</label>
-                                                                <form:input path="telefono1" name="telefono1" type="text" class="form-control" id="telefono1C" 
-                                                                            placeholder="Teléfono" />
-                                                                <form:errors path="telefono1" element="div" class="alert-danger pad-10" />
-                                                            </div>                                                           
+                                                                <label for="alp-email" class="control-label">Email</label>
+                                                                <form:input path="email" name="email" type="email" class="form-control" id="emailC" 
+                                                                            placeholder="Email" />
+                                                                <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                            </div>
+                                                        </div> 
+                                                        <div class="col-md-2">
+                                                            <label>Extensión</label>
+                                                            <form:input path="extension1" name="extension1"
+                                                                        type="text" class="form-control" placeholder="Extensión" />
+                                                            <form:errors path="extension1" element="div" class="alert-danger pad-10" />
                                                         </div>
 
-                                                        <div class="form-group ">
-                                                            <label for="alp-email" class="control-label">Correo</label>
-                                                            <form:input path="email" name="email" type="email" class="form-control" id="emailC" 
-                                                                        placeholder="Correo" />
-                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                        <div class="col-md-4">
+                                                            <label for="alp-tel1" class="control-label">Teléfono</label>
+                                                            <form:input path="telefono1" name="telefono1" type="text" class="form-control" id="telefono1C" 
+                                                                        placeholder="Teléfono" />
+                                                            <form:errors path="telefono1" element="div" class="alert-danger pad-10" />
                                                         </div>
 
 
+                                                    </div>
+                                                    <!--Fin  inputs/!-->
 
-                                                        <!--Fin  inputs/!-->
-                                                    </div>                                                    
                                                 </div>                                                 
                                             </div>
                                         </div> 
@@ -183,20 +189,30 @@
                                                             <form:input path="apellidoPaternoContacto" name="apellidoPaternoContacto" type="text" class="form-control" id="apPC" 
                                                                         placeholder="Apellido Paterno" />
                                                             <form:errors path="apellidoPaternoContacto" element="div" class="alert-danger pad-10" />
-                                                        </div>                        
-                                                        <div class="form-group ">
-                                                            <label for="alp-tel2" class="control-label">Teléfono</label>
-                                                            <form:input path="telefono2" name="telefono2" type="text" class="form-control" id="telefonoC" 
-                                                                        placeholder="Teléfono" />
-                                                            <form:errors path="telefono2" element="div" class="alert-danger pad-10" />
-                                                        </div>
+                                                        </div>   
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label>Extensión</label>
+                                                        <form:input path="extension2" name="extension2"
+                                                                    type="text" class="form-control" placeholder="Extensión" />
+                                                        <form:errors path="extension2" element="div" class="alert-danger pad-10" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="alp-tel2" class="control-label">Teléfono</label>
+                                                        <form:input path="telefono2" name="telefono2" type="text" class="form-control" id="telefonoC" 
+                                                                    placeholder="Teléfono" />
+                                                        <form:errors path="telefono2" element="div" class="alert-danger pad-10" />
                                                     </div>
                                                 </div>                      
                                             </div>
                                         </div>      
-                                        <div class="row">
-                                            <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
-                                        </div>                                         
+                                        <div class="row text-right">
+                                            <div class="col-md-12">
+                                                <!--<button onclick="Confirmacion()" type="button" class="btn btn-success right">Aceptar</button>-->
+                                                <button onclick="Confirmacion()" type="submit" class="btn btn-success right">Aceptar</button>
+                                                <a href="consultaproveedor" class="btn btn-danger right"> Cancelar</a>
+                                            </div>  
+                                        </div>
                                     </div>                        
                                 </div>  
                             </div>
@@ -208,23 +224,16 @@
 
         </div>
         <!-- /#wrapper -->
-        <!-- jQuery -->
-        <script src="resources/js/libs/jquery.min.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="resources/js/libs/bootstrap.min.js"></script>
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="resources/js/libs/metisMenu.min.js"></script>
-        <!-- Custom Theme JavaScript -->
-        <script src="resources/js/libs/sb-admin-2.js"></script>
-        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
+        <!-- jQuery -->       
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/compras/jscompas.js"></script>
 
         <%@include file="MenusCompras/Pie compras.jsp"%>
         <script >
             $(document).ready(function () {
-                activatenb('nuv-proveedor');
             });
         </script>
 
+       
     </body>
 
 </html>
