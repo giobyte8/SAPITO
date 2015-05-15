@@ -73,7 +73,7 @@ public class OrdenCompra implements Serializable {
     @Column(name = "aprobada")
     private boolean aprobada;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordencompra")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra")
     private Collection<ProductoEnOrden> productoOrden;   
     
     public Long getId() {

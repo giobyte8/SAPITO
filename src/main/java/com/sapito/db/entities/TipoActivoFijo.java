@@ -45,7 +45,7 @@ public class TipoActivoFijo implements Serializable
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
 @OneToOne(cascade = CascadeType.ALL, mappedBy = "tipoActivoFijo")
-private Collection<ActivoFijo> activoFijo;
+private ActivoFijo activoFijo;
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
