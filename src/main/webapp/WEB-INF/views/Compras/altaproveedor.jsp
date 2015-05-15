@@ -3,6 +3,8 @@
     Created on : 7/02/2015, 02:34:44 AM
     Author     : Monse
 --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,7 +29,7 @@
         <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form:form id="nuv-proveedor" commandName="proveedor" action="altaprovedor" method="POST">
+            <form:form id="nuv-proveedor" commandName="proveedor" action="altaproveedor" method="POST">
                 <!-- Page Content -->
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -56,7 +58,7 @@
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
                                                             <label for="alp-empresa">Empresa</label>
-                                                            <form:input path="empresa" name="empresa" id="nombreC" type="text" class="form-control"  
+                                                            <form:input path="empresa" name="empresa" id="empresaC" type="text" class="form-control"  
                                                                         placeholder="Empresa" />
                                                             <form:errors path="empresa" element="div" class="alert-danger pad-10" />
                                                         </div>
@@ -64,8 +66,15 @@
                                                         <div class="form-group ">
                                                             <label for="alp-pais" class="control-label">País</label>
                                                             <form:input path="pais" name="pais" type="text" class="form-control" 
-                                                                   id="paisC" placeholder="País" />
+                                                                        id="paisC" placeholder="País" />
                                                             <form:errors path="pais" element="div" class="alert-danger pad-10" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="fnvoc-edo">Estado</label>
+                                                            <form:input path="estado" name="estado" id="fnvoc-edo"
+                                                                        type="text" class="form-control" />
+                                                            <form:errors path="estado" element="div" class="alert-danger pad-10" />
                                                         </div>
 
                                                         <div class="form-group ">
@@ -88,24 +97,23 @@
                                                                         id="calleC" placeholder="Calle" />
                                                             <form:errors path="calle" element="div" class="alert-danger pad-10" />
                                                         </div>
-
-                                                        <div class="form-group ">
-                                                            <label for="alp-numint" class="control-label">Número Interior</label>
-                                                            <form:input path="numint" name="numint" type="text" class="form-control" id="numextC" 
-                                                                        placeholder="Número Interior" />
-                                                            <form:errors path="numint" element="div" class="alert-danger pad-10" />
-                                                        </div>
-
                                                     </div>
 
+
                                                     <div class="col-lg-6 text-left">                                                        
-                                                        <div class="form-group ">
+                                                        <div class="form-group ">                                                            
+                                                            <div class="form-group ">
+                                                                <label for="alp-numint" class="control-label">Número Interior</label>
+                                                                <form:input path="numeroI" name="numeroI" type="text" class="form-control" id="numextC" 
+                                                                            placeholder="Número Interior" />
+                                                                <form:errors path="numeroI" element="div" class="alert-danger pad-10" />
+                                                            </div>
 
                                                             <div class="form-group ">
                                                                 <label for="alp-numext" class="control-label">Número Exterior</label>
-                                                                <form:input path="numext" name="numext" type="text" class="form-control" id="numintC" 
-                                                                       placeholder="Número Exterior" />
-                                                                <form:errors path="numext" element="div" class="alert-danger pad-10" />
+                                                                <form:input path="numeroE" name="numeroE" type="text" class="form-control" id="numintC" 
+                                                                            placeholder="Número Exterior" />
+                                                                <form:errors path="numeroE" element="div" class="alert-danger pad-10" />
                                                             </div>
 
                                                             <div class="form-group ">
@@ -118,15 +126,15 @@
                                                             <div class="form-group">
                                                                 <label for="alp-rfc" class="control-label" >RFC</label>
                                                                 <form:input path="rfc" name="rfc" type="text" class="form-control" id="rfcC" 
-                                                                      placeholder="RFC" />
+                                                                            placeholder="RFC" />
                                                                 <form:errors path="rfc" element="div" class="alert-danger pad-10" />
                                                             </div>
 
                                                             <div class="form-group ">
                                                                 <label for="alp-tel1" class="control-label">Teléfono</label>
-                                                                <form:input path="tel1" name="tel1" type="text" class="form-control" id="telefono1C" 
+                                                                <form:input path="telefono1" name="telefono1" type="text" class="form-control" id="telefono1C" 
                                                                             placeholder="Teléfono" />
-                                                                <form:errors path="tel1" element="div" class="alert-danger pad-10" />
+                                                                <form:errors path="telefono1" element="div" class="alert-danger pad-10" />
                                                             </div>                                                           
                                                         </div>
 
@@ -135,15 +143,9 @@
                                                             <form:input path="email" name="email" type="email" class="form-control" id="emailC" 
                                                                         placeholder="Correo" />
                                                             <form:errors path="email" element="div" class="alert-danger pad-10" />
-                                                            
                                                         </div>
 
-                                                        <div class="form-group ">
-                                                            <label for="alp-forma" class="control-label">Forma de Pago</label>
-                                                            <form:input path="forma" name="forma" type="text" class="form-control" id="formaC" 
-                                                                        placeholder="Forma de Pago" />
-                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
-                                                        </div>
+
 
                                                         <!--Fin  inputs/!-->
                                                     </div>                                                    
@@ -161,32 +163,32 @@
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
                                                             <label for="nombre" class="control-label">Nombre</label>
-                                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
-                                                                   id="nombreCC" placeholder="Nombre" />
-                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                            <form:input path="nombreContacto" name="nombreContacto" type="text" class="form-control" 
+                                                                        id="nombreCC" placeholder="Nombre" />
+                                                            <form:errors path="nombreContacto" element="div" class="alert-danger pad-10" />
                                                         </div>
                                                         <div class="form-group ">
                                                             <label for="alp-apm" class="control-label">Apellido Materno</label>
-                                                            <form:input path="apm" name="apm" type="text" class="form-control" id="apMC" 
+                                                            <form:input path="apellidoMaternoContacto" name="apellidoMaternoContacto" type="text" class="form-control" id="apMC" 
                                                                         placeholder="Apellido Materno" />
-                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                            <form:errors path="apellidoMaternoContacto" element="div" class="alert-danger pad-10" />
                                                         </div>                                                       
-                                                        
+
                                                         <!--Fin  inputs/!-->
                                                     </div>
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
                                                         <div class="form-group">
                                                             <label for="alp-app" class="control-label" >Apellido Paterno</label>
-                                                            <form:input path="app" name="app" type="text" class="form-control" id="apPC" 
-                                                                   placeholder="Apellido Paterno" />
-                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                            <form:input path="apellidoPaternoContacto" name="apellidoPaternoContacto" type="text" class="form-control" id="apPC" 
+                                                                        placeholder="Apellido Paterno" />
+                                                            <form:errors path="apellidoPaternoContacto" element="div" class="alert-danger pad-10" />
                                                         </div>                        
                                                         <div class="form-group ">
                                                             <label for="alp-tel2" class="control-label">Teléfono</label>
-                                                            <form:input path="tel2" name="tel2" type="text" class="form-control" id="telefonoC" 
+                                                            <form:input path="telefono2" name="telefono2" type="text" class="form-control" id="telefonoC" 
                                                                         placeholder="Teléfono" />
-                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                            <form:errors path="telefono2" element="div" class="alert-danger pad-10" />
                                                         </div>
                                                     </div>
                                                 </div>                      
@@ -208,18 +210,20 @@
         <!-- /#wrapper -->
         <!-- jQuery -->
         <script src="resources/js/libs/jquery.min.js"></script>
-
         <!-- Bootstrap Core JavaScript -->
         <script src="resources/js/libs/bootstrap.min.js"></script>
-
         <!-- Metis Menu Plugin JavaScript -->
         <script src="resources/js/libs/metisMenu.min.js"></script>
-
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
         <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
 
         <%@include file="MenusCompras/Pie compras.jsp"%>
+        <script >
+            $(document).ready(function () {
+                activatenb('nuv-proveedor');
+            });
+        </script>
 
     </body>
 
