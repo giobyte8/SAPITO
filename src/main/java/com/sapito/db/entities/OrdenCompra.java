@@ -18,10 +18,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.OneToMany;
 
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -46,12 +46,11 @@ public class OrdenCompra implements Serializable {
     @NotNull
     @Column(name = "Folio")
     @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
-    private String Folio;
+    private String folio;
 
     @Basic(optional = false)
     @NotNull
     @Column(name = "fechaPedido")
-    
     @Temporal(TemporalType.DATE)
     private java.util.Date fechaPedido;
     
@@ -63,21 +62,19 @@ public class OrdenCompra implements Serializable {
     
     @NotNull
     @Column(name = "costoTotal")
-    
     private double costoTotal;
 
     @NotNull
     @Size(min=1, max=500, message = "Seleccione una forma de pago")
     @Column(name = "formapago")
-    private String formapago;
+    private String formaPago;
     
     @NotNull
-    
     @Column(name = "aprobada")
     private boolean aprobada;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordencompra")
-    private Collection<ProductoEnOrden> productoorden;   
+    private Collection<ProductoEnOrden> productoOrden;   
     
     public Long getId() {
         return id;
@@ -98,7 +95,7 @@ public class OrdenCompra implements Serializable {
      * @param Folio the Folio to set
      */
     public void setFolio(String Folio) {
-        this.Folio = Folio;
+        this.folio = Folio;
     }
 
     /**
@@ -133,14 +130,14 @@ public class OrdenCompra implements Serializable {
      * @return the formapago
      */
     public String getFormapago() {
-        return formapago;
+        return formaPago;
     }
 
     /**
      * @param formapago the formapago to set
      */
     public void setFormapago(String formapago) {
-        this.formapago = formapago;
+        this.formaPago = formapago;
     }
 
     
@@ -148,7 +145,7 @@ public class OrdenCompra implements Serializable {
      * @return the Folio
      */
     public String getFolio() {
-        return Folio;
+        return folio;
     }
 
     /**
@@ -211,14 +208,14 @@ public class OrdenCompra implements Serializable {
      * @return the productoorden
      */
     public Collection<ProductoEnOrden> getProductoorden() {
-        return productoorden;
+        return productoOrden;
     }
 
     /**
      * @param productoorden the productoorden to set
      */
     public void setProductoorden(Collection<ProductoEnOrden> productoorden) {
-        this.productoorden = productoorden;
+        this.productoOrden = productoorden;
     }
 
 }

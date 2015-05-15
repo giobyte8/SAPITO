@@ -41,14 +41,14 @@ public class Producto implements Serializable {
     @Column(name = "Nombre")
     @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
     @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
-    private String nombreproducto;
+    private String nombreProducto;
 
     public String getNombreproducto() {
-        return nombreproducto;
+        return nombreProducto;
     }
 
     public void setNombreproducto(String nombreproducto) {
-        this.nombreproducto = nombreproducto;
+        this.nombreProducto = nombreproducto;
     }
     
     @NotNull
@@ -69,10 +69,9 @@ public class Producto implements Serializable {
     private String categoria;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-    private Collection<ProducoProveedor> productoproveedor;
+    private Collection<ProducoProveedor> productoProveedor;
     
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-//    private Collection<ActivoFijo> producto;
+
 
     public long getId() {
         return id;
@@ -110,14 +109,14 @@ public class Producto implements Serializable {
      * @return the productoproveedor
      */
     public Collection<ProducoProveedor> getProductoproveedor() {
-        return productoproveedor;
+        return productoProveedor;
     }
 
     /**
      * @param productoproveedor the productoproveedor to set
      */
     public void setProductoproveedor(Collection<ProducoProveedor> productoproveedor) {
-        this.productoproveedor = productoproveedor;
+        this.productoProveedor = productoproveedor;
     }
 
     
