@@ -6,7 +6,7 @@
 package com.sapito.contabilidad;
 
 import com.sapito.db.dao.GenericDao;
-import com.sapito.db.entities.Tipomoneda;
+import com.sapito.db.entities.TipoMoneda;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ContabilidadController {
 
-    private GenericDao<Tipomoneda> daomodena;
+    private GenericDao<TipoMoneda> daomodena;
 
     @Autowired
-    public void setDaomodena(GenericDao<Tipomoneda> moneda) {
+    public void setDaomodena(GenericDao<TipoMoneda> moneda) {
         this.daomodena = moneda;
-        daomodena.setClass(Tipomoneda.class);
+        daomodena.setClass(TipoMoneda.class);
     }
 
     @RequestMapping(value = "contabilidad", method = RequestMethod.GET)
@@ -42,7 +42,7 @@ public class ContabilidadController {
     }
 
     @RequestMapping(value = "contabilidad/redirec", method = RequestMethod.POST)
-    public String ContaRedirec(Model model, @Valid Tipomoneda moneda, BindingResult bindingResult) {
+    public String ContaRedirec(Model model, @Valid TipoMoneda moneda, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
@@ -90,7 +90,7 @@ public class ContabilidadController {
 
     @RequestMapping(value = "contabilidad/contaMoneda", method = RequestMethod.GET)
     public String ContaMoneda(Model model) {
-        List<Tipomoneda> moneda = daomodena.findAll();
+        List<TipoMoneda> moneda = daomodena.findAll();
         model.addAttribute("Monedas", moneda);
         return "Contabilidad/contaMoneda";
     }

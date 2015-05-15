@@ -63,7 +63,7 @@ public class Departamento implements Serializable {
     private Empresa empresaIdempresa;
     @JoinColumn(name = "cuentabancaria_idcuentabancaria")
     @ManyToOne(fetch = FetchType.EAGER)
-    private Cuentabancaria cuentabancariaIdcuentabancaria;
+    private CuentaBancaria cuentabancariaIdcuentabancaria;
 
     public Departamento() {
     }
@@ -126,11 +126,11 @@ public class Departamento implements Serializable {
         this.empresaIdempresa = empresaIdempresa;
     }
 
-    public Cuentabancaria getCuentabancariaIdcuentabancaria() {
+    public CuentaBancaria getCuentabancariaIdcuentabancaria() {
         return cuentabancariaIdcuentabancaria;
     }
 
-    public void setCuentabancariaIdcuentabancaria(Cuentabancaria cuentabancariaIdcuentabancaria) {
+    public void setCuentabancariaIdcuentabancaria(CuentaBancaria cuentabancariaIdcuentabancaria) {
         this.cuentabancariaIdcuentabancaria = cuentabancariaIdcuentabancaria;
     }
 

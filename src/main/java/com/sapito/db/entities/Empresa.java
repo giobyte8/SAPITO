@@ -7,19 +7,16 @@ package com.sapito.db.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.validator.constraints.Email;
 
 /**
@@ -27,72 +24,75 @@ import org.hibernate.validator.constraints.Email;
  * @author Jorge Muñoz
  */
 @Entity
-@Table(name = "empresa")
+@Table(name = "Empresa")
 public class Empresa implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "rfc")
     private String rfc;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "calle")
     private String calle;
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "pais")
     private String pais;
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "estado")
     private String estado;
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "municipio")
     private String municipio;
+
     @Size(max = 45)
     @Column(name = "colonia")
     private String colonia;
+
     @Size(max = 45)
     @Column(name = "numI")
     private String numI;
+
     @Size(max = 45)
-    @Column(name = "numI")
+    @Column(name = "numE")
     private String numE;
+
     @Size(max = 45)
     @Column(name = "telefono")
     private String telefono;
+
     @Size(max = 45)
     @Email(message = "Ingrese una dirección de email valida")
     @Column(name = "email")
     private String email;
+
     @Size(max = 45)
-    @Column(name = "capitalinicial")
-    private double captalinicial;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
-    private Collection<Catalogocuenta> catalogoCuenta;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
-    private Collection<Cuentabancaria> cuentabancaria;
+    @Column(name = "capitalInicial")
+    private double captalInicial;
 
-    public Empresa() {
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
+    private Collection<CatalogoCuenta> catalogoCuenta;
 
-    public Empresa(Integer id) {
-        this.id = id;
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
+    private Collection<CuentaBancaria> cuentaBancaria;
 
     public Integer getId() {
         return id;
@@ -190,31 +190,34 @@ public class Empresa implements Serializable {
         this.email = email;
     }
 
-    public double getCaptalinicial() {
-        return captalinicial;
+    public double getCaptalInicial() {
+        return captalInicial;
     }
 
-    public void setCaptalinicial(double captalinicial) {
-        this.captalinicial = captalinicial;
+    public void setCaptalInicial(double captalInicial) {
+        this.captalInicial = captalInicial;
     }
 
-    public Collection<Catalogocuenta> getCatalogoCuenta() {
+    public Collection<CatalogoCuenta> getCatalogoCuenta() {
         return catalogoCuenta;
     }
 
-    public void setCatalogoCuenta(Collection<Catalogocuenta> catalogoCuenta) {
+    public void setCatalogoCuenta(Collection<CatalogoCuenta> catalogoCuenta) {
         this.catalogoCuenta = catalogoCuenta;
     }
 
-    public Collection<Cuentabancaria> getCuentabancaria() {
-        return cuentabancaria;
+    public Collection<CuentaBancaria> getCuentabancaria() {
+        return cuentaBancaria;
     }
 
-    public void setCuentabancaria(Collection<Cuentabancaria> cuentabancaria) {
-        this.cuentabancaria = cuentabancaria;
+    public void setCuentabancaria(Collection<CuentaBancaria> cuentabancaria) {
+        this.cuentaBancaria = cuentabancaria;
     }
 
-    public Empresa(Integer id, String nombre, String rfc, String calle, String pais, String estado, String municipio, String colonia, String numI, String numE, String telefono, String email, double captalinicial, Collection<Catalogocuenta> catalogoCuenta, Collection<Cuentabancaria> cuentabancaria) {
+    public Empresa() {
+    }
+
+    public Empresa(Integer id, String nombre, String rfc, String calle, String pais, String estado, String municipio, String colonia, String numI, String numE, String telefono, String email, double captalInicial, Collection<CatalogoCuenta> catalogoCuenta, Collection<CuentaBancaria> cuentabancaria) {
         this.id = id;
         this.nombre = nombre;
         this.rfc = rfc;
@@ -227,9 +230,9 @@ public class Empresa implements Serializable {
         this.numE = numE;
         this.telefono = telefono;
         this.email = email;
-        this.captalinicial = captalinicial;
+        this.captalInicial = captalInicial;
         this.catalogoCuenta = catalogoCuenta;
-        this.cuentabancaria = cuentabancaria;
+        this.cuentaBancaria = cuentabancaria;
     }
-    
+
 }
