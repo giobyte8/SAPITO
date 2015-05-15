@@ -8,7 +8,6 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -79,16 +78,17 @@ private ActivoFijo activoFijo;
     }
 
     /**
-     * @return the activofijo
+     * @return the activoFijo
      */
-    public Collection<ActivoFijo> getActivofijo() {
+    public ActivoFijo getActivoFijo() {
         return activoFijo;
     }
 
     /**
-     * @param activofijo the activofijo to set
+     * @param activoFijo the activoFijo to set
      */
-    public void setActivofijo(Collection<ActivoFijo> activoFijo) {
+    public void setActivoFijo(ActivoFijo activoFijo) {
         this.activoFijo = activoFijo;
     }
+
 }
