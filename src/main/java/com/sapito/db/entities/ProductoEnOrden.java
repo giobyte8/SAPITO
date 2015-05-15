@@ -26,8 +26,8 @@ import javax.validation.constraints.Size;
  * @author chef
  */
 @Entity
-@Table(name = "DescripcionOrden")
-public class DescripcionOrden implements Serializable {
+@Table(name = "ProductoEnOrden")
+public class ProductoEnOrden implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,19 +39,7 @@ public class DescripcionOrden implements Serializable {
     @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     private Integer cantidad;
     
-    @NotNull
-    @Column(name = "unidad")
-    private boolean unidad;
     
-    @NotNull
-    @Column(name = "preciounitario")
-    @Pattern(regexp = "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?", message = "Numero Decimal")
-    private double preciounitario;
-    
-    @NotNull
-    @Column(name = "importe")
-    @Pattern(regexp = "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?", message = "Numero Decimal")
-    private double importe;
     
     @OneToOne
     @JoinColumn(name = "ID_ORDEN")
@@ -77,48 +65,6 @@ public class DescripcionOrden implements Serializable {
      */
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
-    }
-
-    /**
-     * @return the preciounitario
-     */
-    public double getPreciounitario() {
-        return preciounitario;
-    }
-
-    /**
-     * @param preciounitario the preciounitario to set
-     */
-    public void setPreciounitario(double preciounitario) {
-        this.preciounitario = preciounitario;
-    }
-
-    /**
-     * @return the importe
-     */
-    public double getImporte() {
-        return importe;
-    }
-
-    /**
-     * @param importe the importe to set
-     */
-    public void setImporte(double importe) {
-        this.importe = importe;
-    }
-
-    /**
-     * @return the unidad
-     */
-    public boolean isUnidad() {
-        return unidad;
-    }
-
-    /**
-     * @param unidad the unidad to set
-     */
-    public void setUnidad(boolean unidad) {
-        this.unidad = unidad;
     }
 
     /**

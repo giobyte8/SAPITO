@@ -32,7 +32,7 @@ import sun.util.calendar.BaseCalendar.Date;
  * @author chef
  */
 @Entity
-@Table(name = "Ordencompra")
+@Table(name = "OrdenCompra")
 public class OrdenCompra implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,7 +42,8 @@ public class OrdenCompra implements Serializable {
     
     @NotNull
     @Column(name = "Folio")
-    private boolean Folio;
+    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    private String Folio;
 
     @Basic(optional = false)
     @NotNull
@@ -52,16 +53,15 @@ public class OrdenCompra implements Serializable {
     private java.util.Date fechaOrden;
     
     @Basic(optional = false)
-    @NotNull
     @Column(name = "fechaEntrega")
     @Pattern(regexp = RExp.fecha, message = RExpErrors.fecha)
     @Temporal(TemporalType.DATE)
     private java.util.Date fechaEntrega;
     
     @NotNull
-    @Column(name = "importe")
+    @Column(name = "costoTotal")
     @Pattern(regexp = "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?", message = "Numero Decimal")
-    private double importetotal;
+    private double costoTotal;
 
     @NotNull
     @Size(min=1, max=500, message = "Seleccione una forma de pago")
@@ -71,18 +71,14 @@ public class OrdenCompra implements Serializable {
     @NotNull
     @Size(min=1, max=500, message = "Seleccione una forma de pago")
     @Column(name = "aprobacion")
-    private String aprobacion;
-    
-    @NotNull
-    @Column(name = "STATUSpago")
-    private boolean statuspago;
+    private boolean aprobacion;
     
     @OneToOne
     @JoinColumn(name = "ORDENID_PROVEEDOR")
-    private RelacionProducoProveedor proveedor;
+    private ProducoProveedor proveedor;
     
     @OneToOne(mappedBy = "ordendcompra")
-    private DescripcionOrden describirorden;
+    private ProductoEnOrden describirorden;
 
     
     
@@ -97,14 +93,14 @@ public class OrdenCompra implements Serializable {
     /**
      * @return the Folio
      */
-    public boolean isFolio() {
-        return Folio;
+    public String isFolio() {
+        return getFolio();
     }
 
     /**
      * @param Folio the Folio to set
      */
-    public void setFolio(boolean Folio) {
+    public void setFolio(String Folio) {
         this.Folio = Folio;
     }
 
@@ -137,20 +133,6 @@ public class OrdenCompra implements Serializable {
     }
 
     /**
-     * @return the importe
-     */
-    public double getImportetotal() {
-        return importetotal;
-    }
-
-    /**
-     * @param importe the importe to set
-     */
-    public void setImportetotal(double importe) {
-        this.importetotal = importe;
-    }
-
-    /**
      * @return the formapago
      */
     public String getFormapago() {
@@ -165,59 +147,66 @@ public class OrdenCompra implements Serializable {
     }
 
     /**
-     * @return the aprobacion
-     */
-    public String getAprobacion() {
-        return aprobacion;
-    }
-
-    /**
-     * @param aprobacion the aprobacion to set
-     */
-    public void setAprobacion(String aprobacion) {
-        this.aprobacion = aprobacion;
-    }
-
-    /**
-     * @return the statuspago
-     */
-    public boolean isStatuspago() {
-        return statuspago;
-    }
-
-    /**
-     * @param statuspago the statuspago to set
-     */
-    public void setStatuspago(boolean statuspago) {
-        this.statuspago = statuspago;
-    }
-
-    /**
      * @return the proveedor
      */
-    public RelacionProducoProveedor getProveedor() {
+    public ProducoProveedor getProveedor() {
         return proveedor;
     }
 
     /**
      * @param proveedor the proveedor to set
      */
-    public void setProveedor(RelacionProducoProveedor proveedor) {
+    public void setProveedor(ProducoProveedor proveedor) {
         this.proveedor = proveedor;
     }
 
     /**
      * @return the describirorden
      */
-    public DescripcionOrden getDescribirorden() {
+    public ProductoEnOrden getDescribirorden() {
         return describirorden;
     }
 
     /**
      * @param describirorden the describirorden to set
      */
-    public void setDescribirorden(DescripcionOrden describirorden) {
+    public void setDescribirorden(ProductoEnOrden describirorden) {
         this.describirorden = describirorden;
+    }
+
+    /**
+     * @return the Folio
+     */
+    public String getFolio() {
+        return Folio;
+    }
+
+    /**
+     * @return the costoTotal
+     */
+    public double getCostoTotal() {
+        return costoTotal;
+    }
+
+    /**
+     * @param costoTotal the costoTotal to set
+     */
+    public void setCostoTotal(double costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+
+    /**
+     * @return the aprobacion
+     */
+    public boolean isAprobacion() {
+        return aprobacion;
+    }
+
+    /**
+     * @param aprobacion the aprobacion to set
+     */
+    public void setAprobacion(boolean aprobacion) {
+        this.aprobacion = aprobacion;
     }
 
 }

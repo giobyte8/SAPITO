@@ -78,6 +78,14 @@ public class Proveedor implements Serializable {
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "TELEFONO1")
     private String telefono1;
+    
+    @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
+    @Column(name = "EXTENSION1")
+    private String extension1;
+    
+    @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
+    @Column(name = "EXTENSION2")
+    private String extension2;
 
     @NotNull
     @Email(message = "Ingrese una direcciÃ³n de email valida")
@@ -377,6 +385,34 @@ public class Proveedor implements Serializable {
      */
     public void setTelefono2(String telefono2) {
         this.telefono2 = telefono2;
+    }
+
+    /**
+     * @return the extension1
+     */
+    public String getExtension1() {
+        return extension1;
+    }
+
+    /**
+     * @param extension1 the extension1 to set
+     */
+    public void setExtension1(String extension1) {
+        this.extension1 = extension1;
+    }
+
+    /**
+     * @return the extension2
+     */
+    public String getExtension2() {
+        return extension2;
+    }
+
+    /**
+     * @param extension2 the extension2 to set
+     */
+    public void setExtension2(String extension2) {
+        this.extension2 = extension2;
     }
 
 }
