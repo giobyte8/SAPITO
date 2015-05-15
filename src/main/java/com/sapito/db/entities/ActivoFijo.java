@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -20,7 +22,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -36,13 +40,15 @@ public class ActivoFijo implements Serializable
     @Column(name = "ID")
     private long id;
     
-    /*@Column(name = "FECHA_ADQUISICION")
+    @Column(name = "FECHA_ADQUISICION")
     @Temporal(TemporalType.DATE)
-    private Date fechaAdquisicion;  */  
+    private Date fechaAdquisicion;  
     
     @Column(name = "TIPO_DEPRECIACION")
     private String tipoDepreciacion;
     
+    @Min(value = 1, message = "Debe ser mayor de 0")
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "ANOS_VIDA_UTIL")
     private String anosVidaUtil;
     
@@ -81,21 +87,20 @@ private Producto producto;
         this.id = id;
     }
 
-//    /**
-//     * @return the fechaAdquisicion
-//     */
-//    public Date getFechaAdquisicion() {
-//        return fechaAdquisicion;
-//    }
-//
-//    /**
-//     * @param fechaAdquisicion the fechaAdquisicion to set
-//     */
-//    public void setFechaAdquisicion(Date fechaAdquisicion) {
-//        this.fechaAdquisicion = fechaAdquisicion;
-//        System.out.println(this.fechaAdquisicion);
-//    }
-    
+    /**
+     * @return the fechaAdquisicion
+     */
+    public Date getFechaAdquisicion() {
+        return fechaAdquisicion;
+    }
+
+    /**
+     * @param fechaAdquisicion the fechaAdquisicion to set
+     */
+    public void setFechaAdquisicion(Date fechaAdquisicion) {
+        this.fechaAdquisicion = fechaAdquisicion;
+    }
+   
     /**
      * @return the tipoDepreciacion
      */
@@ -138,19 +143,7 @@ private Producto producto;
         this.status = status;
     }
 
-    /**
-     * @return the tipoactivofijo
-     */
-    public TipoActivoFijo getTipoactivofijo() {
-        return tipoactivofijo;
-    }
-
-    /**
-     * @param tipoactivofijo the tipoactivofijo to set
-     */
-    public void setTipoactivofijo(TipoActivoFijo tipoactivofijo) {
-        this.tipoactivofijo = tipoactivofijo;
-    }
+    
 
     /**
      * @return the historialTraslado
@@ -167,17 +160,33 @@ private Producto producto;
     }
 
     /**
-     * @return the productoRef
+     * @return the tipoactivofijo
      */
-    public Producto getProductoRef() {
+    public TipoActivoFijo getTipoactivofijo() {
+        return tipoactivofijo;
+    }
+
+    /**
+     * @param tipoactivofijo the tipoactivofijo to set
+     */
+    public void setTipoactivofijo(TipoActivoFijo tipoactivofijo) {
+        this.tipoactivofijo = tipoactivofijo;
+    }
+
+    /**
+     * @return the producto
+     */
+    public Producto getProducto() {
         return producto;
     }
 
     /**
-     * @param productoRef the productoRef to set
+     * @param producto the producto to set
      */
-    public void setProductoRef(Producto producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+    
 
 }
