@@ -30,23 +30,19 @@ public class GastosEnvio implements Serializable
     
     @NotNull
     @Column(name = "GASTOS_ENVIO")
-    private long gastosEnvio;
+    private String gastosEnvio;
     @NotNull
     @Column(name = "GASTOS_ALOJAMIENTO")
-    private long gastosAlojamiento;
+    private String gastosAlojamiento;
     @NotNull
     @Column(name = "CASETAS")
-    private long casetas;
+    private String casetas;
     @NotNull
     @Column(name = "STATUS")
     private boolean status;
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 /* *** *** *** ***  RELACIONES *** *** *** *** ***/
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private OrdenEnvio idOrdenEnvio;
     
     @JoinColumn(name = "ID_CLIENTE")
     @ManyToOne
@@ -62,43 +58,33 @@ public class GastosEnvio implements Serializable
         this.id = id;
     }
 
-    public long getGastosEnvio()
+    public String getGastosEnvio()
     {
         return gastosEnvio;
     }
 
-    public void setGastosEnvio(long gastosEnvio) 
+    public void setGastosEnvio(String gastosEnvio) 
     {
         this.gastosEnvio = gastosEnvio;
     }
 
-    public long getGastosAlojamiento()
+    public String getGastosAlojamiento()
     {
         return gastosAlojamiento;
     }
-    public void setGastosAlojamiento(long gastosAlojamiento) 
+    public void setGastosAlojamiento(String gastosAlojamiento) 
     {
         this.gastosAlojamiento = gastosAlojamiento;
     }
 
-    public double getCasetas()
+    public String getCasetas()
     {
         return casetas;
     }
 
-    public void setCasetas(long casetas) 
+    public void setCasetas(String casetas) 
     {
         this.casetas = casetas;
-    }
-
-    public OrdenEnvio getIdOrdenEnvio()
-    {
-        return idOrdenEnvio;
-    }
-
-    public void setIdOrdenEnvio(OrdenEnvio idOrdenEnvio)
-    {
-        this.idOrdenEnvio = idOrdenEnvio;
     }
 
     public boolean isStatus() 

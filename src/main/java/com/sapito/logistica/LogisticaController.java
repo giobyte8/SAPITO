@@ -1,24 +1,14 @@
 package com.sapito.logistica;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.sapito.db.entities.OrdenEnvio;
 import java.util.List;
 import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Cliente;
 import com.sapito.db.entities.Conductor;
 import com.sapito.db.entities.EmpresaTransporte;
 import com.sapito.db.entities.GastosEnvio;
+import com.sapito.db.entities.OrdenVenta;
 import com.sapito.db.entities.Transporte;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.Query;
@@ -33,6 +23,9 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import com.sapito.ventas.*;
+import org.springframework.dao.support.DaoSupport;
+
 
 /**
  *
@@ -41,6 +34,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LogisticaController {
 
+    Transporte globalT = new Transporte();
     @RequestMapping(value = "logistica", method = RequestMethod.GET)
     public String index(Model model) {
         return "Logistica/indexLogistica";
@@ -51,13 +45,19 @@ public class LogisticaController {
         return "Logistica/extranjeraPage";
     }
 
-    @RequestMapping(value = "logistica/gastosenvio", method = RequestMethod.GET)
-    public String gastos(Model model) {
-        return "Logistica/gastosEnvioPage";
-    }
-
     @RequestMapping(value = "logistica/envios", method = RequestMethod.GET)
     public String envios(Model model) {
+        
+            Query query1 = daoOrdenE.getEntityMgr().createQuery("SELECT a FROM OrdenEnvio a where a.status=:status");
+            query1.setParameter("status", true);
+            OrdenEnvio ordenEnvio=new OrdenEnvio();
+            
+            List<OrdenEnvio> ordenE = query1.getResultList();
+            model.addAttribute("ordenEnvio", ordenEnvio);
+            model.addAttribute("envios", ordenE);
+        
+        
+        
         return "Logistica/enviosPage";
     }
 
@@ -392,7 +392,7 @@ public class LogisticaController {
         EmpresaTransporte em = findEmpresaTransporte(request.getParameter("empresaid"));
         em.setStatus(false);
         daoTransporte.edit(em);
-        consultaEmpresa(model);
+        consultaEmpresa(model);        
         return "Logistica/nacionalPage";
     }
 
@@ -413,6 +413,7 @@ public class LogisticaController {
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Logistica/nacionalNew";
         } else {
+            
 
             daoEmpresaTransporte.edit(empresaTransporte);
 
@@ -457,24 +458,122 @@ public class LogisticaController {
 
     //---------------Fin Empresa--------------------------//
     
-    //--------------Envio---------------
+    //--------------Envio---------------//
 
     private GenericDao<OrdenEnvio> daoOrdenE;
-
+    
+    public Transporte asignaTransporte(boolean tipo,int cantidad,Transporte tran)
+    {
+        boolean nacional;
+        nacional = tipo;
+        Transporte oTransporte;
+        if(nacional==true)
+        {
+            Query queryE = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM EmpresaTransporte a where a.tipo=:nacional");
+            queryE.setParameter("nacional", true);
+            List<EmpresaTransporte> EmTransporte = queryE.getResultList();
+            Query queryT = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM Transporte a where a.tipotransporte=:tipoT and a.empresaTransporte=:empresa ");
+            if((cantidad<101)&(cantidad>0))
+            {
+                
+                queryT.setParameter("tipoT","Rabon");
+                queryT.setParameter("empresa",EmTransporte.get(0).getId());
+                List<Transporte> transporte = queryT.getResultList();
+                for (int i = 0; i < transporte.size(); i++)
+                {   
+                    oTransporte = transporte.get(i);
+                    if(oTransporte.isStatus()==true & oTransporte.getTipotransporte().equals("Rabon"))
+                    {
+                        transporte.get(i).setStatus(false);
+                        tran = oTransporte;
+                    }break;
+                }
+            }else
+            {
+                queryT.setParameter("tipoT","Tracto Camion");
+                queryT.setParameter("empresa",EmTransporte.get(0).getId());
+                List<Transporte> transporte = queryT.getResultList();
+                for (int i = 0; i < transporte.size(); i++)
+                {   
+                    oTransporte = transporte.get(i);
+                    if(oTransporte.isStatus()==true & oTransporte.getTipotransporte().equals("Tracto Camion"))
+                    {
+                        transporte.get(i).setStatus(false);
+                        tran = oTransporte;
+                    }break;
+                }
+            }
+            
+        }else
+        {
+            Query queryE = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM EmpresaTransporte a where a.tipo=:extranjera");
+            queryE.setParameter("extranjera", false);
+            List<EmpresaTransporte> EmTransporte = queryE.getResultList();
+            Query queryT = daoEmpresaTransporte.getEntityMgr().createQuery("SELECT a FROM Transporte a where a.tipotransporte=:tipoT and a.empresaTransporte=:empresa ");
+            if((cantidad<101)&(cantidad>0))
+            {
+                queryT.setParameter("tipoT","Rabon");
+                queryT.setParameter("empresa",EmTransporte.get(0).getId());
+                List<Transporte> transporte = queryT.getResultList();
+                for (int i = 0; i < transporte.size(); i++)
+                {   
+                    oTransporte = transporte.get(i);
+                    if(oTransporte.isStatus()==true & oTransporte.getTipotransporte().equals("Rabon"))
+                    {
+                        transporte.get(i).setStatus(false);
+                        tran = oTransporte;
+                    }break;
+                }
+            }else
+            {
+                queryT.setParameter("tipoT","Tracto Camion");
+                queryT.setParameter("empresa",EmTransporte.get(0).getId());
+                List<Transporte> transporte = queryT.getResultList();
+                for (int i = 0; i < transporte.size(); i++)
+                {   
+                    oTransporte = transporte.get(i);
+                    if(oTransporte.isStatus()==true & oTransporte.getTipotransporte().equals("Tracto Camion"))
+                    {
+                        transporte.get(i).setStatus(false);
+                        tran = oTransporte;
+                    }break;
+                }
+            }
+        }return tran;
+    }
+    
+    public Conductor asignaConductor(Conductor rConductor)
+    {
+        Conductor gConductor;
+        Query queryC = daoConductor.getEntityMgr().createQuery("SELECT * FROM Conductor");
+        List<Conductor> conductor = queryC.getResultList();
+        for (int i = 0; i < conductor.size(); i++)
+        {
+            gConductor = conductor.get(i);
+            if(gConductor.isDisponibleConductor()==true)
+            {
+                conductor.get(i).setStatus(false);
+                conductor.get(i).setDisponibleConductor(false);
+                rConductor=conductor.get(i);
+            }
+        }return rConductor;
+    }
+    
     @Autowired
-    public void setDaoOrdenEnvio(GenericDao<OrdenEnvio> daoOrdenE) {
+    public void setDaoOrdenEnvio(GenericDao<OrdenEnvio> daoOrdenE) 
+    {
         this.daoOrdenE = daoOrdenE;
         daoOrdenE.setClass(OrdenEnvio.class);
     }
 
     @RequestMapping(value = "logistica/envios/altaEnvio", method = RequestMethod.GET)
     public String altaEnvio(Model model) {
-        OrdenEnvio ordenE = new OrdenEnvio();
-        ordenE.setStatus(true);
-        model.addAttribute("ordenEnvio", ordenE);
+        OrdenEnvio ordenEnvio = new OrdenEnvio();
+        ordenEnvio.setStatus(true);
+        model.addAttribute("ordenEnvio", ordenEnvio);
         return "Logistica/enviosNew";
     }
-
+    
     @RequestMapping(value = "logistica/envios/altaEnvio", method = RequestMethod.POST)
     public String regNvoE(Model model, @Valid OrdenEnvio ordenE, BindingResult bindingResult) 
     {
@@ -483,22 +582,92 @@ public class LogisticaController {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Logistica/enviosNew";
-        } else {
+        } else 
+        {
+//            ordenE.setIdTransporte(asignaTransporte(true, 100, null));////////////////7//////checar alta
+//            ordenE.setIdConductor(asignaConductor(null));///////////////////////////////checar
+            ordenE.setStatus(true);
             daoOrdenE.create(ordenE);
-            List<OrdenEnvio> ordenEnvio=daoOrdenE.findAll();
-            model.addAttribute("envios",ordenEnvio);
+                                    
+            
+            
+            Query query1 = daoOrdenE.getEntityMgr().createQuery("SELECT a FROM OrdenEnvio a where a.status=:status");
+            query1.setParameter("status", true);
+            List<OrdenEnvio> ordenEnvios = query1.getResultList();
+            model.addAttribute("ordenEnvio", ordenE);
+            model.addAttribute("envios", ordenEnvios);
+            
+            
             return "Logistica/enviosPage";
         }
     }
     
-    @RequestMapping(value = "logistica/altaEnvio", method = RequestMethod.GET)
-    public String enviosF(Model model) 
-    {        
-        List<OrdenEnvio> ordenEnvios=daoOrdenE.findAll();
-        model.addAttribute("envios", ordenEnvios);
+//    @RequestMapping(value = "logistica/altaEnvio", method = RequestMethod.GET)
+//    public String enviosF(Model model) 
+//    {        
+//        Query queryJ = daoOrdenE.getEntityMgr().createQuery("SELECT a FROM OrdenEnvio a where a.status=:status");
+//        queryJ.setParameter("status", true);
+//        List<OrdenEnvio> ordenEnvio=queryJ.getResultList();
+//        model.addAttribute("ordenEnvio", ordenEnvio);
+//        return "Logistica/enviosPage";
+//    }
+    
+    public OrdenEnvio findOrdenEnvio(String id) 
+    {
+        Query query2 = daoOrdenE.getEntityMgr().createQuery("SELECT a FROM OrdenEnvio a where a.id=:idOrdenEnvio");
+        query2.setParameter("idOrdenEnvio",Long.parseLong(id));
+        List<OrdenEnvio> ordenEnvio = query2.getResultList();
+        return ordenEnvio.get(0);
+    }
+    
+     /////modificaciones
+    @RequestMapping(value = "logistica/envios/modificaEnvio", method = RequestMethod.POST)
+    public String regModificarEnvio(Model model, @Valid OrdenEnvio ordenEnvio, BindingResult bindingResult) 
+    {
+        if (bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Logistica/enviosNew";
+        } else 
+        {
+            daoOrdenE.edit(ordenEnvio);
+            model.addAttribute("imprime", "2");/////////////checar el modifica
+            Query query1 = daoOrdenE.getEntityMgr().createQuery("SELECT a FROM OrdenEnvio a where a.status=:status");
+            query1.setParameter("status", true);
+            List<OrdenEnvio> ordenE = query1.getResultList();
+            model.addAttribute("ordenEnvio", ordenEnvio);
+            model.addAttribute("ordenE", ordenE);
+            return "Logistica/enviosPage";
+        }	
+    }
+    
+    @RequestMapping(value = "logistica/envios/modificaEnvio", method = RequestMethod.GET)
+    public String modificaOrdenEnvio(Model model, HttpServletRequest request) 
+    {
+        System.out.println("iiiiiiiiiiiiiiiiidddddddddd"+findOrdenEnvio(request.getParameter("idOrdenEnvio")));
+        OrdenEnvio ordenE = findOrdenEnvio(request.getParameter("idOrdenEnvio"));
+        model.addAttribute("modificar", "1");
+        model.addAttribute("ordenE", ordenE);        
+        return "Logistica/enviosNew";
+    }
+    
+    @RequestMapping(value = "logistica/envios/bajaEnvio", method = RequestMethod.GET)
+    public String eliminarOrdenEnvio(Model model, HttpServletRequest request) 
+    {
+            OrdenEnvio ordenEnvio = findOrdenEnvio(request.getParameter("idOrdenEnvio"));
+            ordenEnvio.setStatus(false);
+            daoTransporte.edit(ordenEnvio);
+            
+            Query query1 = daoOrdenE.getEntityMgr().createQuery("SELECT a FROM OrdenEnvio a where a.status=:status");
+            query1.setParameter("status", true);
+            List<OrdenEnvio> ordenE = query1.getResultList();
+            model.addAttribute("ordenEnvio", ordenEnvio);
+            model.addAttribute("envios", ordenE);
         return "Logistica/enviosPage";
     }
     
+    /////////////////////Envios/////////////////////
 
     @RequestMapping(value = "logistica/enviosV", method = RequestMethod.GET)
     public String enviosView(Model model) {
@@ -510,16 +679,19 @@ public class LogisticaController {
         return "Logistica/operadoresView";
     }
 
+    ////////////////Gastos//////////////
     private GenericDao<GastosEnvio> daoGastosE;
-
     @Autowired
-    public void setDaoGastosE(GenericDao<GastosEnvio> daoGastosE) {
+    public void setDaoGastosE(GenericDao<GastosEnvio> daoGastosE) 
+    {
         this.daoGastosE = daoGastosE;
         daoGastosE.setClass(GastosEnvio.class);
     }
 
     @RequestMapping(value = "logistica/gastosEnvioN", method = RequestMethod.GET)
-    public String gastosEnvioNew(Model model) {
+    public String gastosEnvioN(Model model) 
+    {
+        System.out.println("aaa");
         GastosEnvio gastosE = new GastosEnvio();
         gastosE.setStatus(true);
 
@@ -528,17 +700,62 @@ public class LogisticaController {
     }
 
     @RequestMapping(value = "logistica/gastosEnvioN", method = RequestMethod.POST)
-    public String regGastosEnvio(Model model, @Valid GastosEnvio gastosE, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+    public String regGastosEnvio(Model model, @Valid GastosEnvio gastosE, BindingResult bindingResult) 
+    {
+        if (bindingResult.hasErrors()) 
+        {
+            System.out.println("as0");
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Logistica/gastosEnvioNew";
-        } else {
+        } else 
+        {
+            System.out.println("as");
+            gastosE.setStatus(true);
             daoGastosE.create(gastosE);
-            return "Logistica/gastosEnvioNew";
+            Query query1 = daoGastosE.getEntityMgr().createQuery("SELECT a FROM GastosEnvio a where a.status=:status");
+            query1.setParameter("status", true);
+            List<GastosEnvio> gastosEnvio = query1.getResultList();
+            model.addAttribute("gastosE",gastosE);
+            model.addAttribute("gastos",gastosEnvio);
+            return "Logistica/gastosEnvioPage";
         }
     }
-
+    
+    @RequestMapping(value = "logistica/gastosenvio", method = RequestMethod.GET)
+    public String gatosF(Model model) 
+    {        
+        Query queryJ = daoGastosE.getEntityMgr().createQuery("SELECT a FROM GastosEnvio a where a.status=:status");
+        queryJ.setParameter("status", true);
+        List<GastosEnvio> gastosEnvio=queryJ.getResultList();
+        model.addAttribute("gastos", gastosEnvio);
+        return "Logistica/gastosEnvioPage";
+    }
+    
+    public GastosEnvio findGastosEnvio(String id) 
+    {
+        Query query2 = daoGastosE.getEntityMgr().createQuery("SELECT a FROM GastosEnvio a where a.id=:idGastosEnvio");
+        query2.setParameter("idGastosEnvio",Long.parseLong(id));
+        List<GastosEnvio> gastosEnvios = query2.getResultList();
+        return gastosEnvios.get(0);
+    }
+    
+    @RequestMapping(value = "logistica/gastosenvio/bajaGastosEnvio", method = RequestMethod.GET)
+    public String eliminarGastosEnvio(Model model, HttpServletRequest request) 
+    {
+            GastosEnvio gastosEnvio = findGastosEnvio(request.getParameter("idGastosEnvio"));
+            gastosEnvio.setStatus(false);
+            daoGastosE.edit(gastosEnvio);
+            
+            Query query1 = daoGastosE.getEntityMgr().createQuery("SELECT a FROM GastosEnvio a where a.status=:status");
+            query1.setParameter("status", true);
+            List<GastosEnvio> gastosE = query1.getResultList();
+            model.addAttribute("gastosEnvio", gastosEnvio);
+            model.addAttribute("gastos", gastosE);
+        return "Logistica/gastosEnvioPage";
+    }
+    
+    ////////////////llena tabla gastosF
     @RequestMapping(value = "logistica/nacionalV", method = RequestMethod.GET)
     public String nacionalView(Model model) {
         return "Logistica/nacionalView";

@@ -1,9 +1,9 @@
 <%-- 
     Document   : gastosEnvioNew
     Created on : 24/04/2015, 03:40:14 AM
-    Author     : j0rd4n
+    Author     : logistica
 --%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@
             </div>
           </div>
           <!--formulario alta-->
-          <form:form id="fnvo-gastosE" commandName="gastosE" action="gastosEnvioNew" method="POST">
+          <form:form id="fnvo-gastosE" commandName="gastosE" action="gastosEnvioN" method="POST">
              <div class="row">
                             <div class="col-lg-12 text-left">
                                 <div class="panel panel-success">
@@ -41,35 +41,26 @@
                                     <div class="panel-success">
                                         <div class="col-lg-6 text-left">
                                                 <div class="form-group has-success">
-                                                    <label fnvoc-gastosD>Gastos de Diesel </label>
+                                                    <label for="fnvoc-gastosEnvio">Gastos de Envio </label>
                                                     <!--<input class="form-control" placeholder="Gastos de Diesel" onkeypress="return soloTexto(event);" maxlength="40" required>-->
-                                                    <form:input path="gastosD" name="gastosD" id="fnvoc-gastosD" 
-                                                        type="text" class="form-control" />
-                                                    <form:errors path="gastosD" element="div" class="alert-danger pad-10" />
+                                                    <form:input path="gastosEnvio" name="gastosEnvio"  type="text" class="form-control" placeholder="Gastos de Envio" />
+                                                    <form:errors path="gastosEnvio" element="div" class="alert-danger pad-10" />
                                                 </div>
                                                 <div class="form-group has-success">
-                                                    <label for="fnvoc-alojamiento">Alojamiento</label>
+                                                    <label for="fnvoc-gastosAlojamiento">Alojamiento</label>
                                                     <!--<input class="form-control" placeholder="Alojamiento" onkeypress="return soloTexto(event);" maxlength="40" required>-->
-                                                    <form:input path="alojamiento" name="alojamiento" id="fnvoc-alojamiento" 
-                                                        type="text" class="form-control" />
-                                                    <form:errors path="alojamiento" element="div" class="alert-danger pad-10" />
+                                                    <form:input path="gastosAlojamiento" name="gastosAlojamiento" id="fnvoc-gastosAlojamiento" type="text" class="form-control" placeholder="Alojamiento"/>
+                                                    <form:errors path="gastosAlojamiento" element="div" class="alert-danger pad-10" />
                                                 </div>
                                         
                                     </div>
                                         <div class="col-lg-6 text-left">
                                                 <div class="form-group has-success">
-                                                    <label for="fnvoc-costoTransporte">Costo del Transporte</label>
+                                                    <label for="fnvoc-casetas">Costo de Casetas</label>
                                                     <!--<input class="form-control" placeholder="Costo del Transporte" onkeypress="return soloTexto(event);" maxlength="40" required>-->
-                                                    <form:input path="costoTransporte" name="costoTransporte" id="fnvoc-costoTransporte" 
-                                                                type="text" class="form-control" />
-                                                    <form:errors path="costoTransporte" element="div" class="alert-danger pad-10" />
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label for="fnvoc-costoConductor">Costo del Conductor</label>
-                                                    <!--<input class="form-control" placeholder="Costo del Conductor" onkeypress="return soloTexto(event);" maxlength="40" required>-->
-                                                    <form:input path="costoConductor" name="costoConductor" id="fnvoc-costoConductor" 
-                                                                type="text" class="form-control" />
-                                                    <form:errors path="costoConductor" element="div" class="alert-danger pad-10" />
+                                                    <form:input path="casetas" name="casetas" id="fnvoc-casetas" 
+                                                                type="text" class="form-control" placeholder="Casetas"/>
+                                                    <form:errors path="casetas" element="div" class="alert-danger pad-10" />
                                                 </div>
                                             <div align="right">
                                             <button type="submit" class="btn btn-success">Aceptar</button>                                            

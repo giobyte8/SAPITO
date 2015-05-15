@@ -1,6 +1,5 @@
 package com.sapito.db.entities;
 
-
 import com.sapito.db.entities.Conductor;
 import com.sapito.db.entities.Transporte;
 import com.sapito.db.util.RExp;
