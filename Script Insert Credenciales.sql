@@ -1,7 +1,7 @@
-        /*Script Insert Empleados*/
+﻿        /*Script Insert Empleados*/
 
 
-
+        ALTER TABLE Departamento ALTER COLUMN MetasTopes_idMetasTopes DROP NOT NULL;
 
         /*  Roles */
         INSERT INTO rol(
@@ -115,169 +115,217 @@
         /*Empleados ventas */
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (1,'Maria de la luz',1,1,'Albarran' , 'Rebollo',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 've.jo.mrebollo@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 've.jo.mrebollo@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (24,'Jesus Giovany',1,2,'Alvarez' , 'Aguirre',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 've.jd.jgalvarez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 've.jd.jgalvarez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (2,'Carlos',1,3,'Contreras' , 'Navarrete',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 've.eb.ccontreras@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 've.eb.ccontreras@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
          /*Empleados  Compras*/
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (3,'Monserrat',2,1,'Aristeo' , 'Garcia',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.jo.mgarcua@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.jo.mgarcua@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (4,'Salvador Josue',2,2,'Tejocote' , 'Lopez',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.jd.jslopez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.jd.jslopez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (5,'Pablo Erick',2,3,'Gonzalez' , 'Carrasco',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.eb.pecarrasco@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.eb.pecarrasco@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
          /*Empleados Contabilidad*/
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (6,'Sergio Enrique ',4,2,'Hernandez' , 'Ortega',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.jd.seortega@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.jd.seortega@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (7,'Lorena',4,3,'Gonzalez' , 'Ayala',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.eb.lgonzalez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'co.eb.lgonzalez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
           /*Empleados  Inventarios*/
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (8,'Humberto',3,1,'Pineda' , 'Sanchez',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.jo.hsanchez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.jo.hsanchez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (9,'Jose Alonso',3,2,'Barajas' , 'Ortiz',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.jd.jaortiz@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.jd.jaortiz@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (10,'Hugo Arturo',3,3,'Arreola' , 'Rubio',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.eb.harubio@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.eb.harubio@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
          
           /*Empleados Direccion*/
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (11,'Maria del Carmen',5,4,'Ayala' , 'Guadarrama',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.di.mcguadarrama@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.di.mcguadarrama@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (12,'Marco Antonio',5,5,'De la O' , 'Velazquez',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.sd.mavelazquez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'in.sd.mavelazquez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
 
           /*Empleados  Activo Fijo*/
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (13,'Jose Alberto',6,1,'Ramirez' , 'Morales',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'ac.jd.jamorales@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'ac.jd.jamorales@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (14,'Daniel',6,3,'Robles' , 'Soto',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'ac.eb.dsoto@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'ac.eb.dsoto@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
           /*Empleados Recursos Humanos */
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (15,'Jorge Victor',7,1,'Muñoz' , 'Padilla',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 're.jo.jvmunoz@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 're.jo.jvmunoz@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (16,'Christian Ivan',7,2,'Castañeda' , 'Gonzalez',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 're.jd.cigonzalez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 're.jd.cigonzalez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (17,'Nely Faustina',7,3,'Roman' , 'Ortega',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 're.eb.nfortega@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 're.eb.nfortega@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
 
            /*Empleados Operaciones */
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (18,'Edgar',8,1,'Cirilo' , 'Gonzalez',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'op.jo.egonzalez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'op.jo.egonzalez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (19,'Delfino',8,2,'Ruiz' , 'Flores',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'op.jd.druiz@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'op.jd.druiz@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (20,'Raul',8,3,'Barrera' , 'Guadarrama',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'op.eb.rbarrera@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'op.eb.rbarrera@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
 
          /*Empleados Logistica */
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email, codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (21,'Emmanuel',9,1,'Campos' , 'Romero',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'lo.jo.ecromeroj@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'lo.jo.ecromeroj@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (22,'Emmanuel',9,2,'Campos' , 'Gonzalez',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'lo.jd.ecgonzalez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'lo.jd.ecgonzalez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email)
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
             VALUES (23,'Emmanuel',9,3,'Campos' , 'lopez',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 'lo.eb.eclopez@sap.com');
+                    'MLAR011201AS3', 'AV Centenario','Centro', 'lo.eb.eclopez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         /*Credenciales*/
         /*Las contraseñas estan cifradas en SHA-1*/

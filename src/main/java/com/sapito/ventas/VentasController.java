@@ -373,6 +373,41 @@ public class VentasController
             daoCliente.create(cl);
         }
         
+        // Insert Ordenes venta
+        for(int i=0; i<3; i++)
+        {
+            OrdenVenta ov = new OrdenVenta();
+            ov.setCliente((Cliente) daoCliente.findAll().get(i));
+            ov.setDeposito(true);
+            ov.setFechaEntrega(new Date());
+            ov.setFechaPedido(new Date());
+            ov.setMonto(2000090);
+            ov.setMontoConCargos(350000);
+            ov.setStatus("VENTA");
+            ov.setProductosVendidos(new ArrayList<ProductoVendido>());
+            for(int j=0; j<5; j++)
+            {
+                Inventario inv = (Inventario) daoInventario.findAll().get(i);
+                ProductoVendido pv = new ProductoVendido();
+                pv.setCantidad(i+1);
+                pv.setProductoInventario(inv);
+                pv.setOrdenVenta(ov);
+                
+                ov.getProductosVendidos().add(pv);
+            }
+            
+            ov.setSancionesCliente(new ArrayList<SancionCliente>());
+            SancionCliente sc = new SancionCliente();
+            sc.setDescripcion("Algun cargo extra X");
+            sc.setMonto(1000);
+            sc.setOrdenVenta(ov);
+            ov.getSancionesCliente().add(sc);
+            
+            daoOrdenVenta.create(ov);
+            
+        }
+        
         return daoInventario.findAll();
     }
+    
 }

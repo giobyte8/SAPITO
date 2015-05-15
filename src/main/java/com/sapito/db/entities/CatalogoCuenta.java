@@ -22,60 +22,49 @@ import javax.validation.constraints.Size;
  * @author CarlosAlberto
  */
 @Entity
-@Table(name = "catalogocuenta")
-public class Catalogocuenta implements Serializable {
+@Table(name = "CatalogoCuenta")
+public class CatalogoCuenta implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "idcatalogocuenta")
-    private Integer idcatalogocuenta;
+    @Column(name = "idCatalogoCuenta")
+    private Integer idCatalogoCuenta;
+
     @NotNull
     @Size(min = 1, max = 100)
-    @Column(name = "nombrel")
-    private String nombrel;
+    @Column(name = "nombre")
+    private String nombre;
+
     @NotNull
     @Column(name = "deber")
     private double deber;
+
     @NotNull
     @Column(name = "haber")
     private double haber;
+
     @NotNull
     @Column(name = "nacional")
     private short nacional;
-    @JoinColumn(name = "empresa_idempresa", referencedColumnName = "idempresa")
+
+    @JoinColumn(name = "empresa")
     @ManyToOne(optional = false)
-    private Empresa empresaIdempresa;
+    private Empresa empresa;
 
-    public Catalogocuenta() {
+    public Integer getIdCatalogoCuenta() {
+        return idCatalogoCuenta;
     }
 
-    public Catalogocuenta(Integer idcatalogocuenta) {
-        this.idcatalogocuenta = idcatalogocuenta;
+    public void setIdCatalogoCuenta(Integer idCatalogoCuenta) {
+        this.idCatalogoCuenta = idCatalogoCuenta;
     }
 
-    public Catalogocuenta(Integer idcatalogocuenta, String nombrel, double deber, double haber, short nacional) {
-        this.idcatalogocuenta = idcatalogocuenta;
-        this.nombrel = nombrel;
-        this.deber = deber;
-        this.haber = haber;
-        this.nacional = nacional;
+    public String getNombre() {
+        return nombre;
     }
 
-    public Integer getIdcatalogocuenta() {
-        return idcatalogocuenta;
-    }
-
-    public void setIdcatalogocuenta(Integer idcatalogocuenta) {
-        this.idcatalogocuenta = idcatalogocuenta;
-    }
-
-    public String getNombrel() {
-        return nombrel;
-    }
-
-    public void setNombrel(String nombrel) {
-        this.nombrel = nombrel;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public double getDeber() {
@@ -101,4 +90,25 @@ public class Catalogocuenta implements Serializable {
     public void setNacional(short nacional) {
         this.nacional = nacional;
     }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public CatalogoCuenta() {
+    }
+
+    public CatalogoCuenta(Integer idCatalogoCuenta, String nombre, double deber, double haber, short nacional, Empresa empresa) {
+        this.idCatalogoCuenta = idCatalogoCuenta;
+        this.nombre = nombre;
+        this.deber = deber;
+        this.haber = haber;
+        this.nacional = nacional;
+        this.empresa = empresa;
+    }
+
 }

@@ -6,21 +6,28 @@
 package com.sapito.activofijo;
 
 import com.sapito.db.dao.GenericDao;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import com.sapito.db.entities.ActivoFijo;
-import com.sapito.db.entities.Historial;
+import com.sapito.db.entities.HistorialActivoFijo;
 import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.TipoActivoFijo;
+import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos;
+import com.sapito.ventas.VentasController;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -38,13 +45,13 @@ public class ActivoFijoController {
         this.daoActivoFijo = daoActivoFijo;
         daoActivoFijo.setClass(ActivoFijo.class);
     }
-    
+
     @Autowired
     public void setDaoTipoActivoFijo(GenericDao<TipoActivoFijo> daoTipoActivoFijo) {
         this.daoTipoActivoFijo = daoTipoActivoFijo;
         daoTipoActivoFijo.setClass(TipoActivoFijo.class);
     }
-    
+
     @Autowired
     public void setDaoProducto(GenericDao<Producto> daoProducto) {
         this.daoProducto = daoProducto;
@@ -52,7 +59,7 @@ public class ActivoFijoController {
     }
 
     @RequestMapping(value = "activofijo", method = RequestMethod.GET)
-    public String index(Model model) {        
+    public String index(Model model) {
         return "ActivoFijo/indexactivofijo";
     }
 
@@ -66,22 +73,18 @@ public class ActivoFijoController {
         model.addAttribute("producto", producto);
         return "ActivoFijo/alta";
     }
-    
+
     @RequestMapping(value = "gdaAlta", method = RequestMethod.POST)
-    public String regAlta(Model model, @Valid ActivoFijo activofijo, String tipoactivofijoS, String productoS, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+    public String regAlta(Model model, @Valid ActivoFijo activofijo, String tipoactivofijoS, String productoS, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "ActivoFijo/alta";
-        }
-        else
-        {
+        } else {
             TipoActivoFijo tipoactivofijo = (TipoActivoFijo) daoTipoActivoFijo.find(Long.valueOf(tipoactivofijoS));
             Producto prod = (Producto) daoProducto.find(Long.valueOf(productoS));
             activofijo.setTipoactivofijo(tipoactivofijo);
-            activofijo.setProductoRef(prod);
+            activofijo.setProducto(prod);
             activofijo.setStatus(true);
             daoActivoFijo.create(activofijo);
             return "ActivoFijo/gdaAlta";
@@ -89,9 +92,9 @@ public class ActivoFijoController {
     }
 
     /*@RequestMapping(value = "gdaAlta", method = RequestMethod.GET)
-    public String gdaAlta(Model model) {
-        return "ActivoFijo/gdaAlta";
-    }*/
+     public String gdaAlta(Model model) {
+     return "ActivoFijo/gdaAlta";
+     }*/
 
     /*@RequestMapping(value="asignar", method=RequestMethod.GET)
      public String asignar(Model model){
@@ -100,55 +103,54 @@ public class ActivoFijoController {
     @RequestMapping(value = "aActivoFijo", method = RequestMethod.GET)
     public String aActivoFijo(Model model) {
         //ActivoFijo activofijo2 = new ActivoFijo();
-        
+
         List<ActivoFijo> af = daoActivoFijo.findAll();
-        ActivoFijo lastAF = af.get(af.size() -1 );
-        
+        ActivoFijo lastAF = af.get(af.size() - 1);
+
+        List<ActivoFijo> af2 = daoActivoFijo.findAll();
+
         model.addAttribute("lastAF", lastAF);
+        model.addAttribute("lastAF2", af2);
         return "ActivoFijo/aActivoFijo";
     }
 
     @RequestMapping(value = "gdaActivoFijo", method = RequestMethod.POST)
     public String gdaActivoFijo(Model model, String idAF, String depreciacion) {
-        
+
         ActivoFijo activofijo = (ActivoFijo) daoActivoFijo.find(Long.valueOf(idAF));
         activofijo.setTipoDepreciacion(depreciacion);
         daoActivoFijo.edit(activofijo);
-        
-        Historial historial = new Historial();
+
+        HistorialActivoFijo historial = new HistorialActivoFijo();
         historial.setActivofijo(activofijo);
         Date fecha = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String fechaFormato = df.format(fecha);
-        historial.setFechaMovimiento(fechaFormato);
+        //historial.setFechaMovimiento(fechaFormato);
         daoActivoFijo.create(historial);
-        
+
         return "ActivoFijo/gdaActivoFijo";
     }
 
     @RequestMapping(value = "addTipoAF", method = RequestMethod.GET)
     public String addTipoAF(Model model) {
-        TipoActivoFijo tipoAF = new TipoActivoFijo();        
+        TipoActivoFijo tipoAF = new TipoActivoFijo();
         model.addAttribute("tipoAF", tipoAF);
         return "ActivoFijo/addTipoAF";
     }
-    
+
     @RequestMapping(value = "gdaAddTipoAF", method = RequestMethod.POST)
-    public String gdaAddTipoAF(Model model, @Valid TipoActivoFijo tipoAF, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+    public String gdaAddTipoAF(Model model, @Valid TipoActivoFijo tipoAF, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "ActivoFijo/alta";
-        }
-        else
-        {
+        } else {
             daoActivoFijo.create(tipoAF);
             return "ActivoFijo/gdaAddTipoAF";
         }
     }
-    
+
     @RequestMapping(value = "mActivoFijo", method = RequestMethod.GET)
     public String mActivoFijo(Model model) {
         return "ActivoFijo/mActivoFijo";
@@ -228,4 +230,18 @@ public class ActivoFijoController {
     public String gdaReporte(Model model) {
         return "ActivoFijo/gdaReporte";
     }
+
+    @RequestMapping(value = "activofijo/reporteinversion.pdf", method = RequestMethod.GET)
+    @ResponseBody
+    public String descargarReporteInv(Model model, HttpServletRequest request, HttpServletResponse response) {
+        PDFGeneratorActivosFijos pdfActivos = new PDFGeneratorActivosFijos();
+        try {
+            pdfActivos.crearPDFFactura(response);
+        } catch (Exception ex) {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "OK";
+    }
+
 }

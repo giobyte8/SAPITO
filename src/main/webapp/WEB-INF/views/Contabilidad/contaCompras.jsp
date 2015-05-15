@@ -48,7 +48,7 @@
                             </h1>                        
                         </div>
                     </div>
-                    <div class="panel panel-success">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <h3 class="panel-title">Compras</h3>
                         </div>
@@ -65,7 +65,6 @@
                                         </button>
                                     </span>
                                 </div>  
-                            
                             <label>Fin del Ejercicio</label>
                                <input type="date" class="form-control"/>  
                             </div>

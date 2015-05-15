@@ -7,87 +7,99 @@ package com.sapito.db.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.validator.constraints.Email;
 
 /**
  *
  * @author Jorge Muñoz
  */
 @Entity
-@Table(name = "empresa")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Empresa.findAll", query = "SELECT e FROM Empresa e")})
+@Table(name = "Empresa")
 public class Empresa implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
-    @Column(name = "idempresa")
-    private Integer idempresa;
-    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "rfc")
     private String rfc;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "calle")
     private String calle;
-    @Basic(optional = false)
+
     @NotNull
-    @Column(name = "capital")
-    private double capital;
+    @Size(min = 1, max = 45)
+    @Column(name = "pais")
+    private String pais;
+
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "estado")
+    private String estado;
+
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "municipio")
+    private String municipio;
+
     @Size(max = 45)
     @Column(name = "colonia")
     private String colonia;
+
     @Size(max = 45)
-    @Column(name = "numeroexterior")
-    private String numeroexterior;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresaIdempresa")
-    private Collection<Cuentabancaria> cuentabancariaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresaIdempresa")
-    private Collection<Departamento> departamentoCollection;
+    @Column(name = "numI")
+    private String numI;
 
-    public Empresa() {
+    @Size(max = 45)
+    @Column(name = "numE")
+    private String numE;
+
+    @Size(max = 45)
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Size(max = 45)
+    @Email(message = "Ingrese una dirección de email valida")
+    @Column(name = "email")
+    private String email;
+
+    @Size(max = 45)
+    @Column(name = "capitalInicial")
+    private double captalInicial;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
+    private Collection<CatalogoCuenta> catalogoCuenta;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
+    private Collection<CuentaBancaria> cuentaBancaria;
+
+    public Integer getId() {
+        return id;
     }
 
-    public Empresa(Integer idempresa) {
-        this.idempresa = idempresa;
-    }
-
-    public Empresa(Integer idempresa, String nombre, String rfc, String calle, double capital) {
-        this.idempresa = idempresa;
-        this.nombre = nombre;
-        this.rfc = rfc;
-        this.calle = calle;
-        this.capital = capital;
-    }
-
-    public Integer getIdempresa() {
-        return idempresa;
-    }
-
-    public void setIdempresa(Integer idempresa) {
-        this.idempresa = idempresa;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -114,12 +126,28 @@ public class Empresa implements Serializable {
         this.calle = calle;
     }
 
-    public double getCapital() {
-        return capital;
+    public String getPais() {
+        return pais;
     }
 
-    public void setCapital(double capital) {
-        this.capital = capital;
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 
     public String getColonia() {
@@ -130,13 +158,81 @@ public class Empresa implements Serializable {
         this.colonia = colonia;
     }
 
-    public String getNumeroexterior() {
-        return numeroexterior;
+    public String getNumI() {
+        return numI;
     }
 
-    public void setNumeroexterior(String numeroexterior) {
-        this.numeroexterior = numeroexterior;
+    public void setNumI(String numI) {
+        this.numI = numI;
     }
 
-    
+    public String getNumE() {
+        return numE;
+    }
+
+    public void setNumE(String numE) {
+        this.numE = numE;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getCaptalInicial() {
+        return captalInicial;
+    }
+
+    public void setCaptalInicial(double captalInicial) {
+        this.captalInicial = captalInicial;
+    }
+
+    public Collection<CatalogoCuenta> getCatalogoCuenta() {
+        return catalogoCuenta;
+    }
+
+    public void setCatalogoCuenta(Collection<CatalogoCuenta> catalogoCuenta) {
+        this.catalogoCuenta = catalogoCuenta;
+    }
+
+    public Collection<CuentaBancaria> getCuentabancaria() {
+        return cuentaBancaria;
+    }
+
+    public void setCuentabancaria(Collection<CuentaBancaria> cuentabancaria) {
+        this.cuentaBancaria = cuentabancaria;
+    }
+
+    public Empresa() {
+    }
+
+    public Empresa(Integer id, String nombre, String rfc, String calle, String pais, String estado, String municipio, String colonia, String numI, String numE, String telefono, String email, double captalInicial, Collection<CatalogoCuenta> catalogoCuenta, Collection<CuentaBancaria> cuentabancaria) {
+        this.id = id;
+        this.nombre = nombre;
+        this.rfc = rfc;
+        this.calle = calle;
+        this.pais = pais;
+        this.estado = estado;
+        this.municipio = municipio;
+        this.colonia = colonia;
+        this.numI = numI;
+        this.numE = numE;
+        this.telefono = telefono;
+        this.email = email;
+        this.captalInicial = captalInicial;
+        this.catalogoCuenta = catalogoCuenta;
+        this.cuentaBancaria = cuentabancaria;
+    }
+
 }

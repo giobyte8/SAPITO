@@ -48,7 +48,7 @@
                             </h1>                        
                         </div>
                     </div>
-                    <div class="panel panel-success">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <h3 class="panel-title">Ventas</h3>
                         </div>

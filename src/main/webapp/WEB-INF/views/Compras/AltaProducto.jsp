@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
-            <form onsubmit="return Confirmacion();">
+            <form:form id="nvo-producto" commandName="cliente" action="AltaProducto" method="POST"><
                 <div id="page-wrapper">
                     <div class="container-fluid">
 
@@ -51,20 +52,35 @@
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
-                                                            <label class="control-label">Nombre</label>
-                                                            <input pattern="[A-Za-z]*"  type="text" class="form-control" name="nombre" maxlength="50" required placeholder="Ingrese Nombre">
+                                                            
+                                                            <br/><label for="nvo-nombre" class="control-label">Nombre</label>
+                                                            <form:input path="nombreproducto" name="nombreproducto" type="text" class="form-control" 
+                                                                        id="NombreProducto" placeholder="Nombre" />
+                                                             <form:errors path="nombreproducto" element="div" class="alert-danger pad-10" />
+                                                             
                                                         </div>
                                                         <div class="form-group ">
-                                                            <label class="control-label">Descripción</label>
-                                                            <input type="text" class="form-control" maxlength="50" name="desc" required placeholder="Ingrese Descripción">
+                                                           <br/><label for="nvo-descripcion" class="control-label">Descripcion</label>
+                                                           <form:input path="descripcion" name="descripcion" type="text" class="form-control" 
+                                                                        id="Descripcion" placeholder="Descripcion" />
+                                                             <form:errors path="descripcion" element="div" class="alert-danger pad-10" />
+                                                           
                                                         </div>
                                                         <div class="form-group ">
-                                                            <label class="control-label">Marca</label>
-                                                            <input type="text" class="form-control" maxlength="10" name="marca" required placeholder="Ingrese Marca">
+                                                            <br/><label for="nvo-marca" class="control-label">Marca</label>
+                                                            <form:input path="marca" name="marca" type="text" class="form-control" 
+                                                                        id="Marca" placeholder="Marca" />
+                                                             <form:errors path="marca" element="div" class="alert-danger pad-10" />
+                                                            
                                                         </div>
                                                         <div class="form-group ">
-                                                            <label class="control-label">Categoría</label>
-
+                                                           <br/><label for="nvo-marca" class="control-label">Categoria</label>
+                                                           <form:select path="categoria" >
+                                                               
+                                                               <form:option value="NONE" label="---Seleccione Categoria--"/>
+                                                               <form:options items=""/>
+                                                              
+                                                           </form:select> 
                                                             <select class="form-control">
                                                                 <option>Activo Fijo</option>
                                                                 <option>Materia Prima</option>
@@ -127,7 +143,7 @@
                     </div><!-- Fin del tag del contenedor-->
                 </div>
                 <!-- /#page-wrapper -->
-            </form>
+            </form:form>
             
         </div>
         <!-- /#wrapper -->

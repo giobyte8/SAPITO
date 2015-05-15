@@ -6,6 +6,7 @@
 package com.sapito.db.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -21,8 +25,8 @@ import javax.validation.constraints.NotNull;
  * @author giovanni
  */
 @Entity
-@Table(name = "HISTORIAL")
-public class Historial implements Serializable
+@Table(name = "HISTORIAL_ACTIVOFIJO")
+public class HistorialActivoFijo implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -31,25 +35,24 @@ public class Historial implements Serializable
     private long id;
     
     @Column(name = "FECHA_MOVIMIENTO")
-    private String fechaMovimiento;
+    @Temporal(TemporalType.DATE)
+    private Date fechaMovimiento;
         
-    
-    
     
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */
 
 @JoinColumn(name = "ID_ACTIVO_FIJO")
 @ManyToOne
-private ActivoFijo activofijo;
+private ActivoFijo activoFijo;
 
-/*@JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
-@ManyToOne
+@JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
+@OneToOne
 private Empleado empleadoAnterior;
 
 @JoinColumn(name = "ID_EMPLEADO_ACTUAL")
-@ManyToOne
-private Empleado empleadoActual;*/
+@OneToOne
+private Empleado empleadoActual;
 
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -72,14 +75,14 @@ private Empleado empleadoActual;*/
     /**
      * @return the fechaMovimiento
      */
-    public String getFechaMovimiento() {
+    public Date getFechaMovimiento() {
         return fechaMovimiento;
     }
 
     /**
      * @param fechaMovimiento the fechaMovimiento to set
      */
-    public void setFechaMovimiento(String fechaMovimiento) {
+    public void setFechaMovimiento(Date fechaMovimiento) {
         this.fechaMovimiento = fechaMovimiento;
     }
 
@@ -87,43 +90,43 @@ private Empleado empleadoActual;*/
      * @return the activofijo
      */
     public ActivoFijo getActivofijo() {
-        return activofijo;
+        return activoFijo;
     }
 
     /**
-     * @param activofijo the activofijo to set
+     * @param activoFijo
      */
-    public void setActivofijo(ActivoFijo activofijo) {
-        this.activofijo = activofijo;
+    public void setActivofijo(ActivoFijo activoFijo) {
+        this.activoFijo = activoFijo;
     }
 
     /**
      * @return the empleadoAnterior
      */
-    /*public Empleado getEmpleadoAnterior() {
+    public Empleado getEmpleadoAnterior() {
         return empleadoAnterior;
     }
 
     /**
      * @param empleadoAnterior the empleadoAnterior to set
      */
-    /*public void setEmpleadoAnterior(Empleado empleadoAnterior) {
+    public void setEmpleadoAnterior(Empleado empleadoAnterior) {
         this.empleadoAnterior = empleadoAnterior;
     }
 
     /**
      * @return the empleadoActual
      */
-    /*public Empleado getEmpleadoActual() {
+    public Empleado getEmpleadoActual() {
         return empleadoActual;
     }
 
     /**
      * @param empleadoActual the empleadoActual to set
      */
-    /*public void setEmpleadoActual(Empleado empleadoActual) {
+    public void setEmpleadoActual(Empleado empleadoActual) {
         this.empleadoActual = empleadoActual;
-    }*/
+    }
 
     
 }

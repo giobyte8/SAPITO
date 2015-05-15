@@ -189,7 +189,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Municipio</label>
-                                                    <form:input path="municipio" class="form-control"   onkeypress="return soloNumeros(event);" required="required"/>
+                                                    <form:input path="municipio" class="form-control"   onkeypress="return soloTexto(event);" required="required"/>
                                                 </div> 
                                             </div>
                                             <div class="col-lg-6 text-left">

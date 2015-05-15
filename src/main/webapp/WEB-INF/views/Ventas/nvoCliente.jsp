@@ -33,7 +33,7 @@
           <!-- Formulario de nuevo cliente -->
           <form:form id="fnvo-cliente" commandName="cliente" action="nvocliente" method="POST">
 
-              <div class="panel panel-success">
+              <div class="panel panel-green">
                 <div class="panel-heading">
                   <h4>Datos de la empresa</h4>
                 </div>
@@ -119,7 +119,7 @@
               </div>
 
               <br/><br/>
-              <div class="panel panel-success">
+              <div class="panel panel-green">
                 <div class="panel-heading">
                   <h4>Datos del contacto</h4>
                 </div>

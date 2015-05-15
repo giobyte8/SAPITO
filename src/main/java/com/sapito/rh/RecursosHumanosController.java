@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,6 +11,7 @@ import com.sapito.db.entities.Credencial;
 import com.sapito.db.entities.Departamento;
 import com.sapito.db.entities.Empleado;
 import com.sapito.db.entities.Puesto;
+import com.sapito.general.SHA1;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +58,6 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "recursoshumanos", method = RequestMethod.GET)
     public String indexAdministrador(Model model) {
-        List<Credencial> credenciales = daoCredencial.findAll();
 
         return "RH/indexAdministrador";
     }
@@ -69,16 +70,40 @@ public class RecursosHumanosController {
     @RequestMapping(value = "AdminEmpleados", method = RequestMethod.GET)
     public String AdminEmpleados(Model model) {
 
+        List<Departamento> departamento = daoDepartamento.findAll();
+        List<Puesto> puesto = daoPuesto.findAll();
+
+        model.addAttribute("Departamento", departamento);
+        model.addAttribute("puesto", puesto);
+        List<Empleado> empleados = daoEmpleado.findAll();
+        model.addAttribute("Empleado", new Empleado());
+        model.addAttribute("Empleados", empleados);
+
         return "RH/administrarEmpleados";
     }
-    
-      @RequestMapping(value = "newUser", method = RequestMethod.POST)
-    public String newUser(String puestoId,String departamentoId , Model model, Empleado empleado,BindingResult result) {
-          
-          
-          daoEmpleado.create(empleado);
-        
-          model.addAttribute("Empleado" , new Empleado());
+
+    @RequestMapping(value = "newUser", method = RequestMethod.POST)
+    public String newUser(String puestoId, String departamentoId, Model model, Empleado empleado, BindingResult result) {
+
+        List<Empleado> empleados = daoEmpleado.findAll();
+        System.out.println(empleados.size() + "Cantidad de empleados");
+        System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
+
+        int ultimo_empleado = empleados.get(empleados.size() - 1).getIdempleado();
+        System.out.println("ultimo_empeado" + ultimo_empleado);
+        empleado.setIdempleado(ultimo_empleado + 2);
+        daoEmpleado.create(empleado);
+        List<Credencial> credenciales = daoCredencial.findAll();
+        int ultima_credencial = credenciales.size() - 1;
+        Credencial credencial_empleado = new Credencial();
+        credencial_empleado.setIdcredencial(ultima_credencial + 2);
+        credencial_empleado.setUsuario(empleado.getEmail());
+        String passSHA1 = SHA1.getStringMessageDigest("newuser", SHA1.SHA1);
+        credencial_empleado.setContrasena(passSHA1);
+        credencial_empleado.setStatus((short) 1);
+        credencial_empleado.setEmpleadoIdempleado(empleado);
+        daoCredencial.create(credencial_empleado);
+        model.addAttribute("Empleado", new Empleado());
 
         return "RH/AltaEmpleado";
     }
@@ -92,7 +117,7 @@ public class RecursosHumanosController {
         model.addAttribute("puesto", puesto);
         Empleado empleado = new Empleado();
         model.addAttribute("Empleado", empleado);
-        
+
         return "RH/AltaEmpleado";
     }
 
@@ -102,8 +127,31 @@ public class RecursosHumanosController {
     }
 
     @RequestMapping(value = "updateEmpleado", method = RequestMethod.GET)
-    public String updateEmpleado(Model model) {
+    public String updateEmpleado(Model model, String id) {
+        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(id));
+        model.addAttribute("Empleado", empleado);
+
+        List<Departamento> departamento = daoDepartamento.findAll();
+        List<Puesto> puesto = daoPuesto.findAll();
+
+        model.addAttribute("Departamento", departamento);
+        model.addAttribute("puesto", puesto);
+
         return "RH/updateEmpleado";
+    }
+    
+      @RequestMapping(value = "editEmpleado", method = RequestMethod.GET)
+    public String editEmpleado(Model model, String id) {
+        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(id));
+        model.addAttribute("Empleado", empleado);
+
+        List<Departamento> departamento = daoDepartamento.findAll();
+        List<Puesto> puesto = daoPuesto.findAll();
+
+        model.addAttribute("Departamento", departamento);
+        model.addAttribute("puesto", puesto);
+
+        return "redirect:AdminEmpleados";
     }
 
     @RequestMapping(value = "HistorialEmpleado", method = RequestMethod.GET)
@@ -121,8 +169,25 @@ public class RecursosHumanosController {
         return "RH/AdmVacacionEmpleado";
     }
 
+    @RequestMapping(value = "facyAdminEmpleadosC", method = RequestMethod.GET)
+    public String facyAdminEmpleadosC(Model model, String id) {
+        System.out.println(id);
+        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(id));
+        System.out.println(empleado.getAmaterno());
+        System.out.println(empleado.getMunicipio());
+        System.out.println(empleado.getAmaterno());
+        model.addAttribute("idempleado", id);
+        model.addAttribute("Empleado", empleado);
+        return "RH/fancyAdminEmpleados";
+    }
+
     @RequestMapping(value = "adminEmpleadosOperativo", method = RequestMethod.GET)
     public String adminEmpleadosOperativo(Model model) {
+
+        List<Empleado> empleados = daoEmpleado.findAll();
+
+        model.addAttribute("Empleado", empleados);
+
         return "RH/administrarEmpleadosOperativo";
     }
 

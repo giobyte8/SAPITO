@@ -5,11 +5,18 @@
  */
 package com.sapito.compras;
 
+import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Proveedor;
 import com.sapito.ventas.*;
+import java.util.List;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -18,16 +25,66 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ComprasController {
 
+    private GenericDao<Proveedor> daoProveedor;
+
+    //Set
+
+    @Autowired
+    public void setDaoProveedor(GenericDao<Proveedor> daoProveedor) {
+        this.daoProveedor = daoProveedor;
+        daoProveedor.setClass(Proveedor.class);
+    }
+
+    //Alta Proveedor//
+    @RequestMapping(value = "compras/altaproveedor", method = RequestMethod.GET)
+    public String altaproveedor(Model model) {
+        Proveedor proveedor = new Proveedor();
+        proveedor.setStatus(true);
+
+        model.addAttribute("proveedor", proveedor);
+        return "Compras/altaproveedor";
+    }
+
+    @RequestMapping(value = "compras/altaproveedor", method = RequestMethod.POST)
+    public String regproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Compras/altaproveedor";
+        } else {
+            daoProveedor.create(proveedor);
+
+            List<Proveedor> proveedores = daoProveedor.findAll();
+            model.addAttribute("proveedores", proveedores);
+            return "Compras/consultaproveedor";
+        }
+    }
+    //Fin Proveedor//
+
+    //Consulta Proveedor//
+ 
+    @RequestMapping(value = "compras/consultaproveedor", method = RequestMethod.GET)
+    public String buscarProveedor(Model model) {
+        List<Proveedor> proveedor = daoProveedor.findAll();
+
+        if (proveedor != null && proveedor.size() > 0) 
+        {
+            model.addAttribute("proveedor",proveedor);
+            return "Compras/consultaproveedor";
+        } else 
+        {
+            return null;
+        }
+
+    }
+//Producto
+
     @RequestMapping(value = "compras", method = RequestMethod.GET)
     public String index(Model model) {
         return "Compras/indexcompras";
     }
 
-    @RequestMapping(value = "altaproveedor", method = RequestMethod.GET)
-    public String altaproveedor(Model model) {
-        return "Compras/altaproveedor";
-    }
-
+    //Orden de Compra 
     @RequestMapping(value = "confirmacionProducto", method = RequestMethod.GET)
     public String confirmacionProducto(Model model) {
         return "Compras/confirmacionProducto";
@@ -38,19 +95,25 @@ public class ComprasController {
         return "Compras/modificarproveedor";
     }
 
-    @RequestMapping(value = "consultaproveedor", method = RequestMethod.GET)
-    public String bajaproveedor(Model model) {
-        return "Compras/consultaproveedor";
-    }
+//    @RequestMapping(value = "compras/consultaproveedor", method = RequestMethod.GET)
+//    public String consultarproveedor(Model model) {
+//        return "Compras/consultaproveedor";
+//    }
 
-    @RequestMapping(value = "consulta1proveedor", method = RequestMethod.GET)
-    public String consultaproveedor(Model model) {
-        return "Compras/consulta1proveedor";
-    }
 
     @RequestMapping(value = "informacionproveedor", method = RequestMethod.GET)
     public String informacion1proveedor(Model model) {
         return "Compras/informacionproveedor";
+    }
+
+    @RequestMapping(value = "Consulta1Orden", method = RequestMethod.GET)
+    public String Consulta1Orden(Model model) {
+        return "Compras/Consulta1Orden";
+    }
+
+    @RequestMapping(value = "modificaOrden", method = RequestMethod.GET)
+    public String modificaOrden(Model model) {
+        return "Compras/modificaOrden";
     }
 
     @RequestMapping(value = "ordenCompra", method = RequestMethod.GET)

@@ -136,20 +136,10 @@
         <a href="/SAPITO/logistica/gastosenvio"><i class="fa fa-fw fa-usd"></i> Gastos de envio</a>
       </li>
       
-<!--      transporte-->
-      <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#transporte-subviews">
-          <i class="fa fa-fw fa-road"></i> Transporte <i class="fa fa-fw fa-caret-down"></i>
-        </a>
-        <ul id="transporte-subviews" class="collapse">
+<!--      transporte-->                      
           <li id="nb-nvnacional">
-            <a href="/SAPITO/logistica/empresanacional"><i class="fa fa-fw fa-lock"></i> Nacional</a>
-          </li>
-          <li id="nb-histextranjero">
-            <a href="/SAPITO/logistica/empresaextranjera"><i class="fa fa-fw fa-globe"></i> Extranjero</a>
-          </li>          
-        </ul>                            
-      </li>
+            <a href="/SAPITO/logistica/empresanacional"><i class="fa fa-fw fa-road"></i>Transporte</a>
+          </li>                                  
 <!--      fin transporte-->
       
     </ul>

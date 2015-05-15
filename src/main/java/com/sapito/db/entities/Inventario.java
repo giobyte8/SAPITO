@@ -13,8 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,7 +20,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -30,19 +30,13 @@ import javax.validation.constraints.Pattern;
  */
 @Entity
 @Table(name = "inventario")
-@NamedQueries(
-        {
-            @NamedQuery(name = "Inventario.findAll", query = "SELECT i FROM Inventario i"),
-            @NamedQuery(name = "Inventario.findByIdempleado", query = "SELECT i FROM Inventario i WHERE i.codigoInventario = :codigoInventario"),
-            @NamedQuery(name = "Inventario.findByNombre", query = "SELECT i FROM Inventario i WHERE i.nombre = :nombre")
-        })
 public class Inventario implements Serializable
 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "idinventario")
-    private Integer idinventario;
+    @Column(name = "id")
+    private Integer id;
 
     @Basic(optional = false)
     @NotNull
@@ -83,11 +77,13 @@ public class Inventario implements Serializable
     @Basic(optional = false)
     @NotNull
     @Column(name = "minimo")
+    @Min(1)
     private Integer minimo;
 
     @Basic(optional = false)
     @NotNull
     @Column(name = "maximo")
+    @Min(1)
     private Integer maximo;
 
     @Basic(optional = false)
@@ -101,43 +97,21 @@ public class Inventario implements Serializable
     @NotNull
     @Column(name = "fechaEntrada")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date fechaEntrada;
 
     @Basic(optional = false)
     @NotNull
     @Column(name = "fechaProduccion")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date fechaProduccion;
     
     @NotNull
-    @Column(name = "STATUS")
+    @Column(name = "status")
     private boolean status;
-
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoIdinventario")
-//    private Collection<ProductoAdquirido> productoadquiridoCollection;
-    public Inventario()
-    {
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
     
-    
-
-    public Integer getIdinventario()
-    {
-        return idinventario;
-    }
-
-    public void setIdinventario(Integer idinventario)
-    {
-        this.idinventario = idinventario;
-    }
+    public Inventario() { }
 
     public String getNombre()
     {
@@ -247,6 +221,26 @@ public class Inventario implements Serializable
     public void setPrecioUnitario(double precioUnitario)
     {
         this.precioUnitario = precioUnitario;
+    }
+
+    public Integer getId()
+    {
+        return id;
+    }
+
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
+
+    public boolean isStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(boolean status)
+    {
+        this.status = status;
     }
 
 }

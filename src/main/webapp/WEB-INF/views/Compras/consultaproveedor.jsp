@@ -1,30 +1,29 @@
 <%-- 
-    Document   : template1
-    Created on : 7/02/2015, 02:34:44 AM
+    Document   : consultaproveedor
+    Created on : 14/05/2015, 02:34:44 AM
     Author     : Monse
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+    
 
     <head>
+        <link href="${pageContext.request.contextPath}/resources/css/libs/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-            <%@include file="MenusCompras/Cabesa compras.jsp"%>
+        <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
         <title>SAPITO</title>
-
-         </head>
-
+    </head>
     <body>
 
         <div id="wrapper">
-
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
             <div id="page-wrapper">
@@ -37,95 +36,148 @@
                             </h1>                        
                         </div>
                     </div>        
+                    <!-- Data table -->
+                    <table id="tproveedores" class="table table-bordered table-hover 
+                           table-striped table-responsive" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Telefono</th>
+                                <th>Email</th>
+                                <th>Nombre del Contacto</th>
+                                <th>Telefono</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${proveedores}" var="proveedor">
+                                <tr>
+                                    <td>${proveedor.empresa}</td>
+                                    <td>${proveedor.telefono1}</td>
+                                    <td>${proveedor.email}</td>
+                                    <td>${proveedor.nombreContacto}</td>
+                                    <td>${proveedor.telefono2}</td>
+                                    <td>
+                                        <button class="btn btn-xs btn-success" type="button" 
+                                                data-toggle="modal" data-target="#cts-modal${proveedor.id}">
+                                            Detalles
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
 
-                    <div class="row">
-                        <div class="col-lg-12 text-left">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <br/>                            
-                                    <div class="panel panel-green">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title" >Proveedores Registrados </h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-lg-12 text-left">                                                                                        
-                                                    <div class="panel panel-default">
-                                                        <!-- <label class="control-label" >Id</label>
-                                                        <input type="text" class="form-control" placeholder=" "> -->
-
-                                                        <!--  <div class="panel-heading">........ </div> -->
-
-
-                                                        <table class="table table-bordered">
-                                                            <tr>
-                                                                <td><b>Id</b></td>
-                                                                <td><b><div align="center">Empresa</div></b></td>
-                                                                <td><b><div align="center">Contacto</div></b></td> 
-                                                                <td><b><div align="center">Telefono</div></b></td> 
-                                                                <td><b><div align="center">Correo</div></b></td> 
-                                                                <td><b><div align="center">RFC</div></b></td> 
-                                                            </tr>
-                                                            <tr>
-                                                                <td>150</td> 
-                                                                <td>Tambores y Mazas de Toluca</td> 
-                                                                <td>Josue Salvador</td> 
-                                                                <td>7223060631</td> 
-                                                                <td>facturasjosue@live.comm</td> 
-                                                                <td>TELJ92041719FQ0</td> 
-                                                                <td>  
-                                                                    <div align="center">
-                                                                        <div  class="btn-group">  
-                                                                            <a class="btn-group" href="consulta1proveedor">
-                                                                                &nbsp;Consulta 
-                                                                                <i class="fa fa-search " ></i>
-                                                                            </a>
-                                                                            <a class="btn-group" href="modificarproveedor">
-                                                                                &nbsp;Modificar 
-                                                                                <i class="fa fa-pencil-square-o " ></i>
-                                                                            </a>
-                                                                            <a class="btn-group" href="javascript:Eliminar()">
-                                                                                &nbsp;Eliminar 
-                                                                                <i class="fa fa-times"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td> 
-                                                            </tr>
-
-                                                        </table>
-                                                    </div> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>                                    
-                                    <!--                          Fin Codigo Para panel 5 o menos input -->
-                                </div>
-                                <!--                      Fin TODO aqui abajo-->
-                            </div>  
-                        </div>
-                    </div><!--Fin del tag de fila-->
                 </div><!-- Fin del tag del contenedor-->
             </div>
-            <!-- /#page-wrapper -->
         </div>
-        <!-- /#wrapper -->
-        <!-- jQuery -->
-        <script src="resources/js/libs/jquery.min.js"></script>
+        <!-- Modal dialog para detalles de clientes -->
+        <c:forEach items="${proveedores}" var="proveedor">
+            <div id="cts-modal${proveedor.id}" class="modal fade" tabindex="-1" role="dialog" 
+                 aria-labelledby="proveedor-modal-title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="resources/js/libs/bootstrap.min.js"></script>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Detalles de Proveedor</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Datos de la Empresa:</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br/><label>Empresa</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.empresa}"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <br/><label>País</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.pais}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br/><label>RFC</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.rfc}"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <br/><label>Calle</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.calle}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br/><label>Código Postal</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.cp}"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <br/><label>Colonia</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.colonia}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br/><label>Municipio</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.municipio}" />
+                                </div>
+                                <div class="col-md-6">
+                                    <br/><label>Estado</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.estado}" />
+                                </div>
+                            </div>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="resources/js/libs/metisMenu.min.js"></script>
+                            <br/><br/><h4>Datos de contacto:</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <br/><label>Nombre (s)</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.nombreContacto}" />
+                                </div>
+                                <div class="col-md-4">
+                                    <br/><label>Apellido paterno</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.apellidoPaternoContacto}" />
+                                </div>
+                                <div class="col-md-4">
+                                    <br/><label>Apellido materno</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.apellidoMaternoContacto}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <br/><label>Email</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.email}" />
+                                </div>
+                                <div class="col-md-4">
+                                    <br/><label>Teléfono</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.telefono1}" />
+                                </div>
+                                <div class="col-md-4">
+                                    <br/><label>Teléfono 2.</label>
+                                    <input type="text" class="form-control" readonly value="${proveedor.telefono2}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                Cerrar
+                            </button>
+                        </div>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="resources/js/libs/sb-admin-2.js"></script>
-        
-        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
-        
+                    </div>
+                </div>
+            </div>
+        </c:forEach>          
+       
+
         <%@include file="MenusCompras/Pie compras.jsp"%>
-
+        <script >
+            $(document).ready(function () {
+                $('#tproveedores').DataTable();
+            });
+        </script>
+        
+        <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
     </body>
 
 </html>

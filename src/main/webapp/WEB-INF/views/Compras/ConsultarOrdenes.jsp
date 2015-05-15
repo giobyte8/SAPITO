@@ -53,12 +53,11 @@
                                                             <tr>
 
                                                                 <td><b>Folio</b></td> 
-                                                                <td><b><div align="center">Proveedor</div></b></td> 
-                                                                <td><b><div align="center">Total de la solicitud</div></b></td> 
-                                                                <td><b><div align="center">Estado de Solicitud</div></b></td> 
-                                                                <td><b><div align="center">Fecha de Solicitud</div></b></td> 
-                                                                
-                                                                <td><b><div align="center">Movimientos</div></b></td>
+                                                                <td><div align="center">Proveedor</div></td> 
+                                                                <td><div align="center">Total de la solicitud</div></td> 
+                                                                <td><div align="center">Estado de Solicitud</div></td> 
+                                                                <td><div align="center">Fecha de Solicitud</div></td> 
+                                                                <td><div align="center">Movimientos</div></td>
 
                                                             </tr>
                                                             <tr>
@@ -70,19 +69,12 @@
                                                                 
                                                                 <td>  
                                                                     <div align="center">
-                                                                        <div  class="btn-group">  
-                                                                            <a class="btn-group" href="Consulta1Orden">
-                                                                                &nbsp;Consulta 
-                                                                                <i class="fa fa-search " ></i>
-                                                                            </a>
-                                                                            <a class="btn-group" href="modificaOrden">
-                                                                                &nbsp;Modificar 
-                                                                                <i class="fa fa-pencil-square-o " ></i>
-                                                                            </a>
-                                                                            <a class="btn-group" href="#">
-                                                                                &nbsp;Eliminar 
-                                                                                <i class="fa fa-times"></i>
-                                                                            </a>
+                                                                        <div  class="btn-group">                                                                             
+                                                                            
+                                                                            <a href="#"><i class="btn  btn-warning fa fa-user" data-toggle="modal" data-target="#consulta">Consultar</i></a>
+                                                                            <a href="modificaOrden"><i class="btn  btn-success fa fa-edit" data-toggle="modal">Editar</i></a>                                                                            
+                                                                            <a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#eliminar">Eliminar</i></a>
+                                                                            
                                                                         </div>
                                                                     </div>
                                                                 </td> 
@@ -112,6 +104,171 @@
             </div>
             <!-- /#page-wrapper -->
         </div>
+            
+            
+            
+            
+             <div class="modal fade" id="consulta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Orden de Compra</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <a href="modificaOrden" ><i class="btn  btn-warning fa fa-edit" data-toggle="modal" >  Editar</i></a>
+                                        <a href="#" ><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#eliminar">  Eliminar </i></a>
+                                        <div>
+                                        </div><!-- /col-sm-12 -->
+                                    </div><!-- /row -->
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <strong>Datos</strong> <span class="text-muted">:</span>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <table class="table table-striped">
+                                                        <tbody>
+                                                            
+                                                            <tr>
+                                                                <td>Nombre(s)</td>
+                                                                <td id="nombreProveedor">Fulanito345223</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Dirección</td>
+                                                                <td id="direccion">Toluca</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Teléfono</td>
+                                                                <td>7225508354</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>RFC</td>
+                                                                <td>CUPU800825569</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>E-mail</td>
+                                                                <td>tais1@hotmail.com</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Folio</td>
+                                                                <td>1</td>
+                                                            </tr>                                                            
+                                                            <tr>
+                                                                <td>Fecha creación</td>
+                                                                <td>01/ABR/2015</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Fecha entrega</td>
+                                                                <td>07/MAY/2015</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Estado</td>
+                                                                <td>Aprovada</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Total</td>
+                                                                <td>5000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Estado del pago</td>
+                                                                <td>Pagado</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div></div></div></div></div></div></div></div></div>
+            
+            
+                       <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Orden de Compra</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <h3>Orden de Compra que desea eliminar</h3>                                        
+                                        <div>
+                                        </div><!-- /col-sm-12 -->
+                                    </div><!-- /row -->
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <strong>Datos</strong> <span class="text-muted">:</span>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <table class="table table-striped">
+                                                        <tbody>
+                                                            
+                                                            <tr>
+                                                                <td>Nombre(s)</td>
+                                                                <td id="nombreProveedor">Fulanito345223</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Dirección</td>
+                                                                <td id="direccion">Toluca</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Teléfono</td>
+                                                                <td>7225508354</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>RFC</td>
+                                                                <td>CUPU800825569</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>E-mail</td>
+                                                                <td>tais1@hotmail.com</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Folio</td>
+                                                                <td>1</td>
+                                                            </tr>                                                            
+                                                            <tr>
+                                                                <td>Fecha creación</td>
+                                                                <td>01/ABR/2015</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Fecha entrega</td>
+                                                                <td>07/MAY/2015</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Estado</td>
+                                                                <td>Aprovada</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Total</td>
+                                                                <td>5000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Estado del pago</td>
+                                                                <td>Pagado</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div></div>
+                                    <div class="form-group">
+                                        <a onclick="window.location.reload()"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" >  Confirmar</i></a>
+                                        <a onclick="window.location.reload()" ><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#eliminar">  Cancelar </i></a>
+                                        <div>
+                                        </div><!-- /col-sm-12 -->
+                                    </div><!-- /row -->
+                                </div></div></div></div></div></div></div>
+            
         <!-- /#wrapper -->
         <!-- jQuery -->
         <script src="resources/js/libs/jquery.min.js"></script>
@@ -125,6 +282,10 @@
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
             <%@include file="MenusCompras/Pie compras.jsp"%>
+            
+            
+            
+            
 
     </body>
 

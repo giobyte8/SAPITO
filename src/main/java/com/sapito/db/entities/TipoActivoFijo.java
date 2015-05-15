@@ -5,19 +5,19 @@
  */
 package com.sapito.db.entities;
 
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -33,6 +33,7 @@ public class TipoActivoFijo implements Serializable
     @Column(name = "ID")
     private long id;
     
+    @Pattern(regexp = RExp.letrasAcentuadas, message = RExpErrors.letrasAcentuadas)
     @Column(name = "NOMBRE")
     private String nombre;
     
@@ -42,8 +43,8 @@ public class TipoActivoFijo implements Serializable
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
-@OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoactivofijo")
-private Collection<ActivoFijo> activofijo;
+@OneToOne(cascade = CascadeType.ALL, mappedBy = "tipoActivoFijo")
+private ActivoFijo activoFijo;
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -77,16 +78,17 @@ private Collection<ActivoFijo> activofijo;
     }
 
     /**
-     * @return the activofijo
+     * @return the activoFijo
      */
-    public Collection<ActivoFijo> getActivofijo() {
-        return activofijo;
+    public ActivoFijo getActivoFijo() {
+        return activoFijo;
     }
 
     /**
-     * @param activofijo the activofijo to set
+     * @param activoFijo the activoFijo to set
      */
-    public void setActivofijo(Collection<ActivoFijo> activofijo) {
-        this.activofijo = activofijo;
+    public void setActivoFijo(ActivoFijo activoFijo) {
+        this.activoFijo = activoFijo;
     }
+
 }
