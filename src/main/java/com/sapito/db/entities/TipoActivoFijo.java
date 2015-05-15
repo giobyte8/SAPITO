@@ -44,8 +44,8 @@ public class TipoActivoFijo implements Serializable
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
-@OneToOne(cascade = CascadeType.ALL, mappedBy = "tipoactivofijo")
-private Collection<ActivoFijo> activofijo;
+@OneToOne(cascade = CascadeType.ALL, mappedBy = "tipoActivoFijo")
+private Collection<ActivoFijo> activoFijo;
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -82,13 +82,13 @@ private Collection<ActivoFijo> activofijo;
      * @return the activofijo
      */
     public Collection<ActivoFijo> getActivofijo() {
-        return activofijo;
+        return activoFijo;
     }
 
     /**
      * @param activofijo the activofijo to set
      */
-    public void setActivofijo(Collection<ActivoFijo> activofijo) {
-        this.activofijo = activofijo;
+    public void setActivofijo(Collection<ActivoFijo> activoFijo) {
+        this.activoFijo = activoFijo;
     }
 }

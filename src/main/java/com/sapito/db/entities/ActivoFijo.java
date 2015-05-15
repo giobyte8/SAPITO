@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -56,12 +55,12 @@ public class ActivoFijo implements Serializable
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
-@OneToMany(cascade = CascadeType.ALL, mappedBy = "activofijo")
+@OneToMany(cascade = CascadeType.ALL, mappedBy = "activoFijo")
 private Collection<HistorialActivoFijo> historialTraslado;
 
 @JoinColumn(name = "ID_TIPO_ACTIVO_FIJO")
 @OneToOne
-private TipoActivoFijo tipoactivofijo;
+private TipoActivoFijo tipoActivoFijo;
 
 @JoinColumn(name = "ID_PRODUCTO")
 @OneToOne
@@ -160,14 +159,14 @@ private Producto producto;
      * @return the tipoactivofijo
      */
     public TipoActivoFijo getTipoactivofijo() {
-        return tipoactivofijo;
+        return tipoActivoFijo;
     }
 
     /**
      * @param tipoactivofijo the tipoactivofijo to set
      */
-    public void setTipoactivofijo(TipoActivoFijo tipoactivofijo) {
-        this.tipoactivofijo = tipoactivofijo;
+    public void setTipoactivofijo(TipoActivoFijo tipoActivoFijo) {
+        this.tipoActivoFijo = tipoActivoFijo;
     }
 
     /**

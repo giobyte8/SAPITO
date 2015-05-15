@@ -38,21 +38,19 @@ public class HistorialActivoFijo implements Serializable
     private Date fechaMovimiento;
         
     
-    
-    
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */
 
 @JoinColumn(name = "ID_ACTIVO_FIJO")
 @ManyToOne
-private ActivoFijo activofijo;
+private ActivoFijo activoFijo;
 
 /*@JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
-@ManyToOne
+@OneToOne
 private Empleado empleadoAnterior;
 
 @JoinColumn(name = "ID_EMPLEADO_ACTUAL")
-@ManyToOne
+@OneToOne
 private Empleado empleadoActual;*/
 
 
@@ -91,14 +89,14 @@ private Empleado empleadoActual;*/
      * @return the activofijo
      */
     public ActivoFijo getActivofijo() {
-        return activofijo;
+        return activoFijo;
     }
 
     /**
-     * @param activofijo the activofijo to set
+     * @param activoFijo
      */
-    public void setActivofijo(ActivoFijo activofijo) {
-        this.activofijo = activofijo;
+    public void setActivofijo(ActivoFijo activoFijo) {
+        this.activoFijo = activoFijo;
     }
 
     /**
