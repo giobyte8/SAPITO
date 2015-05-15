@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -19,8 +21,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -31,70 +35,63 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "cuentabancaria")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Cuentabancaria.findAll", query = "SELECT c FROM Cuentabancaria c")})
 public class Cuentabancaria implements Serializable {
-    private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
-    @Column(name = "idcuentabancaria")
-    private Integer idcuentabancaria;
-    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 18, max = 18, message = "Deben ser 18 digitos")
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "claveinterbancaria")
     private String claveinterbancaria;
-    @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 16, max = 16, message = "Deben ser 16 digitos")
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "clave")
     private String clave;
-    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nombrebanco")
     private String nombrebanco;
-    @Basic(optional = false)
     @NotNull
-    @Column(name = "saldo")
-    private double saldo;
-    @Basic(optional = false)
+    @Column(name = "deber")
+    private float deber;
     @NotNull
-    @Column(name = "tasainteres")
-    private double tasainteres;
-    @JoinColumn(name = "empresa_idempresa", referencedColumnName = "idempresa")
+    @Column(name = "haber")
+    private float haber;
+    @JoinColumn(name = "empresa")
     @ManyToOne(optional = false)
-    private Empresa empresaIdempresa;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cuentabancariaIdcuentabancaria")
-    private Collection<Departamento> departamentoCollection;
-
+    private Empresa empresa;
+    @OneToOne
+    @JoinColumn(name = "departamento")
+    private Departamento departamento;
     public Cuentabancaria() {
     }
 
-    public Cuentabancaria(Integer idcuentabancaria) {
-        this.idcuentabancaria = idcuentabancaria;
-    }
-
-    public Cuentabancaria(Integer idcuentabancaria, String claveinterbancaria, String clave, String nombrebanco, double saldo, double tasainteres) {
-        this.idcuentabancaria = idcuentabancaria;
+    public Cuentabancaria(Integer id, String claveinterbancaria, String clave, String nombrebanco, float deber, float haber, Empresa empresa, Departamento departamento) {
+        this.id = id;
         this.claveinterbancaria = claveinterbancaria;
         this.clave = clave;
         this.nombrebanco = nombrebanco;
-        this.saldo = saldo;
-        this.tasainteres = tasainteres;
+        this.deber = deber;
+        this.haber = haber;
+        this.empresa = empresa;
+        this.departamento = departamento;
     }
 
-    public Integer getIdcuentabancaria() {
-        return idcuentabancaria;
+    public Departamento getDepartamento() {
+        return departamento;
     }
 
-    public void setIdcuentabancaria(Integer idcuentabancaria) {
-        this.idcuentabancaria = idcuentabancaria;
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
 
+    public Cuentabancaria(Integer idcuentabancaria) {
+        this.id = idcuentabancaria;
+    }
     public String getClaveinterbancaria() {
         return claveinterbancaria;
     }
@@ -119,29 +116,45 @@ public class Cuentabancaria implements Serializable {
         this.nombrebanco = nombrebanco;
     }
 
-    public double getSaldo() {
-        return saldo;
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+    public void setEmpresa(Empresa empresaIdempresa) {
+        this.empresa = empresaIdempresa;
     }
 
-    public double getTasainteres() {
-        return tasainteres;
+    public Cuentabancaria(Integer id, String claveinterbancaria, String clave, String nombrebanco, float deber, float haber, Empresa empresa) {
+        this.id = id;
+        this.claveinterbancaria = claveinterbancaria;
+        this.clave = clave;
+        this.nombrebanco = nombrebanco;
+        this.deber = deber;
+        this.haber = haber;
+        this.empresa = empresa;
     }
 
-    public void setTasainteres(double tasainteres) {
-        this.tasainteres = tasainteres;
+    public Integer getId() {
+        return id;
     }
 
-    public Empresa getEmpresaIdempresa() {
-        return empresaIdempresa;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setEmpresaIdempresa(Empresa empresaIdempresa) {
-        this.empresaIdempresa = empresaIdempresa;
+    public float getDeber() {
+        return deber;
     }
 
+    public void setDeber(float deber) {
+        this.deber = deber;
+    }
 
+    public float getHaber() {
+        return haber;
+    }
+
+    public void setHaber(float haber) {
+        this.haber = haber;
+    }
 }

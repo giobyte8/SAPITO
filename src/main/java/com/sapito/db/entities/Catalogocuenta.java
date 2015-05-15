@@ -43,9 +43,9 @@ public class Catalogocuenta implements Serializable {
     @NotNull
     @Column(name = "nacional")
     private short nacional;
-    @JoinColumn(name = "empresa_idempresa", referencedColumnName = "idempresa")
+    @JoinColumn(name = "empresa")
     @ManyToOne(optional = false)
-    private Empresa empresaIdempresa;
+    private Empresa empresa;
 
     public Catalogocuenta() {
     }
