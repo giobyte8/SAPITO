@@ -8,14 +8,13 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -88,7 +87,7 @@ public class Proveedor implements Serializable {
     private String extension2;
 
     @NotNull
-    @Email(message = "Ingrese una direcciÃ³n de email valida")
+    @Email(message = "Ingrese una direccion de email valida")
     @Column(name = "EMAIL")
     private String email;
 
@@ -104,7 +103,7 @@ public class Proveedor implements Serializable {
     @Column(name = "APELLIDO_PATERNO")
     private String apellidoPaternoContacto;
 
-    @Size(min = 0, max = 100, message = "Debe tener un mÃ¡ximo de 100 caracteres")
+    @Size(min = 0, max = 100, message = "Debe tener un maximo de 100 caracteres")
     @Pattern(regexp = RExp.letrasAcentuadasPuntosOrNull, message = RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "APELLIDO_MATERNO")
     private String apellidoMaternoContacto;
