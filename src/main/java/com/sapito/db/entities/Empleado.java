@@ -257,7 +257,7 @@ public class Empleado implements Serializable {
     /**
      * @param empleadoActual the empleadoActual to set
      */
-    public void setEmpleadoActual(Collection<Historial> empleadoActual) {
+    public void setEmpleadoActual(Collection<HistorialActivoFijo> empleadoActual) {
         //      this.empleadoActual = empleadoActual;
     }
     
