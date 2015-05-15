@@ -32,7 +32,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.net.URL;
-import static javafx.scene.input.DataFormat.URL;
+//import static javafx.scene.input.DataFormat.URL;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.ImageIcon;
 

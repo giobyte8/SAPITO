@@ -43,10 +43,7 @@ public class GastosEnvio implements Serializable
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 /* *** *** *** ***  RELACIONES *** *** *** *** ***/
-<<<<<<< HEAD
-=======
-    
->>>>>>> origin/master
+
     
     @JoinColumn(name = "ID_CLIENTE")
     @ManyToOne
@@ -91,11 +88,9 @@ public class GastosEnvio implements Serializable
         this.casetas = casetas;
     }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> origin/master
+
     public boolean isStatus() 
     {
         return status;
