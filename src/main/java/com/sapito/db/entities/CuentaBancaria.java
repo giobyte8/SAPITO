@@ -48,7 +48,7 @@ public class CuentaBancaria implements Serializable {
     private String claveBanco;
 
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 60)
     @Column(name = "nombreBanco")
     private String nombreBanco;
 

@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -29,6 +32,12 @@ public class CatalogoCuenta implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idCatalogoCuenta")
     private Integer idCatalogoCuenta;
+    
+    @NotNull
+    @Size(min = 18, max = 18, message = "Deben ser 18 digitos")
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
+    @Column(name = "claveInterBancaria")
+    private String claveInterBancaria;
 
     @NotNull
     @Size(min = 1, max = 100)
@@ -37,15 +46,15 @@ public class CatalogoCuenta implements Serializable {
 
     @NotNull
     @Column(name = "deber")
-    private double deber;
+    private float deber;
 
     @NotNull
     @Column(name = "haber")
-    private double haber;
+    private float haber;
 
     @NotNull
     @Column(name = "nacional")
-    private short nacional;
+    private boolean nacional;
 
     @JoinColumn(name = "empresa")
     @ManyToOne(optional = false)
@@ -59,6 +68,14 @@ public class CatalogoCuenta implements Serializable {
         this.idCatalogoCuenta = idCatalogoCuenta;
     }
 
+    public String getClaveInterBancaria() {
+        return claveInterBancaria;
+    }
+
+    public void setClaveInterBancaria(String claveInterBancaria) {
+        this.claveInterBancaria = claveInterBancaria;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -67,27 +84,27 @@ public class CatalogoCuenta implements Serializable {
         this.nombre = nombre;
     }
 
-    public double getDeber() {
+    public float getDeber() {
         return deber;
     }
 
-    public void setDeber(double deber) {
+    public void setDeber(float deber) {
         this.deber = deber;
     }
 
-    public double getHaber() {
+    public float getHaber() {
         return haber;
     }
 
-    public void setHaber(double haber) {
+    public void setHaber(float haber) {
         this.haber = haber;
     }
 
-    public short getNacional() {
+    public boolean getNacional() {
         return nacional;
     }
 
-    public void setNacional(short nacional) {
+    public void setNacional(boolean nacional) {
         this.nacional = nacional;
     }
 
@@ -102,7 +119,7 @@ public class CatalogoCuenta implements Serializable {
     public CatalogoCuenta() {
     }
 
-    public CatalogoCuenta(Integer idCatalogoCuenta, String nombre, double deber, double haber, short nacional, Empresa empresa) {
+    public CatalogoCuenta(Integer idCatalogoCuenta, String nombre, float deber, float haber, boolean nacional, Empresa empresa) {
         this.idCatalogoCuenta = idCatalogoCuenta;
         this.nombre = nombre;
         this.deber = deber;
