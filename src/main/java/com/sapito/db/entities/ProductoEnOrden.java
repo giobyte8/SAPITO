@@ -46,7 +46,7 @@ public class ProductoEnOrden implements Serializable {
     private OrdenCompra ordenCompra;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoComprado")
-    private Collection<ProducoProveedor> productoOrdenProveedor;
+    private Collection<ProductoProveedor> productoOrdenProveedor;
 
     public Long getId() {
         return id;

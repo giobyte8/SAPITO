@@ -29,9 +29,8 @@
     </head>
 
     <body>
-
+        <%@include file="Menu/menuOperacionesJefeO.jsp"%>
         <div id="wrapper">           
-            <%@include file="Menu/menuOperacionesJefeO.jsp"%>
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="row-fluid">
@@ -49,7 +48,7 @@
                                 <div class="col-lg-6 text-left">
                                     <div class="form-group">
                                         <label>Nombre </label>
-                                        <input class="form-control" placeholder="Nombre" onkeypress="return soloNumeros()(event);"  maxlength="30" required>
+                                        <input class="form-control" placeholder="Nombre" onkeypress="return soloNumeros()(event);"  maxlength="30" required="required">
                                     </div>
                                     <div class="form-group">
                                         <label>Tiempo</label>
@@ -63,7 +62,7 @@
                                 <div class="col-lg-6 text-left">
                                     <div class="form-group">     
                                         <div class="form-group">
-                                               <label>Linea de produccion</label>
+                                            <label>Linea de produccion</label>
                                             <div class="form-group input-group">
                                                 <select path="estado" id="etados" class="form-control selectpicker show-tick show-menu-arrow" data-size="6">
                                                     <!--<option value="0" label="Seleccione uno" />-->
@@ -100,6 +99,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
-
+        
+        <script src="${pageContext.request.contextPath}/resources/js/operaciones/jsoperaciones.js"></script>
     </body>
 </html>

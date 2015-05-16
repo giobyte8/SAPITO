@@ -1,5 +1,5 @@
 Created on : 6/05/2015, 04:59:24 PM
-    Author     : zgm_e_000
+Author     : zgm_e_000
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -36,122 +36,122 @@ Created on : 6/05/2015, 04:59:24 PM
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="row">
-                      <div class="col-lg-12">
-              <h1 class="page-header">
-                Lineas Registradas
-              </h1>
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Lineas Registradas
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Data table -->
+                <table id="tvendedores" class="table table-bordered table-hover 
+                       table-striped table-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Produccion</th>
+                            <th>Status</th>
+                            <th>Tiempo</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach begin="1" end="20" varStatus="loop">
+                        <tr>
+                            <td>Some data</td>
+                            <td>Some data</td>
+                            <td>Some data</td>
+                            <td>Some data</td>
+                            <td>
+                                <button class="btn btn-xs btn-success" type="button" 
+                                        data-toggle="modal" data-target="#vendedores-modal">
+                                    Detalles
+                                </button>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
             </div>
-          </div>
-
-          <!-- Data table -->
-          <table id="tvendedores" class="table table-bordered table-hover 
-                 table-striped table-responsive" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th>Produccion</th>
-                <th>Status</th>
-                <th>Tiempo</th>
-                <th>Detalles</th>
-              </tr>
-            </thead>
-            <tbody>
-              <c:forEach begin="1" end="20" varStatus="loop">
-                  <tr>
-                    <td>Some data</td>
-                    <td>Some data</td>
-                    <td>Some data</td>
-                    <td>Some data</td>
-                    <td>
-                      <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#vendedores-modal">
-                        Detalles
-                      </button>
-                    </td>
-                  </tr>
-              </c:forEach>
-            </tbody>
-          </table>
-
         </div>
-      </div>
     </div>
 
     <!-- Modal dialog para detalles de vendedores -->
     <div id="vendedores-modal" class="modal fade" tabindex="-1" role="dialog" 
          aria-labelledby="vendedor-modal-title" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" id="vendedor-modal-title">&times;</span>
-            </button>
-            <h4 class="modal-title">Detalles de vendedor</h4>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-4">
-                <br/><label>Nombre (s)</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-4">
-                <br/><label>Apellido paterno</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-4">
-                <br/><label>Apellido materno</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <br/><label>Email</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-4">
-                <br/><label>Teléfono</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-              <div class="col-md-4">
-                <br/><label>Monto vendido hoy:</label>
-                <input type="text" class="form-control" readonly/>
-              </div>
-            </div>
-            <div class="rw">
-              <br/><h4>Ultimos periodos de venta:</h4>
-              <table id="tvendedores" class="table table-bordered table-hover 
-                     table-striped table-responsive" cellspacing="0" width="80%">
-                <thead>
-                  <tr>
-                    <th>Periodo</th>
-                    <th>Monto vendido ($)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>&nbsp; ** &nbsp;</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp; ** &nbsp;</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp; ** &nbsp;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">
-              Cerrar
-            </button>
-          </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" id="vendedor-modal-title">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Detalles de vendedor</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <br/><label>Nombre (s)</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div class="col-md-4">
+                            <br/><label>Apellido paterno</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div class="col-md-4">
+                            <br/><label>Apellido materno</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <br/><label>Email</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div class="col-md-4">
+                            <br/><label>Teléfono</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                        <div class="col-md-4">
+                            <br/><label>Monto vendido hoy:</label>
+                            <input type="text" class="form-control" readonly/>
+                        </div>
+                    </div>
+                    <div class="rw">
+                        <br/><h4>Ultimos periodos de venta:</h4>
+                        <table id="tvendedores" class="table table-bordered table-hover 
+                               table-striped table-responsive" cellspacing="0" width="80%">
+                            <thead>
+                                <tr>
+                                    <th>Periodo</th>
+                                    <th>Monto vendido ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>&nbsp; ** &nbsp;</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp; ** &nbsp;</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp; ** &nbsp;</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        Cerrar
+                    </button>
+                </div>
 
+            </div>
         </div>
-      </div>
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->

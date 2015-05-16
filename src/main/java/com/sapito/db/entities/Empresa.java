@@ -34,59 +34,64 @@ public class Empresa implements Serializable {
     private Integer id;
 
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 60)
     @Column(name = "nombre")
     private String nombre;
 
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 13)
     @Column(name = "rfc")
     private String rfc;
 
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 60)
     @Column(name = "calle")
     private String calle;
 
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 60)
     @Column(name = "pais")
     private String pais;
 
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 60)
     @Column(name = "estado")
     private String estado;
 
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 60)
     @Column(name = "municipio")
     private String municipio;
 
-    @Size(max = 45)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Column(name = "colonia")
     private String colonia;
 
-    @Size(max = 45)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Column(name = "numI")
     private String numI;
 
-    @Size(max = 45)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Column(name = "numE")
     private String numE;
 
-    @Size(max = 45)
+    @NotNull
+    @Size(min = 10, max =12 )
     @Column(name = "telefono")
     private String telefono;
 
-    @Size(max = 45)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Email(message = "Ingrese una dirección de email valida")
     @Column(name = "email")
     private String email;
-
-    @Size(max = 45)
+    
+    @NotNull
     @Column(name = "capitalInicial")
-    private double captalInicial;
+    private float captalInicial;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
     private Collection<CatalogoCuenta> catalogoCuenta;
@@ -190,11 +195,11 @@ public class Empresa implements Serializable {
         this.email = email;
     }
 
-    public double getCaptalInicial() {
+    public float getCaptalInicial() {
         return captalInicial;
     }
 
-    public void setCaptalInicial(double captalInicial) {
+    public void setCaptalInicial(float captalInicial) {
         this.captalInicial = captalInicial;
     }
 
@@ -217,7 +222,7 @@ public class Empresa implements Serializable {
     public Empresa() {
     }
 
-    public Empresa(Integer id, String nombre, String rfc, String calle, String pais, String estado, String municipio, String colonia, String numI, String numE, String telefono, String email, double captalInicial, Collection<CatalogoCuenta> catalogoCuenta, Collection<CuentaBancaria> cuentabancaria) {
+    public Empresa(Integer id, String nombre, String rfc, String calle, String pais, String estado, String municipio, String colonia, String numI, String numE, String telefono, String email, float captalInicial, Collection<CatalogoCuenta> catalogoCuenta, Collection<CuentaBancaria> cuentabancaria) {
         this.id = id;
         this.nombre = nombre;
         this.rfc = rfc;

@@ -13,12 +13,13 @@ function Confirmacion() {
     {
 // si pulsamos en aceptar
         alert('Datos Ingresados Correctamente');
-        window.location.href="consultaproveedor";
+        window.location.href = "consultaproveedor";
     }
     else
 // si pulsamos en cancelar
         alert('Registro Cancelado');
-} 
+    window.location.href = "consultaproveedor";
+}
 
 function Eliminar() {
     confirmar = confirm("¿Desea eliminar el registro?");
