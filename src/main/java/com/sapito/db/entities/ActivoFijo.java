@@ -15,13 +15,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -39,7 +40,8 @@ public class ActivoFijo implements Serializable
     
     @Column(name = "FECHA_ADQUISICION")
     @Temporal(TemporalType.DATE)
-    private Date fechaAdquisicion;  
+    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    private Date fechaAdquisicion;
     
     @Column(name = "TIPO_DEPRECIACION")
     private String tipoDepreciacion;
@@ -49,7 +51,7 @@ public class ActivoFijo implements Serializable
     private int anosVidaUtil;
     
     @Column(name = "STATUS")
-    private boolean status;
+    private String status;
     
     
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -59,12 +61,13 @@ public class ActivoFijo implements Serializable
 private Collection<HistorialActivoFijo> historialTraslado;
 
 @JoinColumn(name = "ID_TIPO_ACTIVO_FIJO")
-@OneToOne
+@ManyToOne
 private TipoActivoFijo tipoActivoFijo;
 
 @JoinColumn(name = "ID_PRODUCTO")
-@OneToOne
+@ManyToOne
 private Producto producto;
+
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -128,14 +131,14 @@ private Producto producto;
     /**
      * @return the status
      */
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -163,11 +166,25 @@ private Producto producto;
     }
 
     /**
-     * @param tipoactivofijo the tipoactivofijo to set
+     * @param tipoActivoFijo the tipoactivofijo to set
      */
     public void setTipoactivofijo(TipoActivoFijo tipoActivoFijo) {
         this.tipoActivoFijo = tipoActivoFijo;
     }
+
+//    /**
+//     * @return the producto
+//     */
+//    public Producto getProducto() {
+//        return producto;
+//    }
+//
+//    /**
+//     * @param producto the producto to set
+//     */
+//    public void setProducto(Producto producto) {
+//        this.producto = producto;
+//    }
 
     /**
      * @return the producto

@@ -134,10 +134,10 @@
         </a>
         <ul id="clientes-submenus" class="collapse">
           <li id="nb-nvocliente">
-            <a href="/SAPITO/ventas/nvocliente"><i class="fa fa-fw fa-file-text"></i> Nuevo cliente</a>
+            <a href="/SAPITO/ventas/nvocliente"> Nuevo cliente</a>
           </li>
           <li id="nb-lista-clientes">
-            <a href="/SAPITO/ventas/clientes"><i class="fa fa-fw fa-list"></i> Lista de clientes</a>
+            <a href="/SAPITO/ventas/clientes"> Lista de clientes</a>
           </li>
         </ul>
       </li>
@@ -150,25 +150,25 @@
         </a>
         <ul id="ventas-subviews" class="collapse">
           <li id="nb-nvaorden">
-            <a href="/SAPITO/ventas/nvaorden"><i class="fa fa-fw fa-file-text"></i> Nueva orden de venta</a>
+            <a href="/SAPITO/ventas/nvaorden"> Nueva orden de venta</a>
           </li>
           <li id="nb-histventas">
-            <a href="/SAPITO/ventas/historial"><i class="fa fa-fw fa-line-chart"></i> Historial de ventas</a>
+            <a href="/SAPITO/ventas/historial"> Historial de ventas</a>
           </li>
           <!--li id="nb-ordenesp">
             <a href="/SAPITO/ventas/ordenes"><i class="fa fa-fw fa-truck"></i> Ordenes en producción</a>
           </li-->
           <li id="nb-facturas">
-            <a href="/SAPITO/ventas/facturas"><i class="fa fa-fw fa-bank"></i> Facturas </a>
+            <a href="/SAPITO/ventas/facturas">Facturas </a>
           </li>
           <!--li id="nb-ofertas">
             <a href="/SAPITO/ventas/ofertas"><i class="fa fa-fw fa-tags"></i> Ofertas </a>
           </li-->
           <li id="nb-devoluciones">
-            <a href="/SAPITO/ventas/devoluciones"><i class="fa fa-fw fa-cubes"></i> Devoluciones</a>
+            <a href="/SAPITO/ventas/devoluciones"> Devoluciones</a>
           </li>
           <li id="nb-cambios">
-            <a href="/SAPITO/ventas/cambios"><i class="fa fa-fw fa-exchange"></i> Cambios</a>
+            <a href="/SAPITO/ventas/cambios"> Cambios</a>
           </li>
         </ul>
       </li>

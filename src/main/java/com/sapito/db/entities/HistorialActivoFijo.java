@@ -47,12 +47,12 @@ public class HistorialActivoFijo implements Serializable
 private ActivoFijo activoFijo;
 
 @JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
-@OneToOne
-private Empleado empleadoAnterior;
+@ManyToOne
+private Empleado nombreref;
 
 @JoinColumn(name = "ID_EMPLEADO_ACTUAL")
-@OneToOne
-private Empleado empleadoActual;
+@ManyToOne
+private Empleado nombreref2;
 
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -71,7 +71,7 @@ private Empleado empleadoActual;
     public void setId(long id) {
         this.id = id;
     }
-
+    
     /**
      * @return the fechaMovimiento
      */
@@ -90,42 +90,102 @@ private Empleado empleadoActual;
      * @return the activofijo
      */
     public ActivoFijo getActivofijo() {
-        return activoFijo;
+        return getActivoFijo();
     }
 
     /**
      * @param activoFijo
      */
     public void setActivofijo(ActivoFijo activoFijo) {
+        this.setActivoFijo(activoFijo);
+    }
+
+//    /**
+//     * @return the empleadoAnterior
+//     */
+//    public Empleado2 getEmpleadoAnterior() {
+//        return empleadoAnterior;
+//    }
+//
+//    /**
+//     * @param empleadoAnterior the empleadoAnterior to set
+//     */
+//    public void setEmpleadoAnterior(Empleado2 empleadoAnterior) {
+//        this.empleadoAnterior = empleadoAnterior;
+//    }
+//
+//    /**
+//     * @return the empleadoActual
+//     */
+//    public Empleado2 getEmpleadoActual() {
+//        return empleadoActual;
+//    }
+//
+//    /**
+//     * @param empleadoActual the empleadoActual to set
+//     */
+//    public void setEmpleadoActual(Empleado2 empleadoActual) {
+//        this.empleadoActual = empleadoActual;
+//    }
+
+    
+
+//    /**
+//     * @return the empleadoAnterior
+//     */
+//    public Empleado getEmpleadoAnterior() {
+//        return empleadoAnterior;
+//    }
+//
+//    /**
+//     * @param empleadoAnterior the empleadoAnterior to set
+//     */
+//    public void setEmpleadoAnterior(Empleado empleadoAnterior) {
+//        this.empleadoAnterior = empleadoAnterior;
+//    }
+//
+//    /**
+//     * @return the empleadoActual
+//     */
+//    public Empleado getEmpleadoActual() {
+//        return empleadoActual;
+//    }
+//
+//    /**
+//     * @param empleadoActual the empleadoActual to set
+//     */
+//    public void setEmpleadoActual(Empleado empleadoActual) {
+//        this.empleadoActual = empleadoActual;
+//    }
+
+    public ActivoFijo getActivoFijo()
+    {
+        return activoFijo;
+    }
+
+    public void setActivoFijo(ActivoFijo activoFijo)
+    {
         this.activoFijo = activoFijo;
     }
 
-    /**
-     * @return the empleadoAnterior
-     */
-    public Empleado getEmpleadoAnterior() {
-        return empleadoAnterior;
+    public Empleado getNombreref()
+    {
+        return nombreref;
     }
 
-    /**
-     * @param empleadoAnterior the empleadoAnterior to set
-     */
-    public void setEmpleadoAnterior(Empleado empleadoAnterior) {
-        this.empleadoAnterior = empleadoAnterior;
+    public void setNombreref(Empleado nombreref)
+    {
+        this.nombreref = nombreref;
     }
 
-    /**
-     * @return the empleadoActual
-     */
-    public Empleado getEmpleadoActual() {
-        return empleadoActual;
+    public Empleado getNombreref2()
+    {
+        return nombreref2;
     }
 
-    /**
-     * @param empleadoActual the empleadoActual to set
-     */
-    public void setEmpleadoActual(Empleado empleadoActual) {
-        this.empleadoActual = empleadoActual;
+    public void setNombreref2(Empleado nombreref2)
+    {
+        this.nombreref2 = nombreref2;
     }
 
     

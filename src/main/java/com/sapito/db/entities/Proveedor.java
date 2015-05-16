@@ -120,7 +120,7 @@ public class Proveedor implements Serializable {
     private boolean status;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
-    private Collection<ProducoProveedor> proveedorproducto;
+    private Collection<ProductoProveedor> proveedorproducto;
 
     /**
      * @return the empresa
@@ -350,14 +350,14 @@ public class Proveedor implements Serializable {
     /**
      * @return the proveedorproducto
      */
-    public Collection<ProducoProveedor> getProveedorproducto() {
+    public Collection<ProductoProveedor> getProveedorproducto() {
         return proveedorproducto;
     }
 
     /**
      * @param proveedorproducto the proveedorproducto to set
      */
-    public void setProveedorproducto(Collection<ProducoProveedor> proveedorproducto) {
+    public void setProveedorproducto(Collection<ProductoProveedor> proveedorproducto) {
         this.proveedorproducto = proveedorproducto;
     }
 

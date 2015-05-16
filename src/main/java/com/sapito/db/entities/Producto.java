@@ -43,14 +43,6 @@ public class Producto implements Serializable {
     @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
     private String nombreProducto;
 
-    public String getNombreproducto() {
-        return nombreProducto;
-    }
-
-    public void setNombreproducto(String nombreproducto) {
-        this.nombreProducto = nombreproducto;
-    }
-    
     @NotNull
     @Column(name = "Descripcion")
     @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
@@ -69,55 +61,108 @@ public class Producto implements Serializable {
     private String categoria;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-    private Collection<ProducoProveedor> productoProveedor;
+    private Collection<ProductoProveedor> productoProveedor;
     
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+    private Collection<ActivoFijo> productoRef;
 
+    /**
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * @return the nombreProducto
+     */
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    /**
+     * @param nombreProducto the nombreProducto to set
+     */
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    /**
+     * @return the descripcion
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * @param descripcion the descripcion to set
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * @return the marca
+     */
     public String getMarca() {
         return marca;
     }
 
+    /**
+     * @param marca the marca to set
+     */
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+    /**
+     * @return the categoria
+     */
     public String getCategoria() {
         return categoria;
     }
 
+    /**
+     * @param categoria the categoria to set
+     */
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
     /**
-     * @return the productoproveedor
+     * @return the productoProveedor
      */
-    public Collection<ProducoProveedor> getProductoproveedor() {
+    public Collection<ProductoProveedor> getProductoProveedor() {
         return productoProveedor;
     }
 
     /**
-     * @param productoproveedor the productoproveedor to set
+     * @param productoProveedor the productoProveedor to set
      */
-    public void setProductoproveedor(Collection<ProducoProveedor> productoproveedor) {
-        this.productoProveedor = productoproveedor;
+    public void setProductoProveedor(Collection<ProductoProveedor> productoProveedor) {
+        this.productoProveedor = productoProveedor;
     }
 
-    
+    /**
+     * @return the productoRef
+     */
+    public Collection<ActivoFijo> getProductoRef() {
+        return productoRef;
+    }
+
+    /**
+     * @param productoRef the productoRef to set
+     */
+    public void setProductoRef(Collection<ActivoFijo> productoRef) {
+        this.productoRef = productoRef;
+    }
+
 }

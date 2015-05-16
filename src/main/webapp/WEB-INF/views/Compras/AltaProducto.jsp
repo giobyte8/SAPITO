@@ -25,7 +25,7 @@
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
             <!-- Page Content -->
-            <form:form id="nvo-producto" commandName="cliente" action="AltaProducto" method="POST"><
+            <form:form id="nvo-producto" commandName="producto" action="AltaProducto" method="POST"><
                 <div id="page-wrapper">
                     <div class="container-fluid">
 
@@ -33,9 +33,9 @@
                             <div class="col-lg-12">
                                 <h1 class="page-header">
                                     Alta Producto
-                                </h1>                        
+                                </h1>                    
                             </div>
-                        </div>        
+                        </div>
 
                         <div class="row">
                             <div class="col-lg-12 text-left">
@@ -52,40 +52,32 @@
                                                     <div class="col-lg-6 text-left">
                                                         <!-- inputs/!-->
                                                         <div class="form-group ">
-                                                            
+
                                                             <br/><label for="nvo-nombre" class="control-label">Nombre</label>
-                                                            <form:input path="nombreproducto" name="nombreproducto" type="text" class="form-control" 
-                                                                        id="NombreProducto" placeholder="Nombre" />
-                                                             <form:errors path="nombreproducto" element="div" class="alert-danger pad-10" />
-                                                             
+                                                            <form:input path="nombreProducto" name="nombreProducto" type="text" class="form-control" 
+                                                                        id="nvo-nombre" placeholder="Nombre" />
+                                                            <form:errors path="nombreProducto" element="div" class="alert-danger pad-10" />
+
                                                         </div>
                                                         <div class="form-group ">
-                                                           <br/><label for="nvo-descripcion" class="control-label">Descripcion</label>
-                                                           <form:input path="descripcion" name="descripcion" type="text" class="form-control" 
-                                                                        id="Descripcion" placeholder="Descripcion" />
-                                                             <form:errors path="descripcion" element="div" class="alert-danger pad-10" />
-                                                           
+                                                            <br/><label for="nvo-descripcion" class="control-label">Descripcion</label>
+                                                            <form:input path="descripcion" name="descripcion" type="text" class="form-control" 
+                                                                        id="nvo-descripcion" placeholder="Descripcion" />
+                                                            <form:errors path="descripcion" element="div" class="alert-danger pad-10" />
+
                                                         </div>
                                                         <div class="form-group ">
                                                             <br/><label for="nvo-marca" class="control-label">Marca</label>
                                                             <form:input path="marca" name="marca" type="text" class="form-control" 
-                                                                        id="Marca" placeholder="Marca" />
-                                                             <form:errors path="marca" element="div" class="alert-danger pad-10" />
-                                                            
+                                                                        id="nvo-marca" placeholder="Marca" />
+                                                            <form:errors path="marca" element="div" class="alert-danger pad-10" />
+
                                                         </div>
                                                         <div class="form-group ">
-                                                           <br/><label for="nvo-marca" class="control-label">Categoria</label>
-                                                           <form:select path="categoria" >
-                                                               
-                                                               <form:option value="NONE" label="---Seleccione Categoria--"/>
-                                                               <form:options items=""/>
-                                                              
-                                                           </form:select> 
-                                                            <select class="form-control">
-                                                                <option>Activo Fijo</option>
-                                                                <option>Materia Prima</option>
 
-                                                            </select>
+                                                            <br/><label for="nvo-categoria" class="control-label">Categoria</label>
+                                                            <form:select id="nvo-categoria" path="categoria" items="${selectCategoria}">
+                                                            </form:select> 
                                                         </div>  
 
 
@@ -96,35 +88,7 @@
                                                         <!-- inputs/!-->
 
 
-                                                        <div class="form-group">
-                                                            <label class="control-label" >Unidad</label>
-                                                            <select class="form-control">
-                                                                <option>Pieza</option>
-                                                                <option>Caja</option>
-                                                                <option>Lote</option>
-
-                                                            </select>
-
-                                                        </div>    
-
-
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Costo</label>
-                                                            <input type="text" class="form-control" pattern="[0-9]{10}" maxlength="10" required placeholder="Ingrese Costo">
-                                                        </div>
-
-
-
-
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Proveedor</label>
-                                                            <select class="form-control">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-
-                                                            </select>
-                                                        </div>
+                                                         
 
                                                     </div>
                                                 </div>     
@@ -133,9 +97,9 @@
                                         </div>
                                         <div class="row">
                                             <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
-                                            
+
                                         </div> 
-                                        
+
                                     </div>                        
                                 </div>  
                             </div>
@@ -144,7 +108,7 @@
                 </div>
                 <!-- /#page-wrapper -->
             </form:form>
-            
+
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->
@@ -164,6 +128,3 @@
     </body>
 
 </html>
-
-
-

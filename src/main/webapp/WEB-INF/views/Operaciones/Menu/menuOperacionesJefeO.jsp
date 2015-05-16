@@ -20,12 +20,16 @@
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
         <!-- Messages -->
-        <!--<li class="dropdown">-->
-        <!--     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>-->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
 
         </li>
 
         <!-- Alerts -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+
+        </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
@@ -136,7 +140,7 @@
             </li>
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#produccion-submenus">
-                    <i class="fa fa-fw fa-cogs"></i> Ordenes de Trabajo <i class="fa fa-fw fa-caret-down"></i>
+                    <i class="fa fa-fw fa-folder-open"></i> Ordenes de Trabajo <i class="fa fa-fw fa-caret-down"></i>
                 </a>
                 <ul id="clientes-submenus" class="collapse">
                     <li id="nb-nvo">
@@ -152,7 +156,7 @@
             </li>
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#produccion-submenus">
-                    <i class="fa fa-fw fa-cogs"></i> Estaciones <i class="fa fa-fw fa-caret-down"></i>
+                    <i class="fa fa-fw fa-shekel"></i> Estaciones <i class="fa fa-fw fa-caret-down"></i>
                 </a>
                 <ul id="clientes-submenus" class="collapse">
                     <li id="nb">

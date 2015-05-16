@@ -46,7 +46,8 @@
                                                 <tr><td>Ingresos</td><td><label class="control-label">${ingresos}</label></td></tr>
                                                 <tr><td>Costos de Venta</td><td><label class="control-label">${costosv}</label></td></tr>
                                                 <tr><td>Costos Generales</td><td><label class="control-label">${costosg}</label></td></tr>  
-                                                <tr><td>Impuestos</td><td><label class="control-label">${impuestos}</label></td></tr>
+                                                <tr><td>Impuesto de Ingresos</td><td><label class="control-label">${impuestosI}</label></td></tr>
+                                                <tr><td>Impuesto de Costos Totales</td><td><label class="control-label">${impuestosC}</label></td></tr>
                                             </tbody>
                                         </table>
                                     </div>

@@ -14,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SAPITO</title>
+        <title>SAPito - Nueva Orden de Trabajo</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Auditor</label>
-                                        <input class="form-control" placeholder="Responsable" onkeypress="return soloNumeros(event);" maxlength="4" required>
+                                        <input class="form-control" placeholder="Auditor" onkeypress="return soloNumeros(event);" maxlength="4" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 text-left">                               
@@ -70,40 +70,45 @@
                                         <div class="form-group input-group">
                                             <select path="estado" id="etados" class="form-control selectpicker show-tick show-menu-arrow" data-size="6">
                                                 <!--<option value="0" label="Seleccione uno" />-->
-                                                <option> Produccion uno </option>
-                                                <option> Produccion dos </option>
-                                                <option> Produccion tres </option>
+                                                <option> Estacion uno </option>
+                                                <option> Estacion dos </option>
+                                                <option> Estacion tres </option>
                                             </select>
                                         </div>
-                                        <label>Prioridad</label>
-                                        <input class="form-control" placeholder="Responsable" onkeypress="return soloNumeros(event);" maxlength="4" required>
-                                    </div>
-                                </div>                                
+                                        <div class="form-group">
+                                            <label>Prioridad</label>
+                                            <input class="form-control" placeholder="Responsable" onkeypress="return soloNumeros(event);" maxlength="4" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Comentarios</label>
+                                            <input class="form-control" placeholder="Escribir comentarios" onkeypress="return soloNumeros(event);" maxlength="4" required>
+                                        </div>
+                                    </div>                                
+                                </div>
                             </div>
                         </div>
+                        <div align="right">
+                            <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+                        </div>
+                        <br/>
                     </div>
-                    <div align="right">
-                        <button type="submit" class="btn btn-primary">Aceptar</button>                                            
-                    </div>
-                    <br/>
                 </div>
+
+                <!-- /#page-wrapper -->
             </div>
-
-            <!-- /#page-wrapper -->
         </div>
-    </div>
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="resources/js/libs/jquery.min.js"></script>
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="resources/js/libs/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="resources/js/libs/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="resources/js/libs/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="resources/js/libs/metisMenu.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="resources/js/libs/metisMenu.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="resources/js/libs/sb-admin-2.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="resources/js/libs/sb-admin-2.js"></script>
 
-</body>
+    </body>
 </html>

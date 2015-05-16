@@ -13,29 +13,23 @@
     </head>
     <body>
         <div id="wrapper">           
-            <%@include file="inventariosNavs.jsp" %>
+            <%@include file="inventariosNavs.jsp"%>
+            <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
+
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Módulo Inventarios
-                            </h1>  
+                            </h1> 
                             <ol class="breadcrumb">
                                 <li class="active">Bienvenido </li>
                             </ol>
-                            <div class="row">
-                                <div class="col-md-offset-1 col-lg-4" align="right">
-                                    <img src="${pageContext.request.contextPath}/resources/img/inventario.jpg" class="img-rounded"  width="700" height="400"/>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div> 
                         </div>
                     </div>
                 </div>
+                <center> <img  class="img-responsive" src="../SAPITO/resources/img/inventario.png"/></center>
             </div>
         </div>
         <%@include file="inventariosFooter.jsp" %>

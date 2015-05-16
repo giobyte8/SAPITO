@@ -4,6 +4,10 @@
     Author     : zgm_e_000
 --%>
 
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +18,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SAPITO</title>
+        <title>SAPito - Nueva Linea de Producci&oacute;n </title>
 
         <!-- Bootstrap Core CSS -->
         <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
@@ -29,57 +33,53 @@
     </head>
 
     <body>
-
+        <%@include file="Menu/menuOperacionesJefeO.jsp"%>
         <div id="wrapper">           
-            <%@include file="Menu/menuOperacionesJefeO.jsp"%>
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="row-fluid">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Nueva Linea de Produccion&oacute;n</h1>
+                        <h1 class="page-header">Nueva Linea de Producci&oacute;n</h1>
                     </div>
                 </div>
-                <form:form action="newUser" method="POST" commandName="Empleado">
-                <div class="row-fluid">
-                    <div class="col-lg-12 text-left">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Datos de Referencia</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-lg-6 text-left">
-                                    <div class="form-group">
-                                        <label>Nombre </label>
-                                        <form:input path="Nombre" class="form-control" placeholder="Nombre" onkeypress="return soloTexto(event);" maxlength="40" required="required"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tiempo</label>
-                                        <input class="form-control" placeholder="Tiempo" onkeypress="return soloTexto(event);"  maxlength="30" required>
-                                    </div>  
-                                    <div class="form-group">
-                                        <label>Activo</label>
-                                        <input class="form-control" id="numInt" placeholder="Descripci&oacute;n"  maxlength="30" onkeypress="return soloTexto(event);"required>
-                                    </div>
+                <form:form action="nvo-lineaProd    " method="POST" commandName="Empleado">
+                    <div class="row-fluid">
+                        <div class="col-lg-12 text-left">
+                            <div class="panel panel-green">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Datos de Referencia</h3>
                                 </div>
-                                <div class="col-lg-6 text-left">
-                                    <div class="form-group">     
+                                <div class="panel-body">
+                                    <div class="col-lg-6 text-left">
                                         <div class="form-group">
-                                            <label>Responsable</label>
-                                            <input class="form-control" placeholder="Responsable" onkeypress="return soloNumeros(event);" maxlength="4" required>
+                                            <label>Nombre </label>
+                                            <input path="Nombre" class="form-control" placeholder="Nombre" maxlength="40" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tiempo</label>
+                                            <form:input path="fechaentrega" name="lineaP" id="lineaProd" type="text" class="form-control" placeholder="Tiempo"  maxlength="30"/>
+                                                <form:errors path="empresa" element="div" class="alertdanger pad10"/>
+                                            </div>  
+                                            <div class="form-group">
+                                                <label>Activo</label>
+                                                <input class="form-control" id="numInt" placeholder="Descripci&oacute;n"  maxlength="30" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 text-left">
+                                            <div class="form-group">     
+                                            </div>
+
                                         </div>
                                     </div>
-
                                 </div>
+                                <div align="right">
+                                    <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+                                </div>
+                                <br/>
                             </div>
                         </div>
-                        <div align="right">
-                            <button type="submit" class="btn btn-primary">Aceptar</button>                                            
-                        </div>
-                        <br/>
-                    </div>
-                </div>
 
-                <!-- /#page-wrapper -->
+                        <!-- /#page-wrapper -->
                 </form:form>
             </div>
         </div>
@@ -96,5 +96,6 @@
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
 
+        <!--<script src="${pageContext.request.contextPath}/resources/js/operaciones/jsoperaciones.js"></script>-->
     </body>
 </html>

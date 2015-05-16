@@ -3,7 +3,7 @@
     Created on : Feb 14, 2015, 10:45:59 PM
     Author     : R2R
 --%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,13 +34,7 @@
                                     <div class="dataTable_wrapper">
                                         <div class="form-group">
                                             <label>Selecciona un producto</label>
-                                            <select class="form-control">
-                                                <option>Producto 1</option>
-                                                <option>Producto 2</option>
-                                                <option>Producto 3</option>
-                                                <option>Producto 4</option>
-                                                <option>Producto 5</option>
-                                            </select>
+                                            <form:select items="${productosTerminados}" class="form-control">
                                             <br/>
                                             <label>Control Máximo</label>
                                             <input onKeyup="isInteger(this.value)" class="form-control "autofocus autocomplete required placeholder="Ingrese cantidad máxima" pattern="[0-9]{5}">
