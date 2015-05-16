@@ -8,6 +8,7 @@ package com.sapito.db.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,13 +52,14 @@ public class Lineaproduccion implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "tiempo")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern="dd-mm-yyyy")
+    private Date tiempo;
     
-    private int tiempo;
     @Basic(optional = false)
     @NotNull
     @Column(name = "activo")
@@ -79,7 +81,7 @@ public class Lineaproduccion implements Serializable {
         this.idlineaproduccion = idlineaproduccion;
     }
 
-    public Lineaproduccion(Integer idlineaproduccion, String nombre, int tiempo, short activo, String responsa) {
+    public Lineaproduccion(Integer idlineaproduccion, String nombre, Date tiempo, short activo, String responsa) {
         this.idlineaproduccion = idlineaproduccion;
         this.nombre = nombre;
         this.tiempo = tiempo;
@@ -103,11 +105,11 @@ public class Lineaproduccion implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getTiempo() {
+    public Date getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(int tiempo) {
+    public void setTiempo(Date tiempo) {
         this.tiempo = tiempo;
     }
 
