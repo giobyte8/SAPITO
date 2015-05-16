@@ -26,10 +26,9 @@
                             </ol>
                             <div class="row">
                                 <div class="col-md-offset-1 col-lg-4" align="right">
-                                    <img src="${pageContext.request.contextPath}/resources/img/inventario.jpg" class="img-rounded"  width="700" height="400"/>
-                                    <br>
-                                    <br>
-                                    <br>
+                                   
+                                    <center> <img  class="img-responsive" src="../SAPITO/resources/img/inventario.jpg"/></center>
+                                    
                                     <br>
                                 </div>
                             </div> 
