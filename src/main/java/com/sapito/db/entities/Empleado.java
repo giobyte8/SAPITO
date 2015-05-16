@@ -117,9 +117,9 @@ public class Empleado implements Serializable {
     private Collection<Credencial> credencialCollection;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoActual")
-//    private Collection<Historial> empleadoActual;
+//    private Collection<HistorialActivoFijo> empleadoActual;
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoAnterior")
-//    private Collection<Historial> empleadoAnterior;
+//    private Collection<HistorialActivoFijo> empleadoAnterior;
     @JoinColumn(name = "puesto_idpuesto")
     @ManyToOne(fetch = FetchType.EAGER)
     private Puesto puestoIdpuesto;
@@ -248,18 +248,7 @@ public class Empleado implements Serializable {
         return "com.sapito.db.entities.Empleado[ idempleado=" + idempleado + " ]";
     }
 
-    /**
-     * @return the empleadoActual
-     */
-//    public Collection<Historial> getEmpleadoActual() {
-////        return empleadoActual;
-//    }
-    /**
-     * @param empleadoActual the empleadoActual to set
-     */
-    public void setEmpleadoActual(Collection<HistorialActivoFijo> empleadoActual) {
-        //      this.empleadoActual = empleadoActual;
-    }
+    
     
     
     public String getEstado() {
@@ -326,20 +315,34 @@ public class Empleado implements Serializable {
         this.codigoPostal = codigoPostal;
     }
 
-
+//    /**
+//     * @return the empleadoActual
+//     */
+//    public Collection<HistorialActivoFijo> getEmpleadoActual() {
+//        return empleadoActual;
+//    }
+//
+//    /**
+//     * @param empleadoActual the empleadoActual to set
+//     */
+//    public void setEmpleadoActual(Collection<HistorialActivoFijo> empleadoActual) {
+//        this.empleadoActual = empleadoActual;
+//    }
+//
 //    /**
 //     * @return the empleadoAnterior
 //     */
-//    public Collection<Historial> getEmpleadoAnterior()
-//    {
+//    public Collection<HistorialActivoFijo> getEmpleadoAnterior() {
 //        return empleadoAnterior;
 //    }
 //
 //    /**
 //     * @param empleadoAnterior the empleadoAnterior to set
 //     */
-//    public void setEmpleadoAnterior(Collection<Historial> empleadoAnterior)
-//    {
+//    public void setEmpleadoAnterior(Collection<HistorialActivoFijo> empleadoAnterior) {
 //        this.empleadoAnterior = empleadoAnterior;
 //    }
+
+
+
 }

@@ -62,6 +62,10 @@ public class Producto implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
     private Collection<ProductoProveedor> productoProveedor;
+    
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+    private Collection<ActivoFijo> productoRef;
 
     /**
      * @return the id
@@ -145,6 +149,20 @@ public class Producto implements Serializable {
      */
     public void setProductoProveedor(Collection<ProductoProveedor> productoProveedor) {
         this.productoProveedor = productoProveedor;
+    }
+
+    /**
+     * @return the productoRef
+     */
+    public Collection<ActivoFijo> getProductoRef() {
+        return productoRef;
+    }
+
+    /**
+     * @param productoRef the productoRef to set
+     */
+    public void setProductoRef(Collection<ActivoFijo> productoRef) {
+        this.productoRef = productoRef;
     }
 
 }

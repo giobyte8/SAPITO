@@ -62,17 +62,22 @@
                                                                 <label class="control-label" >Departamento</label>
                                                                 <select name="sProducto" class="form-control">
                                                                     <option value="">Selecciona Departamento</option>
-                                                                    <option>Direcci&oacute;n</option>
-                                                                    <option>Recursos Humanos</option>
+                                                                    <c:forEach var="depto" items="${depto}">
+                                                                        <option value="${depto.iddepartamento}">${depto.nombreDepartamento}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                                 <input type="hidden" name="idAF" class="form-control" value="${lastAF.id}" />
+                                                                <c:forEach var="af" items="${af2}">
+                                                                    <labe>${af.AnosVidaUtil}</labe>
+                                                                </c:forEach>
                                                             </div>
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Propietario</label>
                                                                 <select name="sProducto" class="form-control">
                                                                     <option value="">Selecciona Propietario</option>
-                                                                    <option>Ing. Daniel Sanchez</option>
-                                                                    <option>Lic. Geraldine Morales</option>
+                                                                    <c:forEach var="emp" items="${emp}">
+                                                                        <option value="${emp.idempleado}">${emp.nomre}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </div>   
                                                             <div class="form-group ">

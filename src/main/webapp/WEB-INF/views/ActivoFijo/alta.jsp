@@ -62,9 +62,9 @@
                                                     <div class="form-group ">
                                                         <label class="control-label" >Activo Fijo</label>
                                                         <select name="productoS" class="form-control">
-                                                            <option value="">Selecciona ActivoFijo</option>
-                                                            <c:forEach items="${producto}" var="producto">
-                                                                <option value="${producto.id}">${producto.marca}</option>
+                                                            <option value="">Selecciona Activo Fijo</option>
+                                                        <c:forEach items="${producto}" var="producto">
+                                                                <option value="${producto.id}">${producto.nombreProducto}</option>
                                                             </c:forEach>
                                                         </select>
                                                     </div>                                                                                       

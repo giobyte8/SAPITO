@@ -47,12 +47,12 @@ public class HistorialActivoFijo implements Serializable
 private ActivoFijo activoFijo;
 
 @JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
-@OneToOne
-private Empleado empleadoAnterior;
+@ManyToOne
+private Prueba nombreref;
 
 @JoinColumn(name = "ID_EMPLEADO_ACTUAL")
-@OneToOne
-private Empleado empleadoActual;
+@ManyToOne
+private Prueba nombreref2;
 
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -100,32 +100,90 @@ private Empleado empleadoActual;
         this.activoFijo = activoFijo;
     }
 
+//    /**
+//     * @return the empleadoAnterior
+//     */
+//    public Empleado2 getEmpleadoAnterior() {
+//        return empleadoAnterior;
+//    }
+//
+//    /**
+//     * @param empleadoAnterior the empleadoAnterior to set
+//     */
+//    public void setEmpleadoAnterior(Empleado2 empleadoAnterior) {
+//        this.empleadoAnterior = empleadoAnterior;
+//    }
+//
+//    /**
+//     * @return the empleadoActual
+//     */
+//    public Empleado2 getEmpleadoActual() {
+//        return empleadoActual;
+//    }
+//
+//    /**
+//     * @param empleadoActual the empleadoActual to set
+//     */
+//    public void setEmpleadoActual(Empleado2 empleadoActual) {
+//        this.empleadoActual = empleadoActual;
+//    }
+
+    
+
+//    /**
+//     * @return the empleadoAnterior
+//     */
+//    public Empleado getEmpleadoAnterior() {
+//        return empleadoAnterior;
+//    }
+//
+//    /**
+//     * @param empleadoAnterior the empleadoAnterior to set
+//     */
+//    public void setEmpleadoAnterior(Empleado empleadoAnterior) {
+//        this.empleadoAnterior = empleadoAnterior;
+//    }
+//
+//    /**
+//     * @return the empleadoActual
+//     */
+//    public Empleado getEmpleadoActual() {
+//        return empleadoActual;
+//    }
+//
+//    /**
+//     * @param empleadoActual the empleadoActual to set
+//     */
+//    public void setEmpleadoActual(Empleado empleadoActual) {
+//        this.empleadoActual = empleadoActual;
+//    }
+
     /**
-     * @return the empleadoAnterior
+     * @return the nombreref
      */
-    public Empleado getEmpleadoAnterior() {
-        return empleadoAnterior;
+    public Prueba getNombreref() {
+        return nombreref;
     }
 
     /**
-     * @param empleadoAnterior the empleadoAnterior to set
+     * @param nombreref the nombreref to set
      */
-    public void setEmpleadoAnterior(Empleado empleadoAnterior) {
-        this.empleadoAnterior = empleadoAnterior;
+    public void setNombreref(Prueba nombreref) {
+        this.nombreref = nombreref;
     }
 
     /**
-     * @return the empleadoActual
+     * @return the nombreref2
      */
-    public Empleado getEmpleadoActual() {
-        return empleadoActual;
+    public Prueba getNombreref2() {
+        return nombreref2;
     }
 
     /**
-     * @param empleadoActual the empleadoActual to set
+     * @param nombreref2 the nombreref2 to set
      */
-    public void setEmpleadoActual(Empleado empleadoActual) {
-        this.empleadoActual = empleadoActual;
+    public void setNombreref2(Prueba nombreref2) {
+        this.nombreref2 = nombreref2;
     }
 
     

@@ -8,12 +8,14 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -43,8 +45,10 @@ public class TipoActivoFijo implements Serializable
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** ***  RELACIONES  *** *** *** *** *** */    
     
-@OneToOne(cascade = CascadeType.ALL, mappedBy = "tipoActivoFijo")
-private ActivoFijo activoFijo;
+@OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoActivoFijo")
+private Collection<ActivoFijo> activoFijo;
+
+
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -80,15 +84,17 @@ private ActivoFijo activoFijo;
     /**
      * @return the activoFijo
      */
-    public ActivoFijo getActivoFijo() {
+    public Collection<ActivoFijo> getActivoFijo() {
         return activoFijo;
     }
 
     /**
      * @param activoFijo the activoFijo to set
      */
-    public void setActivoFijo(ActivoFijo activoFijo) {
+    public void setActivoFijo(Collection<ActivoFijo> activoFijo) {
         this.activoFijo = activoFijo;
     }
+
+    
 
 }
