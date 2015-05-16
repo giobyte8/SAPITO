@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -40,9 +41,8 @@ public class ProductoProveedor implements Serializable {
     
     @NotNull
     @Column(name = "COSTO")
-    @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
-    @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
-    private String costo;
+    @Min(1)
+    private double costo;
     
     @NotNull
     @Column(name = "STATUS")
@@ -117,14 +117,14 @@ public class ProductoProveedor implements Serializable {
     /**
      * @return the costo
      */
-    public String getCosto() {
+    public double getCosto() {
         return costo;
     }
 
     /**
      * @param costo the costo to set
      */
-    public void setCosto(String costo) {
+    public void setCosto(double costo) {
         this.costo = costo;
     }
 
