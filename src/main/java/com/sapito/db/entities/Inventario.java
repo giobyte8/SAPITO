@@ -47,7 +47,8 @@ public class Inventario implements Serializable
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 70, message = "El nombre debe contener entre 1 y 70 caracteres")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Size(min = 1, max = 6, message = "El código debe contener entre 1 y 70 caracteres")
     @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "codigoInventario")
     private String codigoInventario;
@@ -71,17 +72,20 @@ public class Inventario implements Serializable
 
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 6)
     @Column(name = "cantidad")
     private Integer cantidad;
 
     @Basic(optional = false)
     @NotNull
+     @Size(min = 1, max = 6)
     @Column(name = "minimo")
     @Min(1)
     private Integer minimo;
 
     @Basic(optional = false)
     @NotNull
+     @Size(min = 1, max = 6)
     @Column(name = "maximo")
     @Min(1)
     private Integer maximo;

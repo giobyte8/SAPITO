@@ -12,6 +12,7 @@ import com.sapito.db.entities.GastosGenerales;
 import com.sapito.db.entities.Nomina;
 import com.sapito.db.entities.OrdenCompra;
 import com.sapito.db.entities.OrdenVenta;
+import com.sapito.db.entities.ProductoProveedor;
 import com.sapito.db.entities.TipoMoneda;
 import com.sapito.pdf.PDFView.PDFGeneratorContabilidad;
 import com.sapito.pdf.PDFView.PDFGeneratorVentas;
@@ -45,7 +46,21 @@ public class ContabilidadController {
     private GenericDao<Nomina> daoNomina;
     private GenericDao<GastosGenerales> daoGastosGenerales;
     private GenericDao<Empresa> daoEmpresa;
+    private GenericDao<CuentaBancaria> daoCuentaBancaria;
+    private GenericDao<ProductoProveedor> daoProductoProveedor;
 
+    @Autowired
+    public void setDaoProductoProveedor(GenericDao<ProductoProveedor> productoProveedor) {
+        this.daoProductoProveedor = productoProveedor;
+        daoProductoProveedor.setClass(ProductoProveedor.class);
+    }
+    
+    @Autowired
+    public void setDaoCuentaBancaria(GenericDao<CuentaBancaria> cuentaBancaria) {
+        this.daoCuentaBancaria = cuentaBancaria;
+        daoCuentaBancaria.setClass(CuentaBancaria.class);
+    }
+    
     @Autowired
     public void setDaoGastosGenerales(GenericDao<GastosGenerales> gastosGenerales) {
         this.daoGastosGenerales = gastosGenerales;
@@ -164,6 +179,32 @@ public class ContabilidadController {
 
     @RequestMapping(value = "contabilidad/contaBalanceGeneral", method = RequestMethod.GET)
     public String ContaBalanceGeneral(Model model) {
+        float nocirculante=0;
+        List<CuentaBancaria> cuentaBancarias = daoOrdenCompra.findAll();
+        for (Iterator iterador = cuentaBancarias.listIterator(); iterador.hasNext();) {
+            CuentaBancaria cuentaBancaria = (CuentaBancaria) iterador.next();//fecha_pedido
+            nocirculante=+cuentaBancaria.getHaber();
+        }
+        double activos=0;
+        List<ProductoProveedor> productoProveedors = daoProductoProveedor.findAll();
+        for (Iterator iterador = productoProveedors.listIterator(); iterador.hasNext();) {
+            ProductoProveedor productoProveedor = (ProductoProveedor) iterador.next();
+            if(productoProveedor.getProducto().getCategoria().equals("Activo fijo")){
+            activos=+ productoProveedor.getCosto();
+            }
+        }
+        double pasivo=0;
+        List<OrdenCompra> compras = daoOrdenCompra.findAll();
+        for (Iterator iterador = compras.listIterator(); iterador.hasNext();) {
+            OrdenCompra compra = (OrdenCompra) iterador.next();
+            if(compra.isAprobada()==false){
+                pasivo=+ compra.getCostoTotal();
+            }
+        }
+        model.addAttribute("activoc", 0);
+        model.addAttribute("activonc", nocirculante);
+        model.addAttribute("totalactivo", activos);
+        model.addAttribute("pasivo", pasivo);
         return "Contabilidad/contaBalanceGeneral";
     }
 
