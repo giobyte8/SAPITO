@@ -29,6 +29,9 @@
     <!-- DataTables Responsive CSS -->
     <link href="resources/js/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 
+    <!-- Datatables css -->
+    <link href="${pageContext.request.contextPath}/resources/css/libs/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+
     <title>SAPito</title>
   </head>
   <body>
@@ -60,16 +63,16 @@
               </tr
             </thead>
             <tbody>
-            <c:forEach items="${historiales}" var="historial">
-              <tr>
-                <td>${historial.activoFijo.producto.nombreProducto}</td>
-                <td>${historial.nombreref2.departamentoIddepartamento.nombreDepartamento}}</td>
-                <td>${historial.nombreref2.nomre} ${hitorial.nombreref2.apaterno}</td>
-                <td>
-                  <a href="tActivoFijo?idAF='${historial.id}'" title="Trasladar"><i class="fa fa-arrows-h"></i></a>
-                </td>
-              </tr>
-            </c:forEach>
+              <c:forEach items="${historiales}" var="historial">
+                  <tr>
+                    <td>${historial.activoFijo.producto.nombreProducto}</td>
+                    <td>${historial.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
+                    <td>${historial.nombreref2.nomre} ${hitorial.nombreref2.apaterno}</td>
+                    <td>
+                      <a href="tActivoFijo?idAF=${historial.id}" title="Trasladar"><i class="fa fa-arrows-h"></i></a>
+                    </td>
+                  </tr>
+              </c:forEach>
             </tbody>
           </table>
 
@@ -90,9 +93,13 @@
     <script src="resources/js/libs/sb-admin-2.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+    <!-- Datatables js -->
+    <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
-
+            $('#ttraslado').DataTable();
         });
     </script>
   </body>

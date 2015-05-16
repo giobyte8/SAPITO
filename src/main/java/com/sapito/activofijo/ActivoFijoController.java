@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -224,12 +225,25 @@ public class ActivoFijoController {
     }
 
     @RequestMapping(value = "tActivoFijo", method = RequestMethod.GET)
-    public String tActivoFijo(Model model) {
+    public String tActivoFijo(Model model, @RequestParam String idAF) {
+        HistorialActivoFijo haf = (HistorialActivoFijo) daoHistorialActivoFijo.find(Long.valueOf(idAF));
+        List<Departamento> departamentos = daoDepartamento.findAll();
+        model.addAttribute("historial", haf);
+        model.addAttribute("departamentos", departamentos);
         return "ActivoFijo/tActivoFijo";
     }
 
     @RequestMapping(value = "gdaTraslado", method = RequestMethod.POST)
-    public String gdaTraslado(Model model) {
+    public String gdaTraslado(Model model, String idHistorial, String propietario) {
+        HistorialActivoFijo haf = (HistorialActivoFijo) daoHistorialActivoFijo.find(Long.valueOf(idHistorial));
+        Empleado nvoPropietario = (Empleado) daoEmpleado.find(Integer.valueOf(propietario));
+        
+        haf.setNombreref(haf.getNombreref2());
+        haf.setNombreref2(nvoPropietario);
+        haf.setFechaMovimiento(new Date());
+        
+        daoHistorialActivoFijo.edit(haf);
+        
         return "ActivoFijo/gdaTraslado";
     }
 
