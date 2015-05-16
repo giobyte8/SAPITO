@@ -20,7 +20,7 @@
                 <div class="row"> 
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Prestaciones
+                           Andministrar Prestaciones
                         </h1>
                         <div class="panel panel-green">
                             <div class="panel-heading">

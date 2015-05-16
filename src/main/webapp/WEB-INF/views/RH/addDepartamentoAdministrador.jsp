@@ -31,12 +31,12 @@
                     <div class="dataTable_wrapper">
                         <div class="form-group">
                             <label>Nombre del Departamento</label>
-                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese nombre" pattern="[0-9]{5}">
+                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese nombre" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required>
                             <p class="help-block"></p>
 
 
                             <label>Descripción</label>
-                            <textarea class="form-control  "autofocus autocomplete required placeholder="Ingrese descripcion" pattern="[0-9]{5}"></textarea>
+                            <textarea class="form-control  "autofocus autocomplete required placeholder="Ingrese descripcion" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required></textarea>
                             <p class="help-block" ></p>
 
                             
