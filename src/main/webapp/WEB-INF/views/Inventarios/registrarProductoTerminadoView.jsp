@@ -133,6 +133,15 @@
     <%@include file="inventariosFooter.jsp" %>
     <script >
         $(document).ready(function () {
+            $("#fnoc-codigoInventario").val("");
+            $("#fnoc-nombre").val("");
+            $("#fnoc-cantidad").val("");
+            $("#fnoc-maximo").val("");
+            $("#fnoc-minimo").val("");
+            $("#fnoc-fechaEntrada").val("");
+            $("#fnoc-fechaProduccion").val("");
+            $("#fnoc-ubicacion").val("");
+            $("#fnoc-cantidad").val("");
         });
     </script>
   </body>

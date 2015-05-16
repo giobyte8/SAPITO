@@ -162,6 +162,7 @@ public class InventariosController
         {
             System.out.println("Insertando");
             daoInventario.create(inventario);
+            inventario=new Inventario ();
             return "Inventarios/registrarProductoTerminadoView";
         }
     }
