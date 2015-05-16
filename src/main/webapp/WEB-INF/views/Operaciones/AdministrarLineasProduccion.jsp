@@ -45,51 +45,6 @@
                         </h1>
                     </div>
                 </div>
-                <!--                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-lg-12 text-left">
-                                            <div class="panel panel-green">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Datos del Departamento</h3>
-                                                </div>
-                                                <div class="panel-body">          
-                                                    <div class="col-lg-6 text-left">
-                                                        <div class="form-group">
-                                                            <label>Seleccione el departamento</label>
-                                                            <div class="form-group input-group">
-                                                                <select id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa">
-                                                                    <option>Recursos Humanos</option>
-                                                                    <option>Contabilidad</option>
-                                                                    <option>Ventas</option>
-                                                                    <option>Compras</option>
-                                                                    <option>Dirección</option>
-                                                                    <option>Almacén</option>                                
-                                                                    <option>Activos fijos</option>
-                                                                    <option>Operaciones</option> 
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 text-left">
-                                                        <div class="form-group">
-                                                            <label>Seleccione el puesto</label>
-                                                            <div class="form-group input-group">
-                                                                <select id="disabledSelect" class="form-control selectpicker show-tick show-menu-arrow listaPuesto">
-                
-                                                                    <option>Director General</option>
-                                                                    <option>Subdirectos General</option>
-                                                                    <option>Director de Departamento</option>
-                                                                    <option>Jefe de Departamento</option>
-                                                                    <option>Jefe Operativo</option>
-                                                                    <option>Empleado</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                
-                                                </div>
-                                            </div>-->
-
                 <div class="panel panel-green">
                     <div class="panel-heading">
                         <h3 class="panel-title">Producciones</h3>
@@ -117,19 +72,19 @@
                                 <td>Produccion Uno</td>
                                 <td>2 dias</td>
                                 <td>Activo</td>
-                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-warning fa fa-user" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-info fa fa-dedent" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                             </tr>
                             <tr>
                                 <td>Produccion Uno</td>
                                 <td>2 dias</td>
                                 <td>Activo</td>
-                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-warning fa fa-user" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-info fa fa-dedent" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                             </tr>
                             <tr>
                                 <td>Produccion Uno</td>
                                 <td>2 dias</td>
                                 <td>Activo</td>
-                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-warning fa fa-user" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-info fa fa-dedent" data-toggle="modal" data-target="#myModal"></i></a></p></td>
                             </tr>
                         </tbody>
                     </table>   
@@ -153,7 +108,7 @@
                                 <div class="form-group">
                                     <h3>Produccion Uno</h3>
                                     <a href="#" ><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal">  Editar</i></a>
-                                    <a href="#" ><i class="btn  btn-warning fa fa-eraser" data-toggle="modal" data-target="#myModal">  Baja</i></a>
+                                    <a href="#" ><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal">  Baja</i></a>
                                     <div>
                                     </div><!-- /col-sm-12 -->
                                 </div><!-- /row -->
@@ -205,9 +160,6 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-
 <!-- /#wrapper -->
 <!-- jQuery -->
 <script src="resources/js/libs/jquery.min.js"></script>
