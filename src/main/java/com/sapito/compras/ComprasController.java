@@ -6,9 +6,12 @@
 package com.sapito.compras;
 
 import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.Proveedor;
 import com.sapito.ventas.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,13 +29,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ComprasController {
 
     private GenericDao<Proveedor> daoProveedor;
+    private GenericDao<Producto> daoProducto;
 
     //Set
-
     @Autowired
     public void setDaoProveedor(GenericDao<Proveedor> daoProveedor) {
         this.daoProveedor = daoProveedor;
         daoProveedor.setClass(Proveedor.class);
+    }
+
+    @Autowired
+    public void setDaoProducto(GenericDao<Producto> daoProducto) {
+        this.daoProducto = daoProducto;
+        daoProducto.setClass(Producto.class);
     }
 
     //Alta Proveedor//
@@ -62,22 +71,54 @@ public class ComprasController {
     //Fin Proveedor//
 
     //Consulta Proveedor//
- 
     @RequestMapping(value = "compras/consultaproveedor", method = RequestMethod.GET)
     public String buscarProveedor(Model model) {
         List<Proveedor> proveedor = daoProveedor.findAll();
 
-        if (proveedor != null && proveedor.size() > 0) 
-        {
-            model.addAttribute("proveedor",proveedor);
+        if (proveedor != null && proveedor.size() > 0) {
+            model.addAttribute("proveedor", proveedor);
             return "Compras/consultaproveedor";
-        } else 
-        {
+        } else {
             return null;
         }
 
     }
-//Producto
+
+    //Alta Producto
+    @RequestMapping(value = "compras/AltaProducto", method = RequestMethod.GET)
+    public String altaproducto(Model model) {
+        Producto producto = new Producto();
+
+        Map selectCategoria = new HashMap<>();
+        selectCategoria.put("MATERIAPRIMA", "Materia prima");
+        selectCategoria.put("ACTIVOFIJO", "Activo fijo");
+        model.addAttribute("selectCategoria", selectCategoria);
+
+        model.addAttribute("producto", producto);
+
+        return "Compras/AltaProducto";
+    }
+
+    @RequestMapping(value = "compras/AltaProducto", method = RequestMethod.POST)
+    public String regproducto(Model model, @Valid Producto producto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Compras/AltaProducto";
+        } else {
+            daoProducto.create(producto);
+
+            Map selectCategoria = new HashMap<>();
+            selectCategoria.put("MATERIAPRIMA", "Materia prima");
+            selectCategoria.put("ACTIVOFIJO", "Activo fijo");
+            model.addAttribute("selectCategoria", selectCategoria);
+
+            Producto producto2 = new Producto();
+            model.addAttribute("producto", producto2);
+            return "Compras/AltaProducto";
+        }
+    }
+//Fin Alta Producto
 
     @RequestMapping(value = "compras", method = RequestMethod.GET)
     public String index(Model model) {
@@ -94,11 +135,6 @@ public class ComprasController {
     public String modificarproveedor(Model model) {
         return "Compras/modificarproveedor";
     }
-
-//    @RequestMapping(value = "compras/consultaproveedor", method = RequestMethod.GET)
-//    public String consultarproveedor(Model model) {
-//        return "Compras/consultaproveedor";
-//    }
 
 
     @RequestMapping(value = "informacionproveedor", method = RequestMethod.GET)
@@ -119,11 +155,6 @@ public class ComprasController {
     @RequestMapping(value = "ordenCompra", method = RequestMethod.GET)
     public String ordenCompra(Model model) {
         return "Compras/ordenCompra";
-    }
-
-    @RequestMapping(value = "AltaProducto", method = RequestMethod.GET)
-    public String AltaProducto(Model model) {
-        return "Compras/AltaProducto";
     }
 
     @RequestMapping(value = "confirmacionProductoEliminacion", method = RequestMethod.GET)

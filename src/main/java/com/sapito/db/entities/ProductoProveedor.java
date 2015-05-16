@@ -26,7 +26,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "ProductoProveedor")
-public class ProducoProveedor implements Serializable {
+public class ProductoProveedor implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -62,7 +62,7 @@ public class ProducoProveedor implements Serializable {
 
     @JoinColumn(name = "ID_PRODUCTOSENORDEN")
     @ManyToOne
-    private ProducoProveedor productoComprado;
+    private ProductoProveedor productoComprado;
     
     public Long getId() {
         return id;
@@ -145,14 +145,14 @@ public class ProducoProveedor implements Serializable {
     /**
      * @return the productocomprado
      */
-    public ProducoProveedor getProductocomprado() {
+    public ProductoProveedor getProductocomprado() {
         return productoComprado;
     }
 
     /**
      * @param productocomprado the productocomprado to set
      */
-    public void setProductocomprado(ProducoProveedor productocomprado) {
+    public void setProductocomprado(ProductoProveedor productocomprado) {
         this.productoComprado = productocomprado;
     }
 
