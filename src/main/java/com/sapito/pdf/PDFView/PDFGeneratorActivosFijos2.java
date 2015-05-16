@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.sapito.pdf.PDFView;
 
 import com.itextpdf.text.BaseColor;
@@ -40,9 +41,8 @@ import javax.swing.ImageIcon;
  *
  * @author Erika
  */
-public class PDFGeneratorActivosFijos {
-
-    public void crearPDFInversion(
+public class PDFGeneratorActivosFijos2 {
+        public void crearPDFDepreciacion(
             HttpServletResponse hsr1) throws Exception {
         Document dcmntaf = new Document();
 
@@ -69,7 +69,7 @@ public class PDFGeneratorActivosFijos {
         footer.setAbsolutePosition(50, 20);
         dcmntaf.add(footer);
         //----------------------  TITLE ---------------------------
-        String titulo = "Reporte de Inversión"; //Cambiar el titulo del PDF aqui
+        String titulo = "Reporte de Depreciación"; //Cambiar el titulo del PDF aqui
         Font f = new Font(FontFamily.HELVETICA, 25.0f, Font.BOLD, BaseColor.BLACK);
         Chunk c = new Chunk(titulo + " \n ", f);
         c.setBackground(BaseColor.WHITE);

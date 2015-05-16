@@ -11,6 +11,7 @@ import com.sapito.db.entities.HistorialActivoFijo;
 import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.TipoActivoFijo;
 import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos;
+import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos2;
 import com.sapito.ventas.VentasController;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -236,12 +237,23 @@ public class ActivoFijoController {
     public String descargarReporteInv(Model model, HttpServletRequest request, HttpServletResponse response) {
         PDFGeneratorActivosFijos pdfActivos = new PDFGeneratorActivosFijos();
         try {
-            pdfActivos.crearPDFFactura(response);
+            pdfActivos.crearPDFInversion(response);
         } catch (Exception ex) {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return "OK";
     }
+  @RequestMapping(value = "activofijo/reportedepreciacion.pdf", method = RequestMethod.GET)
+    @ResponseBody
+    public String descargarReporteDp(Model model, HttpServletRequest request, HttpServletResponse response) {
+        PDFGeneratorActivosFijos2 pdfActivos2 = new PDFGeneratorActivosFijos2();
+        try {
+            pdfActivos2.crearPDFDepreciacion(response);
+        } catch (Exception ex) {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+        return "OK";
+    }
 }
