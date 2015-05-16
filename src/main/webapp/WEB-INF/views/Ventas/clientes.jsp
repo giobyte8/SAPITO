@@ -40,7 +40,10 @@
                 <th>Nombre de contacto</th>
                 <th>Email</th>
                 <th>Detalles</th>
-              </tr>
+                 <th>Detalles</th>
+                  <th>Editar</th>
+                   <th>Inhabilitar</th>
+              </tr
             </thead>
             <tbody>
               <c:forEach items="${clientes}" var="cliente">
@@ -53,6 +56,18 @@
                       <button class="btn btn-xs btn-success" type="button" 
                               data-toggle="modal" data-target="#cts-modal${cliente.id}">
                         Detalles
+                      </button>
+                    </td>
+                    <td>
+                      <button class="btn btn-xs btn-success" type="button" 
+                              data-toggle="modal" data-target="#cts-modal${cliente.id}">
+                       Editar
+                      </button>
+                    </td>
+                    <td>
+                      <button class="btn btn-xs btn-success" type="button" 
+                              data-toggle="modal" data-target="#cts-modal${cliente.id}">
+                        Inhabilitar
                       </button>
                     </td>
                   </tr>
