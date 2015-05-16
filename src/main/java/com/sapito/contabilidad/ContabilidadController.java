@@ -6,6 +6,8 @@
 package com.sapito.contabilidad;
 
 import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.CuentaBancaria;
+import com.sapito.db.entities.Empresa;
 import com.sapito.db.entities.GastosGenerales;
 import com.sapito.db.entities.Nomina;
 import com.sapito.db.entities.OrdenCompra;
@@ -42,6 +44,7 @@ public class ContabilidadController {
     private GenericDao<OrdenVenta> daoOrdenVenta;
     private GenericDao<Nomina> daoNomina;
     private GenericDao<GastosGenerales> daoGastosGenerales;
+    private GenericDao<Empresa> daoEmpresa;
 
     @Autowired
     public void setDaoGastosGenerales(GenericDao<GastosGenerales> gastosGenerales) {
@@ -65,6 +68,13 @@ public class ContabilidadController {
     public void setDaoOrdenCompra(GenericDao<OrdenCompra> ordenCompra) {
         this.daoOrdenCompra = ordenCompra;
         daoOrdenCompra.setClass(OrdenCompra.class);
+    }
+    
+    
+    @Autowired
+    public void setDaoEmpresa(GenericDao<Empresa> empresa) {
+        this.daoEmpresa = empresa;
+        daoEmpresa.setClass(Empresa.class);
     }
 
     @Autowired
@@ -254,6 +264,44 @@ public class ContabilidadController {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "OK";
+    }
+    
+    
+     @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.GET)
+    public String contaCrearCuenta(Model model) {
+         CuentaBancaria cuenta = new CuentaBancaria();               
+        model.addAttribute("cuenta", cuenta);
+        return "Contabilidad/contaCrearCuentas";
+    }  
+    @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.POST)
+    public String regCuenta(Model model, @Valid CuentaBancaria cuenta, BindingResult bindingResult)
+    {
+        cuenta.setEmpresa(null);
+        if(!bindingResult.hasErrors())
+        {
+//            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+//            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Contabilidad/contaCrearCuentas";
+        }
+        return "";
+    }
+    
+    @RequestMapping(value = "contabilidad/inserts", method = RequestMethod.GET)
+    @ResponseBody
+     public String insert(Model model, HttpServletRequest request, HttpServletResponse response)
+    {
+        
+        Empresa empresa= new Empresa();
+        empresa.setNombre("Sapo");
+        empresa.setCalle("Calle");
+        empresa.setEstado("México");
+        empresa.setMunicipio("Metepec");
+        empresa.setPais("México");
+        empresa.setRfc("12345678901234");
+        empresa.setCaptalInicial(234);
+        daoEmpresa.create(empresa);
+        
+        return "Contabilidad/contaCrearCuentas";
     }
 
 }

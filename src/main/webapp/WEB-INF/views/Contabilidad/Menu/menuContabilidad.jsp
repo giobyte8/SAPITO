@@ -3,6 +3,29 @@
     Created on : 7/02/2015, 08:08:42 PM
     Author     : Edgar
 --%>
+!-- Bootstrap Core CSS -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+<!-- MetisMenu CSS -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet" type="text/css">
+
+<!-- Morris css -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/morris.css" rel="stylesheet" type="text/css">
+
+<!-- Custom CSS -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
+
+<!-- Custom Fonts -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!-- Datatables css -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+
+<!-- Sweetalert css -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/sweet-alert.css" rel="stylesheet" type="text/css">
+
+<!-- SAPITO css -->
+<link href="${pageContext.request.contextPath}/resources/css/sapito.css" rel="stylesheet" type="text/css">
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../../Default/Modal/proximamente.jsp"%>
@@ -15,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="Contabilidad">SAPito</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/contabilidad">SAPito</a>
     </div>
     <!-- /.navbar-header -->
     <ul class="nav navbar-right top-nav">       
@@ -84,28 +107,28 @@
                     <a href="contabilidad"><i class="fa fa-dashboard fa-fw"></i> Contabilidad y Finanzas</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Contabilidad<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#conta-submenus"> Contabilidad<span class="fa arrow"></span></a>
+                    <ul id="conta-submenus" class="collapse">
                         <li>
-                            <a href="contabilidad/contaVentas">Reporte Ventas</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Reporte Ventas</a>
                         </li>
                         <li>
-                            <a href="contabilidad/contaCompras">Reporte Compras</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCompras">Reporte Compras</a>
                         </li>
                         <li>
-                            <a href="contabilidad/contaRH">Reporte Recursos Humanos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaRH">Reporte Recursos Humanos</a>
                         </li>
                         <li>
-                            <a href="contabilidad/contaActivoFijo">Reporte Activos Fijos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaActivoFijo">Reporte Activos Fijos</a>
                         </li>
                         <li>
-                            <a href="contabilidad/contaAlmacen">Reporte Inventarios</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaAlmacen">Reporte Inventarios</a>
                         </li>
                         <li>
-                            <a href="contabilidad/contaDireccion">Reporte Dirección</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Reporte Dirección</a>
                         </li>
                         <li>
-                            <a href="contabilidad/contaInformes"> Informes</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaInformes"> Informes</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -118,12 +141,12 @@
                         </li>
                         <li>
                             <a href="contabilidad/contaPresupuestos">Presupuestos Usuarios</a>
-                        </li>
-                        <li>
-                            <a href="contabilidad/contaCatalogo">Catalogo de Cuentas</a>
                         </li>-->
                         <li>
-                            <a href="contabilidad/contaMoneda">Moneda</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCrearCuenta">Nueva Cuenta Bancaria</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaMoneda">Moneda</a>
                         </li>
                     </ul>
                 </li>
@@ -131,31 +154,31 @@
                 } else {
                 %>
                 <li>
-                    <a href="../contabilidad"><i class="fa fa-dashboard fa-fw"></i> Contabilidad y Finanzas</a>
+                    <a href="${pageContext.request.contextPath}/contabilidad"><i class="fa fa-dashboard fa-fw"></i> Contabilidad y Finanzas</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Contabilidad<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="../contabilidad/contaVentas">Reporte Ventas</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Reporte Ventas</a>
                         </li>
                         <li>
-                            <a href="../contabilidad/contaCompras">Reporte Compras</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCompras">Reporte Compras</a>
                         </li>
                         <li>
-                            <a href="../contabilidad/contaRH">Reporte Recursos Humanos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaRH">Reporte Recursos Humanos</a>
                         </li>
                         <li>
-                            <a href="../contabilidad/contaActivoFijo">Reporte Activos Fijos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaActivoFijo">Reporte Activos Fijos</a>
                         </li>
                         <li>
-                            <a href="../contabilidad/contaAlmacen">Reporte Inventarios</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaAlmacen">Reporte Inventarios</a>
                         </li>
                         <li>
-                            <a href="../contabilidad/contaDireccion">Reporte Direccion</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Reporte Direccion</a>
                         </li>
                         <li>
-                            <a href="../contabilidad/contaInformes"> Informes</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaInformes"> Informes</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -169,11 +192,12 @@
                         <li>
                             <a href="../contabilidad/contaPresupuestos">Presupuestos Usuarios</a>
                         </li>
+                        -->
+                         <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCrearCuenta">Nueva Cuenta Bancaria</a>
+                        </li>
                         <li>
-                            <a href="../contabilidad/contaCatalogo">Catalogo de Cuentas</a>
-                        </li>-->
-                        <li>
-                            <a href="../contabilidad/contaMoneda">Moneda</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaMoneda">Moneda</a>
                         </li>
                     </ul>
                 </li>
@@ -187,3 +211,27 @@
     <!-- /.navbar-static-side -->
 </nav>
 
+<!-- jQuery -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
+
+<!-- Raphael js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/raphael-min.js"></script>
+
+<!--script src="${pageContext.request.contextPath}/resources/js/libs/morris.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/libs/morris-data.js"></script-->
+
+<!-- Datatables js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
+
+<!-- Sweetalert js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/sweet-alert.min.js"></script>
+
+<!-- Ventas js -->
+<script src="${pageContext.request.contextPath}/resources/js/ventas/ventas.js"></script>
