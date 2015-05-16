@@ -84,7 +84,7 @@ public class PersistenceConfig
             {
 
                 //setProperty("hibernate.hbm2ddl.auto", "create");
-                setProperty("hibernate.hbm2ddl.auto", "create");
+                //setProperty("hibernate.hbm2ddl.auto", "create");
                 setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
             }
         };

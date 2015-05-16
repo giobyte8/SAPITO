@@ -322,6 +322,7 @@ public class VentasController
     @RequestMapping(value = "ventas/demoin", method = RequestMethod.GET)
     public @ResponseBody List<Inventario> demoInserts(Model model)
     {
+        System.out.println("asas");
         for(Iterator it = daoInventario.findAll().iterator(); it.hasNext();)
         {
             Inventario in = (Inventario) it.next();

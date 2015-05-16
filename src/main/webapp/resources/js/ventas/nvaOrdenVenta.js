@@ -26,13 +26,15 @@ var granTotal = 0;
 
 function buscarCliente()
 {
+    
     var rfc = $('#cliente-rfc').val();
-
     var reqUrl = API_URL + 'buscarcliente';
     var params = {
         rfc: rfc
     };
+    
     $.get(reqUrl, params, function (data) {
+        
         if (data.empresa) {
             $('#fcliente-empresa').val(data.empresa);
             $('#fcliente-nombre').val(data.nombreContacto);
