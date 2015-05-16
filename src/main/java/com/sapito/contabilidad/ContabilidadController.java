@@ -6,6 +6,7 @@
 package com.sapito.contabilidad;
 
 import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.CatalogoCuenta;
 import com.sapito.db.entities.CuentaBancaria;
 import com.sapito.db.entities.Empresa;
 import com.sapito.db.entities.GastosGenerales;
@@ -15,9 +16,7 @@ import com.sapito.db.entities.OrdenVenta;
 import com.sapito.db.entities.ProductoProveedor;
 import com.sapito.db.entities.TipoMoneda;
 import com.sapito.pdf.PDFView.PDFGeneratorContabilidad;
-import com.sapito.pdf.PDFView.PDFGeneratorVentas;
 import com.sapito.ventas.VentasController;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -48,7 +47,14 @@ public class ContabilidadController {
     private GenericDao<Empresa> daoEmpresa;
     private GenericDao<CuentaBancaria> daoCuentaBancaria;
     private GenericDao<ProductoProveedor> daoProductoProveedor;
-
+    private GenericDao<CatalogoCuenta> daoCatalogoCuenta;
+    
+    @Autowired
+    public void setDaoCatalogoCuenta(GenericDao<CatalogoCuenta> catalogoCuenta) {
+        this.daoCatalogoCuenta = catalogoCuenta;
+        daoCatalogoCuenta.setClass(CatalogoCuenta.class);
+    }
+    
     @Autowired
     public void setDaoProductoProveedor(GenericDao<ProductoProveedor> productoProveedor) {
         this.daoProductoProveedor = productoProveedor;
@@ -201,6 +207,11 @@ public class ContabilidadController {
                 pasivo=+ compra.getCostoTotal();
             }
         }
+        List<GastosGenerales> gastosGenerales = daoGastosGenerales.findAll();
+        for (Iterator iterador = gastosGenerales.listIterator(); iterador.hasNext();) {
+            GastosGenerales gastosGenerale = (GastosGenerales) iterador.next();
+            pasivo=+gastosGenerale.getCosto();
+        }
         model.addAttribute("activoc", 0);
         model.addAttribute("activonc", nocirculante);
         model.addAttribute("totalactivo", activos);
@@ -209,7 +220,13 @@ public class ContabilidadController {
     }
 
     @RequestMapping(value = "contabilidad/contaEstadoFlujo", method = RequestMethod.GET)
-    public String ContaEstadoFlujo(Model model) {
+    public String ContaEstadoFlujo(Model model) {   
+        float saldoini=0;
+        List<CatalogoCuenta> catalogoCuentas = daoCatalogoCuenta.findAll();
+        for (Iterator iterador = catalogoCuentas.listIterator(); iterador.hasNext();) {
+            CatalogoCuenta catalogoCuenta = (CatalogoCuenta) iterador.next();
+            saldoini=+catalogoCuenta.getHaber();
+        }
         return "Contabilidad/contacontaEstadoFlujo";
     }
 
