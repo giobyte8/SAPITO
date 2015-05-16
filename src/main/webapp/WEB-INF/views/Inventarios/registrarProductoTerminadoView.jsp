@@ -118,7 +118,7 @@
                     </div>
                   </div>
                   <div align="right">
-                    <button onclick="Confirmacion()" type="submit" class="btn btn-success">Aceptar</button>
+                    <button onclick="" type="submit" class="btn btn-success">Aceptar</button>
                   </div> 
 
                 </div>

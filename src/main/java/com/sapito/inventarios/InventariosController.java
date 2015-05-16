@@ -72,17 +72,24 @@ public class InventariosController
     @RequestMapping(value = "inventario/materiaPrima", method = RequestMethod.GET)
     public String materiaPrima(Model model)
     {
+        List<Inventario> inventario = daoInventario
+                .findBySpecificField("materiaPrima", "MATERIAPRIMA", "equal", null, null);
+//        model.addAttribute("materiaPrima", materiaPrima);
+        
         return "Inventarios/materiaPrimaView";
     }
 
     @RequestMapping(value = "inventario/productoTerminado", method = RequestMethod.GET)
     public String productoTerminado(Model model)
     {
+        List<Inventario> inventario = daoInventario
+                .findBySpecificField("productoTerminado", "PRODUCTOTERMINADO", "equal", null, null);
+//        model.addAttribute("productoTerminado", productoTerminado);
         return "Inventarios/productoTerminadoView";
     }
 
     //------------Materia prima--------------------
-    @RequestMapping(value = "inventarios/registrarMateriaPrima", method = RequestMethod.GET)
+    @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.GET)
     public String registrarMateriaPrima(Model model)
     {
         Inventario inventario = new Inventario();
@@ -90,7 +97,7 @@ public class InventariosController
         return "Inventarios/registrarMateriaPrimaView";
     }
 
-    @RequestMapping(value = "inventarios/registrarMateriaPrima", method = RequestMethod.POST)
+    @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.POST)
     public String regRegistrarMateriaPrima(Model model, @Valid Inventario inventario, BindingResult bindingResult)
     {
 
@@ -167,7 +174,6 @@ public class InventariosController
         inventario.setFechaProduccion(new Date());
         inventario.setPrecioUnitario(44);
         inventario.setStatus(true);
-        inventario.setCategoria("NA");
         inventario.setTipoProducto("asd");
 
         model.addAttribute("inventario", inventario);

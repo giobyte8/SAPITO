@@ -9,7 +9,7 @@ function Confirmacion() {
     {
 // si pulsamos en aceptar
         alert('Datos Ingresados Correctamente');
-        window.location.href="consultaproveedor";
+        window.location.href="nvoproducto";
     }
     else
 // si pulsamos en cancelar

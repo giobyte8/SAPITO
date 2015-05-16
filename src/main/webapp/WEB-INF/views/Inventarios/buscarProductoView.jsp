@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <c:forEach items="${inventarios}" var="inventario">
+        <c:forEach items="${inventario}" var="inventario">
             <div id="cts-modal${inventario.id}" class="modal fade" tabindex="-1" role="dialog" 
                  aria-labelledby="inventario-modal-title" aria-hidden="true">
                 <div class="modal-dialog">
