@@ -124,52 +124,52 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li class="active">
-                <a href="compras"><i class="fa fa-fw fa-dashboard"></i> Home</a>
+                <a href="/SAPITO/compras"><i class="fa fa-fw fa-dashboard"></i>Compras</a>
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-exchange fa-fw"></i> Proveedores<span class="fa arrow"></span></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> Proveedores</a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="altaproveedor">Alta Proveedor</a>
+                        <a href="/SAPITO/compras/altaproveedor">Alta Proveedor</a>
                     </li>
                     <li>
-                        <a href="consultaproveedor">Consulta Provedores</a>
+                        <a href="/SAPITO/compras/consultaproveedor">Consulta Provedores</a>
                     </li>
 
                 </ul>
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-exchange fa-fw"></i> Productos<span class="fa arrow"></span></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file-text"></i> Productos</a>
                 <ul id="demo1" class="collapse">
                     <li>
-                        <a href="AltaProducto">Alta Producto</a>
+                        <a href="/SAPITO/compras/AltaProducto">Alta Producto</a>
                     </li>
                     <li>
-                        <a href="ConsultaProducto">Consultar Productos</a>
+                        <a href="/SAPITO/compras/ConsultaProducto">Consultar Productos</a>
                     </li>
 
                 </ul>            
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-exchange fa-fw"></i> Ordenes<span class="fa arrow"></span></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-list"></i> Ordenes</a>
                 <ul id="demo2" class="collapse">
                     <li>
-                        <a href="ordenCompra">Generar Orden </a>
+                        <a href="/SAPITO/compras/ordenCompra">Generar Orden </a>
                     </li>
                     <li>
-                        <a href="ConsultarOrdenes">Consultar Ordenes</a>
+                        <a href="/SAPITO/compras/ConsultarOrdenes">Consultar Ordenes</a>
                     </li>
 
                 </ul>            
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-exchange fa-fw"></i> Reportes<span class="fa arrow"></span></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-line-chart"></i> Reportes<span class="fa arrow"></span></a>
                 <ul id="demo3" class="collapse">
                     <li>
-                        <a href="informacionproveedor">Información Proveedores</a>
+                        <a href="/SAPITO/compras/informacionproveedor">Información Proveedores</a>
                     </li>          
                     <li>
-                        <a href="InformacionProducto">Información Productos</a>
+                        <a href="/SAPITO/compras/InformacionProducto">Información Productos</a>
                     </li>          
                 </ul>
             </li>
