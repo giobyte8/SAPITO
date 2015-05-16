@@ -60,7 +60,7 @@
                                                         <form action="gdaActivoFijo" method="post">                                                                 
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Departamento</label>
-                                                                <select name="sProducto" class="form-control">
+                                                                <select id="combo-dpto" name="departamento" class="form-control">
                                                                     <option value="">Selecciona Departamento</option>
                                                                     <c:forEach var="depto" items="${depto}">
                                                                         <option value="${depto.iddepartamento}">${depto.nombreDepartamento}</option>
@@ -73,7 +73,7 @@
                                                             </div>
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Propietario</label>
-                                                                <select name="sProducto" class="form-control">
+                                                                <select id="combo-empleados" name="propietario" class="form-control">
                                                                     <option value="">Selecciona Propietario</option>
                                                                     <c:forEach var="emp" items="${emp}">
                                                                         <option value="${emp.idempleado}">${emp.nomre}</option>
@@ -133,5 +133,6 @@
                 });
             });
         </script>
+        <script type="text/javascript" src="resources/js/activofijo/aActivoFijo.js"></script>        
     </body>
 </html>

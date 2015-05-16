@@ -17,12 +17,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -40,7 +40,8 @@ public class ActivoFijo implements Serializable
     
     @Column(name = "FECHA_ADQUISICION")
     @Temporal(TemporalType.DATE)
-    private Date fechaAdquisicion;  
+    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    private Date fechaAdquisicion;
     
     @Column(name = "TIPO_DEPRECIACION")
     private String tipoDepreciacion;

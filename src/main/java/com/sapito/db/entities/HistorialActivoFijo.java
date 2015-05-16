@@ -48,11 +48,11 @@ private ActivoFijo activoFijo;
 
 @JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
 @ManyToOne
-private Prueba nombreref;
+private Empleado nombreref;
 
 @JoinColumn(name = "ID_EMPLEADO_ACTUAL")
 @ManyToOne
-private Prueba nombreref2;
+private Empleado nombreref2;
 
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -71,7 +71,7 @@ private Prueba nombreref2;
     public void setId(long id) {
         this.id = id;
     }
-
+    
     /**
      * @return the fechaMovimiento
      */
@@ -90,14 +90,14 @@ private Prueba nombreref2;
      * @return the activofijo
      */
     public ActivoFijo getActivofijo() {
-        return activoFijo;
+        return getActivoFijo();
     }
 
     /**
      * @param activoFijo
      */
     public void setActivofijo(ActivoFijo activoFijo) {
-        this.activoFijo = activoFijo;
+        this.setActivoFijo(activoFijo);
     }
 
 //    /**
@@ -158,31 +158,33 @@ private Prueba nombreref2;
 //        this.empleadoActual = empleadoActual;
 //    }
 
-    /**
-     * @return the nombreref
-     */
-    public Prueba getNombreref() {
+    public ActivoFijo getActivoFijo()
+    {
+        return activoFijo;
+    }
+
+    public void setActivoFijo(ActivoFijo activoFijo)
+    {
+        this.activoFijo = activoFijo;
+    }
+
+    public Empleado getNombreref()
+    {
         return nombreref;
     }
 
-    /**
-     * @param nombreref the nombreref to set
-     */
-    public void setNombreref(Prueba nombreref) {
+    public void setNombreref(Empleado nombreref)
+    {
         this.nombreref = nombreref;
     }
 
-    /**
-     * @return the nombreref2
-     */
-    public Prueba getNombreref2() {
+    public Empleado getNombreref2()
+    {
         return nombreref2;
     }
 
-    /**
-     * @param nombreref2 the nombreref2 to set
-     */
-    public void setNombreref2(Prueba nombreref2) {
+    public void setNombreref2(Empleado nombreref2)
+    {
         this.nombreref2 = nombreref2;
     }
 

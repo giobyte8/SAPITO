@@ -13,7 +13,6 @@ import com.sapito.db.entities.Departamento;
 import com.sapito.db.entities.Empleado;
 import com.sapito.db.entities.HistorialActivoFijo;
 import com.sapito.db.entities.Producto;
-import com.sapito.db.entities.Prueba;
 import com.sapito.db.entities.TipoActivoFijo;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -37,6 +37,7 @@ public class ActivoFijoController {
     private GenericDao<Producto> daoProducto;
     private GenericDao<Empleado> daoEmpleado;
     private GenericDao<Departamento> daoDepartamento;
+    private GenericDao<HistorialActivoFijo> daoHistorialActivoFijo;
     
 
     @Autowired
@@ -68,6 +69,13 @@ public class ActivoFijoController {
         this.daoDepartamento = daoDepartamento;
         daoDepartamento.setClass(Departamento.class);
     }
+    
+    @Autowired
+    public void setDaoHistorialActivoFijo(GenericDao<HistorialActivoFijo> daoHistorialActivoFijo)
+    {
+        this.daoHistorialActivoFijo = daoHistorialActivoFijo;
+        daoHistorialActivoFijo.setClass(HistorialActivoFijo.class);
+    }
 
     @RequestMapping(value = "activofijo", method = RequestMethod.GET)
     public String index(Model model) {        
@@ -86,7 +94,7 @@ public class ActivoFijoController {
     }
     
     @RequestMapping(value = "gdaAlta", method = RequestMethod.POST)
-    public String regAlta(Model model, @Valid ActivoFijo activofijo, String tipoactivofijoS, /*String productoS,*/ BindingResult bindingResult)
+    public String regAlta(Model model, @Valid ActivoFijo activofijo, String tipoactivofijoS, String productoS, BindingResult bindingResult)
     {
         if(bindingResult.hasErrors())
         {
@@ -97,9 +105,9 @@ public class ActivoFijoController {
         else
         {
             TipoActivoFijo tipoactivofijo = (TipoActivoFijo) daoTipoActivoFijo.find(Long.valueOf(tipoactivofijoS));
-            //Producto prod = (Producto) daoProducto.find(Long.valueOf(productoS));
+            Producto prod = (Producto) daoProducto.find(Long.valueOf(productoS));
             activofijo.setTipoactivofijo(tipoactivofijo);
-            //activofijo.setProducto(prod);
+            activofijo.setProducto(prod);
             activofijo.setStatus("SinAsignar");
             daoActivoFijo.create(activofijo);
             return "ActivoFijo/gdaAlta";
@@ -136,7 +144,7 @@ public class ActivoFijoController {
     }
 
     @RequestMapping(value = "gdaActivoFijo", method = RequestMethod.POST)
-    public String gdaActivoFijo(Model model, String idAF, String depreciacion) {
+    public String gdaActivoFijo(Model model, String idAF, String departamento, String propietario, String depreciacion) {
         
         ActivoFijo activofijo = (ActivoFijo) daoActivoFijo.find(Long.valueOf(idAF));
         activofijo.setTipoDepreciacion(depreciacion);
@@ -144,11 +152,11 @@ public class ActivoFijoController {
         daoActivoFijo.edit(activofijo);
         
         HistorialActivoFijo historial = new HistorialActivoFijo();
+        Empleado empActual = (Empleado) daoEmpleado.find(Integer.valueOf(propietario));
         historial.setActivofijo(activofijo);
-        Date fecha = new Date();
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        String fechaFormato = df.format(fecha);
-        //historial.setFechaMovimiento(fechaFormato);
+        historial.setNombreref2(empActual);
+        historial.setFechaMovimiento(activofijo.getFechaAdquisicion());
+        
         daoActivoFijo.create(historial);
         
         return "ActivoFijo/gdaActivoFijo";
@@ -209,6 +217,9 @@ public class ActivoFijoController {
 
     @RequestMapping(value = "traslado", method = RequestMethod.GET)
     public String traslado(Model model) {
+        
+        List<HistorialActivoFijo> historiales = daoHistorialActivoFijo.findAll();
+        model.addAttribute("historiales", historiales);
         return "ActivoFijo/traslado";
     }
 
@@ -287,5 +298,16 @@ public class ActivoFijoController {
     @RequestMapping(value = "gdaReporte", method = RequestMethod.GET)
     public String gdaReporte(Model model) {
         return "ActivoFijo/gdaReporte";
+    }
+    
+    // AJAX CONTROLLER
+    @RequestMapping(value = "activofijo/buscarempleados", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Empleado> getEmpleadosByDepartamento(Model mode, String idDpto)
+    {
+        Departamento dpto = (Departamento) daoDepartamento.find(Integer.valueOf(idDpto));
+        
+        List<Empleado> empleados = daoEmpleado.findBySpecificField("departamentoIddepartamento", dpto, "equal", null, null);
+        return empleados;
     }
 }
