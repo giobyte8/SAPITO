@@ -102,7 +102,7 @@
                       <div class="col-lg-12 hidden">
                         <div class="form-group">
                           <label>Tipo de producto:</label>
-                          <form:input path="tipoProducto" name="tipoProducto" id="fnop-tipoProducto" class="form-control" placeholder="Tipo de producto" value="Producto terminado" />
+                          <form:input path="tipoProducto" name="tipoProducto" id="fnop-tipoProducto" class="form-control" placeholder="Tipo de producto" value="PRODUCTOTERMINADO" />
                           <form:errors path="tipoProducto" element="div" class="alert-danger pad-10" />
                         </div>
                       </div>
@@ -118,7 +118,7 @@
                     </div>
                   </div>
                   <div align="right">
-                    <button type="submit" class="btn btn-success">Aceptar</button>
+                    <button onclick="Confirmacion()" type="submit" class="btn btn-success">Aceptar</button>
                   </div> 
 
                 </div>
@@ -127,6 +127,9 @@
         </div>
       </div>
     </div>
+      
+      <!-- jQuery -->       
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/inventarios/jsinventarios.js"></script>
     <%@include file="inventariosFooter.jsp" %>
     <script >
         $(document).ready(function () {
