@@ -9,6 +9,7 @@ import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.Proveedor;
 import com.sapito.ventas.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,8 +79,10 @@ public class ComprasController {
         if (proveedor != null && proveedor.size() > 0) {
             model.addAttribute("proveedor", proveedor);
             return "Compras/consultaproveedor";
-        } else {
-            return null;
+        } else 
+        {
+            model.addAttribute("proveedor", new ArrayList<Proveedor>());
+            return "Compras/consultaproveedor";
         }
 
     }
