@@ -59,14 +59,12 @@
                       </button>
                     </td>
                     <td>
-                      <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal${cliente.id}">
+                      <button class="btn btn-xs btn-success" type="button" >
                        Editar
                       </button>
                     </td>
                     <td>
-                      <button class="btn btn-xs btn-success" type="button" 
-                              data-toggle="modal" data-target="#cts-modal${cliente.id}">
+                      <button class="btn btn-xs btn-success" type="button"  >
                         Inhabilitar
                       </button>
                     </td>
