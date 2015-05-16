@@ -18,6 +18,7 @@
       <div id="page-wrapper">
         <div class="container-fluid">
 
+          <!-- Title -->
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
@@ -25,7 +26,7 @@
               </h1>
             </div>
           </div>
-          <!-- /.col-lg-4 -->
+
           <form:form id="fnvo-producto" commandName="inventario" action="nvoproducto" method="POST" >
               <div class="row">
                 <div class="col-lg-12 text-left">
@@ -78,14 +79,14 @@
                       <div class="col-lg-12 text-left">
                         <div class="form-group">
                           <label for="fnvoc-fechaEntrada">Fecha de entrada</label>
-                          <form:input  path="fechaEntrada" name="fechaEntrada" id="fnoc-fechaEntrada" type="date" class="form-control"/>
+                          <form:input  path="fechaEntrada" name="fechaEntrada" id="fnoc-fechaEntrada" class="form-control"/>
                           <form:errors path="fechaEntrada" element="div" class="alert-danger pad-10"/>
                         </div>
                       </div>
                       <div class="col-lg-12 text-left">
                         <div class="form-group">
                           <label for="fnvoc-fechaProduccion">Fecha de producción</label>
-                          <form:input   path="fechaProduccion" name="fechaProduccion" id="fnoc-fechaProduccion" type="date" class="form-control"/>
+                          <form:input   path="fechaProduccion" name="fechaProduccion" id="fnoc-fechaProduccion" class="form-control"/>
                           <form:errors path="fechaProduccion" element="div" class="alert-danger pad-10"/>
                         </div>
                       </div>
@@ -98,7 +99,23 @@
                         </div>
                       </div>
 
-                    </div>  <!-- /#fin del panel -->
+                      <div class="col-lg-12 hidden">
+                        <div class="form-group">
+                          <label>Tipo de producto:</label>
+                          <form:input path="tipoProducto" name="tipoProducto" id="fnop-tipoProducto" class="form-control" placeholder="Tipo de producto" value="Producto terminado" />
+                          <form:errors path="tipoProducto" element="div" class="alert-danger pad-10" />
+                        </div>
+                      </div>
+
+                      <div class="col-md-12 hidden">
+                        <div class="form-group">
+                          <label>Categoria</label>
+                          <form:input path="categoria" name="categoria" value="NA" />
+                          <form:errors path="categoria" element="div" class="alert-danger pad-10" />
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
                   <div align="right">
                     <button type="submit" class="btn btn-success">Aceptar</button>
@@ -107,14 +124,12 @@
                 </div>
               </div>
           </form:form>
-          <!-- /.col-lg-4 -->
         </div>
       </div>
     </div>
     <%@include file="inventariosFooter.jsp" %>
     <script >
         $(document).ready(function () {
-            activatenb('nb-nvoproducto');
         });
     </script>
   </body>
