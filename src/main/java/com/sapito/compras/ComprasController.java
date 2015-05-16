@@ -77,11 +77,11 @@ public class ComprasController {
         List<Proveedor> proveedor = daoProveedor.findAll();
 
         if (proveedor != null && proveedor.size() > 0) {
-            model.addAttribute("proveedor", proveedor);
+            model.addAttribute("proveedores", proveedor);
             return "Compras/consultaproveedor";
         } else 
         {
-            model.addAttribute("proveedor", new ArrayList<Proveedor>());
+            model.addAttribute("proveedores", new ArrayList<Proveedor>());
             return "Compras/consultaproveedor";
         }
 
