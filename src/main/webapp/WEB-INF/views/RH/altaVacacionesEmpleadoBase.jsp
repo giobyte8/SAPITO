@@ -13,7 +13,7 @@
         <title>SAPITO ITT</title>
     </head>
     <body>
-        <%@include file="Menus/MenuJefeDepartamento.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+        <%@include file="Menus/EmpleadoRh.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
         <div id="page-wrapper">
             <!--  ################################################-->
 

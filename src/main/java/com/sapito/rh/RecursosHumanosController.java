@@ -166,6 +166,18 @@ public class RecursosHumanosController {
     public String VacacionEmpleado(Model model) {
         return "RH/VacacionEmpleado";
     }
+    @RequestMapping(value = "adminVacacionEmpleadoOperativo", method = RequestMethod.GET)
+    public String adminVacacionEmpleadoOperativo(Model model) {
+        return "RH/adminVacacionesOperativo";
+    }
+    @RequestMapping(value = "asistenciaEmpleadoBase", method = RequestMethod.GET)
+    public String asistenciaEmpleadoBase(Model model) {
+        return "RH/AsistenciaEmpleadoBase";
+    }
+    @RequestMapping(value = "asistenciaJO", method = RequestMethod.GET)
+    public String asistenciaJO(Model model) {
+        return "RH/AsistenciasJefeOperativo";
+    }
 
     @RequestMapping(value = "AdmVacacionEmpleado", method = RequestMethod.GET)
     public String AdmVacacionEmpleado(Model model) {
@@ -197,6 +209,10 @@ public class RecursosHumanosController {
     @RequestMapping(value = "VacacionEmpleadoOperativo", method = RequestMethod.GET)
     public String VacacionEmpleadoOperativo(Model model) {
         return "RH/VacacionEmpleadoOperativo";
+    }
+    @RequestMapping(value = "altaVacacionEmpleadoBase", method = RequestMethod.GET)
+    public String altaVacacionEmpleadoBase(Model model) {
+        return "RH/altaVacacionesEmpleadoBase";
     }
 
     @RequestMapping(value = "altaCapacitacionAdmin", method = RequestMethod.GET)

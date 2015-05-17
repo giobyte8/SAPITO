@@ -16,7 +16,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="recursoshumanos">SAPito</a>
+            <a class="navbar-brand" href="recursoshumanosOperativo">SAPito</a>
         </div>
 
         <!-- Top Menu Items -->
@@ -55,7 +55,7 @@
                 <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="#">Asistencia</a>
+                    <a href="asistenciaJO">Asistencia</a>
                   </li>
                   <li>
                     <a href="adminEmpleadosOperativo">Ver empleados</a>
@@ -69,15 +69,9 @@
                   <li>
                     <a href="VacacionEmpleadoOperativo">Alta</a>
                   </li>                  
-                </ul>
-                <!-- /.nav-second-level -->
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-fw fa-plus"></i> Capacitaciones<span class="fa fa-caret-down"></span></a>
-                <ul class="nav nav-second-level">
                   <li>
-                    <a href="adminCapacitacionOperativo">Ver capacitaciones</a>
-                  </li>
+                    <a href="adminVacacionEmpleadoOperativo">Administrar</a>
+                  </li>                  
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
