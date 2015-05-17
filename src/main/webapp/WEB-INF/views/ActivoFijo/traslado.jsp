@@ -65,7 +65,7 @@
             <tbody>
               <c:forEach items="${historiales}" var="historial">
                   <tr>
-                    <td>${historial.activoFijo.producto.nombreProducto}</td>
+                    <td>${historial.activoFijo.productoProveedor.producto.nombreProducto}</td>
                     <td>${historial.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
                     <td>${historial.nombreref2.nomre} ${hitorial.nombreref2.apaterno}</td>
                     <td>

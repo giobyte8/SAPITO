@@ -69,7 +69,7 @@ public class ProductoProveedor implements Serializable {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoProveedor")
     private Collection<ActivoFijo> productoRef;
-    
+     
     public Long getId() {
         return id;
     }
