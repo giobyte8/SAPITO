@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class InventariosController
@@ -69,84 +70,116 @@ public class InventariosController
         }
     }
 
-    @RequestMapping(value = "inventario/materiaPrima", method = RequestMethod.GET)
-    public String materiaPrima(Model model)
+    
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    @RequestMapping(value = "inventario/bajaMateriaPrima", method = RequestMethod.GET)
+    public String bajaMateria(Model model)
     {
-        List<Inventario> inventario = daoInventario
-                .findBySpecificField("materiaPrima", "MATERIAPRIMA", "equal", null, null);
-//        model.addAttribute("materiaPrima", materiaPrima);
-        
-        return "Inventarios/materiaPrimaView";
-    }
+        Query query =daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a Where a.tipoProducto=:tipo");
+        query.setParameter("tipo", "Materia");
+        List<Inventario> inventario = query.getResultList(); 
 
-    @RequestMapping(value = "inventario/productoTerminado", method = RequestMethod.GET)
-    public String productoTerminado(Model model)
-    {
-        List<Inventario> inventario = daoInventario
-                .findBySpecificField("productoTerminado", "PRODUCTOTERMINADO", "equal", null, null);
-//        model.addAttribute("productoTerminado", productoTerminado);
-        return "Inventarios/productoTerminadoView";
-    }
-
-    //------------Materia prima--------------------
-    @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.GET)
-    public String registrarMateriaPrima(Model model)
-    {
-        Inventario inventario = new Inventario();
-        model.addAttribute("inventario", inventario);
-        return "Inventarios/registrarMateriaPrimaView";
-    }
-
-    @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.POST)
-    public String regRegistrarMateriaPrima(Model model, @Valid Inventario inventario, BindingResult bindingResult)
-    {
-
-        if(bindingResult.hasErrors())
+        if(inventario != null && inventario.size() > 0)
         {
-            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
-            System.out.println("Error: " + bindingResult.getFieldError().getField());
-            return "Inventarios/registrarMateriaPrimaView";
-        } 
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/bajaMateriaPrima";
+        }
         else
         {
-            inventario.setStatus(true);
-
-            daoInventario.create(inventario);
-
-            Query query1 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.status=:status and a.tipoProducto=:tipo");
-            query1.setParameter("status", true);
-            query1.setParameter("tipo", "Materia");
-            List<Inventario> inventarios = query1.getResultList();
-            model.addAttribute("inventarios", inventarios);
-            return "Inventarios/bajaMateriaPrimaView";
+            model.addAttribute("inventario", new ArrayList<Inventario>());
+            return "Inventarios/bajaMateriaPrima";
         }
     }
-
-    @RequestMapping(value = "inventarios/bajaMateriaPrima", method = RequestMethod.GET)
-    public String eliminarTransporte(Model model, HttpServletRequest request)
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    @RequestMapping(value = "inventario/maximoMinProducto", method = RequestMethod.GET)
+    public String maximoMinProducto(Model model)
     {
+        Query query =daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a Where a.tipoProducto=:tipo");
+        query.setParameter("tipo", "PRODUCTOTERMINADO");
+        List<Inventario> inventario = query.getResultList(); 
 
-        Inventario em = findInventario(request.getParameter("id"));
-        em.setStatus(false);
-        daoInventario.edit(em);
-
-        Query query1 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.status=:status and a.tipoProducto=:tipo");
-        query1.setParameter("status", true);
-        query1.setParameter("tipo", "Materia");
-        List<Inventario> inventarios = query1.getResultList();
-        model.addAttribute("inventarios", inventarios);
-        return "Inventarios/bajaMateriaPrimaView";
+        if(inventario != null && inventario.size() > 0)
+        {
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/productoTerminadoView";
+        }
+        else
+        {
+            model.addAttribute("inventario", new ArrayList<Inventario>());
+            return "Inventarios/productoTerminadoView";
+        }
     }
-
-    public Inventario findInventario(String id)
+    
+    
+    @RequestMapping(value = "inventario/actualizarmaximo", method = RequestMethod.GET)
+    public String actualizarMaxMin(Model model, @RequestParam String id, @RequestParam String maxMod, @RequestParam String minMod )
     {
-        Query query2 = daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a where a.idinventario=:idinventario");
-        query2.setParameter("idinventario", Integer.parseInt(id));
-        List<Inventario> inventario = query2.getResultList();
-        return inventario.get(0);
+        Inventario inventario = (Inventario) daoInventario.find(Integer.valueOf(id));
+        inventario.setMaximo(Integer.valueOf(maxMod)) ;
+        inventario.setMinimo(Integer.valueOf(minMod));
+        
+        daoInventario.edit(inventario);
+        
+        List<Inventario> inventarios = daoInventario
+                .findBySpecificField("tipoProducto", "PRODUCTOTERMINADO", "equal", null, null);
+        model.addAttribute("inventario", inventarios);
+        return"Inventarios/productoTerminadoView";
     }
+    //Fin maximos minimos producto final
+    
+    
+    @RequestMapping(value = "inventario/maximoMinimoMateria", method = RequestMethod.GET)
+    public String maximoMinimoMateria(Model model)
+    {
+        Query query =daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a Where a.tipoProducto=:tipo");
+        query.setParameter("tipo", "Materia Prima");
+        List<Inventario> inventario = query.getResultList(); 
 
-    //------------Fin Materia Prima----------------
+        if(inventario != null && inventario.size() > 0)
+        {
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/materiaPrimaView";
+        }
+        else
+        {
+            model.addAttribute("inventario", new ArrayList<Inventario>());
+            return "Inventarios/materiaPrimaView";
+        }
+    }
+    
+    
+    @RequestMapping(value = "inventario/actualizarmaximoma", method = RequestMethod.GET)
+    public String actualizarMaxMinma(Model model, @RequestParam String id, @RequestParam String maxMod, @RequestParam String minMod )
+    {
+        Inventario inventario = (Inventario) daoInventario.find(Integer.valueOf(id));
+        inventario.setMaximo(Integer.valueOf(maxMod)) ;
+        inventario.setMinimo(Integer.valueOf(minMod));
+        
+        daoInventario.edit(inventario);
+        
+        List<Inventario> inventarios = daoInventario
+                .findBySpecificField("tipoProducto", "materia Prima", "equal", null, null);
+        model.addAttribute("inventario", inventarios);
+        return"Inventarios/materiaPrimaView";
+    }
+    
+    //************************************************************
+    @RequestMapping(value = "inventario/actualizarcantidad", method = RequestMethod.GET)
+    public String bajaMateriaActual(Model model, @RequestParam String id, @RequestParam String cantAQuitar)
+    {
+        Inventario inventario = (Inventario) daoInventario.find(Integer.valueOf(id));
+        inventario.setCantidad(inventario.getCantidad() - Integer.valueOf(cantAQuitar));
+        
+        daoInventario.edit(inventario);
+        
+        List<Inventario> inventarios = daoInventario
+                .findBySpecificField("tipoProducto", "Materia Prima", "equal", null, null);
+        model.addAttribute("inventario", inventarios);
+        return"Inventarios/bajaMateriaPrima";
+    }
+    ///************************************************************
     
     
     @RequestMapping(value = "inventario/nvoproducto", method = RequestMethod.POST)
@@ -181,15 +214,77 @@ public class InventariosController
         return "Inventarios/registrarProductoTerminadoView";
     }
 
-    @RequestMapping(value = "inventario/bajaMateriaPrima", method = RequestMethod.GET)
-    public String bajaMateriaPrima(Model model)
+    //ññññññññññññññññññññññññññññññññññññññññ
+       @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.POST)
+    public String registrarMateriaPrima(Model model, @Valid Inventario inventario, BindingResult bindingResult)
     {
-        return "Inventarios/bajaMateriaPrimaView";
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Inventarios/rregistrarMateriaPrimaView";
+        } 
+        else
+        {
+            System.out.println("Insertando");
+            daoInventario.create(inventario);
+            inventario=new Inventario ();
+            return "Inventarios/registrarMateriaPrimaView";
+        }
     }
 
-    @RequestMapping(value = "inventario/existencias", method = RequestMethod.GET)
-    public String existencias(Model model)
+    @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.GET)
+    public String registrarMateriaPrima(Model model)
     {
-        return "Inventarios/existenciasView";
+        Inventario inventario = new Inventario();
+        inventario.setFechaEntrada(new Date());
+        inventario.setFechaProduccion(new Date());
+        inventario.setPrecioUnitario(44);
+        inventario.setStatus(true);
+        inventario.setTipoProducto("Materia Prima");
+
+        model.addAttribute("inventario", inventario);
+        return "Inventarios/registrarMateriaPrimaView";
     }
+    
+    
+    
+
+
+        @RequestMapping(value = "inventario/existencias", method = RequestMethod.GET)
+    public String existencias(Model model) {
+
+        List<Inventario> inventariototal = daoInventario.findAll();
+        List<Inventario> inventario = new ArrayList<>();
+        for(Inventario inv : inventariototal)
+        {
+            if (inv.getCantidad() <= inv.getMinimo()) {
+                inventario.add(inv);
+            }
+        }
+
+        if (inventariototal != null && inventariototal.size() > 0) {
+            model.addAttribute("inventariototal", inventariototal);
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/existenciasView";
+        } else {
+            model.addAttribute("inventariototal", new ArrayList<Inventario>());
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/existenciasView";
+        }
+
+    }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////
+   
+    
+    
+   
+    @RequestMapping(value = "inventario/mateprim", method = RequestMethod.GET)
+   public String mateprim(Model model)
+   {
+       return "Inventarios/materiaPrimaView";
+    }
+    
 }

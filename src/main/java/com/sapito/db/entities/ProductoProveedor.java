@@ -8,6 +8,8 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -41,7 +44,7 @@ public class ProductoProveedor implements Serializable {
     
     @NotNull
     @Column(name = "COSTO")
-    @Min(1)
+    @Min(value=1, message="Debe ser mayor a uno")
     private double costo;
     
     @NotNull
@@ -62,8 +65,11 @@ public class ProductoProveedor implements Serializable {
 
     @JoinColumn(name = "ID_PRODUCTOSENORDEN")
     @ManyToOne
-    private ProductoProveedor productoComprado;
+    private ProductoEnOrden productoComprado;
     
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoProveedor")
+    private Collection<ActivoFijo> productoRef;
+     
     public Long getId() {
         return id;
     }
@@ -145,15 +151,29 @@ public class ProductoProveedor implements Serializable {
     /**
      * @return the productocomprado
      */
-    public ProductoProveedor getProductocomprado() {
+    public ProductoEnOrden getProductocomprado() {
         return productoComprado;
     }
 
     /**
      * @param productocomprado the productocomprado to set
      */
-    public void setProductocomprado(ProductoProveedor productocomprado) {
+    public void setProductocomprado(ProductoEnOrden productocomprado) {
         this.productoComprado = productocomprado;
+    }
+
+    /**
+     * @return the productoRef
+     */
+    public Collection<ActivoFijo> getProductoRef() {
+        return productoRef;
+    }
+
+    /**
+     * @param productoRef the productoRef to set
+     */
+    public void setProductoRef(Collection<ActivoFijo> productoRef) {
+        this.productoRef = productoRef;
     }
 
 }

@@ -2,129 +2,89 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
-    <head>
+    <title>SAPITO</title>
+  </head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <%@include file="MenusCompras/Cabesa compras.jsp"%>
+  <body>
 
-        <title>SAPITO</title>
+    <div id="wrapper">
 
-        <!-- Bootstrap Core CSS -->
+      <%@include file="MenusCompras/Menude compras.jsp"%>
+      <div id="page-wrapper">
+        <div class="container-fluid">
 
+          <!-- Page title -->
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="page-header">
+                Registrar producto
+              </h1>                    
+            </div>
+          </div>
 
-    </head>
+          <div class="panel panel-green">
+            <div class="panel-heading">Alta producto</div>
+            <div class="panel-body">
+              <form:form id="nvo-producto" commandName="producto" action="AltaProducto" method="POST">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <br/><label for="nvo-nombre" class="control-label">Nombre</label>
+                      <form:input path="nombreProducto" name="nombreProducto" type="text" class="form-control" 
+                                  id="nvo-nombre" placeholder="Nombre" />
+                      <form:errors path="nombreProducto" element="div" class="alert-danger pad-10" />
+                    </div>
+                    <div class="col-md-6">
+                      <br/><label for="nvo-descripcion" class="control-label">Descripcion</label>
+                      <form:input path="descripcion" name="descripcion" type="text" class="form-control" 
+                                  id="nvo-descripcion" placeholder="Descripcion" />
+                      <form:errors path="descripcion" element="div" class="alert-danger pad-10" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <br/><label for="nvo-marca" class="control-label">Marca</label>
+                      <form:input path="marca" name="marca" type="text" class="form-control" 
+                                  id="nvo-marca" placeholder="Marca" />
+                      <form:errors path="marca" element="div" class="alert-danger pad-10" />
+                    </div>
+                    <div class="col-md-6">
+                      <br/><label for="nvo-categoria" class="control-label">Categoria</label>
+                      <form:select id="nvo-categoria" path="categoria" items="${selectCategoria}" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 text-right">
+                      <br/><a href="ConsultaProducto" class="btn btn-danger">Cancelar</a>
+                      <button type="submit" value="Aceptar" onclick="ConfirmacionP()"
+                                   class="btn btn-success" role="button">Aceptar</button>
+                    </div>
+                  </div>
+              </form:form>
+            </div>
+          </div>
 
-    <body>
+        </div>                        
+      </div>  
+    </div>
 
-        <div id="wrapper">
+    <!-- jQuery -->
+    <!--script src="resources/js/libs/jquery.min.js"></script>
 
-            <%@include file="MenusCompras/Menude compras.jsp"%>
-            <!-- Page Content -->
-            <form:form id="nvo-producto" commandName="producto" action="AltaProducto" method="POST"><
-                <div id="page-wrapper">
-                    <div class="container-fluid">
+    <!-- Bootstrap Core JavaScript ->
+    <script src="resources/js/libs/bootstrap.min.js"></script>
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1 class="page-header">
-                                    Alta Producto
-                                </h1>                    
-                            </div>
-                        </div>
+    <!-- Metis Menu Plugin JavaScript ->
+    <script src="resources/js/libs/metisMenu.min.js"></script>
+    <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
 
-                        <div class="row">
-                            <div class="col-lg-12 text-left">
-                                <div class="panel panel-green">
-                                    <div class="panel-body">
-                                        <br/>                            
-                                        <div class="panel panel-green">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">Datos  Producto</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <!-- Fila de inputs/!-->
-                                                <div class="row">
-                                                    <div class="col-lg-6 text-left">
-                                                        <!-- inputs/!-->
-                                                        <div class="form-group ">
-
-                                                            <br/><label for="nvo-nombre" class="control-label">Nombre</label>
-                                                            <form:input path="nombreProducto" name="nombreProducto" type="text" class="form-control" 
-                                                                        id="nvo-nombre" placeholder="Nombre" />
-                                                            <form:errors path="nombreProducto" element="div" class="alert-danger pad-10" />
-
-                                                        </div>
-                                                        <div class="form-group ">
-                                                            <br/><label for="nvo-descripcion" class="control-label">Descripcion</label>
-                                                            <form:input path="descripcion" name="descripcion" type="text" class="form-control" 
-                                                                        id="nvo-descripcion" placeholder="Descripcion" />
-                                                            <form:errors path="descripcion" element="div" class="alert-danger pad-10" />
-
-                                                        </div>
-                                                        <div class="form-group ">
-                                                            <br/><label for="nvo-marca" class="control-label">Marca</label>
-                                                            <form:input path="marca" name="marca" type="text" class="form-control" 
-                                                                        id="nvo-marca" placeholder="Marca" />
-                                                            <form:errors path="marca" element="div" class="alert-danger pad-10" />
-
-                                                        </div>
-                                                        <div class="form-group ">
-
-                                                            <br/><label for="nvo-categoria" class="control-label">Categoria</label>
-                                                            <form:select id="nvo-categoria" path="categoria" items="${selectCategoria}">
-                                                            </form:select> 
-                                                        </div>  
-
-
-
-                                                        <!--Fin  inputs    /!-->
-                                                    </div>
-                                                    <div class="col-lg-6 text-left">
-                                                        <!-- inputs/!-->
-
-
-                                                         
-
-                                                    </div>
-                                                </div>     
-
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">
-
-                                        </div> 
-
-                                    </div>                        
-                                </div>  
-                            </div>
-                        </div><!--Fin del tag de fila-->
-                    </div><!-- Fin del tag del contenedor-->
-                </div>
-                <!-- /#page-wrapper -->
-            </form:form>
-
-        </div>
-        <!-- /#wrapper -->
-        <!-- jQuery -->
-        <script src="resources/js/libs/jquery.min.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="resources/js/libs/bootstrap.min.js"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="resources/js/libs/metisMenu.min.js"></script>
-        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="resources/js/libs/sb-admin-2.js"></script>
-        <%@include file="MenusCompras/Pie compras.jsp"%>
-
-    </body>
-
+    <!-- Custom Theme JavaScript ->
+    <script src="resources/js/libs/sb-admin-2.js"></script-->
+    <%@include file="MenusCompras/Pie compras.jsp"%>
+    <script src="${pageContext.request.contextPath}/resources/js/compras/jscompas.js"></script>
+  </body>
 </html>

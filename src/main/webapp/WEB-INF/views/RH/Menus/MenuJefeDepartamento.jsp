@@ -18,13 +18,13 @@
   <ul class="nav navbar-right top-nav">
     <!-- Messages -->
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" onClick="return noFuncional();"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
       
     </li>
     
     <!-- Alerts -->
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" onClick="return noFuncional();"><i class="fa fa-bell"></i> <b class="caret"></b></a>
       
     </li>
     
@@ -33,7 +33,7 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Recursos Humanos <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
-          <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
+          <a href="#" onClick="return noFuncional();"><i class="fa fa-fw fa-user"></i> Perfil</a>
         </li>
         <li class="divider"></li>
         <li>

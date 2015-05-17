@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <form:form action="newUser" method="POST" commandName="Empleado">
+                <form:form action="newUser" method="POST" commandName="Empleado" onsubmit="confirmarAltas()">
                     <div class="row">
                         <div class="col-lg-12 text-left">
                             <div class="panel panel-green">
@@ -105,7 +105,7 @@
                                         <h5><label>Sexo</label></h5>
                                         <div class="radio">
                                             <div class="form-group input-group">
-                                                <form:radiobutton path="sexo" value="M"/>Hombre  &nbsp;  &nbsp;  &nbsp; 
+                                                <form:radiobutton path="sexo" checked="checked" value="M"/>Hombre  &nbsp;  &nbsp;  &nbsp;
                                                 <form:radiobutton path="sexo" value="F"/>Mujer &nbsp;  &nbsp;  &nbsp; 
                                                 <form:radiobutton path="sexo" value="O"/>Otro &nbsp;  &nbsp;  &nbsp; 
                                             </div>
@@ -114,7 +114,7 @@
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
                                             <label>E-mail</label>
-                                            <form:input path="email" class="form-control" placeholder="e_mail"  maxlength="20" onkeypress="return validarRFC();" required="required"/>
+                                            <form:input path="email" class="form-control" placeholder="e_mail"  maxlength="20" type="email" required="required"/>
                                         </div> 
                                     </div>
                                     <div class="col-lg-6 text-left">
@@ -195,11 +195,11 @@
                                             <div class="col-lg-6 text-left">
                                                 <div class="form-group">
                                                     <label>C&oacute;digo Postal</label>
-                                                    <form:input path="codigoPostal" class="form-control" placeholder="C.P."  maxlength="5" onkeypress="return soloNumeros(event);" required="required"/>
+                                                    <form:input path="codigoPostal" class="form-control" placeholder="C.P." minlength="5" maxlength="5"  onkeypress="return soloNumeros(event);" required="required"/>
                                                 </div> 
                                                 <div class="form-group">
                                                     <label>Telefono </label>
-                                                    <form:input path="telefono" class="form-control" placeholder="Telefono Principal"  maxlength="10" onkeypress="return soloNumeros(event);" required="required"/>
+                                                    <form:input path="telefono" class="form-control" placeholder="Telefono Principal"   minlength="10" maxlength="10" onkeypress="return soloNumeros(event);" required="required"/>
                                                 </div> 
 
                                             </div>

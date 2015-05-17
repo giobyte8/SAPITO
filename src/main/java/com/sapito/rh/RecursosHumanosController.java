@@ -87,7 +87,7 @@ public class RecursosHumanosController {
 
         List<Empleado> empleados = daoEmpleado.findAll();
         System.out.println(empleados.size() + "Cantidad de empleados");
-        System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
+        //System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
 
         int ultimo_empleado = empleados.get(empleados.size() - 1).getIdempleado();
         System.out.println("ultimo_empeado" + ultimo_empleado);
@@ -139,19 +139,16 @@ public class RecursosHumanosController {
 
         return "RH/updateEmpleado";
     }
-    
-      @RequestMapping(value = "editEmpleado", method = RequestMethod.GET)
-    public String editEmpleado(Model model, String id) {
-        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(id));
-        model.addAttribute("Empleado", empleado);
 
-        List<Departamento> departamento = daoDepartamento.findAll();
-        List<Puesto> puesto = daoPuesto.findAll();
+    @RequestMapping(value = "editEmpleado", method = RequestMethod.POST)
+    public String editEmpleado(Model model, Empleado empleado, BindingResult result) {
+        System.out.println(empleado.getTelefono());
+        System.out.println(empleado.getIdempleado());
 
-        model.addAttribute("Departamento", departamento);
-        model.addAttribute("puesto", puesto);
-
-        return "redirect:AdminEmpleados";
+//        daoEmpleado.edit(empleado);
+        System.out.println("Empleado editado4");
+        model.addAttribute("Resultado", "<div class='alert-message alert-message-danger'> <h4>Alert Message Danger</h4><p> Operación Correcta: Usuario editado de manera correct</p></div>");
+        return "RH/ResultadoEmpleado";
     }
 
     @RequestMapping(value = "HistorialEmpleado", method = RequestMethod.GET)

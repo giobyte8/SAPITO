@@ -14,10 +14,6 @@
     <head>
 
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
         <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
         <title>SAPITO</title>
@@ -90,18 +86,17 @@
                                                             <form:input path="colonia" name="colonia" type="text" class="form-control" 
                                                                         id="coloniaC" placeholder="Colonia" />
                                                             <form:errors path="colonia" element="div" class="alert-danger pad-10" />
-                                                        </div>
-
-                                                        <div class="form-group ">
-                                                            <label for="alp-calle" class="control-label">Calle</label>
-                                                            <form:input path="calle" name="calle" type="text" class="form-control" 
-                                                                        id="calleC" placeholder="Calle" />
-                                                            <form:errors path="calle" element="div" class="alert-danger pad-10" />
-                                                        </div>
+                                                        </div>                                                        
                                                     </div>
 
                                                     <div class="form-group ">                                                            
                                                         <div class="col-lg-6 text-left"> 
+                                                            <div class="form-group ">
+                                                                <label for="alp-calle" class="control-label">Calle</label>
+                                                                <form:input path="calle" name="calle" type="text" class="form-control" 
+                                                                            id="calleC" placeholder="Calle" />
+                                                                <form:errors path="calle" element="div" class="alert-danger pad-10" />
+                                                            </div>
                                                             <div class="form-group ">
                                                                 <label for="alp-numint" class="control-label">Número Interior</label>
                                                                 <form:input path="numeroI" name="numeroI" type="text" class="form-control" id="numextC" 
@@ -129,29 +124,7 @@
                                                                             placeholder="RFC" />
                                                                 <form:errors path="rfc" element="div" class="alert-danger pad-10" />
                                                             </div>
-
-                                                            <div class="form-group ">
-                                                                <label for="alp-email" class="control-label">Email</label>
-                                                                <form:input path="email" name="email" type="email" class="form-control" id="emailC" 
-                                                                            placeholder="Email" />
-                                                                <form:errors path="email" element="div" class="alert-danger pad-10" />
-                                                            </div>
                                                         </div> 
-                                                        <div class="col-md-2">
-                                                            <label>Extensión</label>
-                                                            <form:input path="extension1" name="extension1"
-                                                                        type="text" class="form-control" placeholder="Extensión" />
-                                                            <form:errors path="extension1" element="div" class="alert-danger pad-10" />
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label for="alp-tel1" class="control-label">Teléfono</label>
-                                                            <form:input path="telefono1" name="telefono1" type="text" class="form-control" id="telefono1C" 
-                                                                        placeholder="Teléfono" />
-                                                            <form:errors path="telefono1" element="div" class="alert-danger pad-10" />
-                                                        </div>
-
-
                                                     </div>
                                                     <!--Fin  inputs/!-->
 
@@ -173,32 +146,61 @@
                                                                         id="nombreCC" placeholder="Nombre" />
                                                             <form:errors path="nombreContacto" element="div" class="alert-danger pad-10" />
                                                         </div>
-                                                        <div class="form-group ">
-                                                            <label for="alp-apm" class="control-label">Apellido Materno</label>
-                                                            <form:input path="apellidoMaternoContacto" name="apellidoMaternoContacto" type="text" class="form-control" id="apMC" 
-                                                                        placeholder="Apellido Materno" />
-                                                            <form:errors path="apellidoMaternoContacto" element="div" class="alert-danger pad-10" />
-                                                        </div>                                                       
 
-                                                        <!--Fin  inputs/!-->
-                                                    </div>
-                                                    <div class="col-lg-6 text-left">
-                                                        <!-- inputs/!-->
                                                         <div class="form-group">
                                                             <label for="alp-app" class="control-label" >Apellido Paterno</label>
                                                             <form:input path="apellidoPaternoContacto" name="apellidoPaternoContacto" type="text" class="form-control" id="apPC" 
                                                                         placeholder="Apellido Paterno" />
                                                             <form:errors path="apellidoPaternoContacto" element="div" class="alert-danger pad-10" />
-                                                        </div>   
+                                                        </div> 
+                                                        <div class="form-group ">
+                                                            <label for="alp-apm" class="control-label">Apellido Materno</label>
+                                                            <form:input path="apellidoMaternoContacto" name="apellidoMaternoContacto" type="text" class="form-control" id="apMC" 
+                                                                        placeholder="Apellido Materno" />
+                                                            <form:errors path="apellidoMaternoContacto" element="div" class="alert-danger pad-10" />
+                                                        </div>
+
+
+                                                        <!--Fin  inputs/!-->
                                                     </div>
+                                                    <div class="col-lg-6 text-left">
+                                                        <!-- inputs/!-->
+                                                        <div class="form-group ">
+                                                            <label for="alp-email" class="control-label">Email</label>
+                                                            <form:input path="email" name="email" type="email" class="form-control" id="emailC" 
+                                                                        placeholder="Email" />
+                                                            <form:errors path="email" element="div" class="alert-danger pad-10" />
+                                                        </div>
+
+                                                    </div>
+                                                    <br>
                                                     <div class="col-md-2">
-                                                        <label>Extensión</label>
+                                                        <label>Extensión 1</label>
+                                                        <form:input path="extension1" name="extension1"
+                                                                    type="text" class="form-control" placeholder="Extensión" />
+                                                        <form:errors path="extension1" element="div" class="alert-danger pad-10" />
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <div class="col-md-4">
+                                                        <label for="alp-tel1" class="control-label">Teléfono 1</label>
+                                                        <form:input path="telefono1" name="telefono1" type="text" class="form-control" id="telefono1C" 
+                                                                    placeholder="Teléfono" />
+                                                        <form:errors path="telefono1" element="div" class="alert-danger pad-10" />
+                                                    </div>    
+                                                    <br>
+                                                    <br>
+                                                    <div class="col-md-2">
+                                                        <br>                                                        
+                                                        <label>Extensión 2</label>
                                                         <form:input path="extension2" name="extension2"
                                                                     type="text" class="form-control" placeholder="Extensión" />
                                                         <form:errors path="extension2" element="div" class="alert-danger pad-10" />
                                                     </div>
+                                                    <br>
                                                     <div class="col-md-4">
-                                                        <label for="alp-tel2" class="control-label">Teléfono</label>
+                                                        <br>
+                                                        <label for="alp-tel2" class="control-label">Teléfono 2</label>
                                                         <form:input path="telefono2" name="telefono2" type="text" class="form-control" id="telefonoC" 
                                                                     placeholder="Teléfono" />
                                                         <form:errors path="telefono2" element="div" class="alert-danger pad-10" />
@@ -208,9 +210,9 @@
                                         </div>      
                                         <div class="row text-right">
                                             <div class="col-md-12">
-                                                <!--<button onclick="Confirmacion()" type="button" class="btn btn-success right">Aceptar</button>-->
-                                                <button onclick="Confirmacion()" type="submit" class="btn btn-success right">Aceptar</button>
                                                 <a href="consultaproveedor" class="btn btn-danger right"> Cancelar</a>
+                                                <button onclick="" type="submit" class="btn btn-success right">Aceptar</button>
+
                                             </div>  
                                         </div>
                                     </div>                        
@@ -229,11 +231,11 @@
 
         <%@include file="MenusCompras/Pie compras.jsp"%>
         <script >
-            $(document).ready(function () {
-            });
+                                                    $(document).ready(function () {
+                                                    });
         </script>
 
-       
+
     </body>
 
 </html>

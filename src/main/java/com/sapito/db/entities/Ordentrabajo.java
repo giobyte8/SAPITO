@@ -29,16 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "ordentrabajo")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Ordentrabajo.findAll", query = "SELECT o FROM Ordentrabajo o"),
-    @NamedQuery(name = "Ordentrabajo.findByIdordentrabajo", query = "SELECT o FROM Ordentrabajo o WHERE o.idordentrabajo = :idordentrabajo"),
-    @NamedQuery(name = "Ordentrabajo.findByFechapedido", query = "SELECT o FROM Ordentrabajo o WHERE o.fechapedido = :fechapedido"),
-    @NamedQuery(name = "Ordentrabajo.findByDescripcion", query = "SELECT o FROM Ordentrabajo o WHERE o.descripcion = :descripcion"),
-    @NamedQuery(name = "Ordentrabajo.findByFechaentrega", query = "SELECT o FROM Ordentrabajo o WHERE o.fechaentrega = :fechaentrega"),
-    @NamedQuery(name = "Ordentrabajo.findByPrioridad", query = "SELECT o FROM Ordentrabajo o WHERE o.prioridad = :prioridad"),
-    @NamedQuery(name = "Ordentrabajo.findByComentario", query = "SELECT o FROM Ordentrabajo o WHERE o.comentario = :comentario"),
-    @NamedQuery(name = "Ordentrabajo.findByAuditor", query = "SELECT o FROM Ordentrabajo o WHERE o.auditor = :auditor")})
 public class Ordentrabajo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

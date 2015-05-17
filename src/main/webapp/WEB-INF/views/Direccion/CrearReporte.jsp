@@ -5,7 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
+
 <html lang="en">
 
     <head>
@@ -15,6 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+        
 
         <title>SAPito</title>
 
@@ -52,24 +56,29 @@
                             </h1>                        
                         </div>
                     </div>
-                    
-             <div class="panel panel-green">
-              <div class="panel-heading">
-                 Ingrese la descripción del Reporte
-              </div>
-                 <div class="panel panel-body">
-                        <textarea name="Reporte" rows="15" cols="130"   ></textarea>
+
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            Ingrese la descripción del Reporte
+                        </div>
+                        <div class="panel panel-body">
+                            <textarea name="Reporte" rows="15" cols="130"   ></textarea>
+                        </div>
+
+                        <div class="panel-footer" >
+                            <a class="btn btn-success" style="color: white" type="button" href="#">Crear Reporte</a> 
+                            <a class="btn btn-success" style="color: white" type="button" href="#">Cancelar</a>
+
+                        </div>
+                        <form:form method="POST" action="procesPDF" commandName="textoPdf">
+                            <form:label path="todoTexto"/>Escriba su reporte:
+                            <form:textarea  path="todoTexto" id="textArea" rows="15" cols="100" />
+                            <input type="submit" id="submit" name="submit" value="Crear">
+                        </form:form> 
                     </div>
-              
-                <div class="panel-footer" >
-                    <a class="btn btn-success" style="color: white" type="button" href="#">Crear Reporte</a> 
-                    <a class="btn btn-success" style="color: white" type="button" href="#">Cancelar</a>
-                 
                 </div>
-              </div>
+                <!-- /#page-wrapper -->
             </div>
-            <!-- /#page-wrapper -->
-        </div>
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->

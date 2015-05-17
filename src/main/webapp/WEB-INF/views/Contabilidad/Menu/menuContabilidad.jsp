@@ -109,7 +109,7 @@
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#conta-submenus"> Contabilidad<span class="fa arrow"></span></a>
                     <ul id="conta-submenus" class="collapse">
-                        <li>
+                      <%--  <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Reporte Ventas</a>
                         </li>
                         <li>
@@ -127,6 +127,7 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Reporte Dirección</a>
                         </li>
+                      --%>
                         <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaInformes"> Informes</a>
                         </li>
@@ -146,6 +147,9 @@
                             <a href="${pageContext.request.contextPath}/contabilidad/contaCrearCuenta">Nueva Cuenta Bancaria</a>
                         </li>
                         <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCrearPago">Nuevo Pago</a>
+                        </li>
+                        <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaMoneda">Moneda</a>
                         </li>
                     </ul>
@@ -159,6 +163,7 @@
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Contabilidad<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
+                      <%--  
                         <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Reporte Ventas</a>
                         </li>
@@ -177,8 +182,9 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Reporte Direccion</a>
                         </li>
+                      --%>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaInformes"> Informes</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaInformes"> Reportes</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -195,6 +201,9 @@
                         -->
                          <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaCrearCuenta">Nueva Cuenta Bancaria</a>
+                        </li>
+                         <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCrearPago">Nuevo Pago</a>
                         </li>
                         <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaMoneda">Moneda</a>

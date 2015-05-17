@@ -13,6 +13,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -32,21 +34,14 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 @Table(name = "lineaproduccion")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Lineaproduccion.findAll", query = "SELECT l FROM Lineaproduccion l"),
-    @NamedQuery(name = "Lineaproduccion.findByIdlineaproduccion", query = "SELECT l FROM Lineaproduccion l WHERE l.idlineaproduccion = :idlineaproduccion"),
-    @NamedQuery(name = "Lineaproduccion.findByNombre", query = "SELECT l FROM Lineaproduccion l WHERE l.nombre = :nombre"),
-    @NamedQuery(name = "Lineaproduccion.findByTiempo", query = "SELECT l FROM Lineaproduccion l WHERE l.tiempo = :tiempo"),
-    @NamedQuery(name = "Lineaproduccion.findByActivo", query = "SELECT l FROM Lineaproduccion l WHERE l.activo = :activo"),
-    @NamedQuery(name = "Lineaproduccion.findByResponsa", query = "SELECT l FROM Lineaproduccion l WHERE l.responsa = :responsa")})
 public class Lineaproduccion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idlineaproduccion")
     private Integer idlineaproduccion;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -62,13 +57,18 @@ public class Lineaproduccion implements Serializable {
     
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "activo")
-    private short activo;
+    private String activo;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "responsa")
     private String responsa;
+    
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lineaproduccionIdlineaproduccion")
     private Collection<Catalogoproducto> catalogoproductoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lineaproduccionIdlineaproduccion")
@@ -81,7 +81,7 @@ public class Lineaproduccion implements Serializable {
         this.idlineaproduccion = idlineaproduccion;
     }
 
-    public Lineaproduccion(Integer idlineaproduccion, String nombre, Date tiempo, short activo, String responsa) {
+    public Lineaproduccion(Integer idlineaproduccion, String nombre, Date tiempo, String activo, String responsa) {
         this.idlineaproduccion = idlineaproduccion;
         this.nombre = nombre;
         this.tiempo = tiempo;
@@ -113,11 +113,11 @@ public class Lineaproduccion implements Serializable {
         this.tiempo = tiempo;
     }
 
-    public short getActivo() {
+    public String getActivo() {
         return activo;
     }
 
-    public void setActivo(short activo) {
+    public void setActivo(String activo) {
         this.activo = activo;
     }
 

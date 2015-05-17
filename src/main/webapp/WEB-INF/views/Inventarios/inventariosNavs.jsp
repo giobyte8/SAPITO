@@ -50,11 +50,11 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li>
-                <a href="existencias"><i class="fa fa-list-alt fa-fw"></i> Checar existencias</a>
+                <a href="${pageContext.request.contextPath}/inventario/existencias"><i class="fa fa-list-alt fa-fw"></i> Checar existencias</a>
             </li>
             
             <li>
-                <a href="buscarProducto" data-toggle="collapse" data-target="#demo1"><i class="fa fa-search fa-fw"></i> Buscar producto <span class="fa arrow"></span></a>
+                <a href="${pageContext.request.contextPath}/inventario/buscarproducto" data-toggle="collapse" data-target="#demo1"><i class="fa fa-search fa-fw"></i> Buscar producto <span class="fa arrow"></span></a>
                 
             </li>
             
@@ -62,10 +62,10 @@
                 <a href="javascript:" data-toggle="collapse" data-target="#demo1"><i class="fa fa-expand fa-fw"></i> Máximos y mínimos<span class="fa arrow"></span></a>
                 <ul id="demo1" class="collapse">
                     <li>
-                        <a href="materiaPrima">Materia prima</a>
+                        <a href="${pageContext.request.contextPath}/inventario/maximoMinimoMateria">Materia prima</a>
                     </li>
                     <li>
-                        <a href="productoTerminado">Producto terminado</a>
+                        <a href="${pageContext.request.contextPath}/inventario/maximoMinProducto">Producto terminado</a>
                     </li>
                 </ul>            
             </li>
@@ -73,16 +73,16 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-arrow-up fa-fw"></i>Alta nuevos productos<span class="fa arrow"></span></a>
                 <ul id="demo2" class="collapse">
                     <li>
-                        <a href="registrarMateriaPrima">Materia prima</a>
+                        <a href="${pageContext.request.contextPath}/inventario/registrarMateriaPrima">Materia prima</a>
                     </li>
                     <li>
-                        <a href="registrarProductoTerminado">Producto terminado</a>
+                        <a href="${pageContext.request.contextPath}/inventario/nvoproducto">Producto terminado</a>
                     </li>
                 </ul>            
             </li>
             <li>
-                <a href="bajaMateriaPrima"><i class="fa fa-fw fa-mail-forward"></i> Salida materia prima</a>
+                <a href="${pageContext.request.contextPath}/inventario/bajaMateriaPrima"><i class="fa fa-fw fa-mail-forward"></i> Salida materia prima</a>
             </li>
         </ul>
     </div>
-</nav></nav>
+</nav>
