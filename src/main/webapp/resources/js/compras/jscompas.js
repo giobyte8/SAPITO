@@ -13,12 +13,28 @@ function Confirmacion() {
     {
 // si pulsamos en aceptar
         alert('Datos Ingresados Correctamente');
+        //window.location.href = "consultaproveedor";
+    }
+    else
+    {
+// si pulsamos en cancelar
+        alert('Registro Cancelado');
         window.location.href = "consultaproveedor";
+    }
+}
+
+function ConfirmacionP() {
+    confirmar = confirm("¿Desea agregar el registro?");
+    if (confirmar)
+    {
+// si pulsamos en aceptar
+        alert('Datos Ingresados Correctamente');
+        window.location.href = "ConsultaProducto";
     }
     else
 // si pulsamos en cancelar
         alert('Registro Cancelado');
-    window.location.href = "consultaproveedor";
+    window.location.href = "ConsultaProducto";
 }
 
 function Eliminar() {

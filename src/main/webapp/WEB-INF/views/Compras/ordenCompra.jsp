@@ -164,7 +164,7 @@
                                                                                 </a> 
                                                                         </div>
                                                                     </div>
-                                                                </td> 
+                   ConsultaProducto                                             </td> 
                                                             </tr>
                                                             <tr>
                                                                 <td>3</td> 

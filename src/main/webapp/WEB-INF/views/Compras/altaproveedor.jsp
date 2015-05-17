@@ -211,7 +211,7 @@
                                         <div class="row text-right">
                                             <div class="col-md-12">
                                                 <a href="consultaproveedor" class="btn btn-danger right"> Cancelar</a>
-                                                <button onclick="Confirmacion()" type="submit" class="btn btn-success right">Aceptar</button>
+                                                <button onclick="" type="submit" class="btn btn-success right">Aceptar</button>
 
                                             </div>  
                                         </div>

@@ -41,7 +41,7 @@ public class ProductoProveedor implements Serializable {
     
     @NotNull
     @Column(name = "COSTO")
-    @Min(1)
+    @Min(value=1, message="Debe ser mayor a uno")
     private double costo;
     
     @NotNull

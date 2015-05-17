@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -47,7 +48,7 @@ public class ComprasController
         this.daoProducto = daoProducto;
         daoProducto.setClass(Producto.class);
     }
-    
+
     @Autowired
     public void setDaoProductoProveedor(GenericDao<ProductoProveedor> daoProducoProveedor)
     {
@@ -60,7 +61,6 @@ public class ComprasController
     public String altaproveedor(Model model)
     {
         Proveedor proveedor = new Proveedor();
-        proveedor.setStatus(true);
 
         model.addAttribute("proveedor", proveedor);
         return "Compras/altaproveedor";
@@ -77,6 +77,7 @@ public class ComprasController
         } 
         else
         {
+            proveedor.setStatus(true);
             daoProveedor.create(proveedor);
 
             List<Proveedor> proveedores = daoProveedor.findAll();
@@ -99,6 +100,21 @@ public class ComprasController
         {
             model.addAttribute("proveedores", new ArrayList<Proveedor>());
             return "Compras/consultaproveedor";
+        }
+
+    }
+    
+    //Consulta Producto//
+    @RequestMapping(value = "compras/ConsultaProducto", method = RequestMethod.GET)
+    public String buscarProducto(Model model) {
+        List<Producto> producto = daoProducto.findAll();
+
+        if (producto != null && producto.size() > 0) {
+            model.addAttribute("producto1", producto);
+            return "Compras/ConsultaProducto";
+        } else {
+            model.addAttribute("producto1", new ArrayList<Producto>());
+            return "Compras/ConsultaProducto";
         }
 
     }
@@ -126,49 +142,50 @@ public class ComprasController
         {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
-            return "Compras/AltaProducto";
-        } else
-        {
-            daoProducto.create(producto);
-
             Map selectCategoria = new HashMap<>();
             selectCategoria.put("MATERIAPRIMA", "Materia prima");
             selectCategoria.put("ACTIVOFIJO", "Activo fijo");
             model.addAttribute("selectCategoria", selectCategoria);
-
-            Producto producto2 = new Producto();
-            model.addAttribute("producto", producto2);
             return "Compras/AltaProducto";
+        } 
+        else
+        {
+            daoProducto.create(producto);
+            
+            List<Producto> producto1 = daoProducto.findAll();
+            model.addAttribute("producto1", producto1);
+            return "Compras/ConsultaProducto";
         }
     }
 //Fin Alta Producto
-    
+
     @RequestMapping(value = "compras/productoproveedor", method = RequestMethod.GET)
-    public String regProductoProveedor(Model model)
+    public String regProductoProveedor(Model model, @RequestParam String idProducto)
     {
         ProductoProveedor productoProveedor = new ProductoProveedor();
         model.addAttribute("productoProveedor", productoProveedor);
-        
+
         // Tipos de unidad
         Map unidades = new HashMap();
         unidades.put("CAJA", "CAJA");
         unidades.put("PIEZA", "PIEZA");
         unidades.put("LOTE", "LOTE");
-        
+
         // Producto
-        List<Producto> productos = daoProducto.findAll();
-        
+        Producto producto = (Producto) daoProducto.find(Long.valueOf(idProducto));
+        productoProveedor.setProducto(producto);
+
         // Lista de proveedores
         List<Proveedor> proveedores = daoProveedor.findAll();
-        
+
         model.addAttribute("unidades", unidades);
-        model.addAttribute("productos", productos);
+        model.addAttribute("producto", producto);
         model.addAttribute("proveedores", proveedores);
         return "Compras/ProductoProveedor";
     }
-    
+
     @RequestMapping(value = "compras/productoproveedor", method = RequestMethod.POST)
-    public String regProductoProveedorPost(Model model, ProductoProveedor productoProveedor, 
+    public String regProductoProveedorPost(Model model,@Valid ProductoProveedor productoProveedor,
             BindingResult bindingResult)
     {
         if(bindingResult.hasErrors())
@@ -176,18 +193,21 @@ public class ComprasController
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Compras/ProductoProveedor";
-        }
+        } 
         else
         {
             Proveedor proveedor = (Proveedor) daoProveedor
                     .find(productoProveedor.getProveedor().getId());
             Producto producto = (Producto) daoProducto
                     .find(productoProveedor.getProducto().getId());
-            
+
             productoProveedor.setProducto(producto);
             productoProveedor.setProveedor(proveedor);
             daoProductoProveedor.create(productoProveedor);
-            return "Compras/indexcompras";
+            
+            List<Producto> producto1 = daoProducto.findAll();
+            model.addAttribute("producto1", producto1);
+            return "Compras/ConsultaProducto";
         }
     }
 
