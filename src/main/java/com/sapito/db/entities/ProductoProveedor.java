@@ -65,10 +65,9 @@ public class ProductoProveedor implements Serializable {
 
     @JoinColumn(name = "ID_PRODUCTOSENORDEN")
     @ManyToOne
-    private ProductoProveedor productoComprado;
+    private ProductoEnOrden productoComprado;
     
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoProveedor")
     private Collection<ActivoFijo> productoRef;
     
     public Long getId() {
@@ -152,14 +151,14 @@ public class ProductoProveedor implements Serializable {
     /**
      * @return the productocomprado
      */
-    public ProductoProveedor getProductocomprado() {
+    public ProductoEnOrden getProductocomprado() {
         return productoComprado;
     }
 
     /**
      * @param productocomprado the productocomprado to set
      */
-    public void setProductocomprado(ProductoProveedor productocomprado) {
+    public void setProductocomprado(ProductoEnOrden productocomprado) {
         this.productoComprado = productocomprado;
     }
 
