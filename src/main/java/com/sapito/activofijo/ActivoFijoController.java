@@ -461,10 +461,11 @@ public class ActivoFijoController
     @ResponseBody
     public String descargarReporteInv(Model model, HttpServletRequest request, HttpServletResponse response)
     {
+        List<TipoActivoFijo>tipo=daoTipoActivoFijo.findAll();
         PDFGeneratorActivosFijos pdfActivos = new PDFGeneratorActivosFijos();
         try
         {
-            pdfActivos.crearPDFInversion(response);
+            pdfActivos.crearPDFInversion(response,tipo);
         } catch(Exception ex)
         {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
