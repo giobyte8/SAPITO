@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 
 
-  <a class="btn btn-success" type="button" href="#">Crear Reporte</a>
+<a class="btn btn-success" type="button" href="#" style="color:white">Crear Reporte</a>
     <table>
         <tr>
             <td>
