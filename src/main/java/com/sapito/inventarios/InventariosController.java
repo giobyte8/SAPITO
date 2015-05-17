@@ -69,24 +69,7 @@ public class InventariosController
         }
     }
 
-    @RequestMapping(value = "inventario/materiaPrima", method = RequestMethod.GET)
-    public String materiaPrima(Model model)
-    {
-        List<Inventario> inventario = daoInventario
-                .findBySpecificField("materiaPrima", "MATERIAPRIMA", "equal", null, null);
-//        model.addAttribute("materiaPrima", materiaPrima);
-        
-        return "Inventarios/materiaPrimaView";
-    }
-
-    @RequestMapping(value = "inventario/productoTerminado", method = RequestMethod.GET)
-    public String productoTerminado(Model model)
-    {
-        List<Inventario> inventario = daoInventario
-                .findBySpecificField("productoTerminado", "PRODUCTOTERMINADO", "equal", null, null);
-//        model.addAttribute("productoTerminado", productoTerminado);
-        return "Inventarios/productoTerminadoView";
-    }
+    
 
     //------------Materia prima--------------------
     @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.GET)
@@ -192,4 +175,40 @@ public class InventariosController
     {
         return "Inventarios/existenciasView";
     }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////
+    
+//    @RequestMapping(value = "inventario/materiaPrima", method = RequestMethod.GET)
+//    public String materiaPrima(Model model)
+//    {
+//        List<Inventario> inventario = daoInventario
+//                .findBySpecificField("materiaPrima", "MATERIAPRIMA", "equal", null, null);
+////        model.addAttribute("materiaPrima", materiaPrima);
+//        
+//        return "Inventarios/materiaPrimaView";
+//    }
+//
+//    @RequestMapping(value = "inventario/productoTerminado", method = RequestMethod.GET)
+//    public String productoTerminado(Model model)
+//    {
+//        List<Inventario> inventario = daoInventario
+//                .findBySpecificField("productoTerminado", "PRODUCTOTERMINADO", "equal", null, null);
+////        model.addAttribute("productoTerminado", productoTerminado);
+//        return "Inventarios/productoTerminadoView";
+//    }
+    
+//    @RequestMapping(value = "inventario/matepri", method = RequestMethod.GET)
+//    public String matepri(Model model)
+//    {
+//        return "Inventarios/materiaPrimaView";
+//    }
+//    
+//    @RequestMapping(value = "inventario/prote", method = RequestMethod.GET)
+//   public String prote(Model model)
+//   {
+//       return "Inventarios/productoTerminadoView";
+//    }
+    
+    
 }
