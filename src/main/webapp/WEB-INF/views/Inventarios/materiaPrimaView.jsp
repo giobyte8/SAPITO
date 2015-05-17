@@ -1,9 +1,9 @@
 <%-- 
-    Document   : checarInventariosView
-    Created on : Feb 14, 2015, 10:45:59 PM
-    Author     : R2R
+    Document   : buscarProducto
+    Created on : 22-feb-2015, 22:08:25
+    Author     : barajas
 --%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,61 +12,147 @@
         <title>SAPito</title>
     </head>
     <body>
+
         <div id="wrapper">           
             <%@include file="inventariosNavs.jsp" %>
-            <form>
-                <div id="page-wrapper">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Máximos y Mínimos</h1>
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-green">
-                                <div class="panel-heading">
-                                    Control máximo y mínimos  de materia prima 
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="dataTable_wrapper">
-                                        <div class="form-group">
-                                            <label>Selecciona un producto</label>
+            <div id="page-wrapper">
+                <div class="container-fluid">
 
-                                            <form:select items="${materiasPrimas}" class="form-control">
-                                                
-                                            <br/>
-                                            <label>Control Máximo</label>
-                                            <input onKeyup="isInteger(this.value)" class="form-control "autofocus autocomplete required placeholder="Ingrese cantidad máxima" pattern="[0-9]{5}">
-                                            <p class="help-block" ></p>
-                                            <br/>
-                                            <label>Control Mínimo</label>
-                                            <input onKeyup="isInteger(this.value)" class="form-control"autofocus autocomplete required placeholder="Ingrese cantidad mínima" pattern="[0-9]{5}">
-                                            <p class="help-block"></p>
-                                        </div>
-                                    </div>
+                    <!-- Page title -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Maximo y Minimo
+                            </h1>
+                        </div>
+                    </div>
+
+                    <!-- Data table -->
+                    <table id="tinventario" class="table table-bordered table-hover 
+                           table-striped table-responsive" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Código inventario</th>
+                                <th>Nombre</th>
+                                <th>Maximo</th>
+                                <th>Minimo</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${inventario}" var="inventario">
+                                <tr>
+                                    <td>${inventario.codigoInventario}</td>
+                                    <td>${inventario.nombre}</td>
+                                    <td>${inventario.maximo}</td>
+                                    <td>${inventario.minimo}</td>
+                                    <td>
+                                        <button class="btn btn-xs btn-success" type="button" 
+                                                data-toggle="modal" data-target="#cts-modal${inventario.id}">
+                                            Modificar
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <c:forEach items="${inventario}" var="inventario">
+            <div id="cts-modal${inventario.id}" class="modal fade" tabindex="-1" role="dialog" 
+                 aria-labelledby="inventario-modal-title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Maximos y Minimos</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Datos de maximo y minimo:</h4>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Código inventario</label>
+                                    <input type="text" class="form-control" readonly value="${inventario.codigoInventario}"/>
                                 </div>
                             </div>
-                            <!-- /.panel -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Nombre</label>
+                                    <input type="text" class="form-control" readonly value="${inventario.nombre}"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Maximo Actual</label>
+                                    <input type="text" class="form-control" readonly value="${inventario.maximo}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Minimo Actual</label>
+                                    <input id="cant-actual${inventario.id}" type="number" 
+                                           class="form-control" readonly value="${inventario.minimo}"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Maximo a modificar </label>
+                                    <input id="max-mod${inventario.id}" type="number" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Minimo a modificar</label>
+                                    <input id="min-mod${inventario.id}" type="number" class="form-control" required />
+                                </div>
+                            </div>
+
+
+
                         </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                    <div align=right>
-                        <p>
-                            <button type="submit" class="btn btn-success" >Actualizar</button>
-                            
-                        </p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="maxminact(${inventario.id})" >
+                                Actualizar
+                            </button>
+                        </div>
+
                     </div>
                 </div>
-            </form>
-        </div>
-        <!-- jQuery -->
+            </div>
+        </c:forEach>        
 
         <%@include file="inventariosFooter.jsp" %>
+        <script >
+            $(document).ready(function () {
+                $('#tinventario').DataTable();
+            });
 
+            function maxminact(invId)
+            {
+                var maxamod = $("#max-mod" + invId).val();
+                var minamod = $("#min-mod" + invId).val();
+                console.log(maxamod + " - " + minamod);
+                if (+maxamod <=0 && +minamod  <=0  ||+maxamod <=0 || +minamod <==0) {
+                    alert("La cantidad a modificar debe ser al menos 1");
+                }
+                else {
+                    var url = "actualizarmaximo?id=" + invId + "&maxMod=" + maxamod + "&minMod=" + minamod;
+                window.location.href = url;
+                }
+        
+       
+            }
+        </script>
     </body>
-
 </html>
+
