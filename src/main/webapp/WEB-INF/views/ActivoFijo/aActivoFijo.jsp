@@ -63,7 +63,7 @@
                                                                 <select id="combo-dpto" name="departamento" class="form-control">
                                                                     <option value="">Selecciona Departamento</option>
                                                                     <c:forEach var="depto" items="${depto}">
-                                                                        <option value="${depto.id}">${depto.nombreDepartamento}</option>
+                                                                        <option value="${depto.id}">${depto.nombreDepartamento} ${depto.id}</option>
                                                                     </c:forEach>
                                                                 </select>
                                                                 <input type="hidden" name="idAF" class="form-control" value="${lastAF.id}" />
