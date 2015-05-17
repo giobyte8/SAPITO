@@ -211,13 +211,29 @@ public class ComprasController
         }
     }
 
+    //Orden de Compra 
+    @RequestMapping(value = "compras/ordenCompra", method = RequestMethod.GET)
+    public String ordenCompra(Model model)
+    {
+        return "Compras/ordenCompra";
+    }
+    
+    //Consulta Ordenes
+    @RequestMapping(value = "compras/ConsultarOrdenes", method = RequestMethod.GET)
+    public String consultarOrdenes(Model model)
+    {
+        return "Compras/ConsultarOrdenes";
+
+    }
+    
+    
     @RequestMapping(value = "compras", method = RequestMethod.GET)
     public String index(Model model)
     {
         return "Compras/indexcompras";
     }
 
-    //Orden de Compra 
+        
     @RequestMapping(value = "confirmacionProducto", method = RequestMethod.GET)
     public String confirmacionProducto(Model model)
     {
@@ -247,12 +263,7 @@ public class ComprasController
     {
         return "Compras/modificaOrden";
     }
-
-    @RequestMapping(value = "ordenCompra", method = RequestMethod.GET)
-    public String ordenCompra(Model model)
-    {
-        return "Compras/ordenCompra";
-    }
+   
 
     @RequestMapping(value = "confirmacionProductoEliminacion", method = RequestMethod.GET)
     public String confirmacionProductoEliminacion(Model model)
@@ -270,13 +281,6 @@ public class ComprasController
     public String ConsultaProducto(Model model)
     {
         return "Compras/ConsultaProducto";
-
-    }
-
-    @RequestMapping(value = "ConsultarOrdenes", method = RequestMethod.GET)
-    public String ConsultarOrdenes(Model model)
-    {
-        return "Compras/ConsultarOrdenes";
 
     }
 

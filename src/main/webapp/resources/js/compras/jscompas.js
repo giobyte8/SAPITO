@@ -37,6 +37,26 @@ function ConfirmacionP() {
     window.location.href = "ConsultaProducto";
 }
 
+
+function cancelarNvaOrdenCompra()
+{
+    swal({
+        title: '¿Seguro que desea cancelar?',
+        text: 'Esto eliminará los datos y productos de la orden de compra',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: 'Si, cancelar orden',
+        cancelButtonText: 'No',
+        closeOnConfirm: true
+    }, function (isConfirm) {
+        if (isConfirm) {
+            location.reload();
+        }
+    });
+}
+
+
 function Eliminar() {
     confirmar = confirm("¿Desea eliminar el registro?");
     if (confirmar)
