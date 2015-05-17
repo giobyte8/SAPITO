@@ -92,7 +92,7 @@
 
             </form:form>
 
-<!-- jQuery -->       
+<!-- jQuery -->       </div>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/inventarios/jsinventarios.js"></script>
     <%@include file="inventariosFooter.jsp" %>
     <script >
@@ -102,6 +102,8 @@
             $("#fnoc-cantidad").val("");
             $("#fnoc-maximo").val("");
             $("#fnoc-minimo").val("");
+            $("#fnoc-categoria").val("");
+            $("#fnoc-precio").val("");
             $("#fnoc-fechaEntrada").val("");
             $("#fnoc-fechaProduccion").val("");
             $("#fnoc-ubicacion").val("");
@@ -113,7 +115,7 @@
 
 
 
-        </div>
-        <%@include file="inventariosFooter.jsp" %>
+        
+       
     </body>
 </html>
