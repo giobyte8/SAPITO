@@ -6,9 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="tags" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!DOCTYPE html>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -18,7 +23,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        
 
         <title>SAPito</title>
 
@@ -52,32 +56,20 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Generar Reporte: 4 de Abril del 2015
+                                Crear Reporte:
                             </h1>                        
                         </div>
-                    </div>
-
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            Ingrese la descripción del Reporte
-                        </div>
-                        <div class="panel panel-body">
-                            <textarea name="Reporte" rows="15" cols="130"   ></textarea>
-                        </div>
-
-                        <div class="panel-footer" >
-                            <a class="btn btn-success" style="color: white" type="button" href="#">Crear Reporte</a> 
-                            <a class="btn btn-success" style="color: white" type="button" href="#">Cancelar</a>
-
-                        </div>
-                        <form:form method="POST" action="procesPDF" commandName="textoPdf">
+                        <form:form method="POST" action="testpdf" commandName="textoPdf">
                             <form:label path="todoTexto"/>Escriba su reporte:
-                            <form:textarea  path="todoTexto" id="textArea" rows="15" cols="100" />
+                            <form:textarea  name="texto" path="todoTexto" id="textArea" rows="15" cols="100" />
                             <input type="submit" id="submit" name="submit" value="Crear">
-                        </form:form> 
-                    </div>
-                </div>
-                <!-- /#page-wrapper -->
+                        </form:form>
+
+                        
+                    </div>        
+
+
+                </div><!-- Fin del tag del contenedor-->
             </div>
             <!-- /#page-wrapper -->
         </div>
