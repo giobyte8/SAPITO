@@ -14,69 +14,76 @@
     <body>
         <div id="wrapper">           
             <%@include file="inventariosNavs.jsp" %>
-
-
+            <div id="page-wrapper">
+                <div class="container-fluid">
+            <!-- Title -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Materia prima
+                            </h1>
+                        </div>
+                    </div>
 
             <form:form id="fnvo-Inventario" commandName="inventario" action="registrarMateriaPrima" method="POST">
 
                 <div class="row">
                     <div class="col-lg-12 text-left">
-                        <div class="panel panel-success">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Datos de la Materia prima</h3>
                             </div>
-                            <div class="panel-success">
+                            <div class="panel-body">
                                 <div class="col-lg-6 text-left">                                                      
-                                    <div class="form-group has-success">
+                                    <div class="form-group">
+                                        <label for="fnvoc-codigoInventario">Codigo de Inventario</label>                                                
+                                        <form:input  path="codigoInventario" name="codigoInventario" id="fnoc-codigoInventario" type="text" class="form-control" placeholder="Código de inventario"/>
+                                        <form:errors path="codigoInventario" element="div" class="alert-danger pad-10" />                                                                                                                    
+                                    </div>
+                                    <div class="form-group">
                                         <label for="fnvoc-nombre">Nombre</label>                                                
                                         <form:input  path="nombre" name="nombre" id="fnoc-nombre" type="text" class="form-control" placeholder="Nombre"/>
                                         <form:errors path="nombre" element="div" class="alert-danger pad-10" />                                                                                                                    
                                     </div>
-                                    <div class="form-group has-success">
-                                        <label for="fnvoc-codigoInventario">Codigo de Inventario</label>                                                
-                                        <form:input  path="codigoInventario" name="codigoInventario" id="fnoc-codigoInventario" type="text" class="form-control" placeholder="Codigo de Inventario"/>
-                                        <form:errors path="codigoInventario" element="div" class="alert-danger pad-10" />                                                                                                                    
-                                    </div>
-                                    <div class="form-group has-success">
-                                        <label for="fnvoc-categoria">Categoria</label>                                                
-                                        <form:input  path="categoria" name="categoria" id="fnoc-categoria" type="text" class="form-control" placeholder="categoria"/>
+                                    <div class="form-group">
+                                        <label for="fnvoc-categoria">Categoría</label>                                                
+                                        <form:input  path="categoria" name="categoria" id="fnoc-categoria" type="text" class="form-control" placeholder="Categoría"/>
                                         <form:errors path="categoria" element="div" class="alert-danger pad-10" />                                                                                                                    
                                     </div>
-                                    <div class="form-group has-success">
+                                    <div class="form-group">
                                         <label for="fnvoc-precioUnitario">Precio Unitario</label>                                                
                                         <form:input  path="precioUnitario" name="precioUnitario" id="fnoc-precioUnitario" type="text" class="form-control" placeholder="Precio Unitario"/>
                                         <form:errors path="precioUnitario" element="div" class="alert-danger pad-10" />                                                                                                                    
                                     </div>
-                                    <div class="form-group has-success">
+                                    <div class="form-group">
                                         <label for="fnvoc-cantidad">Cantidad</label>                                                
                                         <form:input  path="cantidad" name="cantidad" id="fnoc-cantidad" type="text" class="form-control" placeholder="Cantidad"/>
                                         <form:errors path="cantidad" element="div" class="alert-danger pad-10" />                                                                                                                    
                                     </div>
-                                    
                                 </div>
                                 <div class="col-lg-6 text-left">
-                                    <div class="form-group has-success">
-                                        <label for="fnvoc-minimo">Minimo</label>                                                
-                                        <form:input  path="minimo" name="minimo" id="fnoc-minimo" type="text" class="form-control" placeholder="Minimo"/>
+                                    <div class="form-group">
+                                        <label for="fnvoc-minimo">Mínimo</label>                                                
+                                        <form:input  path="minimo" name="minimo" id="fnoc-minimo" type="text" class="form-control" placeholder="Cantidad mínima de producto"/>
                                         <form:errors path="minimo" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                                                                                                  
                                     </div>
-                                    <div class="form-group has-success">
-                                        <label for="fnvoc-maximo">Maximo</label>                                                
-                                        <form:input  path="maximo" name="maximo" id="fnoc-maximo" type="text" class="form-control" placeholder="Maximo"/>
+                                    <div class="form-group">
+                                        <label for="fnvoc-maximo">Máximo</label>                                                
+                                        <form:input  path="maximo" name="maximo" id="fnoc-maximo" type="text" class="form-control" placeholder="Cantidad máxima de producto"/>
                                         <form:errors path="maximo" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                                                                                                                                                                                                                      
                                     </div>                                                                                                            
-                                    <div class="form-group has-success">
-                                        <label for="fnvoc-ubicacion">Ubicacion</label>                                                
-                                        <form:input  path="ubicacion" name="ubicacion" id="fnoc-ubicacion" type="text" class="form-control" placeholder="Ubicacion"/>
+                                    <div class="form-group">
+                                        <label for="fnvoc-ubicacion">Ubicación</label>                                                
+                                        <form:input  path="ubicacion" name="ubicacion" id="fnoc-ubicacion" type="text" class="form-control" placeholder="Ubicación"/>
                                         <form:errors path="ubicacion" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                                                                                                                                                                                                                      
                                     </div>                                                                                                                                                
-                                    <div class="form-group has-success">
-                                        <label for="fnvoc-fechaEntrada">Fechade Entrada</label>                                                
+                                    <div class="form-group">
+                                        <label for="fnvoc-fechaEntrada">Fecha de entrada</label>                                                
                                         <form:input  path="fechaEntrada" name="fechaEntrada" id="fnoc-fechaEntrada" type="text" class="form-control"/>
                                         
                                     </div>                                                                                                                                                
-                                    <div class="form-group has-success">
-                                        <label for="fnvoc-fechaProduccion">Fecha de Produccion</label>                                                
+                                    <div class="form-group">
+                                        <label for="fnvoc-fechaProduccion">Fecha de producción</label>                                                
                                         <form:input   path="fechaProduccion" name="fechaProduccion" id="fnoc-fechaProduccion" type="text" class="form-control"/>
                                     </div>                                                                                                                                                
                                     <input value="Materia Prima"  path="tipoProducto" name="tipoProducto" id="fnoc-fechaProduccion" type=hidden class="form-control"/>
@@ -91,7 +98,7 @@
                 </div>                        
 
             </form:form>
-
+                </div></div>
 <!-- jQuery -->       </div>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/inventarios/jsinventarios.js"></script>
     <%@include file="inventariosFooter.jsp" %>
