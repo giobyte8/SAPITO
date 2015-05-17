@@ -28,10 +28,15 @@ import static com.lowagie.text.Annotation.URL;
 import com.lowagie.text.Cell;
 import static com.lowagie.text.ElementTags.URL;
 import static com.lowagie.text.pdf.PdfName.URL;
+import com.sapito.activofijo.Depreciacion;
+import com.sapito.db.entities.TipoActivoFijo;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import static javafx.scene.input.DataFormat.URL;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.ImageIcon;
@@ -41,9 +46,10 @@ import javax.swing.ImageIcon;
  * @author Erika
  */
 public class PDFGeneratorActivosFijos {
+    float a ;
 
     public void crearPDFInversion(
-            HttpServletResponse hsr1) throws Exception {
+            HttpServletResponse hsr1,List<TipoActivoFijo> tipo) throws Exception {
         Document dcmntaf = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -124,6 +130,32 @@ public class PDFGeneratorActivosFijos {
         table2.addCell("null");
         
         dcmntaf.add(table2);
+        
+        
+        PdfPTable table3 = new PdfPTable(1);
+        table3.setWidthPercentage(100.0f);
+        table3.setWidths(new float[]{2.0f});
+        table3.setSpacingBefore(10);
+
+        // define font for table header row
+        Font font = FontFactory.getFont(FontFactory.COURIER_BOLD);
+        font.setColor(BaseColor.WHITE);
+
+        // define table header cell
+        PdfPCell cell = new PdfPCell();
+        cell.setBackgroundColor(BaseColor.BLUE);
+        cell.setPadding(5);
+
+        // write table header 
+        cell.setPhrase(new Phrase("Resultado", font));
+        table3.addCell(cell);
+        Depreciacion dep=new Depreciacion();
+        for (int i = 0; i < tipo.size(); i++) {
+            
+            a=dep.getResultado();             
+        }
+        String bla = a + " ";
+        table3.addCell(bla);
 
         //-------------------------- FIN CONTENIDO -----------------
         dcmntaf.close();
