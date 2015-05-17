@@ -60,26 +60,23 @@
                                                         <form action="gdaActivoFijo" method="post">                                                                 
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Departamento</label>
-                                                                <select id="combo-dpto" name="departamento" class="form-control">
+                                                                <select id="combo-dpto" name="departamento" class="form-control" required="true">
                                                                     <option value="">Selecciona Departamento</option>
                                                                     <c:forEach var="depto" items="${depto}">
                                                                         <option value="${depto.id}">${depto.nombreDepartamento} ${depto.id}</option>
                                                                     </c:forEach>
                                                                 </select>
                                                                 <input type="hidden" name="idAF" class="form-control" value="${lastAF.id}" />
-                                                                <c:forEach var="af" items="${af2}">
-                                                                    <labe>${af.AnosVidaUtil}</labe>
-                                                                </c:forEach>
                                                             </div>
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Propietario</label>
-                                                                <select id="combo-empleados" name="propietario" class="form-control">
+                                                                <select id="combo-empleados" name="propietario" class="form-control"required="true">
                                                                     <option value="">Selecciona Propietario</option>
                                                                 </select>
                                                             </div>   
                                                             <div class="form-group ">
                                                                 <label class="control-label" >Depreciación</label>
-                                                                <select name="depreciacion" class="form-control">
+                                                                <select name="depreciacion" class="form-control" required="true">
                                                                     <option value="">Selecciona tipo de depreciación</option>
                                                                     <option value="Linea recta">Línea recta</option>
                                                                     <option value="Suma de digitos anuales">Suma de dígitos anuales</option>
