@@ -5,6 +5,7 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sapito.db.util.RExp;
@@ -123,7 +124,7 @@ public class Proveedor implements Serializable {
     private boolean status;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
-    @JsonManagedReference
+    @JsonIgnore
     private Collection<ProductoProveedor> proveedorproducto;
 
     /**

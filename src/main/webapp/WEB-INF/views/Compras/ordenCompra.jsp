@@ -49,7 +49,7 @@
               </tbody>
             </table>
             <div class="col-sm-5 text-left">
-              <button onclick="buscarProducto()" class="btn btn-primary" type="button"
+              <button onclick="" class="btn btn-primary" type="button"
                       data-toggle="modal" data-target="#addp-modal">
                 Agregar Producto (+)
               </button>
@@ -96,6 +96,7 @@
         </div>
       </div>
     </div>
+      
     <!-- Hiden form to add products to order -->
     <div id="addp-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog">
@@ -162,7 +163,7 @@
           </div>
           <div class="modal-footer">
             <button class="btn btn-danger"  data-dismiss="modal"
-                    onclick="clearAddPForm()">
+                    onclick="limpiar()">
               Cancelar
             </button>
             <button class="btn btn-success"
@@ -173,8 +174,8 @@
         </div>
       </div>
     </div>
+    <%@include file="MenusCompras/Pie compras.jsp"%>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/compras/jscompas.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/compras/nvaOrdenCompra.js"></script>
-    <%@include file="MenusCompras/Pie compras.jsp"%>
   </body>
 </html>

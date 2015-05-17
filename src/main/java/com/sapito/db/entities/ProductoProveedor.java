@@ -5,6 +5,7 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
@@ -61,13 +62,16 @@ public class ProductoProveedor implements Serializable {
     
     @JoinColumn(name = "ID_PRODUCTO")
     @ManyToOne
+    @JsonIgnore
     private Producto producto;
 
     @JoinColumn(name = "ID_PRODUCTOSENORDEN")
     @ManyToOne
+    @JsonIgnore
     private ProductoEnOrden productoComprado;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoProveedor")
+    @JsonIgnore
     private Collection<ActivoFijo> productoRef;
      
     public Long getId() {

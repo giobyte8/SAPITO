@@ -221,12 +221,13 @@ public class ComprasController
     }
     
     @RequestMapping(value = "compras/buscarProducto", method = RequestMethod.GET)
-    public @ResponseBody ProductoProveedor buscarProducto(Model model, String idp)
+    public @ResponseBody Producto buscarProducto(Model model, String idp)
     {
-//        try { Long.valueOf(idp); } catch(NumberFormatException ex) { return null; }
-//        Producto producto = (Producto) daoProducto.find(Long.valueOf(idp));
-//        return (producto != null) ? producto : null;
-        return (ProductoProveedor) daoProductoProveedor.find(Long.valueOf(idp));
+        try { Long.valueOf(idp); } catch(NumberFormatException ex) { return null; }
+        Producto producto = (Producto) daoProducto.find(Long.valueOf(idp));
+        return (producto != null) ? producto : null;
+        //System.out.println("To find: " + idp);
+        //return (ProductoProveedor) daoProductoProveedor.find(Long.valueOf(idp));
     }
     
     @RequestMapping(value = "compras/proveedorproducto", method = RequestMethod.GET)
