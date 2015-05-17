@@ -15,14 +15,9 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.sapito.db.dao.GenericDao;
-import com.sapito.db.entities.OrdenEnvio;
 import java.awt.Color;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.List;
-import javax.persistence.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class PdfRevenueReportView2 extends AbstractPdfView
 {
@@ -32,16 +27,13 @@ public class PdfRevenueReportView2 extends AbstractPdfView
 			PdfWriter writer, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
                 
-//                Font.COURIER                
-                
-                List<OrdenEnvio> ordenEnvios =(List<OrdenEnvio>) model.get("revenueData");
-            
+//                Font.COURIER
             
                 Calendar c2 = new GregorianCalendar();
                 Calendar c1 = Calendar.getInstance();
                 
                 String dia = Integer.toString(c1.get(Calendar.DATE));
-                String mes = Integer.toString(c1.get(Calendar.MONTH))+1;
+                String mes = Integer.toString(c1.get(Calendar.MONTH));
                 String annio = Integer.toString(c1.get(Calendar.YEAR));
             
                 document.open();
@@ -51,18 +43,18 @@ public class PdfRevenueReportView2 extends AbstractPdfView
                 Paragraph p2=generaParrafo("Fecha del día: "+dia+" - "+mes+" - "+annio,13,Font.BOLD,Color.BLACK,Element.ALIGN_LEFT,20);
                 document.add(p2);
                 
-//                Paragraph p3=generaParrafo("Desde Fecha:__________Hasta Fecha:__________",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
-//                document.add(p3);
+                Paragraph p3=generaParrafo("Desde Fecha:__________Hasta Fecha:__________",12,Font.COURIER,Color.BLACK,Element.ALIGN_LEFT,20);
+                document.add(p3);
                 //Tabla
                 
-                PdfPTable tabla=new PdfPTable(4);
+                PdfPTable tabla=new PdfPTable(5);
                 
                 PdfPCell celda1=new PdfPCell(generaParrafo("Nombre del receptor", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda1.setBackgroundColor(new Color(30, 144, 255));
-                PdfPCell celda2=new PdfPCell(generaParrafo("Tiempo de entrega", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
+                PdfPCell celda2=new PdfPCell(generaParrafo("Fecha de envio", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda2.setBackgroundColor(new Color(30, 144, 255));
-//                PdfPCell celda3=new PdfPCell(generaParrafo("Productos ", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
-//                celda3.setBackgroundColor(new Color(30, 144, 255));
+                PdfPCell celda3=new PdfPCell(generaParrafo("Productos ", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
+                celda3.setBackgroundColor(new Color(30, 144, 255));
                 PdfPCell celda4=new PdfPCell(generaParrafo("Tranporte", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
                 celda4.setBackgroundColor(new Color(30, 144, 255));
                 PdfPCell celda5=new PdfPCell(generaParrafo("Conductor", 12, Font.BOLD, Color.BLACK, Element.ALIGN_CENTER, 10));
@@ -70,46 +62,46 @@ public class PdfRevenueReportView2 extends AbstractPdfView
                 
                 tabla.addCell(celda1);
                 tabla.addCell(celda2);
-//                tabla.addCell(celda3);
+                tabla.addCell(celda3);
                 tabla.addCell(celda4);
                 tabla.addCell(celda5);
                 
-                for (int i = 0; i < ordenEnvios.size(); i++) 
+                for (int i = 0; i < 10; i++) 
                 {
                     if (i%2 == 0) 
                     {
-                        PdfPCell celda111 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getNombreRecibe(), 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda111 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda111.setBackgroundColor(new Color(135, 206, 250));
-                        PdfPCell celda222 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getTiempoEntrega(), 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda222 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda222.setBackgroundColor(new Color(135, 206, 250));
-//                        PdfPCell celda333 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
-//                        celda333.setBackgroundColor(new Color(135, 206, 250));
-                        PdfPCell celda444 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getIdTransporte().getPlacas(), 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda333 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        celda333.setBackgroundColor(new Color(135, 206, 250));
+                        PdfPCell celda444 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda444.setBackgroundColor(new Color(135, 206, 250));
-                        PdfPCell celda555 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getIdConductor().getLicencia(), 12,Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda555 = new PdfPCell(generaParrafo("111", 12,Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda555.setBackgroundColor(new Color(135, 206, 250));
                         
                         tabla.addCell(celda111);
                         tabla.addCell(celda222);        
-//                        tabla.addCell(celda333);
+                        tabla.addCell(celda333);
                         tabla.addCell(celda444);
                         tabla.addCell(celda555);
                     }else
                     {
-                        PdfPCell celda111 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getNombreRecibe(), 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda111 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda111.setBackgroundColor(new Color(176, 196, 222));
-                        PdfPCell celda222 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getTiempoEntrega(), 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda222 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda222.setBackgroundColor(new Color(176, 196, 222));
-//                        PdfPCell celda333 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
-//                        celda333.setBackgroundColor(new Color(176, 196, 222));
-                        PdfPCell celda444 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getIdTransporte().getPlacas(), 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda333 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        celda333.setBackgroundColor(new Color(176, 196, 222));
+                        PdfPCell celda444 = new PdfPCell(generaParrafo("111", 12, Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda444.setBackgroundColor(new Color(176, 196, 222));
-                        PdfPCell celda555 = new PdfPCell(generaParrafo(ordenEnvios.get(i).getIdConductor().getLicencia(), 12,Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
+                        PdfPCell celda555 = new PdfPCell(generaParrafo("111", 12,Font.COURIER, Color.BLACK, Element.ALIGN_CENTER, 10));
                         celda555.setBackgroundColor(new Color(176, 196, 222));
                         
                         tabla.addCell(celda111);
                         tabla.addCell(celda222);        
-//                        tabla.addCell(celda333);
+                        tabla.addCell(celda333);
                         tabla.addCell(celda444);
                         tabla.addCell(celda555);
                     }

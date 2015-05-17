@@ -8,7 +8,6 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +15,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -65,29 +63,6 @@ public class Transporte implements Serializable{
     @ManyToOne
     private EmpresaTransporte empresaTransporte;
 
-    
-    @OneToOne(mappedBy = "idTransporte")
-    private OrdenEnvio ordenEnvio;
-
-    
-    
-    
-    
-    public OrdenEnvio getOrdenEnvio() {
-        return ordenEnvio;
-    }
-
-    public void setOrdenEnvio(OrdenEnvio ordenEnvio) {
-        this.ordenEnvio = ordenEnvio;
-    }
-    
-    
-    
-
-    
-    
-    
-    
     
     public String getDimension() {
         return dimension;

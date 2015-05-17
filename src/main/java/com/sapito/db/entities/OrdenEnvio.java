@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -57,20 +56,15 @@ public class OrdenEnvio implements Serializable
     
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
-/* *** *** *** ***  RELACIONES *** *** *** *** ***/    
+/* *** *** *** ***  RELACIONES *** *** *** *** ***/
     
-    
-    
-    @OneToOne
-    @JoinColumn(name = "ID_TRANSPORTE")
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Transporte idTransporte;
-              
-    @OneToOne
-    @JoinColumn(name = "ID_CONDUCTOR")
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Conductor idConductor;
-    
-    
-    
     
     @OneToOne(mappedBy = "ordenEnvio")
     private OrdenVenta ordenVenta;
@@ -79,7 +73,6 @@ public class OrdenEnvio implements Serializable
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
     
 
-    
     public long getId()
     {
         return id;
