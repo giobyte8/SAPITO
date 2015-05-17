@@ -83,7 +83,7 @@ public class MainController {
                 System.out.println("Numero de empleado (id)" + credencialLogin.get(0).getEmpleadoIdempleado().getPuestoIdpuesto() + " !!!!!!!");
                 Empleado empleado = (Empleado) daoEmpleado.find(credencialLogin.get(0).getEmpleadoIdempleado().getIdempleado());
                 Integer idRol = credencialLogin.get(0).getEmpleadoIdempleado().getPuestoIdpuesto().getIdrol().getIdrol();
-                Integer idDeparamento = credencialLogin.get(0).getEmpleadoIdempleado().getDepartamentoIddepartamento().getIddepartamento();
+                Integer idDeparamento = credencialLogin.get(0).getEmpleadoIdempleado().getDepartamentoIddepartamento().getId();
                 System.out.println(idRol + ".............Rol");
                 System.out.println(idDeparamento + ".............Departamento");
                 boolean b = false;

@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Balance General
+                                Flujo de Efectívo
                             </h1>                        
                         </div>
                     </div>
@@ -51,6 +51,15 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row text-right">
+                        <div class="col-md-12">
+                            <br/><br/>
+                            <form  target="_blank" action="${pageContext.request.contextPath}/contabilidad/flujo">
+                                <button type="submit" class="btn btn-success right">Descargar</button>
+                            </form>
+                            <br/><br/>
                         </div>
                     </div>
                 </div>

@@ -54,6 +54,15 @@
                             </div>
                         </div>
                     </div>
+                                            <div class="row text-right">
+                            <div class="col-md-12">
+                                <br/><br/>
+                                <form  target="_blank" action="${pageContext.request.contextPath}/contabilidad/balance">
+                                    <button type="submit" class="btn btn-success right">Descargar</button>
+                                </form>
+                                <br/><br/>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

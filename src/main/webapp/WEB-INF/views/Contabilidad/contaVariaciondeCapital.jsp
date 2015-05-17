@@ -15,10 +15,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>SAPito</title>
-        <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
-        <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
-        <link href="../resources/css/libs/sb-admin.css" rel="stylesheet">
-        <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="wrapper">           
@@ -56,12 +56,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row text-right">
+                        <div class="col-md-12">
+                            <br/><br/>
+                            <form  target="_blank" action="${pageContext.request.contextPath}/contabilidad/variacion">
+                                <button type="submit" class="btn btn-success right">Descargar</button>
+                            </form>
+                            <br/><br/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <script src="../resources/js/libs/jquery.min.js"></script>
-        <script src="../resources/js/libs/bootstrap.min.js"></script>
-        <script src="../resources/js/libs/metisMenu.min.js"></script>
-        <script src="../resources/js/libs/sb-admin-2.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/libs/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
     </body>
 </html>

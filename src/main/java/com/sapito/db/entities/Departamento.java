@@ -32,29 +32,28 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "departamento")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d")})
 public class Departamento implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "iddepartamento")
-    private Integer iddepartamento;
+    private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "presupuesto")
     private double presupuesto;
+    
     @Size(min = 1, max = 45)
     @Column(name = "nombre_departamento")
     private String nombreDepartamento;
+    
     @Basic(optional = false)
-    @NotNull
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departamentoIddepartamento")
     private Collection<Empleado> empleadoCollection;
+    
     @JoinColumn(name = "metastopes_idmetastopes")
     @ManyToOne(fetch = FetchType.EAGER)
     private Metastopes metastopesIdmetastopes;
@@ -69,20 +68,20 @@ public class Departamento implements Serializable {
     }
 
     public Departamento(Integer iddepartamento) {
-        this.iddepartamento = iddepartamento;
+        this.id = iddepartamento;
     }
 
     public Departamento(Integer iddepartamento, double presupuesto) {
-        this.iddepartamento = iddepartamento;
+        this.id = iddepartamento;
         this.presupuesto = presupuesto;
     }
 
-    public Integer getIddepartamento() {
-        return iddepartamento;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIddepartamento(Integer iddepartamento) {
-        this.iddepartamento = iddepartamento;
+    public void setId(Integer iddepartamento) {
+        this.id = iddepartamento;
     }
 
     public double getPresupuesto() {
@@ -136,7 +135,7 @@ public class Departamento implements Serializable {
 
     @Override
     public String toString() {
-        return "com.sapito.db.entities.Departamento[ iddepartamento=" + iddepartamento + " ]";
+        return "com.sapito.db.entities.Departamento[ iddepartamento=" + id + " ]";
     }
 
 }

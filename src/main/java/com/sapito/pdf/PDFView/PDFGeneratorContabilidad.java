@@ -74,16 +74,19 @@ public class PDFGeneratorContabilidad
         title.setAlignment(Element.ALIGN_CENTER);
         //-------------------------  CONTENIDO -------------------------------------------------------
         document.add(title);  //Titulo del PDF
-        PdfPTable table = new PdfPTable(1);
+        PdfPTable table = new PdfPTable(2);
 
-        table.addCell("Hola");
-        table.addCell("Soy");
-        table.addCell("el");
-        table.addCell("pdf");
-        table.addCell("del");
-        table.addCell("sapito");
+        table.addCell("Ingresos" );
+        table.addCell("");//valor
+        table.addCell("Costo de Venta" );
+        table.addCell("");//valor
+        table.addCell("Costos Generales" );
+        table.addCell("");//valor
+        table.addCell("Impuestos de Ingresos" );
+        table.addCell("");//valor
+        table.addCell("Impuesto de Costos Totales" );
+        table.addCell("");//valor
         document.add(table);
-
         document.close();
 
         byte[] bytes = baos.toByteArray();

@@ -8,6 +8,7 @@ package com.sapito.contabilidad;
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.CatalogoCuenta;
 import com.sapito.db.entities.CuentaBancaria;
+import com.sapito.db.entities.Departamento;
 import com.sapito.db.entities.Empresa;
 import com.sapito.db.entities.GastosGenerales;
 import com.sapito.db.entities.Nomina;
@@ -17,8 +18,12 @@ import com.sapito.db.entities.ProductoProveedor;
 import com.sapito.db.entities.TipoMoneda;
 import com.sapito.pdf.PDFView.PDFGeneratorContabilidad;
 import com.sapito.ventas.VentasController;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +53,13 @@ public class ContabilidadController {
     private GenericDao<CuentaBancaria> daoCuentaBancaria;
     private GenericDao<ProductoProveedor> daoProductoProveedor;
     private GenericDao<CatalogoCuenta> daoCatalogoCuenta;
+    private GenericDao<Departamento> daoDepartamento;
+    
+    @Autowired
+    public void setDaoDepartamento(GenericDao<Departamento> departamento) {
+        this.daoDepartamento = departamento;
+        daoDepartamento.setClass(Departamento.class);
+    }
     
     @Autowired
     public void setDaoCatalogoCuenta(GenericDao<CatalogoCuenta> catalogoCuenta) {
@@ -227,7 +239,7 @@ public class ContabilidadController {
             CatalogoCuenta catalogoCuenta = (CatalogoCuenta) iterador.next();
             saldoini=+catalogoCuenta.getHaber();
         }
-        return "Contabilidad/contacontaEstadoFlujo";
+        return "Contabilidad/contaEstadoFlujo";
     }
 
     @RequestMapping(value = "contabilidad/contaEstadoResultados", method = RequestMethod.GET)
@@ -325,24 +337,57 @@ public class ContabilidadController {
     }
     
     
-     @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.GET)
+    @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.GET)
     public String contaCrearCuenta(Model model) {
-         CuentaBancaria cuenta = new CuentaBancaria();               
+        CuentaBancaria cuenta = new CuentaBancaria();               
+        List<Departamento> depas = daoDepartamento.findAll();               
         model.addAttribute("cuenta", cuenta);
+        model.addAttribute("depas",depas);
         return "Contabilidad/contaCrearCuentas";
     }  
+    
     @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.POST)
-    public String regCuenta(Model model, @Valid CuentaBancaria cuenta, BindingResult bindingResult)
+    public String contaCrearCuentas(Model model, @Valid CuentaBancaria cuenta, BindingResult bindingResult)
     {
-        cuenta.setEmpresa(null);
-        if(!bindingResult.hasErrors())
+        cuenta.setEmpresa((Empresa)daoEmpresa.findAll().get(0));
+        
+        if(bindingResult.hasErrors())
         {
-//            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
-//            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());            
             return "Contabilidad/contaCrearCuentas";
+            
         }
-        return "";
+        
+            daoCuentaBancaria.create(cuenta);
+            return "Contabilidad";
+        
+        
     }
+   
+     @RequestMapping(value = "contabilidad/contaCrearPago", method = RequestMethod.GET)
+    public String contaCrearPago(Model model) {
+        GastosGenerales pago = new GastosGenerales(); 
+        
+        model.addAttribute("pago", pago);
+        
+        return "Contabilidad/contaCrearPago";
+    } 
+    
+    @RequestMapping(value = "contabilidad/contaCrearPago", method = RequestMethod.POST)
+    public String contaCrearPago(Model model, @Valid GastosGenerales pago, BindingResult bindingResult)
+    {          
+        pago.setFecha(new Date());
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Contabilidad/contaCrearPago";
+        }
+        daoGastosGenerales.create(pago);        
+        return "contabilidad";
+    }
+   
     
     @RequestMapping(value = "contabilidad/inserts", method = RequestMethod.GET)
     @ResponseBody
@@ -355,9 +400,35 @@ public class ContabilidadController {
         empresa.setEstado("México");
         empresa.setMunicipio("Metepec");
         empresa.setPais("México");
-        empresa.setRfc("12345678901234");
+        empresa.setRfc("123456789012");
         empresa.setCaptalInicial(234);
+        empresa.setNumE("23 E");
+        empresa.setColonia("Colonia");
+        empresa.setEmail("rofa@soluciones.mx");
+        empresa.setTelefono("0123456789");
+        empresa.setNumI(" 21 I");
         daoEmpresa.create(empresa);
+        
+        Departamento depa = new Departamento();
+        depa.setNombreDepartamento("Contabilidad");
+        depa.setPresupuesto(125.1);
+        depa.setEmpresaIdempresa(empresa);
+        
+        Departamento depa1 = new Departamento();
+        depa1.setNombreDepartamento("RH");
+        depa1.setPresupuesto(125.1);
+        depa1.setEmpresaIdempresa(empresa);
+        
+        Departamento depa2 = new Departamento();
+        depa2.setNombreDepartamento("Compras");
+        depa2.setPresupuesto(125.1);
+        depa2.setEmpresaIdempresa(empresa);
+      
+      
+        daoDepartamento.create(depa);
+        daoDepartamento.create(depa1);
+        daoDepartamento.create(depa2);
+                
         
         return "Contabilidad/contaCrearCuentas";
     }

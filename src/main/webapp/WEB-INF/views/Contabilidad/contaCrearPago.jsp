@@ -7,6 +7,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.sapito.db.entities.GastosEnvio" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,55 +27,40 @@
                     <!-- Page title -->
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Nueva Cuenta Bancaria</h1>
+                            <h1 class="page-header">Nuevo Pago</h1>
                         </div>
                     </div>
 
                     <!-- Formulario de nuevo cliente -->
-                    <form:form id="fnvo-cliente" commandName="cuenta" action="${pageContext.request.contextPath}/contabilidad/contaCrearCuenta" method="POST">
+                    <form:form id="fnvo-cliente" commandName="pago" action="${pageContext.request.contextPath}/contabilidad/contaCrearPago" method="POST">
 
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h4>Datos de la cuenta</h4>
+                                <h4>Datos del Pago</h4>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <br/><label for="fnvoc-empresa">Nombre de Banco</label>
-                                        <form:input path="nombreBanco" name="nombreBanco" id="fnoc-empresa" 
+                                        <br/><label for="fnvoc-empresa">Nombre del Servicio</label>
+                                        <form:input path="nombreServicio" name="nombreServicio" id="fnoc-empresa" 
                                                     type="text" class="form-control"/>
-                                        <form:errors path="empresa" element="div" class="alert-danger pad-10" />
+                                        <form:errors path="nombreServicio" element="div" class="alert-danger pad-10" />
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <br/><label for="fnvoc-claveInterBancaria">Clave Interbancaria</label>
-                                        <form:input path="claveInterBancaria" name="claveInterBancaria" id="fnvoc-rfc" 
+                                        <br/><label for="fnvoc-claveInterBancaria">Costo</label>
+                                        <form:input path="costo" name="costo" id="fnvoc-rfc" 
                                                     type="text" class="form-control"/>
-                                        <form:errors path="claveInterBancaria" element="div" class="alert-danger pad-10" />
-                                    </div>
-                                    <div class="col-md-12">
-                                        <br/><label for="fnvoc-pais">Saldo Inicial</label>
-                                        <form:input path="deber" name="deber" id="fnvoc-pais" 
-                                                    type="text" class="form-control" />
-                                        <form:errors path="deber" element="div" class="alert-danger pad-10" />
-                                    </div>
-                                    <div class="col-md-12">
-                                        <br/><label for="fnvoc-pais">Departamento</label>
-                                        <form:select path="departamento" name="departamento" class="form-control" items="${depas}" itemLabel="nombreDepartamento" itemValue="id" />
-
-                                        <form:errors path="departamento" element="div" class="alert-danger pad-10" />
-                                    </div>
+                                        <form:errors path="costo" element="div" class="alert-danger pad-10" />
+                                    </div>                               
 
 
                                 </div>               
 
                             </div>
                         </div>
-
-
-
                         <div class="row text-right">
                             <div class="col-md-12">
                                 <br/><br/>

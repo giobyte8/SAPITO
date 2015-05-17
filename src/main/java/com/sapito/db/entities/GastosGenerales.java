@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
 @Table(name = "GastosGenerales")
 public class GastosGenerales implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "id")
     private Integer id;
