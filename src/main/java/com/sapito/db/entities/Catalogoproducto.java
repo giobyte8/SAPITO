@@ -30,17 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "catalogoproducto")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Catalogoproducto.findAll", query = "SELECT c FROM Catalogoproducto c"),
-    @NamedQuery(name = "Catalogoproducto.findByIdcatalogoproducto", query = "SELECT c FROM Catalogoproducto c WHERE c.idcatalogoproducto = :idcatalogoproducto"),
-    @NamedQuery(name = "Catalogoproducto.findByCodigo", query = "SELECT c FROM Catalogoproducto c WHERE c.codigo = :codigo"),
-    @NamedQuery(name = "Catalogoproducto.findByNoserie", query = "SELECT c FROM Catalogoproducto c WHERE c.noserie = :noserie"),
-    @NamedQuery(name = "Catalogoproducto.findByNombre", query = "SELECT c FROM Catalogoproducto c WHERE c.nombre = :nombre"),
-    @NamedQuery(name = "Catalogoproducto.findByDescripcion", query = "SELECT c FROM Catalogoproducto c WHERE c.descripcion = :descripcion"),
-    @NamedQuery(name = "Catalogoproducto.findByCosto", query = "SELECT c FROM Catalogoproducto c WHERE c.costo = :costo"),
-    @NamedQuery(name = "Catalogoproducto.findByPrecio", query = "SELECT c FROM Catalogoproducto c WHERE c.precio = :precio"),
-    @NamedQuery(name = "Catalogoproducto.findByVolumen", query = "SELECT c FROM Catalogoproducto c WHERE c.volumen = :volumen")})
 public class Catalogoproducto implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
