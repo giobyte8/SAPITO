@@ -19,10 +19,13 @@ import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos2;
 import com.sapito.ventas.VentasController;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -337,17 +340,24 @@ public class ActivoFijoController
     {
 
         //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+        ArrayList<HashMap> resultados = new ArrayList<>();
+        double granTotalValorOr = 0;
+        double granTotalDepActual = 0;
+        double granTotalValorActual = 0;
+        double totalCosto = 0;
         
-        Depreciacion depreciacion = new Depreciacion();
         List<TipoActivoFijo> tiposAF = daoTipoActivoFijo.findAll();
         for(TipoActivoFijo taf : tiposAF)
         {
+            Depreciacion depreciacion = new Depreciacion();
+            Map dt = new HashMap();
+            totalCosto = 0;
             
             List<ActivoFijo> activosCategoria = daoActivoFijo
                     .findBySpecificField("tipoActivoFijo", taf, "equal", null, null);
             for(ActivoFijo af : activosCategoria)
             {
-                
+                totalCosto += af.getProductoProveedor().getCosto();
                 if(af.getTipoDepreciacion().compareTo("Linea recta") == 0)
                 {
                     System.out.println("1");
@@ -399,12 +409,28 @@ public class ActivoFijoController
                         dif--;
                     }
                     depreciacion.Decreciente((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif);
-
                 }
-
             }
+            
+            //dt.setValoreActual(depreciacion.getVALORTOTAL());
+            //dt.setDepreciacionActual((float)totalCosto - depreciacion.getVALORTOTAL());
+            //dt.setValorOriginal((float) totalCosto);
+            //dt.setTipo(taf.getNombre());
+            dt.put("valoreActual", depreciacion.getVALORTOTAL());
+            dt.put("depreciacionActual", (float)totalCosto - depreciacion.getVALORTOTAL());
+            dt.put("valorOriginal", totalCosto);
+            dt.put("tipo", taf.getNombre());
+            resultados.add((HashMap) dt);
+            
+            granTotalDepActual += (float)totalCosto - depreciacion.getVALORTOTAL();
+            granTotalValorActual += depreciacion.getVALORTOTAL();
+            granTotalValorOr += totalCosto;
         }
 
+        model.addAttribute("resultados", resultados);
+        model.addAttribute("granTotalDepActual", granTotalDepActual);
+        model.addAttribute("granTotalValorActual", granTotalValorActual);
+        model.addAttribute("granTotalValorOr", granTotalValorOr);
         return "ActivoFijo/reporteInversion";
     }
 
