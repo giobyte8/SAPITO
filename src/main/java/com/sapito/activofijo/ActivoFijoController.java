@@ -14,10 +14,17 @@ import com.sapito.db.entities.Empleado;
 import com.sapito.db.entities.HistorialActivoFijo;
 import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.TipoActivoFijo;
+import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos;
+import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos2;
+import com.sapito.ventas.VentasController;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -324,4 +331,30 @@ public class ActivoFijoController {
         List<Empleado> empleados = daoEmpleado.findBySpecificField("departamentoIddepartamento", dpto, "equal", null, null);
         return empleados;
     }
+    
+    @RequestMapping(value = "reporteinversion.pdf", method = RequestMethod.GET)
+    @ResponseBody
+    public String descargarReporteInv(Model model, HttpServletRequest request, HttpServletResponse response) {
+        PDFGeneratorActivosFijos pdfActivos = new PDFGeneratorActivosFijos();
+        try {
+            pdfActivos.crearPDFInversion(response);
+        } catch (Exception ex) {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "OK";
+    }
+  @RequestMapping(value = "reportedepreciacion.pdf", method = RequestMethod.GET)
+    @ResponseBody
+    public String descargarReporteDp(Model model, HttpServletRequest request, HttpServletResponse response) {
+        PDFGeneratorActivosFijos2 pdfActivos2 = new PDFGeneratorActivosFijos2();
+        try {
+            pdfActivos2.crearPDFDepreciacion(response);
+        } catch (Exception ex) {
+            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "OK";
+    }
+
 }
