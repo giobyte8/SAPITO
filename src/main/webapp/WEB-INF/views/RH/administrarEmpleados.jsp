@@ -36,9 +36,9 @@
                                         <div class="form-group">
                                             <label>Seleccione el departamento</label>
                                             <div class="form-group input-group">
-                                                <form:select class="form-control" path="departamentoIddepartamento.iddepartamento">
+                                                <form:select class="form-control" path="departamentoIddepartamento.id">
                                                     <form:option value="0" label="Seleccione uno" />
-                                                    <form:options items="${Departamento}"  itemValue="iddepartamento" itemLabel="nombreDepartamento"/>                       
+                                                    <form:options items="${Departamento}"  itemValue="id" itemLabel="nombreDepartamento"/>                       
                                                 </form:select>
                                             </div>
                                         </div>

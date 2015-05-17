@@ -41,9 +41,9 @@
                                         <div class="form-group">
                                             <label>Departamento que lo solicita</label>
                                             <div class="form-group input-group">
-                                                <form:select id="departamentosLista" name="departamentoId" class="form-control selectpicker show-tick show-menu-arrow listaDepa" path="departamentoIddepartamento.iddepartamento">
+                                                <form:select id="departamentosLista" name="departamentoId" class="form-control selectpicker show-tick show-menu-arrow listaDepa" path="departamentoIddepartamento.id">
                                                     <form:option value="0" label="Seleccione uno" />
-                                                    <form:options items="${Departamento}"  itemValue="iddepartamento" itemLabel="nombreDepartamento"/>                       
+                                                    <form:options items="${Departamento}"  itemValue="id" itemLabel="nombreDepartamento"/>                       
                                                 </form:select>
                                             </div>
                                         </div>
