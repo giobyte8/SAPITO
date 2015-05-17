@@ -68,7 +68,7 @@
 
                                                 </div>
                                                 <div class="tab-pane fade" id="minimos">
-                                                    <table id="tinventario" class="table table-bordered table-hover 
+                                                    <table id="tminimos" class="table table-bordered table-hover 
                                                            table-striped table-responsive" cellspacing="0" width="100%">
                                                         <thead>
                                                             <tr>
@@ -179,6 +179,7 @@
         <script >
             $(document).ready(function () {
                 $('#tinventario').DataTable();
+                $('#tminimos').DataTable();
             });
         </script>
 

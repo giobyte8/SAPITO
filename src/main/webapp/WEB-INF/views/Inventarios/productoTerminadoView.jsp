@@ -12,58 +12,62 @@
         <title>SAPito</title>
     </head>
     <body>
-        <div id="wrapper">           
-            <%@include file="inventariosNavs.jsp" %>
-            <form>
-                <div id="page-wrapper">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Máximos y Mínimos</h1>
+
+        <%@include file="inventariosNavs.jsp" %>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Máximos y Mínimos</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <c:forEach items="${inventario}" var="inventario">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            Control máximo y mínimos de producto terminado
                         </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-green">
-                                <div class="panel-heading">
-                                    Control máximo y mínimos de producto terminado
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="dataTable_wrapper">
-                                        <div class="form-group">
-                                            <label>Selecciona un producto</label>
-                                            <form:select items="${productosTerminados}" class="form-control">
-                                            <br/>
-                                            <label>Control Máximo</label>
-                                            <input onKeyup="isInteger(this.value)" class="form-control "autofocus autocomplete required placeholder="Ingrese cantidad máxima" pattern="[0-9]{5}">
-                                            <p class="help-block" ></p>
-                                            <br/>
-                                            <label>Control Mínimo</label>
-                                            <input onKeyup="isInteger(this.value)" class="form-control"autofocus autocomplete required placeholder="Ingrese cantidad mínima" pattern="[0-9]{5}">
-                                            <p class="help-block"></p>
-                                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <div class="form-group">
+                                    <label>Selecciona un producto</label>
+                                    <form:select items="${productosTerminados}" class="form-control" path="">
+                                        <br/>
+                                        <label>Control Máximo</label>
+                                        <input onKeyup="isInteger(this.value)" class="form-control "autofocus autocomplete required placeholder="Ingrese cantidad máxima" pattern="[0-9]{5}">
+                                        <p class="help-block" ></p>
+                                        <br/>
+                                        <label>Control Mínimo</label>
+                                        <input onKeyup="isInteger(this.value)" class="form-control"autofocus autocomplete required placeholder="Ingrese cantidad mínima" pattern="[0-9]{5}">
+                                        <p class="help-block"></p>
+                                    </form:select>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.panel -->
                         </div>
-                        <!-- /.col-lg-12 -->
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.row -->
-                    <div align=right>
-                        <p>
-                            <button type="submit" class="btn btn-success" >Actualizar</button>
-                        </p>
-                    </div>
+                    <!-- /.col-lg-12 -->
                 </div>
-            </form>
+        </c:forEach>
+        <!-- /.row -->
+        <div align=right>
+            <p>
+                <button type="submit" class="btn btn-success" >Actualizar</button>
+            </p>
         </div>
-            
-            <!-- jQuery -->
 
-            <%@include file="inventariosFooter.jsp" %>
-            
+
+
+
+        <!-- jQuery -->
+
+        <%@include file="inventariosFooter.jsp" %>
+
     </body>
 </html>

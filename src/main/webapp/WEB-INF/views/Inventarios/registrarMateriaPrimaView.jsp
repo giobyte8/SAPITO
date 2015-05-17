@@ -79,7 +79,7 @@
                                         <label for="fnvoc-fechaProduccion">Fecha de Produccion</label>                                                
                                         <form:input   path="fechaProduccion" name="fechaProduccion" id="fnoc-fechaProduccion" type="text" class="form-control"/>
                                     </div>                                                                                                                                                
-                                    <input value="Materia"  path="tipoProducto" name="tipoProducto" id="fnoc-fechaProduccion" type=hidden class="form-control"/>
+                                    <input value="Materia Prima"  path="tipoProducto" name="tipoProducto" id="fnoc-fechaProduccion" type=hidden class="form-control"/>
                                     <br>    
                                     <div align="right">
                                         <button type="submit" class="btn btn-success">Aceptar</button>                                            
@@ -92,7 +92,22 @@
 
             </form:form>
 
-
+<!-- jQuery -->       
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/inventarios/jsinventarios.js"></script>
+    <%@include file="inventariosFooter.jsp" %>
+    <script >
+        $(document).ready(function () {
+            $("#fnoc-codigoInventario").val("");
+            $("#fnoc-nombre").val("");
+            $("#fnoc-cantidad").val("");
+            $("#fnoc-maximo").val("");
+            $("#fnoc-minimo").val("");
+            $("#fnoc-fechaEntrada").val("");
+            $("#fnoc-fechaProduccion").val("");
+            $("#fnoc-ubicacion").val("");
+            $("#fnoc-cantidad").val("");
+        });
+    </script>
 
 
 
