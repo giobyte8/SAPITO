@@ -65,7 +65,17 @@
                             <input class="btn btn-success" type="submit" id="submit" name="submit" value="Crear">
                         </form:form>
 
-                        
+                        <div aling="left" >
+                            <table>
+                                <tr>
+                                    <td>
+                                        <hr/>
+                                        <a class="btn btn-success" type="button" href="HistorialReportes">Historial reportes</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
                     </div>        
 
 

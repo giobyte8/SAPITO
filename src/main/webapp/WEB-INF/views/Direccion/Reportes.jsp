@@ -1,7 +1,7 @@
 <%-- 
     Document   : template1
     Created on : 7/02/2015, 02:34:44 AM
-    Author     : LAWL
+    Author     : Omar
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -78,14 +78,7 @@
 
                             </tr>
 
-                            <tr>
-                                <td>
-                                    <hr/>
-                                    <a class="btn btn-success" type="button" href="HistorialReportes">Historial reportes</a>
-                                    <a class="btn btn-success" type="button" href="ReportePrueba">Crear Reporte</a>
-
-                                </td>
-                            </tr>
+                            
                         </table>
 
                     </div>
@@ -125,52 +118,53 @@
 
                     if (valor == "Ventas") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "Ventas";
 
-                    }if (valor == "Compras") {
+                    }
+                    if (valor == "Compras") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "Compras";
 
                     }
                     if (valor == "ActivosFijos") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "ActivosFijos";
 
                     }
                     if (valor == "Operaciones") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "Operaciones";
 
                     }
                     if (valor == "Logística") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "Logística";
 
                     }
                     if (valor == "RecursosHumanos") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "RecursosHumanos";
 
                     }
                     if (valor == "Inventarios") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "Inventarios";
 
                     }
                     if (valor == "Finanzas") {
                         //document.location.href("ventas.com")
-                        alert(valor);
+                        //alert(valor);
                         window.location.href = "Finanzas";
 
                     }
-                    
+
 
                 });
 

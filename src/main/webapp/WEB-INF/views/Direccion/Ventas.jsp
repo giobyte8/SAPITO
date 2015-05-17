@@ -1,7 +1,7 @@
 <%-- 
     Document   : template1
     Created on : 7/02/2015, 02:34:44 AM
-    Author     : Djx
+    Author     : Omar
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -64,8 +64,18 @@
                             <form:textarea  name="texto" path="todoTexto" id="textArea" rows="15" cols="100" />
                             <input class="btn btn-success" type="submit" id="submit" name="submit" value="Crear">
                         </form:form>
+                        <div aling="left" >
+                            <table>
+                                <tr>
+                                    <td>
+                                        <hr/>
+                                        <a class="btn btn-success" type="button" href="HistorialReportes">Historial reportes</a>
+                                    </td>
+                                </tr>
+                            </table>
 
-                        
+                        </div>
+
                     </div>        
 
 

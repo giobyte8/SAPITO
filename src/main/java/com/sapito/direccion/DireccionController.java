@@ -10,6 +10,7 @@ import com.sapito.db.entities.Inventario;
 import com.sapito.db.entities.OrdenCompra;
 import com.sapito.db.entities.OrdenVenta;
 import com.sapito.db.entities.Producto;
+import com.sapito.db.entities.TipoActivoFijo;
 import com.sapito.pdf.PDFView.PDFGeneratorDireccion;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,7 @@ public class DireccionController {
      private GenericDao<Producto> daoProducto;
     private GenericDao<OrdenVenta> daoOrdenVenta;
     private GenericDao<OrdenCompra> daoOrdenCompra;
+    private GenericDao<TipoActivoFijo> daoTipoActivoFijo;
 
     @Autowired
     public void setDaoProducto(GenericDao<Producto> daoProducto) {
@@ -61,6 +63,11 @@ public class DireccionController {
         
         daoInventario.setClass(Inventario.class);
 
+    }
+    @Autowired
+    public void setDaoTipoActivoFijo(GenericDao<TipoActivoFijo> daoTipoActivoFijo) {
+        this.daoTipoActivoFijo = daoTipoActivoFijo;
+        daoTipoActivoFijo.setClass(TipoActivoFijo.class);
     }
 
     @RequestMapping(value = "Direccion/indexprincipal", method = RequestMethod.GET)
@@ -149,14 +156,14 @@ public class DireccionController {
     @ResponseBody
     public String descargarFactura(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) {
 
-        List<Producto> producto = daoProducto.findAll();
-        System.out.println(producto);
+        List<TipoActivoFijo> tipo = daoTipoActivoFijo.findAll();
+        //System.out.println(producto);
         // model.addAttribute("producto", producto);
 
         PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
         model.addAttribute("todoTexto", pdfText);
         try {
-            pdfView.crearPDFFactura((Map<String, Object>) model, response, producto);
+           pdfView.crearPDFFactura((Map<String, Object>) model, response, tipo);
 
         } catch (Exception ex) {
             Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
