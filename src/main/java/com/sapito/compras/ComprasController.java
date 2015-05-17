@@ -31,6 +31,7 @@ public class ComprasController
 
     private GenericDao<Proveedor> daoProveedor;
     private GenericDao<Producto> daoProducto;
+    private GenericDao<ProductoProveedor> daoProductoProveedor;
 
     //Set
     @Autowired
@@ -45,6 +46,13 @@ public class ComprasController
     {
         this.daoProducto = daoProducto;
         daoProducto.setClass(Producto.class);
+    }
+    
+    @Autowired
+    public void setDaoProductoProveedor(GenericDao<ProductoProveedor> daoProducoProveedor)
+    {
+        this.daoProductoProveedor = daoProducoProveedor;
+        daoProducoProveedor.setClass(ProductoProveedor.class);
     }
 
     //Alta Proveedor//
@@ -147,12 +155,40 @@ public class ComprasController
         unidades.put("PIEZA", "PIEZA");
         unidades.put("LOTE", "LOTE");
         
-        // Proveedores
+        // Producto
         List<Producto> productos = daoProducto.findAll();
+        
+        // Lista de proveedores
+        List<Proveedor> proveedores = daoProveedor.findAll();
         
         model.addAttribute("unidades", unidades);
         model.addAttribute("productos", productos);
+        model.addAttribute("proveedores", proveedores);
         return "Compras/ProductoProveedor";
+    }
+    
+    @RequestMapping(value = "compras/productoproveedor", method = RequestMethod.POST)
+    public String regProductoProveedorPost(Model model, ProductoProveedor productoProveedor, 
+            BindingResult bindingResult)
+    {
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Compras/ProductoProveedor";
+        }
+        else
+        {
+            Proveedor proveedor = (Proveedor) daoProveedor
+                    .find(productoProveedor.getProveedor().getId());
+            Producto producto = (Producto) daoProducto
+                    .find(productoProveedor.getProducto().getId());
+            
+            productoProveedor.setProducto(producto);
+            productoProveedor.setProveedor(proveedor);
+            daoProductoProveedor.create(productoProveedor);
+            return "Compras/indexcompras";
+        }
     }
 
     @RequestMapping(value = "compras", method = RequestMethod.GET)
