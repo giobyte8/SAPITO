@@ -50,6 +50,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <br/><label for="fnvoc-claveInterBancaria">Clave Bancaria</label>
+                                        <form:input path="claveBanco" name="claveBanco" id="fnvoc-rfc" 
+                                                    type="text" class="form-control" maxlength="16" size="16" />
+                                        <form:errors path="claveBanco" element="div" class="alert-danger pad-10" />
+                                    </div>
+                                    <div class="col-md-12">
                                         <br/><label for="fnvoc-claveInterBancaria">Clave Interbancaria</label>
                                         <form:input path="claveInterBancaria" name="claveInterBancaria" id="fnvoc-rfc" 
                                                     type="text" class="form-control" maxlength="18" size="18" />

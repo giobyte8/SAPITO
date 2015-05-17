@@ -19,16 +19,16 @@
         <title>SAPito</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
-        <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="../resources/css/libs/sb-admin.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     </head>
@@ -63,11 +63,20 @@
                                 </div>
                                 <div class="col-md-10">
                                     <form action="${pageContext.request.contextPath}/contabilidad/contaEstadoResultados">
-                                        <button   type="submit" class="btn btn-success col-md-offset-11">Consultar</button>
+
+                                        <b>Año del Ejercicio:</b>
+                                        <select name="periodo"  class="form-control">
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                        </select><br>
+                                        <button   type="submit" class="btn btn-success ">Consultar</button>
                                     </form>
                                 </div>
-                                
-                                
+
+
                             </div>
 
                         </div>
@@ -87,8 +96,16 @@
                                     <label class="control-label" style="font-size: 150px;" ><i class="fa fa-pie-chart"></i></label>
                                 </div>
                                 <div class="col-md-10">
-                                      <form action="${pageContext.request.contextPath}/contabilidad/contaVariaciondeCapital">
-                                        <button   type="submit" class="btn btn-success col-md-offset-11">Consultar</button>
+                                    <form action="${pageContext.request.contextPath}/contabilidad/contaVariaciondeCapital">
+                                        <b>Año del Ejercicio:</b>
+                                        <select name="periodo"  class="form-control">
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                        </select><br>
+                                        <button   type="submit" class="btn btn-success ">Consultar</button>
                                     </form>
                                 </div>
                             </div>
@@ -110,8 +127,16 @@
                                     <label class="control-label" style="font-size: 150px;" ><i class="fa fa-line-chart"></i></label>
                                 </div>
                                 <div class="col-md-10"> 
-                                  <form action="${pageContext.request.contextPath}/contabilidad/contaBalanceGeneral">
-                                        <button   type="submit" class="btn btn-success col-md-offset-11">Consultar</button>
+                                    <form action="${pageContext.request.contextPath}/contabilidad/contaBalanceGeneral">
+                                        <b>Año del Ejercicio:</b>
+                                        <select name="periodo"  class="form-control">
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                        </select><br>
+                                        <button   type="submit" class="btn btn-success ">Consultar</button>
                                     </form>
                                 </div>
                             </div>
@@ -132,8 +157,16 @@
                                     <label class="control-label" style="font-size: 150px;" ><i class="fa fa-money"></i></label>
                                 </div>
                                 <div class="col-md-10">
-                                  <form action="${pageContext.request.contextPath}/contabilidad/contaEstadoFlujo">
-                                        <button   type="submit" class="btn btn-success col-md-offset-11">Consultar</button>
+                                    <form action="${pageContext.request.contextPath}/contabilidad/contaEstadoFlujo">
+                                        <b>Año del Ejercicio:</b>
+                                        <select name="periodo"  class="form-control">
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                        </select><br>
+                                        <button   type="submit" class="btn btn-success ">Consultar</button>
                                     </form>
                                 </div>
                             </div>
@@ -156,22 +189,21 @@
 
             </div>
         </div>
-    </div>
 
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="../resources/js/libs/jquery.min.js"></script>
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../resources/js/libs/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../resources/js/libs/metisMenu.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="../resources/js/libs/sb-admin-2.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
 
-</body>
+    </body>
 
 </html>
 

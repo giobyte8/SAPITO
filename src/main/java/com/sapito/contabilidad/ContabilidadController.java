@@ -124,6 +124,16 @@ public class ContabilidadController {
     public String ContaActivoFijoo(Model model) {
         return "Contabilidad/contaActivoFijo";
     }
+    
+    @RequestMapping(value = "contabilidad/contaOperaciones", method = RequestMethod.GET)
+    public String contaOperaciones(Model model) {
+        return "Contabilidad/contaOperaciones";
+    }
+    
+    @RequestMapping(value = "contabilidad/contaLogistica", method = RequestMethod.GET)
+    public String contaLogistica(Model model) {
+        return "Contabilidad/contaLogistica";
+    }
 
     @RequestMapping(value = "contabilidad/redirec", method = RequestMethod.POST)
     public String ContaRedirec(Model model, @Valid TipoMoneda moneda, BindingResult bindingResult) {
@@ -323,7 +333,7 @@ public class ContabilidadController {
     public String balance(Model model, HttpServletRequest request, HttpServletResponse response) {
         PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
         try {
-            pdfView.crearBalance(response);
+            pdfView.crearBalance(response,"","","","");
         } catch (Exception ex) {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -335,7 +345,7 @@ public class ContabilidadController {
     public String flujo(Model model, HttpServletRequest request, HttpServletResponse response) {
         PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
         try {
-            pdfView.crearFlujo(response);
+            pdfView.crearFlujo(response,"","","");
         } catch (Exception ex) {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -354,6 +364,8 @@ public class ContabilidadController {
     @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.POST)
     public String contaCrearCuentas(Model model, @Valid CuentaBancaria cuentaBancaria, BindingResult bindingResult) {
         cuentaBancaria.setEmpresa((Empresa) daoEmpresa.findAll().get(0));
+        cuentaBancaria.setDepartamento((Departamento)daoDepartamento.find(cuentaBancaria.getDepartamento().getId()));
+        cuentaBancaria.setHaber(0);        
         if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());           
@@ -365,14 +377,14 @@ public class ContabilidadController {
 
         
         daoCuentaBancaria.create(cuentaBancaria);
-        return "Contabilidad";
+        return "Contabilidad/redirec";
 
     }
 
     @RequestMapping(value = "contabilidad/contaCrearPago", method = RequestMethod.GET)
     public String contaCrearPago(Model model) {
         GastosGenerales gastosGenerales = new GastosGenerales();
-        model.addAttribute("GastosGenerales", gastosGenerales);
+        model.addAttribute("gastosGenerales", gastosGenerales);
         return "Contabilidad/contaCrearPago";
     }
 
