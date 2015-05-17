@@ -96,10 +96,10 @@ public class PDFGeneratorContabilidad
         hsr1.setContentLength(bytes.length);
         hsr1.getOutputStream().write(bytes);
     }
-
-     public void crearVariacionContable(
-            HttpServletResponse hsr1, String sInicial,String aumento,String utilidad,
-             String disminucion,String perdidas,String sFinal ) throws Exception {
+    
+    
+    public void crearVariacionContable(
+            HttpServletResponse hsr1, String sInicial,String aumento,String utilidad,String disminucion,String perdidas,String sFinal ) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -124,7 +124,7 @@ public class PDFGeneratorContabilidad
         footer.setAbsolutePosition(50, 20);
         document.add(footer);
         //----------------------  TITLE ---------------------------
-        String titulo = "Variacion de Capital"; //Cambiar el titulo del PDF aqui
+        String titulo = "Variaciones de Capital Contable"; //Cambiar el titulo del PDF aqui
         Font f = new Font(FontFamily.HELVETICA, 25.0f, Font.BOLD, BaseColor.BLACK);
         Chunk c = new Chunk(titulo + " \n ", f);
         c.setBackground(BaseColor.WHITE);
@@ -146,7 +146,9 @@ public class PDFGeneratorContabilidad
         table.addCell(perdidas);//valor
         table.addCell("Saldo al final del ejercicio" );
         table.addCell(sFinal);//valor
+        
         document.add(table);
+        document.close();
 
         byte[] bytes = baos.toByteArray();
 
@@ -156,7 +158,7 @@ public class PDFGeneratorContabilidad
     }
 
 public void crearFlujo(
-            HttpServletResponse hsr1) throws Exception {
+            HttpServletResponse hsr1,String operacion, String sInicio,String sFin) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -189,14 +191,14 @@ public void crearFlujo(
         title.setAlignment(Element.ALIGN_CENTER);
         //-------------------------  CONTENIDO -------------------------------------------------------
         document.add(title);  //Titulo del PDF
-        PdfPTable table = new PdfPTable(1);
+        PdfPTable table = new PdfPTable(2);
 
-        table.addCell("Hola");
-        table.addCell("Soy");
-        table.addCell("el");
-        table.addCell("pdf");
-        table.addCell("del");
-        table.addCell("sapito");
+        table.addCell("Operación" );
+        table.addCell(operacion);//valor
+        table.addCell("Saldo al inicio del año" );
+        table.addCell(sInicio);//valor
+        table.addCell("Saldo al inicio del año" );
+        table.addCell(sFin);//valor
         document.add(table);
 
         document.close();
@@ -209,7 +211,7 @@ public void crearFlujo(
     }
 
 public void crearBalance(
-            HttpServletResponse hsr1) throws Exception {
+            HttpServletResponse hsr1,String aCirculante,String aNCirculante,String tActivos,String pasivo) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -242,14 +244,16 @@ public void crearBalance(
         title.setAlignment(Element.ALIGN_CENTER);
         //-------------------------  CONTENIDO -------------------------------------------------------
         document.add(title);  //Titulo del PDF
-        PdfPTable table = new PdfPTable(1);
+        PdfPTable table = new PdfPTable(2);
 
-        table.addCell("Hola");
-        table.addCell("Soy");
-        table.addCell("el");
-        table.addCell("pdf");
-        table.addCell("del");
-        table.addCell("sapito");
+        table.addCell("Activo circulante" );
+        table.addCell(aCirculante);//valor
+        table.addCell("Activo no circulante" );
+        table.addCell(aNCirculante);//valor
+        table.addCell("total activos" );
+        table.addCell(tActivos);//valor
+        table.addCell("pasivo" );
+        table.addCell(pasivo);//valor
         document.add(table);
 
         document.close();

@@ -36,36 +36,42 @@
                     <form:form action="#" commandName="fecha">
                         <form:select name="fecha" items="#{fechas}" path="fecha" />
 </form:form>--%>
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"></h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <tbody>
-                                                <tr><td>Activo Circulante</td><td><label class="control-label">${activoc}</label></td></tr>
-                                                <tr><td>Activo no Circulante</td><td><label class="control-label">${activonc}</label></td></tr>
-                                                <tr><td>Total Activos</td><td><label class="control-label">${totalactivo}</label></td></tr>  
-                                                <tr><td>Pasivo</td><td><label class="control-label">${pasivo}</label></td></tr>
-                                            </tbody>
-                                        </table>
+
+                   
+                    <div class="col-md-12"> 
+                        <br>
+
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover table-striped">
+                                                <tbody>
+                                                    <tr><td>Activo Circulante</td><td><label class="control-label">${activoc}</label></td></tr>
+                                                    <tr><td>Activo no Circulante</td><td><label class="control-label">${activonc}</label></td></tr>
+                                                    <tr><td>Total Activos</td><td><label class="control-label">${totalactivo}</label></td></tr>  
+                                                    <tr><td>Pasivo</td><td><label class="control-label">${pasivo}</label></td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                                            <div class="row text-right">
-                            <div class="col-md-12">
-                                <br/><br/>
-                                <form  target="_blank" action="${pageContext.request.contextPath}/contabilidad/balance">
-                                    <button type="submit" class="btn btn-success right">Descargar</button>
-                                </form>
-                                <br/><br/>
-                            </div>
+                    <div class="row text-right">
+                        <div class="col-md-12">
+                            <br/><br/>
+                            <form  target="_blank" action="${pageContext.request.contextPath}/contabilidad/balance">
+                                <button type="submit" class="btn btn-success right">Descargar</button>
+                            </form>
+                            <br/><br/>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
