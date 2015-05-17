@@ -59,6 +59,7 @@ public class DireccionController {
         List<Inventario> inv = daoInventario.findAll();
         model.addAttribute("inv", inv);
 
+        
         return "Direccion/Graficas";
     }
 
