@@ -13,10 +13,6 @@
         <link href="${pageContext.request.contextPath}/resources/css/libs/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
 
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
         <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
         <title>SAPITO</title>
@@ -47,6 +43,7 @@
                                 <th>Nombre del Contacto</th>
                                 <th>Telefono</th>
                                 <th>Detalles</th>
+                                <th>Modificar</th>                                
                             </tr>
                         </thead>
                         <tbody>
@@ -60,9 +57,15 @@
                                     <td>
                                         <button class="btn btn-xs btn-success" type="button" 
                                                 data-toggle="modal" data-target="#cts-modal${proveedor.id}">
-                                            Detalles
+                                            Consulta
                                         </button>
                                     </td>
+                                    <td>
+                                        <button class="btn btn-xs btn-warning" type="button" 
+                                                data-toggle="modal" data-target="#cts-modal${proveedor.id}">
+                                            Editar
+                                        </button>
+                                    </td>                                   
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -71,7 +74,7 @@
                 </div><!-- Fin del tag del contenedor-->
             </div>
         </div>
-        <!-- Modal dialog para detalles de clientes -->
+        <!-- Modal dialog para detalles de proveedores -->
         <c:forEach items="${proveedores}" var="proveedor">
             <div id="cts-modal${proveedor.id}" class="modal fade" tabindex="-1" role="dialog" 
                  aria-labelledby="proveedor-modal-title" aria-hidden="true">
@@ -159,14 +162,15 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                Cerrar
+                                Regresar
                             </button>
                         </div>
 
                     </div>
                 </div>
             </div>
-        </c:forEach>          
+        </c:forEach>
+        
        
 
         <%@include file="MenusCompras/Pie compras.jsp"%>

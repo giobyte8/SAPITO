@@ -1,140 +1,159 @@
+<%-- 
+    Document   : consultaproducto
+    Created on : 14/05/2015, 02:34:44 AM
+    Author     : Monse
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-            <%@include file="MenusCompras/Cabesa compras.jsp"%>
+  <head>
+    <link href="${pageContext.request.contextPath}/resources/css/libs/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
 
-        <title>SAPITO</title>
+    <meta charset="utf-8">
+    <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
+    <title>SAPITO</title>
+  </head>
+  <body>
 
-    </head>
-<body>
+    <div id="wrapper">
+      <%@include file="MenusCompras/Menude compras.jsp"%>
+      <!-- Page Content -->
+      <div id="page-wrapper">
+        <div class="container-fluid">
 
-        <div id="wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="page-header">
+                Consulta Productos
+              </h1>                        
+            </div>
+          </div>        
+          <!-- Data table -->
+          <table id="tproductos" class="table table-bordered table-hover 
+                 table-striped table-responsive" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Marca</th>
+                <th>Categoria</th>
+                <th>Detalles</th>
+                <th>Modificar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <c:forEach items="${producto1}" var="producto">
+                  <tr>
+                    <td>${producto.nombreProducto}</td>
+                    <td>${producto.descripcion}</td>
+                    <td>${producto.marca}</td>
+                    <td>${producto.categoria}</td>
+                    <td>
+                      <button class="btn btn-success btn-xs" type="button"
+                              data-toggle="modal" data-target="#cts-modal${producto.id}">Detalles</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-warning btn-xs">Editar</button>
+                    </td>
+                  </tr>
+              </c:forEach>
+            </tbody>
+          </table>
 
-            <%@include file="MenusCompras/Menude compras.jsp"%>
-            <!-- Page Content -->
-            <form action="compras" method="POST">
-                
-                <div id="page-wrapper">
-                <div class="container-fluid">
+        </div><!-- Fin del tag del contenedor-->
+      </div>
+    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">
-                                Consulta  Productos
-                            </h1>                        
-                        </div>
-                    </div>        
+    <!-- Modal dialog para detalles de clientes -->
+    <c:forEach items="${producto1}" var="producto">
+        <div id="cts-modal${producto.id}" class="modal fade" tabindex="-1" role="dialog" 
+             aria-labelledby="producto-modal-title" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
 
-                    <div class="row">   
-                        <div class="col-lg-12 text-left">
-                            <div class="panel panel-green">
-                                <div class="panel-body">
-                                    <br/>                            
-                                    <div class="panel panel-green">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title" >Productos Registrados </h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-lg-12 text-left">                                                                                        
-                                                    <div class="panel panel-default">
-                                                        <!-- <label class="control-label" >Id</label>
-                                                        <!--  <div class="panel-heading">........ </div> -->
-                                                        <form>
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                </button>
+                <h4 class="modal-title">Detalles de producto:</h4>
+              </div>
+              <div class="modal-body">
+                <h4>Datos del producto</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Nombre</label>
+                    <input type="text" class="form-control" readonly value="${producto.nombreProducto}"/>
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Descripción</label>
+                    <input type="text" class="form-control" readonly value="${producto.descripcion}"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Marca</label>
+                    <input type="text" class="form-control" readonly value="${producto.marca}" />
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Categoria</label>
+                    <input type="text" class="form-control" readonly value="${producto.categoria}" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <br/><h4>Proveedores del producto:</h4><br/>
+                    <table id="tproveedores" class="table table-bordered table-hover 
+                           table-striped table-responsive" cellspacing="0" width="100%">
+                      <thead>
+                        <tr>
+                          <th>Proveedor</th>
+                          <th>Costo ($)</th>
+                          <th>Inhabilitar</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <c:forEach items="${producto.productoProveedor}" var="productoProveedor">
+                            <tr>
+                              <td>${productoProveedor.proveedor.empresa}</td>
+                              <td>${productoProveedor.costo}</td>
+                              <td>
+                                <button type="button" class="btn btn-danger btn-sm">Inhabilitar</button>
+                              </td>
+                            </tr>
+                        </c:forEach>
+                      </tbody>
+                    </table>
+                    <a href="productoproveedor?idProducto=${producto.id}" 
+                       class="btn btn-primary btn-sm">Asociar con un proveedor</a>
+                  </div>
+                </div>
+              </div>
 
-                                                            <table class="table table-bordered">
-                                                                <tr>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                  Cerrar
+                </button>
+              </div>
 
-                                                                    <td><b>Id</b></td> 
-                                                                    <td><b><div align="center">Nombre</div></b></td> 
-                                                                    <td><b><div align="center">Descripción</div></b></td> 
-                                                                    <td><b><div align="center">Proveedor</div></b></td> 
-                                                                    <td><b><div align="center">Categoría</div></b></td> 
-                                                                    <td><b><div align="center">Precio</div></b></td> 
-
-                                                                </tr>
-                                                                
-                                                               
-                                                                <tr>
-                                                                    <td>10</td> 
-                                                                    <td>Equipo de Computo</td> 
-                                                                    <td>Maquina de escritorio Dell Vostro</td> 
-                                                                    <td>Dell Corporation</td> 
-                                                                    <td>Activo Fijo</td> 
-                                                                    <td>$3000</td> 
-                                                                    <td>  
-                                                                        <div align="center">
-                                                                            <div  class="btn-group">  
-                                                                                <a class="btn-group" href="Consulta1Producto">
-                                                                                    &nbsp;Consulta 
-                                                                                    <i class="fa fa-search " ></i>
-                                                                                </a>
-                                                                                <a class="btn-group" href="Modifica1Producto">
-                                                                                    &nbsp;Modificar 
-                                                                                    <i class="fa fa-pencil-square-o " ></i>
-                                                                                </a>
-                                                                                <a class="btn-group" href="javascript:Eliminar()">
-                                                                                    &nbsp;Eliminar 
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td> 
-                                                                </tr>
-
-                                                            </table>
-                                                        </form>
-
-                                                    </div> 
-
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                         <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-11"  role="button">                                                    
-                                    </div>
-                                    <!--                          Fin Codigo Para panel 5 o menos input -->
-                                </div>
-                                <!--                      Fin TODO aqui abajo-->
-                            </div>  
-                        </div>
-                    </div><!--Fin del tag de fila-->
-                </div><!-- Fin del tag del contenedor-->
-            </div> 
-            </form>
-                
-          
-            
-            
-            <!-- /#page-wrapper -->
+            </div>
+          </div>
         </div>
-        <!-- /#wrapper -->
-        <!-- jQuery -->
-        <script src="resources/js/libs/jquery.min.js"></script>
+    </c:forEach>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="resources/js/libs/bootstrap.min.js"></script>
+    <%@include file="MenusCompras/Pie compras.jsp"%>
+    <script >
+        $(document).ready(function () {
+            $('#tproductos').DataTable();
+        });
+    </script>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="resources/js/libs/metisMenu.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
+  </body>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="resources/js/libs/sb-admin-2.js"></script>
-        <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
-        <%@include file="MenusCompras/Pie compras.jsp"%>
-
-    </body>
 </html>
+

@@ -70,8 +70,8 @@
                                             <tbody>
                                                 <c:forEach items="${Monedas}" var="moneda">
                                                     <tr>
-                                                        <form:form id="MONEDA${moneda.id}" commandName="mon" action="redirec" method="POST">
-                                                            <td>${moneda.nombreModena}</td>
+                                                        <form:form id="MONEDA${moneda.id}" commandName="Monedas" action="redirec" method="POST">
+                                                            <td>${moneda.nombreMoneda}</td>
                                                             <td>${moneda.valorenPesos}-<form:input path="Valor de Compra" name="valorC" type="number" class="form-control"/>
                                                                 <form:errors path="Valor de Compra" element="div" class="alert-danger pad-10" /></td>
                                                             <td><button type="submit" form="MONEDA${moneda.id}" class="btn btn-success right">Guardar</button></td>

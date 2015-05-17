@@ -26,7 +26,7 @@
             <div class="panel-heading">Producto - Proveedor</div>
             <div class="panel-body">
               <form:form id="as-prod-prov" commandName="productoProveedor" 
-                         action="productoProveedor" method="POST">
+                         action="productoproveedor" method="POST">
                   <div class="row">
                     <div class="col-md-6">
                       <br/><label>Unidad</label>
@@ -36,26 +36,32 @@
                     <div class="col-md-6">
                       <br/><label>Costo ($)</label>
                       <form:input id="as-prod-prov-costo" path="costo" name="costo"
-                                  type="number" class="form-control" />
+                                  type="" class="form-control" />
                       <form:errors path="costo" element="div" class="alert-danger pad-10" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                       <br/><label>Producto</label>
-                      <form:select path="producto" items="${productos}" class="form-control" />
-                      <form:errors path="producto" element="div" class="alert-danger pad-10" />
+                      <input class="form-control" readonly value="${producto.nombreProducto}" />
+                      <form:input path="producto.id" class="form-control hidden" value="${producto.id}" />
                     </div>
                     <div class="col-md-6">
                       <br/><label>Proveedor</label>
-                      <form:select path="proveedor" items="${proveedores}" class="form-control" />
+                      <form:select path="proveedor.id" items="${proveedores}" 
+                                   itemValue="id" itemLabel="empresa" class="form-control" />
                       <form:errors path="proveedor" element="div" class="alert-danger pad-10" />
+                    </div>
+                  </div>
+                  <div class="row hidden">
+                    <div class="col-md-12">
+                      <form:input path="status" value="true" class="form-control" />
                     </div>
                   </div>
                   <div class="row text-right">
                     <div class="col-md-6 col-md-offset-6">
                       <br/><br/>
-                      <button type="reset" class="btn btn-danger">Cancelar</button>
+                      <a href="ConsultaProducto" class="btn btn-danger">Cancelar</a>
                       <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                   </div>

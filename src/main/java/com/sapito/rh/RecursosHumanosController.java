@@ -87,7 +87,7 @@ public class RecursosHumanosController {
 
         List<Empleado> empleados = daoEmpleado.findAll();
         System.out.println(empleados.size() + "Cantidad de empleados");
-        System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
+        //System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
 
         int ultimo_empleado = empleados.get(empleados.size() - 1).getIdempleado();
         System.out.println("ultimo_empeado" + ultimo_empleado);

@@ -73,7 +73,7 @@
                             <div class="panel-body">
                                 <div class="input-group">
 
-                                    <input class="form-control" id="system-search" placeholder="Busqueda" required>
+                                    <input class="form-control" id="system-search" placeholder="Busqueda" onkeypress="return soloTexto(event);" required>
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                     </span>

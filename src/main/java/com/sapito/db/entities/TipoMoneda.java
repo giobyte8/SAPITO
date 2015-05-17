@@ -25,10 +25,10 @@ import javax.validation.constraints.Size;
 public class TipoMoneda implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
     @NotNull
     @Size(min = 1, max = 60)

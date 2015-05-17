@@ -123,33 +123,33 @@
                                     <br/><label>Fecha de entrada </label>
                                     <input type="text" class="form-control" readonly value="${inventario.fechaEntrada}"/>
                                 </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <br/><label>Fecha de producción </label>
-                                        <input type="text" class="form-control" readonly value="${inventario.fechaProduccion}"/>
-                                    </div>
-                                </div>
-
-</div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                        Cerrar
-                                    </button>
-                                </div>
-
                             </div>
-                        </div>
-                    </div>
-                </c:forEach>        
 
-                <%@include file="inventariosFooter.jsp" %>
-                <script >
-                    $(document).ready(function () {
-                        $('#tinventario').DataTable();
-                    });
-                </script>
-                </body>
-                </html>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Fecha de producción </label>
+                                    <input type="text" class="form-control" readonly value="${inventario.fechaProduccion}"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                Cerrar
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </c:forEach>        
+
+        <%@include file="inventariosFooter.jsp" %>
+        <script >
+            $(document).ready(function () {
+                $('#tinventario').DataTable();
+            });
+        </script>
+    </body>
+</html>
 

@@ -143,7 +143,7 @@
                         <!-- /.col-lg-12 -->
                     </div>        
                     <div class="form-group text-right">
-                        <a type="button" class="btn btn-info">Descargar como PDF</a>
+                        <a type="button" class="btn btn-info" href="reportedepreciacion.pdf" target="_blank">Descargar como PDF</a>
                         <a href="gdaReporte" onclick="return confirm('¿Est&aacute; seguro de enviar el reporte anterior?');"><input type="submit" class="btn btn-success" value="Enviar"></a>
 
                     </div>                                  

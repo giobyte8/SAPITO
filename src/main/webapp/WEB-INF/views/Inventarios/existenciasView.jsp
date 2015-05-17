@@ -49,15 +49,15 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <c:forEach items="${inventario}" var="inventario">
+                                                            <c:forEach items="${inventariototal}" var="inventariototal">
                                                                 <tr>
-                                                                    <td>${inventario.codigoInventario}</td>
-                                                                    <td>${inventario.nombre}</td>
-                                                                    <td>${inventario.tipoProducto}</td>
-                                                                    <td>${inventario.cantidad}</td>
+                                                                    <td>${inventariototal.codigoInventario}</td>
+                                                                    <td>${inventariototal.nombre}</td>
+                                                                    <td>${inventariototal.tipoProducto}</td>
+                                                                    <td>${inventariototal.cantidad}</td>
                                                                     <td>
                                                                         <button class="btn btn-xs btn-success" type="button" 
-                                                                                data-toggle="modal" data-target="#cts-modal${inventario.id}">
+                                                                                data-toggle="modal" data-target="#cts-modal${inventariototal.id}">
                                                                             Detalles
                                                                         </button>
                                                                     </td>
@@ -68,7 +68,7 @@
 
                                                 </div>
                                                 <div class="tab-pane fade" id="minimos">
-                                                    <table id="tinventario" class="table table-bordered table-hover 
+                                                    <table id="tminimos" class="table table-bordered table-hover 
                                                            table-striped table-responsive" cellspacing="0" width="100%">
                                                         <thead>
                                                             <tr>
@@ -108,70 +108,86 @@
             </div>
         </div>
 
-        <div id="cts-modal" class="modal fade" tabindex="-1" role="dialog" 
-             aria-labelledby="existencia-modal-title" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <c:forEach items="${inventario}" var="inventario">
+            <div id="cts-modal${inventario.id}" class="modal fade" tabindex="-1" role="dialog" 
+                 aria-labelledby="inventario-modal-title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" id="cliente-modal-title">&times;</span>
-                        </button>
-                        <h4 class="modal-title">Detalles del producto</h4>
-                    </div>
-                    <div class="modal-body">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Detalles de producto</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Datos del producto:</h4>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <br/><label>Codigo de inventario</label>
-                                <input type="text" class="form-control" readonly/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Código inventario</label>
+                                    <input type="text" class="form-control" readonly value="${inventario.codigoInventario}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <br/><label>Nombre:</label>
-                                <input type="text" class="form-control" readonly/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Nombre</label>
+                                    <input type="text" class="form-control" readonly value="${inventario.nombre}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <br/><label>Tipo de producto</label>
-                                <input type="text" class="form-control" readonly/>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Tipo de producto</label>
+                                    <input type="text" class="form-control" readonly value="${inventario.tipoProducto}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <br/><label>Cantidad</label>
-                                <input type="text" class="form-control" readonly/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Cantidad</label>
+                                    <input type="text" class="form-control" readonly value="${inventario.cantidad}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <br/><label>Categoria</label>
-                                <input type="text" class="form-control" readonly/>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Cantidad mínima </label>
+                                    <input type="text" class="form-control" readonly value="${inventario.minimo}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <br/><label>Fecha de entrada</label>
-                                <input type="text" class="form-control" readonly/>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Cantidad máxima </label>
+                                    <input type="text" class="form-control" readonly value="${inventario.maximo}"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <br/><label>Fecha de produccion</label>
-                                <input type="text" class="form-control" readonly/>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Fecha de entrada </label>
+                                    <input type="text" class="form-control" readonly value="${inventario.fechaEntrada}"/>
+                                </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Fecha de producción </label>
+                                    <input type="text" class="form-control" readonly value="${inventario.fechaProduccion}"/>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">
-                            Cerrar
-                        </button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                Cerrar
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
+        </c:forEach>        
 
         <!-- jQuery -->
 
@@ -179,6 +195,7 @@
         <script >
             $(document).ready(function () {
                 $('#tinventario').DataTable();
+                $('#tminimos').DataTable();
             });
         </script>
 

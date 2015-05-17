@@ -4,7 +4,7 @@
     Author     : zgm_e_000
 --%>
 
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
@@ -30,6 +30,9 @@
         <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
         <!-- Custom Fonts -->
         <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- PARA FECHA -->
+        <link href="resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -42,7 +45,7 @@
                         <h1 class="page-header">Nueva Linea de Producci&oacute;n</h1>
                     </div>
                 </div>
-                <form:form action="nvo-lineaProd    " method="POST" commandName="Empleado">
+                <form:form id="nuv-lineaProd" commandName="Lineaproduccion" action="AltaLineaProduccionJO"  method="POST">
                     <div class="row-fluid">
                         <div class="col-lg-12 text-left">
                             <div class="panel panel-green">
@@ -52,34 +55,44 @@
                                 <div class="panel-body">
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
-                                            <label>Nombre </label>
-                                            <input path="Nombre" class="form-control" placeholder="Nombre" maxlength="40" required="required">
+                                            <label for="alp-nombre" class="control-label">nombre</label>
+                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
+                                                        id="nombreN" placeholder="Nombre" />
+                                            <form:errors path="nombre" element="div" class="alert-danger pad-10" />
+
                                         </div>
                                         <div class="form-group">
                                             <label>Tiempo</label>
-                                            <form:input path="fechaentrega" name="lineaP" id="lineaProd" type="text" class="form-control" placeholder="Tiempo"  maxlength="30"/>
-                                                <form:errors path="empresa" element="div" class="alertdanger pad10"/>
-                                            </div>  
-                                            <div class="form-group">
-                                                <label>Activo</label>
-                                                <input class="form-control" id="numInt" placeholder="Descripci&oacute;n"  maxlength="30" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 text-left">
-                                            <div class="form-group">     
-                                            </div>
+                                            <form:input path="tiempo" id="fecha"  class="form-control" />
+                                            <form:errors path="tiempo" element="div" class="alert-danger pad-10" />
 
+                                        </div>  
+                                        <div class="form-group">
+                                            <label>Activo</label>
+                                            <form:input path="activo" name="activo" type="text" class="form-control" 
+                                                        id="activo" placeholder="activo" />
+                                            <form:errors path="activo" element="div" class="alert-danger pad-10" />
                                         </div>
+                                        <label>Responsable</label>
+                                        <form:input path="responsa" name="responsable" type="text" class="form-control" 
+                                                    id="responsabl" placeholder="responsable" />
+                                        <form:errors path="responsa" element="div" class="alert-danger pad-10" />
+                                    </div>
+                                    <div class="col-lg-6 text-left">
+                                        <div class="form-group">     
+                                        </div>
+
                                     </div>
                                 </div>
-                                <div align="right">
-                                    <button type="submit" class="btn btn-primary">Aceptar</button>                                            
-                                </div>
-                                <br/>
                             </div>
+                            <div align="right">
+                                <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+                            </div>                           
+                            <br/>
                         </div>
+                    </div>
 
-                        <!-- /#page-wrapper -->
+                    <!-- /#page-wrapper -->
                 </form:form>
             </div>
         </div>
@@ -97,5 +110,18 @@
         <script src="resources/js/libs/sb-admin-2.js"></script>
 
         <!--<script src="${pageContext.request.contextPath}/resources/js/operaciones/jsoperaciones.js"></script>-->
+        <!-- PARA FECHA -->
+        <script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#fecha").datepicker({
+                    dateFormat: "dd-mm-yy",
+                    dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+                });
+            });
+        </script>
+
     </body>
 </html>

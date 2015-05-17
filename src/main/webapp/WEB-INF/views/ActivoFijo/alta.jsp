@@ -58,47 +58,46 @@
                       <div class="panel-body">
                         <div class="row">
                           <div class="col-lg-12 text-left"> 
-                            <form:form id="fa-activofijo" commandName="activofijo" action="gdaAlta" method="POST">                                                                
-                                <div class="form-group ">
-                                  <label class="control-label" >Activo Fijo</label>
-                                  <select name="productoS" class="form-control">
-                                    <option value="">Selecciona Activo Fijo</option>
-                                    <c:forEach items="${producto}" var="producto">
-                                        <option value="${producto.id}">${producto.nombreProducto}</option>
-                                    </c:forEach>
-                                  </select>
-                                </div>                                                                                       
-                                <div class="form-group ">
-                                  <label class="control-label" >Tipo</label>
-                                  <select name="tipoactivofijoS" class="form-control">
-                                    <option value="">Selecciona Tipo</option>
-                                    <c:forEach items="${tipoAF}" var="tipo">
-                                        <option value="${tipo.id}">${tipo.nombre}</option>
-                                    </c:forEach>
-                                  </select>
-                                  <a href="addTipoAF">Agregar nuevo Tipo de Activo Fijo</a>
-                                </div>                                                                                       
-                                <div class="form-group">
-                                  <label class="control-label" >Fecha de Adquisici&oacute;n</label>
-                                  <form:input id="fecha" path="fechaAdquisicion" class="form-control" />
-                                  <form:errors path="fechaAdquisicion" element="div" class="alert-danger pad-10" />
-                                </div>
-                                <div class="form-group">
-                                  <label class="control-label" >Años de vida útil</label>
-                                  <form:input path="anosVidaUtil" name="anosVidaUtil" id="fa-anosVidaUtil" 
-                                              type="text" class="form-control"/>
-                                  <!--<input type="text" id="cantidad" title="Únicamente números enteros" name="cantidad" class="form-control" required  placeholder="Escribe n&uacute;mero">-->
-                                </div>
-                            </div>
+                            <form id="fa-activofijo" action="gdaAlta" method="POST">                                                                
+                              <div class="form-group ">
+                                <label class="control-label" >Activo Fijo</label>
+                                <select name="activoId" class="form-control">
+                                  <option value="">Selecciona Activo Fijo</option>
+                                  <c:forEach items="${activos}" var="activo">
+                                      <option value="${activo.id}">${activo.productoProveedor.producto.nombreProducto}</option>
+                                  </c:forEach>
+                                </select>
+                              </div>                                                                                       
+                              <div class="form-group ">
+                                <label class="control-label" >Tipo</label>
+                                <select name="tipoactivofijoS" class="form-control">
+                                  <option value="">Selecciona Tipo</option>
+                                  <c:forEach items="${tipoAF}" var="tipo">
+                                      <option value="${tipo.id}">${tipo.nombre}</option>
+                                  </c:forEach>
+                                </select>
+                                <a href="addTipoAF">Agregar nuevo Tipo de Activo Fijo</a>
+                              </div>                                                                                       
+                              <div class="form-group">
+                                <label class="control-label" >Fecha de Adquisición</label>
+                                <input name="fecha" id="fecha" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" >Años de vida útil</label>
+                                <input name="anosVidaUtil" id="fa-anosVidaUtil" 
+                                       type="number" min="1" class="form-control"/>
+                              </div>
+                              <div class="form-group" style="text-align:right">
+                                <input type="reset" class="btn btn-success" value="Cancelar">
+                                <input type="submit" class="btn btn-success" value="Continuar">
+                              </div> 
+                            </form>
                           </div>
                         </div>
-                      </div>                               
-                      <div class="form-group" style="text-align:right">
-                        <input type="reset" class="btn btn-success" value="Cancelar">
-                        <input type="submit" class="btn btn-success" value="Continuar">
-                      </div>  
+                      </div>
+                    </div>                               
 
-                    </form:form>
+
                     <!--                          Fin Codigo Para panel 5 o menos input -->
                   </div>
                   <!--                      Fin TODO aqui abajo-->               

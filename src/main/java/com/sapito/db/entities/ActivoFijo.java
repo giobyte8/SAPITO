@@ -66,7 +66,7 @@ private TipoActivoFijo tipoActivoFijo;
 
 @JoinColumn(name = "ID_PRODUCTO")
 @ManyToOne
-private Producto producto;
+private ProductoProveedor productoProveedor;
 
 
 /** *** *** *** *** *** *** **** *** *** *** *** *** *** */
@@ -189,15 +189,15 @@ private Producto producto;
     /**
      * @return the producto
      */
-    public Producto getProducto() {
-        return producto;
+    public ProductoProveedor getProductoProveedor() {
+        return productoProveedor;
     }
 
     /**
      * @param producto the producto to set
      */
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setProductoProveedor(ProductoProveedor producto) {
+        this.productoProveedor = producto;
     }
 
     

@@ -54,6 +54,25 @@
                         <a href="/SAPITO/logistica/empresa/altaEmpresa"><button class="btn btn-success" type="button">Nueva empresa</button></a>
                         <a href="/SAPITO/logistica/pdfRecpcion?output=recepcion" target="_blank"><button class="btn btn-success" type="button">Recepcion</button></a>
                         <a href="/SAPITO/logistica/pdfRecpcion?output=reporte" target="_blank"><button class="btn btn-success" type="button">Reporte</button></a>
+                        
+                        
+<!--                        <div class="input-group">
+                            <input id="idempresa" type="text" class="form-control" placeholder="RFC del cliente"/>                            
+                            <button class="btn btn-success" onclick="buscar():">Buscar</button>                                                            
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <br/><label for="fcliente-empresa">Empresa:</label>
+                            <input id="f-empresa" readonly type="text" 
+                                   class="form-control" placeholder="Empresa cliente"/>
+                        </div>
+                        
+                        <div id="alert-rfc" class="alert alert-danger hidden">
+              <h5>Ingrese el RFC del cliente.</h5>
+            </div>-->
+                        
+                        
+                        
                     </div>
                     <br/><br/>
 
@@ -281,7 +300,7 @@
 
 
         <%@include file="logisticaFooter.jsp" %>
-
+        <script src="${pageContext.request.contextPath}/resources/js/logistica/logistica.js"></script>
         <script >
             $(document).ready(function () {
                 activatenb('nb-nacional');
@@ -302,6 +321,6 @@
             $('#myTab a:first').tab('show') // Select first tab
 //            $('#myTab a:last').tab('show') // Select last tab
 //            $('#myTab li:eq(2) a').tab('show') // Select third tab (0-indexed)            
-        </script>
+        </script>        
     </body>
 </html>

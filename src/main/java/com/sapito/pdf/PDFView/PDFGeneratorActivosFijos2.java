@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.sapito.pdf.PDFView;
 
 import com.itextpdf.text.BaseColor;
@@ -34,6 +28,7 @@ import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.net.URL;
 import static javafx.scene.input.DataFormat.URL;
+import javafx.scene.paint.Color;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.ImageIcon;
 
@@ -75,21 +70,27 @@ public class PDFGeneratorActivosFijos2 {
         c.setBackground(BaseColor.WHITE);
         Paragraph title = new Paragraph(c);
         title.setAlignment(Element.ALIGN_CENTER);
+        
 
+ 
+        //-------------------------  CONTENIDO -------------------------------------------------------
+        dcmntaf.add(title);  //Titulo del PDF
+        
         String titulo2 = "Reporte de Activos Fijos por Tipo"; //Cambiar el titulo del PDF aqui
         Font f2 = new Font(FontFamily.HELVETICA, 12.0f, Font.NORMAL, BaseColor.BLACK);
         Chunk c2 = new Chunk(titulo2 + " \n ", f2);
         c2.setBackground(BaseColor.WHITE);
         Paragraph title2 = new Paragraph(c2);
         title2.setAlignment(Element.ALIGN_LEFT);
-        //-------------------------  CONTENIDO -------------------------------------------------------
-        dcmntaf.add(title);  //Titulo del PDF
+        title2. setIndentationLeft(50);
         dcmntaf.add(title2);
         PdfPTable table = new PdfPTable(4);
 //                                 PdfPCell cell;
 //                            cell = new PdfPCell(new Phrase("Tipo de A", FontFactory.getFont("TIMES_ROMAN", 12, Font.BOLD, BaseColor.BLACK)));                     
-//                        table.addCell(cell);                        
+//                        table.addCell(cell);      
+
         table.addCell("Tipo de Activo fijo");
+        
         table.addCell("Valor Original");
         table.addCell("Depreciación Actual ");
         table.addCell("Valor Actual");
@@ -97,7 +98,7 @@ public class PDFGeneratorActivosFijos2 {
         table.addCell("null");
         table.addCell("null");
         table.addCell("null");
-
+        
         dcmntaf.add(table);
 
         String titulo3 = "Reporte Total de Activos Fijos"; //Cambiar el titulo del PDF aqui
@@ -106,6 +107,7 @@ public class PDFGeneratorActivosFijos2 {
         c3.setBackground(BaseColor.WHITE);
         Paragraph title3 = new Paragraph(c3);
         title3.setAlignment(Element.ALIGN_LEFT);
+        title3. setIndentationLeft(50);
         dcmntaf.add(title3);
 
         PdfPTable table2 = new PdfPTable(3);

@@ -5,8 +5,14 @@
  */
 package com.sapito.operaciones;
 
+import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Lineaproduccion;
+import java.util.List;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,6 +23,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class OperacionesController {
 
+    private GenericDao<Lineaproduccion> daoProd;
+
+    @Autowired
+    public void setDaoLineaProduccion(GenericDao<Lineaproduccion> daoProd) {
+        this.daoProd = daoProd;
+        daoProd.setClass(Lineaproduccion.class);
+    }
+
     @RequestMapping(value = "operaciones", method = RequestMethod.GET)
     public String indexOperaciones(Model model) {
         return "Operaciones/indexOperaciones";
@@ -24,7 +38,27 @@ public class OperacionesController {
 
     @RequestMapping(value = "AltaLineaProduccionJO", method = RequestMethod.GET)
     public String AltaLineaProduccionJO(Model model) {
+        Lineaproduccion Lineaproduccion = new Lineaproduccion();
+        
+
+        model.addAttribute("Lineaproduccion", Lineaproduccion);
+
         return "Operaciones/AltaLineaProduccionJO";
+    }
+
+    @RequestMapping(value = "AltaLineaProduccionJO", method = RequestMethod.POST)
+    public String regAltaLineaProduccionJO(Model model, @Valid Lineaproduccion Lineaproduccion, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Operaciones/AltaLineaProduccionJO";
+        } else {
+            daoProd.create(Lineaproduccion);
+
+            List<Lineaproduccion> producciones = daoProd.findAll();
+            model.addAttribute("Lineaproduccion", Lineaproduccion);
+            return "Operaciones/AltaLineaProduccionJO";
+        }
     }
 
     @RequestMapping(value = "AdministrarLineasProduccion", method = RequestMethod.GET)
@@ -49,7 +83,7 @@ public class OperacionesController {
 
     @RequestMapping(value = "AltaEstacion", method = RequestMethod.GET)
     public String AltaEstacion(Model model) {
-        
+
         return "Operaciones/AltaEstacion";
     }
 

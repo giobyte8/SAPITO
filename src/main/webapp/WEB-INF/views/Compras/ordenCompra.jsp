@@ -12,213 +12,168 @@
 
     <head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-            <%@include file="MenusCompras/Cabesa compras.jsp"%>
+        <meta charset="utf-8">        
+        <%@include file="MenusCompras/Cabesa compras.jsp"%>
 
         <title>SAPITO</title>
-
-
     </head>
-
     <body>
-
         <div id="wrapper">
-
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <!-- Page Content -->
-            <form id="orden">
 
-                <div id="page-wrapper">
-                    <div class="container-fluid">
+            <div id="page-wrapper">
+                <div class="container-fluid">
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1 class="page-header">
-                                    Orden de compra
-                                </h1>                        
-                            </div>
-                        </div>        
-
-                        <div class="row">
-                            <div class="col-lg-12 text-left">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <br/>     
-                                        
-                                        
-                                        <div class="panel panel-green">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">Datos del proveedor
-                                                </h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <!-- Fila de inputs/!-->
-                                                <div class="row">
-                                                    <div class="col-lg-6 text-left">
-                                                        <!-- inputs/!-->
-
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Empresa</label>
-                                                            <select class="form-control" name="empresa" required>
-                                                                <option>Fulanito 1</option>
-                                                                <option>Fulanito 2</option>
-                                                                <option>Fulanito 3</option>
-
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group ">
-                                                            <label class="control-label ">RfC</label>
-                                                            <input name="rfc" placeholder="Ingrese RFC" type="text" disabled="disabled" class="form-control" required>
-                                                        </div>                                                    
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Contacto</label>
-                                                            <input name="contacto" placeholder="Ingrese Nombre del Contacto" type="text" disabled="disabled" class="form-control" required >
-                                                        </div>
-                                                        
-                                                      <div class="col-lg-6 text-left">  
-                                                        <div class="form-group ">
-                                                            <br>                                                            
-                                                            <label class="control-label">Forma de pago </label> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                            
-                                                            <select name="forPago" size="1" id="select">
-                                                                <option value="1">Efectivo</option>
-                                                                <option value="2">Crédito</option>
-                                                            </select>
-                                                            
-                                                        </div>
-                                                      </div> 
-                                                        <!--Fin  inputs    /!-->
-                                                    </div>                                                
-                                                    <div class="col-lg-6 text-left">
-                                                        <!-- inputs/!-->
-
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Dirección</label>
-                                                            <input name="direccion" placeholder="Ingrese Dirección" type="text" disabled="disabled" class="form-control" required>
-                                                        </div>        
-                                                        <div class="form-group ">
-                                                            <label class="control-label">E-mail</label>
-                                                            <input name="email" placeholder="Ingrese E-mail" type="text" disabled="disabled" class="form-control" required>
-                                                        </div>
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Teléfono</label>
-                                                            <input name="telefono" placeholder="Ingrese Teléfono" type="text" disabled="disabled" class="form-control" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-green">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title" >Productos de la orden </h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row">
-
-                                                    <div class="col-lg-6 text-left">                                                
-                                                        <div class="panel panel-default">
-                                                            <label class="control-label">Productos a ingresar</label>
-                                                            <select name="prodIngresar" class="form-control">
-                                                                <option>Monitor HP 12000</option>
-                                                                <option>Computadora Dell Inspiron seires 500</option>
-                                                                <option>HDD Extaernal case 2.5"</option>
-
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-5">                                                                                                   
-                                                        <input type="submit" value="Agregar" class="btn btn-success  col-md-offset-11"  role="button">                                                    
-                                                    </div>
-
-
-
-                                                    <div class="col-lg-12 text-left">                                                                                                                                            
-                                                        <table class="table table-bordered">
-                                                            <tr>
-                                                                <td><div align="center">Cantidad</div></td> 
-                                                                <td><div align="center">Producto</div></td> 
-                                                                <td><div align="center">Descripcion</div></td> 
-                                                                <td><div align="center">Cantidad</div></td>                                                                 
-                                                                <td><div align="center">Precio</div></td> 
-                                                                <td><div align="center">Importe</div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>5</td> 
-                                                                <td>Equipo de computo</td> 
-                                                                <td>Computadora de Escritorio Dell Inpiron Series 5000</td> 
-                                                                <td>5</td> 
-                                                                <td>150</td> 
-                                                                <td>750</td> 
-                                                                <td>  
-                                                                    <div align="center">
-                                                                        <div  class="btn-group"> 
-                                                                            <a class="btn-group" href="#">
-                                                                                    &nbsp;Eliminar 
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a> 
-                                                                        </div>
-                                                                    </div>
-                                                                </td> 
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td> 
-                                                                <td>Monitor</td> 
-                                                                <td>Monitor Hp Hybrid</td> 
-                                                                <td>1</td> 
-                                                                <td>50</td> 
-                                                                <td>50</td> 
-                                                                <td>  
-                                                                    <div align="center">
-                                                                        <div  class="btn-group">    
-                                                                            <a class="btn-group" href="#">
-                                                                                    &nbsp;Eliminar 
-                                                                                    <i class="fa fa-times"></i>
-                                                                                </a> 
-                                                                        </div>
-                                                                    </div>
-                                                                </td> 
-                                                            </tr>
-                                                        </table>
-                                                    </div> 
-                                                </div>
-                                            </div>                                            
-                                        </div>
-                                    </div>
-
-                                    <div >
-                                        <input type="reset" value="Eliminar Datos" class="btn btn-success"  role="button">
-                                        <input type="submit" value="Aceptar" class="btn btn-success  col-md-offset-9"  role="button">
-                                    </div> 
-                                </div>                        
-                            </div>  
+                    <!-- Page title -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Orden de Compra
+                            </h1>
                         </div>
-                    </div><!--Fin del tag de fila-->
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Productos en la Orden</h2><br/>
+                        <div id="alert-productos" class="alert alert-danger hidden">
+                            <h5>Agregue al menos un producto al a orden</h5>
+                        </div>
+                        <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio c/u</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="col-sm-5 text-left">
+                            <button class="btn btn-primary" type="button"
+                                    data-toggle="modal" data-target="#addp-modal">
+                                Agregar Producto (+)
+                            </button>
+                        </div>
+                        <br/><br/><br/><h2>Compra</h2>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <br/><label for="cforma-pago">Forma de Pago:</label>
+                                <select class="form-control">
+                                    <option value="contado">Contado</option>
+                                    <option value="cheque">Cheque</option>
+                                    <option value="credito">Credito</option>
+                                </select>
+                            </div>                            
+                            <div class="col-md-12">
+                                <br/><label for="cfecha-entrega">Fecha de Entrega:</label>
+                                <input id="cfecha-entrega" type="date" 
+                                       class="form-control" />
+                            </div>
+                        </div>
+                    </div>                       
+                    <div class="row">
+                        <div class="col-lg-6 text-right">
+                            <h2>Totales ($)</h2>
+                                                  
+                            <div class="col-sm-12 bg-success text-right">
+                                <h3 id="total-final">Total final: $00.00</h3>
+                            </div>
 
-                </div><!-- Fin del tag del contenedor-->
-            </form>
-
+                            <div class="col-sm-12 text-right">
+                                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                <button type="button" class="btn btn-danger btn-lg" 
+                                        onclick="cancelarNvaOrdenCompra()">
+                                    Cancelar Orden
+                                </button>
+                                &nbsp;&nbsp;
+                                <button type="button" class="btn btn-success btn-lg" 
+                                        onclick="enviarOrden()">
+                                    Guardar Orden
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /#page-wrapper -->
-        <!-- /#wrapper -->
-        <!-- jQuery -->
-        <script src="resources/js/libs/jquery.min.js"></script>
+        <!-- Hiden form to add products to order -->
+        <div id="addp-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span id="close-nvoc-modal">&times;</span>
+                        </button>
+                        <h3>Agregar producto a la orden</h3>
+                    </div>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="resources/js/libs/bootstrap.min.js"></script>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <br/><label>Código de Producto</label>
+                                <div class="input-group">
+                                    <input id="addp-cproducto" type="text" 
+                                           class="form-control" name="addp-cproducto" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" onclick="buscarProducto()">Buscar</button>
+                                    </span>
+                                </div>
+                                <div id="addp-notfound-alert" class="alert alert-danger hidden text-center">
+                                    <span class="fa fa-exclamation-triangle"></span>
+                                    <span>No se encontro ningún producto con el código ingresado</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <br/><label>Cantidad a agregar</label>
+                                <input id="addp-cantidad" type="number" min="1" max="1000000"
+                                       class="form-control" name="addp-cantidad" value="1" />
+                                <div id="addp-cantidad-alert" class="alert alert-danger hidden text-center">
+                                    <span class="fa fa-exclamation-triangle"></span>
+                                    <span>Ingrese una cantidad valida</span>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="resources/js/libs/metisMenu.min.js"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="resources/js/libs/sb-admin-2.js"></script>
-            <%@include file="MenusCompras/Cabesa compras.jsp"%>
-
+                        <div class="row">                            
+                            <div class="col-md-6">
+                                <br/><label for="cproveedor" class="control-label">Proveedor(s)</label>
+                                <select id="cproveedor" name="cproveedor" class="form-control"> 
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <br/><label>Nombre</label>
+                                <input id="addc-nombre" type="text" readonly
+                                       class="form-control" name="addc-nombre" />
+                            </div>
+                            <div class="col-md-4">
+                                <br/><label>Categoria</label>
+                                <input id="addc-categoria" type="text" readonly
+                                       class="form-control" name="addc-categoria" />
+                            </div>                            
+                                                                                                      
+                            <div class="col-md-4">
+                                <br/><label>Costo</label>
+                                <input id="addc-costo" type="number" readonly
+                                       class="form-control" name="addc-costo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger"  data-dismiss="modal"
+                                onclick="clearAddPForm()">
+                            Cancelar
+                        </button>
+                        <button class="btn btn-success"
+                                onclick="agregarAOrden()">
+                            Agregar a la Orden
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/compras/jscompas.js"></script>
+        <%@include file="MenusCompras/Pie compras.jsp"%>
     </body>
-
 </html>
