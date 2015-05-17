@@ -19,8 +19,10 @@ import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos2;
 import com.sapito.ventas.VentasController;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -115,7 +117,7 @@ public class ActivoFijoController {
             TipoActivoFijo tipoactivofijo = (TipoActivoFijo) daoTipoActivoFijo.find(Long.valueOf(tipoactivofijoS));
             Producto prod = (Producto) daoProducto.find(Long.valueOf(productoS));
             activofijo.setTipoactivofijo(tipoactivofijo);
-            activofijo.setProducto(prod);
+            activofijo.setProducto(prod.get);
             activofijo.setStatus("SinAsignar");
             daoActivoFijo.create(activofijo);
             return "ActivoFijo/gdaAlta";
@@ -308,6 +310,44 @@ public class ActivoFijoController {
 
     @RequestMapping(value = "reporteInversion", method = RequestMethod.GET)
     public String reporteInversion(Model model) {
+        
+        //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+        Depreciacion depreciacion = new Depreciacion();
+        List<TipoActivoFijo> tiposAF = daoTipoActivoFijo.findAll();
+        for(TipoActivoFijo taf : tiposAF)
+        {
+            List<ActivoFijo> activosCategoria = daoActivoFijo
+                    .findBySpecificField("tipoActivoFijo", taf, "equal", null, null);
+            for(ActivoFijo af : activosCategoria)
+            {
+                if (af.getTipoDepreciacion().compareTo("Linea recta") == 0) {
+                    Calendar hoy = Calendar.getInstance(Locale.US);
+                    hoy.setTime(new Date());
+                    Calendar adquisicion = Calendar.getInstance(Locale.US);
+                    adquisicion.setTime(af.getFechaAdquisicion());
+                    
+                    int dif = hoy.get(Calendar.YEAR) - adquisicion.get(Calendar.YEAR);
+                    if (adquisicion.get(Calendar.MONTH) > hoy.get(Calendar.MONTH)
+                                || adquisicion.get(Calendar.MONTH) == hoy.get(Calendar.MONTH)
+                            && adquisicion.get(Calendar.DATE) > hoy.get(Calendar.DATE)) {
+                        dif--;
+                    }
+                    depreciacion.LineaRecta((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif);
+                }
+                else if(af.getTipoDepreciacion().compareTo("Suma de digitos anuales") == 0) {
+                    
+                }
+                else if(af.getTipoDepreciacion().compareTo("Doble saldo decreciente") == 0)
+                {
+                    
+                }
+                    
+            }
+        }
+        
+        
+        
+        
         return "ActivoFijo/reporteInversion";
     }
 

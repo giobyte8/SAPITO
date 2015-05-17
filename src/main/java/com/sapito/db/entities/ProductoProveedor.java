@@ -8,6 +8,8 @@ package com.sapito.db.entities;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -63,6 +66,10 @@ public class ProductoProveedor implements Serializable {
     @JoinColumn(name = "ID_PRODUCTOSENORDEN")
     @ManyToOne
     private ProductoProveedor productoComprado;
+    
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+    private Collection<ActivoFijo> productoRef;
     
     public Long getId() {
         return id;
@@ -154,6 +161,20 @@ public class ProductoProveedor implements Serializable {
      */
     public void setProductocomprado(ProductoProveedor productocomprado) {
         this.productoComprado = productocomprado;
+    }
+
+    /**
+     * @return the productoRef
+     */
+    public Collection<ActivoFijo> getProductoRef() {
+        return productoRef;
+    }
+
+    /**
+     * @param productoRef the productoRef to set
+     */
+    public void setProductoRef(Collection<ActivoFijo> productoRef) {
+        this.productoRef = productoRef;
     }
 
 }

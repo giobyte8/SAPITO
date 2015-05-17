@@ -63,7 +63,7 @@
                                                                 <select id="combo-dpto" name="departamento" class="form-control">
                                                                     <option value="">Selecciona Departamento</option>
                                                                     <c:forEach var="depto" items="${depto}">
-                                                                        <option value="${depto.iddepartamento}">${depto.nombreDepartamento}</option>
+                                                                        <option value="${depto.id}">${depto.nombreDepartamento}</option>
                                                                     </c:forEach>
                                                                 </select>
                                                                 <input type="hidden" name="idAF" class="form-control" value="${lastAF.id}" />
@@ -75,9 +75,6 @@
                                                                 <label class="control-label" >Propietario</label>
                                                                 <select id="combo-empleados" name="propietario" class="form-control">
                                                                     <option value="">Selecciona Propietario</option>
-                                                                    <c:forEach var="emp" items="${emp}">
-                                                                        <option value="${emp.idempleado}">${emp.nomre}</option>
-                                                                    </c:forEach>
                                                                 </select>
                                                             </div>   
                                                             <div class="form-group ">
