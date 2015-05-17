@@ -55,7 +55,7 @@
                                 <td>${inventario.categoria}</td>                                
                                 <td>${inventario.cantidad}</td>                                                                            
                                 <td style="text-align: center;">
-                                    <a href="/SAPITO/Inventarios/bajaMateriaPrima?id=${inventario.idinventario}"><button class="btn btn-success" type="button">Eliminar</button></a>
+                                    <a href="/SAPITO/Inventarios/bajaMateriaPrima?id=${inventario.id}"><button class="btn btn-success" type="button">Eliminar</button></a>
                                 </td>
                             </tr>                             
                         </c:forEach>                
