@@ -13,12 +13,12 @@
         <title>SAPITO ITT</title>
     </head>
     <body>
-        <%@include file="Menus/MenuJefeDepartamento.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+       
         <div id="page-wrapper">
             <!--  ################################################-->
 
             <div class="container-fluid">
-
+      
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -29,6 +29,7 @@
                 </div>
                 <!-- /.row -->
                 <form:form action="editEmpleado" method="POST" commandName="Empleado">
+                    <form:input  path="idempleado" type="hidden"/>
                     <div class="row">
                         <div class="col-lg-12 text-left">
                             <div class="panel panel-green">
