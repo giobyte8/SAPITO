@@ -84,10 +84,15 @@ public class PersistenceConfig
             {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //setProperty("hibernate.hbm2ddl.auto", "create");                
 =======
                 //setProperty("hibernate.hbm2ddl.auto", "create");
 >>>>>>> origin/master
+=======
+                //setProperty("hibernate.hbm2ddl.auto", "create");
+                //setProperty("hibernate.hbm2ddl.auto", "create");
+>>>>>>> parent of 0272f89... aa
                 setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
             }
         };
