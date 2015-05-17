@@ -62,7 +62,7 @@
                 <a href="javascript:" data-toggle="collapse" data-target="#demo1"><i class="fa fa-expand fa-fw"></i> Máximos y mínimos<span class="fa arrow"></span></a>
                 <ul id="demo1" class="collapse">
                     <li>
-                        <a href="${pageContext.request.contextPath}/inventario/matepri">Materia prima</a>
+                        <a href="${pageContext.request.contextPath}/inventario/mateprim">Materia prima</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/inventario/prote">Producto terminado</a>
