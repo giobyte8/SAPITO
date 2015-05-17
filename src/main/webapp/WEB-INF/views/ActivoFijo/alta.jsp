@@ -85,7 +85,7 @@
                               <div class="form-group">
                                 <label class="control-label" >Años de vida útil</label>
                                 <input name="anosVidaUtil" id="fa-anosVidaUtil" 
-                                       type="number" min="1" class="form-control" required="true"/>
+                                       type="text" min="1" class="form-control" required="true"/>
                               </div>
                               <div class="form-group" style="text-align:right">
                                 <input type="reset" class="btn btn-success" value="Cancelar">
