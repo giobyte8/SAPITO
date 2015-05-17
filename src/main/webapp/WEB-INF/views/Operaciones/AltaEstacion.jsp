@@ -4,6 +4,8 @@
     Author     : zgm_e_000
 --%>
 
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,52 +40,62 @@
                         <h1 class="page-header">Nueva Estacion</h1>
                     </div>
                 </div>
-                <div class="row-fluid">
-                    <div class="col-lg-12 text-left">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Datos de Referencia</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-lg-6 text-left">
-                                    <div class="form-group">
-                                        <label>Nombre </label>
-                                        <input class="form-control" placeholder="Nombre" onkeypress="return soloNumeros()(event);"  maxlength="30" required="required">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tiempo</label>
-                                        <input class="form-control" placeholder="Tiempo" onkeypress="return soloTexto(event);"  maxlength="30" required>
-                                    </div>  
-                                    <div class="form-group">
-                                        <label>Descripcion</label>
-                                        <input class="form-control" id="numInt" placeholder="Descripci&oacute;n"  maxlength="30" onkeypress="return soloTexto(event);"required>
-                                    </div>
+                <form:form id="nuv-lineaProd" commandName="Lineaproduccion" action="AltaLineaProduccionJO"  method="POST">
+                    <div class="row-fluid">
+                        <div class="col-lg-12 text-left">
+                            <div class="panel panel-green">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Datos de Referencia</h3>
                                 </div>
-                                <div class="col-lg-6 text-left">
-                                    <div class="form-group">     
+                                <div class="panel-body">
+                                    <div class="col-lg-6 text-left">
                                         <div class="form-group">
-                                            <label>Linea de produccion</label>
-                                            <div class="form-group input-group">
-                                                <select path="estado" id="etados" class="form-control selectpicker show-tick show-menu-arrow" data-size="6">
-                                                    <!--<option value="0" label="Seleccione uno" />-->
-                                                    <option> Produccion uno </option>
-                                                    <option> Produccion dos </option>
-                                                    <option> Produccion tres </option>
-                                                </select>
-                                            </div>
+                                            <label>Nombre </label>
+                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
+                                                        id="nombreN" placeholder="Nombre" />
+                                            <form:errors path="nombre" element="div" class="alert-danger pad-10" />
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tiempo</label>
+                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
+                                                        id="nombreN" placeholder="Nombre" />
+                                            <form:errors path="nombre" element="div" class="alert-danger pad-10" />
+
+                                        </div>  
+                                        <div class="form-group">
+                                            <label>Descripcion</label>
+                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
+                                                        id="nombreN" placeholder="Nombre" />
+                                            <form:errors path="nombre" element="div" class="alert-danger pad-10" />
+
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 text-left">
+                                        <div class="form-group">     
+                                            <div class="form-group">
+                                                <label>Linea de produccion</label>
+                                                <div class="form-group input-group">
+                                                    <select path="estado" id="etados" class="form-control selectpicker show-tick show-menu-arrow" data-size="6">
+                                                        <!--<option value="0" label="Seleccione uno" />-->
+                                                        <option> Produccion uno </option>
+                                                        <option> Produccion dos </option>
+                                                        <option> Produccion tres </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    </div>
                                 </div>
                             </div>
+                            <div align="right">
+                                <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+                            </div>
+                            <br/>
                         </div>
-                        <div align="right">
-                            <button type="submit" class="btn btn-primary">Aceptar</button>                                            
-                        </div>
-                        <br/>
                     </div>
-                </div>
-
+                </form:form>
                 <!-- /#page-wrapper -->
             </div>
         </div>
@@ -99,7 +111,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
-        
+
         <script src="${pageContext.request.contextPath}/resources/js/operaciones/jsoperaciones.js"></script>
     </body>
 </html>
