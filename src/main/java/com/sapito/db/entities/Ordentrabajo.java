@@ -11,6 +11,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,6 +24,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -32,40 +35,54 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Ordentrabajo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idordentrabajo")
     private Integer idordentrabajo;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "fechapedido")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechapedido;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 60)
     @Column(name = "descripcion")
     private String descripcion;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "fechaentrega")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date fechaentrega;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "prioridad")
     private String prioridad;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "comentario")
     private String comentario;
+    
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "auditor")
     private String auditor;
+    
+    
     @JoinColumn(name = "catalogoproducto_idcatalogoproducto", referencedColumnName = "idcatalogoproducto")
     @ManyToOne(optional = false)
     private Catalogoproducto catalogoproductoIdcatalogoproducto;

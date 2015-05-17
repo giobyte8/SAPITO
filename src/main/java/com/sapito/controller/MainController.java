@@ -110,7 +110,7 @@ public class MainController {
                 }
                 if (idRol == 3 && idDeparamento == 7) {
                     b = true;
-                    return "redirect:recursoshumanos";
+                    return "redirect:rhempleadobase";
                 }
 
                 // Jefe de departamento inventarios

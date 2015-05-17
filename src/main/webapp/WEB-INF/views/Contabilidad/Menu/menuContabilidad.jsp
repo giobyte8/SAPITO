@@ -109,25 +109,34 @@
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#conta-submenus"> Contabilidad<span class="fa arrow"></span></a>
                     <ul id="conta-submenus" class="collapse">
-                      <%--  <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Reporte Ventas</a>
+                       <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Cuenta Ventas</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaCompras">Reporte Compras</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCompras">Cuenta Compras</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaRH">Reporte Recursos Humanos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaRH">Cuenta Recursos Humanos</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaActivoFijo">Reporte Activos Fijos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaActivoFijo">Cuenta Activos Fijos</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaAlmacen">Reporte Inventarios</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaAlmacen">Cuenta Inventarios</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Reporte Dirección</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Cuenta Dirección</a>
                         </li>
-                      --%>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaFinanzas">Cuenta Finazas</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaOperaciones">Cuenta Operaciones</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaLogistica">Cuenta Logistica</a>
+                        </li>
+                      
                         <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaInformes"> Informes</a>
                         </li>
@@ -163,26 +172,35 @@
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Contabilidad<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                      <%--  
+                       
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Reporte Ventas</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaVentas">Cuenta Ventas</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaCompras">Reporte Compras</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaCompras">Cuenta Compras</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaRH">Reporte Recursos Humanos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaRH">Cuenta Recursos Humanos</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaActivoFijo">Reporte Activos Fijos</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaActivoFijo">Cuenta Activos Fijos</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaAlmacen">Reporte Inventarios</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaAlmacen">Cuenta Inventarios</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Reporte Direccion</a>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaDireccion">Cuenta Dirección</a>
                         </li>
-                      --%>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaFinanzas">Cuenta Finazas</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaOperaciones">Cuenta Operaciones</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/contabilidad/contaLogistica">Cuenta Logistica</a>
+                        </li>
+                      
                         <li>
                             <a href="${pageContext.request.contextPath}/contabilidad/contaInformes"> Reportes</a>
                         </li>

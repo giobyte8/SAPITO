@@ -3,7 +3,7 @@
     Created on : Feb 7, 2015, 3:15:33 AM
     Author     : Usuario
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -62,38 +62,17 @@
                                                             <tr role="row">
                                                                 <th aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending" style="width: 175px;" colspan="1" rowspan="1" aria-controls="dataTables-example" tabindex="0" class="sorting_asc">Tipo de Activo Fijo</th>
                                                                 <th aria-label="Browser: activate to sort column ascending" style="width: 203px;" colspan="1" rowspan="1" aria-controls="dataTables-example" tabindex="0" class="sorting">Valor Original</th>
-                                                                <th aria-label="Platform(s): activate to sort column ascending" style="width: 184px;" colspan="1" rowspan="1" aria-controls="dataTables-example" tabindex="0" class="sorting">Depreciaci&oacute;n actual</th>
+                                                               
                                                                 <th aria-label="Engine version: activate to sort column ascending" style="width: 150px;" colspan="1" rowspan="1" aria-controls="dataTables-example" tabindex="0" class="sorting">Valor Actual</th>                                            
                                                         </thead>
                                                         <tbody>
-                                                            <tr role="row" class="gradeA odd">
-                                                                <td class="sorting_1">Tipo1</td>
-                                                                <td>$100,000,000</td>
-                                                                <td>$20,000,000</td>
-                                                                <td class="center">$80,000,000</td>
-
-                                                            </tr>
-                                                            <tr role="row" class="gradeA odd">
-                                                                <td class="sorting_1">Tipo2</td>
-                                                                <td>$50,000,000</td>
-                                                                <td>$15,000,000</td>
-                                                                <td class="center">$35,000,000</td>
-
-                                                            </tr>
-                                                            <tr role="row" class="gradeA odd">
-                                                                <td class="sorting_1">Tipo3</td>
-                                                                <td>$20,000,000</td>
-                                                                <td>$3,000,000</td>
-                                                                <td class="center">$17,000,000</td>
-
-                                                            </tr>
-                                                            <tr role="row" class="gradeA odd">
-                                                                <td class="sorting_1">Tipo4</td>
-                                                                <td>$1,000,000</td>
-                                                                <td>$600,000</td>
-                                                                <td class="center">$400,000</td>
-
-                                                            </tr>
+                                                            <c:forEach items="${resultados}" var="resultado" >
+                                                                <tr>
+                                                                    <td>${resultado.tipo}</td>
+                                                                    <td>${resultado.valorOriginal}</td>                                                                    
+                                                                    <td>${resultado.valoreActual}</td>
+                                                                </tr>
+                                                            </c:forEach>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -118,15 +97,15 @@
                                                         <thead>
                                                             <tr role="row">                                            
                                                                 <th aria-label="Browser: activate to sort column ascending" style="width: 203px;" colspan="1" rowspan="1" aria-controls="dataTables-example" tabindex="0" class="sorting">Valor Original Total</th>
-                                                                <th aria-label="Platform(s): activate to sort column ascending" style="width: 184px;" colspan="1" rowspan="1" aria-controls="dataTables-example" tabindex="0" class="sorting">Depreciaci&oacute;n Actual Total</th>
+                                                                
                                                                 <th aria-label="Engine version: activate to sort column ascending" style="width: 150px;" colspan="1" rowspan="1" aria-controls="dataTables-example" tabindex="0" class="sorting">Valor Actual Total</th>                                            
                                                         </thead>
                                                         <tbody>
                                                             <tr role="row" class="gradeA odd">
 
-                                                                <td>$171,000,000</td>
-                                                                <td>$38,600,000</td>
-                                                                <td class="center">$132,400,000</td>
+                                                                <td>${granTotalValorOr}</td>
+                                                                
+                                                                <td class="center">${granTotalValorActual}</td>
 
                                                             </tr>                                        
                                                         </tbody>
@@ -168,7 +147,7 @@
 
         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>
-                            $(document).ready(function() {
+                            $(document).ready(function () {
                                 $('#dataTables-example').DataTable({
                                     responsive: true
                                 });

@@ -251,10 +251,28 @@ public class InventariosController
     
 
 
-    @RequestMapping(value = "inventario/existencias", method = RequestMethod.GET)
-    public String existencias(Model model)
-    {
-        return "Inventarios/existenciasView";
+        @RequestMapping(value = "inventario/existencias", method = RequestMethod.GET)
+    public String existencias(Model model) {
+
+        List<Inventario> inventariototal = daoInventario.findAll();
+        List<Inventario> inventario = new ArrayList<>();
+        for(Inventario inv : inventariototal)
+        {
+            if (inv.getCantidad() <= inv.getMinimo()) {
+                inventario.add(inv);
+            }
+        }
+
+        if (inventariototal != null && inventariototal.size() > 0) {
+            model.addAttribute("inventariototal", inventariototal);
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/existenciasView";
+        } else {
+            model.addAttribute("inventariototal", new ArrayList<Inventario>());
+            model.addAttribute("inventario", inventario);
+            return "Inventarios/existenciasView";
+        }
+
     }
     
     

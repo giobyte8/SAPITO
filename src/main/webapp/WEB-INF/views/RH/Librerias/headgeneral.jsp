@@ -14,9 +14,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sapito.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/rh/index.rh.css">
 
 <!-- Bootstrap Core CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
 
 <!-- MetisMenu CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
