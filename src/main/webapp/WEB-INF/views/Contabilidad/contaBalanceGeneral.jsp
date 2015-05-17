@@ -15,10 +15,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>SAPito</title>
-        <link href="../resources/css/libs/bootstrap.min.css" rel="stylesheet">
-        <link href="../resources/css/libs/metisMenu.min.css" rel="stylesheet">
-        <link href="../resources/css/libs/sb-admin.css" rel="stylesheet">
-        <link href="../resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="wrapper">           
@@ -32,7 +32,10 @@
                                 Balance General
                             </h1>                        
                         </div>
-                    </div>
+                    </div><%--
+                    <form:form action="#" commandName="fecha">
+                        <form:select name="fecha" items="#{fechas}" path="fecha" />
+</form:form>--%>
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <h3 class="panel-title"></h3>

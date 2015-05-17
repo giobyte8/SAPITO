@@ -54,43 +54,43 @@ public class ContabilidadController {
     private GenericDao<ProductoProveedor> daoProductoProveedor;
     private GenericDao<CatalogoCuenta> daoCatalogoCuenta;
     private GenericDao<Departamento> daoDepartamento;
-    
+
     @Autowired
     public void setDaoDepartamento(GenericDao<Departamento> departamento) {
         this.daoDepartamento = departamento;
         daoDepartamento.setClass(Departamento.class);
     }
-    
+
     @Autowired
     public void setDaoCatalogoCuenta(GenericDao<CatalogoCuenta> catalogoCuenta) {
         this.daoCatalogoCuenta = catalogoCuenta;
         daoCatalogoCuenta.setClass(CatalogoCuenta.class);
     }
-    
+
     @Autowired
     public void setDaoProductoProveedor(GenericDao<ProductoProveedor> productoProveedor) {
         this.daoProductoProveedor = productoProveedor;
         daoProductoProveedor.setClass(ProductoProveedor.class);
     }
-    
+
     @Autowired
     public void setDaoCuentaBancaria(GenericDao<CuentaBancaria> cuentaBancaria) {
         this.daoCuentaBancaria = cuentaBancaria;
         daoCuentaBancaria.setClass(CuentaBancaria.class);
     }
-    
+
     @Autowired
     public void setDaoGastosGenerales(GenericDao<GastosGenerales> gastosGenerales) {
         this.daoGastosGenerales = gastosGenerales;
         daoGastosGenerales.setClass(GastosGenerales.class);
     }
-    
+
     @Autowired
     public void setDaoNomina(GenericDao<Nomina> nomina) {
         this.daoNomina = nomina;
         daoNomina.setClass(Nomina.class);
     }
-    
+
     @Autowired
     public void setDaoMoneda(GenericDao<TipoMoneda> moneda) {
         this.daoMoneda = moneda;
@@ -102,8 +102,7 @@ public class ContabilidadController {
         this.daoOrdenCompra = ordenCompra;
         daoOrdenCompra.setClass(OrdenCompra.class);
     }
-    
-    
+
     @Autowired
     public void setDaoEmpresa(GenericDao<Empresa> empresa) {
         this.daoEmpresa = empresa;
@@ -197,33 +196,41 @@ public class ContabilidadController {
 
     @RequestMapping(value = "contabilidad/contaBalanceGeneral", method = RequestMethod.GET)
     public String ContaBalanceGeneral(Model model) {
-        float nocirculante=0;
+        float nocirculante = 0;
         List<CuentaBancaria> cuentaBancarias = daoOrdenCompra.findAll();
         for (Iterator iterador = cuentaBancarias.listIterator(); iterador.hasNext();) {
             CuentaBancaria cuentaBancaria = (CuentaBancaria) iterador.next();//fecha_pedido
-            nocirculante=+cuentaBancaria.getHaber();
+            nocirculante = +cuentaBancaria.getHaber();
         }
-        double activos=0;
+        double activos = 0;
         List<ProductoProveedor> productoProveedors = daoProductoProveedor.findAll();
         for (Iterator iterador = productoProveedors.listIterator(); iterador.hasNext();) {
             ProductoProveedor productoProveedor = (ProductoProveedor) iterador.next();
-            if(productoProveedor.getProducto().getCategoria().equals("Activo fijo")){
-            activos=+ productoProveedor.getCosto();
+            if (productoProveedor.getProducto().getCategoria().equals("Activo fijo")) {
+                activos = +productoProveedor.getCosto();
             }
         }
-        double pasivo=0;
+        double pasivo = 0;
         List<OrdenCompra> compras = daoOrdenCompra.findAll();
         for (Iterator iterador = compras.listIterator(); iterador.hasNext();) {
             OrdenCompra compra = (OrdenCompra) iterador.next();
-            if(compra.isAprobada()==false){
-                pasivo=+ compra.getCostoTotal();
+            if (compra.isAprobada() == false) {
+                pasivo = +compra.getCostoTotal();
             }
         }
         List<GastosGenerales> gastosGenerales = daoGastosGenerales.findAll();
         for (Iterator iterador = gastosGenerales.listIterator(); iterador.hasNext();) {
             GastosGenerales gastosGenerale = (GastosGenerales) iterador.next();
-            pasivo=+gastosGenerale.getCosto();
+            pasivo = +gastosGenerale.getCosto();
         }
+        Map<String, Object> fechas = new HashMap<String, Object>();
+        fechas.put("2015", "2015");
+        fechas.put("2014", "2014");
+        fechas.put("2013", "2013");
+        fechas.put("2012", "2012");
+        fechas.put("2011", "2011");
+        model.addAttribute("fechas", fechas);
+        model.addAttribute("fecha", "");
         model.addAttribute("activoc", 0);
         model.addAttribute("activonc", nocirculante);
         model.addAttribute("totalactivo", activos);
@@ -232,12 +239,12 @@ public class ContabilidadController {
     }
 
     @RequestMapping(value = "contabilidad/contaEstadoFlujo", method = RequestMethod.GET)
-    public String ContaEstadoFlujo(Model model) {   
-        float saldoini=0;
+    public String ContaEstadoFlujo(Model model) {
+        float saldoini = 0;
         List<CatalogoCuenta> catalogoCuentas = daoCatalogoCuenta.findAll();
         for (Iterator iterador = catalogoCuentas.listIterator(); iterador.hasNext();) {
             CatalogoCuenta catalogoCuenta = (CatalogoCuenta) iterador.next();
-            saldoini=+catalogoCuenta.getHaber();
+            saldoini = +catalogoCuenta.getHaber();
         }
         return "Contabilidad/contaEstadoFlujo";
     }
@@ -248,38 +255,37 @@ public class ContabilidadController {
         List<OrdenVenta> ventas = daoOrdenVenta.findAll();
         for (Iterator iterador = ventas.listIterator(); iterador.hasNext();) {
             OrdenVenta venta = (OrdenVenta) iterador.next();
-            if(venta.getStatus().equals("VENTA")||venta.getStatus().equals("VENTA_CAMBIO")){
-                ingresos=+ venta.getMontoConCargos();
-            }
-            else{
-                ingresos=- venta.getMontoConCargos();
+            if (venta.getStatus().equals("VENTA") || venta.getStatus().equals("VENTA_CAMBIO")) {
+                ingresos = +venta.getMontoConCargos();
+            } else {
+                ingresos = -venta.getMontoConCargos();
             }
         }
         double costoV = 0;
         List<OrdenCompra> compras = daoOrdenCompra.findAll();
         for (Iterator iterador = compras.listIterator(); iterador.hasNext();) {
             OrdenCompra compra = (OrdenCompra) iterador.next();//fecha_pedido
-            if(compra.isAprobada()){
-                costoV=+ compra.getCostoTotal();
+            if (compra.isAprobada()) {
+                costoV = +compra.getCostoTotal();
             }
         }
         List<Nomina> nominas = daoNomina.findAll();
         for (Iterator iterador = nominas.listIterator(); iterador.hasNext();) {
             Nomina nomina = (Nomina) iterador.next();
-            double su=nomina.getSueldototal()*2;
-            costoV=+ su;
+            double su = nomina.getSueldototal() * 2;
+            costoV = +su;
         }
         float costoG = 0;
         List<GastosGenerales> gastosGenerales = daoGastosGenerales.findAll();
         for (Iterator iterador = gastosGenerales.listIterator(); iterador.hasNext();) {
             GastosGenerales gastosGenerale = (GastosGenerales) iterador.next();
-            costoG=+gastosGenerale.getCosto();
+            costoG = +gastosGenerale.getCosto();
         }
         model.addAttribute("ingresos", ingresos);
         model.addAttribute("costosv", costoV);
         model.addAttribute("costosg", costoG);
-        model.addAttribute("impuestosI", (ingresos*0.16));
-        model.addAttribute("impuestosC", ((costoG+costoV)*0.16));
+        model.addAttribute("impuestosI", (ingresos * 0.16));
+        model.addAttribute("impuestosC", ((costoG + costoV) * 0.16));
         return "Contabilidad/contaEstadoResultados";
     }
 
@@ -293,7 +299,7 @@ public class ContabilidadController {
     public String variacion(Model model, HttpServletRequest request, HttpServletResponse response) {
         PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
         try {
-            pdfView.crearVariacionContable(response);
+            pdfView.crearVariacionContable(response, "", "", "", "", "", "");//Mandar valores aqui
         } catch (Exception ex) {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -305,7 +311,7 @@ public class ContabilidadController {
     public String estado(Model model, HttpServletRequest request, HttpServletResponse response) {
         PDFGeneratorContabilidad pdfView = new PDFGeneratorContabilidad();
         try {
-            pdfView.crearEstadoResultados(response);
+            pdfView.crearEstadoResultados(response, "", "", "", "", "");
         } catch (Exception ex) {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -335,66 +341,58 @@ public class ContabilidadController {
         }
         return "OK";
     }
-    
-    
+
     @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.GET)
     public String contaCrearCuenta(Model model) {
-        CuentaBancaria cuenta = new CuentaBancaria();               
-        List<Departamento> depas = daoDepartamento.findAll();               
-        model.addAttribute("cuenta", cuenta);
-        model.addAttribute("depas",depas);
+        CuentaBancaria cuentaBancaria = new CuentaBancaria();
+        List<Departamento> depas = daoDepartamento.findAll();
+        model.addAttribute("cuentaBancaria", cuentaBancaria);
+        model.addAttribute("depas", depas);
         return "Contabilidad/contaCrearCuentas";
-    }  
-    
-    @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.POST)
-    public String contaCrearCuentas(Model model, @Valid CuentaBancaria cuenta, BindingResult bindingResult)
-    {
-        cuenta.setEmpresa((Empresa)daoEmpresa.findAll().get(0));
-        
-        if(bindingResult.hasErrors())
-        {
-            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
-            System.out.println("Error: " + bindingResult.getFieldError().getField());            
-            return "Contabilidad/contaCrearCuentas";
-            
-        }
-        
-            daoCuentaBancaria.create(cuenta);
-            return "Contabilidad";
-        
-        
     }
-   
-     @RequestMapping(value = "contabilidad/contaCrearPago", method = RequestMethod.GET)
+
+    @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.POST)
+    public String contaCrearCuentas(Model model, @Valid CuentaBancaria cuentaBancaria, BindingResult bindingResult) {
+        cuentaBancaria.setEmpresa((Empresa) daoEmpresa.findAll().get(0));
+        if (bindingResult.hasErrors()) {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());           
+
+            List<Departamento> depas = daoDepartamento.findAll();
+            model.addAttribute("depas", depas);
+            return "Contabilidad/contaCrearCuentas";
+        }
+
+        
+        daoCuentaBancaria.create(cuentaBancaria);
+        return "Contabilidad";
+
+    }
+
+    @RequestMapping(value = "contabilidad/contaCrearPago", method = RequestMethod.GET)
     public String contaCrearPago(Model model) {
-        GastosGenerales pago = new GastosGenerales(); 
-        
-        model.addAttribute("pago", pago);
-        
+        GastosGenerales gastosGenerales = new GastosGenerales();
+        model.addAttribute("GastosGenerales", gastosGenerales);
         return "Contabilidad/contaCrearPago";
-    } 
-    
+    }
+
     @RequestMapping(value = "contabilidad/contaCrearPago", method = RequestMethod.POST)
-    public String contaCrearPago(Model model, @Valid GastosGenerales pago, BindingResult bindingResult)
-    {          
-        pago.setFecha(new Date());
-        if(bindingResult.hasErrors())
-        {
+    public String contaCrearPago(Model model, @Valid GastosGenerales gastosGenerales, BindingResult bindingResult) {
+        gastosGenerales.setFecha(new Date());
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Contabilidad/contaCrearPago";
         }
-        daoGastosGenerales.create(pago);        
+        daoGastosGenerales.create(gastosGenerales);
         return "contabilidad";
     }
-   
-    
+
     @RequestMapping(value = "contabilidad/inserts", method = RequestMethod.GET)
     @ResponseBody
-     public String insert(Model model, HttpServletRequest request, HttpServletResponse response)
-    {
-        
-        Empresa empresa= new Empresa();
+    public String insert(Model model, HttpServletRequest request, HttpServletResponse response) {
+
+        Empresa empresa = new Empresa();
         empresa.setNombre("Sapo");
         empresa.setCalle("Calle");
         empresa.setEstado("México");
@@ -408,28 +406,26 @@ public class ContabilidadController {
         empresa.setTelefono("0123456789");
         empresa.setNumI(" 21 I");
         daoEmpresa.create(empresa);
-        
+
         Departamento depa = new Departamento();
         depa.setNombreDepartamento("Contabilidad");
         depa.setPresupuesto(125.1);
         depa.setEmpresaIdempresa(empresa);
-        
+
         Departamento depa1 = new Departamento();
         depa1.setNombreDepartamento("RH");
         depa1.setPresupuesto(125.1);
         depa1.setEmpresaIdempresa(empresa);
-        
+
         Departamento depa2 = new Departamento();
         depa2.setNombreDepartamento("Compras");
         depa2.setPresupuesto(125.1);
         depa2.setEmpresaIdempresa(empresa);
-      
-      
+
         daoDepartamento.create(depa);
         daoDepartamento.create(depa1);
         daoDepartamento.create(depa2);
-                
-        
+
         return "Contabilidad/contaCrearCuentas";
     }
 

@@ -31,7 +31,7 @@
                     </div>
 
                     <!-- Formulario de nuevo cliente -->
-                    <form:form id="fnvo-cliente" commandName="cuenta" action="${pageContext.request.contextPath}/contabilidad/contaCrearCuenta" method="POST">
+                    <form:form id="fnvo-cliente"  commandName="cuentaBancaria" action="contaCrearCuenta" method="POST">
 
                         <div class="panel panel-green">
                             <div class="panel-heading">
@@ -41,9 +41,10 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <br/><label for="fnvoc-empresa">Nombre de Banco</label>
-                                        <form:input path="nombreBanco" name="nombreBanco" id="fnoc-empresa" 
-                                                    type="text" class="form-control"/>
-                                        <form:errors path="empresa" element="div" class="alert-danger pad-10" />
+                                        <form:input path="nombreBanco" 
+                                                    name="nombreBanco" id="fnoc-empresa" 
+                                                    type="text" class="form-control"  />
+                                        <form:errors path="nombreBanco" element="div" class="alert-danger pad-10" />
                                     </div>
 
                                 </div>
@@ -51,7 +52,7 @@
                                     <div class="col-md-12">
                                         <br/><label for="fnvoc-claveInterBancaria">Clave Interbancaria</label>
                                         <form:input path="claveInterBancaria" name="claveInterBancaria" id="fnvoc-rfc" 
-                                                    type="text" class="form-control"/>
+                                                    type="text" class="form-control" maxlength="18" size="18" />
                                         <form:errors path="claveInterBancaria" element="div" class="alert-danger pad-10" />
                                     </div>
                                     <div class="col-md-12">
@@ -62,7 +63,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <br/><label for="fnvoc-pais">Departamento</label>
-                                        <form:select path="departamento" name="departamento" class="form-control" items="${depas}" itemLabel="nombreDepartamento" itemValue="id" />
+                                        <form:select path="departamento.id" name="departamento" class="form-control" items="${depas}" itemLabel="nombreDepartamento" itemValue="id" />
 
                                         <form:errors path="departamento" element="div" class="alert-danger pad-10" />
                                     </div>

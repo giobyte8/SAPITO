@@ -32,7 +32,7 @@
                     </div>
 
                     <!-- Formulario de nuevo cliente -->
-                    <form:form id="fnvo-cliente" commandName="pago" action="${pageContext.request.contextPath}/contabilidad/contaCrearPago" method="POST">
+                    <form:form id="fnvo-cliente" commandName="gastosGenerales" action="${pageContext.request.contextPath}/contabilidad/contaCrearPago" method="POST">
 
                         <div class="panel panel-green">
                             <div class="panel-heading">

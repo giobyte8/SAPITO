@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletResponse;
  import com.itextpdf.text.pdf.PdfPTable;
  import com.itextpdf.text.pdf.PdfWriter;
  import com.itextpdf.text.Document;
+import org.springframework.ui.Model;
 /**
  *
  * @author Raf
@@ -41,7 +42,7 @@ public class PDFGeneratorContabilidad
 {
     
     public void crearEstadoResultados(
-            HttpServletResponse hsr1) throws Exception {
+            HttpServletResponse hsr1, String ingresos,String cVenta,String cGeneral,String cImpu,String cImpTot) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -77,15 +78,15 @@ public class PDFGeneratorContabilidad
         PdfPTable table = new PdfPTable(2);
 
         table.addCell("Ingresos" );
-        table.addCell("");//valor
+        table.addCell(ingresos);//valor
         table.addCell("Costo de Venta" );
-        table.addCell("");//valor
+        table.addCell(cVenta);//valor
         table.addCell("Costos Generales" );
-        table.addCell("");//valor
+        table.addCell(cGeneral);//valor
         table.addCell("Impuestos de Ingresos" );
-        table.addCell("");//valor
+        table.addCell(cImpu);//valor
         table.addCell("Impuesto de Costos Totales" );
-        table.addCell("");//valor
+        table.addCell(cImpTot);//valor
         document.add(table);
         document.close();
 
@@ -97,7 +98,8 @@ public class PDFGeneratorContabilidad
     }
 
      public void crearVariacionContable(
-            HttpServletResponse hsr1) throws Exception {
+            HttpServletResponse hsr1, String sInicial,String aumento,String utilidad,
+             String disminucion,String perdidas,String sFinal ) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -130,17 +132,21 @@ public class PDFGeneratorContabilidad
         title.setAlignment(Element.ALIGN_CENTER);
         //-------------------------  CONTENIDO -------------------------------------------------------
         document.add(title);  //Titulo del PDF
-        PdfPTable table = new PdfPTable(1);
+        PdfPTable table = new PdfPTable(2);
 
-        table.addCell("Hola");
-        table.addCell("Soy");
-        table.addCell("el");
-        table.addCell("pdf");
-        table.addCell("del");
-        table.addCell("sapito");
+        table.addCell("Saldo al inicio del ejercicio" );
+        table.addCell(sInicial);//valor
+        table.addCell("Aumentos" );
+        table.addCell(aumento);//valor
+        table.addCell("Utilidades" );
+        table.addCell(utilidad);//valor
+        table.addCell("Disminuciones" );
+        table.addCell(disminucion);//valor
+        table.addCell("Perdidas" );
+        table.addCell(perdidas);//valor
+        table.addCell("Saldo al final del ejercicio" );
+        table.addCell(sFinal);//valor
         document.add(table);
-
-        document.close();
 
         byte[] bytes = baos.toByteArray();
 
