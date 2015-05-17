@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
@@ -30,6 +32,7 @@ import org.hibernate.validator.constraints.Email;
  */
 @Entity
 @Table(name = "Proveedor")
+@JsonIgnoreProperties({"proveedorproducto"})
 public class Proveedor implements Serializable {
 
     @Id
@@ -120,6 +123,7 @@ public class Proveedor implements Serializable {
     private boolean status;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
+    @JsonManagedReference
     private Collection<ProductoProveedor> proveedorproducto;
 
     /**

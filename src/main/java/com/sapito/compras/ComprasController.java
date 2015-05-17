@@ -6,6 +6,7 @@
 package com.sapito.compras;
 
 import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.OrdenCompra;
 import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.ProductoProveedor;
 import com.sapito.db.entities.Proveedor;
@@ -21,6 +22,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -216,6 +218,24 @@ public class ComprasController
     public String ordenCompra(Model model)
     {
         return "Compras/ordenCompra";
+    }
+    
+    @RequestMapping(value = "compras/buscarProducto", method = RequestMethod.GET)
+    public @ResponseBody ProductoProveedor buscarProducto(Model model, String idp)
+    {
+//        try { Long.valueOf(idp); } catch(NumberFormatException ex) { return null; }
+//        Producto producto = (Producto) daoProducto.find(Long.valueOf(idp));
+//        return (producto != null) ? producto : null;
+        return (ProductoProveedor) daoProductoProveedor.find(Long.valueOf(idp));
+    }
+    
+    @RequestMapping(value = "compras/proveedorproducto", method = RequestMethod.GET)
+    public @ResponseBody Proveedor proveedorDeProducto(Model model, String idProductoProveedor)
+    {
+        try { Long.valueOf(idProductoProveedor); } catch(NumberFormatException ex) { return null; }
+        ProductoProveedor producto = (ProductoProveedor) daoProductoProveedor
+                .find(Long.valueOf(idProductoProveedor));
+        return producto.getProveedor();
     }
     
     //Consulta Ordenes
