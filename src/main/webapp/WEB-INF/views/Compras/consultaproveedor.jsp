@@ -61,10 +61,7 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-xs btn-warning" type="button" 
-                                                data-toggle="modal" data-target="#cts-modal${proveedor.id}">
-                                            Editar
-                                        </button>
+                                        <a href="modificarproveedor?idproveedor=${proveedor.id}" class="btn btn-danger right btn-xs">Editar</a>                                        
                                     </td>                                   
                                 </tr>
                             </c:forEach>
