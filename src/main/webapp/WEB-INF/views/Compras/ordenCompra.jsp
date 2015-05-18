@@ -87,7 +87,7 @@
                 </button>
                 &nbsp;&nbsp;
                 <button type="button" class="btn btn-success btn-lg" 
-                        onclick="enviarOrden()">
+                        onclick="enviarOrdenCompra()">
                   Guardar Orden
                 </button>
               </div>

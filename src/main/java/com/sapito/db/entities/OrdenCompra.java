@@ -11,7 +11,6 @@ import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import java.util.Collection;
 
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
@@ -39,7 +38,6 @@ import javax.validation.constraints.Size;
 @Table(name = "OrdenCompra")
 public class OrdenCompra implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -49,15 +47,12 @@ public class OrdenCompra implements Serializable {
     @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
     private String folio;
 
-    @Basic(optional = false)
     @NotNull
     @Column(name = "fechaPedido")
     @Temporal(TemporalType.DATE)
     private java.util.Date fechaPedido;
     
-    @Basic(optional = false)
     @Column(name = "fechaEntrega")
-    
     @Temporal(TemporalType.DATE)
     private java.util.Date fechaEntrega;
     
@@ -76,148 +71,86 @@ public class OrdenCompra implements Serializable {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra")
     @JsonManagedReference
-    private Collection<ProductoEnOrden> productoOrden;   
-    
-    public Long getId() {
+    private Collection<ProductoEnOrden> productosEnOrden;
+
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    /**
-     * @return the Folio
-     */
-    public String isFolio() {
-        return getFolio();
-    }
-
-    /**
-     * @param Folio the Folio to set
-     */
-    public void setFolio(String Folio) {
-        this.folio = Folio;
-    }
-
-    /**
-     * @return the fechaOrden
-     */
-    public java.util.Date getFechaOrden() {
-        return getFechaPedido();
-    }
-
-    /**
-     * @param fechaOrden the fechaOrden to set
-     */
-    public void setFechaOrden(java.util.Date fechaOrden) {
-        this.setFechaPedido(fechaOrden);
-    }
-
-    /**
-     * @return the fechaEntrega
-     */
-    public java.util.Date getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    /**
-     * @param fechaEntrega the fechaEntrega to set
-     */
-    public void setFechaEntrega(java.util.Date fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
-    }
-
-    /**
-     * @return the formapago
-     */
-    public String getFormapago() {
-        return formaPago;
-    }
-
-    /**
-     * @param formapago the formapago to set
-     */
-    public void setFormapago(String formapago) {
-        this.formaPago = formapago;
-    }
-
-    
-    /**
-     * @return the Folio
-     */
-    public String getFolio() {
+    public String getFolio()
+    {
         return folio;
     }
 
-    /**
-     * @return the costoTotal
-     */
-    public double getCostoTotal() {
-        return costoTotal;
+    public void setFolio(String folio)
+    {
+        this.folio = folio;
     }
 
-    /**
-     * @param costoTotal the costoTotal to set
-     */
-    public void setCostoTotal(double costoTotal) {
-        this.costoTotal = costoTotal;
-    }
-
-    /**
-     * @return the aprobacion
-     */
-    public boolean isAprobacion() {
-        return isAprobada();
-    }
-
-    /**
-     * @param aprobacion the aprobacion to set
-     */
-    public void setAprobacion(boolean aprobacion) {
-        this.setAprobada(aprobacion);
-    }
-
-    /**
-     * @return the fechaPedido
-     */
-    public java.util.Date getFechaPedido() {
+    public java.util.Date getFechaPedido()
+    {
         return fechaPedido;
     }
 
-    /**
-     * @param fechaPedido the fechaPedido to set
-     */
-    public void setFechaPedido(java.util.Date fechaPedido) {
+    public void setFechaPedido(java.util.Date fechaPedido)
+    {
         this.fechaPedido = fechaPedido;
     }
 
-    /**
-     * @return the aprobada
-     */
-    public boolean isAprobada() {
+    public java.util.Date getFechaEntrega()
+    {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(java.util.Date fechaEntrega)
+    {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public double getCostoTotal()
+    {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(double costoTotal)
+    {
+        this.costoTotal = costoTotal;
+    }
+
+    public String getFormaPago()
+    {
+        return formaPago;
+    }
+
+    public void setFormaPago(String formaPago)
+    {
+        this.formaPago = formaPago;
+    }
+
+    public boolean isAprobada()
+    {
         return aprobada;
     }
 
-    /**
-     * @param aprobada the aprobada to set
-     */
-    public void setAprobada(boolean aprobada) {
+    public void setAprobada(boolean aprobada)
+    {
         this.aprobada = aprobada;
     }
 
-    /**
-     * @return the productoorden
-     */
-    public Collection<ProductoEnOrden> getProductoorden() {
-        return productoOrden;
+    public Collection<ProductoEnOrden> getProductosEnOrden()
+    {
+        return productosEnOrden;
     }
 
-    /**
-     * @param productoorden the productoorden to set
-     */
-    public void setProductoorden(Collection<ProductoEnOrden> productoorden) {
-        this.productoOrden = productoorden;
+    public void setProductosEnOrden(Collection<ProductoEnOrden> productosEnOrden)
+    {
+        this.productosEnOrden = productosEnOrden;
     }
-
+    
 }

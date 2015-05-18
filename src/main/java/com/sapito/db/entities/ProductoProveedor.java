@@ -73,111 +73,86 @@ public class ProductoProveedor implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoProveedor")
     @JsonIgnore
     private Collection<ActivoFijo> productoRef;
-     
-    public Long getId() {
+
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    /**
-     * @return the proveedor
-     */
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-
-    /**
-     * @param proveedor the proveedor to set
-     */
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
-    /**
-     * @return the producto
-     */
-    public Producto getProducto() {
-        return producto;
-    }
-
-    /**
-     * @param producto the producto to set
-     */
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
-    /**
-     * @return the unidad
-     */
-    public String getUnidad() {
+    public String getUnidad()
+    {
         return unidad;
     }
 
-    /**
-     * @param unidad the unidad to set
-     */
-    public void setUnidad(String unidad) {
+    public void setUnidad(String unidad)
+    {
         this.unidad = unidad;
     }
 
-    /**
-     * @return the costo
-     */
-    public double getCosto() {
+    public double getCosto()
+    {
         return costo;
     }
 
-    /**
-     * @param costo the costo to set
-     */
-    public void setCosto(double costo) {
+    public void setCosto(double costo)
+    {
         this.costo = costo;
     }
 
-    /**
-     * @return the status
-     */
-    public String getStatus() {
+    public String getStatus()
+    {
         return status;
     }
 
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
+    public void setStatus(String status)
+    {
         this.status = status;
     }
 
-    /**
-     * @return the productocomprado
-     */
-    public ProductoEnOrden getProductocomprado() {
+    public Proveedor getProveedor()
+    {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor)
+    {
+        this.proveedor = proveedor;
+    }
+
+    public Producto getProducto()
+    {
+        return producto;
+    }
+
+    public void setProducto(Producto producto)
+    {
+        this.producto = producto;
+    }
+
+    public ProductoEnOrden getProductoComprado()
+    {
         return productoComprado;
     }
 
-    /**
-     * @param productocomprado the productocomprado to set
-     */
-    public void setProductocomprado(ProductoEnOrden productocomprado) {
-        this.productoComprado = productocomprado;
+    public void setProductoComprado(ProductoEnOrden productoComprado)
+    {
+        this.productoComprado = productoComprado;
     }
 
-    /**
-     * @return the productoRef
-     */
-    public Collection<ActivoFijo> getProductoRef() {
+    public Collection<ActivoFijo> getProductoRef()
+    {
         return productoRef;
     }
 
-    /**
-     * @param productoRef the productoRef to set
-     */
-    public void setProductoRef(Collection<ActivoFijo> productoRef) {
+    public void setProductoRef(Collection<ActivoFijo> productoRef)
+    {
         this.productoRef = productoRef;
     }
-
+     
+    
 }

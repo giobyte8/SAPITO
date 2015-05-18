@@ -9,9 +9,7 @@ package com.sapito.db.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -47,44 +45,29 @@ public class ProductoEnOrden implements Serializable {
     @JsonBackReference
     private OrdenCompra ordenCompra;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoComprado")
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "productoComprado")
+    @OneToOne
     @JsonManagedReference
-    private Collection<ProductoProveedor> productoOrdenProveedor;
+    private ProductoProveedor productoProveedor;
 
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    /**
-     * @return the cantidad
-     */
-    public Integer getCantidad() {
+    public Integer getCantidad()
+    {
         return cantidad;
     }
 
-    /**
-     * @param cantidad the cantidad to set
-     */
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(Integer cantidad)
+    {
         this.cantidad = cantidad;
-    }
-
-    /**
-     * @return the ordendcompra
-     */
-    public OrdenCompra getOrdendcompra() {
-        return getOrdenCompra();
-    }
-
-    /**
-     * @param ordendcompra the ordendcompra to set
-     */
-    public void setOrdendcompra(OrdenCompra ordendcompra) {
-        this.setOrdenCompra(ordendcompra);
     }
 
     public OrdenCompra getOrdenCompra()
@@ -97,13 +80,14 @@ public class ProductoEnOrden implements Serializable {
         this.ordenCompra = ordenCompra;
     }
 
-    public Collection<ProductoProveedor> getProductoOrdenProveedor()
+    public ProductoProveedor getProductoProveedor()
     {
-        return productoOrdenProveedor;
+        return productoProveedor;
     }
 
-    public void setProductoOrdenProveedor(Collection<ProductoProveedor> productoOrdenProveedor)
+    public void setProductoProveedor(ProductoProveedor productoProveedor)
     {
-        this.productoOrdenProveedor = productoOrdenProveedor;
+        this.productoProveedor = productoProveedor;
     }
+
 }

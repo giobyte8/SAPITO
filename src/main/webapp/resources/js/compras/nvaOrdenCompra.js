@@ -8,6 +8,11 @@ var costos = [];
  */
 var idProductoProveedorToAdd = null;
 
+// Orden compra transport
+var ordenTransport = {
+    productosEnOrden: []
+};
+
 function agregarAOrden()
 {
     if (idProductoProveedorToAdd) {
@@ -16,6 +21,14 @@ function agregarAOrden()
                 + '<td>' + cantidad + '</td>'
                 + '<td>' + $('#addc-costo').val() + ' </td>';
         $('#tproductos > tbody:last').append(trow);
+
+        // Agregar a la orden:
+        ordenTransport.productosEnOrden.push({
+            cantidad: cantidad,
+            idProductoProveedor: idProductoProveedorToAdd
+        });
+
+        limpiar();
         $('#addp-modal').modal('hide');
     }
     else {
@@ -51,6 +64,31 @@ function buscarProducto()
             $('#addp-notfound-alert').removeClass('hidden');
         }
     });
+}
+
+function enviarOrdenCompra()
+{
+    if (ordenTransport.productosEnOrden.length > 0) {
+        var reqUrl = API_URL + 'ordencompra';
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            url: reqUrl,
+            data: JSON.stringify(ordenTransport),
+            success: function (data) {
+                if (data.id) {
+                    alert('Orden registrada');
+                }
+            },
+            dataType: 'json'
+        });
+    }
+    else {
+        alert("Agregue al menos un producto a la orden");
+    }
 }
 
 function limpiar()

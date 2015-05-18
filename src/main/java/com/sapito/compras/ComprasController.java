@@ -8,10 +8,12 @@ package com.sapito.compras;
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.OrdenCompra;
 import com.sapito.db.entities.Producto;
+import com.sapito.db.entities.ProductoEnOrden;
 import com.sapito.db.entities.ProductoProveedor;
 import com.sapito.db.entities.Proveedor;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +38,7 @@ public class ComprasController {
     private GenericDao<Proveedor> daoProveedor;
     private GenericDao<Producto> daoProducto;
     private GenericDao<ProductoProveedor> daoProductoProveedor;
+    private GenericDao<OrdenCompra> daoOrdenCompra;
 
     //Set
     @Autowired
@@ -53,6 +57,13 @@ public class ComprasController {
     public void setDaoProductoProveedor(GenericDao<ProductoProveedor> daoProducoProveedor) {
         this.daoProductoProveedor = daoProducoProveedor;
         daoProducoProveedor.setClass(ProductoProveedor.class);
+    }
+    
+    @Autowired
+    public void serDaoOrdenCompra(GenericDao<OrdenCompra> daoOrdenCompra)
+    {
+        this.daoOrdenCompra = daoOrdenCompra;
+        daoOrdenCompra.setClass(OrdenCompra.class);
     }
 
     //Alta Proveedor//
@@ -235,6 +246,37 @@ public class ComprasController {
     @RequestMapping(value = "compras", method = RequestMethod.GET)
     public String index(Model model) {
         return "Compras/indexcompras";
+    }
+    
+    @RequestMapping(value = "compras/ordencompra", method = RequestMethod.POST)
+    public OrdenCompra crearOrdenCompra(Model model, @RequestBody OrdenCompraTransport ordenCompraTransport)
+    {
+        OrdenCompra ordenCompra = new OrdenCompra();
+        
+        double costoTotal = 0;
+        List<ProductoEnOrden> productosEnOrden = new ArrayList<>();
+        for(ProductoEnOrdenCompra peoc : ordenCompraTransport.getProductosEnOrden())
+        {
+            System.out.println(peoc.getIdProductoProveedor() + " \t" + peoc.getCantidad());
+            ProductoProveedor pp = (ProductoProveedor) daoProductoProveedor
+                    .find(peoc.getIdProductoProveedor());
+            
+            ProductoEnOrden peo = new ProductoEnOrden();
+            peo.setProductoProveedor(pp);
+            peo.setCantidad(peoc.getCantidad());
+            productosEnOrden.add(peo);
+            costoTotal += pp.getCosto() * peoc.getCantidad();
+        }
+        
+        ordenCompra.setProductosEnOrden(productosEnOrden);
+        ordenCompra.setAprobada(false);
+        ordenCompra.setCostoTotal(costoTotal);
+        ordenCompra.setFechaPedido(new Date());
+        ordenCompra.setFolio("ABCDE1");
+        ordenCompra.setFormaPago("EFECTIVO");
+        
+        daoOrdenCompra.create(ordenCompra);
+        return ordenCompra;
     }
 
     @RequestMapping(value = "confirmacionProducto", method = RequestMethod.GET)
