@@ -31,11 +31,11 @@
                     <div class="dataTable_wrapper">
                         <div class="form-group">
                             <label>Nombre del Puesto</label>
-                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese nombre" pattern="[0-9]{5}">
+                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese nombre" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required>
                             <p class="help-block"></p>
 
                             <label>Descripción</label>
-                            <textarea class="form-control  "autofocus autocomplete required placeholder="Ingrese descripcion" pattern="[0-9]{5}"></textarea>
+                            <textarea class="form-control  "autofocus autocomplete required placeholder="Ingrese descripcion" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required></textarea>
                             <p class="help-block" ></p>
                             <div class="col-lg-6 text-left">
                                 <div class="form-group">
@@ -74,20 +74,20 @@
                         </div>
                         <div class="form-group">
                             <label>Suelo Base</label>
-                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese salario" pattern="[0-9]{5}">
+                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese salario" pattern="[0-9]{5}" onkeypress="return soloNumeros(event);" required>
                             <p class="help-block"></p>
                         </div>
                         <div class="form-group">  
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Hora de Entrada</label>
-                                    <input class="form-control"autofocus type="time" autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}">
+                                    <input class="form-control"autofocus type="time" autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}" required>
                                     <p class="help-block"></p>
 
                                 </div>
                                 <div class="col-md-6">
                                     <label>Hora de Salida</label>
-                                    <input class="form-control" type="time" autofocus autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}">
+                                    <input class="form-control" type="time" autofocus autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}" required>
                                     <p class="help-block"></p>
                                 </div>
                             </div>
