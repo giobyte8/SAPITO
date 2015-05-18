@@ -52,9 +52,10 @@ import org.springframework.ui.Model;
  */
 public class PDFGeneratorDireccion {
 
-    public double a,b;
+    public double a, b;
+
     public void crearPDFFactura(
-            Map<String, Object> model, HttpServletResponse hsr1,List<TipoActivoFijo> tipo) throws Exception {
+            Map<String, Object> model, HttpServletResponse hsr1, List<Producto> tipo) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -73,7 +74,6 @@ public class PDFGeneratorDireccion {
         //------------------------ TAIS  ______________________________
         Image tais = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/tais-banner.jpg"));
         document.add(tais);
-        
 
         //---------------------  BODY    ---------------------------------------------------------
         Image body = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/body.png"));
@@ -98,10 +98,9 @@ public class PDFGeneratorDireccion {
         TextoPdf x = (TextoPdf) model.get("todoTexto");
         document.add(new Paragraph(x.getTodoTexto()));
 
-        
-        PdfPTable table3 = new PdfPTable(2);
+        PdfPTable table3 = new PdfPTable(3);
         table3.setWidthPercentage(100.0f);
-        table3.setWidths(new float[]{2.0f, 2.0f});
+        table3.setWidths(new float[]{2.0f, 2.0f, 2.0f});
         table3.setSpacingBefore(10);
 
         // define font for table header row
@@ -114,24 +113,28 @@ public class PDFGeneratorDireccion {
         cell.setPadding(5);
 
         // write table header 
-        cell.setPhrase(new Phrase("Resultado", font));
+        cell.setPhrase(new Phrase("Nombre", font));
         table3.addCell(cell);
-        cell.setPhrase(new Phrase("Resultado2", font));
+        cell.setPhrase(new Phrase("Categoria", font));
         table3.addCell(cell);
-        Depreciacion dep=new Depreciacion();
+        cell.setPhrase(new Phrase("Marca", font));
+        table3.addCell(cell);
+        Depreciacion dep = new Depreciacion();
         for (int i = 0; i < tipo.size(); i++) {
+
+            //a = dep.getResultado();
+            //b = dep.getValorADep();
+            table3.addCell(tipo.get(i).getNombreProducto());
+            table3.addCell(tipo.get(i).getCategoria());
+            table3.addCell(tipo.get(i).getMarca());
             
-            a=dep.getResultado();   
-            b=dep.getValorADep();
-            
+
         }
-        String bla = a + " ";
-        String bl = b + " ";
-        table3.addCell(bla);
-        table3.addCell(bl);
+//        String bla = a + " ";
+//        String bl = b + " ";
+//        table3.addCell(bla);
+//        table3.addCell(bl);
         document.add(table3);
-        
-        
 
         //-------------------------- FIN CONTENIDO -----------------
         document.close();
@@ -142,8 +145,9 @@ public class PDFGeneratorDireccion {
         hsr1.setContentLength(bytes.length);
         hsr1.getOutputStream().write(bytes);
     }
+
     public void reporteventa(
-            Map<String, Object> model, HttpServletResponse hsr1,List<OrdenVenta> ordenventa) throws Exception {
+            Map<String, Object> model, HttpServletResponse hsr1, List<OrdenVenta> ordenventa) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -162,7 +166,6 @@ public class PDFGeneratorDireccion {
         //------------------------ TAIS  ______________________________
         Image tais = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/tais-banner.jpg"));
         document.add(tais);
-        
 
         //---------------------  BODY    ---------------------------------------------------------
         Image body = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/body.png"));
@@ -187,7 +190,6 @@ public class PDFGeneratorDireccion {
         TextoPdf x = (TextoPdf) model.get("todoTexto");
         document.add(new Paragraph(x.getTodoTexto()));
 
-        
         PdfPTable table = new PdfPTable(1);
         table.setWidthPercentage(100.0f);
         table.setWidths(new float[]{2.0f});
@@ -206,23 +208,16 @@ public class PDFGeneratorDireccion {
         cell.setPhrase(new Phrase("Total de ventas en el dia", font));
         table.addCell(cell);
 
-                
-        
         for (int i = 0; i < ordenventa.size(); i++) {
-            
-            a=ordenventa.get(i).getMontoConCargos();
-            b=a+b;
-            
-            
-            
-            
+
+            a = ordenventa.get(i).getMontoConCargos();
+            b = a + b;
+
         }
         String bla = b + " ";
         table.addCell(bla);
 
         document.add(table);
-        
-        
 
         //-------------------------- FIN CONTENIDO -----------------
         document.close();
@@ -233,9 +228,9 @@ public class PDFGeneratorDireccion {
         hsr1.setContentLength(bytes.length);
         hsr1.getOutputStream().write(bytes);
     }
-    
+
     public void reportecompras(
-            Map<String, Object> model, HttpServletResponse hsr1,List<OrdenCompra> ordenCompra) throws Exception {
+            Map<String, Object> model, HttpServletResponse hsr1, List<OrdenCompra> ordenCompra) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -254,7 +249,6 @@ public class PDFGeneratorDireccion {
         //------------------------ TAIS  ______________________________
         Image tais = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/tais-banner.jpg"));
         document.add(tais);
-        
 
         //---------------------  BODY    ---------------------------------------------------------
         Image body = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/body.png"));
@@ -279,7 +273,6 @@ public class PDFGeneratorDireccion {
         TextoPdf x = (TextoPdf) model.get("todoTexto");
         document.add(new Paragraph(x.getTodoTexto()));
 
-        
         PdfPTable table = new PdfPTable(1);
         table.setWidthPercentage(100.0f);
         table.setWidths(new float[]{2.0f});
@@ -298,23 +291,16 @@ public class PDFGeneratorDireccion {
         cell.setPhrase(new Phrase("Total de Compras en el dia", font));
         table.addCell(cell);
 
-                
-        
         for (int i = 0; i < ordenCompra.size(); i++) {
-            
-            a=ordenCompra.get(i).getCostoTotal();
-            b=a+b;
-            
-            
-            
-            
+
+            a = ordenCompra.get(i).getCostoTotal();
+            b = a + b;
+
         }
         String bla = b + " ";
         table.addCell(bla);
 
         document.add(table);
-        
-        
 
         //-------------------------- FIN CONTENIDO -----------------
         document.close();
@@ -327,7 +313,7 @@ public class PDFGeneratorDireccion {
     }
 
     public void reporteinventario(
-            Map<String, Object> model, HttpServletResponse hsr1,List<Inventario> inventario) throws Exception {
+            Map<String, Object> model, HttpServletResponse hsr1, List<Inventario> inventario) throws Exception {
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -346,7 +332,6 @@ public class PDFGeneratorDireccion {
         //------------------------ TAIS  ______________________________
         Image tais = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/tais-banner.jpg"));
         document.add(tais);
-        
 
         //---------------------  BODY    ---------------------------------------------------------
         Image body = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/body.png"));
@@ -371,7 +356,6 @@ public class PDFGeneratorDireccion {
         TextoPdf x = (TextoPdf) model.get("todoTexto");
         document.add(new Paragraph(x.getTodoTexto()));
 
-        
         PdfPTable table = new PdfPTable(1);
         table.setWidthPercentage(100.0f);
         table.setWidths(new float[]{2.0f});
@@ -390,23 +374,16 @@ public class PDFGeneratorDireccion {
         cell.setPhrase(new Phrase("Total de Inventarios", font));
         table.addCell(cell);
 
-                
-        
         for (int i = 0; i < inventario.size(); i++) {
-            
-            a=inventario.get(i).getPrecioUnitario();
-            b=a+b;
-            
-            
-            
-            
+
+            a = inventario.get(i).getPrecioUnitario();
+            b = a + b;
+
         }
         String bla = b + " ";
         table.addCell(bla);
 
         document.add(table);
-        
-        
 
         //-------------------------- FIN CONTENIDO -----------------
         document.close();
@@ -418,6 +395,4 @@ public class PDFGeneratorDireccion {
         hsr1.getOutputStream().write(bytes);
     }
 
-    
-    
 }

@@ -156,14 +156,14 @@ public class DireccionController {
     @ResponseBody
     public String descargarFactura(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) {
 
-        List<TipoActivoFijo> tipo = daoTipoActivoFijo.findAll();
+        List<Producto> producto = daoProducto.findAll();
         //System.out.println(producto);
         // model.addAttribute("producto", producto);
 
         PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
         model.addAttribute("todoTexto", pdfText);
         try {
-           pdfView.crearPDFFactura((Map<String, Object>) model, response, tipo);
+           pdfView.crearPDFFactura((Map<String, Object>) model, response, producto);
 
         } catch (Exception ex) {
             Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
@@ -200,6 +200,24 @@ public class DireccionController {
         model.addAttribute("todoTexto", pdfText);
         try {
             pdfView.reportecompras((Map<String, Object>) model, response, ordencompra);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "OK";
+    }
+    
+    @RequestMapping(value = "Direccion/testpdfinventario", method = RequestMethod.POST)
+    @ResponseBody
+    public String ReporteInvenario(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) {
+
+                List<Inventario> inventario = daoInventario.findAll();
+
+        PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
+        model.addAttribute("todoTexto", pdfText);
+        try {
+            pdfView.reporteinventario((Map<String, Object>) model, response, inventario);
             
         } catch (Exception ex) {
             Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);

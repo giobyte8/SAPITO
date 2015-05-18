@@ -29,6 +29,7 @@
 
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
+<<<<<<< HEAD
                         <form:form action="upPuestoAdmin" method="POST" commandName="Puesto">
                             <div class="form-group">
                                 <label>Nombre del Puesto</label>
@@ -39,6 +40,17 @@
                                 <form:textarea path="descripcion" class="form-control" required="required" placeholder="Ingrese descripcion" pattern="[0-9]{5}"/>
 
                                 <p class="help-block" ></p>
+=======
+                        <div class="form-group">
+                            <label>Nombre del Puesto</label>
+                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese nombre" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required>
+                            <p class="help-block"></p>
+
+                            <label>Descripción</label>
+                            <textarea class="form-control  "autofocus autocomplete required placeholder="Ingrese descripcion" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required></textarea>
+                            <p class="help-block" ></p>
+                            <div class="col-lg-6 text-left">
+>>>>>>> origin/master
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -66,6 +78,7 @@
                                                 <form:input path="horaentrada" class="form-control" type="time" placeholder="Ingrese hora" pattern="[0-9]{5}"/>
                                                 <p class="help-block"></p>
 
+<<<<<<< HEAD
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Hora de Salida</label>
@@ -75,11 +88,34 @@
                                         </div>
                                     </div>
                                 </div> 
+=======
+                        </div>
+                        <div class="form-group">
+                            <label>Suelo Base</label>
+                            <input class="form-control"autofocus autocomplete required placeholder="Ingrese salario" pattern="[0-9]{5}" onkeypress="return soloNumeros(event);" required>
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="form-group">  
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Hora de Entrada</label>
+                                    <input class="form-control"autofocus type="time" autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}" required>
+                                    <p class="help-block"></p>
+>>>>>>> origin/master
 
                                 <div align="right">
                                     <button type="submit" class="btn btn-primary">Aceptar</button>                                            
                                 </div>
+<<<<<<< HEAD
                             </form:form>
+=======
+                                <div class="col-md-6">
+                                    <label>Hora de Salida</label>
+                                    <input class="form-control" type="time" autofocus autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}" required>
+                                    <p class="help-block"></p>
+                                </div>
+                            </div>
+>>>>>>> origin/master
                         </div>
 
                     </div>
