@@ -20,17 +20,16 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Módulo Dirección
+                            Bienvenido 
                         </h1>                        
                     </div>
                 </div>   
 
 
             </div><!-- Fin del tag del contenedor-->
-            <center><img  src ="../resources/img/img11.jpg" ></center> 
+            <center><img  src ="${pageContext.request.contextPath}/resources/img/rhind.jpg" ></center> 
             <center>
-                <a class="btn btn-success" type="button" href="Reportes">Ver reportes</a>  
-                <a class="btn btn-success" type="button" href="Graficas">Visualizar Gráficas</a>
+             
             </center>
 
         </div>

@@ -60,7 +60,7 @@
                                                 <form:form id="fa-addTipoAF" commandName="tipoAF" action="gdaAddTipoAF" method="POST">                                                                
                                                     <div class="form-group">
                                                         <label class="control-label" >Tipo de Activo Fijo</label>
-                                                        <form:input path="nombre" name="nombre" id="fa-nombre" 
+                                                        <form:input required="true" path="nombre" name="nombre" id="fa-nombre" 
                                   type="text" class="form-control"/>
                                                         <!--<input type="text" id="cantidad" title="Únicamente números enteros" name="cantidad" class="form-control" required  placeholder="Escribe n&uacute;mero">-->
                                                     </div>
@@ -96,25 +96,5 @@
 	    <!-- Custom Theme JavaScript -->
     	<script src="resources/js/libs/sb-admin-2.js"></script>
         
-        <!-- PARA FECHA -->
-	  	<script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
-        <script type="text/javascript">
-	  		$(document).ready(function(){
-	  			$( "#fecha" ).datepicker({
-					dateFormat: "yy-mm-dd",
-					dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
-					dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
-					monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
-				});		
-		  });
-	  	</script>
-                
-        <!--Para validar solo numeros-->
-        <script type="text/javascript" src="resources/js/activofijo/jquery.numeric.js"></script>
-        <script type="text/javascript">
-                $(document).ready(function(){
-                    $('#cantidad').numeric({ decimal: false, negative: false });
-                });
-            </script>
     </body>
 </html>

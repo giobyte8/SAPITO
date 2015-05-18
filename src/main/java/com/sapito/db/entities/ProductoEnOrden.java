@@ -6,6 +6,8 @@
 package com.sapito.db.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -38,14 +40,15 @@ public class ProductoEnOrden implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "cantdad")
-
     private Integer cantidad;
 
     @JoinColumn(name = "ID_ORDEN")
     @ManyToOne
+    @JsonBackReference
     private OrdenCompra ordenCompra;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoComprado")
+    @JsonManagedReference
     private Collection<ProductoProveedor> productoOrdenProveedor;
 
     public Long getId() {
@@ -74,13 +77,33 @@ public class ProductoEnOrden implements Serializable {
      * @return the ordendcompra
      */
     public OrdenCompra getOrdendcompra() {
-        return ordenCompra;
+        return getOrdenCompra();
     }
 
     /**
      * @param ordendcompra the ordendcompra to set
      */
     public void setOrdendcompra(OrdenCompra ordendcompra) {
-        this.ordenCompra = ordendcompra;
+        this.setOrdenCompra(ordendcompra);
+    }
+
+    public OrdenCompra getOrdenCompra()
+    {
+        return ordenCompra;
+    }
+
+    public void setOrdenCompra(OrdenCompra ordenCompra)
+    {
+        this.ordenCompra = ordenCompra;
+    }
+
+    public Collection<ProductoProveedor> getProductoOrdenProveedor()
+    {
+        return productoOrdenProveedor;
+    }
+
+    public void setProductoOrdenProveedor(Collection<ProductoProveedor> productoOrdenProveedor)
+    {
+        this.productoOrdenProveedor = productoOrdenProveedor;
     }
 }

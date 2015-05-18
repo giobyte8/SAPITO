@@ -61,7 +61,7 @@
                             <form id="fa-activofijo" action="gdaAlta" method="POST">                                                                
                               <div class="form-group ">
                                 <label class="control-label" >Activo Fijo</label>
-                                <select name="activoId" class="form-control">
+                                <select name="activoId" class="form-control" required="true">
                                   <option value="">Selecciona Activo Fijo</option>
                                   <c:forEach items="${activos}" var="activo">
                                       <option value="${activo.id}">${activo.productoProveedor.producto.nombreProducto}</option>
@@ -70,7 +70,7 @@
                               </div>                                                                                       
                               <div class="form-group ">
                                 <label class="control-label" >Tipo</label>
-                                <select name="tipoactivofijoS" class="form-control">
+                                <select name="tipoactivofijoS" class="form-control" required="true">
                                   <option value="">Selecciona Tipo</option>
                                   <c:forEach items="${tipoAF}" var="tipo">
                                       <option value="${tipo.id}">${tipo.nombre}</option>
@@ -80,12 +80,12 @@
                               </div>                                                                                       
                               <div class="form-group">
                                 <label class="control-label" >Fecha de Adquisición</label>
-                                <input name="fecha" id="fecha" class="form-control" />
+                                <input name="fecha" id="fecha" class="form-control" required="true"/>
                               </div>
                               <div class="form-group">
                                 <label class="control-label" >Años de vida útil</label>
                                 <input name="anosVidaUtil" id="fa-anosVidaUtil" 
-                                       type="number" min="1" class="form-control"/>
+                                       type="text" min="1" class="form-control" required="true"/>
                               </div>
                               <div class="form-group" style="text-align:right">
                                 <input type="reset" class="btn btn-success" value="Cancelar">
@@ -137,7 +137,7 @@
     <script type="text/javascript" src="resources/js/activofijo/jquery.numeric.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#cantidad').numeric({decimal: false, negative: false});
+            $('#fa-anosVidaUtil').numeric({decimal: false, negative: false});
         });
     </script>
   </body>

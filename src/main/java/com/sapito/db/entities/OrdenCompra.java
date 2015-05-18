@@ -5,6 +5,7 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
@@ -74,6 +75,7 @@ public class OrdenCompra implements Serializable {
     private boolean aprobada;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra")
+    @JsonManagedReference
     private Collection<ProductoEnOrden> productoOrden;   
     
     public Long getId() {

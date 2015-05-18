@@ -7,6 +7,7 @@ package com.sapito.db.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,6 +22,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -57,6 +60,16 @@ public class Puesto implements Serializable {
     @NotNull
     @Column(name = "status")
     private short status;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "horaentrada")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date horaentrada;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "horafin")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date horafin;
     @Basic(optional = false)
     @NotNull
     @Column(name = "sueldobase")
@@ -103,6 +116,22 @@ public class Puesto implements Serializable {
         this.nombre = nombre;
     }
 
+    public Date getHoraentrada() {
+        return horaentrada;
+    }
+
+    public void setHoraentrada(Date horaentrada) {
+        this.horaentrada = horaentrada;
+    }
+
+    public Date getHorafin() {
+        return horafin;
+    }
+
+    public void setHorafin(Date horafin) {
+        this.horafin = horafin;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -142,6 +171,7 @@ public class Puesto implements Serializable {
     public void setIdrol(Rol idrol) {
         this.idrol = idrol;
     }
+
     @Override
     public String toString() {
         return "com.sapito.db.entities.Puesto[ idpuesto=" + idpuesto + " ]";

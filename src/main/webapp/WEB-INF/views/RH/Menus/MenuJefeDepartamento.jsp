@@ -84,7 +84,7 @@
                 <!-- /.nav-second-level -->
               </li>
               
-
+<!--
                <li>
                 <a href="#"><i class="fa fa-fw fa-warning"></i>Departamentos<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
@@ -98,8 +98,8 @@
                     <a href="updateDepAdmin">Edicion</a>
                   </li>
                 </ul>
-                <!-- /.nav-second-level -->
-              </li>
+                 /.nav-second-level 
+              </li>-->
 <!--               <li>
                 <a href="#"><i class="fa fa-fw fa-road"></i>Roles<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
