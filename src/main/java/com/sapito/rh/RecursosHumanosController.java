@@ -11,6 +11,7 @@ import com.sapito.db.entities.Credencial;
 import com.sapito.db.entities.Departamento;
 import com.sapito.db.entities.Empleado;
 import com.sapito.db.entities.Puesto;
+import com.sapito.db.entities.Rol;
 import com.sapito.general.SHA1;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,17 @@ public class RecursosHumanosController {
     private GenericDao<Departamento> daoDepartamento;
     private GenericDao<Puesto> daoPuesto;
     private GenericDao<Empleado> daoEmpleado;
+    private GenericDao<Rol> daoRol;
 
     @Autowired
     public void setDaoCredencial(GenericDao<Credencial> daoCredencial) {
         this.daoCredencial = daoCredencial;
         daoCredencial.setClass(Credencial.class);
+    }
+    @Autowired
+    public void setDaorol(GenericDao<Rol> daoRol) {
+        this.daoRol = daoRol;
+        daoRol.setClass(Rol.class);
     }
 
     @Autowired
@@ -259,9 +266,24 @@ public class RecursosHumanosController {
     public String adminRolesAdmin(Model model) {
         return "RH/adminRolesAdministrador";
     }
+    @RequestMapping(value = "upPuestoAdmin", method = RequestMethod.GET)
+    public String upPuestoAdmin(Model model, Puesto puesto) {
+        System.out.println(puesto.getDescripcion());
+        System.out.println(puesto.getNombre());
+        System.out.println(puesto.getHoraentrada());
+        System.out.println(puesto.getHorafin());
+        return "RH/addPuestoAdministrador";
+    }
 
     @RequestMapping(value = "altaPuestoAdmin", method = RequestMethod.GET)
     public String altaPuestoAdmin(Model model) {
+     
+        List<Rol> rol= daoRol.findAll();
+        System.out.println(rol.get(0).getNombre());
+        System.out.println(rol.get(0).getDescripcion());
+        Puesto puesto  = new Puesto ();
+        model.addAttribute("Puesto", puesto);
+        model.addAttribute("Rol",rol );
         return "RH/addPuestoAdministrador";
     }
 

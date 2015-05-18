@@ -29,6 +29,18 @@
 
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
+<<<<<<< HEAD
+                        <form:form action="upPuestoAdmin" method="POST" commandName="Puesto">
+                            <div class="form-group">
+                                <label>Nombre del Puesto</label>
+                                <form:input path="nombre" class="form-control" required="required" placeholder="Ingrese nombre" />
+                                <p class="help-block"></p>
+
+                                <label>Descripción</label>
+                                <form:textarea path="descripcion" class="form-control" required="required" placeholder="Ingrese descripcion" pattern="[0-9]{5}"/>
+
+                                <p class="help-block" ></p>
+=======
                         <div class="form-group">
                             <label>Nombre del Puesto</label>
                             <input class="form-control"autofocus autocomplete required placeholder="Ingrese nombre" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required>
@@ -38,39 +50,45 @@
                             <textarea class="form-control  "autofocus autocomplete required placeholder="Ingrese descripcion" pattern="[0-9]{5}" onkeypress="return soloTexto(event);" required></textarea>
                             <p class="help-block" ></p>
                             <div class="col-lg-6 text-left">
+>>>>>>> origin/master
                                 <div class="form-group">
-                                    <label>Departamento del puesto</label>
-                                    <div class="form-group input-group">
-                                        <select id="departamentosLista" class="form-control selectpicker show-tick show-menu-arrow listaDepa">
-                                            <option>Recursos Humanos</option>
-                                            <option>Contabilidad</option>
-                                            <option>Ventas</option>
-                                            <option>Compras</option>
-                                            <option>Dirección</option>
-                                            <option>Almacén</option>                                
-                                            <option>Activos fijos</option>
-                                            <option>Operaciones</option>                            
-                                        </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Rol del puesto</label>
+                                            <div class="form-group input-group">
+                                                <form:select class="form-control selectpicker show-tick show-menu-arrow listaPuesto" path="idrol.idrol">                                                      
+                                                    <form:option value="0" label="Seleccione uno" />
+                                                    <form:options  items="${Rol}"   itemValue="idrol" itemLabel="nombre" />
+                                                </form:select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Suelo Base</label>
+                                            <form:input path="sueldobase" class="form-control" required="required" placeholder="Ingrese salario" pattern="[0-9]{5}"/>
+                                            <p class="help-block"></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 text-left">
                                 <div class="form-group">
-                                    <label>Rol del puesto</label>
-                                    <div class="form-group input-group">
-                                        <select id="disabledSelect" class="form-control selectpicker show-tick show-menu-arrow listaPuesto">                                                      
-                                            <option>Rol_director_General</option>
-                                            <option>Rol_Sub_General</option>
-                                            <option>Rol_Director_Departamento</option>
-                                            <option>Rol_Jefe_Departamento</option>
-                                            <option>Rol_Jefe_Operativo</option>
-                                            <option>Rol_Empleado</option>
-                                        </select>
+
+                                    <div class="form-group">  
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Hora de Entrada</label>
+                                                <form:input path="horaentrada" class="form-control" type="time" placeholder="Ingrese hora" pattern="[0-9]{5}"/>
+                                                <p class="help-block"></p>
+
+<<<<<<< HEAD
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Hora de Salida</label>
+                                                <form:input path="horafin" class="form-control" type="time" placeholder="Ingrese hora" pattern="[0-9]{5}"/>
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-
+                                </div> 
+=======
                         </div>
                         <div class="form-group">
                             <label>Suelo Base</label>
@@ -83,24 +101,26 @@
                                     <label>Hora de Entrada</label>
                                     <input class="form-control"autofocus type="time" autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}" required>
                                     <p class="help-block"></p>
+>>>>>>> origin/master
 
+                                <div align="right">
+                                    <button type="submit" class="btn btn-primary">Aceptar</button>                                            
                                 </div>
+<<<<<<< HEAD
+                            </form:form>
+=======
                                 <div class="col-md-6">
                                     <label>Hora de Salida</label>
                                     <input class="form-control" type="time" autofocus autocomplete required placeholder="Ingrese hora" pattern="[0-9]{5}" required>
                                     <p class="help-block"></p>
                                 </div>
                             </div>
+>>>>>>> origin/master
                         </div>
-                    </div> 
-                    <div align="right">
-                        <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+
                     </div>
                 </div>
-
-            </div>
-        </div>
-        <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
-        <script src="${pageContext.request.contextPath}/resources/js/rh/empleadosRh.js"></script>
-    </body>
-</html>
+                <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+                <script src="${pageContext.request.contextPath}/resources/js/rh/empleadosRh.js"></script>
+                </body>
+                </html>
