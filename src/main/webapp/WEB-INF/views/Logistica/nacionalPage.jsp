@@ -51,9 +51,8 @@
                 }
                         %>
 
-                        <a href="/SAPITO/logistica/empresa/altaEmpresa"><button class="btn btn-success" type="button">Nueva empresa</button></a>
-                        <a href="/SAPITO/logistica/pdfRecpcion?output=recepcion" target="_blank"><button class="btn btn-success" type="button">Recepcion</button></a>
-                        <a href="/SAPITO/logistica/pdfRecpcion?output=reporte" target="_blank"><button class="btn btn-success" type="button">Reporte</button></a>
+                        <a href="/SAPITO/logistica/empresa/altaEmpresa"><button class="btn btn-success" type="button">Nueva empresa</button></a>                        
+                        
                         
                         
 <!--                        <div class="input-group">
