@@ -33,7 +33,7 @@
                         <div class="row-fluid form-group">
                             <div class="input-group">
                                 <label>Ingrese la clave del empleado para capturar su asistencia</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" onkeypress="return soloNumeros(event);"required>
                                 <span class="input-group-addon success"><span class="glyphicon glyphicon-ok"></span></span>
                             </div>
                         </div>

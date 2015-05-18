@@ -29,12 +29,12 @@
 
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Empleados de Recursos HUmanos</h3>
+                                <h3 class="panel-title">Empleados de Recursos Humanos</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="input-group">
 
-                                    <input class="form-control" id="system-search" name="q" placeholder="Busqueda" required>
+                                    <input class="form-control" id="system-search" name="q" placeholder="Busqueda" onkeypress="return soloTexto(event);"required>
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                     </span>
