@@ -37,6 +37,7 @@
                  table-striped table-responsive" cellspacing="0" width="100%">
             <thead>
               <tr>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Marca</th>
@@ -48,6 +49,7 @@
             <tbody>
               <c:forEach items="${producto1}" var="producto">
                   <tr>
+                    <td>${producto.id}</td>
                     <td>${producto.nombreProducto}</td>
                     <td>${producto.descripcion}</td>
                     <td>${producto.marca}</td>
