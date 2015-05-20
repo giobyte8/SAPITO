@@ -6,8 +6,6 @@
 package com.sapito.db.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
@@ -30,11 +28,12 @@ import org.hibernate.validator.constraints.Email;
 /**
  *
  * @author pablo
+ * @author giovanni
  */
 @Entity
 @Table(name = "Proveedor")
-@JsonIgnoreProperties({"proveedorproducto"})
-public class Proveedor implements Serializable {
+public class Proveedor implements Serializable
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -84,11 +83,15 @@ public class Proveedor implements Serializable {
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "TELEFONO1")
     private String telefono1;
-    
+
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "EXTENSION1")
     private String extension1;
     
+    @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
+    @Column(name = "TELEFONO2")
+    private String telefono2;
+
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "EXTENSION2")
     private String extension2;
@@ -115,311 +118,229 @@ public class Proveedor implements Serializable {
     @Column(name = "APELLIDO_MATERNO")
     private String apellidoMaternoContacto;
 
-    @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
-    @Column(name = "TELEFONO2")
-    private String telefono2;
-
     @NotNull
     @Column(name = "STATUS")
     private boolean status;
     
+    
+/* --- --- --- RELACIONES --- --- --- */
+/* --- --- --- --- --- --- --- --- -- */
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
     @JsonIgnore
-    private Collection<ProductoProveedor> proveedorproducto;
+    private Collection<ProductoProveedor> productoProveedor;    
+    
+/* --- --- --- --- --- --- --- --- -- */
+/* --- --- --- --- --- --- --- --- -- */
 
-    /**
-     * @return the empresa
-     */
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    /**
-     * @param empresa the empresa to set
-     */
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
-    }
-
-    /**
-     * @return the pais
-     */
-    public String getPais() {
-        return pais;
-    }
-
-    /**
-     * @param pais the pais to set
-     */
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    /**
-     * @return the estado
-     */
-    public String getEstado() {
-        return estado;
-    }
-
-    /**
-     * @param estado the estado to set
-     */
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    /**
-     * @return the municipio
-     */
-    public String getMunicipio() {
-        return municipio;
-    }
-
-    /**
-     * @param municipio the municipio to set
-     */
-    public void setMunicipio(String municipio) {
-        this.municipio = municipio;
-    }
-
-    /**
-     * @return the colonia
-     */
-    public String getColonia() {
-        return colonia;
-    }
-
-    /**
-     * @param colonia the colonia to set
-     */
-    public void setColonia(String colonia) {
-        this.colonia = colonia;
-    }
-
-    /**
-     * @return the calle
-     */
-    public String getCalle() {
-        return calle;
-    }
-
-    /**
-     * @param calle the calle to set
-     */
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
-    /**
-     * @return the numeroI
-     */
-    public String getNumeroI() {
-        return numeroI;
-    }
-
-    /**
-     * @param numeroI the numeroI to set
-     */
-    public void setNumeroI(String numeroI) {
-        this.numeroI = numeroI;
-    }
-
-    /**
-     * @return the numeroE
-     */
-    public String getNumeroE() {
-        return numeroE;
-    }
-
-    /**
-     * @param numeroE the numeroE to set
-     */
-    public void setNumeroE(String numeroE) {
-        this.numeroE = numeroE;
-    }
-
-    /**
-     * @return the cp
-     */
-    public int getCp() {
-        return cp;
-    }
-
-    /**
-     * @param cp the cp to set
-     */
-    public void setCp(int cp) {
-        this.cp = cp;
-    }
-
-    /**
-     * @return the rfc
-     */
-    public String getRfc() {
-        return rfc;
-    }
-
-    /**
-     * @param rfc the rfc to set
-     */
-    public void setRfc(String rfc) {
-        this.rfc = rfc;
-    }
-
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return the nombreContacto
-     */
-    public String getNombreContacto() {
-        return nombreContacto;
-    }
-
-    /**
-     * @param nombreContacto the nombreContacto to set
-     */
-    public void setNombreContacto(String nombreContacto) {
-        this.nombreContacto = nombreContacto;
-    }
-
-    /**
-     * @return the apellidoPaternoContacto
-     */
-    public String getApellidoPaternoContacto() {
-        return apellidoPaternoContacto;
-    }
-
-    /**
-     * @param apellidoPaternoContacto the apellidoPaternoContacto to set
-     */
-    public void setApellidoPaternoContacto(String apellidoPaternoContacto) {
-        this.apellidoPaternoContacto = apellidoPaternoContacto;
-    }
-
-    /**
-     * @return the apellidoMaternoContacto
-     */
-    public String getApellidoMaternoContacto() {
-        return apellidoMaternoContacto;
-    }
-
-    /**
-     * @param apellidoMaternoContacto the apellidoMaternoContacto to set
-     */
-    public void setApellidoMaternoContacto(String apellidoMaternoContacto) {
-        this.apellidoMaternoContacto = apellidoMaternoContacto;
-    }
-
-    /**
-     * @return the telefono1
-     */
-    public String getTelefono1() {
-        return telefono1;
-    }
-
-    /**
-     * @param telefono1 the telefono1 to set
-     */
-    public void setTelefono1(String telefono1) {
-        this.telefono1 = telefono1;
-    }
-
-    /**
-     * @return the status
-     */
-    public boolean isStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    /**
-     * @return the proveedorproducto
-     */
-    public Collection<ProductoProveedor> getProveedorproducto() {
-        return proveedorproducto;
-    }
-
-    /**
-     * @param proveedorproducto the proveedorproducto to set
-     */
-    public void setProveedorproducto(Collection<ProductoProveedor> proveedorproducto) {
-        this.proveedorproducto = proveedorproducto;
-    }
-
-    /**
-     * @return the id
-     */
-    public long getId() {
+    public long getId()
+    {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
+    public void setId(long id)
+    {
         this.id = id;
     }
 
-    /**
-     * @return the telefono2
-     */
-    public String getTelefono2() {
-        return telefono2;
+    public String getEmpresa()
+    {
+        return empresa;
     }
 
-    /**
-     * @param telefono2 the telefono2 to set
-     */
-    public void setTelefono2(String telefono2) {
-        this.telefono2 = telefono2;
+    public void setEmpresa(String empresa)
+    {
+        this.empresa = empresa;
     }
 
-    /**
-     * @return the extension1
-     */
-    public String getExtension1() {
+    public String getPais()
+    {
+        return pais;
+    }
+
+    public void setPais(String pais)
+    {
+        this.pais = pais;
+    }
+
+    public String getEstado()
+    {
+        return estado;
+    }
+
+    public void setEstado(String estado)
+    {
+        this.estado = estado;
+    }
+
+    public String getMunicipio()
+    {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio)
+    {
+        this.municipio = municipio;
+    }
+
+    public String getColonia()
+    {
+        return colonia;
+    }
+
+    public void setColonia(String colonia)
+    {
+        this.colonia = colonia;
+    }
+
+    public String getCalle()
+    {
+        return calle;
+    }
+
+    public void setCalle(String calle)
+    {
+        this.calle = calle;
+    }
+
+    public String getNumeroI()
+    {
+        return numeroI;
+    }
+
+    public void setNumeroI(String numeroI)
+    {
+        this.numeroI = numeroI;
+    }
+
+    public String getNumeroE()
+    {
+        return numeroE;
+    }
+
+    public void setNumeroE(String numeroE)
+    {
+        this.numeroE = numeroE;
+    }
+
+    public int getCp()
+    {
+        return cp;
+    }
+
+    public void setCp(int cp)
+    {
+        this.cp = cp;
+    }
+
+    public String getRfc()
+    {
+        return rfc;
+    }
+
+    public void setRfc(String rfc)
+    {
+        this.rfc = rfc;
+    }
+
+    public String getTelefono1()
+    {
+        return telefono1;
+    }
+
+    public void setTelefono1(String telefono1)
+    {
+        this.telefono1 = telefono1;
+    }
+
+    public String getExtension1()
+    {
         return extension1;
     }
 
-    /**
-     * @param extension1 the extension1 to set
-     */
-    public void setExtension1(String extension1) {
+    public void setExtension1(String extension1)
+    {
         this.extension1 = extension1;
     }
 
-    /**
-     * @return the extension2
-     */
-    public String getExtension2() {
+    public String getTelefono2()
+    {
+        return telefono2;
+    }
+
+    public void setTelefono2(String telefono2)
+    {
+        this.telefono2 = telefono2;
+    }
+
+    public String getExtension2()
+    {
         return extension2;
     }
 
-    /**
-     * @param extension2 the extension2 to set
-     */
-    public void setExtension2(String extension2) {
+    public void setExtension2(String extension2)
+    {
         this.extension2 = extension2;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    public String getNombreContacto()
+    {
+        return nombreContacto;
+    }
+
+    public void setNombreContacto(String nombreContacto)
+    {
+        this.nombreContacto = nombreContacto;
+    }
+
+    public String getApellidoPaternoContacto()
+    {
+        return apellidoPaternoContacto;
+    }
+
+    public void setApellidoPaternoContacto(String apellidoPaternoContacto)
+    {
+        this.apellidoPaternoContacto = apellidoPaternoContacto;
+    }
+
+    public String getApellidoMaternoContacto()
+    {
+        return apellidoMaternoContacto;
+    }
+
+    public void setApellidoMaternoContacto(String apellidoMaternoContacto)
+    {
+        this.apellidoMaternoContacto = apellidoMaternoContacto;
+    }
+
+    public boolean isStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(boolean status)
+    {
+        this.status = status;
+    }
+
+    public Collection<ProductoProveedor> getProductoProveedor()
+    {
+        return productoProveedor;
+    }
+
+    public void setProductoProveedor(Collection<ProductoProveedor> productoProveedor)
+    {
+        this.productoProveedor = productoProveedor;
     }
 
 }

@@ -27,52 +27,51 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author chef
+ * @author giovanni
  */
 @Entity
 @Table(name = "ProductoProveedor")
-public class ProductoProveedor implements Serializable {
-    
+public class ProductoProveedor implements Serializable
+{
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    
+
     @NotNull
     @Column(name = "UNIDAD")
     @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
     @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
     private String unidad;
-    
+
     @NotNull
     @Column(name = "COSTO")
-    @Min(value=1, message="Debe ser mayor a uno")
+    @Min(value = 1, message = "Debe ser mayor a uno")
     private double costo;
-    
+
     @NotNull
     @Column(name = "STATUS")
-    @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
-    @Size(min = 2, max = 100, message = "Debe tener entre 2 y 100 caracteres")
-    private String status;
+    private boolean status;
     
     
-    
+/* --- --- --- RELACIONES --- --- --- */
+/* --- --- --- --- --- --- --- --- -- */
+
     @JoinColumn(name = "ID_PROVEEDOR")
     @ManyToOne
     private Proveedor proveedor;
-    
+
     @JoinColumn(name = "ID_PRODUCTO")
     @ManyToOne
     @JsonIgnore
     private Producto producto;
 
-    @JoinColumn(name = "ID_PRODUCTOSENORDEN")
-    @ManyToOne
-    @JsonIgnore
-    private ProductoEnOrden productoComprado;
-    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoProveedor")
     @JsonIgnore
     private Collection<ActivoFijo> productoRef;
+    
+/* --- --- --- --- --- --- --- --- -- */
+/* --- --- --- --- --- --- --- --- -- */
 
     public Long getId()
     {
@@ -104,12 +103,12 @@ public class ProductoProveedor implements Serializable {
         this.costo = costo;
     }
 
-    public String getStatus()
+    public boolean isStatus()
     {
         return status;
     }
 
-    public void setStatus(String status)
+    public void setStatus(boolean status)
     {
         this.status = status;
     }
@@ -134,16 +133,6 @@ public class ProductoProveedor implements Serializable {
         this.producto = producto;
     }
 
-    public ProductoEnOrden getProductoComprado()
-    {
-        return productoComprado;
-    }
-
-    public void setProductoComprado(ProductoEnOrden productoComprado)
-    {
-        this.productoComprado = productoComprado;
-    }
-
     public Collection<ActivoFijo> getProductoRef()
     {
         return productoRef;
@@ -153,6 +142,5 @@ public class ProductoProveedor implements Serializable {
     {
         this.productoRef = productoRef;
     }
-     
-    
+
 }

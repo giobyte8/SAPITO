@@ -12,19 +12,16 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.OneToMany;
-
-
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -32,7 +29,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author chef
+ * @author giovanni
  */
 @Entity
 @Table(name = "OrdenCompra")
@@ -43,35 +40,37 @@ public class OrdenCompra implements Serializable {
     private Long id;
     
     @NotNull
-    @Column(name = "Folio")
-    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
-    private String folio;
-
-    @NotNull
-    @Column(name = "fechaPedido")
+    @Column(name = "FECHA_PEDIDO")
     @Temporal(TemporalType.DATE)
     private java.util.Date fechaPedido;
     
-    @Column(name = "fechaEntrega")
+    @Column(name = "FECHA_ENTREGA")
     @Temporal(TemporalType.DATE)
     private java.util.Date fechaEntrega;
     
     @NotNull
-    @Column(name = "costoTotal")
+    @Column(name = "COSTO_TOTAL")
     private double costoTotal;
 
     @NotNull
     @Size(min=1, max=500, message = "Seleccione una forma de pago")
-    @Column(name = "formapago")
+    @Column(name = "FORMA_PAGO")
     private String formaPago;
     
     @NotNull
-    @Column(name = "aprobada")
+    @Column(name = "APROBADA")
     private boolean aprobada;
+    
+    
+/* --- --- --- RELACIONES --- --- --- */
+/* --- --- --- --- --- --- --- --- -- */
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra")
     @JsonManagedReference
-    private Collection<ProductoEnOrden> productosEnOrden;
+    private Collection<ProductoComprado> productosEnOrden;
+    
+/* --- --- --- --- --- --- --- --- -- */
+/* --- --- --- --- --- --- --- --- -- */
 
     public Long getId()
     {
@@ -81,16 +80,6 @@ public class OrdenCompra implements Serializable {
     public void setId(Long id)
     {
         this.id = id;
-    }
-
-    public String getFolio()
-    {
-        return folio;
-    }
-
-    public void setFolio(String folio)
-    {
-        this.folio = folio;
     }
 
     public java.util.Date getFechaPedido()
@@ -143,14 +132,14 @@ public class OrdenCompra implements Serializable {
         this.aprobada = aprobada;
     }
 
-    public Collection<ProductoEnOrden> getProductosEnOrden()
+    public Collection<ProductoComprado> getProductosEnOrden()
     {
         return productosEnOrden;
     }
 
-    public void setProductosEnOrden(Collection<ProductoEnOrden> productosEnOrden)
+    public void setProductosEnOrden(Collection<ProductoComprado> productosEnOrden)
     {
         this.productosEnOrden = productosEnOrden;
     }
-    
+
 }

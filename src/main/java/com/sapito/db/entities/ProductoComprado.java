@@ -9,6 +9,7 @@ package com.sapito.db.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,38 +19,46 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
 /**
  *
- * @author chef
+ * @author giovanni
  */
 @Entity
 @Table(name = "ProductoEnOrden")
-public class ProductoEnOrden implements Serializable {
+public class ProductoComprado implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
 
     @Basic(optional = false)
     @NotNull
     @Column(name = "cantdad")
     private Integer cantidad;
+    
+  
+/* --- --- --- RELACIONES --- --- --- */
+/* --- --- --- --- --- --- --- --- -- */
 
     @JoinColumn(name = "ID_ORDEN")
     @ManyToOne
     @JsonBackReference
     private OrdenCompra ordenCompra;
 
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "productoComprado")
+    @NotNull
+    @JoinColumn(name = "ID_PRODUCTOPROVEEDOR")
     @OneToOne
     @JsonManagedReference
     private ProductoProveedor productoProveedor;
 
+/* --- --- --- --- --- --- --- --- -- */
+/* --- --- --- --- --- --- --- --- -- */
+    
     public Long getId()
     {
         return id;
