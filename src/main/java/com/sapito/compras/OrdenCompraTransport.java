@@ -13,6 +13,9 @@ import java.util.List;
  */
 public class OrdenCompraTransport
 {
+    private String formaPago;
+    private double montoTotal;
+    
     private List<ProductoEnOrdenCompra> productosEnOrden;
 
     public List<ProductoEnOrdenCompra> getProductosEnOrden()
@@ -23,6 +26,26 @@ public class OrdenCompraTransport
     public void setProductosEnOrden(List<ProductoEnOrdenCompra> productosEnOrden)
     {
         this.productosEnOrden = productosEnOrden;
+    }
+
+    public String getFormaPago()
+    {
+        return formaPago;
+    }
+
+    public void setFormaPago(String formaPago)
+    {
+        this.formaPago = formaPago;
+    }
+
+    public double getMontoTotal()
+    {
+        return montoTotal;
+    }
+
+    public void setMontoTotal(double montoTotal)
+    {
+        this.montoTotal = montoTotal;
     }
 }
 

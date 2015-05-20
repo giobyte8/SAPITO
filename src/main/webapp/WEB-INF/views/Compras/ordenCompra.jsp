@@ -32,12 +32,14 @@
               </h1>
             </div>
           </div>
+
           <div class="col-md-6">
             <h2>Productos en la Orden</h2><br/>
             <div id="alert-productos" class="alert alert-danger hidden">
-              <h5>Agregue al menos un producto al a orden</h5>
+              <h5>Agregue al menos un producto a la orden</h5>
             </div>
-            <table id="tproductos" class="table table-bordered table-hover table-striped table-responsive">
+            <table id="tproductos" class="table table-bordered table-hover 
+                   table-striped table-responsive">
               <thead>
                 <tr>
                   <th>Producto</th>
@@ -48,55 +50,48 @@
               <tbody>
               </tbody>
             </table>
-            <div class="col-sm-5 text-left">
-              <button onclick="" class="btn btn-primary" type="button"
+            <div class="col-md-12 text-right">
+              <button class="btn btn-primary" type="button"
                       data-toggle="modal" data-target="#addp-modal">
                 Agregar Producto (+)
               </button>
             </div>
-            <br/><br/><br/><h2>Compra</h2>
+          </div>                       
+          <div class="col-md-6">
+            <h2>Compra</h2>
             <div class="row">
               <div class="col-md-12">
                 <br/><label for="cforma-pago">Forma de Pago:</label>
-                <select class="form-control">
-                  <option value="contado">Contado</option>
-                  <option value="cheque">Cheque</option>
-                  <option value="credito">Credito</option>
+                <select id="forma-pago" class="form-control">
+                  <option value="Contado">Contado</option>
+                  <option value="Cheque">Cheque</option>
+                  <option value="Credito">Credito</option>
                 </select>
               </div>                            
-              <div class="col-md-12">
-                <br/><label for="cfecha-entrega">Fecha de Entrega:</label>
-                <input id="cfecha-entrega" type="date" 
-                       class="form-control" />
+            </div>
+            <div class="col-md-12 text-right">
+              <h2>Totales ($)</h2>
+              <div class="col-sm-12 bg-success text-right">
+                <h4 id="total-final">Total final: $00.00</h4>
               </div>
             </div>
-          </div>                       
-          <div class="row">
-            <div class="col-lg-6 text-right">
-              <h2>Totales ($)</h2>
-
-              <div class="col-sm-12 bg-success text-right">
-                <h3 id="total-final">Total final: $00.00</h3>
-              </div>
-
-              <div class="col-sm-12 text-right">
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <button type="button" class="btn btn-danger btn-lg" 
-                        onclick="cancelarNvaOrdenCompra()">
-                  Cancelar Orden
-                </button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-success btn-lg" 
-                        onclick="enviarOrdenCompra()">
-                  Guardar Orden
-                </button>
-              </div>
+            <div class="col-sm-12 text-right">
+              <br/><br/><br/><br/><br/>
+              <button type="button" class="btn btn-danger" 
+                      onclick="cancelarNvaOrdenCompra()">
+                Cancelar Orden
+              </button>
+              &nbsp;&nbsp;
+              <button type="button" class="btn btn-success" 
+                      onclick="enviarOrdenCompra()">
+                Guardar Orden
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-      
+
     <!-- Hiden form to add products to order -->
     <div id="addp-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog">

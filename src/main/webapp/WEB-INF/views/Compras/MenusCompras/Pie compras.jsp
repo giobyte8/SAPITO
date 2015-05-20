@@ -14,8 +14,10 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
 
-
 <script src="${pageContext.request.contextPath}/resources/js/libs/raphael-min.js"></script>
+
+<!-- Sweetalert js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/sweet-alert.min.js"></script>
 
 <!--<script src="${pageContext.request.contextPath}/resources/js/libs/morris.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/libs/morris-data.js"></script>-->
