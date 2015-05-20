@@ -77,7 +77,7 @@ public class InventariosController
     public String bajaMateria(Model model)
     {
         Query query =daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a Where a.tipoProducto=:tipo");
-        query.setParameter("tipo", "Materia");
+        query.setParameter("tipo", "Materia Prima");
         List<Inventario> inventario = query.getResultList(); 
 
         if(inventario != null && inventario.size() > 0)
