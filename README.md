@@ -1,5 +1,5 @@
 # SAPITO
-Proyecto SAPITO para Topicos Avanzados de ingenieria de Software.
+Proyecto SAPITO para Tópicos Avanzados de ingeniería de Software.
 
 **SAPITO** es un ERP en fase de desarrollo que incluye nueve modulos:
 
@@ -15,8 +15,8 @@ Proyecto SAPITO para Topicos Avanzados de ingenieria de Software.
 
 ### Tecnologias
 
-**Backend:** JavaEE (Spring 4.1.4, Hibernate 4.3.9, iText 5.5.1), PostgreSQL.
-**Frontend:** HTML5 (Bootstrap, Font Awesome, JQuery ... )
+ * **Backend:** JavaEE (Spring 4.1.4, Hibernate 4.3.9, iText 5.5.1), PostgreSQL.
+ * **Frontend:** HTML5 (Bootstrap, Font Awesome, JQuery ... )
 
 ### Como contribuir
 
