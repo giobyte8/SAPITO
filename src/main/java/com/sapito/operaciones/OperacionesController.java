@@ -25,14 +25,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class OperacionesController {
 
-    private GenericDao<Lineaproduccion> daoProd;
+    private GenericDao<Lineaproduccion> daoLineaproduccion;
     private GenericDao<Estacion> daoEstacion;
     private GenericDao<Ordentrabajo> daoOrdenTrabajo;
 
     @Autowired
-    public void setDaoLineaProduccion(GenericDao<Lineaproduccion> daoProd) {
-        this.daoProd = daoProd;
-        daoProd.setClass(Lineaproduccion.class);
+    public void setDaoLineaproduccion(GenericDao<Lineaproduccion> daoLineaproduccion) {
+        this.daoLineaproduccion = daoLineaproduccion;
+        daoLineaproduccion.setClass(Lineaproduccion.class);
     }
 
     @Autowired
@@ -53,11 +53,9 @@ public class OperacionesController {
     }
 
     //Linea de produccion
-    
     @RequestMapping(value = "AltaLineaProduccionJO", method = RequestMethod.GET)
     public String AltaLineaProduccionJO(Model model) {
         Lineaproduccion Lineaproduccion = new Lineaproduccion();
-
         model.addAttribute("Lineaproduccion", Lineaproduccion);
 
         return "Operaciones/AltaLineaProduccionJO";
@@ -71,10 +69,11 @@ public class OperacionesController {
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Operaciones/AltaLineaProduccionJO";
         } else {
-            daoProd.create(Lineaproduccion);
+//            System.out.println(""+Lineaproduccion.getNombre());
+            daoLineaproduccion.create(Lineaproduccion);
 
-            List<Lineaproduccion> producciones = daoProd.findAll();
-            model.addAttribute("Lineaproduccion", Lineaproduccion);
+            Lineaproduccion Lineaproduccion2 = new Lineaproduccion();
+            model.addAttribute("Lineaproduccion", Lineaproduccion2);
             return "Operaciones/AltaLineaProduccionJO";
         }
     }
@@ -89,12 +88,10 @@ public class OperacionesController {
         return "Operaciones/BuscarLineaProduccion";
     }
 
-    
     //Orden de trabajo
-    
     @RequestMapping(value = "AltaOrdenTrabajo", method = RequestMethod.GET)
     public String AltaOrdenTrabajo(Model model) {
-        
+
         Ordentrabajo Ordentrabajo = new Ordentrabajo();
         model.addAttribute("Ordentrabajo", Ordentrabajo);
         return "Operaciones/AltaOrdenTrabajo";
@@ -122,7 +119,6 @@ public class OperacionesController {
     }
 
     //estaciones
-    
     @RequestMapping(value = "AltaEstacion", method = RequestMethod.GET)
     public String AltaEstacion(Model model) {
 
@@ -133,7 +129,7 @@ public class OperacionesController {
     public String AdminEstaciones(Model model) {
         return "Operaciones/AdminEstaciones";
     }
-    
+
     //registro OrdenT
     @RequestMapping(value = "AltaEstacion", method = RequestMethod.POST)
     public String regAltaOrdenTrabajo(Model model, @Valid Estacion Estacion, BindingResult bindingResult) {
