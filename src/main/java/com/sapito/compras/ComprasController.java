@@ -91,8 +91,7 @@ public class ComprasController
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             model.addAttribute("showSaveConfirmation", "false");
             return "Compras/altaproveedor";
-        } 
-        else
+        } else
         {
             proveedor.setStatus(true);
             daoProveedor.create(proveedor);
@@ -100,7 +99,6 @@ public class ComprasController
 //            List<Proveedor> proveedores = daoProveedor.findAll();
 //            model.addAttribute("proveedores", proveedores);
 //            return "Compras/consultaproveedor";
-            
             model.addAttribute("showSaveConfirmation", "true");
             return "Compras/altaproveedor";
         }
@@ -123,18 +121,24 @@ public class ComprasController
         }
 
     }
-    
-     //Modificar Proveedor //
+
+    //Modificar Proveedor //
     @RequestMapping(value = "compras/modificarproveedor", method = RequestMethod.GET)
     public String modificarproveedor(Model model, String idproveedor)
     {
-        try { Long.valueOf(idproveedor); } catch(NumberFormatException ex) { return null; }
-        
+        try
+        {
+            Long.valueOf(idproveedor);
+        } catch(NumberFormatException ex)
+        {
+            return null;
+        }
+
         Proveedor proveedor = (Proveedor) daoProveedor.find(Long.valueOf(idproveedor));
         model.addAttribute("proveedor", proveedor);
         return "Compras/modificarproveedor";
     }
-    
+
     @RequestMapping(value = "compras/modificarproveedor", method = RequestMethod.POST)
     public String modproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult)
     {
@@ -143,12 +147,11 @@ public class ComprasController
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Compras/modificarproveedor";
-        }
-        else
+        } else
         {
             Proveedor proveedor2 = (Proveedor) daoProveedor
                     .find(Long.valueOf(proveedor.getId()));
-            
+
             proveedor2.setApellidoMaternoContacto(proveedor.getApellidoMaternoContacto());
             proveedor2.setApellidoPaternoContacto(proveedor.getApellidoPaternoContacto());
             proveedor2.setCalle(proveedor.getCalle());
@@ -164,7 +167,7 @@ public class ComprasController
             proveedor2.setNumeroE(proveedor.getNumeroE());
             proveedor2.setNumeroI(proveedor.getNumeroI());
             proveedor2.setPais(proveedor.getPais());
-            
+
             daoProveedor.edit(proveedor2);
 
             List<Proveedor> proveedores = daoProveedor.findAll();
@@ -172,10 +175,8 @@ public class ComprasController
             return "Compras/consultaproveedor";
         }
     }
-   
-    
-    //Fin Modificar Proveedor//
 
+    //Fin Modificar Proveedor//
     //Consulta Producto//
     @RequestMapping(value = "compras/ConsultaProducto", method = RequestMethod.GET)
     public String buscarProducto(Model model)
@@ -186,7 +187,8 @@ public class ComprasController
         {
             model.addAttribute("producto1", producto);
             return "Compras/ConsultaProducto";
-        } else
+        } 
+        else
         {
             model.addAttribute("producto1", new ArrayList<Producto>());
             return "Compras/ConsultaProducto";
@@ -288,6 +290,34 @@ public class ComprasController
         }
     }
 
+    @RequestMapping(value = "compras/inhabilitarproductoproveedor", method = RequestMethod.GET)
+    @ResponseBody
+    public ProductoProveedor inhabilitarProdProv(Model model, @RequestParam String idProdProv)
+    {
+        try
+        {
+            Long.valueOf(idProdProv);
+        } catch(NumberFormatException ex)
+        {
+            return null;
+        }
+
+        ProductoProveedor prodProv = (ProductoProveedor) daoProductoProveedor
+                .find(Long.valueOf(idProdProv));
+
+        if(prodProv != null)
+        {
+            System.out.println("Cambiando status");
+            prodProv.setStatus(false);
+            daoProductoProveedor.edit(prodProv);
+            return prodProv;
+        } else
+        {
+            System.out.println("No inhabilita");
+            return null;
+        }
+    }
+
     //Orden de Compra 
     @RequestMapping(value = "compras/ordenCompra", method = RequestMethod.GET)
     public String ordenCompra(Model model)
@@ -302,8 +332,7 @@ public class ComprasController
         try
         {
             Long.valueOf(idp);
-        } 
-        catch(NumberFormatException ex)
+        } catch(NumberFormatException ex)
         {
             return null;
         }
@@ -320,8 +349,7 @@ public class ComprasController
         try
         {
             Long.valueOf(idProductoProveedor);
-        } 
-        catch(NumberFormatException ex)
+        } catch(NumberFormatException ex)
         {
             return null;
         }
@@ -335,7 +363,7 @@ public class ComprasController
     public String consultarOrdenes(Model model)
     {
         List<OrdenCompra> ordenes = daoOrdenCompra.findAll();
-        
+
         model.addAttribute("ordenes", ordenes);
         return "Compras/ConsultarOrdenes";
     }
@@ -363,7 +391,7 @@ public class ComprasController
             productoComprado.setProductoProveedor(productoProveedor);
             productoComprado.setCantidad(productoEnOrdenCompra.getCantidad());
             productoComprado.setOrdenCompra(ordenCompra);
-            
+
             productosEnOrden.add(productoComprado);
         }
 
@@ -435,16 +463,23 @@ public class ComprasController
 
     //Modifica Producto
     @RequestMapping(value = "compras/Modifica1Producto", method = RequestMethod.GET)
-    public String Modifica1Producto(Model model)
+    public String Modifica1Producto(Model model, @RequestParam String idproducto)
     {
-        Producto prodi = new Producto();
 
         Map selectCategoria = new HashMap<>();
         selectCategoria.put("MATERIAPRIMA", "Materia prima");
         selectCategoria.put("ACTIVOFIJO", "Activo fijo");
         model.addAttribute("selectCategoria", selectCategoria);
 
-        model.addAttribute("producto", prodi);
+        try
+        {
+            Long.valueOf(idproducto);
+        } catch(NumberFormatException ex)
+        {
+            return null;
+        }
+        Producto producto = (Producto) daoProducto.find(Long.valueOf(idproducto));
+        model.addAttribute("producto", producto);
 
         return "Compras/Modifica1Producto";
     }
@@ -462,12 +497,18 @@ public class ComprasController
             selectCategoria.put("ACTIVOFIJO", "Activo fijo");
             model.addAttribute("selectCategoria", selectCategoria);
             return "Compras/Modifica1Producto";
-        } else
+        } 
+        else
         {
-            daoProducto.create(prodi2);
+            Producto prodi3 = (Producto) daoProducto.find(prodi2.getId());
+            prodi3.setCategoria(prodi2.getCategoria());
+            prodi3.setDescripcion(prodi2.getDescripcion());
+            prodi3.setMarca(prodi2.getMarca());
+            prodi3.setNombreProducto(prodi2.getNombreProducto());
+            daoProducto.edit(prodi2);
 
-            List<Producto> prodi3 = daoProducto.findAll();
-            model.addAttribute("prodi3", prodi3);
+            List<Producto> prodi4 = daoProducto.findAll();
+            model.addAttribute("producto1", prodi4);
             return "Compras/ConsultaProducto";
         }
     }

@@ -6,6 +6,7 @@
 
 package com.sapito.db.dao;
 
+import com.sapito.db.entities.Producto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -85,6 +86,10 @@ public abstract class AbstractDao<T extends Serializable>
 
     public List<T> findAll()
     {
+        if(this.entityClass == Producto.class)
+        {
+            entityManager.clear();
+        }
         javax.persistence.criteria.CriteriaQuery cq = entityManager.getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return entityManager.createQuery(cq).getResultList();

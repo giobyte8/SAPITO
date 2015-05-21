@@ -20,6 +20,9 @@
 <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
 
+<!-- Sweetalert js -->
+<script src="${pageContext.request.contextPath}/resources/js/libs/sweet-alert.min.js"></script>
+
 <script type="text/javascript">
                 function isInteger(s)
                 {

@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-lg-12">
               <h1 class="page-header">
-                Registrar producto
+                Modificar producto
               </h1>                    
             </div>
           </div>
@@ -55,12 +55,16 @@
                       <br/><label for="nvo-categoria" class="control-label">Categoria</label>
                       <form:select id="nvo-categoria" path="categoria" items="${selectCategoria}" class="form-control" />
                     </div>
+                    <div class="hidden">
+                      <br/><label>ID</label>
+                      <form:input path="id" name="id" class="form-control" />
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-6 text-right">
                       <br/><a href="ConsultaProducto" class="btn btn-danger">Cancelar</a>
-                      <button type="submit" value="Aceptar" onclick="ConfirmacionP()"
+                      <button type="submit" value="Aceptar"
                                    class="btn btn-success" role="button">Aceptar</button>
                     </div>
                   </div>

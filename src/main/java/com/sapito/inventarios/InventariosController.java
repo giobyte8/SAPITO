@@ -189,13 +189,14 @@ public class InventariosController
         {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
+            model.addAttribute("showConfirm", "false");
             return "Inventarios/registrarProductoTerminadoView";
         } 
         else
         {
-            System.out.println("Insertando");
             daoInventario.create(inventario);
-            inventario=new Inventario ();
+            
+            model.addAttribute("showConfirm", "true");
             return "Inventarios/registrarProductoTerminadoView";
         }
     }
@@ -206,11 +207,9 @@ public class InventariosController
         Inventario inventario = new Inventario();
         inventario.setFechaEntrada(new Date());
         inventario.setFechaProduccion(new Date());
-        inventario.setPrecioUnitario(44);
-        inventario.setStatus(true);
-        inventario.setTipoProducto("asd");
 
         model.addAttribute("inventario", inventario);
+        model.addAttribute("showConfirm", "false");
         return "Inventarios/registrarProductoTerminadoView";
     }
 
@@ -222,13 +221,13 @@ public class InventariosController
         {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
+            model.addAttribute("showConfirm", "false");
             return "Inventarios/rregistrarMateriaPrimaView";
         } 
         else
         {
-            System.out.println("Insertando");
             daoInventario.create(inventario);
-            inventario=new Inventario ();
+            model.addAttribute("showConfirm", "true");
             return "Inventarios/registrarMateriaPrimaView";
         }
     }
@@ -237,13 +236,9 @@ public class InventariosController
     public String registrarMateriaPrima(Model model)
     {
         Inventario inventario = new Inventario();
-        inventario.setFechaEntrada(new Date());
-        inventario.setFechaProduccion(new Date());
-        inventario.setPrecioUnitario(44);
-        inventario.setStatus(true);
-        inventario.setTipoProducto("Materia Prima");
 
         model.addAttribute("inventario", inventario);
+        model.addAttribute("showConfirm", "false");
         return "Inventarios/registrarMateriaPrimaView";
     }
     

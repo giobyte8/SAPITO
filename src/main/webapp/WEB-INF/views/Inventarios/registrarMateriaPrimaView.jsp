@@ -10,6 +10,9 @@
     <head>
         <%@include file="inventariosHead.jsp" %>
         <title>SAPito</title>
+        
+        <!-- PARA FECHA -->
+    <link href="${pageContext.request.contextPath}/resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
     </head>
     <body>
         <div id="wrapper">           
@@ -102,19 +105,51 @@
 <!-- jQuery -->       </div>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/inventarios/jsinventarios.js"></script>
     <%@include file="inventariosFooter.jsp" %>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/activofijo/jquery-ui.js"></script>        
     <script >
         $(document).ready(function () {
+            
+            $("#fnoc-fechaEntrada").datepicker({
+                dateFormat: "dd-mm-yy",
+                dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+            });
+            $("#fnoc-fechaProduccion").datepicker({
+                dateFormat: "dd-mm-yy",
+                dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+            });
+            
+            var showConfirm = "${showConfirm}";
+            console.log(showConfirm);
+            if (showConfirm === 'true') {
+                setTimeout(function () {
+                    swal({
+                        title: 'Registro exitoso',
+                        text: 'El producto ha sido registrado exitosamente',
+                        type: 'success',
+                        showCancelButton: false,
+                        closeOnConfirm: true
+                    }, function (isConfirm) {
+                        !isConfirm;
+                    });
+                }, 500);
+
+            }
+            
             $("#fnoc-codigoInventario").val("");
             $("#fnoc-nombre").val("");
             $("#fnoc-cantidad").val("");
             $("#fnoc-maximo").val("");
             $("#fnoc-minimo").val("");
             $("#fnoc-categoria").val("");
-            $("#fnoc-precio").val("");
             $("#fnoc-fechaEntrada").val("");
             $("#fnoc-fechaProduccion").val("");
             $("#fnoc-ubicacion").val("");
             $("#fnoc-cantidad").val("");
+            $('#fnoc-precioUnitario').val('');
         });
     </script>
 

@@ -59,7 +59,7 @@
                               data-toggle="modal" data-target="#cts-modal${producto.id}">Detalles</button>
                     </td>
                     <td>
-                      <button class="btn btn-warning btn-xs">Editar</button>
+                      <a  href="Modifica1Producto?idproducto=${producto.id}" class="btn btn-warning btn-xs">Editar</a>
                     </td>
                   </tr>
               </c:forEach>
@@ -119,13 +119,16 @@
                       </thead>
                       <tbody>
                         <c:forEach items="${producto.productoProveedor}" var="productoProveedor">
-                            <tr>
-                              <td>${productoProveedor.proveedor.empresa}</td>
-                              <td>${productoProveedor.costo}</td>
-                              <td>
-                                <button type="button" class="btn btn-danger btn-sm">Inhabilitar</button>
-                              </td>
-                            </tr>
+                            <c:if test="${productoProveedor.status eq true}">
+                                <tr id="${productoProveedor.id}">
+                                  <td>${productoProveedor.proveedor.empresa}</td>
+                                  <td>${productoProveedor.costo}</td>
+                                  <td>
+                                    <button onclick="inhabilitar(${productoProveedor.id})" type="button" 
+                                            class="btn btn-danger btn-sm">Inhabilitar</button>
+                                  </td>
+                                </tr>
+                            </c:if>
                         </c:forEach>
                       </tbody>
                     </table>
@@ -151,6 +154,19 @@
         $(document).ready(function () {
             $('#tproductos').DataTable();
         });
+
+        function inhabilitar(idProductoProveedor)
+        {
+            var url = '/SAPITO/compras/inhabilitarproductoproveedor';
+            var params = {
+                idProdProv: idProductoProveedor
+            };
+            $.get(url, params, function (data) {
+                if (data.id) {
+                    $('#' + data.id).remove();
+                }
+            });
+        }
     </script>
 
     <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
