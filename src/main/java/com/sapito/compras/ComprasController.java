@@ -336,6 +336,8 @@ public class ComprasController
             ProductoComprado productoComprado = new ProductoComprado();
             productoComprado.setProductoProveedor(productoProveedor);
             productoComprado.setCantidad(productoEnOrdenCompra.getCantidad());
+            productoComprado.setOrdenCompra(ordenCompra);
+            
             productosEnOrden.add(productoComprado);
         }
 

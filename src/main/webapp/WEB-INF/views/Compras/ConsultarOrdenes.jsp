@@ -77,13 +77,32 @@
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-6">
-                    <br/><label>Empresa:</label>
-                    <input type="text" class="form-control" readonly/>
+                    <br/><label>Aprobada</label>
+                    <input type="text" class="form-control" readonly value="${orden.aprobada}" />
                   </div>
-
                   <div class="col-md-6">
-                    <br/><label>Fecha en que se realizo:</label>
+                    <br/><label>Fecha de pedido</label>
                     <input type="text" class="form-control" readonly value="${orden.fechaPedido}"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Fecha de Entrega</label>
+                    <input type="text" class="form-control" readonly value="${orden.fechaEntrega}"/>
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Departamento que solicita</label>
+                    <input type="text" class="form-control" readonly value="Activo fijo" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <br/><label>Forma de pago</label>
+                    <input type="text" class="form-control" readonly value="${orden.formaPago}" />
+                  </div>
+                  <div class="col-md-6">
+                    <br/><label>Costo total</label>
+                    <input type="text" class="form-control" readonly value="${orden.costoTotal}"/>
                   </div>
                 </div>
                 <div class="rw">
@@ -107,14 +126,10 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <br/><label>Fecha de Entrega</label>
-                    <input type="text" class="form-control" readonly value="${orden.fechaEntrega}"/>
-                  </div>
-                </div> 
               </div>
               <div class="modal-footer">
+                <button type="button" class="btn btn-warning">Aprobar</button>
+                <button type="button" class="btn btn-success">Marcar como recibida</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                   Cerrar
                 </button>
@@ -124,7 +139,7 @@
           </div>
         </div>
     </c:forEach>
-    
+
     <%@include file="MenusCompras/Pie compras.jsp"%>
   </body>
 </html>
