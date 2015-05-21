@@ -59,9 +59,10 @@
                   <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-6 text-right">
-                      <br/><a href="ConsultaProducto" class="btn btn-danger">Cancelar</a>
-                      <button type="submit" value="Aceptar" onclick="ConfirmacionP()"
-                                   class="btn btn-success" role="button">Aceptar</button>
+                      <br/>
+                      <button onclick="cancelarAltaProducto()" type="button" class="btn btn-danger">Cancelar</button>
+                      <button type="submit" value="Aceptar"
+                              class="btn btn-success" role="button">Aceptar</button>
                     </div>
                   </div>
               </form:form>
@@ -86,5 +87,31 @@
     <script src="resources/js/libs/sb-admin-2.js"></script-->
     <%@include file="MenusCompras/Pie compras.jsp"%>
     <script src="${pageContext.request.contextPath}/resources/js/compras/jscompas.js"></script>
+    <script >
+        $(document).ready(function () {
+            var showConfirm = "${showConfirm}";
+            console.log(showConfirm);
+            if (showConfirm === 'true') {
+                setTimeout(function () {
+                    swal({
+                        title: 'Registro exitoso',
+                        text: 'El producto ha sido registrado exitosamente',
+                        type: 'success',
+                        showCancelButton: false,
+                        closeOnConfirm: true
+                    }, function (isConfirm) {
+                        !isConfirm;
+                        window.location.href = '/SAPITO/compras/ConsultaProducto';
+                    });
+                }, 500);
+
+            }
+        });
+
+        function cancelarAltaProducto()
+        {
+            window.location.href = '/SAPITO/compras/ConsultaProducto';
+        }
+    </script>
   </body>
 </html>

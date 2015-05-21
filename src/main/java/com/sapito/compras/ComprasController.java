@@ -78,6 +78,7 @@ public class ComprasController
         Proveedor proveedor = new Proveedor();
 
         model.addAttribute("proveedor", proveedor);
+        model.addAttribute("showSaveConfirmation", "false");
         return "Compras/altaproveedor";
     }
 
@@ -88,15 +89,20 @@ public class ComprasController
         {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
+            model.addAttribute("showSaveConfirmation", "false");
             return "Compras/altaproveedor";
-        } else
+        } 
+        else
         {
             proveedor.setStatus(true);
             daoProveedor.create(proveedor);
 
-            List<Proveedor> proveedores = daoProveedor.findAll();
-            model.addAttribute("proveedores", proveedores);
-            return "Compras/consultaproveedor";
+//            List<Proveedor> proveedores = daoProveedor.findAll();
+//            model.addAttribute("proveedores", proveedores);
+//            return "Compras/consultaproveedor";
+            
+            model.addAttribute("showSaveConfirmation", "true");
+            return "Compras/altaproveedor";
         }
     }
 
@@ -125,24 +131,41 @@ public class ComprasController
         try { Long.valueOf(idproveedor); } catch(NumberFormatException ex) { return null; }
         
         Proveedor proveedor = (Proveedor) daoProveedor.find(Long.valueOf(idproveedor));
-        System.out.println("El ID es: "+proveedor.getId());
         model.addAttribute("proveedor", proveedor);
-        return "Compras/modificarproveedor";        
+        return "Compras/modificarproveedor";
     }
     
     @RequestMapping(value = "compras/modificarproveedor", method = RequestMethod.POST)
     public String modproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult)
     {
-        
         if(bindingResult.hasErrors())
         {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Compras/modificarproveedor";
-        } 
+        }
         else
-        {                        
-            daoProveedor.edit(proveedor);
+        {
+            Proveedor proveedor2 = (Proveedor) daoProveedor
+                    .find(Long.valueOf(proveedor.getId()));
+            
+            proveedor2.setApellidoMaternoContacto(proveedor.getApellidoMaternoContacto());
+            proveedor2.setApellidoPaternoContacto(proveedor.getApellidoPaternoContacto());
+            proveedor2.setCalle(proveedor.getCalle());
+            proveedor2.setColonia(proveedor.getColonia());
+            proveedor2.setCp(proveedor.getCp());
+            proveedor2.setEmail(proveedor.getEmail());
+            proveedor2.setEmpresa(proveedor.getEmpresa());
+            proveedor2.setEstado(proveedor.getEstado());
+            proveedor2.setExtension1(proveedor.getExtension1());
+            proveedor2.setExtension2(proveedor.getExtension2());
+            proveedor2.setMunicipio(proveedor.getMunicipio());
+            proveedor2.setNombreContacto(proveedor.getNombreContacto());
+            proveedor2.setNumeroE(proveedor.getNumeroE());
+            proveedor2.setNumeroI(proveedor.getNumeroI());
+            proveedor2.setPais(proveedor.getPais());
+            
+            daoProveedor.edit(proveedor2);
 
             List<Proveedor> proveedores = daoProveedor.findAll();
             model.addAttribute("proveedores", proveedores);
@@ -183,7 +206,7 @@ public class ComprasController
         model.addAttribute("selectCategoria", selectCategoria);
 
         model.addAttribute("producto", producto);
-
+        model.addAttribute("showConfirm", "false");
         return "Compras/AltaProducto";
     }
 
@@ -198,14 +221,17 @@ public class ComprasController
             selectCategoria.put("MATERIAPRIMA", "Materia prima");
             selectCategoria.put("ACTIVOFIJO", "Activo fijo");
             model.addAttribute("selectCategoria", selectCategoria);
+            model.addAttribute("showConfirm", "false");
             return "Compras/AltaProducto";
-        } else
+        } 
+        else
         {
             daoProducto.create(producto);
 
             List<Producto> producto1 = daoProducto.findAll();
             model.addAttribute("producto1", producto1);
-            return "Compras/ConsultaProducto";
+            model.addAttribute("showConfirm", "true");
+            return "Compras/AltaProducto";
         }
     }
 //Fin Alta Producto
