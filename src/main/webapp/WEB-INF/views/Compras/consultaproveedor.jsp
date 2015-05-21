@@ -61,7 +61,7 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <a href="modificarproveedor?idproveedor=${proveedor.id}" class="btn btn-danger right btn-xs">Editar</a>                                        
+                                        <a href="modificarproveedor?idproveedor=${proveedor.id}" class="btn btn-warning right btn-xs">Editar</a>                                        
                                     </td>                                   
                                 </tr>
                             </c:forEach>
@@ -182,4 +182,3 @@
     </body>
 
 </html>
-

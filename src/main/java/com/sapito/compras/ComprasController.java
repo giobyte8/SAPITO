@@ -117,6 +117,41 @@ public class ComprasController
         }
 
     }
+    
+     //Modificar Proveedor //
+    @RequestMapping(value = "compras/modificarproveedor", method = RequestMethod.GET)
+    public String modificarproveedor(Model model, String idproveedor)
+    {
+        try { Long.valueOf(idproveedor); } catch(NumberFormatException ex) { return null; }
+        
+        Proveedor proveedor = (Proveedor) daoProveedor.find(Long.valueOf(idproveedor));
+        System.out.println("El ID es: "+proveedor.getId());
+        model.addAttribute("proveedor", proveedor);
+        return "Compras/modificarproveedor";        
+    }
+    
+    @RequestMapping(value = "compras/modificarproveedor", method = RequestMethod.POST)
+    public String modproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult)
+    {
+        
+        if(bindingResult.hasErrors())
+        {
+            System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
+            System.out.println("Error: " + bindingResult.getFieldError().getField());
+            return "Compras/modificarproveedor";
+        } 
+        else
+        {                        
+            daoProveedor.edit(proveedor);
+
+            List<Proveedor> proveedores = daoProveedor.findAll();
+            model.addAttribute("proveedores", proveedores);
+            return "Compras/consultaproveedor";
+        }
+    }
+   
+    
+    //Fin Modificar Proveedor//
 
     //Consulta Producto//
     @RequestMapping(value = "compras/ConsultaProducto", method = RequestMethod.GET)
