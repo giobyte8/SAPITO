@@ -82,23 +82,25 @@
                                             </div>
                                         
                                             <div class="form-group">
-                                                <label>Ubicación</label> 
+                                                <label for="fnvoc-ubicacion">Ubicación</label> 
                                                 <form:input path="ubicacion" name="ubicacion" id="fnoc-ubicacion" type="text" class="form-control" placeholder="Ubicación del producto" required="required"/>
                                                 <form:errors path="ubicacion" element="div" class="alert-danger pad-10"/>
                                             </div>
-                                        
+                                            
+                                            <div class="form-group">
+                                                <label for="fnvoc-categoria">Categoria</label>
+                                                <form:input path="categoria" name="categoria" id="fnoc-categoria" type="text" class="form-control" placeholder="Categoría del producto" required="required"/>
+                                                <form:errors path="categoria" element="div" class="alert-danger pad-10" />
+                                            </div>
+                                        </div>
                                             <div class="form-group">
                                                 <label>Tipo de producto:</label>
                                                 <form:input path="tipoProducto" name="tipoProducto" id="fnop-tipoProducto" class="form-control" placeholder="Tipo de producto" value="PRODUCTOTERMINADO" />
                                                 <form:errors path="tipoProducto" element="div" class="alert-danger pad-10" />
                                             </div>
                                         
-                                            <div class="form-group">
-                                                <label>Categoria</label>
-                                                <form:input path="categoria" name="categoria" value="NA" />
-                                                <form:errors path="categoria" element="div" class="alert-danger pad-10" />
-                                            </div>
-                                        </div>
+                                            
+                                        
 
                                     </div>
                                 </div>
