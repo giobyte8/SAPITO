@@ -124,8 +124,9 @@
             <!-- /.col-lg-12 -->
           </div>        
           <div class="form-group text-right">
-            <a type="button" class="btn btn-info" href="reporteinversion" target="_blank"><input type="submit" class="btn btn-success" value="Enviar1"></a>
-            <a href="gdaReporte" onclick="return confirm('¿Est&aacute; seguro de enviar el reporte anterior?');"><input type="submit" class="btn btn-success" value="Enviar"></a>
+            <a type="submit" class="btn btn-info" href="reporteinversion.pdf" target="_blank">
+                <input type="submit" class="btn btn-success" value="Enviar1"></a>
+<!--            <a href="gdaReporte" onclick="return confirm('¿Est&aacute; seguro de enviar el reporte anterior?');"><input type="submit" class="btn btn-success" value="Enviar"></a>-->
             
           </div>                                  
         </div>

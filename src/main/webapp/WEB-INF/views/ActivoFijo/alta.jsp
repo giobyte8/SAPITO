@@ -80,12 +80,12 @@
                               </div>                                                                                       
                               <div class="form-group">
                                 <label class="control-label" >Fecha de Adquisición</label>
-                                <input name="fecha" id="fecha" class="form-control" required="true"/>
+                                <input name="fecha" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" id="fecha" class="form-control" required="true"/>
                               </div>
                               <div class="form-group">
                                 <label class="control-label" >Años de vida útil</label>
                                 <input name="anosVidaUtil" id="fa-anosVidaUtil" 
-                                       type="text" min="1" class="form-control" required="true"/>
+                                       type="number" min="1" class="form-control" required="true"/>
                               </div>
                               <div class="form-group" style="text-align:right">
                                 <input type="reset" class="btn btn-success" value="Cancelar">

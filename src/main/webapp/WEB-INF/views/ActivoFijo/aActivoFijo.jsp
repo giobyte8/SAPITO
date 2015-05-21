@@ -72,6 +72,7 @@
                                                                 <label class="control-label" >Propietario</label>
                                                                 <select id="combo-empleados" name="propietario" class="form-control"required="true">
                                                                     <option value="">Selecciona Propietario</option>
+                                                                    
                                                                 </select>
                                                             </div>   
                                                             <div class="form-group ">

@@ -450,6 +450,7 @@ public class ActivoFijoController
         {
             Depreciacion depreciacion = new Depreciacion();
             Map dt = new HashMap();
+            
             totalCosto = 0;
             
             List<ActivoFijo> activosCategoria = daoActivoFijo
@@ -530,6 +531,7 @@ public class ActivoFijoController
         model.addAttribute("granTotalDepActual", granTotalDepActual);
         model.addAttribute("granTotalValorActual", granTotalValorActual);
         model.addAttribute("granTotalValorOr", granTotalValorOr);
+        
         return "ActivoFijo/reporteDepreciacion";
     }
 
@@ -554,15 +556,120 @@ public class ActivoFijoController
     @ResponseBody
     public String descargarReporteInv(Model model, HttpServletRequest request, HttpServletResponse response)
     {
-        List<TipoActivoFijo>tipo=daoTipoActivoFijo.findAll();
+//        List<TipoActivoFijo>tipo=daoTipoActivoFijo.findAll();
+//        PDFGeneratorActivosFijos pdfActivos = new PDFGeneratorActivosFijos();
+//        try
+//        {
+//            pdfActivos.crearPDFInversion(response,tipo);
+//        } catch(Exception ex)
+//        {
+//            Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+        ArrayList<HashMap> resultados = new ArrayList<>();
+        double granTotalValorOr = 0;
+        double granTotalDepActual = 0;
+        double granTotalValorActual = 0;
+        double totalCosto = 0;
+        
+        List<TipoActivoFijo> tiposAF = daoTipoActivoFijo.findAll();
+        for(TipoActivoFijo taf : tiposAF)
+        {
+            Depreciacion depreciacion = new Depreciacion();
+            Map dt = new HashMap();
+            totalCosto = 0;
+            
+            List<ActivoFijo> activosCategoria = daoActivoFijo
+                    .findBySpecificField("tipoActivoFijo", taf, "equal", null, null);
+            for(ActivoFijo af : activosCategoria)
+            {
+                totalCosto += af.getProductoProveedor().getCosto();
+                if(af.getTipoDepreciacion().compareTo("Linea recta") == 0)
+                {
+                    System.out.println("1");
+                    Calendar hoy = Calendar.getInstance(Locale.US);
+                    hoy.setTime(new Date());
+                    Calendar adquisicion = Calendar.getInstance(Locale.US);
+                    adquisicion.setTime(af.getFechaAdquisicion());
+
+                    int dif = hoy.get(Calendar.YEAR) - adquisicion.get(Calendar.YEAR);
+                    if(adquisicion.get(Calendar.MONTH) > hoy.get(Calendar.MONTH)
+                            || adquisicion.get(Calendar.MONTH) == hoy.get(Calendar.MONTH)
+                            && adquisicion.get(Calendar.DATE) > hoy.get(Calendar.DATE))
+                    {
+                        dif--;
+                    }
+                    depreciacion.LineaRecta((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif);
+                    System.out.println(depreciacion.getVALORTOTAL());
+                } 
+                else if(af.getTipoDepreciacion().compareTo("Suma de digitos anuales") == 0)
+                {
+                    System.out.println("ASDFASDFASDF");
+                    Calendar hoy = Calendar.getInstance(Locale.US);
+                    hoy.setTime(new Date());
+                    Calendar adquisicion = Calendar.getInstance(Locale.US);
+                    adquisicion.setTime(af.getFechaAdquisicion());
+
+                    int dif = hoy.get(Calendar.YEAR) - adquisicion.get(Calendar.YEAR);
+                    if(adquisicion.get(Calendar.MONTH) > hoy.get(Calendar.MONTH)
+                            || adquisicion.get(Calendar.MONTH) == hoy.get(Calendar.MONTH)
+                            && adquisicion.get(Calendar.DATE) > hoy.get(Calendar.DATE))
+                    {
+                        dif--;
+                    }
+                    depreciacion.DSD((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif,1);
+
+                } 
+                else if(af.getTipoDepreciacion().compareTo("Doble saldo decreciente") == 0)
+                {
+                    Calendar hoy = Calendar.getInstance(Locale.US);
+                    hoy.setTime(new Date());
+                    Calendar adquisicion = Calendar.getInstance(Locale.US);
+                    adquisicion.setTime(af.getFechaAdquisicion());
+
+                    int dif = hoy.get(Calendar.YEAR) - adquisicion.get(Calendar.YEAR);
+                    if(adquisicion.get(Calendar.MONTH) > hoy.get(Calendar.MONTH)
+                            || adquisicion.get(Calendar.MONTH) == hoy.get(Calendar.MONTH)
+                            && adquisicion.get(Calendar.DATE) > hoy.get(Calendar.DATE))
+                    {
+                        dif--;
+                    }
+                    depreciacion.Decreciente((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif);
+                }
+            }
+            
+            //dt.setValoreActual(depreciacion.getVALORTOTAL());
+            //dt.setDepreciacionActual((float)totalCosto - depreciacion.getVALORTOTAL());
+            //dt.setValorOriginal((float) totalCosto);
+            //dt.setTipo(taf.getNombre());
+            dt.put("valoreActual", depreciacion.getVALORTOTAL());
+            dt.put("depreciacionActual", (float)totalCosto - depreciacion.getVALORTOTAL());
+            dt.put("valorOriginal", totalCosto);
+            dt.put("tipo", taf.getNombre());
+            resultados.add((HashMap) dt);
+            
+            granTotalDepActual += (float)totalCosto - depreciacion.getVALORTOTAL();
+            granTotalValorActual += depreciacion.getVALORTOTAL();
+            granTotalValorOr += totalCosto;
+        }
+
+        model.addAttribute("resultados", resultados);
+        model.addAttribute("granTotalDepActual", granTotalDepActual);
+        model.addAttribute("granTotalValorActual", granTotalValorActual);
+        model.addAttribute("granTotalValorOr", granTotalValorOr);
+        
+        
+        
         PDFGeneratorActivosFijos pdfActivos = new PDFGeneratorActivosFijos();
         try
         {
-            pdfActivos.crearPDFInversion(response,tipo);
+            pdfActivos.crearPDFInversion(response, resultados,granTotalDepActual,granTotalValorActual,granTotalValorOr);
         } catch(Exception ex)
         {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
 
         return "OK";
     }
@@ -571,10 +678,98 @@ public class ActivoFijoController
     @ResponseBody
     public String descargarReporteDp(Model model, HttpServletRequest request, HttpServletResponse response)
     {
+        //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+        ArrayList<HashMap> resultados = new ArrayList<>();
+        double granTotalValorOr = 0;
+        double granTotalDepActual = 0;
+        double granTotalValorActual = 0;
+        double totalCosto = 0;
+        
+        List<TipoActivoFijo> tiposAF = daoTipoActivoFijo.findAll();
+        for(TipoActivoFijo taf : tiposAF)
+        {
+            Depreciacion depreciacion = new Depreciacion();
+            Map dt = new HashMap();
+            
+            totalCosto = 0;
+            
+            List<ActivoFijo> activosCategoria = daoActivoFijo
+                    .findBySpecificField("tipoActivoFijo", taf, "equal", null, null);
+            for(ActivoFijo af : activosCategoria)
+            {
+                totalCosto += af.getProductoProveedor().getCosto();
+                if(af.getTipoDepreciacion().compareTo("Linea recta") == 0)
+                {
+                    System.out.println("1");
+                    Calendar hoy = Calendar.getInstance(Locale.US);
+                    hoy.setTime(new Date());
+                    Calendar adquisicion = Calendar.getInstance(Locale.US);
+                    adquisicion.setTime(af.getFechaAdquisicion());
+
+                    int dif = hoy.get(Calendar.YEAR) - adquisicion.get(Calendar.YEAR);
+                    if(adquisicion.get(Calendar.MONTH) > hoy.get(Calendar.MONTH)
+                            || adquisicion.get(Calendar.MONTH) == hoy.get(Calendar.MONTH)
+                            && adquisicion.get(Calendar.DATE) > hoy.get(Calendar.DATE))
+                    {
+                        dif--;
+                    }
+                    depreciacion.LineaRecta((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif);
+                    System.out.println(depreciacion.getVALORTOTAL());
+                } 
+                else if(af.getTipoDepreciacion().compareTo("Suma de digitos anuales") == 0)
+                {
+                    System.out.println("ASDFASDFASDF");
+                    Calendar hoy = Calendar.getInstance(Locale.US);
+                    hoy.setTime(new Date());
+                    Calendar adquisicion = Calendar.getInstance(Locale.US);
+                    adquisicion.setTime(af.getFechaAdquisicion());
+
+                    int dif = hoy.get(Calendar.YEAR) - adquisicion.get(Calendar.YEAR);
+                    if(adquisicion.get(Calendar.MONTH) > hoy.get(Calendar.MONTH)
+                            || adquisicion.get(Calendar.MONTH) == hoy.get(Calendar.MONTH)
+                            && adquisicion.get(Calendar.DATE) > hoy.get(Calendar.DATE))
+                    {
+                        dif--;
+                    }
+                    depreciacion.DSD((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif,1);
+
+                } 
+                else if(af.getTipoDepreciacion().compareTo("Doble saldo decreciente") == 0)
+                {
+                    Calendar hoy = Calendar.getInstance(Locale.US);
+                    hoy.setTime(new Date());
+                    Calendar adquisicion = Calendar.getInstance(Locale.US);
+                    adquisicion.setTime(af.getFechaAdquisicion());
+
+                    int dif = hoy.get(Calendar.YEAR) - adquisicion.get(Calendar.YEAR);
+                    if(adquisicion.get(Calendar.MONTH) > hoy.get(Calendar.MONTH)
+                            || adquisicion.get(Calendar.MONTH) == hoy.get(Calendar.MONTH)
+                            && adquisicion.get(Calendar.DATE) > hoy.get(Calendar.DATE))
+                    {
+                        dif--;
+                    }
+                    depreciacion.Decreciente((float) af.getProductoProveedor().getCosto(), af.getAnosVidaUtil(), dif);
+                }
+            }
+            
+            //dt.setValoreActual(depreciacion.getVALORTOTAL());
+            //dt.setDepreciacionActual((float)totalCosto - depreciacion.getVALORTOTAL());
+            //dt.setValorOriginal((float) totalCosto);
+            //dt.setTipo(taf.getNombre());
+            dt.put("valoreActual", depreciacion.getVALORTOTAL());
+            dt.put("depreciacionActual", (float)totalCosto - depreciacion.getVALORTOTAL());
+            dt.put("valorOriginal", totalCosto);
+            dt.put("tipo", taf.getNombre());
+            resultados.add((HashMap) dt);
+            
+            granTotalDepActual += (float)totalCosto - depreciacion.getVALORTOTAL();
+            granTotalValorActual += depreciacion.getVALORTOTAL();
+            granTotalValorOr += totalCosto;
+        }                                       
         PDFGeneratorActivosFijos2 pdfActivos2 = new PDFGeneratorActivosFijos2();
         try
-        {
-            pdfActivos2.crearPDFDepreciacion(response);
+        { 
+            pdfActivos2.crearPDFDepreciacion(response, resultados,granTotalValorActual,granTotalValorOr);
         } catch(Exception ex)
         {
             Logger.getLogger(VentasController.class.getName()).log(Level.SEVERE, null, ex);

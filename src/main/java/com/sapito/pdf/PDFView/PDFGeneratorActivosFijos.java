@@ -8,52 +8,43 @@ package com.sapito.pdf.PDFView;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.PdfWriter;
-import static com.lowagie.text.Annotation.URL;
-import com.lowagie.text.Cell;
-import static com.lowagie.text.ElementTags.URL;
-import static com.lowagie.text.pdf.PdfName.URL;
+//import static com.lowagie.text.Annotation.URL;
 import com.sapito.activofijo.Depreciacion;
-import com.sapito.db.entities.TipoActivoFijo;
 import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import static javafx.scene.input.DataFormat.URL;
+import java.util.Iterator;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.ImageIcon;
 
 /**
  *
  * @author Erika
  */
-public class PDFGeneratorActivosFijos {
-    float a ;
+public class PDFGeneratorActivosFijos
+{
+
+    float a;
 
     public void crearPDFInversion(
-            HttpServletResponse hsr1,List<TipoActivoFijo> tipo) throws Exception {
+            HttpServletResponse hsr1, ArrayList<HashMap> resultados,double granTotalDepActual,double granTotalValorActual,double granTotalValorOr) throws Exception {
         Document dcmntaf = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PdfWriter.getInstance(dcmntaf, baos);
+        System.out.println(resultados.get(0).size());
 
         dcmntaf.open();
         dcmntaf.open();
@@ -88,34 +79,46 @@ public class PDFGeneratorActivosFijos {
         c2.setBackground(BaseColor.WHITE);
         Paragraph title2 = new Paragraph(c2);
         title2.setAlignment(Element.ALIGN_LEFT);
-        title2. setIndentationLeft(50);
+        title2.setIndentationLeft(50);
         //-------------------------  CONTENIDO -------------------------------------------------------
         dcmntaf.add(title);  //Titulo del PDF
         dcmntaf.add(title2);
         PdfPTable table = new PdfPTable(4);
-        
+
 //                                 PdfPCell cell;
 //                            cell = new PdfPCell(new Phrase("Tipo de A", FontFactory.getFont("TIMES_ROMAN", 12, Font.BOLD, BaseColor.BLACK)));                     
-//                        table.addCell(cell);                        
+//                        table.addCell(cell);      
         table.addCell("Tipo de Activo fijo");
         table.addCell("Valor Original");
         table.addCell("Depreciación Actual ");
-        table.addCell("Valor Actual");
-        table.addCell("null");
-        table.addCell("null");
-        table.addCell("null");
-        table.addCell("null");
-      
+        table.addCell("Valor Actual");        
+//        Iterator it = resultados.get(0).entrySet().iterator();
+        for (int i = 0; i < resultados.size(); i++) {
+            table.addCell(resultados.get(i).get("tipo").toString());
+            table.addCell(resultados.get(i).get("valorOriginal").toString());
+            table.addCell(resultados.get(i).get("depreciacionActual").toString());
+            table.addCell(resultados.get(i).get("valoreActual").toString());
+        }        
+
+//        while (it.hasNext()) {
+//            Map.Entry e = (Map.Entry) it.next();
+//            System.out.println(e.getKey() + " " + e.getValue());
+//            
+//            table.addCell(e.getValue().toString());
+//        }
+
+        
+
         dcmntaf.add(table);
 
         String titulo3 = "Reporte Total de Activos Fijos"; //Cambiar el titulo del PDF aqui
         Font f3 = new Font(FontFamily.HELVETICA, 12.0f, Font.NORMAL, BaseColor.BLACK);
         Chunk c3 = new Chunk(titulo3 + " \n ", f3);
         c3.setBackground(BaseColor.WHITE);
-        
+
         Paragraph title3 = new Paragraph(c3);
         title3.setAlignment(Element.ALIGN_LEFT);
-        title3. setIndentationLeft(50);
+        title3.setIndentationLeft(50);
         dcmntaf.add(title3);
 
         PdfPTable table2 = new PdfPTable(3);
@@ -125,13 +128,13 @@ public class PDFGeneratorActivosFijos {
         table2.addCell("Valor Original Total");
         table2.addCell("Depreciación Anual Total");
         table2.addCell("Valor Total");
-        table2.addCell("null");
-        table2.addCell("null");
-        table2.addCell("null");
+        table2.addCell(granTotalValorOr+"");
+        table2.addCell(granTotalDepActual+"");
+        table2.addCell(granTotalValorActual+"");
         
+
         dcmntaf.add(table2);
-        
-        
+
         PdfPTable table3 = new PdfPTable(1);
         table3.setWidthPercentage(100.0f);
         table3.setWidths(new float[]{2.0f});
@@ -149,11 +152,8 @@ public class PDFGeneratorActivosFijos {
         // write table header 
         cell.setPhrase(new Phrase("Resultado", font));
         table3.addCell(cell);
-        Depreciacion dep=new Depreciacion();
-        for (int i = 0; i < tipo.size(); i++) {
-            
-            a=dep.getResultado();             
-        }
+        Depreciacion dep = new Depreciacion();
+
         String bla = a + " ";
         table3.addCell(bla);
 
