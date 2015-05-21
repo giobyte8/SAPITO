@@ -16,6 +16,7 @@ import com.sapito.db.entities.Proveedor;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
@@ -41,6 +42,7 @@ public class ComprasController
     private GenericDao<Producto> daoProducto;
     private GenericDao<ProductoProveedor> daoProductoProveedor;
     private GenericDao<OrdenCompra> daoOrdenCompra;
+    private GenericDao<ProductoComprado> daoInfoProveedor;
 
     //Set
     @Autowired
@@ -69,6 +71,12 @@ public class ComprasController
     {
         this.daoOrdenCompra = daoOrdenCompra;
         daoOrdenCompra.setClass(OrdenCompra.class);
+    }
+    @Autowired
+    public void serDaoInfoProveedor(GenericDao<ProductoComprado> daoInfoProveedor)
+    {
+        this.daoInfoProveedor = daoInfoProveedor;
+        daoInfoProveedor.setClass(ProductoComprado.class);
     }
 
     //Alta Proveedor//
@@ -367,6 +375,86 @@ public class ComprasController
         model.addAttribute("ordenes", ordenes);
         return "Compras/ConsultarOrdenes";
     }
+    
+    @RequestMapping(value = "compras/informacionproveedor", method = RequestMethod.GET)
+    public String buscarInfoProveedor(Model model) {
+        List<ProductoComprado> infoproveedor = daoInfoProveedor.findAll();
+        List<Proveedor> cantProveedores = daoProveedor.findAll();
+        if (infoproveedor != null && infoproveedor.size() > 0) {
+            double Arregl[][] = new double[cantProveedores.size()][2];
+            int contador = 0;
+            for (Iterator iterator = cantProveedores.listIterator(); iterator.hasNext();) {
+                Proveedor proveedor = (Proveedor) iterator.next();
+                if (contador != cantProveedores.size()) {
+                    Arregl[contador][0] = proveedor.getId();
+                    contador++;
+                }
+
+            }
+            for (Iterator iterador = infoproveedor.listIterator(); iterador.hasNext();) {
+                ProductoComprado porproveedor = (ProductoComprado) iterador.next();//fecha_pedido
+                for (int i = 0; i < cantProveedores.size(); i++) {
+                    if (porproveedor.getProductoProveedor().getProveedor().getId() == Arregl[i][0]) {
+                        double totalcomprados = porproveedor.getCantidad() * porproveedor.getProductoProveedor().getCosto();
+                        Arregl[i][1] = totalcomprados + Arregl[i][1];
+                    }
+                }
+            }
+            String mejorprovee="", segundomejor="", terceromejor="";
+            double primero = Arregl[0][1], segundo = 0, tercero = 0;
+            int quitarprimero = 0, quietarsegundo = 0, quietartercero=0;
+            for (int i = 0; i < cantProveedores.size(); i++) {
+                if (primero < Arregl[i][0]) {
+                    primero = Arregl[i][0];
+                    quitarprimero = i;
+                }
+            }
+            for (int i = 0; i < cantProveedores.size(); i++) {
+                if (segundo < Arregl[i][0] && i != quitarprimero) {
+                    segundo = Arregl[i][0];
+                    quietarsegundo = i;
+                }
+            }
+            for (int i = 0; i < cantProveedores.size(); i++) {
+                if (tercero < Arregl[i][0] && i != quitarprimero && i != quietarsegundo) {
+                    tercero = Arregl[i][0];
+                    quietartercero=i;
+                }
+            }
+            for (Iterator iterator = cantProveedores.listIterator(); iterator.hasNext();) {
+                Proveedor proveedor = (Proveedor) iterator.next();
+                if (Arregl[quitarprimero][0]==proveedor.getId()) {
+                    mejorprovee=proveedor.getEmpresa();
+                }
+                if (Arregl[quietarsegundo][0]==proveedor.getId()) {
+                    segundomejor=proveedor.getEmpresa();
+                }
+                if (Arregl[quietartercero][0]==proveedor.getId()) {
+                    terceromejor=proveedor.getEmpresa();
+                }
+
+            }
+            System.out.println(primero);
+            System.out.println(segundo);
+            System.out.println(tercero);
+            System.out.println(mejorprovee);
+            System.out.println(segundomejor);
+            System.out.println(terceromejor);
+            model.addAttribute("primero", primero);
+            model.addAttribute("segundo", segundo);
+            model.addAttribute("tercero", tercero);
+            model.addAttribute("MejorProv", mejorprovee);
+            model.addAttribute("SegundoMejor", segundomejor);
+            model.addAttribute("TercerMejor", terceromejor);
+            return "Compras/informacionproveedor";
+        } else {
+            model.addAttribute("infoproveedor", new ArrayList<Proveedor>());
+            return "Compras/informacionproveedor";
+        }
+
+    }
+
+    
 
     @RequestMapping(value = "compras", method = RequestMethod.GET)
     public String index(Model model)

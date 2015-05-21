@@ -32,7 +32,37 @@
 
         <!-- Custom Fonts -->
         <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <script src="../resources/js/direccion/Chart.js"></script>
+        <script>
+            
+            
+            var barData2 = {
+                labels: [${MejorProv},${SegundoMejor},${TercerMejor}],
+                datasets: [
+                    {
+                        label: "My First dataset",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data: [${primero},${segundo},${tercero}]
+                    }
+                ]
+            };
 
+            window.onload = function () {
+                var ctx4 = document.getElementById("chart-barData2").getContext("2d");
+                window.myBarChart = new Chart(ctx4).Bar(barData2, {responsive: true});
+            };</script>
+        <style>
+            body{
+                padding: 0;
+                margin: 0;
+            }
+            #canvas-holder{
+                width:100%;
+            }
+        </style>
 
     </head>
 
@@ -49,66 +79,27 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1 class="page-header">
-                                    Información Proveedor
+                                    Información Proveedor Graficas de comparacion
                                 </h1>                        
                             </div>
                         </div>        
-
-                        <div class="row">
-                            <div class="col-lg-12 text-left">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <br/>                            
-                                        <div class="panel panel-green">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">Proveedor</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <!-- Fila de inputs/!-->
-                                                <div class="row">
-                                                    <div class="col-lg-12 text-left">
-                                                        <div class="form-group ">
-                                                            <label class="control-label">Seleccione un Proveedor</label>
-                                                            <select class="form-control">
-                                                                <option>Seleccione un Proveedor</option>
-                                                                <option>Josue Salvador</option>
-                                                                <option>Luis Monroy</option>
-                                                            </select>
-
-                                                            <br>
-
-                                                            <table class="table table-bordered">
-                                                                <tr>
-                                                                    <td><b>ID</b></td>
-                                                                    <td><b><div align="center">Empresa</div></b></td>
-                                                                    <td><b><div align="center">Contacto</div></b></td> 
-                                                                    <td><b><div align="center">Producto</div></b></td> 
-                                                                    <td><b><div align="center">Cantidad de Compra</div></b></td>                                                                 
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>150</td> 
-                                                                    <td>Tambores y Mazas de Toluca</td> 
-                                                                    <td>Josue Salvador</td> 
-                                                                    <td>Vasos</td>
-                                                                    <td>10</td>   
-                                                            </table>
-
-
-                                                            <!--                                                            <div class="row">
-                                                                                                                            <input type="submit" value="Aceptar" class="btn btn-primary  col-md-offset-11"  role="button">
-                                                                                                                        </div> -->
-                                                        </div>                        
-                                                    </div>  
-                                                </div>
-                                            </div><!--Fin del tag de fila-->
-                                        </div><!-- Fin del tag del contenedor-->
-                                    </div>
-                                    <!-- /#page-wrapper -->
-                                    </form>
-
+                        <div class="col-lg-6" align="center">
+                            <div class="panel panel-green" >
+                                <div class="panel-heading" >
+                                    Compras
                                 </div>
+
+                                <div class="panel panel-body">
+                                    <div id="canvas-holder" align="center" >
+                                        <canvas id="chart-barData2" width="800" height="400" align="center"/>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
+
+
                     </div>
                 </div>
         </div>
