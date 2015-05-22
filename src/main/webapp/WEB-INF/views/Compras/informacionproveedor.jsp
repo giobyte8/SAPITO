@@ -107,15 +107,17 @@
                         </div>        
                         <div class="col-lg-6" >
                             
-                            <p>La Grafica que se muetra a continuacion nos muestra los datos relacionados a losmejores 3 peoveedores de mayor a menor, tamando en cuentan el monto todal que se laha comprado o solicitado de materia prima uo activo fijo a cada uno de los proveedroes <br> <br>
-                            Como se puede ver en la grafia se muestra como el mejor Proveedor a:
+                            <p>La Gráfica que se muestra a continuación nos muestra los datos relacionados a los mejores 3 proveedores de mayor a menor, tomando en cuentan el monto todal que se le ha comprado o solicitado de materia prima o activo fijo a cada uno de los proveedores <br> <br>
+                            <p ALIGN=center> <b>Proveedores mas activos:</b> 
                             <br>
                             <br>
-                            ${MejorProv} : a quien se le ha comprador una cantidad de $ ${primero} dolares colo candolo en el primer puesto 
+                            <b>Primer Proveedor:</b> ${MejorProv} : a quien se le ha comprado una cantidad de $ ${primero} Pesos 
                             <br>
                             <br>
-                            Para el segundo y tercer puesto se tienen a 
-                            ${SegundoMejor} y ${TercerMejor} a quienes se les a coprado la cantidad de $ ${segundo} y $ ${tercero} Dolares, repectivamente 
+                            <b>Segundo Proveedor:</b> ${SegundoMejor} a quien se le ha comprado una cantidad de $ ${segundo} Pesos
+                            <br>
+                            <br>
+                            <b>Tercer Proveedor:</b> ${TercerMejor} a quien se le ha comprado una cantidad de $ ${tercero} Pesos
                             </p>
                             <br>
                         </div>
@@ -138,7 +140,7 @@
                         <div class="col-lg-6" align="center">
                             <div class="panel panel-green" >
                                 <div class="panel-heading" >
-                                    Comparacion General
+                                    Comparación General
                                 </div>
 
                                 <div class="panel panel-body">
@@ -149,15 +151,15 @@
                             </div>
                         </div>
                         <div class="col-lg-6" >
-                            <p>La Grafica que se muetra a continuacion nos muestra los datos relacionados a los mejores 3 peoveedores, tamando en cuentan el monto todal que se la ha comprado o solicitado de materia prima o activo fijo a cada uno de los ellos <br> <br>
-                            Como se puede ver en la grafia se muestra como el mejor Proveedor y su porcentaje relacionado al total de todas las compas realizadase donde el mejor fue :
+                            <p>La Gráfica que se muestra a continuación nos muestra los datos relacionados a los mejores 3 proveedores, tamando en cuentan el monto todal que se la ha comprado o solicitado de materia prima o activo fijo a cada uno de ellos <br> <br>
+                            Como se puede ver en la gráfia se muestra como el mejor Proveedor y su porcentaje relacionado al total de todas las compras realizadase donde el mejor fue : 
                             <br>
                             <br>
-                            ${MejorProv} : con un porsentaje de ${por1} %  del total comprado colocandolo en el primer puesto 
+                            <b>${MejorProv} :</b> con un porsentaje de ${por1} %  del total comprado colocandolo en el primer puesto.
                             <br>
                             <br>
                             Para el segundo y tercer puesto se tienen a 
-                            ${SegundoMejor} y ${TercerMejor} a quienes se les a comprado la cantidad de $ ${segundo} y $ ${tercero} Dolares, repectivamente 
+                            <b>${SegundoMejor}</b> y <b>${TercerMejor}</b> a quienes se les a comprado la cantidad de $ ${segundo} y $ ${tercero} Pesos, repectivamente 
                             lo cual equivale al un porcentague de ${por2} y ${por3} % respectivamnete del total que se ha comprado a todos los proveedores 
                             </p>
                             <br>
