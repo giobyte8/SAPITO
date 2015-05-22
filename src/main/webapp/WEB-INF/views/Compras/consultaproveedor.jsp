@@ -57,7 +57,7 @@
                                     <td>
                                         <button class="btn btn-xs btn-success" type="button" 
                                                 data-toggle="modal" data-target="#cts-modal${proveedor.id}">
-                                            Consulta
+                                            Detalles
                                         </button>
                                     </td>
                                     <td>
@@ -159,7 +159,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                Regresar
+                                Cerrar
                             </button>
                         </div>
 

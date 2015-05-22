@@ -186,7 +186,7 @@
                     </div>      
                     <div class="row text-right">
                       <div class="col-md-12">
-                        <a href="consultaproveedor" class="btn btn-danger right"> Cancelar</a>
+                        <button onclick="cancelarModificacion()" type="button" class="btn btn-danger right"> Cancelar</button>
                         <button onclick="" type="submit" class="btn btn-success right">Modificar</button>
                       </div>  
                     </div>
@@ -202,13 +202,51 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/compras/jscompas.js"></script>
 
     <%@include file="MenusCompras/Pie compras.jsp"%>
+
     <script >
-        $(document).ready(function () {
-        });
-    </script>
+                                                $(document).ready(function () {
+                                                    var showConfirm = "${showSaveConfirmation}";
+                                                    console.log(showConfirm);
+                                                    if (showConfirm === 'true') {
+                                                        setTimeout(function () {
+                                                            swal({
+                                                                title: 'Registro Modificado',
+                                                                text: 'El proveedor ha sido modificado exitosamente',
+                                                                type: 'success',
+                                                                showCancelButton: false,
+                                                                closeOnConfirm: true
+                                                            }, function (isConfirm) {
+                                                                !isConfirm;
+                                                                window.location.href = '/SAPITO/compras/consultaproveedor';
+                                                            });
+                                                        }, 500);
+
+                                                    }
+                                                });
+
+                                                function cancelarModificacion()
+                                                {
+                                                    swal({
+                                                        title: '¿Seguro que desea cancelar?',
+                                                        text: '',
+                                                        type: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: "#DD6B55",
+                                                        confirmButtonText: 'Si, cancelar modificación',
+                                                        cancelButtonText: 'No',
+                                                        closeOnConfirm: true
+                                                    }, function (isConfirm) {
+                                                        if (isConfirm) {
+                                                            location.reload();
+                                                            window.location.href = '/SAPITO/compras/consultaproveedor';
+                                                        }
+                                                        
+                                                    });
+                                                }
+        </script>
+    
   </body>
 </html>
-
 
 
 

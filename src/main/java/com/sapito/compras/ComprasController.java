@@ -160,9 +160,12 @@ public class ComprasController {
 
             daoProveedor.edit(proveedor2);
 
-            List<Proveedor> proveedores = daoProveedor.findAll();
-            model.addAttribute("proveedores", proveedores);
-            return "Compras/consultaproveedor";
+            model.addAttribute("showSaveConfirmation", "true");
+            return "Compras/modificarproveedor";
+//            List<Proveedor> proveedores = daoProveedor.findAll();
+//            model.addAttribute("proveedores", proveedores);
+//            return "Compras/consultaproveedor";
+
         }
     }
 
@@ -463,15 +466,6 @@ public class ComprasController {
         return ordenCompra;
     }
 
-    @RequestMapping(value = "confirmacionProducto", method = RequestMethod.GET)
-    public String confirmacionProducto(Model model) {
-        return "Compras/confirmacionProducto";
-    }
-
-    @RequestMapping(value = "modificarproveedor", method = RequestMethod.GET)
-    public String modificarproveedor(Model model) {
-        return "Compras/modificarproveedor";
-    }
 
     @RequestMapping(value = "informacionproveedor", method = RequestMethod.GET)
     public String informacion1proveedor(Model model) {
@@ -481,32 +475,6 @@ public class ComprasController {
     @RequestMapping(value = "Consulta1Orden", method = RequestMethod.GET)
     public String Consulta1Orden(Model model) {
         return "Compras/Consulta1Orden";
-    }
-
-    @RequestMapping(value = "modificaOrden", method = RequestMethod.GET)
-    public String modificaOrden(Model model) {
-        return "Compras/modificaOrden";
-    }
-
-    @RequestMapping(value = "confirmacionProductoEliminacion", method = RequestMethod.GET)
-    public String confirmacionProductoEliminacion(Model model) {
-        return "Compras/confirmacionProductoEliminacion";
-    }
-
-    @RequestMapping(value = "confirmacionProductoModificacion", method = RequestMethod.GET)
-    public String confirmacionProductModificacion(Model model) {
-        return "Compras/confirmacionProductoModificacion";
-    }
-
-    @RequestMapping(value = "ConsultaProducto", method = RequestMethod.GET)
-    public String ConsultaProducto(Model model) {
-        return "Compras/ConsultaProducto";
-
-    }
-
-    @RequestMapping(value = "Consulta1Producto", method = RequestMethod.GET)
-    public String Consulta1Producto(Model model) {
-        return "Compras/Consulta1Producto";
     }
 
     //Modifica Producto
@@ -559,23 +527,6 @@ public class ComprasController {
     public String InformacionProducto(Model model) {
         
             return "Compras/InformacionProducto";
-
         
     }
-
-    @RequestMapping(value = "confirmacionProveedor", method = RequestMethod.GET)
-    public String confirmacionProveedor(Model model) {
-        return "Compras/confirmacionProveedor";
-    }
-
-    @RequestMapping(value = "confirmacionProveedorMod", method = RequestMethod.GET)
-    public String confirmacionProveedorMod(Model model) {
-        return "Compras/confirmacionProveedorMod";
-    }
-
-    @RequestMapping(value = "confirmacionProveedorEli", method = RequestMethod.GET)
-    public String confirmacionProveedorEli(Model model) {
-        return "Compras/confirmacionProveedorEli";
-    }
-
 }
