@@ -35,8 +35,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author giovanni
  */
 @Controller
-public class ComprasController
-{
+public class ComprasController {
 
     private GenericDao<Proveedor> daoProveedor;
     private GenericDao<Producto> daoProducto;
@@ -46,43 +45,38 @@ public class ComprasController
 
     //Set
     @Autowired
-    public void setDaoProveedor(GenericDao<Proveedor> daoProveedor)
-    {
+    public void setDaoProveedor(GenericDao<Proveedor> daoProveedor) {
         this.daoProveedor = daoProveedor;
         daoProveedor.setClass(Proveedor.class);
     }
 
     @Autowired
-    public void setDaoProducto(GenericDao<Producto> daoProducto)
-    {
+    public void setDaoProducto(GenericDao<Producto> daoProducto) {
         this.daoProducto = daoProducto;
         daoProducto.setClass(Producto.class);
     }
 
     @Autowired
-    public void setDaoProductoProveedor(GenericDao<ProductoProveedor> daoProducoProveedor)
-    {
+    public void setDaoProductoProveedor(GenericDao<ProductoProveedor> daoProducoProveedor) {
         this.daoProductoProveedor = daoProducoProveedor;
         daoProducoProveedor.setClass(ProductoProveedor.class);
     }
 
     @Autowired
-    public void serDaoOrdenCompra(GenericDao<OrdenCompra> daoOrdenCompra)
-    {
+    public void serDaoOrdenCompra(GenericDao<OrdenCompra> daoOrdenCompra) {
         this.daoOrdenCompra = daoOrdenCompra;
         daoOrdenCompra.setClass(OrdenCompra.class);
     }
+
     @Autowired
-    public void serDaoInfoProveedor(GenericDao<ProductoComprado> daoInfoProveedor)
-    {
+    public void serDaoInfoProveedor(GenericDao<ProductoComprado> daoInfoProveedor) {
         this.daoInfoProveedor = daoInfoProveedor;
         daoInfoProveedor.setClass(ProductoComprado.class);
     }
 
     //Alta Proveedor//
     @RequestMapping(value = "compras/altaproveedor", method = RequestMethod.GET)
-    public String altaproveedor(Model model)
-    {
+    public String altaproveedor(Model model) {
         Proveedor proveedor = new Proveedor();
 
         model.addAttribute("proveedor", proveedor);
@@ -91,16 +85,13 @@ public class ComprasController
     }
 
     @RequestMapping(value = "compras/altaproveedor", method = RequestMethod.POST)
-    public String regproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+    public String regproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             model.addAttribute("showSaveConfirmation", "false");
             return "Compras/altaproveedor";
-        } else
-        {
+        } else {
             proveedor.setStatus(true);
             daoProveedor.create(proveedor);
 
@@ -114,16 +105,13 @@ public class ComprasController
 
     //Consulta Proveedor//
     @RequestMapping(value = "compras/consultaproveedor", method = RequestMethod.GET)
-    public String buscarProveedor(Model model)
-    {
+    public String buscarProveedor(Model model) {
         List<Proveedor> proveedor = daoProveedor.findAll();
 
-        if(proveedor != null && proveedor.size() > 0)
-        {
+        if (proveedor != null && proveedor.size() > 0) {
             model.addAttribute("proveedores", proveedor);
             return "Compras/consultaproveedor";
-        } else
-        {
+        } else {
             model.addAttribute("proveedores", new ArrayList<Proveedor>());
             return "Compras/consultaproveedor";
         }
@@ -132,13 +120,10 @@ public class ComprasController
 
     //Modificar Proveedor //
     @RequestMapping(value = "compras/modificarproveedor", method = RequestMethod.GET)
-    public String modificarproveedor(Model model, String idproveedor)
-    {
-        try
-        {
+    public String modificarproveedor(Model model, String idproveedor) {
+        try {
             Long.valueOf(idproveedor);
-        } catch(NumberFormatException ex)
-        {
+        } catch (NumberFormatException ex) {
             return null;
         }
 
@@ -148,15 +133,12 @@ public class ComprasController
     }
 
     @RequestMapping(value = "compras/modificarproveedor", method = RequestMethod.POST)
-    public String modproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+    public String modproveedor(Model model, @Valid Proveedor proveedor, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Compras/modificarproveedor";
-        } else
-        {
+        } else {
             Proveedor proveedor2 = (Proveedor) daoProveedor
                     .find(Long.valueOf(proveedor.getId()));
 
@@ -187,17 +169,13 @@ public class ComprasController
     //Fin Modificar Proveedor//
     //Consulta Producto//
     @RequestMapping(value = "compras/ConsultaProducto", method = RequestMethod.GET)
-    public String buscarProducto(Model model)
-    {
+    public String buscarProducto(Model model) {
         List<Producto> producto = daoProducto.findAll();
 
-        if(producto != null && producto.size() > 0)
-        {
+        if (producto != null && producto.size() > 0) {
             model.addAttribute("producto1", producto);
             return "Compras/ConsultaProducto";
-        } 
-        else
-        {
+        } else {
             model.addAttribute("producto1", new ArrayList<Producto>());
             return "Compras/ConsultaProducto";
         }
@@ -206,8 +184,7 @@ public class ComprasController
 
     //Alta Producto
     @RequestMapping(value = "compras/AltaProducto", method = RequestMethod.GET)
-    public String altaproducto(Model model)
-    {
+    public String altaproducto(Model model) {
         Producto producto = new Producto();
 
         Map selectCategoria = new HashMap<>();
@@ -221,10 +198,8 @@ public class ComprasController
     }
 
     @RequestMapping(value = "compras/AltaProducto", method = RequestMethod.POST)
-    public String regproducto(Model model, @Valid Producto producto, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+    public String regproducto(Model model, @Valid Producto producto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             Map selectCategoria = new HashMap<>();
@@ -233,9 +208,7 @@ public class ComprasController
             model.addAttribute("selectCategoria", selectCategoria);
             model.addAttribute("showConfirm", "false");
             return "Compras/AltaProducto";
-        } 
-        else
-        {
+        } else {
             daoProducto.create(producto);
 
             List<Producto> producto1 = daoProducto.findAll();
@@ -247,8 +220,7 @@ public class ComprasController
 //Fin Alta Producto
 
     @RequestMapping(value = "compras/productoproveedor", method = RequestMethod.GET)
-    public String regProductoProveedor(Model model, @RequestParam String idProducto)
-    {
+    public String regProductoProveedor(Model model, @RequestParam String idProducto) {
         ProductoProveedor productoProveedor = new ProductoProveedor();
         model.addAttribute("productoProveedor", productoProveedor);
 
@@ -273,16 +245,12 @@ public class ComprasController
 
     @RequestMapping(value = "compras/productoproveedor", method = RequestMethod.POST)
     public String regProductoProveedorPost(Model model, @Valid ProductoProveedor productoProveedor,
-            BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             return "Compras/ProductoProveedor";
-        } 
-        else
-        {
+        } else {
             Proveedor proveedor = (Proveedor) daoProveedor
                     .find(productoProveedor.getProveedor().getId());
             Producto producto = (Producto) daoProducto
@@ -300,27 +268,22 @@ public class ComprasController
 
     @RequestMapping(value = "compras/inhabilitarproductoproveedor", method = RequestMethod.GET)
     @ResponseBody
-    public ProductoProveedor inhabilitarProdProv(Model model, @RequestParam String idProdProv)
-    {
-        try
-        {
+    public ProductoProveedor inhabilitarProdProv(Model model, @RequestParam String idProdProv) {
+        try {
             Long.valueOf(idProdProv);
-        } catch(NumberFormatException ex)
-        {
+        } catch (NumberFormatException ex) {
             return null;
         }
 
         ProductoProveedor prodProv = (ProductoProveedor) daoProductoProveedor
                 .find(Long.valueOf(idProdProv));
 
-        if(prodProv != null)
-        {
+        if (prodProv != null) {
             System.out.println("Cambiando status");
             prodProv.setStatus(false);
             daoProductoProveedor.edit(prodProv);
             return prodProv;
-        } else
-        {
+        } else {
             System.out.println("No inhabilita");
             return null;
         }
@@ -328,20 +291,16 @@ public class ComprasController
 
     //Orden de Compra 
     @RequestMapping(value = "compras/ordenCompra", method = RequestMethod.GET)
-    public String ordenCompra(Model model)
-    {
+    public String ordenCompra(Model model) {
         return "Compras/ordenCompra";
     }
 
     @RequestMapping(value = "compras/buscarProducto", method = RequestMethod.GET)
     public @ResponseBody
-    Producto buscarProducto(Model model, String idp)
-    {
-        try
-        {
+    Producto buscarProducto(Model model, String idp) {
+        try {
             Long.valueOf(idp);
-        } catch(NumberFormatException ex)
-        {
+        } catch (NumberFormatException ex) {
             return null;
         }
         Producto producto = (Producto) daoProducto.find(Long.valueOf(idp));
@@ -352,13 +311,10 @@ public class ComprasController
 
     @RequestMapping(value = "compras/proveedorproducto", method = RequestMethod.GET)
     public @ResponseBody
-    Proveedor proveedorDeProducto(Model model, String idProductoProveedor)
-    {
-        try
-        {
+    Proveedor proveedorDeProducto(Model model, String idProductoProveedor) {
+        try {
             Long.valueOf(idProductoProveedor);
-        } catch(NumberFormatException ex)
-        {
+        } catch (NumberFormatException ex) {
             return null;
         }
         ProductoProveedor producto = (ProductoProveedor) daoProductoProveedor
@@ -368,14 +324,13 @@ public class ComprasController
 
     //Consulta Ordenes
     @RequestMapping(value = "compras/ConsultarOrdenes", method = RequestMethod.GET)
-    public String consultarOrdenes(Model model)
-    {
+    public String consultarOrdenes(Model model) {
         List<OrdenCompra> ordenes = daoOrdenCompra.findAll();
 
         model.addAttribute("ordenes", ordenes);
         return "Compras/ConsultarOrdenes";
     }
-    
+
     @RequestMapping(value = "compras/informacionproveedor", method = RequestMethod.GET)
     public String buscarInfoProveedor(Model model) {
         List<ProductoComprado> infoproveedor = daoInfoProveedor.findAll();
@@ -389,7 +344,6 @@ public class ComprasController
                     Arregl[contador][0] = proveedor.getId();
                     contador++;
                 }
-
             }
             for (Iterator iterador = infoproveedor.listIterator(); iterador.hasNext();) {
                 ProductoComprado porproveedor = (ProductoComprado) iterador.next();//fecha_pedido
@@ -400,49 +354,69 @@ public class ComprasController
                     }
                 }
             }
-            String mejorprovee="", segundomejor="", terceromejor="";
-            double primero = Arregl[0][1], segundo = 0, tercero = 0;
-            int quitarprimero = 0, quietarsegundo = 0, quietartercero=0;
+            String mejorprovee = "", segundomejor = "", terceromejor = "";
+            double primero = Arregl[0][1], segundo = 0, tercero = 0, tota = 0;
+            int quitarprimero = 0, quietarsegundo = 0, quietartercero = 0;
             for (int i = 0; i < cantProveedores.size(); i++) {
-                if (primero < Arregl[i][0]) {
-                    primero = Arregl[i][0];
+                if (primero < Arregl[i][1]) {
+                    primero = Arregl[i][1];
                     quitarprimero = i;
                 }
             }
             for (int i = 0; i < cantProveedores.size(); i++) {
-                if (segundo < Arregl[i][0] && i != quitarprimero) {
-                    segundo = Arregl[i][0];
+                if (segundo < Arregl[i][1] && i != quitarprimero) {
+                    segundo = Arregl[i][1];
                     quietarsegundo = i;
                 }
             }
             for (int i = 0; i < cantProveedores.size(); i++) {
-                if (tercero < Arregl[i][0] && i != quitarprimero && i != quietarsegundo) {
-                    tercero = Arregl[i][0];
-                    quietartercero=i;
+                if (tercero < Arregl[i][1] && i != quitarprimero && i != quietarsegundo) {
+                    tercero = Arregl[i][1];
+                    quietartercero = i;
                 }
             }
             for (Iterator iterator = cantProveedores.listIterator(); iterator.hasNext();) {
                 Proveedor proveedor = (Proveedor) iterator.next();
-                if (Arregl[quitarprimero][0]==proveedor.getId()) {
-                    mejorprovee=proveedor.getEmpresa();
+                if (Arregl[quitarprimero][0] == proveedor.getId()) {
+                    mejorprovee = proveedor.getEmpresa();
                 }
-                if (Arregl[quietarsegundo][0]==proveedor.getId()) {
-                    segundomejor=proveedor.getEmpresa();
+                if (Arregl[quietarsegundo][0] == proveedor.getId()) {
+                    segundomejor = proveedor.getEmpresa();
                 }
-                if (Arregl[quietartercero][0]==proveedor.getId()) {
-                    terceromejor=proveedor.getEmpresa();
+                if (Arregl[quietartercero][0] == proveedor.getId()) {
+                    terceromejor = proveedor.getEmpresa();
                 }
-
             }
+            for (int i = 0; i < cantProveedores.size(); i++) {
+                tota = tota + Arregl[i][1];
+            }
+            double porcent1=0,porcent2=0,porcent3=0;
+            int por1=0,por2=0,por3=0;
+            porcent1=(primero*100)/tota;
+            porcent2=(segundo*100)/tota;
+            porcent3=(tercero*100)/tota;
+            por1=(int) (porcent1*100);
+            por2=(int) (porcent2*100);
+            por3=(int) (porcent3*100);
+            porcent1=por1/100;
+            porcent2=por2/100;
+            porcent3=por3/100;
+
+            tota = tota - primero - segundo - tercero;
             System.out.println(primero);
             System.out.println(segundo);
             System.out.println(tercero);
+            System.out.println(tota);
             System.out.println(mejorprovee);
             System.out.println(segundomejor);
             System.out.println(terceromejor);
             model.addAttribute("primero", primero);
             model.addAttribute("segundo", segundo);
             model.addAttribute("tercero", tercero);
+            model.addAttribute("tota", tota);
+            model.addAttribute("por1", porcent1);
+            model.addAttribute("por2", porcent2);
+            model.addAttribute("por3", porcent3);
             model.addAttribute("MejorProv", mejorprovee);
             model.addAttribute("SegundoMejor", segundomejor);
             model.addAttribute("TercerMejor", terceromejor);
@@ -454,24 +428,19 @@ public class ComprasController
 
     }
 
-    
-
     @RequestMapping(value = "compras", method = RequestMethod.GET)
-    public String index(Model model)
-    {
+    public String index(Model model) {
         return "Compras/indexcompras";
     }
 
     @RequestMapping(value = "compras/ordencompra", method = RequestMethod.POST)
     @ResponseBody
-    public OrdenCompra crearOrdenCompra(Model model, @RequestBody OrdenCompraTransport ordenCompraTransport)
-    {
+    public OrdenCompra crearOrdenCompra(Model model, @RequestBody OrdenCompraTransport ordenCompraTransport) {
         OrdenCompra ordenCompra = new OrdenCompra();
 
         // Productos en la orden
         List<ProductoComprado> productosEnOrden = new ArrayList<>();
-        for(ProductoEnOrdenCompra productoEnOrdenCompra : ordenCompraTransport.getProductosEnOrden())
-        {
+        for (ProductoEnOrdenCompra productoEnOrdenCompra : ordenCompraTransport.getProductosEnOrden()) {
             ProductoProveedor productoProveedor = (ProductoProveedor) daoProductoProveedor
                     .find(productoEnOrdenCompra.getIdProductoProveedor());
 
@@ -495,75 +464,63 @@ public class ComprasController
     }
 
     @RequestMapping(value = "confirmacionProducto", method = RequestMethod.GET)
-    public String confirmacionProducto(Model model)
-    {
+    public String confirmacionProducto(Model model) {
         return "Compras/confirmacionProducto";
     }
 
     @RequestMapping(value = "modificarproveedor", method = RequestMethod.GET)
-    public String modificarproveedor(Model model)
-    {
+    public String modificarproveedor(Model model) {
         return "Compras/modificarproveedor";
     }
 
     @RequestMapping(value = "informacionproveedor", method = RequestMethod.GET)
-    public String informacion1proveedor(Model model)
-    {
+    public String informacion1proveedor(Model model) {
         return "Compras/informacionproveedor";
     }
 
     @RequestMapping(value = "Consulta1Orden", method = RequestMethod.GET)
-    public String Consulta1Orden(Model model)
-    {
+    public String Consulta1Orden(Model model) {
         return "Compras/Consulta1Orden";
     }
 
     @RequestMapping(value = "modificaOrden", method = RequestMethod.GET)
-    public String modificaOrden(Model model)
-    {
+    public String modificaOrden(Model model) {
         return "Compras/modificaOrden";
     }
 
     @RequestMapping(value = "confirmacionProductoEliminacion", method = RequestMethod.GET)
-    public String confirmacionProductoEliminacion(Model model)
-    {
+    public String confirmacionProductoEliminacion(Model model) {
         return "Compras/confirmacionProductoEliminacion";
     }
 
     @RequestMapping(value = "confirmacionProductoModificacion", method = RequestMethod.GET)
-    public String confirmacionProductModificacion(Model model)
-    {
+    public String confirmacionProductModificacion(Model model) {
         return "Compras/confirmacionProductoModificacion";
     }
 
     @RequestMapping(value = "ConsultaProducto", method = RequestMethod.GET)
-    public String ConsultaProducto(Model model)
-    {
+    public String ConsultaProducto(Model model) {
         return "Compras/ConsultaProducto";
 
     }
 
     @RequestMapping(value = "Consulta1Producto", method = RequestMethod.GET)
-    public String Consulta1Producto(Model model)
-    {
+    public String Consulta1Producto(Model model) {
         return "Compras/Consulta1Producto";
     }
 
     //Modifica Producto
     @RequestMapping(value = "compras/Modifica1Producto", method = RequestMethod.GET)
-    public String Modifica1Producto(Model model, @RequestParam String idproducto)
-    {
+    public String Modifica1Producto(Model model, @RequestParam String idproducto) {
 
         Map selectCategoria = new HashMap<>();
         selectCategoria.put("MATERIAPRIMA", "Materia prima");
         selectCategoria.put("ACTIVOFIJO", "Activo fijo");
         model.addAttribute("selectCategoria", selectCategoria);
 
-        try
-        {
+        try {
             Long.valueOf(idproducto);
-        } catch(NumberFormatException ex)
-        {
+        } catch (NumberFormatException ex) {
             return null;
         }
         Producto producto = (Producto) daoProducto.find(Long.valueOf(idproducto));
@@ -573,10 +530,8 @@ public class ComprasController
     }
 
     @RequestMapping(value = "compras/Modifica1Producto", method = RequestMethod.POST)
-    public String modproducto(Model model, @Valid Producto prodi2, BindingResult bindingResult)
-    {
-        if(bindingResult.hasErrors())
-        {
+    public String modproducto(Model model, @Valid Producto prodi2, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
 
@@ -585,9 +540,7 @@ public class ComprasController
             selectCategoria.put("ACTIVOFIJO", "Activo fijo");
             model.addAttribute("selectCategoria", selectCategoria);
             return "Compras/Modifica1Producto";
-        } 
-        else
-        {
+        } else {
             Producto prodi3 = (Producto) daoProducto.find(prodi2.getId());
             prodi3.setCategoria(prodi2.getCategoria());
             prodi3.setDescripcion(prodi2.getDescripcion());
@@ -603,26 +556,25 @@ public class ComprasController
 //Modifica Producto FIN
 
     @RequestMapping(value = "InformacionProducto", method = RequestMethod.GET)
-    public String InformacionProducto(Model model)
-    {
-        return "Compras/InformacionProducto";
+    public String InformacionProducto(Model model) {
+        
+            return "Compras/InformacionProducto";
+
+        
     }
 
     @RequestMapping(value = "confirmacionProveedor", method = RequestMethod.GET)
-    public String confirmacionProveedor(Model model)
-    {
+    public String confirmacionProveedor(Model model) {
         return "Compras/confirmacionProveedor";
     }
 
     @RequestMapping(value = "confirmacionProveedorMod", method = RequestMethod.GET)
-    public String confirmacionProveedorMod(Model model)
-    {
+    public String confirmacionProveedorMod(Model model) {
         return "Compras/confirmacionProveedorMod";
     }
 
     @RequestMapping(value = "confirmacionProveedorEli", method = RequestMethod.GET)
-    public String confirmacionProveedorEli(Model model)
-    {
+    public String confirmacionProveedorEli(Model model) {
         return "Compras/confirmacionProveedorEli";
     }
 

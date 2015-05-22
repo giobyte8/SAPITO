@@ -1,9 +1,3 @@
-<%-- 
-    Document   : template1
-    Created on : 7/02/2015, 02:34:44 AM
-    Author     : Monse
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +26,12 @@
 
         <!-- Custom Fonts -->
         <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <script src="../resources/js/direccion/Chart.js"></script>
+        <script src="../resources/js/compras/Chart.js"></script>
         <script>
-            
-            
+
+
             var barData2 = {
-                labels: [${MejorProv},${SegundoMejor},${TercerMejor}],
+                labels: ["${MejorProv}", "${SegundoMejor}", "${TercerMejor}"],
                 datasets: [
                     {
                         label: "My First dataset",
@@ -49,8 +43,37 @@
                     }
                 ]
             };
+            var pieData2 = [
+                {
+                    value: ${primero},
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "${MejorProv}"
+                },
+                {
+                    value: ${segundo},
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "${SegundoMejor}"
+                },
+                {
+                    value: ${tercero},
+                    color: "#FDB45C",
+                    highlight: "#FFC870",
+                    label: "${TercerMejor}"
+                }
+                {
+                    value: ${tota},
+                    color: "#FDB45C",
+                    highlight: "#FFC870",
+                    label: "Restante Total"
+                }
+            ]
 
             window.onload = function () {
+
+                var ctx5 = document.getElementById("chart-pieData2").getContext("2d");
+                window.myPie = new Chart(ctx5).Pie(pieData2, {responsive: true});
                 var ctx4 = document.getElementById("chart-barData2").getContext("2d");
                 window.myBarChart = new Chart(ctx4).Bar(barData2, {responsive: true});
             };</script>
@@ -71,7 +94,6 @@
         <div id="wrapper">
 
             <%@include file="MenusCompras/Menude compras.jsp"%>
-            <form action="compras/altaproveedor" method="POST">
                 <!-- Page Content -->
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -83,23 +105,63 @@
                                 </h1>                        
                             </div>
                         </div>        
+                        <div class="col-lg-6" >
+                            
+                            <p>La Grafica que se muetra a continuacion nos muestra los datos relacionados a losmejores 3 peoveedores de mayor a menor, tamando en cuentan el monto todal que se laha comprado o solicitado de materia prima uo activo fijo a cada uno de los proveedroes <br> <br>
+                            Como se puede ver en la grafia se muestra como el mejor Proveedor a:
+                            <br>
+                            <br>
+                            ${MejorProv} : a quien se le ha comprador una cantidad de $ ${primero} dolares colo candolo en el primer puesto 
+                            <br>
+                            <br>
+                            Para el segundo y tercer puesto se tienen a 
+                            ${SegundoMejor} y ${TercerMejor} a quienes se les a coprado la cantidad de $ ${segundo} y $ ${tercero} Dolares, repectivamente 
+                            </p>
+                            <br>
+                        </div>
                         <div class="col-lg-6" align="center">
                             <div class="panel panel-green" >
                                 <div class="panel-heading" >
-                                    Compras
+                                    Mejores 3 Proveedores
                                 </div>
 
                                 <div class="panel panel-body">
                                     <div id="canvas-holder" align="center" >
-                                        <canvas id="chart-barData2" width="800" height="400" align="center"/>
+                                        <canvas id="chart-barData2" width="800" height="200" align="center"/>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
+                        
+                        <br>
+                         
+                        <div class="col-lg-6" align="center">
+                            <div class="panel panel-green" >
+                                <div class="panel-heading" >
+                                    Comparacion General
+                                </div>
 
-
+                                <div class="panel panel-body">
+                                    <div id="canvas-holder" align="center" >
+                                        <canvas id="chart-pieData2" width="800" height="200" align="center"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" >
+                            <p>La Grafica que se muetra a continuacion nos muestra los datos relacionados a los mejores 3 peoveedores, tamando en cuentan el monto todal que se la ha comprado o solicitado de materia prima o activo fijo a cada uno de los ellos <br> <br>
+                            Como se puede ver en la grafia se muestra como el mejor Proveedor y su porcentaje relacionado al total de todas las compas realizadase donde el mejor fue :
+                            <br>
+                            <br>
+                            ${MejorProv} : con un porsentaje de ${por1} %  del total comprado colocandolo en el primer puesto 
+                            <br>
+                            <br>
+                            Para el segundo y tercer puesto se tienen a 
+                            ${SegundoMejor} y ${TercerMejor} a quienes se les a comprado la cantidad de $ ${segundo} y $ ${tercero} Dolares, repectivamente 
+                            lo cual equivale al un porcentague de ${por2} y ${por3} % respectivamnete del total que se ha comprado a todos los proveedores 
+                            </p>
+                            <br>
+                        </div>
                     </div>
                 </div>
         </div>
