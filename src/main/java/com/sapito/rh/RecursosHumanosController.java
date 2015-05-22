@@ -7,6 +7,7 @@
 package com.sapito.rh;
 
 import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.Cliente;
 import com.sapito.db.entities.Credencial;
 import com.sapito.db.entities.Departamento;
 import com.sapito.db.entities.Empleado;
@@ -14,10 +15,12 @@ import com.sapito.db.entities.Puesto;
 import com.sapito.db.entities.Rol;
 import com.sapito.general.SHA1;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -39,6 +42,7 @@ public class RecursosHumanosController {
         this.daoCredencial = daoCredencial;
         daoCredencial.setClass(Credencial.class);
     }
+
     @Autowired
     public void setDaorol(GenericDao<Rol> daoRol) {
         this.daoRol = daoRol;
@@ -80,6 +84,23 @@ public class RecursosHumanosController {
         return "RH/indexOperativo";
     }
 
+    @RequestMapping(value = "AdminEmpleadosDetalle", method = RequestMethod.POST)
+    public String AdminEmpleadosDetalle(Model model, Empleado empleado) {
+        System.out.println(empleado.getDepartamentoIddepartamento().getId());
+
+        List<Departamento> departamento = daoDepartamento.findAll();
+        List<Puesto> puesto = daoPuesto.findAll();
+
+        model.addAttribute("Departamento", departamento);
+        model.addAttribute("puesto", puesto);
+        List<Empleado> empleados = daoEmpleado.findBySpecificField("departamentoIddepartamento", empleado.getDepartamentoIddepartamento().getId(), "equal", null, null);
+        System.out.println(empleados.get(0).getNomre());
+        model.addAttribute("Empleado", new Empleado());
+        model.addAttribute("Empleados", empleados);
+
+        return "RH/administrarEmpleados";
+    }
+
     @RequestMapping(value = "AdminEmpleados", method = RequestMethod.GET)
     public String AdminEmpleados(Model model) {
 
@@ -98,13 +119,13 @@ public class RecursosHumanosController {
     @RequestMapping(value = "newUser", method = RequestMethod.POST)
     public String newUser(String puestoId, String departamentoId, Model model, Empleado empleado, BindingResult result) {
 
-        List<Empleado> empleados = daoEmpleado.findAll();
-        System.out.println(empleados.size() + "Cantidad de empleados");
-        //System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
-
-        int ultimo_empleado = empleados.get(empleados.size() - 1).getIdempleado();
-        System.out.println("ultimo_empeado" + ultimo_empleado);
-        empleado.setIdempleado(ultimo_empleado + 2);
+//        List<Empleado> empleados = daoEmpleado.findAll();
+//        System.out.println(empleados.size() + "Cantidad de empleados");
+//        //System.out.println(empleado.getDepartamentoIddepartamento().getIddepartamento());
+//
+//        int ultimo_empleado = empleados.get(empleados.size() - 1).getIdempleado();
+//        System.out.println("ultimo_empeado" + ultimo_empleado);
+//        empleado.setIdempleado(ultimo_empleado + 2);
         daoEmpleado.create(empleado);
         List<Credencial> credenciales = daoCredencial.findAll();
         int ultima_credencial = credenciales.size() - 1;
@@ -140,28 +161,35 @@ public class RecursosHumanosController {
     }
 
     @RequestMapping(value = "updateEmpleado", method = RequestMethod.GET)
-    public String updateEmpleado(Model model, String id) {
-        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(id));
-        model.addAttribute("Empleado", empleado);
+    public String updateEmpleado(Model model, String id, @Valid Empleado empleado, BindingResult bindingResult) {
+        Empleado empleados = (Empleado) daoEmpleado.find(Integer.parseInt(id));
 
         List<Departamento> departamento = daoDepartamento.findAll();
         List<Puesto> puesto = daoPuesto.findAll();
 
         model.addAttribute("Departamento", departamento);
         model.addAttribute("puesto", puesto);
+        model.addAttribute("Empleado", empleados);
 
         return "RH/updateEmpleado";
     }
 
     @RequestMapping(value = "editEmpleado", method = RequestMethod.POST)
-    public String editEmpleado(Model model, Empleado empleado, BindingResult result) {
+    public String editEmpleado(Model model, @ModelAttribute("empleado") Empleado empleado, BindingResult bindingResult) {
         System.out.println(empleado.getTelefono());
         System.out.println(empleado.getIdempleado());
 
-//        daoEmpleado.edit(empleado);
-        System.out.println("Empleado editado4");
-        model.addAttribute("Resultado", "<div class='alert-message alert-message-danger'> <h4>Alert Message Danger</h4><p> Operación Correcta: Usuario editado de manera correct</p></div>");
-        return "RH/ResultadoEmpleado";
+        if (bindingResult.hasErrors()) {
+
+            model.addAttribute("Resultado", "<div class='alert-message alert-message-danger'> <h4>Resultado de la operación:</h4><p> Operación Incorrrecta: Usuario no editado</p></div>");
+            return "RH/ResultadoEmpleado";
+        } else {
+
+            daoEmpleado.edit(empleado);
+            System.out.println("Empleado editado4");
+            model.addAttribute("Resultado", "<div class='alert-message alert-message-success'> <h4>Resultado de la operación:</h4><p> Operación Correcta: Usuario editado de manera correct</p></div>");
+            return "RH/ResultadoEmpleado";
+        }
     }
 
     @RequestMapping(value = "HistorialEmpleado", method = RequestMethod.GET)
@@ -173,14 +201,17 @@ public class RecursosHumanosController {
     public String VacacionEmpleado(Model model) {
         return "RH/VacacionEmpleado";
     }
+
     @RequestMapping(value = "adminVacacionEmpleadoOperativo", method = RequestMethod.GET)
     public String adminVacacionEmpleadoOperativo(Model model) {
         return "RH/adminVacacionesOperativo";
     }
+
     @RequestMapping(value = "asistenciaEmpleadoBase", method = RequestMethod.GET)
     public String asistenciaEmpleadoBase(Model model) {
         return "RH/AsistenciaEmpleadoBase";
     }
+
     @RequestMapping(value = "asistenciaJO", method = RequestMethod.GET)
     public String asistenciaJO(Model model) {
         return "RH/AsistenciasJefeOperativo";
@@ -217,6 +248,7 @@ public class RecursosHumanosController {
     public String VacacionEmpleadoOperativo(Model model) {
         return "RH/VacacionEmpleadoOperativo";
     }
+
     @RequestMapping(value = "altaVacacionEmpleadoBase", method = RequestMethod.GET)
     public String altaVacacionEmpleadoBase(Model model) {
         return "RH/altaVacacionesEmpleadoBase";
@@ -266,6 +298,7 @@ public class RecursosHumanosController {
     public String adminRolesAdmin(Model model) {
         return "RH/adminRolesAdministrador";
     }
+
     @RequestMapping(value = "upPuestoAdmin", method = RequestMethod.GET)
     public String upPuestoAdmin(Model model, Puesto puesto) {
         System.out.println(puesto.getDescripcion());
@@ -277,13 +310,13 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "altaPuestoAdmin", method = RequestMethod.GET)
     public String altaPuestoAdmin(Model model) {
-     
-        List<Rol> rol= daoRol.findAll();
+
+        List<Rol> rol = daoRol.findAll();
         System.out.println(rol.get(0).getNombre());
         System.out.println(rol.get(0).getDescripcion());
-        Puesto puesto  = new Puesto ();
+        Puesto puesto = new Puesto();
         model.addAttribute("Puesto", puesto);
-        model.addAttribute("Rol",rol );
+        model.addAttribute("Rol", rol);
         return "RH/addPuestoAdministrador";
     }
 

@@ -13,10 +13,11 @@
 
     </head>
     <body>
-        <div class='col-sm-6 col-md-6'>
-            ${Resultado}
-            <div class="alert-message alert-message-danger"> <h4>Alert Message Danger</h4><p> Operación Correcta: Usuario editado de manera correct</p></div>
+        <div class="container-fluid">
+            <div class='col-sm-6 col-md-6'>
+                ${Resultado}
+                <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+            </div>
         </div>
-        <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
     </body>
 </html>

@@ -31,14 +31,14 @@
                                 <h3 class="panel-title">Datos del Departamento</h3>
                             </div>
                             <div class="panel-body">  
-                                <form:form action="#" method="POST" commandName="Empleado">
+                                <form:form action="AdminEmpleadosDetalle" method="POST" commandName="Empleado">
                                     <div class="col-lg-4 text-left">
                                         <div class="form-group">
                                             <label>Seleccione el departamento</label>
                                             <div class="form-group input-group">
                                                 <form:select class="form-control" path="departamentoIddepartamento.id">
                                                     <form:option value="0" label="Seleccione uno" />
-                                                    <form:options items="${Departamento}"  itemValue="iddepartamento" itemLabel="nombreDepartamento"/>                       
+                                                    <form:options items="${Departamento}"  itemValue="id" itemLabel="nombreDepartamento"/>                       
                                                 </form:select>
                                             </div>
                                         </div>

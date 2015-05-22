@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="thumbnail">
-                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                <img class="img-responsive user-photo" src="http://wraggelabs.com/static/images/default_avatar-2.gif">
                             </div><!-- /thumbnail -->
                         </div><!-- /col-sm-1 -->
 

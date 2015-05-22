@@ -24,6 +24,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -50,13 +51,15 @@ import javax.xml.bind.annotation.XmlTransient;
             @NamedQuery(name = "Empleado.findByColonia", query = "SELECT e FROM Empleado e WHERE e.colonia = :colonia"),
             @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")
         })
+
+@SequenceGenerator(name="seq", initialValue=100, allocationSize=100)
 public class Empleado implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq")
     @NotNull
     @Column(name = "idempleado")
     private Integer idempleado;
