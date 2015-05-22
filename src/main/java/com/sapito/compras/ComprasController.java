@@ -485,7 +485,6 @@ public class ComprasController {
         selectCategoria.put("MATERIAPRIMA", "Materia prima");
         selectCategoria.put("ACTIVOFIJO", "Activo fijo");
         model.addAttribute("selectCategoria", selectCategoria);
-
         try {
             Long.valueOf(idproducto);
         } catch (NumberFormatException ex) {

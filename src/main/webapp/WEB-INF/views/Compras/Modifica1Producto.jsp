@@ -62,10 +62,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6"></div>
-                    <div class="col-md-6 text-right">
-                      <br/><a href="ConsultaProducto" class="btn btn-danger">Cancelar</a>
-                      <button type="submit" value="Aceptar"
-                                   class="btn btn-success" role="button">Aceptar</button>
+                    <div class="col-md-6 text-right">                        
+                      <br/>
+                      <button onclick="cancelarModificacionProducto()" type="button" class="btn btn-danger">Cancelar</button>
+                      <button type="submit" value="Aceptar" class="btn btn-success" role="button">Aceptar</button>
                     </div>
                   </div>
               </form:form>
@@ -76,19 +76,49 @@
       </div>  
     </div>
 
-    <!-- jQuery -->
-    <!--script src="resources/js/libs/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript ->
-    <script src="resources/js/libs/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript ->
-    <script src="resources/js/libs/metisMenu.min.js"></script>
-    <script type="text/javascript" src="resources/js/compras/jscompras.js"></script>
-
-    <!-- Custom Theme JavaScript ->
-    <script src="resources/js/libs/sb-admin-2.js"></script-->
     <%@include file="MenusCompras/Pie compras.jsp"%>
     <script src="${pageContext.request.contextPath}/resources/js/compras/jscompas.js"></script>
+    <script >
+                              $(document).ready(function () {
+                                  var showConfirm = "${showConfirm}";
+                                  console.log(showConfirm);
+                                  if (showConfirm === 'true') {
+                                      setTimeout(function () {
+                                          swal({
+                                              title: 'Registro exitoso',
+                                              text: 'El producto ha sido registrado exitosamente',
+                                              type: 'success',
+                                              showCancelButton: false,
+                                              closeOnConfirm: true
+                                          }, function (isConfirm) {
+                                              !isConfirm;
+                                              window.location.href = '/SAPITO/compras/ConsultaProducto';
+                                          });
+                                      }, 500);
+
+                                  }
+                              });
+
+                              function cancelarModificacionProducto()
+                              {
+                                  swal({
+                                      title: '¿Seguro que desea cancelar?',
+                                      text: '',
+                                      type: 'warning',
+                                      showCancelButton: true,
+                                      confirmButtonColor: "#DD6B55",
+                                      confirmButtonText: 'Si, cancelar alta',
+                                      cancelButtonText: 'No',
+                                      closeOnConfirm: true
+                                  }, function (isConfirm) {
+                                      if (isConfirm) {
+                                          location.reload();
+                                          window.location.href = '/SAPITO/compras/ConsultaProducto';
+
+                                      }
+
+                                  });
+                              }
+        </script>
   </body>
 </html>
