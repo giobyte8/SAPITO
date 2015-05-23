@@ -1,4 +1,4 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+Cod<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@
                                         <form:errors path="nombreProducto" element="div" class="alert-danger pad-10" />
                                     </div>
                                     <div class="col-md-6">
-                                        <br/><label for="nvo-descripcion" class="control-label">Descripcion</label>
+                                        <br/><label for="nvo-descripcion" class="control-label">Descripción</label>
                                         <form:input path="descripcion" name="descripcion" type="text" class="form-control" 
                                                     id="nvo-descripcion" placeholder="Descripcion" />
                                         <form:errors path="descripcion" element="div" class="alert-danger pad-10" />
@@ -52,7 +52,7 @@
                                         <form:errors path="marca" element="div" class="alert-danger pad-10" />
                                     </div>
                                     <div class="col-md-6">
-                                        <br/><label for="nvo-categoria" class="control-label">Categoria</label>
+                                        <br/><label for="nvo-categoria" class="control-label">Categorìa</label>
                                         <form:select id="nvo-categoria" path="categoria" items="${selectCategoria}" class="form-control" />
                                     </div>
                                 </div>

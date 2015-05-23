@@ -38,10 +38,10 @@
                         <thead>
                             <tr>
                                 <th>Empresa</th>
-                                <th>Telefono</th>
+                                <th>Teléfono</th>
                                 <th>Email</th>
                                 <th>Nombre del Contacto</th>
-                                <th>Telefono</th>
+                                <th>Teléfono</th>
                                 <th>Detalles</th>
                                 <th>Modificar</th>                                
                             </tr>

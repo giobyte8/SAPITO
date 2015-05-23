@@ -39,9 +39,9 @@
               <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
+                <th>Descripciòn</th>
                 <th>Marca</th>
-                <th>Categoria</th>
+                <th>Categorìa</th>
                 <th>Detalles</th>
                 <th>Modificar</th>
               </tr>
@@ -101,7 +101,7 @@
                     <input type="text" class="form-control" readonly value="${producto.marca}" />
                   </div>
                   <div class="col-md-6">
-                    <br/><label>Categoria</label>
+                    <br/><label>Categorìa</label>
                     <input type="text" class="form-control" readonly value="${producto.categoria}" />
                   </div>
                 </div>
