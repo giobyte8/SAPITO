@@ -299,12 +299,13 @@ public class RecursosHumanosController {
         return "RH/adminRolesAdministrador";
     }
 
-    @RequestMapping(value = "upPuestoAdmin", method = RequestMethod.GET)
-    public String upPuestoAdmin(Model model, Puesto puesto) {
+    @RequestMapping(value = "upPuestoAdmin", method = RequestMethod.POST)
+    public String upPuestoAdmin(Model model, @Valid Puesto puesto,BindingResult bindingResult) {
         System.out.println(puesto.getDescripcion());
         System.out.println(puesto.getNombre());
         System.out.println(puesto.getHoraentrada());
-        System.out.println(puesto.getHorafin());
+        System.out.println(puesto.getHorafin());        
+        System.out.println("Empleado.......................");
         return "RH/addPuestoAdministrador";
     }
 
