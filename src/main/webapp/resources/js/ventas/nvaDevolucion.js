@@ -5,7 +5,7 @@
  * @author Giovanni Aguirre
  */
 
-var API_URL = 'http://localhost:8080/SAPITO/ventas/';
+var API_URL = '/SAPITO/ventas/';
 var idOrden = null;
 
 function buscarOrdenVenta()

@@ -155,13 +155,13 @@
                     </div>
 
                     <div class="col-md-2">
-                      <br/><label for="fnvoc-tel1">Teléfono</label>
+                      <br/><label for="fnvoc-tel1">Teléfono 1</label>
                       <form:input path="telefono1" name="telefono1" 
                                   type="text" class="form-control"/>
                       <form:errors path="telefono1" element="div" class="alert-danger pad-10" />
                     </div>
                     <div class="col-md-2">
-                      <br/><label>Extensión</label>
+                      <br/><label>Extensión 1</label>
                       <form:input path="extension1" name="extension1"
                                   type="text" class="form-control" />
                       <form:errors path="extension1" element="div" class="alert-danger pad-10" />

@@ -38,9 +38,7 @@
                 <th>Id Orden</th>
                 <th>Vendedor</th>
                 <th>Cliente</th>
-                <th>RFC del Cliente</th>
                 <th>Fecha de la venta</th>
-                <th>Monto de la venta</th>
                 <th>Status Venta</th>
                 <th>Detalles</th>
               </tr>
@@ -51,9 +49,7 @@
                     <td>${orden.id}</td>
                     <td>Some vendor</td>
                     <td>${orden.cliente.empresa}</td>
-                    <td>${orden.cliente.rfc}</td>
                     <td>${orden.fechaEntrega}</td>
-                    <td>${orden.montoConCargos}</td>
                     <td>${orden.status}</td>
                     <td><button class="btn btn-xs btn-success" type="button"
                                 data-toggle="modal" data-target="#cts-modal${orden.id}">

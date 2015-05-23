@@ -37,7 +37,6 @@
               <input id="cliente-rfc" type="text" class="form-control" placeholder="RFC del cliente"/>
               <span class="input-group-btn">
                 <button class="btn btn-success" onclick="buscarCliente()">Buscar</button>
-                <a href="nvocliente" class="btn btn-primary">Registrar nuevo</a>
               </span>
             </div>
             <div id="alert-rfc" class="alert alert-danger hidden">
@@ -74,7 +73,7 @@
                 <tr>
                   <th>Concepto</th>
                   <th>Cantidad</th>
-                  <th>Editar</th>
+                  <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
@@ -265,6 +264,10 @@
             <div id="addc-alert" class="alert alert-danger hidden">
               <span class="fa fa-exclamation-triangle"></span>
               <span>Asegurese de ingresar un concepto y cantidad validos</span>
+            </div>
+            <div id="alert-cantidad-revasada" class="alert alert-danger">
+              <span class="fa fa-exclamation-triangle"></span>
+              <span>La cantidad disponible no es suficiente para la orden requerida</span>
             </div>
           </div>
 

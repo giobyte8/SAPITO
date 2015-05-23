@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -101,6 +100,7 @@ public class VentasController
         }
         else
         {
+            System.out.println("Se recibe: " + cliente.getNombreContacto());
             daoCliente.create(cliente);
             
             List<Cliente> clientes = daoCliente.findAll();
@@ -165,19 +165,6 @@ public class VentasController
     public @ResponseBody OrdenVenta nvaOrdenVenta(
             Model model, @RequestBody OrdenVentaTransport ordenVentaTransport)
     {
-//        System.out.println("ClientID:" + ordenVentaTransport.getClientId());
-//        System.out.println("Monto: " + ordenVentaTransport.getMonto());
-//        System.out.println("We receiVe Cargos Extra: ");
-//        for(CargoExtra ce : ordenVentaTransport.getCargosExtra())
-//        {
-//            System.out.println(ce.getCantidad() + "\t" + ce.getConcepto());
-//        }
-//        
-//        System.out.println("We receive Productos:");
-//        for(ProductoEnOrden peo : ordenVentaTransport.getProductosEnOrden())
-//        {
-//            System.out.println(peo.getIdInventario() + "\t" + peo.getCantidad());
-//        }
         Cliente cliente = (Cliente) daoCliente.find(ordenVentaTransport.getClientId());
         
         OrdenVenta orden = new OrdenVenta();
@@ -226,7 +213,8 @@ public class VentasController
         try { Long.valueOf(idOrden); } catch(NumberFormatException ex) { return null; }
         
         OrdenVenta orden = (OrdenVenta) daoOrdenVenta.find(Long.valueOf(idOrden));
-        return (orden != null) ? orden.getCliente() : null;
+        return (orden != null && orden.getStatus().compareTo("VENTA") == 0) ?
+                orden.getCliente() : null;
     }
     
     @RequestMapping(value = "ventas/devolverorden", method = RequestMethod.GET)

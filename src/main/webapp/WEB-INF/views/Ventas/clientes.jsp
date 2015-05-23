@@ -40,9 +40,8 @@
                 <th>Nombre de contacto</th>
                 <th>Email</th>
                 <th>Detalles</th>
-                 <th>Detalles</th>
-                  <th>Editar</th>
-                   <th>Inhabilitar</th>
+                <th>Editar</th>
+                <th>Inhabilitar</th>
               </tr
             </thead>
             <tbody>
@@ -60,7 +59,7 @@
                     </td>
                     <td>
                       <button class="btn btn-xs btn-success" type="button" >
-                       Editar
+                        Editar
                       </button>
                     </td>
                     <td>
@@ -154,12 +153,22 @@
                     <input type="text" class="form-control" readonly value="${cliente.email}" />
                   </div>
                   <div class="col-md-4">
-                    <br/><label>Teléfono</label>
+                    <br/><label>Teléfono 1</label>
                     <input type="text" class="form-control" readonly value="${cliente.telefono1}" />
                   </div>
                   <div class="col-md-4">
                     <br/><label>Teléfono 2.</label>
                     <input type="text" class="form-control" readonly value="${cliente.telefono2}"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 col-md-offset-4">
+                    <br/><label>Extensión 1</label>
+                    <input type="text" class="form-control" readonly value="${cliente.extension1}" />
+                  </div>
+                  <div class="col-md-4">
+                    <br/><label>Extensión 2</label>
+                    <input type="text" class="form-control" readonly value="${cliente.extension2}" />
                   </div>
                 </div>
               </div>
