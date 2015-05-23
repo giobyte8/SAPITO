@@ -1,4 +1,4 @@
-﻿        /*Script Insert Empleados*/
+﻿        /*Script Insert Empleados Domingo 17-05-20*/
 
 
         ALTER TABLE Departamento ALTER COLUMN MetasTopes_idMetasTopes DROP NOT NULL;
@@ -28,43 +28,42 @@
 
         /*  Puestos */
         INSERT INTO puesto(
-                    idpuesto, nombre, descripcion, status, sueldobase, presupuesto,idrol)
-            VALUES (1, 'JEFE_OPERATIVO','Encargado del trato directo con el personal',1, 5200, 0,1);
+                    idpuesto, nombre,horaentrada,horafin, descripcion, status, sueldobase, presupuesto,idrol)
+            VALUES (1, 'JEFE_OPERATIVO',TIMESTAMP '2011-05-16 15:36:38',TIMESTAMP '2011-05-16 15:36:38','Encargado del trato directo con el personal',1, 5200, 0,1);
 
         INSERT INTO puesto(
-                    idpuesto, nombre, descripcion, status, sueldobase, presupuesto,idrol)
-            VALUES (2, 'JEFE_DEPARTAMENTO','Encargado de la parte administrativa del departamento',1, 7350, 0,2);
+                    idpuesto, nombre,horaentrada,horafin, descripcion, status, sueldobase, presupuesto,idrol)
+            VALUES (2, 'JEFE_DEPARTAMENTO',TIMESTAMP '2011-05-16 15:36:38',TIMESTAMP '2011-05-16 15:36:38','Encargado de la parte administrativa del departamento',1, 7350, 0,2);
 
         INSERT INTO puesto(
-                    idpuesto, nombre, descripcion, status, sueldobase, presupuesto,idrol)
-            VALUES (3, 'EMPLEADO_BASE','Encargado del trato directo con el personal',1, 5200, 0,3);
+                    idpuesto, nombre,horaentrada,horafin, descripcion, status, sueldobase, presupuesto,idrol)
+            VALUES (3, 'EMPLEADO_BASE',TIMESTAMP '2011-05-16 15:36:38',TIMESTAMP '2011-05-16 15:36:38','Encargado del trato directo con el personal',1, 5200, 0,3);
 
         INSERT INTO puesto(
-                    idpuesto, nombre, descripcion, status, sueldobase, presupuesto,idrol)
-            VALUES (4, 'DIRECTOR','..',1, 20200, 0,4);
+                    idpuesto, nombre,horaentrada,horafin, descripcion, status, sueldobase, presupuesto,idrol)
+            VALUES (4, 'DIRECTOR',TIMESTAMP '2011-05-16 15:36:38',TIMESTAMP '2011-05-16 15:36:38','..',1, 20200, 0,4);
 
 
         INSERT INTO puesto(
-                    idpuesto, nombre, descripcion, status, sueldobase, presupuesto,idrol)
-            VALUES (5, 'SUB_DIRECTOR','..',1, 15200,0, 5);
+                    idpuesto, nombre,horaentrada,horafin, descripcion, status, sueldobase, presupuesto,idrol)
+            VALUES (5, 'SUB_DIRECTOR',TIMESTAMP '2011-05-16 15:36:38',TIMESTAMP '2011-05-16 15:36:38','..',1, 15200,0, 5);
 
 
 
 
         /*  Empresa */
 
-        INSERT INTO empresa(
-                    idempresa, nombre, rfc, calle, capital, colonia, numeroexterior)
-            VALUES (1, 'Sapito', 'SAPI121212ERD', 'SIN CALLE', 0, 'CENTRO', '12');
+INSERT INTO empresa(
+            id, calle, capitalinicial, colonia, email, estado, municipio, 
+            nombre, nume, numi, pais, rfc, telefono)
+            VALUES (1, 'sin calle',2,'capital','EMAIL@d.COM','ESTADO','MUNICIPIO','nombre', 12121,'numi','pais','SAPI121212ERD',7221234567);
 
 
         /* Cuenta Bancaria */
 
         INSERT INTO cuentabancaria(
-                    idcuentabancaria, claveinterbancaria, clave, nombrebanco, saldo, 
-                    tasainteres, empresa_idempresa)
-            VALUES (1,'193283410001238391', '213', 'ScotiaBank', '232323', 
-                    12.2, 1);
+                    id,clavebanco, claveinterbancaria,deber,haber, nombrebanco, empresa)
+            VALUES (1,'19328341000123', '213',1223,12332, 'ScotiaBank' ,1);
 
 
 
@@ -122,13 +121,6 @@
                     'MLAR011201AS3', 'AV Centenario','Centro', 've.jo.mrebollo@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
 
-        INSERT INTO empleado(
-                    idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
-                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
-                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
-                    telefono)
-            VALUES (24,'Jesus Giovany',1,2,'Alvarez' , 'Aguirre',
-                    'MLAR011201AS3', 'AV Centenario','Centro', 've.jd.jgalvarez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
         INSERT INTO empleado(
                     idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
@@ -327,6 +319,15 @@
             VALUES (23,'Emmanuel',9,3,'Campos' , 'lopez',
                     'MLAR011201AS3', 'AV Centenario','Centro', 'lo.eb.eclopez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
 
+        INSERT INTO empleado(
+                    idempleado, nomre, departamento_iddepartamento, puesto_idpuesto, 
+                    apaterno, amaterno, rfc, calle, colonia, email,codigo_postal,
+                    estado,estado_civil,fecha_nacimiento,municipio,num_seguro,sexo,
+                    telefono)
+            VALUES (24,'Jesus Giovany',1,2,'Alvarez' , 'Aguirre',
+                    'MLAR011201AS3', 'AV Centenario','Centro', 've.jd.jgalvarez@sap.com',50000,'Mexico','SOLTERO','01/01/15','TOLUCA',0054123123,'SEXO',7223214331);
+                    
+
         /*Credenciales*/
         /*Las contraseñas estan cifradas en SHA-1*/
 
@@ -452,6 +453,7 @@
         INSERT INTO credencial(
                     idcredencial, usuario, "contrasena", status, empleado_idempleado)
             VALUES (23,'lo.eb.eclopez@sap.com', '2bed20dfe4a62a4642ad8fb7eff8208e0822428e', 1, 23);
+
 
 
 
