@@ -36,6 +36,10 @@
                                     <table class="table table-striped">
                                         <tbody>
                                             <tr>
+                                                <td>Clave</td>
+                                                <td>${Empleado.idempleado}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Departamento</td>
                                                 <td>${Empleado.departamentoIddepartamento.nombreDepartamento}</td>
                                             </tr>

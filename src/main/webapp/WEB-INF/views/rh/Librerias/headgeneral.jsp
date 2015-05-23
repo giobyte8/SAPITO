@@ -21,9 +21,14 @@
 
 <!-- MetisMenu CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
-
+<link href="${pageContext.request.contextPath}/resources/css/rh/bootstrap-timepicker.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/rh/bootstrap-timepicker.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/rh/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <!-- Timeline CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/timeline.css" rel="stylesheet">
+
+<link href="<%=request.getContextPath()%>/resources/css/rh/bootstrap-timepicker.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/rh/bootstrap-timepicker.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <!--<link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin-2.css" rel="stylesheet">-->

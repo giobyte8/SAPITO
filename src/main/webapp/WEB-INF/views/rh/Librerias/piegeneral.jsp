@@ -21,6 +21,8 @@
    <script src="../resources/js/libs/morris-data.js"></script>-->
 <script src="${pageContext.request.contextPath}/resources/js/rh/confirmaOperacionRH.js"></script> <!-- se agrego esto-->
 <script src="${pageContext.request.contextPath}/resources/js/rh/validacionRH.js"></script>
+<script src="<%=request.getContextPath()%>/js/bootstrap-timepicker.js"></script>
+<script src="<%=request.getContextPath()%>/js/bootstrap-timepicker.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/libs/sb-admin-2.js"></script>
