@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var API_URL = 'http://localhost:8080/SAPITO/ventas/';
+var API_URL = '/SAPITO/ventas/';
 
 /**
  * transporta los datos de la nueva orden de venta hacia el servidor
@@ -26,15 +26,15 @@ var granTotal = 0;
 
 function buscarCliente()
 {
-    
+
     var rfc = $('#cliente-rfc').val();
     var reqUrl = API_URL + 'buscarcliente';
     var params = {
         rfc: rfc
     };
-    
+
     $.get(reqUrl, params, function (data) {
-        
+
         if (data.empresa) {
             $('#fcliente-empresa').val(data.empresa);
             $('#fcliente-nombre').val(data.nombreContacto);
@@ -44,7 +44,7 @@ function buscarCliente()
         else {
             swal({
                 title: "Cliente no encontrado",
-                text: "El cliente con rfc: " + rfc + " no existe.",
+                text: "El cliente con rfc: '" + rfc + "' no existe. Registrelo",
                 type: "error"
             });
         }
@@ -90,22 +90,30 @@ function agregarAOrden()
         // Validar cantidad ingresada
         var cantidad = $('#addp-cantidad').val();
         if (/^\d+$/.test(cantidad)) {
-            $('#addp-cantidad-alert').addClass('hidden');
-            var trow = '<tr><td>' + $('#addp-nombre').val() + '</td>'
-                    + '<td>' + $('#addp-cantidad').val() + '</td>'
-                    + '<td>' + $('#addp-costo').val() + ' </td>';
-            $('#tproductos > tbody:last').append(trow);
-            ordenVentaTransport.productosEnOrden.push({
-                idInventario: idProductoActual,
-                cantidad: +$('#addp-cantidad').val()
-            });
-            $('#alert-productos').addClass('hidden');
 
-            costoTotalOrden = +costoTotalOrden + (+$('#addp-costo').val() * +$('#addp-cantidad').val());
-            ordenVentaTransport.monto = costoTotalOrden;
-            updateCostos();
-            $('#addp-modal').modal('hide');
-            clearAddPForm();
+            // Validar cantidad disponible
+            if (+$('#addp-cantidad').val() > +$('#addp-cantidaddisp').val()) {
+                $('#addp-cantidad-alert').removeClass('hidden');
+            }
+            else {
+                $('#alert-cantidad-revasada').addClass('hidden');
+                $('#addp-cantidad-alert').addClass('hidden');
+                var trow = '<tr><td>' + $('#addp-nombre').val() + '</td>'
+                        + '<td>' + $('#addp-cantidad').val() + '</td>'
+                        + '<td>' + $('#addp-costo').val() + ' </td>';
+                $('#tproductos > tbody:last').append(trow);
+                ordenVentaTransport.productosEnOrden.push({
+                    idInventario: idProductoActual,
+                    cantidad: +$('#addp-cantidad').val()
+                });
+                $('#alert-productos').addClass('hidden');
+
+                costoTotalOrden = +costoTotalOrden + (+$('#addp-costo').val() * +$('#addp-cantidad').val());
+                ordenVentaTransport.monto = costoTotalOrden;
+                updateCostos();
+                $('#addp-modal').modal('hide');
+                clearAddPForm();
+            }
         }
         else {
             $('#addp-cantidad-alert').removeClass('hidden');
@@ -141,9 +149,10 @@ function agregarCargo()
     }
     else {
         $('#addc-alert').addClass('hidden');
-        var trow = '<tr><td>' + concepto + '</td>'
+        var cargoIndex = ordenVentaTransport.cargosExtra.length;
+        var trow = '<tr id="' + cargoIndex + '"><td>' + concepto + '</td>'
                 + '<td>' + cantidad + '</td>'
-                + '<td><button type="button" class="btn btn-success btn-xs">Editar</button></td></tr>';
+                + '<td><button type="button" class="btn btn-danger btn-xs" onclick="eliminarCargo(' + cargoIndex + ')">Eliminar</button></td></tr>';
         $('#tcargos > tbody:last').append(trow);
         ordenVentaTransport.cargosExtra.push({
             concepto: concepto,
@@ -180,6 +189,12 @@ function clearAddCForm()
     $('#addc-alert').addClass('hidden');
     $('#addc-concepto').val('');
     $('#addc-cantidad').val('');
+}
+
+function eliminarCargo(index)
+{
+    ordenVentaTransport.cargosExtra.splice(index, 1);
+    $('#' + index).remove();
 }
 
 function enviarOrden()

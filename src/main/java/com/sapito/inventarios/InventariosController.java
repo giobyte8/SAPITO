@@ -97,7 +97,7 @@ public class InventariosController
     public String maximoMinProducto(Model model)
     {
         Query query =daoInventario.getEntityMgr().createQuery("SELECT a FROM Inventario a Where a.tipoProducto=:tipo");
-        query.setParameter("tipo", "PRODUCTOTERMINADO");
+        query.setParameter("tipo", "Producto Terminado");
         List<Inventario> inventario = query.getResultList(); 
 
         if(inventario != null && inventario.size() > 0)
@@ -121,9 +121,10 @@ public class InventariosController
         inventario.setMinimo(Integer.valueOf(minMod));
         
         daoInventario.edit(inventario);
+         
         
         List<Inventario> inventarios = daoInventario
-                .findBySpecificField("tipoProducto", "PRODUCTOTERMINADO", "equal", null, null);
+                .findBySpecificField("tipoProducto", "Producto Terminado", "equal", null, null);
         model.addAttribute("inventario", inventarios);
         return"Inventarios/productoTerminadoView";
     }
@@ -160,7 +161,7 @@ public class InventariosController
         daoInventario.edit(inventario);
         
         List<Inventario> inventarios = daoInventario
-                .findBySpecificField("tipoProducto", "materia Prima", "equal", null, null);
+                .findBySpecificField("tipoProducto", "Materia Prima", "equal", null, null);
         model.addAttribute("inventario", inventarios);
         return"Inventarios/materiaPrimaView";
     }
