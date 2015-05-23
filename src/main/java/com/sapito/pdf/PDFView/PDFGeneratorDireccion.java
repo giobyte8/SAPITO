@@ -36,6 +36,8 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.sapito.activofijo.Depreciacion;
+import com.sapito.db.entities.CuentaBancaria;
+import com.sapito.db.entities.Detallevacaciones;
 import com.sapito.db.entities.Inventario;
 import com.sapito.db.entities.OrdenCompra;
 import com.sapito.db.entities.OrdenVenta;
@@ -53,6 +55,7 @@ import org.springframework.ui.Model;
 public class PDFGeneratorDireccion {
 
     public double a, b;
+    
 
     public void crearPDFFactura(
             Map<String, Object> model, HttpServletResponse hsr1, List<Producto> tipo) throws Exception {
@@ -394,5 +397,170 @@ public class PDFGeneratorDireccion {
         hsr1.setContentLength(bytes.length);
         hsr1.getOutputStream().write(bytes);
     }
+    
+    
+    public void reporteRH(
+            Map<String, Object> model, HttpServletResponse hsr1, int detalle) throws Exception {
+        Document document = new Document();
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PdfWriter.getInstance(document, baos);
+
+        document.open();
+        document.addTitle("Sapito PDFs");
+        document.addSubject("Pdf de sapito");
+        Font font1 = FontFactory.getFont(FontFactory.TIMES_ROMAN, 30);
+        font1.setColor(BaseColor.BLACK);
+        Font font2 = FontFactory.getFont(FontFactory.TIMES_ROMAN, 24);
+        font2.setColor(BaseColor.BLACK);
+        document.add(new Paragraph("TAILS 2015", font1));
+        document.add(new Paragraph("Reportes Dirección\n", font2));
+
+        //------------------------ TAIS  ______________________________
+        Image tais = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/tais-banner.jpg"));
+        document.add(tais);
+
+        //---------------------  BODY    ---------------------------------------------------------
+        Image body = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/body.png"));
+        body.setAlignment(Image.UNDERLYING);
+        body.setTransparency(new int[]{0x00, 0x10});
+        body.setAbsolutePosition(50, 250);
+        document.add(body);
+        //-------------------------------------------------------------------------------------------
+        Image footer = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/footer.jpg"));
+        footer.setAbsolutePosition(50, 20);
+        document.add(footer);
+        //----------------------  TITLE ---------------------------
+        String titulo = "Reporte de Recursos Humanos"; //Cambiar el titulo del PDF aqui
+        Font f = new Font(FontFamily.HELVETICA, 25.0f, Font.BOLD, BaseColor.BLACK);
+        Chunk c = new Chunk(titulo + " \n ", f);
+        c.setBackground(BaseColor.WHITE);
+        Paragraph title = new Paragraph(c);
+        title.setAlignment(Element.ALIGN_CENTER);
+        //-------------------------  CONTENIDO -------------------------------------------------------
+        document.add(title);  //Titulo del PDF
+
+        TextoPdf x = (TextoPdf) model.get("todoTexto");
+        document.add(new Paragraph(x.getTodoTexto()));
+
+        PdfPTable table = new PdfPTable(1);
+        table.setWidthPercentage(100.0f);
+        table.setWidths(new float[]{2.0f});
+        table.setSpacingBefore(10);
+
+        // define font for table header row
+        Font font = FontFactory.getFont(FontFactory.COURIER_BOLD);
+        font.setColor(BaseColor.WHITE);
+
+        // define table header cell
+        PdfPCell cell = new PdfPCell();
+        cell.setBackgroundColor(BaseColor.BLUE);
+        cell.setPadding(5);
+
+        // write table header 
+        cell.setPhrase(new Phrase("Total de de Empleados en Vacaciones", font));
+        table.addCell(cell);
+        
+        
+  
+        String bla = detalle + " ";
+        table.addCell(bla);
+
+        document.add(table);
+
+        //-------------------------- FIN CONTENIDO -----------------
+        document.close();
+
+        byte[] bytes = baos.toByteArray();
+
+        hsr1.setContentType("application/pdf");
+        hsr1.setContentLength(bytes.length);
+        hsr1.getOutputStream().write(bytes);
+    }
+
+    
+    public void reportefinanzas(
+            Map<String, Object> model, HttpServletResponse hsr1, List<CuentaBancaria>cuenta) throws Exception {
+        Document document = new Document();
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PdfWriter.getInstance(document, baos);
+
+        document.open();
+        document.addTitle("Sapito PDFs");
+        document.addSubject("Pdf de sapito");
+        Font font1 = FontFactory.getFont(FontFactory.TIMES_ROMAN, 30);
+        font1.setColor(BaseColor.BLACK);
+        Font font2 = FontFactory.getFont(FontFactory.TIMES_ROMAN, 24);
+        font2.setColor(BaseColor.BLACK);
+        document.add(new Paragraph("TAILS 2015", font1));
+        document.add(new Paragraph("Reportes Dirección\n", font2));
+
+        //------------------------ TAIS  ______________________________
+        Image tais = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/tais-banner.jpg"));
+        document.add(tais);
+
+        //---------------------  BODY    ---------------------------------------------------------
+        Image body = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/body.png"));
+        body.setAlignment(Image.UNDERLYING);
+        body.setTransparency(new int[]{0x00, 0x10});
+        body.setAbsolutePosition(50, 250);
+        document.add(body);
+        //-------------------------------------------------------------------------------------------
+        Image footer = Image.getInstance(new URL("http://localhost:8080/SAPITO/resources/img/footer.jpg"));
+        footer.setAbsolutePosition(50, 20);
+        document.add(footer);
+        //----------------------  TITLE ---------------------------
+        String titulo = "Reporte de Finanzas"; //Cambiar el titulo del PDF aqui
+        Font f = new Font(FontFamily.HELVETICA, 25.0f, Font.BOLD, BaseColor.BLACK);
+        Chunk c = new Chunk(titulo + " \n ", f);
+        c.setBackground(BaseColor.WHITE);
+        Paragraph title = new Paragraph(c);
+        title.setAlignment(Element.ALIGN_CENTER);
+        //-------------------------  CONTENIDO -------------------------------------------------------
+        document.add(title);  //Titulo del PDF
+
+        TextoPdf x = (TextoPdf) model.get("todoTexto");
+        document.add(new Paragraph(x.getTodoTexto()));
+
+        PdfPTable table = new PdfPTable(1);
+        table.setWidthPercentage(100.0f);
+        table.setWidths(new float[]{2.0f});
+        table.setSpacingBefore(10);
+
+        // define font for table header row
+        Font font = FontFactory.getFont(FontFactory.COURIER_BOLD);
+        font.setColor(BaseColor.WHITE);
+
+        // define table header cell
+        PdfPCell cell = new PdfPCell();
+        cell.setBackgroundColor(BaseColor.BLUE);
+        cell.setPadding(5);
+
+        // write table header 
+        cell.setPhrase(new Phrase("Total de dinero que se tiene en CUENTAS BANCARIAS", font));
+        table.addCell(cell);
+        
+        
+  
+        for (int i = 0; i< cuenta.size(); i++) {
+            a=cuenta.get(i).getHaber();
+            b=b+a;
+        }
+        String bla = b + " ";
+        table.addCell(bla);
+
+        document.add(table);
+
+        //-------------------------- FIN CONTENIDO -----------------
+        document.close();
+
+        byte[] bytes = baos.toByteArray();
+
+        hsr1.setContentType("application/pdf");
+        hsr1.setContentLength(bytes.length);
+        hsr1.getOutputStream().write(bytes);
+    }
+
 
 }

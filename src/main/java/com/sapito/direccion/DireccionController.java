@@ -6,12 +6,15 @@
 package com.sapito.direccion;
 
 import com.sapito.db.dao.GenericDao;
+import com.sapito.db.entities.CuentaBancaria;
+import com.sapito.db.entities.Detallevacaciones;
 import com.sapito.db.entities.Inventario;
 import com.sapito.db.entities.OrdenCompra;
 import com.sapito.db.entities.OrdenVenta;
 import com.sapito.db.entities.Producto;
 import com.sapito.db.entities.TipoActivoFijo;
 import com.sapito.pdf.PDFView.PDFGeneratorDireccion;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -26,6 +29,7 @@ import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 /**
  *
  * @author LAWL
@@ -35,11 +39,26 @@ public class DireccionController {
 
     private GenericDao<Inventario> daoInventario;
     private EntityManager em;
-     private GenericDao<Producto> daoProducto;
+    private GenericDao<Producto> daoProducto;
     private GenericDao<OrdenVenta> daoOrdenVenta;
     private GenericDao<OrdenCompra> daoOrdenCompra;
     private GenericDao<TipoActivoFijo> daoTipoActivoFijo;
+    private GenericDao<Detallevacaciones> daoDetallevacaciones;
+    private GenericDao<CuentaBancaria> daoCuentaBancaria;
 
+    
+    @Autowired
+    public void setDaoCuentaBancaria(GenericDao<CuentaBancaria> daoCuentaBancaria) {
+        this.daoCuentaBancaria = daoCuentaBancaria;
+        daoCuentaBancaria.setClass(CuentaBancaria.class);
+    }
+    
+    @Autowired
+    public void setDaoDetallevacaciones(GenericDao<Detallevacaciones> daoDetallevacaciones) {
+        this.daoDetallevacaciones = daoDetallevacaciones;
+        daoDetallevacaciones.setClass(Detallevacaciones.class);
+    }
+    
     @Autowired
     public void setDaoProducto(GenericDao<Producto> daoProducto) {
         this.daoProducto = daoProducto;
@@ -57,13 +76,15 @@ public class DireccionController {
         this.daoOrdenCompra = daoOrdenCompra;
         daoOrdenCompra.setClass(OrdenCompra.class);
     }
+
     @Autowired
     public void setDaoInventario(GenericDao<Inventario> daoInventario) {
         this.daoInventario = daoInventario;
-        
+
         daoInventario.setClass(Inventario.class);
 
     }
+
     @Autowired
     public void setDaoTipoActivoFijo(GenericDao<TipoActivoFijo> daoTipoActivoFijo) {
         this.daoTipoActivoFijo = daoTipoActivoFijo;
@@ -96,9 +117,9 @@ public class DireccionController {
         List<Inventario> inv = daoInventario.findAll();
         model.addAttribute("inv", inv);
 
-        
         return "Direccion/Graficas";
     }
+
     @RequestMapping(value = "Direccion/Ventas", method = RequestMethod.GET)
     public String Ventas(Model model) {
         model.addAttribute("textoPdf", new TextoPdf());
@@ -146,6 +167,7 @@ public class DireccionController {
         model.addAttribute("textoPdf", new TextoPdf());
         return "Direccion/Finanzas";
     }
+
     @RequestMapping(value = "Direccion/ReportePrueba")
     public String ReportePrueba(Model model) {
         model.addAttribute("textoPdf", new TextoPdf());
@@ -163,7 +185,7 @@ public class DireccionController {
         PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
         model.addAttribute("todoTexto", pdfText);
         try {
-           pdfView.crearPDFFactura((Map<String, Object>) model, response, producto);
+            pdfView.crearPDFFactura((Map<String, Object>) model, response, producto);
 
         } catch (Exception ex) {
             Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
@@ -174,10 +196,9 @@ public class DireccionController {
 
     @RequestMapping(value = "Direccion/testpdfventas", method = RequestMethod.POST)
     @ResponseBody
-    public String ReporteVentas(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) {
+    public String ReporteVentas(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         List<OrdenVenta> oredenventa = daoOrdenVenta.findAll();
-
         PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
         model.addAttribute("todoTexto", pdfText);
         try {
@@ -200,7 +221,24 @@ public class DireccionController {
         model.addAttribute("todoTexto", pdfText);
         try {
             pdfView.reportecompras((Map<String, Object>) model, response, ordencompra);
-            
+
+        } catch (Exception ex) {
+            Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "OK";
+    }
+
+    @RequestMapping(value = "Direccion/testpdfinventario", method = RequestMethod.POST)
+    @ResponseBody
+    public String ReporteInvenario(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        List<Inventario> inventario = daoInventario.findAll();
+        PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
+        model.addAttribute("todoTexto", pdfText);
+        try {
+            pdfView.reporteinventario((Map<String, Object>) model, response, inventario);
+
         } catch (Exception ex) {
             Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -208,23 +246,40 @@ public class DireccionController {
         return "OK";
     }
     
-    @RequestMapping(value = "Direccion/testpdfinventario", method = RequestMethod.POST)
+    @RequestMapping(value = "Direccion/testpdfrh", method = RequestMethod.POST)
     @ResponseBody
-    public String ReporteInvenario(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) {
+    public String ReporteRH(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-                List<Inventario> inventario = daoInventario.findAll();
-
+       int detalles=daoDetallevacaciones.count();
+       List<Detallevacaciones>detalle= daoDetallevacaciones.findAll();        
         PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
         model.addAttribute("todoTexto", pdfText);
         try {
-            pdfView.reporteinventario((Map<String, Object>) model, response, inventario);
-            
+            pdfView.reporteRH((Map<String, Object>) model, response, detalles);
+
         } catch (Exception ex) {
             Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return "OK";
     }
+    
+    @RequestMapping(value = "Direccion/testpdffinanzas", method = RequestMethod.POST)
+    @ResponseBody
+    public String Reportefinanzas(TextoPdf pdfText, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+       
+       List<CuentaBancaria>cuenta= daoCuentaBancaria.findAll();        
+        PDFGeneratorDireccion pdfView = new PDFGeneratorDireccion();
+        model.addAttribute("todoTexto", pdfText);
+        try {
+            pdfView.reportefinanzas((Map<String, Object>) model, response, cuenta);
+
+        } catch (Exception ex) {
+            Logger.getLogger(DireccionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "OK";
+    }
 
 }

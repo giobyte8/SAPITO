@@ -59,7 +59,7 @@
                                 Crear Reporte:
                             </h1>                        
                         </div>
-                        <form:form method="POST" action="testpdf" commandName="textoPdf">
+                        <form:form method="POST" action="testpdffinanzas" commandName="textoPdf">
                             <form:label path="todoTexto"/>Escriba su reporte:
                             <form:textarea  name="texto" path="todoTexto" id="textArea" rows="15" cols="100" />
                             <input class="btn btn-success" type="submit" id="submit" name="submit" value="Crear">
