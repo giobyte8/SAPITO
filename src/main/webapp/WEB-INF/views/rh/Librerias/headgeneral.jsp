@@ -21,11 +21,9 @@
 
 <!-- MetisMenu CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
+
 <!-- Timeline CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/timeline.css" rel="stylesheet">
-
-
-<link href="${pageContext.request.contextPath}/resources/css/rh/bootstrap-datetimepicker.min.css" rel="stylesheet" >
 
 <!-- Custom CSS -->
 <!--<link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin-2.css" rel="stylesheet">-->
@@ -36,8 +34,6 @@
 
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/resources/css/rh/clockpicker.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/resources/css/rh/standalone.css" rel="stylesheet" type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

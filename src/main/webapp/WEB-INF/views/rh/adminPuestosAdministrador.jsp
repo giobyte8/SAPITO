@@ -45,30 +45,41 @@
                                     <tr>
                                         <th>Puesto</th>
                                         <th>Detalles</th>
-                                        <th>Hora Entrada</th>
-                                        <th>Hora Salida</th>
                                         <th>Editar</th>
                                         <th>Baja</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <core:forEach items="${Puestos}" var="current">
-                                        <tr class='gradeX' id="${current.idpuesto}">
-
-
-                                            <td><core:out value="${current.nombre}" /></td>
-                                            <td><core:out value="${current.descripcion}" /></td>
-                                            <td><core:out value="${current.horaentrada}" /></td>
-                                            <td><core:out value="${current.horafin}" /></td>
-                                            <td>
-                                                <a class="fancyRH"  href="facyAdminEmpleadosC?id=${current.idpuesto}">
-                                                    <span class="btn  btn-warning fa fa-desktop"></span>
-                                                </a>                                        
-                                            </td>
-                                            <td><p data-placement="top" data-toggle="tooltip" <a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-
-                                        </tr>
-                                    </core:forEach>
+                                    <tr>
+                                        <td>Director General</td>
+                                       <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                     </tr>
+                                    <tr>
+                                        <td>Jefe de Departamento</td>
+                                         <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                    </tr>
+                                    <tr>    
+                                        <td>Jefe Operativo</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                    </tr>
+                                    <tr>    
+                                        <td>Subdirector</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                    </tr>
+                                    <tr>    
+                                        <td>Empleado General</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
+                                    </tr>
                                 </tbody>
                             </table>   
                         </div>
