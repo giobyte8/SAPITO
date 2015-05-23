@@ -141,13 +141,13 @@
             {
                 var maxamod = $("#max-mod" + invId).val();
                 var minamod = $("#min-mod" + invId).val();
-                console.log(maxamod + " - " + minamod);
-                if (+maxamod <=0 && +minamod  <=0  ||+maxamod <=0 || +minamod <==0) {
+                
+                if (+maxamod <=0 && +minamod  <=0  || +maxamod <=0 || +minamod <=0) {
                     alert("La cantidad a modificar debe ser al menos 1");
                 }
                 else {
-                    var url = "actualizarmaximo?id=" + invId + "&maxMod=" + maxamod + "&minMod=" + minamod;
-                window.location.href = url;
+                    var url = "actualizarmaximoma?id=" + invId + "&maxMod=" + maxamod + "&minMod=" + minamod;
+               window.location.href = url;
                 }
         
        
