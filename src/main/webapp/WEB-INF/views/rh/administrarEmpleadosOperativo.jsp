@@ -51,17 +51,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <core:forEach items="${Empleado}" var="current">
+                                    <core:forEach items="${Empleados}" var="current">
                                         <tr class='gradeX' id="${current.idempleado}">
 
 
-                                            <td><core:out value="${current.nomre}" /></td>
+                                            <td><core:out value="${current.nomre} ${current.apaterno} ${current.amaterno}" /></td>
                                             <td><core:out value="${current.rfc}" /></td>
+                                            <td><core:out value="${current.fechaNacimiento}" /></td>
                                             <td><core:out value="${current.telefono}" /></td>
                                             <td>
-                                                <a href="verAlumnosProyecto.do?id=${current.idempleado}" class="fancyFU">
+                                                <a class="fancyRHOperativo"  href="facyAdminEmpleadosCOper?id=${current.idempleado}">
                                                     <span class="btn  btn-warning fa fa-user"></span>
-                                                </a>
+                                                </a>                                        
                                             </td>
                                         </tr>
                                     </core:forEach>

@@ -7,7 +7,6 @@
 package com.sapito.rh;
 
 import com.sapito.db.dao.GenericDao;
-import com.sapito.db.entities.Cliente;
 import com.sapito.db.entities.Credencial;
 import com.sapito.db.entities.Departamento;
 import com.sapito.db.entities.Empleado;
@@ -234,12 +233,24 @@ public class RecursosHumanosController {
         return "RH/fancyAdminEmpleados";
     }
 
+    @RequestMapping(value = "facyAdminEmpleadosCOper", method = RequestMethod.GET)
+    public String facyAdminEmpleadosCoper(Model model, String id) {
+        System.out.println(id);
+        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(id));
+        System.out.println(empleado.getAmaterno());
+        System.out.println(empleado.getMunicipio());
+        System.out.println(empleado.getAmaterno());
+        model.addAttribute("idempleado", id);
+        model.addAttribute("Empleado", empleado);
+        return "RH/fancyAdminEmpleadosOperativo";
+    }
+
     @RequestMapping(value = "adminEmpleadosOperativo", method = RequestMethod.GET)
     public String adminEmpleadosOperativo(Model model) {
 
         List<Empleado> empleados = daoEmpleado.findAll();
 
-        model.addAttribute("Empleado", empleados);
+        model.addAttribute("Empleados", empleados);
 
         return "RH/administrarEmpleadosOperativo";
     }
@@ -300,11 +311,12 @@ public class RecursosHumanosController {
     }
 
     @RequestMapping(value = "upPuestoAdmin", method = RequestMethod.POST)
-    public String upPuestoAdmin(Model model, @Valid Puesto puesto,BindingResult bindingResult) {
+    public String upPuestoAdmin(Model model,Puesto puesto,BindingResult bindingResult) {
         System.out.println(puesto.getDescripcion());
         System.out.println(puesto.getNombre());
         System.out.println(puesto.getHoraentrada());
-        System.out.println(puesto.getHorafin());        
+        System.out.println(puesto.getHorafin());       
+        daoPuesto.create(puesto);
         System.out.println("Empleado.......................");
         return "RH/addPuestoAdministrador";
     }
@@ -323,6 +335,9 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "adminPuestoAdmin", method = RequestMethod.GET)
     public String adminPuestoAdmin(Model model) {
+        List<Puesto> puestos = daoPuesto.findAll();
+        model.addAttribute("Puestos", puestos);
+        
         return "RH/adminPuestosAdministrador";
     }
 
