@@ -7,12 +7,13 @@
 package com.sapito.rh;
 
 import com.sapito.db.dao.GenericDao;
-import com.sapito.db.entities.Cliente;
 import com.sapito.db.entities.Credencial;
 import com.sapito.db.entities.Departamento;
+import com.sapito.db.entities.Detallevacaciones;
 import com.sapito.db.entities.Empleado;
 import com.sapito.db.entities.Puesto;
 import com.sapito.db.entities.Rol;
+import com.sapito.db.entities.Vacaciones;
 import com.sapito.general.SHA1;
 import java.util.List;
 import javax.validation.Valid;
@@ -36,11 +37,25 @@ public class RecursosHumanosController {
     private GenericDao<Puesto> daoPuesto;
     private GenericDao<Empleado> daoEmpleado;
     private GenericDao<Rol> daoRol;
+    private GenericDao<Vacaciones> daoVacaciones;
+    private GenericDao<Detallevacaciones> daoDetallevacaciones;
 
     @Autowired
     public void setDaoCredencial(GenericDao<Credencial> daoCredencial) {
         this.daoCredencial = daoCredencial;
         daoCredencial.setClass(Credencial.class);
+    }
+
+    @Autowired
+    public void setDaoVacaciones(GenericDao<Vacaciones> daoVacaciones) {
+        this.daoVacaciones = daoVacaciones;
+        daoVacaciones.setClass(Vacaciones.class);
+    }
+
+    @Autowired
+    public void setDaoDetallevacaciones(GenericDao<Detallevacaciones> daoDetallevacaciones) {
+        this.daoDetallevacaciones = daoDetallevacaciones;
+        daoDetallevacaciones.setClass(Detallevacaciones.class);
     }
 
     @Autowired
@@ -199,11 +214,19 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "VacacionEmpleado", method = RequestMethod.GET)
     public String VacacionEmpleado(Model model) {
+
+        model.addAttribute("EmpleadoSeleccionado", "No a seleccionado algun Empleado");
+        model.addAttribute("vacaciones", new Vacaciones());
         return "RH/VacacionEmpleado";
     }
 
     @RequestMapping(value = "adminVacacionEmpleadoOperativo", method = RequestMethod.GET)
     public String adminVacacionEmpleadoOperativo(Model model) {
+
+        List<Detallevacaciones> detallevacaciones = daoDetallevacaciones.findAll();
+        System.out.println(detallevacaciones.get(0).getIdempleado().getNomre());
+
+        model.addAttribute("detallevacaciones", detallevacaciones);
         return "RH/adminVacacionesOperativo";
     }
 
@@ -219,6 +242,11 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "AdmVacacionEmpleado", method = RequestMethod.GET)
     public String AdmVacacionEmpleado(Model model) {
+
+        List<Detallevacaciones> detallevacaciones = daoDetallevacaciones.findAll();
+        System.out.println(detallevacaciones.get(0).getIdempleado().getNomre());
+
+        model.addAttribute("detallevacaciones", detallevacaciones);
         return "RH/AdmVacacionEmpleado";
     }
 
@@ -234,12 +262,24 @@ public class RecursosHumanosController {
         return "RH/fancyAdminEmpleados";
     }
 
+    @RequestMapping(value = "facyAdminEmpleadosCOper", method = RequestMethod.GET)
+    public String facyAdminEmpleadosCoper(Model model, String id) {
+        System.out.println(id);
+        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(id));
+        System.out.println(empleado.getAmaterno());
+        System.out.println(empleado.getMunicipio());
+        System.out.println(empleado.getAmaterno());
+        model.addAttribute("idempleado", id);
+        model.addAttribute("Empleado", empleado);
+        return "RH/fancyAdminEmpleadosOperativo";
+    }
+
     @RequestMapping(value = "adminEmpleadosOperativo", method = RequestMethod.GET)
     public String adminEmpleadosOperativo(Model model) {
 
         List<Empleado> empleados = daoEmpleado.findAll();
 
-        model.addAttribute("Empleado", empleados);
+        model.addAttribute("Empleados", empleados);
 
         return "RH/administrarEmpleadosOperativo";
     }
@@ -254,14 +294,64 @@ public class RecursosHumanosController {
         return "RH/altaVacacionesEmpleadoBase";
     }
 
-    @RequestMapping(value = "altaCapacitacionAdmin", method = RequestMethod.GET)
-    public String altaCapacitacionAdmin(Model model) {
-        return "RH/addCapacitacionAdministrador";
+    @RequestMapping(value = "searchEmpleado", method = RequestMethod.POST)
+    public String searchEmpleado(Model model, String idEmpleado) {
+        System.out.println(idEmpleado);
+        System.out.println("entrado a controlador");
+        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(idEmpleado));
+        try {
+            System.out.println(empleado);
+        } catch (Exception e) {
+            model.addAttribute("NotFound", "<div class='alert-message alert-message-danger'> <h4>Empleado no encontrado</p></div>");
+        }
+
+        model.addAttribute("EmpleadoSeleccionado", "Empleado seleccionado para dar de alta vacaciones");
+        model.addAttribute("vacaciones", new Vacaciones());
+        model.addAttribute("Empleado", empleado);
+
+        return "RH/VacacionEmpleado";
     }
 
-    @RequestMapping(value = "adminCapacitacionAdmin", method = RequestMethod.GET)
-    public String adminCapacitacionAdmin(Model model) {
-        return "RH/adminCapacitacionAdministrador";
+    @RequestMapping(value = "UpVacacionesAdmin", method = RequestMethod.POST)
+    public String adminCapacitacionAdmin(Model model, String idEmpleadoV, Vacaciones vacaciones, BindingResult bindingResult) {
+        int id;
+        List<Vacaciones> vacacionesS = null;
+        System.out.println("Entrando al controlador alta ");
+        System.out.println(idEmpleadoV);
+        vacaciones.setAprobacion(1);
+        try {
+            vacacionesS = daoVacaciones.findAll();
+            System.out.println(vacacionesS.size());
+            id = vacacionesS.size();
+            System.out.println(id);
+            System.out.println(vacacionesS.get(id - 1));
+            vacaciones.setIdvacaciones((vacacionesS.get(id - 1).getIdvacaciones()) + 1);
+            vacaciones.setStatus("0");
+        } catch (Exception f) {
+            System.out.println("ocurrio una excepcion");
+            id = 0;
+            vacaciones.setIdvacaciones(id + 1);
+            vacaciones.setStatus("0");
+        }
+
+        System.out.println("Id de vacaciones:" + (id + 1));
+
+        System.out.println(vacaciones.getFechaalta());
+        System.out.println(vacaciones.getFechabaja());
+
+        daoVacaciones.create(vacaciones);
+
+        Detallevacaciones devacaciones = new Detallevacaciones();
+        Vacaciones newVac = vacaciones;
+        Empleado empleados = (Empleado) daoEmpleado.find(Integer.parseInt(idEmpleadoV));
+        System.out.println("Empleado alta vacaciones" + empleados.getIdempleado() + "......" + empleados.getNomre());
+        model.addAttribute("Resultado", "<div class='alert-message alert-message-success'> <h4>Inserccion Correcta</p></div>");
+        devacaciones.setIdempleado(empleados);
+        devacaciones.setIdvacaciones(newVac);
+
+        daoDetallevacaciones.create(devacaciones);
+        model.addAttribute("Vacaciones", new Vacaciones());
+        return "RH/VacacionEmpleado";
     }
 
     @RequestMapping(value = "historialCapacitacionAdmin", method = RequestMethod.GET)
@@ -300,12 +390,16 @@ public class RecursosHumanosController {
     }
 
     @RequestMapping(value = "upPuestoAdmin", method = RequestMethod.POST)
-    public String upPuestoAdmin(Model model, @Valid Puesto puesto,BindingResult bindingResult) {
+    public String upPuestoAdmin(Model model, Puesto puesto, BindingResult bindingResult) {
         System.out.println(puesto.getDescripcion());
         System.out.println(puesto.getNombre());
         System.out.println(puesto.getHoraentrada());
-        System.out.println(puesto.getHorafin());        
+        System.out.println(puesto.getHorafin());
+        puesto.setPresupuesto(1);
+        daoPuesto.create(puesto);
         System.out.println("Empleado.......................");
+        model.addAttribute("Resultado", "<div class='alert-message alert-message-success'> <h4>Insercccion Correcta</p></div>");
+        model.addAttribute("Puesto", new Puesto());
         return "RH/addPuestoAdministrador";
     }
 
@@ -323,6 +417,9 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "adminPuestoAdmin", method = RequestMethod.GET)
     public String adminPuestoAdmin(Model model) {
+        List<Puesto> puestos = daoPuesto.findAll();
+        model.addAttribute("Puestos", puestos);
+
         return "RH/adminPuestosAdministrador";
     }
 

@@ -1,3 +1,4 @@
+@@ -1,98 +0,0 @@
 <%-- 
     Document   : addPuestoAdministrador
     Created on : 17/02/2015, 02:05:43 AM
@@ -30,69 +31,82 @@
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
                         <form:form action="upPuestoAdmin" method="POST" commandName="Puesto">
-
+                            ${Resultado}
                             <div class="form-group">
                                 <label>Nombre del Puesto</label>
                                 <form:input class="form-control" path="nombre" placeholder="Ingrese nombre" onkeypress="return soloTexto(event);" required="required"/>
                                 <p class="help-block"></p>
 
-                                <label>Descripción</label>
-                                <form:textarea class="form-control" required="required" path="descripcion" placeholder="Ingrese descripcion" onkeypress="return soloTexto(event);" />
-                                <p class="help-block" ></p>
-                                <div class="col-lg-6 text-left">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Rol del puesto</label>
-                                                <div class="form-group input-group">
-                                                    <form:select class="form-control selectpicker show-tick show-menu-arrow listaPuesto" path="idrol.idrol">                                                      
-                                                        <form:option value="0" label="Seleccione uno" />
-                                                        <form:options  items="${Rol}"   itemValue="idrol" itemLabel="nombre" />
-                                                    </form:select>
-                                                </div>
+                                <div class="form-group">  
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Hora de Entrada</label>
+                                            <div class="input-group clockpicker" data-placement="right" data-align="top" data-autoclose="true">
+
+                                                <form:input readonly="true" path="horaentrada" class="form-control"  placeholder="Ingrese hora"/>
+
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-time"></span>
+                                                </span>
                                             </div>
-                                            <div class="col-md-6">
-                                                <label>Suelo Base</label>
-                                                <form:input path="sueldobase" class="form-control" required="required" placeholder="Ingrese salario"/>
-                                                <p class="help-block"></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Hora de Fin</label>
+                                            <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+
+                                                <form:input readonly="true" path="horafin" class="form-control" placeholder="Ingrese hora" />
+
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-time"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
 
-                                        <div class="form-group">  
+                                    <label>Descripción</label>
+                                    <form:textarea class="form-control" required="required" path="descripcion" placeholder="Ingrese descripcion" onkeypress="return soloTexto(event);" />
+                                    <p class="help-block" ></p>
+                                    <div class="col-lg-6 text-left">
+                                        <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Hora de Entrada</label>
-                                                    <form:input path="horaentrada" class="form-control"  placeholder="Ingrese hora"/>
-                                                    <p class="help-block"></p>
+                                                    <label>Rol del puesto</label>
+                                                    <div class="form-group input-group">
+                                                        <form:select class="form-control selectpicker show-tick show-menu-arrow listaPuesto" path="idrol.idrol">                                                      
+                                                            <form:option value="0" label="Seleccione uno" />
+                                                            <form:options  items="${Rol}"   itemValue="idrol" itemLabel="nombre" />
+                                                        </form:select>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Hora de Salida</label>
-                                                    <form:input path="horafin" class="form-control" placeholder="Ingrese hora" />
+                                                    <label>Suelo Base</label>
+                                                    <form:input path="sueldobase" class="form-control" required="required" placeholder="Ingrese salario"/>
                                                     <p class="help-block"></p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> 
+                                        <div class="form-group">
+
+
+                                        </div> 
+                                    </div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
-
-                <div class="form-group">  
-                    <div align="right">
-                        <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+                    <div class="form-group">  
+                        <div align="right">
+                            <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+                        </div>
                     </div>
-                </div>
 
-            </form:form>
-        </div>
-        <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
-        <script src="${pageContext.request.contextPath}/resources/js/rh/empleadosRh.js"></script>
+                </form:form>
+            </div>
+            <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+            <script src="${pageContext.request.contextPath}/resources/js/rh/empleadosRh.js"></script>
     </body>
 </html>

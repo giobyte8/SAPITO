@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Vacaciones.findByFechabaja", query = "SELECT v FROM Vacaciones v WHERE v.fechabaja = :fechabaja"),
     @NamedQuery(name = "Vacaciones.findByAprobacion", query = "SELECT v FROM Vacaciones v WHERE v.aprobacion = :aprobacion")})
 public class Vacaciones implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -53,6 +54,10 @@ public class Vacaciones implements Serializable {
     @Column(name = "fechabaja")
     @Temporal(TemporalType.DATE)
     private Date fechabaja;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "status")
+    private String status;
     @Basic(optional = false)
     @NotNull
     @Column(name = "aprobacion")
@@ -92,6 +97,13 @@ public class Vacaciones implements Serializable {
 
     public Date getFechabaja() {
         return fechabaja;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public void setFechabaja(Date fechabaja) {
@@ -139,5 +151,5 @@ public class Vacaciones implements Serializable {
     public String toString() {
         return "com.sapito.db.entities.Vacaciones[ idvacaciones=" + idvacaciones + " ]";
     }
-    
+
 }

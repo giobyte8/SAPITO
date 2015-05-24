@@ -64,13 +64,11 @@ public class Puesto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "horaentrada")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date horaentrada;
+    private String horaentrada;
     @Basic(optional = false)
     @NotNull
     @Column(name = "horafin")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date horafin;
+    private String horafin;
     @Basic(optional = false)
     @NotNull
     @Column(name = "sueldobase")
@@ -117,19 +115,19 @@ public class Puesto implements Serializable {
         this.nombre = nombre;
     }
 
-    public Date getHoraentrada() {
+    public String getHoraentrada() {
         return horaentrada;
     }
 
-    public void setHoraentrada(Date horaentrada) {
+    public void setHoraentrada(String horaentrada) {
         this.horaentrada = horaentrada;
     }
 
-    public Date getHorafin() {
+    public String getHorafin() {
         return horafin;
     }
 
-    public void setHorafin(Date horafin) {
+    public void setHorafin(String horafin) {
         this.horafin = horafin;
     }
 
