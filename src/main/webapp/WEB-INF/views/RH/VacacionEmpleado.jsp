@@ -94,15 +94,15 @@
                                 <div class="panel-body">
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
-                                            <label>2Fecha de Inicio</label>
-                                            <form:input  type="date" path="fechaalta" class="form-control" required="required"/>
+                                            <label>Fecha de Inicio</label>
+                                            <form:input id="fnoc-fechaInicio"  type="date" path="fechaalta" class="form-control" required="required"/>
                                         </div>
 
                                     </div>
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
                                             <label>Fecha de Fin</label>
-                                            <form:input path="fechabaja"  type="date" class="form-control" required="required"/>
+                                            <form:input  id="fnoc-fechaFin" path="fechabaja"  type="date" class="form-control" required="required"/>
                                         </div>  
                                     </div>
                                 </div>
@@ -127,4 +127,22 @@
         </div>
         <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
     </body>
+    <script >
+        $(document).ready(function () {
+
+            $("#fnoc-fechaInicio").datepicker({
+                dateFormat: "dd-mm-yy",
+                dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+            });
+            $("#fnoc-fechaFin").datepicker({
+                dateFormat: "dd-mm-yy",
+                dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+            });
+        });
+    </script>
+
 </html>
