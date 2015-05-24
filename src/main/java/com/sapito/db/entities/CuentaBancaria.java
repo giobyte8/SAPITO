@@ -64,10 +64,6 @@ public class CuentaBancaria implements Serializable {
     @ManyToOne(optional = false)
     private Empresa empresa;
 
-    @OneToOne
-    @JoinColumn(name = "departamento")
-    private Departamento departamento;
-
     public Integer getId() {
         return id;
     }
@@ -124,18 +120,10 @@ public class CuentaBancaria implements Serializable {
         this.empresa = empresa;
     }
 
-    public Departamento getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
-    }
-
     public CuentaBancaria() {
     }
 
-    public CuentaBancaria(Integer id, String claveInterBancaria, String claveBanco, String nombreBanco, float deber, float haber, Empresa empresa, Departamento departamento) {
+    public CuentaBancaria(Integer id, String claveInterBancaria, String claveBanco, String nombreBanco, float deber, float haber, Empresa empresa) {
         this.id = id;
         this.claveInterBancaria = claveInterBancaria;
         this.claveBanco = claveBanco;
@@ -143,7 +131,6 @@ public class CuentaBancaria implements Serializable {
         this.deber = deber;
         this.haber = haber;
         this.empresa = empresa;
-        this.departamento = departamento;
     }
 
 }

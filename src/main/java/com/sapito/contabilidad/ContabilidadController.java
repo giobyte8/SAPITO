@@ -364,7 +364,7 @@ public class ContabilidadController {
     @RequestMapping(value = "contabilidad/contaCrearCuenta", method = RequestMethod.POST)
     public String contaCrearCuentas(Model model, @Valid CuentaBancaria cuentaBancaria, BindingResult bindingResult) {
         cuentaBancaria.setEmpresa((Empresa) daoEmpresa.findAll().get(0));
-        cuentaBancaria.setDepartamento((Departamento)daoDepartamento.find(cuentaBancaria.getDepartamento().getId()));
+        //cuentaBancaria.setDepartamento((Departamento)daoDepartamento.find(cuentaBancaria.getDepartamento().getId()));
         cuentaBancaria.setHaber(0);        
         if (bindingResult.hasErrors()) {
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");

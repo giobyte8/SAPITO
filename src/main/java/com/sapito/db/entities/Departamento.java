@@ -57,9 +57,11 @@ public class Departamento implements Serializable {
     @JoinColumn(name = "metastopes_idmetastopes")
     @ManyToOne(fetch = FetchType.EAGER)
     private Metastopes metastopesIdmetastopes;
+    
     @JoinColumn(name = "empresa_idempresa")
     @ManyToOne(fetch = FetchType.EAGER)
     private Empresa empresaIdempresa;
+    
     @JoinColumn(name = "cuentabancaria_idcuentabancaria")
     @ManyToOne(fetch = FetchType.EAGER)
     private CuentaBancaria cuentabancariaIdcuentabancaria;
