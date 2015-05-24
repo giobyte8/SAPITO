@@ -66,9 +66,9 @@
                                     <select class="form-control" name="seleccionado" id="seleccionado">
                                         <option value="Ventas">Ventas</option>
                                         <option value="Compras">Compras</option>
-                                        <option value="ActivosFijos">Activos Fijos</option>
+<!--                                        <option value="ActivosFijos">Activos Fijos</option>
                                         <option value="Operaciones"> Operaciones</option>
-                                        <option value="Logística">Logística</option>
+                                        <option value="Logística">Logística</option>-->
                                         <option value="RecursosHumanos">Recursos Humanos</option>
                                         <option value="Inventarios">Inventarios</option>
                                         <option value="Finanzas">Finanzas</option>
@@ -128,24 +128,24 @@
                         window.location.href = "Compras";
 
                     }
-                    if (valor == "ActivosFijos") {
-                        //document.location.href("ventas.com")
-                        //alert(valor);
-                        window.location.href = "ActivosFijos";
-
-                    }
-                    if (valor == "Operaciones") {
-                        //document.location.href("ventas.com")
-                        //alert(valor);
-                        window.location.href = "Operaciones";
-
-                    }
-                    if (valor == "Logística") {
-                        //document.location.href("ventas.com")
-                        //alert(valor);
-                        window.location.href = "Logística";
-
-                    }
+//                    if (valor == "ActivosFijos") {
+//                        //document.location.href("ventas.com")
+//                        //alert(valor);
+//                        window.location.href = "ActivosFijos";
+//
+//                    }
+//                    if (valor == "Operaciones") {
+//                        //document.location.href("ventas.com")
+//                        //alert(valor);
+//                        window.location.href = "Operaciones";
+//
+//                    }
+//                    if (valor == "Logística") {
+//                        //document.location.href("ventas.com")
+//                        //alert(valor);
+//                        window.location.href = "Logística";
+//
+//                    }
                     if (valor == "RecursosHumanos") {
                         //document.location.href("ventas.com")
                         //alert(valor);

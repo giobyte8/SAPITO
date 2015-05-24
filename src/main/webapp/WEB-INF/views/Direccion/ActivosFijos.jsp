@@ -65,7 +65,7 @@
                             <input class="btn btn-success" type="submit" id="submit" name="submit" value="Crear">
                         </form:form>
                             
-                        <div aling="left" >
+<!--                        <div aling="left" >
                             <table>
                                 <tr>
                                     <td>
@@ -75,7 +75,7 @@
                                 </tr>
                             </table>
 
-                        </div>
+                        </div>-->
 
 
                     </div>        
