@@ -41,64 +41,48 @@
             <div id="page-wrapper">
                 <div class="container-fluid">
 
+                    <!-- Page title -->
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Consultar Activo Fijo</h1>
+                            <h1 class="page-header">
+                                Consulta de Activos Fijos
+                            </h1>
                         </div>
-                        <!-- /.col-lg-12 -->
                     </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-green">
-                                <div class="panel-heading">
-                                    Activos fijos asignados
 
-                                </div>
-                                <!-- /.panel-heading -->
-
-                                <div class="panel-body">
-                                    <div class="dataTable_wrapper">
-                                        <table id="tActivoFijo" class="table table-bordered table-hover table-striped table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th>Activo Fijo</th>
-                                                    <th>Tipo de Activo Fijo</th>
-                                                    <th>Departamento</th>
-                                                    <th>Propietario</th>
-                                                    <th>Fecha de Adquisicion</th>
-                                                    <th>Accion</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach var="af" items="${activofijo}">
-                                                    <tr>
-                                                        <td>${af.id}</td>
-                                                        <td>${af.tipoactivofijo.nombre}</td>
-                                                        <td>Depto</td>
-                                                        <td>Prop</td>
-                                                        <td>Fecha</td>
-                                                        <td class="center">
-                                                            <a href="mActivoFijo?idAF=${af.id}" title="Modificar">
-                                                                <i class="fa fa-pencil-square-o"></i>
-                                                            </a>
-                                                            &nbsp;&nbsp;
-                                                            <a href="gdaBaja?idAF=${af.id}" title="Baja" onclick="return confirm('Esta acci&oacute;n dar&aacute; de baja el activo fijo seleccionado ¿desea continuar?');">
-                                                                <i class="fa fa-times"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>        
+                    <!-- Data table -->
+                    <table id="tActivoFijo" class="table table-bordered table-hover table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Activo Fijo</th>
+                                <th>Tipo de Activo Fijo</th>
+                                <th>Departamento</th>
+                                <th>Propietario</th>
+                                <th>Fecha de Adquisicion</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="af" items="${activoFijo}">
+                                <tr>
+                                    <td>${af.activoFijo.productoProveedor.producto.nombreProducto}</td>
+                                    <td>${af.activoFijo.tipoactivofijo.nombre}</td>
+                                    <td>${af.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
+                                    <td>${af.nombreref2.nomre} ${af.nombreref2.apaterno} ${af.nombreref2.amaterno}</td>
+                                    <td>${af.activoFijo.fechaAdquisicion}</td>
+                                    <td class="center">
+                                        <a href="mActivoFijo?idAF=${af.activoFijo.id}" title="Modificar">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                        </a>
+                                        &nbsp;&nbsp;
+                                        <a href="gdaBaja?idAF=${af.activoFijo.id}" title="Baja" onclick="return confirm('Esta acci&oacute;n dar&aacute; de baja el activo fijo seleccionado ¿desea continuar?');">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
