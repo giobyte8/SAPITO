@@ -107,8 +107,7 @@ public class ActivoFijoController
     {
 
         List<TipoActivoFijo> tipoAF = daoTipoActivoFijo.findAll();
-        List<ActivoFijo> activos = daoActivoFijo
-                .findBySpecificField("status", "SinAsignar", "equal", null, null);
+        List<ActivoFijo> activos = daoActivoFijo.findBySpecificField("status", "SinAsignar", "equal", null, null);
 
         System.out.println("Enviamos: " + activos.size());
 
@@ -302,11 +301,11 @@ public class ActivoFijoController
     public String consultar(Model model)
     {
 
-        List<ActivoFijo> activofijo = daoActivoFijo.findAll();
-
         List<ActivoFijo> af = daoActivoFijo.findBySpecificField("status", "Asignado", "equal", null, null);
-
-        model.addAttribute("activofijo", af);
+        
+        List<HistorialActivoFijo> historiales = daoHistorialActivoFijo.findBySpecificField("activoFijo", af, "equal", null, null);
+        
+        model.addAttribute("activoFijo", historiales);
 
         return "ActivoFijo/consultar";
     }
