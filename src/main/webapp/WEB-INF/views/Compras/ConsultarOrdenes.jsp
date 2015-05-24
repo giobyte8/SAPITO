@@ -128,7 +128,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-warning">Aprobar</button>
+               <!-- <button type="button" class="btn btn-warning">Aprobar</button>-->
                 <button type="button" class="btn btn-success">Marcar como recibida</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                   Cerrar
