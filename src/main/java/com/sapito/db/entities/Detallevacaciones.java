@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -29,8 +31,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Detallevacaciones.findAll", query = "SELECT d FROM Detallevacaciones d"),
     @NamedQuery(name = "Detallevacaciones.findByIddetallevacaciones", query = "SELECT d FROM Detallevacaciones d WHERE d.iddetallevacaciones = :iddetallevacaciones")})
 public class Detallevacaciones implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     @NotNull
     @Column(name = "iddetallevacaciones")
@@ -97,5 +101,5 @@ public class Detallevacaciones implements Serializable {
     public String toString() {
         return "com.sapito.db.entities.Detallevacaciones[ iddetallevacaciones=" + iddetallevacaciones + " ]";
     }
-    
+
 }

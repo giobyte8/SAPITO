@@ -51,6 +51,7 @@
 
                                 </div>
                                 ${NotFound}
+                                ${Resultado}
                             </form>
 
                         </div>
@@ -80,7 +81,7 @@
                     </div><!-- /col-sm-5 -->    
                 </div>
                 <form:form commandName="vacaciones" action="UpVacacionesAdmin" method="POST"> 
-                    <input type="text" name="idEmpleadoV" class="form-control" value="${Empleado.idempleado}" >
+                    <input type="text" readyonly="true" name="idEmpleadoV" class="form-control" value="${Empleado.idempleado}" >
 
                     <div class="row">
                         <div class="col-lg-12 text-left">
@@ -95,14 +96,14 @@
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
                                             <label>Fecha de Inicio</label>
-                                            <form:input id="fnoc-fechaInicio"  type="date" path="fechaalta" class="form-control" required="required"/>
+                                            <form:input id="fnoc-fechaInicio"  type="text" path="fechaalta" class="form-control" required="required"/>
                                         </div>
 
                                     </div>
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
                                             <label>Fecha de Fin</label>
-                                            <form:input  id="fnoc-fechaFin" path="fechabaja"  type="date" class="form-control" required="required"/>
+                                            <form:input  id="fnoc-fechaFin" path="fechabaja"  type="text" class="form-control" required="required"/>
                                         </div>  
                                     </div>
                                 </div>
@@ -126,18 +127,19 @@
 
         </div>
         <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+            <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/activofijo/jquery-ui.js"></script>      
     </body>
     <script >
         $(document).ready(function () {
 
             $("#fnoc-fechaInicio").datepicker({
-                dateFormat: "dd-mm-yy",
+                dateFormat: "dd/mm/yy",
                 dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
                 dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
                 monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
             });
             $("#fnoc-fechaFin").datepicker({
-                dateFormat: "dd-mm-yy",
+                dateFormat: "dd/mm/yy",
                 dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
                 dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
                 monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]

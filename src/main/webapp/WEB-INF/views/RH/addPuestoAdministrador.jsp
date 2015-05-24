@@ -31,7 +31,7 @@
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
                         <form:form action="upPuestoAdmin" method="POST" commandName="Puesto">
-
+                            ${Resultado}
                             <div class="form-group">
                                 <label>Nombre del Puesto</label>
                                 <form:input class="form-control" path="nombre" placeholder="Ingrese nombre" onkeypress="return soloTexto(event);" required="required"/>
@@ -43,7 +43,7 @@
                                             <label>Hora de Entrada</label>
                                             <div class="input-group clockpicker" data-placement="right" data-align="top" data-autoclose="true">
 
-                                                <form:input path="horaentrada" class="form-control"  placeholder="Ingrese hora"/>
+                                                <form:input readonly="true" path="horaentrada" class="form-control"  placeholder="Ingrese hora"/>
 
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-time"></span>
@@ -51,10 +51,10 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                              <label>Hora de Fin</label>
+                                            <label>Hora de Fin</label>
                                             <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
 
-                                               <form:input path="horafin" class="form-control" placeholder="Ingrese hora" />
+                                                <form:input readonly="true" path="horafin" class="form-control" placeholder="Ingrese hora" />
 
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-time"></span>

@@ -17,7 +17,7 @@
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/rh/index.rh.css">
 
 <!-- Bootstrap Core CSS -->
-    <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet">
 
 <!-- MetisMenu CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet">
@@ -35,6 +35,7 @@
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/rh/clockpicker.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
