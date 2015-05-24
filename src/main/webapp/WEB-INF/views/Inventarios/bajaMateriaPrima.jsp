@@ -51,6 +51,7 @@
                                                 data-toggle="modal" data-target="#cts-modal${inventario.id}">
                                             Baja
                                         </button>
+                                            
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -123,6 +124,88 @@
                 </div>
             </div>
         </c:forEach>        
+            
+           
+            <c:forEach items="${inventario}" var="inventario">
+            <div id="modificar-modal${inventario.id}" class="modal fade" tabindex="-1" role="dialog" 
+                 aria-labelledby="inventario-modal-title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" id="cliente-modal-title">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Detalles de producto</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Datos del producto:</h4>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Código inventario</label>
+                                    <input  id="codigo${inventario.id}" type="text" class="form-control"  value="${inventario.codigoInventario}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Nombre</label>
+                                    <input id="nombre${inventario.id}" type="text" class="form-control"  value="${inventario.nombre}"/>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Precio Unitario</label>
+                                    <input id="precio${inventario.id}" type="number" 
+                                           class="form-control"  value="${inventario.precioUnitario}"/>
+                                </div>
+                                </div>
+                                
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Cantidad</label>
+                                    <input id="cantidad${inventario.id}" type="number" 
+                                           class="form-control"  value="${inventario.cantidad}"/>
+                                </div>
+                                </div>
+                                
+                                <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Ubicacion</label>
+                                    <input id="ubicacion${inventario.id}" type="text" 
+                                           class="form-control"  value="${inventario.ubicacion}"/>
+                                </div>
+                            </div>
+                                
+                               <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Fecha de entrada </label>
+                                    <input  id="fechaen${inventario.id}" type="text" class="form-control"  value="${inventario.fechaEntrada}"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <br/><label>Fecha de producción </label>
+                                    <input id="fechapro${inventario.id}" type="text" class="form-control" readonly value="${inventario.fechaProduccion}"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="modificar(${inventario.id})">
+                                Actualizar
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                                                                
+        </c:forEach> 
+                                
+            
 
         <%@include file="inventariosFooter.jsp" %>
         <script >
@@ -143,6 +226,21 @@
                     window.location.href = url;
                 }
             }
+            
+            function modificar(inId){
+                var idIn = $("#codigo"+inId).val();
+                var nombre1 = $("#nombre"+inId).val();
+                var precio1 = $("#precio"+inId).val();
+                var cantidad1 = $("#cantidad"+inId).val();
+                var ubicacion1 = $("#ubicacion"+inId).val();
+                var fechaen1 = $("#fechaen"+inId).val();
+                var fechapro1 = $("#fechapro"+inId).val();
+                  var todo = "&nombre=" + nombre1 +"&precio=" + precio1;   
+        
+                    var url = "modificarMateria?id=" + inId + todo  ;
+                    window.location.href = url; 
+            }
+            
         </script>
     </body>
 </html>

@@ -7,6 +7,7 @@ package com.sapito.inventarios;
 
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Inventario;
+import com.sapito.db.entities.Proveedor;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -93,6 +94,8 @@ public class InventariosController
     }
    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
+    
+    
     @RequestMapping(value = "inventario/maximoMinProducto", method = RequestMethod.GET)
     public String maximoMinProducto(Model model)
     {
@@ -166,6 +169,24 @@ public class InventariosController
         return"Inventarios/materiaPrimaView";
     }
     
+    @RequestMapping(value = "inventario/modificarMateria", method = RequestMethod.GET)
+    public String modificarMateria(Model model,@RequestParam String id, @RequestParam String idInv, @RequestParam String nombre, 
+            @RequestParam String precio, String Cantidad, String ubicacion, String fecha, String fechapro)
+    {
+        Inventario inventario = (Inventario) daoInventario.find(Integer.valueOf(id));
+        
+        inventario.setCodigoInventario(idInv);
+        inventario.setNombre(nombre);
+        inventario.setPrecioUnitario(Integer.valueOf(precio));
+        
+        daoInventario.edit(inventario);
+        
+        List<Inventario> inventarios = daoInventario
+                .findBySpecificField("tipoProducto", "Materia Prima", "equal", null, null);
+        model.addAttribute("inventario", inventarios);
+        return"Inventarios/bajaMateriaPrima";
+    }
+    
     //************************************************************
     @RequestMapping(value = "inventario/actualizarcantidad", method = RequestMethod.GET)
     public String bajaMateriaActual(Model model, @RequestParam String id, @RequestParam String cantAQuitar)
@@ -180,7 +201,6 @@ public class InventariosController
         model.addAttribute("inventario", inventarios);
         return"Inventarios/bajaMateriaPrima";
     }
-    ///************************************************************
     
     
     @RequestMapping(value = "inventario/nvoproducto", method = RequestMethod.POST)
@@ -223,7 +243,7 @@ public class InventariosController
             System.out.println("Invalid with: " + bindingResult.getErrorCount() + " errors");
             System.out.println("Error: " + bindingResult.getFieldError().getField());
             model.addAttribute("showConfirm", "false");
-            return "Inventarios/rregistrarMateriaPrimaView";
+            return "Inventarios/registrarMateriaPrimaView";
         } 
         else
         {
@@ -232,6 +252,7 @@ public class InventariosController
             return "Inventarios/registrarMateriaPrimaView";
         }
     }
+    
 
     @RequestMapping(value = "inventario/registrarMateriaPrima", method = RequestMethod.GET)
     public String registrarMateriaPrima(Model model)
