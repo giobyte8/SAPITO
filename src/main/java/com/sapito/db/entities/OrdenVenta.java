@@ -89,8 +89,7 @@ public class OrdenVenta implements Serializable
     @JsonManagedReference
     private Factura factura;
     
-    @OneToOne
-    @JoinColumn(name = "ID_ORDEN_ENVIO")
+    @OneToOne(mappedBy = "ordenVenta")
     private OrdenEnvio ordenEnvio;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenVenta")

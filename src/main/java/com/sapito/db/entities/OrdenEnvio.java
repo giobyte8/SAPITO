@@ -69,11 +69,10 @@ public class OrdenEnvio implements Serializable
     @JoinColumn(name = "ID_CONDUCTOR")
     private Conductor idConductor;
     
-    
-    
-    
-    @OneToOne(mappedBy = "ordenEnvio")
+    @OneToOne
+    @JoinColumn(name = "ID_ORDENVENTA")
     private OrdenVenta ordenVenta;
+    
     
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
