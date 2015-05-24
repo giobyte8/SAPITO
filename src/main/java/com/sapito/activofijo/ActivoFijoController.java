@@ -107,8 +107,7 @@ public class ActivoFijoController
     {
 
         List<TipoActivoFijo> tipoAF = daoTipoActivoFijo.findAll();
-        List<ActivoFijo> activos = daoActivoFijo
-                .findBySpecificField("status", "SinAsignar", "equal", null, null);
+        List<ActivoFijo> activos = daoActivoFijo.findBySpecificField("status", "SinAsignar", "equal", null, null);
 
         System.out.println("Enviamos: " + activos.size());
 
