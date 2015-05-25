@@ -21,7 +21,6 @@ import com.sapito.ventas.VentasController;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -422,17 +421,17 @@ public class ContabilidadController {
         Departamento depa = new Departamento();
         depa.setNombreDepartamento("Contabilidad");
         depa.setPresupuesto(125.1);
-        depa.setEmpresaIdempresa(empresa);
+        depa.setEmpresa(empresa);
 
         Departamento depa1 = new Departamento();
         depa1.setNombreDepartamento("RH");
         depa1.setPresupuesto(125.1);
-        depa1.setEmpresaIdempresa(empresa);
+        depa1.setEmpresa(empresa);
 
         Departamento depa2 = new Departamento();
         depa2.setNombreDepartamento("Compras");
         depa2.setPresupuesto(125.1);
-        depa2.setEmpresaIdempresa(empresa);
+        depa2.setEmpresa(empresa);
 
         daoDepartamento.create(depa);
         daoDepartamento.create(depa1);
