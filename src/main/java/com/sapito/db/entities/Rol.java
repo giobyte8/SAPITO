@@ -6,118 +6,95 @@
 package com.sapito.db.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Jorge Muñoz
+ * @author Giovanni
  */
 @Entity
 @Table(name = "rol")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r")})
-public class Rol implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Rol implements Serializable
+{
+
     @Id
-    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID")
+    private Integer id;
+    
     @NotNull
-    @Column(name = "idrol")
-    private Integer idrol;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "nombre")
+    @Size(min=1)
+    @Column(name = "NOMBRE")
     private String nombre;
-    @Basic(optional = false)
+    
     @NotNull
-    @Size(min = 1, max = 60)
-    @Column(name = "descripcion")
+    @Size(min=1)
+    @Column(name = "DESCRIPCION")
     private String descripcion;
-    @Basic(optional = false)
+    
     @NotNull
-    @Column(name = "status")
-    private short status;
-        @OneToMany(cascade = CascadeType.ALL, mappedBy = "idrol")
-    private Collection<Puesto> puestoCollection;
+    @Column(name = "STATUS")
+    private boolean status;
+    
+    
+/** *** *** *** *** *** RELACIONES *** *** *** *** *** */
+// *************************************************** //
+    
+//    @JoinColumn(name = "ID_PUESTO")
+//    @OneToOne
+//    private Puesto puesto;
+    
+/* ******************************************************/
+/* ******************************************************/
 
-
-    public Rol() {
+    public Integer getId()
+    {
+        return id;
     }
 
-    public Rol(Integer idrol) {
-        this.idrol = idrol;
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
 
-    public Rol(Integer idrol, String nombre, String descripcion, short status) {
-        this.idrol = idrol;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.status = status;
-    }
-
-    public Integer getIdrol() {
-        return idrol;
-    }
-
-    public void setIdrol(Integer idrol) {
-        this.idrol = idrol;
-    }
-
-    public String getNombre() {
+    public String getNombre()
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre)
+    {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
+    public String getDescripcion()
+    {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
+    public void setDescripcion(String descripcion)
+    {
         this.descripcion = descripcion;
     }
 
-    public short getStatus() {
+    public boolean isStatus()
+    {
         return status;
     }
 
-    public void setStatus(short status) {
+    public void setStatus(boolean status)
+    {
         this.status = status;
     }
 
-        @XmlTransient
-    public Collection<Puesto> getPuestoCollection() {
-        return puestoCollection;
-    }
-
-    public void setPuestoCollection(Collection<Puesto> puestoCollection) {
-        this.puestoCollection = puestoCollection;
-    }
-
-    
-
-    @Override
-    public String toString() {
-        return "com.sapito.db.entities.Rol[ idrol=" + idrol + " ]";
-    }
-    
 }

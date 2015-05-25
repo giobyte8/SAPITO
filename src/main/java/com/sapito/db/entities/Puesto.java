@@ -5,29 +5,20 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
-import java.security.Timestamp;
 import java.util.Collection;
-import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -35,145 +26,159 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "puesto")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Puesto.findAll", query = "SELECT p FROM Puesto p")})
-public class Puesto implements Serializable {
+public class Puesto implements Serializable
+{
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID")
+    private Integer id;
+    
     @NotNull
-    @Column(name = "idpuesto")
-    private Integer idpuesto;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "nombre")
+    @Size(min=1)
+    @Column(name = "NOMBRE")
     private String nombre;
-    @Basic(optional = false)
+    
     @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "descripcion")
+    @Size(min=1)
+    @Column(name = "DESCRIPCION")
     private String descripcion;
-    @Basic(optional = false)
+    
     @NotNull
-    @Column(name = "status")
-    private short status;
-    @Basic(optional = false)
+    @Column(name = "STATUS")
+    private boolean status;
+    
     @NotNull
-    @Column(name = "horaentrada")
+    @Column(name = "HORA_ENTRADA")
     private String horaentrada;
-    @Basic(optional = false)
+    
     @NotNull
-    @Column(name = "horafin")
+    @Column(name = "HORA_FIN")
     private String horafin;
-    @Basic(optional = false)
+    
     @NotNull
-    @Column(name = "sueldobase")
+    @Column(name = "SUELDO_BASE")
     private double sueldobase;
-    @Basic(optional = false)
+    
+    /**
+     * Can we delete this property?
+     */
     @NotNull
-    @Column(name = "presupuesto")
+    @Column(name = "PRESUPUESTO")
     private double presupuesto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "puestoIdpuesto")
-    private Collection<Empleado> empleadoCollection;
-    @JoinColumn(name = "idrol", referencedColumnName = "idrol")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Rol idrol;
+    
+    
+/** *** *** *** *** *** RELACIONES *** *** *** *** *** */
+// *************************************************** //
+    
+    @OneToOne
+    private Rol rol;
+    
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="puesto")
+    @JsonManagedReference
+    private Collection<Empleado> empleados;
+    
+/* ******************************************************/
+/* ******************************************************/
 
-    public Puesto() {
+    public Integer getId()
+    {
+        return id;
     }
 
-    public Puesto(Integer idpuesto) {
-        this.idpuesto = idpuesto;
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
 
-    public Puesto(Integer idpuesto, String nombre, String descripcion, short status, double sueldobase, double presupuesto) {
-        this.idpuesto = idpuesto;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.status = status;
-        this.sueldobase = sueldobase;
-        this.presupuesto = presupuesto;
-    }
-
-    public Integer getIdpuesto() {
-        return idpuesto;
-    }
-
-    public void setIdpuesto(Integer idpuesto) {
-        this.idpuesto = idpuesto;
-    }
-
-    public String getNombre() {
+    public String getNombre()
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre)
+    {
         this.nombre = nombre;
     }
 
-    public String getHoraentrada() {
-        return horaentrada;
-    }
-
-    public void setHoraentrada(String horaentrada) {
-        this.horaentrada = horaentrada;
-    }
-
-    public String getHorafin() {
-        return horafin;
-    }
-
-    public void setHorafin(String horafin) {
-        this.horafin = horafin;
-    }
-
-    public String getDescripcion() {
+    public String getDescripcion()
+    {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
+    public void setDescripcion(String descripcion)
+    {
         this.descripcion = descripcion;
     }
 
-    public short getStatus() {
+    public boolean isStatus()
+    {
         return status;
     }
 
-    public void setStatus(short status) {
+    public void setStatus(boolean status)
+    {
         this.status = status;
     }
 
-    public double getSueldobase() {
+    public String getHoraentrada()
+    {
+        return horaentrada;
+    }
+
+    public void setHoraentrada(String horaentrada)
+    {
+        this.horaentrada = horaentrada;
+    }
+
+    public String getHorafin()
+    {
+        return horafin;
+    }
+
+    public void setHorafin(String horafin)
+    {
+        this.horafin = horafin;
+    }
+
+    public double getSueldobase()
+    {
         return sueldobase;
     }
 
-    public void setSueldobase(double sueldobase) {
+    public void setSueldobase(double sueldobase)
+    {
         this.sueldobase = sueldobase;
     }
 
-    public double getPresupuesto() {
+    public double getPresupuesto()
+    {
         return presupuesto;
     }
 
-    public void setPresupuesto(double presupuesto) {
+    public void setPresupuesto(double presupuesto)
+    {
         this.presupuesto = presupuesto;
     }
 
-    public Rol getIdrol() {
-        return idrol;
+    public Collection<Empleado> getEmpleados()
+    {
+        return empleados;
     }
 
-    public void setIdrol(Rol idrol) {
-        this.idrol = idrol;
+    public void setEmpleados(Collection<Empleado> empleados)
+    {
+        this.empleados = empleados;
     }
 
-    @Override
-    public String toString() {
-        return "com.sapito.db.entities.Puesto[ idpuesto=" + idpuesto + " ]";
+    public Rol getRol()
+    {
+        return rol;
+    }
+
+    public void setRol(Rol rol)
+    {
+        this.rol = rol;
     }
 
 }

@@ -61,7 +61,7 @@
                     color: "#FDB45C",
                     highlight: "#FFC870",
                     label: "${TercerMejor}"
-                }
+                },
                 {
                     value: ${tota},
                     color: "#FDB45C",
@@ -129,7 +129,7 @@
 
                                 <div class="panel panel-body">
                                     <div id="canvas-holder" align="center" >
-                                        <canvas id="chart-barData2" width="800" height="200" align="center"/>
+                                        <canvas id="chart-barData2" width="800" height="400" align="center"/>
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
 
                                 <div class="panel panel-body">
                                     <div id="canvas-holder" align="center" >
-                                        <canvas id="chart-pieData2" width="800" height="200" align="center"/>
+                                        <canvas id="chart-pieData2" width="800" height="400" align="center"/>
                                     </div>
                                 </div>
                             </div>

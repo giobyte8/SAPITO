@@ -89,7 +89,8 @@
                                         <label for="fnvoc-fechaProduccion">Fecha de producción</label>                                                
                                         <form:input   path="fechaProduccion" name="fechaProduccion" id="fnoc-fechaProduccion" type="text" class="form-control"/>
                                     </div>                                                                                                                                                
-                                    <input value="Materia Prima"  path="tipoProducto" name="tipoProducto" id="fnoc-fechaProduccion" type=hidden class="form-control"/>
+                                    <input value="Materia Prima"  path="tipoProducto" name="tipoProducto" id="fnoc-tipoProducto" type=hidden class="form-control"/>
+                                    <input value="True"  path="status" name="status" id="fnoc-status" type=hidden class="form-control"/>
                                     <br>    
                                     <div align="right">
                                         <button type="submit" class="btn btn-success">Aceptar</button>                                            

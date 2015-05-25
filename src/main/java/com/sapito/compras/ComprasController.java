@@ -469,6 +469,7 @@ public class ComprasController {
 
     @RequestMapping(value = "informacionproveedor", method = RequestMethod.GET)
     public String informacion1proveedor(Model model) {
+        
         return "Compras/informacionproveedor";
     }
 
@@ -522,10 +523,112 @@ public class ComprasController {
     }
 //Modifica Producto FIN
 
-    @RequestMapping(value = "InformacionProducto", method = RequestMethod.GET)
-    public String InformacionProducto(Model model) {
-        
+    @RequestMapping(value = "compras/InformacionProducto", method = RequestMethod.GET)
+    public String buscarInfoProducto(Model model) {
+        List<ProductoComprado> infoproducto = daoInfoProveedor.findAll();
+        List<ProductoProveedor> cantProductos = daoProductoProveedor.findAll();
+        if (infoproducto != null && infoproducto.size() > 0) {
+            double Arregl[][] = new double[cantProductos.size()][3];
+            int contador = 0;
+            for (Iterator iterator = cantProductos.listIterator(); iterator.hasNext();) {
+                ProductoProveedor producto = (ProductoProveedor) iterator.next();
+                if (contador != cantProductos.size()) {
+                    Arregl[contador][0] = producto.getId();
+                    contador++;
+                }
+            }
+            for (Iterator iterador = infoproducto.listIterator(); iterador.hasNext();) {
+                ProductoComprado porproducto = (ProductoComprado) iterador.next();//fecha_pedido
+                for (int i = 0; i < cantProductos.size(); i++) {
+                    if (porproducto.getProductoProveedor().getId() == Arregl[i][0]) {
+                        double totalcomprados = porproducto.getCantidad() * porproducto.getProductoProveedor().getCosto();
+                        Arregl[i][1] = totalcomprados + Arregl[i][1];
+                        if(porproducto.getProductoProveedor().getProducto().getCategoria().equals("PIEZA")){
+                            Arregl[i][2]=1;
+                        }
+                        if(porproducto.getProductoProveedor().getProducto().getCategoria().equals("CAJA")){
+                            Arregl[i][2]=2;
+                        }
+                        if(porproducto.getProductoProveedor().getProducto().getCategoria().equals("LOTE")){
+                            Arregl[i][2]=3;
+                        }
+                    }
+                }
+            }
+            String mejorprovee = "", segundomejor = "", terceromejor = "";
+            double primero = Arregl[0][1], segundo = 0, tercero = 0, tota = 0;
+            int quitarprimero = 0, quietarsegundo = 0, quietartercero = 0;
+            for (int i = 0; i < cantProductos.size(); i++) {
+                if (primero < Arregl[i][1]&&Arregl[i][2]==1) {
+                    primero = Arregl[i][1];
+                    quitarprimero = i;
+                }
+            }
+            for (int i = 0; i < cantProductos.size(); i++) {
+                if (segundo < Arregl[i][1] && i != quitarprimero &&Arregl[i][2]==2) {
+                    segundo = Arregl[i][1];
+                    quietarsegundo = i;
+                }
+            }
+            for (int i = 0; i < cantProductos.size(); i++) {
+                if (tercero < Arregl[i][1] && i != quitarprimero && i != quietarsegundo &&Arregl[i][2]==3) {
+                    tercero = Arregl[i][1];
+                    quietartercero = i;
+                }
+            }
+            for (Iterator iterator = cantProductos.listIterator(); iterator.hasNext();) {
+                ProductoProveedor proveedor = (ProductoProveedor) iterator.next();
+                if (Arregl[quitarprimero][0] == proveedor.getId()) {
+                    mejorprovee = proveedor.getProducto().getNombreProducto();
+                }
+                if (Arregl[quietarsegundo][0] == proveedor.getId()) {
+                    segundomejor = proveedor.getProducto().getNombreProducto();
+                }
+                if (Arregl[quietartercero][0] == proveedor.getId()) {
+                    terceromejor = proveedor.getProducto().getNombreProducto();
+                }
+            }
+            for (int i = 0; i < cantProductos.size(); i++) {
+                tota = tota + Arregl[i][1];
+            }
+            double porcent1=0,porcent2=0,porcent3=0;
+            int por1=0,por2=0,por3=0;
+            porcent1=(primero*100)/tota;
+            porcent2=(segundo*100)/tota;
+            porcent3=(tercero*100)/tota;
+            por1=(int) (porcent1*100);
+            por2=(int) (porcent2*100);
+            por3=(int) (porcent3*100);
+            porcent1=por1/100;
+            porcent2=por2/100;
+            porcent3=por3/100;
+
+            tota = tota - primero - segundo - tercero;
+            System.out.println(primero);
+            System.out.println(segundo);
+            System.out.println(tercero);
+            System.out.println(tota);
+            System.out.println(mejorprovee);
+            System.out.println(segundomejor);
+            System.out.println(terceromejor);
+            model.addAttribute("primero", primero);
+            model.addAttribute("segundo", segundo);
+            model.addAttribute("tercero", tercero);
+            model.addAttribute("tota", tota);
+            model.addAttribute("por1", porcent1);
+            model.addAttribute("por2", porcent2);
+            model.addAttribute("por3", porcent3);
+            model.addAttribute("MejorProv", mejorprovee);
+            model.addAttribute("SegundoMejor", segundomejor);
+            model.addAttribute("TercerMejor", terceromejor);
             return "Compras/InformacionProducto";
+
+        } else {
+            model.addAttribute("infoproveedor", new ArrayList<Proveedor>());
+            return "Compras/InformacionProducto";
+
+        }
+            
         
     }
 }
