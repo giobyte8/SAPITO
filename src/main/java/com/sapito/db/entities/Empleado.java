@@ -7,11 +7,11 @@ package com.sapito.db.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,97 +21,97 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
  * @author Jorge Muñoz
+ * @author Giovanni
  */
 @Entity
 @Table(name = "empleado")
-@NamedQueries(
-        {
-            @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
-            @NamedQuery(name = "Empleado.findByIdempleado", query = "SELECT e FROM Empleado e WHERE e.idempleado = :idempleado"),
-            @NamedQuery(name = "Empleado.findByNomre", query = "SELECT e FROM Empleado e WHERE e.nomre = :nomre"),
-            @NamedQuery(name = "Empleado.findByApaterno", query = "SELECT e FROM Empleado e WHERE e.apaterno = :apaterno"),
-            @NamedQuery(name = "Empleado.findByAmaterno", query = "SELECT e FROM Empleado e WHERE e.amaterno = :amaterno"),
-            @NamedQuery(name = "Empleado.findByRfc", query = "SELECT e FROM Empleado e WHERE e.rfc = :rfc"),
-            @NamedQuery(name = "Empleado.findByCalle", query = "SELECT e FROM Empleado e WHERE e.calle = :calle"),
-            @NamedQuery(name = "Empleado.findByColonia", query = "SELECT e FROM Empleado e WHERE e.colonia = :colonia"),
-            @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")
-        })
-
-@SequenceGenerator(name="seq", initialValue=100, allocationSize=100)
 public class Empleado implements Serializable
 {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq")
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idempleado")
     private Integer idempleado;
-    @Size(max = 45)
-    @Column(name = "nomre")
-    private String nomre;
-    @Size(max = 45)
+    
+    @NotNull
+    @Pattern(regexp=RExp.letrasAcentuadasPuntos, message=RExpErrors.letrasAcentuadasPuntos)
+    @Column(name = "NOMBRE")
+    private String nombre;
+    
+    @NotNull
+    @Pattern(regexp=RExp.letrasAcentuadasPuntos, message=RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "apaterno")
     private String apaterno;
-    @Size(max = 45)
+    
+    @Pattern(regexp=RExp.letrasAcentuadasPuntos, message=RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "amaterno")
     private String amaterno;
-    @Size(max = 45)
+    
+    @Size(min=12, max=45, message="El RFC debe tener 12 o 13 caracteres")
+    @Pattern(regexp=RExp.letrasBasicasDigitosOrNull, message=RExpErrors.letrasBasicasDigitos)
     @Column(name = "rfc")
     private String rfc;
-    @Size(max = 45)
+    
     @Column(name = "calle")
     private String calle;
-    @Size(max = 45)
+    
     @Column(name = "colonia")
     private String colonia;
-    @Basic(optional = false)
+    
     @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "estado")
     private String estado;
-    @Basic(optional = false)
+    
     @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "municipio")
     private String municipio;
-    @Basic(optional = false)
+    
     @NotNull
     @Column(name = "fecha_nacimiento")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date fechaNacimiento;
+    
     @Size(max = 45)
     @Column(name = "sexo")
     private String sexo;
+    
     @Size(max = 45)
     @Column(name = "estado_civil")
     private String estadoCivil;
+    
+    @Pattern(regexp=RExp.digitosOrNull, message=RExpErrors.digitos)
     @Column(name = "num_seguro")
-    private BigInteger numSeguro;
+    private String numSeguro;
+    
+    @Pattern(regexp=RExp.digitosEspaciosOrNull, message=RExpErrors.digitosEspacios)
     @Column(name = "telefono")
-    private BigInteger telefono;
+    private String telefono;
+    
     @Column(name = "codigo_postal")
-    private BigInteger codigoPostal;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 45)
+    private Integer codigoPostal;
+    
+    @Email
     @Column(name = "email")
     private String email;
+    
+    
+/** *** *** *** *** *** RELACIONES *** *** *** *** *** */
+// *************************************************** //    
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
     @JsonManagedReference
@@ -121,10 +121,6 @@ public class Empleado implements Serializable
     @JsonManagedReference
     private Collection<Nomina> nominaCollection;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
-    @JsonManagedReference
-    private Collection<Credencial> credencialCollection;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "nombreref")
     @JsonManagedReference
     private Collection<HistorialActivoFijo> empleadoActual;
@@ -133,25 +129,24 @@ public class Empleado implements Serializable
     @JsonManagedReference
     private Collection<HistorialActivoFijo> empleadoAnterior;
     
-    @JoinColumn(name = "puesto_idpuesto")
+// *************************************************** //
+    
+    @JoinColumn(name = "ID_PUESTO")
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
-    private Puesto puestoIdpuesto;
+    private Puesto puesto;
 
-    @JoinColumn(name = "departamento_iddepartamento")
+    @JoinColumn(name = "ID_DEPARTAMENTO")
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
-    private Departamento departamentoIddepartamento;
+    private Departamento departamento;
+    
+    @JoinColumn(name = "ID_CREDENCIAL")
+    @OneToOne
+    private Credencial credencial;
 
-    public Empleado()
-    {
-
-    }
-
-    public Empleado(Integer idempleado)
-    {
-        this.idempleado = idempleado;
-    }
+/* ******************************************************/
+/* ******************************************************/
 
     public Integer getIdempleado()
     {
@@ -163,14 +158,14 @@ public class Empleado implements Serializable
         this.idempleado = idempleado;
     }
 
-    public String getNomre()
+    public String getNombre()
     {
-        return nomre;
+        return nombre;
     }
 
-    public void setNomre(String nomre)
+    public void setNombre(String nomre)
     {
-        this.nomre = nomre;
+        this.nombre = nomre;
     }
 
     public String getApaterno()
@@ -223,75 +218,6 @@ public class Empleado implements Serializable
         this.colonia = colonia;
     }
 
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
-
-    @XmlTransient
-    public Collection<Capacitacion> getCapacitacionCollection()
-    {
-        return capacitacionCollection;
-    }
-
-    public void setCapacitacionCollection(Collection<Capacitacion> capacitacionCollection)
-    {
-        this.capacitacionCollection = capacitacionCollection;
-    }
-
-    @XmlTransient
-    public Collection<Nomina> getNominaCollection()
-    {
-        return nominaCollection;
-    }
-
-    public void setNominaCollection(Collection<Nomina> nominaCollection)
-    {
-        this.nominaCollection = nominaCollection;
-    }
-
-    @XmlTransient
-    public Collection<Credencial> getCredencialCollection()
-    {
-        return credencialCollection;
-    }
-
-    public void setCredencialCollection(Collection<Credencial> credencialCollection)
-    {
-        this.credencialCollection = credencialCollection;
-    }
-
-    public Puesto getPuestoIdpuesto()
-    {
-        return puestoIdpuesto;
-    }
-
-    public void setPuestoIdpuesto(Puesto puestoIdpuesto)
-    {
-        this.puestoIdpuesto = puestoIdpuesto;
-    }
-
-    public Departamento getDepartamentoIddepartamento()
-    {
-        return departamentoIddepartamento;
-    }
-
-    public void setDepartamentoIddepartamento(Departamento departamentoIddepartamento)
-    {
-        this.departamentoIddepartamento = departamentoIddepartamento;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "com.sapito.db.entities.Empleado[ idempleado=" + idempleado + " ]";
-    }
-
     public String getEstado()
     {
         return estado;
@@ -342,63 +268,66 @@ public class Empleado implements Serializable
         this.estadoCivil = estadoCivil;
     }
 
-    public BigInteger getNumSeguro()
+    public String getNumSeguro()
     {
         return numSeguro;
     }
 
-    public void setNumSeguro(BigInteger numSeguro)
+    public void setNumSeguro(String numSeguro)
     {
         this.numSeguro = numSeguro;
     }
 
-    public BigInteger getTelefono()
+    public String getTelefono()
     {
         return telefono;
     }
 
-    public void setTelefono(BigInteger telefono)
+    public void setTelefono(String telefono)
     {
         this.telefono = telefono;
     }
 
-    public BigInteger getCodigoPostal()
+    public Integer getCodigoPostal()
     {
         return codigoPostal;
     }
 
-    public void setCodigoPostal(BigInteger codigoPostal)
+    public void setCodigoPostal(Integer codigoPostal)
     {
         this.codigoPostal = codigoPostal;
     }
 
-//    /**
-//     * @return the empleadoActual
-//     */
-//    public Collection<HistorialActivoFijo> getEmpleadoActual() {
-//        return empleadoActual;
-//    }
-//
-//    /**
-//     * @param empleadoActual the empleadoActual to set
-//     */
-//    public void setEmpleadoActual(Collection<HistorialActivoFijo> empleadoActual) {
-//        this.empleadoActual = empleadoActual;
-//    }
-//
-//    /**
-//     * @return the empleadoAnterior
-//     */
-//    public Collection<HistorialActivoFijo> getEmpleadoAnterior() {
-//        return empleadoAnterior;
-//    }
-//
-//    /**
-//     * @param empleadoAnterior the empleadoAnterior to set
-//     */
-//    public void setEmpleadoAnterior(Collection<HistorialActivoFijo> empleadoAnterior) {
-//        this.empleadoAnterior = empleadoAnterior;
-//    }
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    public Collection<Capacitacion> getCapacitacionCollection()
+    {
+        return capacitacionCollection;
+    }
+
+    public void setCapacitacionCollection(Collection<Capacitacion> capacitacionCollection)
+    {
+        this.capacitacionCollection = capacitacionCollection;
+    }
+
+    public Collection<Nomina> getNominaCollection()
+    {
+        return nominaCollection;
+    }
+
+    public void setNominaCollection(Collection<Nomina> nominaCollection)
+    {
+        this.nominaCollection = nominaCollection;
+    }
+
     public Collection<HistorialActivoFijo> getEmpleadoActual()
     {
         return empleadoActual;
@@ -417,6 +346,36 @@ public class Empleado implements Serializable
     public void setEmpleadoAnterior(Collection<HistorialActivoFijo> empleadoAnterior)
     {
         this.empleadoAnterior = empleadoAnterior;
+    }
+
+    public Departamento getDepartamento()
+    {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento)
+    {
+        this.departamento = departamento;
+    }
+
+    public Credencial getCredencial()
+    {
+        return credencial;
+    }
+
+    public void setCredencial(Credencial credencial)
+    {
+        this.credencial = credencial;
+    }
+
+    public Puesto getPuesto()
+    {
+        return puesto;
+    }
+
+    public void setPuesto(Puesto puesto)
+    {
+        this.puesto = puesto;
     }
 
 }

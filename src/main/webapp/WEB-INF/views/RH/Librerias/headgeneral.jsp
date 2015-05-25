@@ -37,6 +37,12 @@
 <link href="${pageContext.request.contextPath}/resources/css/rh/clockpicker.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
 
+<!-- Datatables css -->
+<link href="${pageContext.request.contextPath}/resources/css/libs/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+
+<!-- PARA FECHA -->
+<link href="${pageContext.request.contextPath}/resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

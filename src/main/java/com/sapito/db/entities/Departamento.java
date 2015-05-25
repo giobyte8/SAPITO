@@ -7,7 +7,6 @@ package com.sapito.db.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,14 +16,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,13 +30,10 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Departamento implements Serializable {
     
     @Id
-    @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "iddepartamento")
     private Integer id;
     
-    @Basic(optional = false)
     @NotNull
     @Column(name = "presupuesto")
     private double presupuesto;
@@ -50,92 +42,86 @@ public class Departamento implements Serializable {
     @Column(name = "nombre_departamento")
     private String nombreDepartamento;
     
-    @Basic(optional = false)
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "departamentoIddepartamento")
-    private Collection<Empleado> empleadoCollection;
+    
+/** *** *** *** *** *** RELACIONES *** *** *** *** *** */
+// *************************************************** //    
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento")
+    private Collection<Empleado> empleados;
     
     @JoinColumn(name = "metastopes_idmetastopes")
     @ManyToOne(fetch = FetchType.EAGER)
     private Metastopes metastopesIdmetastopes;
-    @JoinColumn(name = "empresa_idempresa")
+
+    @JoinColumn(name = "ID_EMPRESA")
     @ManyToOne(fetch = FetchType.EAGER)
-    private Empresa empresaIdempresa;
-    @JoinColumn(name = "cuentabancaria_idcuentabancaria")
+    private Empresa empresa;
+    
+    @JoinColumn(name = "ID_CUENTABANCARIA")
     @ManyToOne(fetch = FetchType.EAGER)
     private CuentaBancaria cuentabancariaIdcuentabancaria;
+    
+/* ******************************************************/
+/* ******************************************************/    
 
-    public Departamento() {
-    }
-
-    public Departamento(Integer iddepartamento) {
-        this.id = iddepartamento;
-    }
-
-    public Departamento(Integer iddepartamento, double presupuesto) {
-        this.id = iddepartamento;
-        this.presupuesto = presupuesto;
-    }
-
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer iddepartamento) {
-        this.id = iddepartamento;
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
 
-    public double getPresupuesto() {
+    public double getPresupuesto()
+    {
         return presupuesto;
     }
 
-    public void setPresupuesto(double presupuesto) {
+    public void setPresupuesto(double presupuesto)
+    {
         this.presupuesto = presupuesto;
     }
 
-    public String getNombreDepartamento() {
+    public String getNombreDepartamento()
+    {
         return nombreDepartamento;
     }
 
-    public void setNombreDepartamento(String nombreDepartamento) {
+    public void setNombreDepartamento(String nombreDepartamento)
+    {
         this.nombreDepartamento = nombreDepartamento;
     }
 
-    @XmlTransient
-    public Collection<Empleado> getEmpleadoCollection() {
-        return empleadoCollection;
+    public Collection<Empleado> getEmpleados()
+    {
+        return empleados;
     }
 
-    public void setEmpleadoCollection(Collection<Empleado> empleadoCollection) {
-        this.empleadoCollection = empleadoCollection;
+    public void setEmpleados(Collection<Empleado> empleados)
+    {
+        this.empleados = empleados;
     }
 
-    public Metastopes getMetastopesIdmetastopes() {
-        return metastopesIdmetastopes;
-    }
-
-    public void setMetastopesIdmetastopes(Metastopes metastopesIdmetastopes) {
-        this.metastopesIdmetastopes = metastopesIdmetastopes;
-    }
-
-    public Empresa getEmpresaIdempresa() {
-        return empresaIdempresa;
-    }
-
-    public void setEmpresaIdempresa(Empresa empresaIdempresa) {
-        this.empresaIdempresa = empresaIdempresa;
-    }
-
-    public CuentaBancaria getCuentabancariaIdcuentabancaria() {
+    public CuentaBancaria getCuentabancariaIdcuentabancaria()
+    {
         return cuentabancariaIdcuentabancaria;
     }
 
-    public void setCuentabancariaIdcuentabancaria(CuentaBancaria cuentabancariaIdcuentabancaria) {
+    public void setCuentabancariaIdcuentabancaria(CuentaBancaria cuentabancariaIdcuentabancaria)
+    {
         this.cuentabancariaIdcuentabancaria = cuentabancariaIdcuentabancaria;
     }
 
-    @Override
-    public String toString() {
-        return "com.sapito.db.entities.Departamento[ iddepartamento=" + id + " ]";
+    public Empresa getEmpresa()
+    {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa)
+    {
+        this.empresa = empresa;
     }
 
 }

@@ -6,136 +6,105 @@
 package com.sapito.db.entities;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Jovic
+ * @author Jorge Muñoz
+ * @author Giovanni
  */
 @Entity
 @Table(name = "credencial")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Credencial.findAll", query = "SELECT c FROM Credencial c"),
-    @NamedQuery(name = "Credencial.findByIdcredencial", query = "SELECT c FROM Credencial c WHERE c.idcredencial = :idcredencial"),
-    @NamedQuery(name = "Credencial.findByUsuario", query = "SELECT c FROM Credencial c WHERE c.usuario = :usuario"),
-    @NamedQuery(name = "Credencial.findByContrasena", query = "SELECT c FROM Credencial c WHERE c.contrasena = :contrasena"),
-    @NamedQuery(name = "Credencial.findByStatus", query = "SELECT c FROM Credencial c WHERE c.status = :status")})
-public class Credencial implements Serializable {
+public class Credencial implements Serializable
+{
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID")
+    private Integer id;
+    
     @NotNull
-    @Column(name = "idcredencial")
-    private Integer idcredencial;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "usuario")
+    @Size(min=1, max=300)
+    @Column(name = "USUARIO")
     private String usuario;
-    @Basic(optional = false)
+    
     @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "contrasena")
+    @Size(min=3, max=100)
+    @Column(name = "CONTRASENA")
     private String contrasena;
-    @Basic(optional = false)
+    
     @NotNull
-    @Column(name = "status")
-    private short status;
-    @JoinColumn(name = "empleado_idempleado")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Empleado empleadoIdempleado;
+    @Column(name = "STATUS")
+    private boolean status;
+    
+    
+/** *** *** *** *** *** RELACIONES *** *** *** *** *** */
+// *************************************************** // 
+    
+    @JoinColumn(name = "ID_EMPLEADO")
+    @OneToOne
+    private Empleado empleado;
+    
+/* ******************************************************/
+/* ******************************************************/
 
-    public Credencial() {
+    public Integer getId()
+    {
+        return id;
     }
 
-    public Credencial(Integer idcredencial) {
-        this.idcredencial = idcredencial;
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
 
-    public Credencial(Integer idcredencial, String usuario, String contrasena, short status) {
-        this.idcredencial = idcredencial;
-        this.usuario = usuario;
-        this.contrasena = contrasena;
-        this.status = status;
-    }
-
-    public Integer getIdcredencial() {
-        return idcredencial;
-    }
-
-    public void setIdcredencial(Integer idcredencial) {
-        this.idcredencial = idcredencial;
-    }
-
-    public String getUsuario() {
+    public String getUsuario()
+    {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(String usuario)
+    {
         this.usuario = usuario;
     }
 
-    public String getContrasena() {
+    public String getContrasena()
+    {
         return contrasena;
     }
 
-    public void setContrasena(String contrasena) {
+    public void setContrasena(String contrasena)
+    {
         this.contrasena = contrasena;
     }
 
-    public short getStatus() {
+    public boolean isStatus()
+    {
         return status;
     }
 
-    public void setStatus(short status) {
+    public void setStatus(boolean status)
+    {
         this.status = status;
     }
 
-    public Empleado getEmpleadoIdempleado() {
-        return empleadoIdempleado;
+    public Empleado getEmpleado()
+    {
+        return empleado;
     }
 
-    public void setEmpleadoIdempleado(Empleado empleadoIdempleado) {
-        this.empleadoIdempleado = empleadoIdempleado;
+    public void setEmpleado(Empleado empleado)
+    {
+        this.empleado = empleado;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idcredencial != null ? idcredencial.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Credencial)) {
-            return false;
-        }
-        Credencial other = (Credencial) object;
-        if ((this.idcredencial == null && other.idcredencial != null) || (this.idcredencial != null && !this.idcredencial.equals(other.idcredencial))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.sapito.db.entities.Credencial[ idcredencial=" + idcredencial + " ]";
-    }
-
+    
 }
