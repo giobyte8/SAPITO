@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sapito.db.entities;
 
 import com.sapito.db.util.RExp;
@@ -37,7 +32,7 @@ public class Transporte implements Serializable{
     
     
     @NotNull
-    @Size(min=1, max=500, message = "Placas deben tener 7 caracteres")
+    @Size(min=1, max=7, message = "Placas deben tener 7 caracteres")
     @Column(name = "PLACAS")
     private String placas;
     
@@ -45,11 +40,14 @@ public class Transporte implements Serializable{
     @Column(name = "TIPOTRANSPORTE")
     private String tipotransporte;
     
-    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+//    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    @NotNull
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "DIMENSION")
     private String dimension;
     
-    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    @NotNull
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "COSTODIA")
     private String costoDia;
     

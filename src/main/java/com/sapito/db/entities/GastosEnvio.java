@@ -1,5 +1,7 @@
 package com.sapito.db.entities;
 
+import com.sapito.db.util.RExp;
+import com.sapito.db.util.RExpErrors;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -29,12 +32,15 @@ public class GastosEnvio implements Serializable
     private long id;
     
     @NotNull
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "GASTOS_ENVIO")
     private String gastosEnvio;
     @NotNull
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "GASTOS_ALOJAMIENTO")
     private String gastosAlojamiento;
     @NotNull
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "CASETAS")
     private String casetas;
     @NotNull

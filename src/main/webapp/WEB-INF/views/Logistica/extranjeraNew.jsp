@@ -42,7 +42,7 @@
                                         <div class="col-lg-6 text-left">
                                                 <div class="form-group has-success">
                                                     <label>Nombre(s) de la Empresa</label>
-                                                    <input class="form-control" placeholder="Nombre(s)" onkeypress="return soloTexto(event);" maxlength="40" required>
+                                                    <input class="form-control" placeholder="Nombre1(s)" onkeypress="return soloTexto(event);" maxlength="40" required>
                                                 </div>
                                                 <div class="form-group has-success">
                                                     <label>Pais</label>

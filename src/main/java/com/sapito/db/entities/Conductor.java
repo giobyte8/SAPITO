@@ -52,11 +52,13 @@ public class Conductor implements Serializable{
     private String apellidoMaterno;
     
     @NotNull
+    @Size(min=2, max=100, message = "Debe tener entre 1 y 12 caracteres")
+    @Pattern(regexp = RExp.letrasAcentuadasPuntos, message = RExpErrors.letrasAcentuadasPuntos)
     @Column(name = "LICENCIA")
     private String licencia;
     
     @NotNull
-    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    @Pattern(regexp = RExp.digitos, message = RExpErrors.digitos)
     @Column(name = "PAGODIA")
     private String pagoDia;
     

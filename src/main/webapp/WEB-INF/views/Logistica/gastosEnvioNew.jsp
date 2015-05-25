@@ -58,7 +58,7 @@
                                             <div class="form-group has-success">
                                                 <label for="fnvoc-gastosAlojamiento">Alojamiento</label>
                                                 <!--<input class="form-control" placeholder="Alojamiento" onkeypress="return soloTexto(event);" maxlength="40" required>-->
-                                                <form:input value="${gastosE.gastosEnvio}" path="gastosAlojamiento" name="gastosAlojamiento" id="fnvoc-gastosAlojamiento" type="text" class="form-control" placeholder="Alojamiento"/>
+                                                <form:input value="${gastosE.gastosAlojamiento}" path="gastosAlojamiento" name="gastosAlojamiento" id="fnvoc-gastosAlojamiento" type="text" class="form-control" placeholder="Alojamiento"/>
                                                 <form:errors path="gastosAlojamiento" element="div" class="alert-danger pad-10" />
                                             </div>
 
@@ -99,13 +99,13 @@
                                             <div class="form-group has-success">
                                                 <label for="fnvoc-gastosEnvio">Gastos de Envio </label>
                                                 <!--<input class="form-control" placeholder="Gastos de Diesel" onkeypress="return soloTexto(event);" maxlength="40" required>-->
-                                                <form:input path="gastosEnvio" name="gastosEnvio"  type="text" class="form-control" placeholder="Gastos de Envio" />
+                                                <form:input path="gastosEnvio" name="gastosEnvio"  type="text" class="form-control" placeholder="$ M.N" />
                                                 <form:errors path="gastosEnvio" element="div" class="alert-danger pad-10" />
                                             </div>
                                             <div class="form-group has-success">
                                                 <label for="fnvoc-gastosAlojamiento">Alojamiento</label>
                                                 <!--<input class="form-control" placeholder="Alojamiento" onkeypress="return soloTexto(event);" maxlength="40" required>-->
-                                                <form:input path="gastosAlojamiento" name="gastosAlojamiento" id="fnvoc-gastosAlojamiento" type="text" class="form-control" placeholder="Alojamiento"/>
+                                                <form:input path="gastosAlojamiento" name="gastosAlojamiento" id="fnvoc-gastosAlojamiento" type="text" class="form-control" placeholder="$ M.N"/>
                                                 <form:errors path="gastosAlojamiento" element="div" class="alert-danger pad-10" />
                                             </div>
 
@@ -115,10 +115,17 @@
                                                 <label for="fnvoc-casetas">Costo de Casetas</label>
                                                 <!--<input class="form-control" placeholder="Costo del Transporte" onkeypress="return soloTexto(event);" maxlength="40" required>-->
                                                 <form:input path="casetas" name="casetas" id="fnvoc-casetas" 
-                                                            type="text" class="form-control" placeholder="Casetas"/>
+                                                            type="text" class="form-control" placeholder="$ M.N"/>
                                                 <form:errors path="casetas" element="div" class="alert-danger pad-10" />                                                    
                                             </div>
                                             <div class="form-group has-success">
+                                                <!--chaaaaaaaaaaaaaaaeeeeeeeeeeeeeeccccccccccar-->
+                                                <!--chaaaaaaaaaaaaaaaeeeeeeeeeeeeeeccccccccccar-->
+                                                <!--chaaaaaaaaaaaaaaaeeeeeeeeeeeeeeccccccccccar-->
+                                                <!--chaaaaaaaaaaaaaaaeeeeeeeeeeeeeeccccccccccar-->
+                                                <!--chaaaaaaaaaaaaaaaeeeeeeeeeeeeeeccccccccccar-->
+                                                <!--chaaaaaaaaaaaaaaaeeeeeeeeeeeeeeccccccccccar-->
+                                                <!--chaaaaaaaaaaaaaaaeeeeeeeeeeeeeeccccccccccar-->
                                                 <label for="fnvoc-gastosAlojamiento">Cliente</label>
                                                 <!--<input class="form-control" placeholder="Alojamiento" onkeypress="return soloTexto(event);" maxlength="40" required>-->
                                                 <br>
@@ -129,7 +136,7 @@
                                                 </select>
                                             </div>
                                             <div align="right">
-                                                <button type="submit" class="btn btn-success">Aceptar</button>                                            
+                                                <button type="submit" class="btn btn-success">Aceptar</button>  
                                             </div>
                                         </div>
                                     </div>

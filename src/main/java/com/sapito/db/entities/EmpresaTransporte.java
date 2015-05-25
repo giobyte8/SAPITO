@@ -58,7 +58,8 @@ public class EmpresaTransporte  implements Serializable{
     @Size(min=2, max=100, message = "Debe tener entre 2 y 100 caracteres")
     @Column(name = "CALLE")
     private String calle;        
-    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+//    @Pattern(regexp = RExp.letrasBasicasDigitos, message = RExpErrors.letrasBasicasDigitos)
+    @Pattern(regexp = RExp.digitosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "NUMERO")
     private String numero;    
     @NotNull

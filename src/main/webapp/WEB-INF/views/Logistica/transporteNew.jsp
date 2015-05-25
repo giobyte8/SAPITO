@@ -131,14 +131,15 @@
                                         <div class="col-lg-6 text-left">
                                             <div class="form-group has-success">
                                                 <label for="fnvoc-dimension">Dimensión</label>                                                
-                                                <form:input  path="dimension" name="dimension" id="fnoc-dimension" type="text" class="form-control" placeholder="Dimension del transporte"/>
+                                                <form:input  path="dimension" name="dimension" id="fnoc-dimension"  type="text" class="form-control" placeholder="metros cuadrados"/>
                                                 <form:errors path="dimension" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                                                                                                  
                                             </div>
                                             <div class="form-group has-success">
 
-                                                <label for="fnvoc-costoDia">Costos por dia</label>                                                
-                                                <form:input  path="costoDia" name="costoDia" id="fnoc-costoDia" type="text" class="form-control" placeholder="Costo por dia"/>
-                                                <form:errors path="costoDia" element="div" class="alert-danger pad-10" />                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                                <label for="fnvoc-costoDia">Costo por dia</label>                                                
+                                                <form:input  path="costoDia" name="costoDia" id="fnoc-costoDia" type="text" class="form-control" placeholder="$ M.N"/>
+                                                <form:errors path="costoDia" element="div" class="alert-danger pad-10" />
+                                                <!--<input class="form-control" placeholder="$ M.N" onkeypress="return soloNumeros(event)" maxlength="40" class="alert-danger pad-10">-->
                                             </div>                                                                                                            
                                             <div class="form-group has-success">
                                                 <label for="fnvoc-tipo">Disponible</label>                                                

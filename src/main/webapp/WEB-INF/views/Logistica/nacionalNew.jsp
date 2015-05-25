@@ -122,7 +122,7 @@
 
                                                 <div class="form-group has-success">
                                                     <label for="fnvoc-nombreEmpresa">Nombre(s) de la Empresa</label>                                                
-                                                    <form:input  path="nombreEmpresa" name="nombreEmpresa" id="fnoc-nombreEmpresa" type="text" class="form-control" placeholder="Nombe de la empresa"/>
+                                                    <form:input  path="nombreEmpresa" name="nombreEmpresa" id="fnoc-nombreEmpresa" type="text" class="form-control" placeholder="Nombre de la empresa"/>
                                                     <form:errors path="nombreEmpresa" element="div" class="alert-danger pad-10" />
                                                 </div>
 
