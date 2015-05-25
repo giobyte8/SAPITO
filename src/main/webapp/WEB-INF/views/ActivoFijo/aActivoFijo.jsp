@@ -89,8 +89,8 @@
                                             </div>
                                         </div>                                 
                                         <div class="form-group text-right">
-                                            <input type="reset" class="btn btn-success" value="Cancelar">
-                                            <!-- Bootstrap Core JavaScript 	<a href="asignar" onclick="return confirm('¿Est&aacute; seguro de cancelar la operaci&oacute;n?');"><input type="button" class="btn btn-primary" value="Cancelar"></a>-->
+                                            <!-- Bootstrap Core JavaScript 	-->
+                                            <a href="alta" onclick="return confirm('¿Est&aacute; seguro de cancelar la operaci&oacute;n?');"><input type="button" class="btn btn-success" value="Cancelar"></a>
                                             <input type="submit" class="btn btn-success" value="Continuar">
                                         </div>                                     
                                         </form>

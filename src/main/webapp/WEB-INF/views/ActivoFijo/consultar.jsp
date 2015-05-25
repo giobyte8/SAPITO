@@ -64,22 +64,24 @@
                         </thead>
                         <tbody>
                             <c:forEach var="af" items="${activoFijo}">
-                                <tr>
-                                    <td>${af.activoFijo.productoProveedor.producto.nombreProducto}</td>
-                                    <td>${af.activoFijo.tipoactivofijo.nombre}</td>
-                                    <td>${af.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
-                                    <td>${af.nombreref2.nomre} ${af.nombreref2.apaterno} ${af.nombreref2.amaterno}</td>
-                                    <td>${af.activoFijo.fechaAdquisicion}</td>
-                                    <td class="center">
-                                        <a href="mActivoFijo?idAF=${af.activoFijo.id}" title="Modificar">
-                                            <i class="fa fa-pencil-square-o"></i>
-                                        </a>
-                                        &nbsp;&nbsp;
-                                        <a href="gdaBaja?idAF=${af.activoFijo.id}" title="Baja" onclick="return confirm('Esta acci&oacute;n dar&aacute; de baja el activo fijo seleccionado ¿desea continuar?');">
-                                            <i class="fa fa-times"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <c:if test="${af.activoFijo.status == 'Asignado'}">
+                                    <tr>
+                                        <td>${af.activoFijo.productoProveedor.producto.nombreProducto}</td>
+                                        <td>${af.activoFijo.tipoactivofijo.nombre}</td>
+                                        <td>${af.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
+                                        <td>${af.nombreref2.nomre} ${af.nombreref2.apaterno} ${af.nombreref2.amaterno}</td>
+                                        <td>${af.activoFijo.fechaAdquisicion}</td>
+                                        <td class="center">
+                                            <a href="mActivoFijo?idAF=${af.activoFijo.id}" title="Modificar">
+                                                <i class="fa fa-pencil-square-o"></i>
+                                            </a>
+                                            &nbsp;&nbsp;
+                                            <a href="gdaBaja?idAF=${af.activoFijo.id}" title="Baja" onclick="return confirm('Esta acci&oacute;n dar&aacute; de baja el activo fijo seleccionado ¿desea continuar?');">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:if>
                             </c:forEach>
                         </tbody>
                     </table>
@@ -111,7 +113,11 @@
 
         <script >
             $(document).ready(function () {
-                $('#tActivoFijo').DataTable();
+                $('#tActivoFijo').dataTable({
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.7/i18n/Spanish.json"
+                    }
+                });
             });
         </script>
 

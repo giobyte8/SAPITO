@@ -64,14 +64,16 @@
                         </thead>
                         <tbody>
                             <c:forEach items="${historiales}" var="historial">
-                                <tr>
-                                    <td>${historial.activoFijo.productoProveedor.producto.nombreProducto}</td>
-                                    <td>${historial.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
-                                    <td>${historial.nombreref2.nomre} ${historial.nombreref2.apaterno} ${historial.nombreref2.amaterno}</td>
-                                    <td>
-                                        <a href="tActivoFijo?idAF=${historial.id}" title="Trasladar"><i class="fa fa-arrows-h"></i></a>
-                                    </td>
-                                </tr>
+                                <c:if test="${historial.activoFijo.status == 'Asignado'}">
+                                    <tr>
+                                        <td>${historial.activoFijo.productoProveedor.producto.nombreProducto}</td>
+                                        <td>${historial.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
+                                        <td>${historial.nombreref2.nomre} ${historial.nombreref2.apaterno} ${historial.nombreref2.amaterno}</td>
+                                        <td>
+                                            <a href="tActivoFijo?idAF=${historial.id}" title="Trasladar"><i class="fa fa-arrows-h"></i></a>
+                                        </td>
+                                    </tr>
+                                </c:if>
                             </c:forEach>
                         </tbody>
                     </table>
@@ -97,9 +99,13 @@
         <!-- Datatables js -->
         <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
-        <script>
+        <script >
             $(document).ready(function () {
-                $('#ttraslado').DataTable();
+                $('#ttraslado').dataTable({
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.7/i18n/Spanish.json"
+                    }
+                });
             });
         </script>
     </body>

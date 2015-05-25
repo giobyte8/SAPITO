@@ -18,7 +18,10 @@ import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos;
 import com.sapito.pdf.PDFView.PDFGeneratorActivosFijos2;
 import com.sapito.ventas.VentasController;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -124,12 +127,25 @@ public class ActivoFijoController
         ActivoFijo activofijo = (ActivoFijo) daoActivoFijo.find(Long.valueOf(activoId));
         activofijo.setTipoactivofijo(tipoactivofijo);
         activofijo.setAnosVidaUtil(Integer.valueOf(anosVidaUtil));
+        
+        System.out.println("fecha" +fecha);
 
-        StringTokenizer st = new StringTokenizer(fecha, "-");
+        /*StringTokenizer st = new StringTokenizer(fecha, "-");
         int day = Integer.valueOf(st.nextToken());
         int month = Integer.valueOf(st.nextToken());
-        int year = Integer.valueOf(st.nextToken());
-        activofijo.setFechaAdquisicion(new Date(year, month, day));
+        int year = Integer.valueOf(st.nextToken());*/
+        
+        SimpleDateFormat sdf1 = new SimpleDateFormat("dd-M-yyyy");
+        Date fechaFormato = null;
+        
+        try {
+            fechaFormato = sdf1.parse(fecha);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        activofijo.setFechaAdquisicion(fechaFormato);
 
         daoActivoFijo.edit(activofijo);
         return "ActivoFijo/gdaAlta";
@@ -301,10 +317,7 @@ public class ActivoFijoController
     public String consultar(Model model)
     {
 
-        List<ActivoFijo> af = daoActivoFijo.findBySpecificField("status", "Asignado", "equal", null, null);
-        
-        List<HistorialActivoFijo> historiales = daoHistorialActivoFijo.findBySpecificField("activoFijo", af, "equal", null, null);
-        
+        List<HistorialActivoFijo> historiales = daoHistorialActivoFijo.findAll();        
         model.addAttribute("activoFijo", historiales);
 
         return "ActivoFijo/consultar";
