@@ -66,9 +66,9 @@
                                     <select class="form-control" name="seleccionado" id="seleccionado">
                                         <option value="Ventas">Ventas</option>
                                         <option value="Compras">Compras</option>
-                                        <option value="ActivosFijos">Activos Fijos</option>
+<!--                                        <option value="ActivosFijos">Activos Fijos</option>
                                         <option value="Operaciones"> Operaciones</option>
-                                        <option value="Logística">Logística</option>
+                                        <option value="Logística">Logística</option>-->
                                         <option value="RecursosHumanos">Recursos Humanos</option>
                                         <option value="Inventarios">Inventarios</option>
                                         <option value="Finanzas">Finanzas</option>
