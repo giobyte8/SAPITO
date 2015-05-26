@@ -77,7 +77,7 @@ public class UserDetailsServer implements UserDetailsService
             case "Ventas":
                 result.add(new SimpleGrantedAuthority("VENTAS"));
                 break;
-            case "Recursos humnaos":
+            case "Recursos Humanos":
                 result.add(new SimpleGrantedAuthority("RH"));
                 break;
         }

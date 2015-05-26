@@ -94,20 +94,20 @@ public class RecursosHumanosController
 //- *** *** *** *** ***  CONTROLLER ENDPOINTS MAPPING *** *** *** *** *** *** */
 ///////////////////////////////////////////////////////////////////////////// */
 //
-    @RequestMapping(value = "recursoshumanos", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/recursoshumanos", method = RequestMethod.GET)
     public String indexAdministrador(Model model)
     {
         return "RH/indexAdministrador";
     }
 
-    @RequestMapping(value = "rhempleadobase", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/rhempleadobase", method = RequestMethod.GET)
     public String rhempleadobase(Model model)
     {
 
         return "RH/indexEmpleadoBase";
     }
 
-    @RequestMapping(value = "recursoshumanosOperativo", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/recursoshumanosOperativo", method = RequestMethod.GET)
     public String indexOperativo(Model model)
     {
         return "RH/indexOperativo";
@@ -116,19 +116,19 @@ public class RecursosHumanosController
 // -------------------- EMPLEADOS -------------------------------
 /////////////////////////////////////////////////////////////////
 //
-    @RequestMapping(value = "recursoshumanos/altaempleado", method = RequestMethod.GET)
-    public String altaEmpleado(Model model)
-    {
-        List<Departamento> departamentos = daoDepartamento.findAll();
-        List<Puesto> puestos = daoPuesto.findAll();
-
-        Empleado empleado = new Empleado();
-
-        model.addAttribute("departamentos", departamentos);
-        model.addAttribute("puestos", puestos);
-        model.addAttribute("empleado", empleado);
-        return "RH/AltaEmpleado";
-    }
+//    @RequestMapping(value = "recursoshumanosdep/altaempleado", method = RequestMethod.GET)
+//    public String altaEmpleado(Model model)
+//    {
+//        List<Departamento> departamentos = daoDepartamento.findAll();
+//        List<Puesto> puestos = daoPuesto.findAll();
+//
+//        Empleado empleado = new Empleado();
+//
+//        model.addAttribute("departamentos", departamentos);
+//        model.addAttribute("puestos", puestos);
+//        model.addAttribute("empleado", empleado);
+//        return "RH/AltaEmpleado";
+//    }
 
     @RequestMapping(value = "recursoshumanos/altaempleado", method = RequestMethod.POST)
     public String newUser(Model model, @Valid Empleado empleado, BindingResult result)
@@ -247,7 +247,7 @@ public class RecursosHumanosController
         }
     }
     
-    @RequestMapping(value = "BajaEmpleado", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/BajaEmpleado", method = RequestMethod.GET)
     public String BajaEmpleado(Model model)
     {
         return "RH/BajaEmpleado";
@@ -261,7 +261,7 @@ public class RecursosHumanosController
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-    @RequestMapping(value = "VacacionEmpleado", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/VacacionEmpleado", method = RequestMethod.GET)
     public String VacacionEmpleado(Model model)
     {
 
@@ -270,30 +270,30 @@ public class RecursosHumanosController
         return "RH/VacacionEmpleado";
     }
 
-    @RequestMapping(value = "adminVacacionEmpleadoOperativo", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/adminVacacionEmpleadoOperativo", method = RequestMethod.GET)
     public String adminVacacionEmpleadoOperativo(Model model)
     {
 
         List<Detallevacaciones> detallevacaciones = daoDetallevacaciones.findAll();
         System.out.println(detallevacaciones.get(0).getIdempleado().getNombre());
 
-        model.addAttribute("detallevacaciones", detallevacaciones);
+        model.addAttribute("recursoshumanos/detallevacaciones", detallevacaciones);
         return "RH/adminVacacionesOperativo";
     }
 
-    @RequestMapping(value = "asistenciaEmpleadoBase", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/asistenciaEmpleadoBase", method = RequestMethod.GET)
     public String asistenciaEmpleadoBase(Model model)
     {
         return "RH/AsistenciaEmpleadoBase";
     }
 
-    @RequestMapping(value = "asistenciaJO", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/asistenciaJO", method = RequestMethod.GET)
     public String asistenciaJO(Model model)
     {
         return "RH/AsistenciasJefeOperativo";
     }
 
-    @RequestMapping(value = "AdmVacacionEmpleado", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/AdmVacacionEmpleado", method = RequestMethod.GET)
     public String AdmVacacionEmpleado(Model model)
     {
 
@@ -304,7 +304,7 @@ public class RecursosHumanosController
         return "RH/AdmVacacionEmpleado";
     }
 
-    @RequestMapping(value = "facyAdminEmpleadosCOper", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/facyAdminEmpleadosCOper", method = RequestMethod.GET)
     public String facyAdminEmpleadosCoper(Model model, String id)
     {
         System.out.println(id);
@@ -317,7 +317,7 @@ public class RecursosHumanosController
         return "RH/fancyAdminEmpleadosOperativo";
     }
 
-    @RequestMapping(value = "adminEmpleadosOperativo", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/adminEmpleadosOperativo", method = RequestMethod.GET)
     public String adminEmpleadosOperativo(Model model)
     {
 
@@ -328,19 +328,19 @@ public class RecursosHumanosController
         return "RH/administrarEmpleadosOperativo";
     }
 
-    @RequestMapping(value = "VacacionEmpleadoOperativo", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/VacacionEmpleadoOperativo", method = RequestMethod.GET)
     public String VacacionEmpleadoOperativo(Model model)
     {
         return "RH/VacacionEmpleadoOperativo";
     }
 
-    @RequestMapping(value = "altaVacacionEmpleadoBase", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/altaVacacionEmpleadoBase", method = RequestMethod.GET)
     public String altaVacacionEmpleadoBase(Model model)
     {
         return "RH/altaVacacionesEmpleadoBase";
     }
 
-    @RequestMapping(value = "searchEmpleado", method = RequestMethod.POST)
+    @RequestMapping(value = "recursoshumanos/searchEmpleado", method = RequestMethod.POST)
     public String searchEmpleado(Model model, String idEmpleado)
     {
         System.out.println(idEmpleado);
@@ -361,7 +361,7 @@ public class RecursosHumanosController
         return "RH/VacacionEmpleado";
     }
 
-    @RequestMapping(value = "UpVacacionesAdmin", method = RequestMethod.POST)
+    @RequestMapping(value = "recursoshumanos/UpVacacionesAdmin", method = RequestMethod.POST)
     public String adminCapacitacionAdmin(Model model, String idEmpleadoV, Vacaciones vacaciones, BindingResult bindingResult)
     {
         int id;
@@ -407,43 +407,43 @@ public class RecursosHumanosController
         return "RH/VacacionEmpleado";
     }
 
-    @RequestMapping(value = "historialCapacitacionAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/historialCapacitacionAdmin", method = RequestMethod.GET)
     public String historialCapacitacionAdmin(Model model)
     {
         return "RH/historialCapacitacionesAdministrador";
     }
 
-    @RequestMapping(value = "altaDepAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/altaDepAdmin", method = RequestMethod.GET)
     public String altaDepAdmin(Model model)
     {
         return "RH/addDepartamentoAdministrador";
     }
 
-    @RequestMapping(value = "adminDepAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/adminDepAdmin", method = RequestMethod.GET)
     public String adminDepAdmin(Model model)
     {
         return "RH/adminDepartamentosAdministrador";
     }
 
-    @RequestMapping(value = "updateDepAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/updateDepAdmin", method = RequestMethod.GET)
     public String updateDepAdmin(Model model)
     {
         return "RH/updateDepartamentoAdministrador";
     }
 
-    @RequestMapping(value = "deleteDepAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/deleteDepAdmin", method = RequestMethod.GET)
     public String deleteDepAdmin(Model model)
     {
         return "RH/deleteDepartamentoAdministrador";
     }
 
-    @RequestMapping(value = "addRolesAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/addRolesAdmin", method = RequestMethod.GET)
     public String addRolesAdmin(Model model)
     {
         return "RH/addRolesAdministrador";
     }
 
-    @RequestMapping(value = "adminRolesAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/adminRolesAdmin", method = RequestMethod.GET)
     public String adminRolesAdmin(Model model)
     {
         return "RH/adminRolesAdministrador";
@@ -486,37 +486,37 @@ public class RecursosHumanosController
         return "RH/adminPuestosAdministrador";
     }
 
-    @RequestMapping(value = "addSancionAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/addSancionAdmin", method = RequestMethod.GET)
     public String addSancionAdmin(Model model)
     {
         return "RH/addSancionAdministrador";
     }
 
-    @RequestMapping(value = "adminSancionAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/adminSancionAdmin", method = RequestMethod.GET)
     public String adminSancionAdmin(Model model)
     {
         return "RH/adminSancionesAdministrador";
     }
 
-    @RequestMapping(value = "adminCapacitacionOperativo", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/adminCapacitacionOperativo", method = RequestMethod.GET)
     public String adminCapacitacionOperativo(Model model)
     {
         return "RH/adminCapacitacionOperativo";
     }
 
-    @RequestMapping(value = "adminPrestacionesAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/adminPrestacionesAdmin", method = RequestMethod.GET)
     public String adminPrestacionesAdministrador(Model model)
     {
         return "RH/adminPrestacionesAdmin";
     }
 
-    @RequestMapping(value = "addPrestacionesAdministrador", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/addPrestacionesAdministrador", method = RequestMethod.GET)
     public String addPrestacionesAdministrador(Model model)
     {
         return "RH/addPrestacionesAdministrador";
     }
 
-    @RequestMapping(value = "downPrestacionesAdministrador", method = RequestMethod.GET)
+    @RequestMapping(value = "recursoshumanos/downPrestacionesAdministrador", method = RequestMethod.GET)
     public String downPrestacionesAdministrador(Model model)
     {
         return "RH/downPrestacionesAdministrador";

@@ -31,7 +31,7 @@
                 <h3 class="panel-title">Datos del Departamento</h3>
               </div>
               <div class="panel-body">  
-                <form:form action="adminempleadosdetalle" method="POST" commandName="empleado">
+                <form:form action="recursoshumanosdep/adminempleadosdetalle" method="POST" commandName="empleado">
                     <div class="col-lg-4 text-left">
                       <div class="form-group">
                         <label>Seleccione el departamento</label>

@@ -55,7 +55,7 @@
                 <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="asistenciaJO">Asistencia</a>
+                    <a href="recursoshumanosdep/asistenciaJO">Asistencia</a>
                   </li>
                   <li>
                     <a href="adminEmpleadosOperativo">Ver empleados</a>

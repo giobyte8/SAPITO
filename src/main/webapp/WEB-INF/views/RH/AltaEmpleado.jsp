@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <form:form action="altaempleado" method="POST" commandName="empleado">
+        <form:form action="recursoshumanosdep/altaempleado" method="POST" commandName="empleado">
             <div class="row">
               <div class="col-lg-12 text-left">
                 <div class="panel panel-green">

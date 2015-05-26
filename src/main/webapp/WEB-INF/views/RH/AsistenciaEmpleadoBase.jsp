@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <form:form action="capturarAsistencia" method="POST" commandName="Asistencia" >
+                <form:form action="recursoshumanosdep/capturarAsistencia" method="POST" commandName="Asistencia" >
                     <div class="row-fluid">
                         <div class="row-fluid form-group">
                             <div class="input-group">
