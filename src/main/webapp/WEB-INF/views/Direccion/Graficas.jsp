@@ -55,7 +55,7 @@
                     {
                         fillColor: "rgba(0,100,0, 0.8)",
                         strokeColor: "rgba(34,139,34, 0.5)",
-                        highlightFill:"rgba(34,22,22, 0.5)",
+                        highlightFill: "rgba(34,22,22, 0.5)",
                         data: arr
                     }
                 ]
@@ -182,8 +182,96 @@
                 ]
             };
 
+            var barVentas = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [
+                    {
+                        label: "My First dataset",
+                        fillColor: "rgba(250,228,10,0.5)",
+                        strokeColor: "rgba(220,170,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data: [2, 7, 8, 1, 6, 1, 4]
+                    }
+                ]
+            };
 
 
+            var pieAF = [
+                {
+                    value: 300,
+                    color: "#A3496B",
+                    highlight: "#C47090",
+                    label: "Computadoras"
+                },
+                {
+                    value: 500,
+                    color: "#5F53B5",
+                    highlight: "#8E84DB",
+                    label: "Muebles"
+                },
+                {
+                    value: 100,
+                    color: "#FDB45C",
+                    highlight: "#FFC870",
+                    label: "Papeleria"
+                },
+                {
+                    value: 120,
+                    color: "#4D5360",
+                    highlight: "#616774",
+                    label: "Otro"
+                }
+
+            ];
+
+            var doughnutOP = [
+                {
+                    value: 300,
+                    color: "#944356",
+                    highlight: "#B36D7D",
+                    label: "Llantas"
+                },
+                {
+                    value: 50,
+                    color: "#508BA3",
+                    highlight: "#7CADC2",
+                    label: "Faros"
+                },
+                {
+                    value: 100,
+                    color: "#FDB45C",
+                    highlight: "#FFC870",
+                    label: "Rines"
+                },
+                {
+                    value: 40,
+                    color: "#949FB1",
+                    highlight: "#A8B3C5",
+                    label: "Volante"
+                },
+                {
+                    value: 120,
+                    color: "#A35837",
+                    highlight: "#D18C6F",
+                    label: "Motor"
+                }
+            ];
+
+            var pieData4 = [
+                {
+                    value: 42000,
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "No completadas"
+                },
+                {
+                    value: 505000,
+                    color: "#428C30",
+                    highlight: "#5B9E4A",
+                    label: "Completadas"
+                }
+            ];
 
             window.onload = function () {
                 var ctx9 = document.getElementById("chart-barData4").getContext("2d");
@@ -200,6 +288,19 @@
 
                 var ctx4 = document.getElementById("chart-barData2").getContext("2d");
                 window.myBarChart = new Chart(ctx4).Bar(barCompra, {responsive: true});
+
+                var ctx3 = document.getElementById("chart-barData").getContext("2d");
+                window.myBarChart = new Chart(ctx3).Bar(barVentas, {responsive: true});
+
+                var ctx7 = document.getElementById("chart-pieData3").getContext("2d");
+                window.myPie = new Chart(ctx7).Pie(pieAF, {responsive: true});
+
+                var ctx2 = document.getElementById("chart-doughnutData").getContext("2d");
+                window.myDoughnut = new Chart(ctx2).Doughnut(doughnutOP, {responsive: true});
+
+                var ctx8 = document.getElementById("chart-pieData4").getContext("2d");
+                window.myPie = new Chart(ctx8).Pie(pieData4, {responsive: true});
+
             };
         </script>
 
@@ -237,7 +338,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="Inventarios" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
@@ -256,7 +357,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="RecursosHumanos" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
@@ -274,7 +375,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="RecursosHumanos" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
@@ -292,7 +393,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="Finanzas" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div> 
@@ -309,7 +410,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="Compras" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
@@ -327,7 +428,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="Ventas" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
@@ -350,7 +451,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="ActivosFijos" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
@@ -369,7 +470,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="Operaciones" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
@@ -377,7 +478,7 @@
                     <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
                             <div class="panel-heading" >
-                                Logistica
+                                Logística
                             </div>
 
                             <div class="panel panel-body">
@@ -387,7 +488,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                <%@include file="footer_hist.jsp" %>
+                                <a class="btn btn-success" type="button" href="Logística" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
                     </div>
