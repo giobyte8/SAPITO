@@ -30,7 +30,7 @@
 
         <div class="panel-body">
           <div class="dataTable_wrapper">
-            <form:form action="recursoshumanos/uppuestoadmin" method="POST" commandName="Puesto">
+            <form:form action="uppuestoadmin" method="POST" commandName="Puesto">
                 ${Resultado}
                 <div class="form-group">
                   <br/><label>Nombre del Puesto</label>

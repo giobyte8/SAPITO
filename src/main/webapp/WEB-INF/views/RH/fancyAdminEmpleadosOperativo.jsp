@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <h3>${Empleado.nomre}  ${Empleado.apaterno}   ${Empleado.amaterno}</h3>
+                        <h3>${Empleado.nombre}  ${Empleado.apaterno}   ${Empleado.amaterno}</h3>
 
                         <div>
                         </div><!-- /col-sm-12 -->
@@ -53,7 +53,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Nombre(s)</td>
-                                                <td>${Empleado.nomre}</td>
+                                                <td>${Empleado.nombre}</td>
                                             </tr>
                                             <tr>
                                                 <td>Apellido Paterno</td>

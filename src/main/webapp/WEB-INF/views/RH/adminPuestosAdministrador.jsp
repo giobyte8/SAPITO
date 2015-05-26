@@ -40,9 +40,6 @@
                       <th>Hora de entrada</th>
                       <th>Hora de salida</th>
                       <th>Sueldo base</th>
-                      <th>Detalles</th>
-                      <th>Editar</th>
-                      <th>Baja</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -51,11 +48,7 @@
                           <td>${puesto.nombre}</td>
                           <td>${puesto.horaentrada}</td>
                           <td>${puesto.horafin}</td>
-                          <td>${puesto.sueldobase}</td>
-                          <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-primary fa fa-desktop" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                          <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                          <td><p data-placement="top" data-toggle="tooltip" title="Empleados"><a href="#"><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                        </tr>
+                          <td>${puesto.sueldobase}</td></tr>
                     </c:forEach>
                   </tbody>
                 </table>   

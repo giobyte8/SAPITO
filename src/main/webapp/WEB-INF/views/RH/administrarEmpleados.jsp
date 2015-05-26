@@ -88,7 +88,7 @@
                           <td><core:out value="${current.fechaNacimiento}" /></td>
                           <td><core:out value="${current.telefono}" /></td>
                           <td>
-                            <a class="fancyRH"  href="recursoshumanos/fancyadminempleadosc?id=${current.idempleado}">
+                            <a class="fancyRH"  href="fancyadminempleadosc?id=${current.idempleado}">
                               <span class="btn  btn-warning fa fa-user"></span>
                             </a>                                        
                           </td>

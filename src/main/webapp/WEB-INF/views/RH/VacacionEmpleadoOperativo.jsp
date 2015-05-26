@@ -18,6 +18,7 @@
             <!--  ################################################-->
 
 
+
             <div class="container-fluid">
 
                 <!-- Page Heading -->
@@ -29,61 +30,60 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <form onsubmit="return elementoSeleccionado()">
-                    <!--                        <div class="row">
-                                                <div class="col-lg-12 text-left">
-                                                    <div class="panel panel-primary">
-                                                        <div class="panel-heading">
-                                                            <h3 class="panel-title">Datos Del Empleado</h3>
-                                                        </div>
-                    
-                                                        <div class="row">
-                                                            <div class="col-lg-16 col-md-offset-6text-center">
-                                                                <div class="col-lg-12">
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-bordered table-hover table-striped">
-                    
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th>ID De Empleado</th>
-                                                                                    <th>Nombre(s)</th>
-                                                                                    <th>Apellido Paterno</th>
-                                                                                    <th>Apellido Materno</th>
-                                                                                    <th>Departamento</th>
-                                                                                    <th>Puesto</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                    
-                                                                                <tr><td>2535</td><td>Emmanuel</td><td>LÃ³pez</td><td>Sanches</td><td>Compras</td><td>Empleado</td></tr>
-                    
-                                                                            </tbody>
-                                                                        </table>            </div>
-                                                                </div>
-                                                            </div>
-                    
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>-->
+
+
+
+                <div class="row-fluid">
                     <div class="panel panel-green">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos Del Empleado</h3>
+                            <h3 class="panel-title">Buscar Empleado por Clave</h3>
                         </div>
-
                         <div class="panel-body">
-                            <h3 class="panel-title">Buscar empleado por nombre</h3>
-                            <br>
-                            <div class="input-group">
+                            <form action="searchEmpleado" method="POST" >
+                                <div class="row">
+                                    <div class="col-lg-12 text-left">
+                                        <div class="form-group input-group">
+                                            <input type="search" name="idEmpleado" class="form-control" placeholder="clave del empleado" onkeypress="return soloNumeros(event);" maxlength="10" required>
+                                            <span class="input-group-btn">
+                                                <button  type="submit" class="btn btn-block " ><i class="fa fa-search"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
 
-                                <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-                                <input class="form-control" id="system-search" name="q" placeholder="Busqueda" onkeypress="return soloTexto(event);"required>
-                                <span class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                </span>
-                            </div>
+                                </div>
+                                ${NotFound}
+                                ${Resultado}
+                            </form>
+
                         </div>
                     </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="col-sm-12 ">
+                        <h3></h3>
+                    </div><!-- /col-sm-12 -->
+                </div><!-- /row -->
+                <div class="row col-lg-offset-2">
+                    <div class="col-sm-1">
+                        <div class="thumbnail">
+                            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                        </div><!-- /thumbnail -->
+                    </div><!-- /col-sm-1 -->
+                    ${ResultadoBusqueda}
+                    <div class="col-sm-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <strong>${Empleado.nomre}  ${Empleado.apaterno}   ${Empleado.amaterno}</strong> <span class="text-muted">Clave : ${Empleado.idempleado}</span>
+                            </div>
+                            <div class="panel-body">
+                                ${EmpleadoSeleccionado}
+                            </div><!-- /panel-body -->
+                        </div><!-- /panel panel-default -->
+                    </div><!-- /col-sm-5 -->    
+                </div>
+                <form:form commandName="vacaciones" action="UpVacacionesAdmin" method="POST"> 
+                    <input type="text" readyonly="true" name="idEmpleadoV" class="form-control" value="${Empleado.idempleado}" >
+
                     <div class="row">
                         <div class="col-lg-12 text-left">
                             <div class="panel panel-green">
@@ -97,26 +97,15 @@
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
                                             <label>Fecha de Inicio</label>
-                                            <input id="fecha1" type="date" class="form-control">
+                                            <form:input id="fnoc-fechaInicio"  type="text" path="fechaalta" class="form-control" required="required"/>
                                         </div>
-                                        <div class="form-group">
 
-                                        </div>
-                                        <h5></h5>
-                                        <div class="radio">
-                                            <label>
-
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                            </label>
-                                        </div>
                                     </div>
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
                                             <label>Fecha de Fin</label>
-                                            <input id="fecha2" type="date" class="form-control"> </div>  
+                                            <form:input  id="fnoc-fechaFin" path="fechabaja"  type="text" class="form-control" required="required"/>
+                                        </div>  
                                     </div>
                                 </div>
                                 <div class="col-lg-6 text-left">
@@ -127,10 +116,10 @@
                         </div>
 
                         <div align="right">
-                            <button type="submit" class="btn btn-success" onclick="checarFecha()">Aceptar</button>
+                            <button type="submit" class="btn btn-success">Aceptar</button>
                         </div>
                     </div>
-                </form>
+                </form:form>
             </div>
 
 
@@ -139,5 +128,23 @@
 
         </div>
         <%@include file="Librerias/piegeneral.jsp"%><!-- ESTO MANDA A TRAER EL MENU-->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/activofijo/jquery-ui.js"></script>      
     </body>
+    <script >
+                                                $(document).ready(function () {
+
+                                                    $("#fnoc-fechaInicio").datepicker({
+                                                        dateFormat: "dd/mm/yy",
+                                                        dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                                                        dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                                                        monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+                                                    });
+                                                    $("#fnoc-fechaFin").datepicker({
+                                                        dateFormat: "dd/mm/yy",
+                                                        dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                                                        dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                                                        monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+                                                    });
+                                                });
+    </script>
 </html>

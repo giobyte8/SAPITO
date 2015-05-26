@@ -55,7 +55,7 @@
                                         <tr class='gradeX' id="${current.idempleado}">
 
 
-                                            <td><core:out value="${current.nomre}" /></td>
+                                            <td><core:out value="${current.nombre}" /></td>
                                             <td><core:out value="${current.rfc}" /></td>
                                             <td><core:out value="${current.telefono}" /></td>
                                             <td>

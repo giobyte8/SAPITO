@@ -49,7 +49,7 @@
                                                         <tr class='gradeX' id="${current.iddetallevacaciones}">
 
 
-                                                            <td><core:out value="${current.idempleado.nomre} ${current.idempleado.apaterno} ${current.idempleado.amaterno}" /></td>
+                                                            <td><core:out value="${current.idempleado.nombre} ${current.idempleado.apaterno} ${current.idempleado.amaterno}" /></td>
                                                             <td><core:out value="${current.idvacaciones.fechaalta}" /></td>
                                                             <td><core:out value="${current.idvacaciones.fechabaja}" /></td>
              
