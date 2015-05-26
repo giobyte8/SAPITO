@@ -436,7 +436,20 @@ public class ContabilidadController {
         daoDepartamento.create(depa);
         daoDepartamento.create(depa1);
         daoDepartamento.create(depa2);
+        
+        TipoMoneda moneda = new TipoMoneda();
+        moneda.setNombreMoneda("Dolares");
+        moneda.setValorenPesos(14.50);
 
+        TipoMoneda moneda1 = new TipoMoneda();
+        moneda.setNombreMoneda("Euros");
+        moneda.setValorenPesos(19.50);
+        TipoMoneda moneda2 = new TipoMoneda();
+        moneda.setNombreMoneda("Yen");
+        moneda.setValorenPesos(0.125310912);
+        daoMoneda.create(moneda);
+        daoMoneda.create(moneda);
+        daoMoneda.create(moneda2);
         return "Contabilidad/contaCrearCuentas";
     }
 
