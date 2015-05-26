@@ -397,7 +397,7 @@
                             </div>
                         </div>
                     </div> 
-                    <div class="col-lg-4" align="center">
+<!--                    <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
                             <div class="panel-heading" >
                                 Compras
@@ -413,9 +413,9 @@
                                 <a class="btn btn-success" type="button" href="Compras" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <div class="col-lg-4" align="center">
+<!--                    <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
                             <div class="panel-heading" >
                                 Ventas
@@ -431,14 +431,14 @@
                                 <a class="btn btn-success" type="button" href="Ventas" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
 
 
 
 
 
-                    <div class="col-lg-4" align="center">
+<!--                    <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
                             <div class="panel-heading" >
                                 Activos Fijos
@@ -450,14 +450,14 @@
                                 </div>
                             </div>
 
-<!--                            <div class="panel-footer">
+                            <div class="panel-footer">
                                 <a class="btn btn-success" type="button" href="ActivosFijos" style="color:white">Crear Reporte</a>
-                            </div>-->
+                            </div>
                         </div>
-                    </div>
+                    </div>-->
 
 
-                    <div class="col-lg-4" align="center">
+<!--                    <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
                             <div class="panel-heading" >
                                 Operaciones
@@ -469,13 +469,13 @@
                                 </div>
                             </div>
 
-<!--                            <div class="panel-footer">
+                            <div class="panel-footer">
                                 <a class="btn btn-success" type="button" href="Operaciones" style="color:white">Crear Reporte</a>
-                            </div>-->
+                            </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <div class="col-lg-4" align="center">
+<!--                    <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
                             <div class="panel-heading" >
                                 Logística
@@ -487,11 +487,11 @@
                                 </div>
                             </div>
 
-<!--                            <div class="panel-footer">
+                            <div class="panel-footer">
                                 <a class="btn btn-success" type="button" href="Logística" style="color:white">Crear Reporte</a>
-                            </div>-->
+                            </div>
                         </div>
-                    </div>
+                    </div>-->
 
 
 
