@@ -39,7 +39,7 @@
                             <h3 class="panel-title">Buscar Empleado por Clave</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="searchEmpleado" method="POST" >
+                            <form action="searchEmpleadoOperativo" method="POST" >
                                 <div class="row">
                                     <div class="col-lg-12 text-left">
                                         <div class="form-group input-group">
@@ -73,7 +73,7 @@
                     <div class="col-sm-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <strong>${Empleado.nomre}  ${Empleado.apaterno}   ${Empleado.amaterno}</strong> <span class="text-muted">Clave : ${Empleado.idempleado}</span>
+                                <strong>${Empleado.nombre}  ${Empleado.apaterno}   ${Empleado.amaterno}</strong> <span class="text-muted">Clave : ${Empleado.idempleado}</span>
                             </div>
                             <div class="panel-body">
                                 ${EmpleadoSeleccionado}
@@ -81,7 +81,7 @@
                         </div><!-- /panel panel-default -->
                     </div><!-- /col-sm-5 -->    
                 </div>
-                <form:form commandName="vacaciones" action="UpVacacionesAdmin" method="POST"> 
+                <form:form commandName="vacaciones" action="UpVacacionesAdminOperativo" method="POST"> 
                     <input type="text" readyonly="true" name="idEmpleadoV" class="form-control" value="${Empleado.idempleado}" >
 
                     <div class="row">

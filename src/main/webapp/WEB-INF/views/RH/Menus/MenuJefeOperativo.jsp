@@ -42,7 +42,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="indexMain"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
+                        <a href="login"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
                     </li>
                 </ul>
             </li>
@@ -55,7 +55,7 @@
                 <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="recursoshumanos/asistenciaJO">Asistencia</a>
+                    <a href="asistenciaJO">Asistencia</a>
                   </li>
                   <li>
                     <a href="adminEmpleadosOperativo">Ver empleados</a>

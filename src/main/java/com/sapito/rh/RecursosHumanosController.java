@@ -195,10 +195,9 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "recursoshumanos/adminempleados", method = RequestMethod.GET)
     public String AdminEmpleados(Model model) {
-       
-        
-        System.out.println("ADMIN EMPLEADOS::::::::::::::::::::::::::"); 
-        
+
+        System.out.println("ADMIN EMPLEADOS::::::::::::::::::::::::::");
+
         List<Departamento> departamentos = daoDepartamento.findAll();
         List<Puesto> puestos = daoPuesto.findAll();
         List<Empleado> empleados = daoEmpleado.findAll();
@@ -335,16 +334,37 @@ public class RecursosHumanosController {
 
     @RequestMapping(value = "recursoshumanos/adminEmpleadosOperativo", method = RequestMethod.GET)
     public String adminEmpleadosOperativo(Model model) {
+//        List<Departamento> departamentos = daoDepartamento.findAll();
+//        List<Puesto> puestos = daoPuesto.findAll();
+//
+//        model.addAttribute("departamentos", departamentos);
+//        model.addAttribute("puestos", puestos);
+//        List<Empleado> empleados = daoEmpleado.findAll();
+//         List<Empleado> empleados = daoEmpleado.findAll();
+//
+//        model.addAttribute("Empleados", empleados);
+//        
+//        
 
+        System.out.println("ADMIN EMPLEADOS::::::::::::::::::::::::::");
+
+        List<Departamento> departamentos = daoDepartamento.findAll();
+        List<Puesto> puestos = daoPuesto.findAll();
         List<Empleado> empleados = daoEmpleado.findAll();
 
-        model.addAttribute("Empleados", empleados);
+        model.addAttribute("departamentos", departamentos);
+        model.addAttribute("puestos", puestos);
+        model.addAttribute("empleados", empleados);
+        model.addAttribute("empleado", new Empleado());
 
         return "RH/administrarEmpleadosOperativo";
     }
 
     @RequestMapping(value = "recursoshumanos/VacacionEmpleadoOperativo", method = RequestMethod.GET)
     public String VacacionEmpleadoOperativo(Model model) {
+
+        model.addAttribute("EmpleadoSeleccionado", "No a seleccionado algun Empleado");
+        model.addAttribute("vacaciones", new Vacaciones());
         return "RH/VacacionEmpleadoOperativo";
     }
 
@@ -370,9 +390,69 @@ public class RecursosHumanosController {
 
         return "RH/VacacionEmpleado";
     }
+    
+      @RequestMapping(value = "recursoshumanos/searchEmpleadoOperativo", method = RequestMethod.POST)
+    public String searchEmpleadOoperativo(Model model, String idEmpleado) {
+        System.out.println(idEmpleado);
+        System.out.println("entrado a controlador");
+        Empleado empleado = (Empleado) daoEmpleado.find(Integer.parseInt(idEmpleado));
+        try {
+            System.out.println(empleado);
+        } catch (Exception e) {
+            model.addAttribute("NotFound", "<div class='alert-message alert-message-danger'> <h4>Empleado no encontrado</p></div>");
+        }
+
+        model.addAttribute("EmpleadoSeleccionado", "Empleado seleccionado para dar de alta vacaciones");
+        model.addAttribute("vacaciones", new Vacaciones());
+        model.addAttribute("Empleado", empleado);
+
+        return "RH/VacacionEmpleadoOperativo";
+    }
+
 
     @RequestMapping(value = "recursoshumanos/UpVacacionesAdmin", method = RequestMethod.POST)
     public String adminCapacitacionAdmin(Model model, String idEmpleadoV, Vacaciones vacaciones, BindingResult bindingResult) {
+        int id;
+        List<Vacaciones> vacacionesS = null;
+        System.out.println("Entrando al controlador alta ");
+        System.out.println(idEmpleadoV);
+        vacaciones.setAprobacion(1);
+        try {
+            vacacionesS = daoVacaciones.findAll();
+            System.out.println(vacacionesS.size());
+            id = vacacionesS.size();
+            System.out.println(id);
+            System.out.println(vacacionesS.get(id - 1));
+            vacaciones.setIdvacaciones((vacacionesS.get(id - 1).getIdvacaciones()) + 1);
+            vacaciones.setStatus("0");
+        } catch (Exception f) {
+            System.out.println("ocurrio una excepcion");
+            id = 0;
+            vacaciones.setIdvacaciones(id + 1);
+            vacaciones.setStatus("1");
+        }
+
+        System.out.println("Id de vacaciones:" + (id + 1));
+
+        System.out.println(vacaciones.getFechaalta());
+        System.out.println(vacaciones.getFechabaja());
+
+        daoVacaciones.create(vacaciones);
+
+        Detallevacaciones devacaciones = new Detallevacaciones();
+        Vacaciones newVac = vacaciones;
+        Empleado empleados = (Empleado) daoEmpleado.find(Integer.parseInt(idEmpleadoV));
+        System.out.println("Empleado alta vacaciones" + empleados.getIdempleado() + "......" + empleados.getNombre());
+        model.addAttribute("Resultado", "<div class='alert-message alert-message-success'> <h4>Inserccion Correcta</p></div>");
+        devacaciones.setIdempleado(empleados);
+        devacaciones.setIdvacaciones(newVac);
+
+        daoDetallevacaciones.create(devacaciones);
+        model.addAttribute("Vacaciones", new Vacaciones());
+        return "RH/VacacionEmpleado";
+    }
+    @RequestMapping(value = "recursoshumanos/UpVacacionesAdminOperativo", method = RequestMethod.POST)
+    public String UpVacacionesAdminOperativo(Model model, String idEmpleadoV, Vacaciones vacaciones, BindingResult bindingResult) {
         int id;
         List<Vacaciones> vacacionesS = null;
         System.out.println("Entrando al controlador alta ");
@@ -410,7 +490,7 @@ public class RecursosHumanosController {
 
         daoDetallevacaciones.create(devacaciones);
         model.addAttribute("Vacaciones", new Vacaciones());
-        return "RH/VacacionEmpleado";
+        return "RH/VacacionEmpleadoOperativo";
     }
 
     @RequestMapping(value = "recursoshumanos/historialCapacitacionAdmin", method = RequestMethod.GET)

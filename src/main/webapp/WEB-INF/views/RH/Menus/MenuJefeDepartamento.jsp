@@ -37,7 +37,7 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a href="indexMain"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
+            <a href="login"><i class="fa fa-fw fa-power-off"></i> Cerrar sesión</a>
           </li>
         </ul>
       </li>
