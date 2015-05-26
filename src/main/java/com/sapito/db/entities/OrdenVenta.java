@@ -100,6 +100,9 @@ public class OrdenVenta implements Serializable
     @JsonManagedReference
     private Collection<ProductoVendido> productosVendidos;
     
+    @OneToOne
+    private Empleado vendedor;
+    
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 /* *** *** *** *** *** *** *** *** *** *** *** ***/
 
@@ -233,6 +236,16 @@ public class OrdenVenta implements Serializable
     public void setStatus(String status)
     {
         this.status = status;
+    }
+
+    public Empleado getVendedor()
+    {
+        return vendedor;
+    }
+
+    public void setVendedor(Empleado vendedor)
+    {
+        this.vendedor = vendedor;
     }
     
 }

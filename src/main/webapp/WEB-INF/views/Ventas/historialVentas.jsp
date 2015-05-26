@@ -47,7 +47,7 @@
               <c:forEach items="${ordenes}" var="orden">
                   <tr>
                     <td>${orden.id}</td>
-                    <td>Some vendor</td>
+                    <td>${orden.vendedor.nombre}</td>
                     <td>${orden.cliente.empresa}</td>
                     <td>${orden.fechaEntrega}</td>
                     <td>${orden.status}</td>

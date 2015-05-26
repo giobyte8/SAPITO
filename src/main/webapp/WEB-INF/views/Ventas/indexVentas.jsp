@@ -29,9 +29,6 @@
               </h1>
             </div>
           </div>
-          <c:if test="${authority == 'JEFE_DEPARTAMENTO_ROL'}">  
-              <h4>You're the boss</h4>
-          </c:if>
           <div class="row text-center">
             <img width="50%" height="50%" src="${pageContext.request.contextPath}/resources/img/ventas.jpg" />
           </div>
