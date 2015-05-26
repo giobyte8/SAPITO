@@ -534,6 +534,15 @@ public class ComprasController {
                 ProductoProveedor producto = (ProductoProveedor) iterator.next();
                 if (contador != cantProductos.size()) {
                     Arregl[contador][0] = producto.getId();
+                    if (producto.getUnidad().equals("PIEZA")){
+                        Arregl[contador][2]=1;
+                    }
+                    if (producto.getUnidad().equals("CAJA")){
+                        Arregl[contador][2]=2;
+                    }
+                    if (producto.getUnidad().equals("LOTE")){
+                        Arregl[contador][2]=3;
+                    }
                     contador++;
                 }
             }

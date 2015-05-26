@@ -51,26 +51,37 @@ public class Proveedor implements Serializable
     @Column(name = "PAIS")
     private String pais;
 
+    @NotNull
+    @Size(min = 1, max = 500, message = "El nombre de la instancia debe tener entre 1 y 500 caracteres")
     @Column(name = "ESTADO")
     private String estado;
 
+    @NotNull
+    @Size(min = 1, max = 500, message = "El nombre de la instancia debe tener entre 1 y 500 caracteres")
     @Column(name = "MUNICIPIO")
     private String municipio;
 
+    @NotNull
+    @Size(min = 1, max = 500, message = "El nombre de la instancia debe tener entre 1 y 500 caracteres")
     @Column(name = "COLONIA")
     private String colonia;
 
+    @NotNull
+    @Size(min = 1, max = 500, message = "El nombre de la instancia debe tener entre 1 y 500 caracteres")
     @Column(name = "CALLE")
     private String calle;
 
+    @NotNull
     @Pattern(regexp = RExp.letrasBasicasDigitosOrNull, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "NUMERO_INTERIOR")
     private String numeroI;
 
+    @NotNull
     @Pattern(regexp = RExp.letrasBasicasDigitosOrNull, message = RExpErrors.letrasBasicasDigitos)
     @Column(name = "NUMERO_EXTERIOR")
     private String numeroE;
 
+    @NotNull
     @Column(name = "CP")
     private int cp;
 
@@ -80,10 +91,12 @@ public class Proveedor implements Serializable
     @Column(name = "RFC")
     private String rfc;
 
+    @NotNull
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "TELEFONO1")
     private String telefono1;
 
+    @NotNull
     @Pattern(regexp = RExp.digitosEspaciosOrNull, message = RExpErrors.digitosEspacios)
     @Column(name = "EXTENSION1")
     private String extension1;
@@ -113,8 +126,9 @@ public class Proveedor implements Serializable
     @Column(name = "APELLIDO_PATERNO")
     private String apellidoPaternoContacto;
 
+    @NotNull
     @Size(min = 0, max = 100, message = "Debe tener un maximo de 100 caracteres")
-    @Pattern(regexp = RExp.letrasAcentuadasPuntosOrNull, message = RExpErrors.letrasAcentuadasPuntos)
+    @Pattern(regexp = RExp.letrasAcentuadasDigitosEspacios, message = RExpErrors.letrasAcentuadasDigitosEspacios)
     @Column(name = "APELLIDO_MATERNO")
     private String apellidoMaternoContacto;
 
