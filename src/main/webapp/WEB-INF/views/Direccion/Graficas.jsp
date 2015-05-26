@@ -362,7 +362,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4" align="center">
+<!--                    <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
                             <div class="panel-heading" >
                                 Recursos Humanos - Sueldos
@@ -378,7 +378,7 @@
                                 <a class="btn btn-success" type="button" href="RecursosHumanos" style="color:white">Crear Reporte</a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="col-lg-4" align="center">
                         <div class="panel panel-green" >
