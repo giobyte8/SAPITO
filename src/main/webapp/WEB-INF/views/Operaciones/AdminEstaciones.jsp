@@ -69,7 +69,7 @@
                         <tbody>
                             <c:forEach items="${lEstacion}" var="estacion">
                                 <tr data-value="${estacion.idestacion}">
-                                    <<td>${estacion.nombre}</td>                                    
+                                    <td>${estacion.nombre}</td>                                    
                                     <td>${estacion.tiempo}</td>
                                     <td>${estacion.descripcion}</td>                                    
                                     <td>${estacion.lineaproduccionIdlineaproduccion.idlineaproduccion}</td>  
