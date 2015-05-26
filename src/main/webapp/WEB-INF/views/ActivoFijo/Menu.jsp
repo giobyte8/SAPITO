@@ -60,9 +60,6 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="rSolicitud"><i class="fa  fa-file-text  fa-fw"></i> Realizar Solicitud</a>
-                    </li>
-                    <li>
                         <a href="reporteInversion"><i class="fa  fa-database fa-fw"></i> Reporte de inversi&oacute;n</a>
                     </li>
                     <li>
