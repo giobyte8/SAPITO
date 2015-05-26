@@ -5,6 +5,7 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -48,10 +49,12 @@ private ActivoFijo activoFijo;
 
 @JoinColumn(name = "ID_EMPLEADO_ANTERIOR")
 @ManyToOne
+@JsonBackReference
 private Empleado nombreref;
 
 @JoinColumn(name = "ID_EMPLEADO_ACTUAL")
 @ManyToOne
+@JsonBackReference
 private Empleado nombreref2;
 
 

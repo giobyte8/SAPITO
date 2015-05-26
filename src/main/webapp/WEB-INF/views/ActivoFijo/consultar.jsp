@@ -68,8 +68,8 @@
                                     <tr>
                                         <td>${af.activoFijo.productoProveedor.producto.nombreProducto}</td>
                                         <td>${af.activoFijo.tipoactivofijo.nombre}</td>
-                                        <td>${af.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
-                                        <td>${af.nombreref2.nomre} ${af.nombreref2.apaterno} ${af.nombreref2.amaterno}</td>
+                                        <td>${af.nombreref2.departamento.nombreDepartamento}</td>
+                                        <td>${af.nombreref2.nombre} ${af.nombreref2.apaterno} ${af.nombreref2.amaterno}</td>
                                         <td>${af.activoFijo.fechaAdquisicion}</td>
                                         <td class="center">
                                             <a href="mActivoFijo?idAF=${af.activoFijo.id}" title="Modificar">

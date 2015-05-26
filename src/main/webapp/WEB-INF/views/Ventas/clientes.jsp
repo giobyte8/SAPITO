@@ -40,8 +40,10 @@
                 <th>Nombre de contacto</th>
                 <th>Email</th>
                 <th>Detalles</th>
-                <th>Editar</th>
-                <th>Inhabilitar</th>
+                  <c:if test="${authority == 'JEFE_OPERATIVO_ROL'}">
+                  <th>Editar</th>
+                  <th>Inhabilitar</th>
+                  </c:if>
               </tr
             </thead>
             <tbody>
@@ -57,16 +59,18 @@
                         Detalles
                       </button>
                     </td>
-                    <td>
-                      <button class="btn btn-xs btn-success" type="button" >
-                        Editar
-                      </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-xs btn-success" type="button"  >
-                        Inhabilitar
-                      </button>
-                    </td>
+                    <c:if test="${authority == 'JEFE_OPERATIVO_ROL'}">
+                        <td>
+                          <button class="btn btn-xs btn-success" type="button" >
+                            Editar
+                          </button>
+                        </td>
+                        <td>
+                          <button class="btn btn-xs btn-success" type="button"  >
+                            Inhabilitar
+                          </button>
+                        </td>
+                    </c:if>
                   </tr>
               </c:forEach>
             </tbody>

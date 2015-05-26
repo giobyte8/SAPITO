@@ -11,8 +11,8 @@ $(document).ready(function () {
             console.log(empleados);
             $('#combo-empleados').empty();
             for (var i=0; i<empleados.length; i++) {
-                var option = '<option value="' + empleados[i].idempleado 
-                        + '">' + empleados[i].nomre + "</option>";
+                var option = '<option value="' + empleados[i].idempleado
+                        + '">' + empleados[i].nombre + "</option>";
                 $('#combo-empleados').append(option);
             }
         });

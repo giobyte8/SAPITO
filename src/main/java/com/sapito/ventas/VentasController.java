@@ -89,8 +89,6 @@ public class VentasController
     @RequestMapping(value = "ventas", method = RequestMethod.GET)
     public String index(Model model, Principal principal)
     {
-        //System.out.println("El name es: " + principal.getName());
-        
         model.addAttribute("authority", secUtils.getAuthority());
         model.addAttribute("username", secUtils.getUsername());
         model.addAttribute("nombre", secUtils.getNombre(secUtils.getUsername(), daoCredencial));
@@ -104,6 +102,10 @@ public class VentasController
         cliente.setStatus(true);
         
         model.addAttribute("cliente", cliente);
+        
+        model.addAttribute("authority", secUtils.getAuthority());
+        model.addAttribute("username", secUtils.getUsername());
+        model.addAttribute("nombre", secUtils.getNombre(secUtils.getUsername(), daoCredencial));
         return "Ventas/nvoCliente";
     }
     
@@ -131,7 +133,11 @@ public class VentasController
     public String clientes(Model model)
     {
         List<Cliente> clientes = daoCliente.findAll();
-        model.addAttribute("clientes", clientes);        
+        model.addAttribute("clientes", clientes);   
+        
+        model.addAttribute("authority", secUtils.getAuthority());
+        model.addAttribute("username", secUtils.getUsername());
+        model.addAttribute("nombre", secUtils.getNombre(secUtils.getUsername(), daoCredencial));
         return "Ventas/clientes";
     }
     

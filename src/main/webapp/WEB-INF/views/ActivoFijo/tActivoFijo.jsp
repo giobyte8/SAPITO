@@ -60,7 +60,7 @@
                               <div class="form-group ">
                                 <label class="control-label" >Departamento Origen</label>
                                 <input id="depto-origen" type="text" class="form-control" 
-                                       readonly value="${historial.nombreref2.departamentoIddepartamento.nombreDepartamento}" />
+                                       readonly value="${historial.nombreref2.departamento.nombreDepartamento}" />
                               </div>
                               <div class="form-group ">
                                 <label class="control-label" >Departamento Destino</label>
@@ -76,7 +76,7 @@
                                 <select id="combo-empleados" name="propietario" class="form-control">
                                   <option value="">Selecciona Propietario</option>
                                   <c:forEach var="emp" items="${emp}">
-                                    <option value="${emp.idempleado}">${emp.nomre}</option>
+                                    <option value="${emp.idempleado}">${emp.nombre}</option>
                                   </c:forEach>
                                 </select>
                               </div>

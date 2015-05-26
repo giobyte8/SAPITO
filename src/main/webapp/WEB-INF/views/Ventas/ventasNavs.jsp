@@ -136,9 +136,11 @@
           <i class="fa fa-fw fa-money"></i> Clientes <i class="fa fa-fw fa-caret-down"></i>
         </a>
         <ul id="clientes-submenus" class="collapse">
-          <li id="nb-nvocliente">
-            <a href="/SAPITO/ventas/nvocliente"> Nuevo cliente</a>
-          </li>
+          <c:if test="${authority == 'EMPLEADO_BASE_ROL'}">
+              <li id="nb-nvocliente">
+                <a href="/SAPITO/ventas/nvocliente"> Nuevo cliente</a>
+              </li>
+          </c:if>
           <li id="nb-lista-clientes">
             <a href="/SAPITO/ventas/clientes"> Lista de clientes</a>
           </li>
@@ -149,14 +151,21 @@
             <a href="/SAPITO/ventas/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
           </li>
       </c:if>
+      <c:if test="${authority == 'JEFE_OPERATIVO_ROL'}">
+          <li id="nb-vendedores">
+            <a href="/SAPITO/ventas/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
+          </li>
+      </c:if>
       <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#ventas-subviews">
           <i class="fa fa-fw fa-money"></i> Ventas <i class="fa fa-fw fa-caret-down"></i>
         </a>
         <ul id="ventas-subviews" class="collapse">
-          <li id="nb-nvaorden">
-            <a href="/SAPITO/ventas/nvaorden"> Nueva orden de venta</a>
-          </li>
+          <c:if test="${authority == 'EMPLEADO_BASE_ROL'}">
+              <li id="nb-nvaorden">
+                <a href="/SAPITO/ventas/nvaorden"> Nueva orden de venta</a>
+              </li>
+          </c:if>
           <li id="nb-histventas">
             <a href="/SAPITO/ventas/historial"> Historial de ventas</a>
           </li>
@@ -166,15 +175,14 @@
           <li id="nb-facturas">
             <a href="/SAPITO/ventas/facturas">Facturas </a>
           </li>
-          <!--li id="nb-ofertas">
-            <a href="/SAPITO/ventas/ofertas"><i class="fa fa-fw fa-tags"></i> Ofertas </a>
-          </li-->
-          <li id="nb-devoluciones">
-            <a href="/SAPITO/ventas/devoluciones"> Devoluciones</a>
-          </li>
-          <li id="nb-cambios">
-            <a href="/SAPITO/ventas/cambios"> Cambios</a>
-          </li>
+          <c:if test="${authority == 'JEFE_OPERATIVO_ROL'}">
+              <li id="nb-devoluciones">
+                <a href="/SAPITO/ventas/devoluciones"> Devoluciones</a>
+              </li>
+              <li id="nb-cambios">
+                <a href="/SAPITO/ventas/cambios"> Cambios</a>
+              </li>
+          </c:if>
         </ul>
       </li>
     </ul>

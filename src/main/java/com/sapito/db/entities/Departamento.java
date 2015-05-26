@@ -5,6 +5,8 @@
  */
 package com.sapito.db.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.CascadeType;
@@ -47,18 +49,22 @@ public class Departamento implements Serializable {
 // *************************************************** //    
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento")
+    @JsonManagedReference
     private Collection<Empleado> empleados;
     
     @JoinColumn(name = "metastopes_idmetastopes")
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     private Metastopes metastopesIdmetastopes;
 
     @JoinColumn(name = "ID_EMPRESA")
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     private Empresa empresa;
     
     @JoinColumn(name = "ID_CUENTABANCARIA")
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     private CuentaBancaria cuentabancariaIdcuentabancaria;
     
 /* ******************************************************/

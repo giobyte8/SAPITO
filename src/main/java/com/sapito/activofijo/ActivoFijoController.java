@@ -560,7 +560,7 @@ public class ActivoFijoController
     {
         Departamento dpto = (Departamento) daoDepartamento.find(Integer.valueOf(idDpto));
 
-        List<Empleado> empleados = daoEmpleado.findBySpecificField("departamentoIddepartamento", dpto, "equal", null, null);
+        List<Empleado> empleados = daoEmpleado.findBySpecificField("departamento", dpto, "equal", null, null);
         return empleados;
     }
 

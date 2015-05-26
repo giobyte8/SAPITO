@@ -67,8 +67,8 @@
                                 <c:if test="${historial.activoFijo.status == 'Asignado'}">
                                     <tr>
                                         <td>${historial.activoFijo.productoProveedor.producto.nombreProducto}</td>
-                                        <td>${historial.nombreref2.departamentoIddepartamento.nombreDepartamento}</td>
-                                        <td>${historial.nombreref2.nomre} ${historial.nombreref2.apaterno} ${historial.nombreref2.amaterno}</td>
+                                        <td>${historial.nombreref2.departamento.nombreDepartamento}</td>
+                                        <td>${historial.nombreref2.nombre} ${historial.nombreref2.apaterno} ${historial.nombreref2.amaterno}</td>
                                         <td>
                                             <a href="tActivoFijo?idAF=${historial.id}" title="Trasladar"><i class="fa fa-arrows-h"></i></a>
                                         </td>

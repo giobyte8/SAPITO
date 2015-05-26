@@ -33,10 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
     {
-//        auth.inMemoryAuthentication()
-//                .withUser("USER")
-//                .password("USER")
-//                .roles("USER");
         auth.userDetailsService(userDetailsService);//.passwordEncoder(passwordEncoder());
     }
 
@@ -47,6 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/admin/**").hasAuthority("JEFE_DEPARTAMENTO_ROL")
                 .antMatchers("/ventas/**").hasAnyAuthority("VENTAS")
                 .antMatchers("/recursoshumanos/**").hasAuthority("RH")
+                .antMatchers("/gdaAlta/**").permitAll()
                 //.antMatchers("/compras/*").access("hasRole('COMPRAS')")
                 .and()
             .formLogin()
@@ -59,7 +56,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
             .logout()
                 .logoutSuccessUrl("/login?logout")
                 .logoutUrl("/j_spring_security_logout")
-           ;
+                .and()
+            .csrf().disable();
 
     }
     

@@ -6,6 +6,7 @@
 package com.sapito.db.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sapito.db.util.RExp;
 import com.sapito.db.util.RExpErrors;
@@ -114,26 +115,26 @@ public class Empleado implements Serializable
 // *************************************************** //    
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
-    @JsonManagedReference
+    @JsonIgnore
     private Collection<Capacitacion> capacitacionCollection;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoIdempleado")
-    @JsonManagedReference
+    @JsonIgnore
     private Collection<Nomina> nominaCollection;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "nombreref")
-    @JsonManagedReference
+    @JsonIgnore
     private Collection<HistorialActivoFijo> empleadoActual;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "nombreref2")
-    @JsonManagedReference
+    @JsonIgnore
     private Collection<HistorialActivoFijo> empleadoAnterior;
     
 // *************************************************** //
     
     @JoinColumn(name = "ID_PUESTO")
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonBackReference
+    @JsonIgnore
     private Puesto puesto;
 
     @JoinColumn(name = "ID_DEPARTAMENTO")
