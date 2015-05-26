@@ -38,7 +38,7 @@
                             <h3 class="panel-title">Buscar Empleado por Clave</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="recursoshumanosdep/searchEmpleado" method="POST" >
+                            <form action="recursoshumanos/searchEmpleado" method="POST" >
                                 <div class="row">
                                     <div class="col-lg-12 text-left">
                                         <div class="form-group input-group">
@@ -80,7 +80,7 @@
                         </div><!-- /panel panel-default -->
                     </div><!-- /col-sm-5 -->    
                 </div>
-                <form:form commandName="vacaciones" action="recursoshumanosdep/UpVacacionesAdmin" method="POST"> 
+                <form:form commandName="vacaciones" action="UpVacacionesAdmin" method="POST"> 
                     <input type="text" readyonly="true" name="idEmpleadoV" class="form-control" value="${Empleado.idempleado}" >
 
                     <div class="row">

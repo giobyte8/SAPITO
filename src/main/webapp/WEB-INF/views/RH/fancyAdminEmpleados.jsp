@@ -15,7 +15,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <h3>${Empleado.nombre}  ${Empleado.apaterno}   ${Empleado.amaterno}</h3>
-            <a href="recursoshumanosdep/updateempleado?id=${Empleado.idempleado}" ><i class="btn  btn-warning fa fa-edit">  Editar</i></a>
+            <a href="recursoshumanos/updateempleado?id=${Empleado.idempleado}" ><i class="btn  btn-warning fa fa-edit">  Editar</i></a>
             <a href="" ><i class="btn  btn-warning fa fa-eraser" >  Baja</i></a>
             <div>
             </div><!-- /col-sm-12 -->

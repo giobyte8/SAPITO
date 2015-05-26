@@ -35,7 +35,7 @@
 
             <!-- User menu -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Recursos Humanos <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${nombre} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
@@ -55,7 +55,7 @@
                 <a href="#"><i class="fa fa-fw fa-users"></i> Empleados<span class="fa fa-caret-down"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="recursoshumanosdep/asistenciaJO">Asistencia</a>
+                    <a href="recursoshumanos/asistenciaJO">Asistencia</a>
                   </li>
                   <li>
                     <a href="adminEmpleadosOperativo">Ver empleados</a>

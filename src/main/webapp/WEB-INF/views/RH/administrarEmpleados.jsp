@@ -31,7 +31,7 @@
                 <h3 class="panel-title">Datos del Departamento</h3>
               </div>
               <div class="panel-body">  
-                <form:form action="recursoshumanosdep/adminempleadosdetalle" method="POST" commandName="empleado">
+                <form:form action="adminempleadosdetalle" method="POST" commandName="empleado">
                     <div class="col-lg-4 text-left">
                       <div class="form-group">
                         <label>Seleccione el departamento</label>
@@ -88,7 +88,7 @@
                           <td><core:out value="${current.fechaNacimiento}" /></td>
                           <td><core:out value="${current.telefono}" /></td>
                           <td>
-                            <a class="fancyRH"  href="fancyadminempleadosc?id=${current.idempleado}">
+                            <a class="fancyRH"  href="recursoshumanos/fancyadminempleadosc?id=${current.idempleado}">
                               <span class="btn  btn-warning fa fa-user"></span>
                             </a>                                        
                           </td>

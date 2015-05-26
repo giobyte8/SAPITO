@@ -30,7 +30,7 @@
 
       <!-- User menu -->
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Recursos Humanos <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${nombre} <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li>
             <a href="#" onClick="return noFuncional();"><i class="fa fa-fw fa-user"></i> Perfil</a>
@@ -50,7 +50,7 @@
           <a href="#"><i class="fa fa-fw fa-users"></i> Empleados &nbsp;&nbsp;<span class="fa fa-caret-down"></span></a>
           <ul class="nav nav-second-level">
             <li>
-              <a href="/SAPITO/recursoshumanos/altaempleado">Nuevo</a>
+              <a href="/SAPITO/recursoshumanos/altaempleadoMenu">Nuevo</a>
             </li>
             <li>
               <a href="/SAPITO/recursoshumanos/adminempleados">Administrar</a>

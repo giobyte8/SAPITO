@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <form:form action="recursoshumanosdep/editEmpleado" method="POST" commandName="Empleado">
+        <form:form action="recursoshumanos/editEmpleado" method="POST" commandName="Empleado">
             <form:input  path="idempleado" type="hidden"/>
             <div class="row">
               <div class="col-lg-12 text-left">
