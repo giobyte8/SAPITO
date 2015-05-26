@@ -11,6 +11,7 @@ import com.sapito.db.entities.Rol;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jca.support.SimpleBootstrapContext;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -49,15 +50,21 @@ public class UserDetailsServer implements UserDetailsService
             List<GrantedAuthority> authorities
                     = buildUserAuthority(credencial);
 
-            return buildUserForAuthentication(credencial, authorities);
+            // Nombre del usuario
+            String nombre = credencial.getEmpleado().getNombre() + 
+                    credencial.getEmpleado().getApaterno();
+            
+            return buildUserForAuthentication(credencial, authorities, nombre);
         }
         
         return null;
     }
 
-    private User buildUserForAuthentication(Credencial credencial, List<GrantedAuthority> authorities)
+    private User buildUserForAuthentication(Credencial credencial, 
+            List<GrantedAuthority> authorities, String nombre)
     {
-        return new User(credencial.getUsuario(), credencial.getContrasena(), authorities);
+        User user = new User(credencial.getUsuario(), credencial.getContrasena(), authorities);
+        return user;
     }
 
     private List<GrantedAuthority> buildUserAuthority(Credencial credencial)
@@ -68,8 +75,10 @@ public class UserDetailsServer implements UserDetailsService
         switch(credencial.getEmpleado().getDepartamento().getNombreDepartamento())
         {
             case "Ventas":
-                System.out.println("Adding authority VENTAS");
                 result.add(new SimpleGrantedAuthority("VENTAS"));
+                break;
+            case "Recursos humnaos":
+                result.add(new SimpleGrantedAuthority("RH"));
                 break;
         }
         

@@ -3,7 +3,7 @@
     Created on : Feb 17, 2015, 4:33:38 AM
     Author     : giovanni
 --%>
-
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="wrapper">
-      
+
       <!-- Navigation bar -->
       <%@include file="ventasNavs.jsp" %>
 
@@ -29,7 +29,9 @@
               </h1>
             </div>
           </div>
-          
+          <c:if test="${authority == 'JEFE_DEPARTAMENTO_ROL'}">  
+              <h4>You're the boss</h4>
+          </c:if>
           <div class="row text-center">
             <img width="50%" height="50%" src="${pageContext.request.contextPath}/resources/img/ventas.jpg" />
           </div>
@@ -41,9 +43,9 @@
     <!-- Footer and scripts -->
     <%@include file="ventasFooter.jsp" %>
     <script type="text/javascript">
-      $(document).ready(function() {
-         activatenb('nb-dashboard');
-      });
+        $(document).ready(function () {
+            activatenb('nb-dashboard');
+        });
     </script>
   </body>
 </html>

@@ -4,9 +4,10 @@
     Author     : giovanni
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- New navigation bars -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  
+
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -17,7 +18,7 @@
     </button>
     <a class="navbar-brand" href="#">SAPito</a>
   </div>
-  
+
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav">
     <!-- Messages -->
@@ -74,7 +75,7 @@
         </li>
       </ul>
     </li>
-    
+
     <!-- Alerts -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
@@ -103,13 +104,15 @@
         </li>
       </ul>
     </li>
-    
+
     <!-- User menu -->
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Giovanni Aguirre <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-user"></i> ${nombre} <b class="caret"></b>
+      </a>
       <ul class="dropdown-menu">
         <li>
-          <a href="#"><i class="fa fa-fw fa-user"></i> Perfile</a>
+          <a href="#"><i class="fa fa-fw fa-user"></i> Perfiles</a>
         </li>
         <li>
           <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -121,12 +124,12 @@
       </ul>
     </li>
   </ul>
-  
+
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
       <li id="nb-dashboard" class="">
-        <a href="/SAPITO/ventas"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+        <a href="/SAPITO/ventas"><i class="fa fa-fw fa-dashboard"></i> Ventas</a>
       </li>
       <li id="nb-clientes">
         <a href="javascript:;" data-toggle="collapse" data-target="#clientes-submenus">
@@ -141,9 +144,11 @@
           </li>
         </ul>
       </li>
-      <li id="nb-vendedores">
-        <a href="/SAPITO/ventas/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
-      </li>
+      <c:if test="${authority == 'JEFE_DEPARTAMENTO_ROL'}">
+          <li id="nb-vendedores">
+            <a href="/SAPITO/ventas/vendedores"><i class="fa fa-fw fa-users"></i> Vendedores</a>
+          </li>
+      </c:if>
       <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#ventas-subviews">
           <i class="fa fa-fw fa-money"></i> Ventas <i class="fa fa-fw fa-caret-down"></i>

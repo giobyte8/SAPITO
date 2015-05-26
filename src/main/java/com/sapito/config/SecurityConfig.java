@@ -46,6 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasAuthority("JEFE_DEPARTAMENTO_ROL")
                 .antMatchers("/ventas/**").hasAnyAuthority("VENTAS")
+                .antMatchers("/recursoshumanos/**").hasAuthority("RH")
                 //.antMatchers("/compras/*").access("hasRole('COMPRAS')")
                 .and()
             .formLogin()

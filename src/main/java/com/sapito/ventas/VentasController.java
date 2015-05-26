@@ -5,14 +5,17 @@
  */
 package com.sapito.ventas;
 
+import com.sapito.config.SecurityUtils;
 import com.sapito.db.dao.GenericDao;
 import com.sapito.db.entities.Cliente;
+import com.sapito.db.entities.Credencial;
 import com.sapito.db.entities.Factura;
 import com.sapito.db.entities.Inventario;
 import com.sapito.db.entities.OrdenVenta;
 import com.sapito.db.entities.ProductoVendido;
 import com.sapito.db.entities.SancionCliente;
 import com.sapito.pdf.PDFView.PDFGeneratorVentas;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -38,10 +41,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class VentasController
 {
+    private final SecurityUtils secUtils = new SecurityUtils();
+    
     private GenericDao<Cliente> daoCliente;
     private GenericDao<Inventario> daoInventario;
     private GenericDao<OrdenVenta> daoOrdenVenta;
     private GenericDao<Factura> daoFactura;
+    private GenericDao<Credencial> daoCredencial;
     
     @Autowired
     public void setDaoCliente(GenericDao<Cliente> daoCliente)
@@ -71,11 +77,23 @@ public class VentasController
         daoFactura.setClass(Factura.class);
     }
     
+    @Autowired
+    public void setDaoCredencial(GenericDao<Credencial> daoCredencial)
+    {
+        this.daoCredencial = daoCredencial;
+        daoCredencial.setClass(Credencial.class);
+    }
+    
     
 
     @RequestMapping(value = "ventas", method = RequestMethod.GET)
-    public String index(Model model)
+    public String index(Model model, Principal principal)
     {
+        //System.out.println("El name es: " + principal.getName());
+        
+        model.addAttribute("authority", secUtils.getAuthority());
+        model.addAttribute("username", secUtils.getUsername());
+        model.addAttribute("nombre", secUtils.getNombre(secUtils.getUsername(), daoCredencial));
         return "Ventas/indexVentas";
     }
 
