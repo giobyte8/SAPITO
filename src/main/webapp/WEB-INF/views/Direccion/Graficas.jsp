@@ -450,9 +450,9 @@
                                 </div>
                             </div>
 
-                            <div class="panel-footer">
+<!--                            <div class="panel-footer">
                                 <a class="btn btn-success" type="button" href="ActivosFijos" style="color:white">Crear Reporte</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
 
@@ -469,9 +469,9 @@
                                 </div>
                             </div>
 
-                            <div class="panel-footer">
+<!--                            <div class="panel-footer">
                                 <a class="btn btn-success" type="button" href="Operaciones" style="color:white">Crear Reporte</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
 
@@ -487,9 +487,9 @@
                                 </div>
                             </div>
 
-                            <div class="panel-footer">
+<!--                            <div class="panel-footer">
                                 <a class="btn btn-success" type="button" href="Logística" style="color:white">Crear Reporte</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
 
