@@ -55,28 +55,32 @@
                                 <div class="panel-body">
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">
-                                            <label for="alp-nombre" class="control-label">nombre</label>
+                                            <label for="alp-nombre" class="control-label">Nombre</label>
                                             <form:input path="nombre" name="nombre" type="text" class="form-control" 
                                                         id="nombreN" placeholder="Nombre" />
                                             <form:errors path="nombre" element="div" class="alert-danger pad-10" />
 
                                         </div>
                                         <div class="form-group">
-                                            <label>Tiempo</label>
-                                            <form:input path="tiempo" id="fecha"  class="form-control" />
+                                            <label>Duración</label>
+                                            <form:input path="tiempo" id="duracion"  class="form-control" placeholder="Duración"/>
                                             <form:errors path="tiempo" element="div" class="alert-danger pad-10" />
 
                                         </div>  
+                                        
                                         <div class="form-group">
-                                            <label>Activo</label>
-                                            <form:input path="activo" name="activo" type="text" class="form-control" 
-                                                        id="activo" placeholder="activo" />
-                                            <form:errors path="activo" element="div" class="alert-danger pad-10" />
-                                        </div>
                                         <label>Responsable</label>
                                         <form:input path="responsa" name="responsable" type="text" class="form-control" 
                                                     id="responsabl" placeholder="responsable" />
                                         <form:errors path="responsa" element="div" class="alert-danger pad-10" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Activo</label>
+                                            <br/>
+                                            <form:radiobutton path="activo" value="S" label="Si"/>
+                                            <form:radiobutton path="activo" value="N" label="No"/>
+                                            <form:errors path="activo" element="div" class="alert-danger pad-10" />
+                                        </div>
                                     </div>
                                     <div class="col-lg-6 text-left">
                                         <div class="form-group">     
@@ -111,17 +115,6 @@
 
         <!--<script src="${pageContext.request.contextPath}/resources/js/operaciones/jsoperaciones.js"></script>-->
         <!-- PARA FECHA -->
-        <script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#fecha").datepicker({
-                    dateFormat: "dd-mm-yy",
-                    dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
-                    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
-                    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-                });
-            });
-        </script>
-
+        <script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>              
     </body>
 </html>

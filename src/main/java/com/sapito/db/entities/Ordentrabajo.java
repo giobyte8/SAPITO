@@ -16,14 +16,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -33,7 +30,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "ordentrabajo")
 public class Ordentrabajo implements Serializable {
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idordentrabajo")
@@ -43,7 +39,8 @@ public class Ordentrabajo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "fechapedido")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date fechapedido;
     
     
@@ -83,12 +80,9 @@ public class Ordentrabajo implements Serializable {
     private String auditor;
     
     
-    @JoinColumn(name = "catalogoproducto_idcatalogoproducto", referencedColumnName = "idcatalogoproducto")
+    @JoinColumn(name = "lineaproduccion_idlineaproduccion", referencedColumnName = "idlineaproduccion")
     @ManyToOne(optional = false)
-    private Catalogoproducto catalogoproductoIdcatalogoproducto;
-    @JoinColumn(name = "estacion_idestacion", referencedColumnName = "idestacion")
-    @ManyToOne(optional = false)
-    private Estacion estacionIdestacion;
+    private Lineaproduccion lineaproduccionIdlineaproduccion;
 
     public Ordentrabajo() {
     }
@@ -162,23 +156,8 @@ public class Ordentrabajo implements Serializable {
     public void setAuditor(String auditor) {
         this.auditor = auditor;
     }
-
-    public Catalogoproducto getCatalogoproductoIdcatalogoproducto() {
-        return catalogoproductoIdcatalogoproducto;
-    }
-
-    public void setCatalogoproductoIdcatalogoproducto(Catalogoproducto catalogoproductoIdcatalogoproducto) {
-        this.catalogoproductoIdcatalogoproducto = catalogoproductoIdcatalogoproducto;
-    }
-
-    public Estacion getEstacionIdestacion() {
-        return estacionIdestacion;
-    }
-
-    public void setEstacionIdestacion(Estacion estacionIdestacion) {
-        this.estacionIdestacion = estacionIdestacion;
-    }
-
+   
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -202,6 +181,14 @@ public class Ordentrabajo implements Serializable {
     @Override
     public String toString() {
         return "com.sapito.db.entities.Ordentrabajo[ idordentrabajo=" + idordentrabajo + " ]";
+    }
+
+    public Lineaproduccion getLineaproduccionIdlineaproduccion() {
+        return lineaproduccionIdlineaproduccion;
+    }
+
+    public void setLineaproduccionIdlineaproduccion(Lineaproduccion lineaproduccionIdlineaproduccion) {
+        this.lineaproduccionIdlineaproduccion = lineaproduccionIdlineaproduccion;
     }
     
 }

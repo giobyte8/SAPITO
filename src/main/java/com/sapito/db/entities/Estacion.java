@@ -55,9 +55,7 @@ public class Estacion implements Serializable {
     @Size(min = 1, max = 60)
     @Column(name = "descripcion")
     private String descripcion;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estacionIdestacion")
-    private Collection<Ordentrabajo> ordentrabajoCollection;
+        
     @JoinColumn(name = "lineaproduccion_idlineaproduccion", referencedColumnName = "idlineaproduccion")
     @ManyToOne(optional = false)
     private Lineaproduccion lineaproduccionIdlineaproduccion;
@@ -106,15 +104,6 @@ public class Estacion implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    @XmlTransient
-    public Collection<Ordentrabajo> getOrdentrabajoCollection() {
-        return ordentrabajoCollection;
-    }
-
-    public void setOrdentrabajoCollection(Collection<Ordentrabajo> ordentrabajoCollection) {
-        this.ordentrabajoCollection = ordentrabajoCollection;
     }
 
     public Lineaproduccion getLineaproduccionIdlineaproduccion() {

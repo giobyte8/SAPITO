@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.sapito.db.entities;
 
 import java.io.Serializable;
@@ -19,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,42 +35,37 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "lineaproduccion")
 public class Lineaproduccion implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idlineaproduccion")
     private Integer idlineaproduccion;
-    
-    
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "tiempo")
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern="dd-mm-yyyy")
-    private Date tiempo;
-    
-    @Basic(optional = false)
+    private Integer tiempo;
+
     @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "activo")
-    private String activo;
-    
-    
+    private char activo;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "responsa")
     private String responsa;
-    
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lineaproduccionIdlineaproduccion")
-    private Collection<Catalogoproducto> catalogoproductoCollection;
+
+    @OneToOne
+    private Producto idProducto;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lineaproduccionIdlineaproduccion")
     private Collection<Estacion> estacionCollection;
 
@@ -81,7 +76,7 @@ public class Lineaproduccion implements Serializable {
         this.idlineaproduccion = idlineaproduccion;
     }
 
-    public Lineaproduccion(Integer idlineaproduccion, String nombre, Date tiempo, String activo, String responsa) {
+    public Lineaproduccion(Integer idlineaproduccion, String nombre, Integer tiempo, char activo, String responsa) {
         this.idlineaproduccion = idlineaproduccion;
         this.nombre = nombre;
         this.tiempo = tiempo;
@@ -105,20 +100,12 @@ public class Lineaproduccion implements Serializable {
         this.nombre = nombre;
     }
 
-    public Date getTiempo() {
+    public Integer getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(Date tiempo) {
+    public void setTiempo(Integer tiempo) {
         this.tiempo = tiempo;
-    }
-
-    public String getActivo() {
-        return activo;
-    }
-
-    public void setActivo(String activo) {
-        this.activo = activo;
     }
 
     public String getResponsa() {
@@ -127,15 +114,6 @@ public class Lineaproduccion implements Serializable {
 
     public void setResponsa(String responsa) {
         this.responsa = responsa;
-    }
-
-    @XmlTransient
-    public Collection<Catalogoproducto> getCatalogoproductoCollection() {
-        return catalogoproductoCollection;
-    }
-
-    public void setCatalogoproductoCollection(Collection<Catalogoproducto> catalogoproductoCollection) {
-        this.catalogoproductoCollection = catalogoproductoCollection;
     }
 
     @XmlTransient
@@ -171,5 +149,23 @@ public class Lineaproduccion implements Serializable {
     public String toString() {
         return "com.sapito.db.entities.Lineaproduccion[ idlineaproduccion=" + idlineaproduccion + " ]";
     }
-    
+
+    public Producto getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Producto idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public char getActivo() {
+        return activo;
+    }
+
+    public void setActivo(char activo) {
+        this.activo = activo;
+    }
+
+ 
+
 }

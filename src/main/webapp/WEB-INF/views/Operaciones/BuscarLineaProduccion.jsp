@@ -1,7 +1,6 @@
 Created on : 6/05/2015, 04:59:24 PM
 Author     : zgm_e_000
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,9 +27,7 @@ Author     : zgm_e_000
         <!-- Custom Fonts -->
         <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
-
     <body>
-
         <div id="wrapper">           
             <%@include file="Menu/menuOperacionesJefeO.jsp"%>
             <!-- Page Content -->
@@ -73,87 +70,7 @@ Author     : zgm_e_000
                 </table>
 
             </div>
-        </div>
-    </div>
-
-    <!-- Modal dialog para detalles de vendedores -->
-    <div id="vendedores-modal" class="modal fade" tabindex="-1" role="dialog" 
-         aria-labelledby="vendedor-modal-title" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" id="vendedor-modal-title">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Detalles de vendedor</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <br/><label>Nombre (s)</label>
-                            <input type="text" class="form-control" readonly/>
-                        </div>
-                        <div class="col-md-4">
-                            <br/><label>Apellido paterno</label>
-                            <input type="text" class="form-control" readonly/>
-                        </div>
-                        <div class="col-md-4">
-                            <br/><label>Apellido materno</label>
-                            <input type="text" class="form-control" readonly/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <br/><label>Email</label>
-                            <input type="text" class="form-control" readonly/>
-                        </div>
-                        <div class="col-md-4">
-                            <br/><label>Teléfono</label>
-                            <input type="text" class="form-control" readonly/>
-                        </div>
-                        <div class="col-md-4">
-                            <br/><label>Monto vendido hoy:</label>
-                            <input type="text" class="form-control" readonly/>
-                        </div>
-                    </div>
-                    <div class="rw">
-                        <br/><h4>Ultimos periodos de venta:</h4>
-                        <table id="tvendedores" class="table table-bordered table-hover 
-                               table-striped table-responsive" cellspacing="0" width="80%">
-                            <thead>
-                                <tr>
-                                    <th>Periodo</th>
-                                    <th>Monto vendido ($)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>&nbsp; ** &nbsp;</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp; ** &nbsp;</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp; ** &nbsp;</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        Cerrar
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- /#wrapper -->
+        </div>    
     <!-- jQuery -->
     <script src="resources/js/libs/jquery.min.js"></script>
 
@@ -166,5 +83,5 @@ Author     : zgm_e_000
     <!-- Custom Theme JavaScript -->
     <script src="resources/js/libs/sb-admin-2.js"></script>
 
-</body>
+    </body>
 </html>

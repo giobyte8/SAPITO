@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,171 +18,136 @@
         <title>SAPITO</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css">
 
         <!-- MetisMenu CSS -->
-        <link href="resources/css/libs/metisMenu.min.css" rel="stylesheet">
+        <!--link href="${pageContext.request.contextPath}/resources/css/libs/metisMenu.min.css" rel="stylesheet" type="text/css"-->
+
+        <!-- Morris css -->
+        <link href="${pageContext.request.contextPath}/resources/css/libs/morris.css" rel="stylesheet" type="text/css">
 
         <!-- Custom CSS -->
-        <!--<link href="resources/css/libs/sb-admin-2.css" rel="stylesheet">-->
         <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
 
-
         <!-- Custom Fonts -->
-        <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Datatables css -->
+        <link href="${pageContext.request.contextPath}/resources/css/libs/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+
+        <!-- Sweetalert css -->
+        <link href="${pageContext.request.contextPath}/resources/css/libs/sweet-alert.css" rel="stylesheet" type="text/css">
+
+        <!-- SAPITO css -->
+        <link href="${pageContext.request.contextPath}/resources/css/sapito.css" rel="stylesheet" type="text/css">
     </head>
 
-    <body>
-
-        <div id="wrapper">           
+    <body>        
+        <div id="wrapper">
             <%@include file="Menu/menuOperacionesJefeO.jsp"%>
             <div id="page-wrapper">
-                <!-- Page Content -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Administrar Ordenes de Trabajo
-                        </h1>
-                    </div>
-                </div>
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Ordenes de trabajo</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="input-group">
-                            <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-                            <input class="form-control" id="system-search" name="q" placeholder="Busqueda" required>
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </span>
+                <div class="container-fluid">
+                    <!-- Page title -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Administrar Ordenes de trabajo
+                            </h1>
                         </div>
                     </div>
-                    <table class="table table-list-search">
-                        <thead>
+
+                    <table id="tOrdenes" class="table table-bordered table-hover 
+                           table-striped table-responsive" cellspacing="0" width="100%">
+                       <thead>
                             <tr>
+                                <th>Fecha Pedido</th>                                
+                                <th>Fecha Entrega</th>
                                 <th>Auditor</th>
-                                <th>Prioridad</th>
-                                <th>Estacion</th>
-                                <th>Detalles</th>
+                                <th>Prioridad</th>                                
+                                <th>Linea</th>                                
+                                <th>Operaciones</th>                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Orden Uno</td>
-                                <td>Alta</td>
-                                <td>Estacion uno</td>
-                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-info fa fa-dedent" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                            </tr>
-                            <tr>
-                                <td>Orden Uno</td>
-                                <td>media</td>
-                                <td>Estacion dos</td>
-                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-info fa fa-dedent" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                            </tr>
-                            <tr>
-                                <td>Orden Uno</td>
-                                <td>baja</td>
-                                <td>Estacion tres</td>
-                                <td><p data-placement="top" data-toggle="tooltip" title="Detalles"><a href="#"><i class="btn  btn-info fa fa-dedent" data-toggle="modal" data-target="#myModal"></i></a></p></td>
-                            </tr>
+                            <c:forEach items="${lOrden}" var="ordenes">
+                                <tr data-value="${ordenes.idordentrabajo}">
+                                    <td>${ordenes.fechapedido}</td>                                    
+                                    <td>${ordenes.fechaentrega}</td>
+                                    <td>${ordenes.auditor}</td>
+                                    <td>${ordenes.prioridad}</td>                                    
+                                    <td>${ordenes.lineaproduccionIdlineaproduccion.nombre}</td> 
+                                    <td class="center">
+                                        <a href="modificaOrdenTrabajo?idOrden=${ordenes.idordentrabajo}" title="Modificar">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                        </a>
+                                        &nbsp;&nbsp;
+                                        <a href="bajaOrdenTrabajo?idOrden=${ordenes.idordentrabajo}" title="Baja">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>                                   
+                                </tr>
+                            </c:forEach>
                         </tbody>
-                    </table>   
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Detalles de Orden</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <h3>Orden Uno</h3>
-                                    <a href="#" ><i class="btn  btn-warning fa fa-edit" data-toggle="modal" data-target="#myModal">  Editar</i></a>
-                                    <a href="#" ><i class="btn  btn-danger fa fa-eraser" data-toggle="modal" data-target="#myModal">  Baja</i></a>
-                                    <div>
-                                    </div><!-- /col-sm-12 -->
-                                </div><!-- /row -->
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        <div class="thumbnail">
-                                            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                                        </div><!-- /thumbnail -->
-                                    </div><!-- /col-sm-1 -->
-
-                                    <div class="col-sm-5">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <strong>Datos</strong> <span class="text-muted">:</span>
-                                            </div>
-                                            <div class="panel-body">
-                                                <table class="table table-striped">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>ID Orden</td>
-                                                            <td>o1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Fecha de pedido</td>
-                                                            <td>02022015</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>fecha entrega</td>
-                                                            <td>02022015</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Descripcion</td>
-                                                            <td>orden de pedido</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Auditor</td>
-                                                            <td>Raul</td>
-                                                        </tr>                                                                                                                                   
-                                                        <tr>
-                                                            <td>Comentarios</td>
-                                                            <td>falta material</td>
-                                                        </tr>                                                                                                                                   
-                                                        <tr>
-                                                            <td>Estacion</td>
-                                                            <td>Estacion uno</td>
-                                                        </tr>                                                                                                                                   
-                                                    </tbody>
-                                                </table>
-                                            </div><!-- /panel-body -->
-                                        </div><!-- /panel panel-default -->
-                                    </div><!-- /col-sm-5 -->                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
+        <!-- jQuery -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.min.js"></script>
 
-<!-- /#wrapper -->
-<!-- jQuery -->
-<script src="resources/js/libs/jquery.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/bootstrap.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="resources/js/libs/bootstrap.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/metisMenu.min.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="resources/js/libs/metisMenu.min.js"></script>
+        <!-- Raphael js -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/raphael-min.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="resources/js/libs/sb-admin-2.js"></script>
+        <!-- Datatables js -->
+        <script src="${pageContext.request.contextPath}/resources/js/libs/jquery.dataTables.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/libs/dataTables.bootstrap.min.js"></script>
 
-</body>
+        <script >
+
+            $(document).ready(function () {
+                $('#tOrdenes').DataTable({
+                    "language": {
+                        "search": "Buscar:",
+                        "paginate": {
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+                        "zeroRecords": "No se encontraron coincidencias"
+                    },
+                    "info": false,
+                    "lengthChange": false
+                });
+
+                $('#tProductos').DataTable({
+                    "language": {
+                        "search": "Buscar:",
+                        "paginate": {
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+                        "zeroRecords": "No se encontraron coincidencias"
+                    },
+                    "info": false,
+                    "lengthChange": false
+                });
+            });
+
+            $('#tProductos tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    $('#tProductos tbody tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+            
+        </script>
+    </body>
 </html>

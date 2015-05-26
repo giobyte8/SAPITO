@@ -5,6 +5,7 @@
 --%>
 
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
                         <h1 class="page-header">Nueva Estacion</h1>
                     </div>
                 </div>
-                <form:form id="nuv-lineaProd" commandName="Lineaproduccion" action="AltaLineaProduccionJO"  method="POST">
+                <form:form id="nuv-Estacion" commandName="Estacion" action="AltaEstacion"  method="POST">
                     <div class="row-fluid">
                         <div class="col-lg-12 text-left">
                             <div class="panel panel-green">
@@ -52,22 +53,22 @@
                                         <div class="form-group">
                                             <label>Nombre </label>
                                             <form:input path="nombre" name="nombre" type="text" class="form-control" 
-                                                        id="nombreN" placeholder="Nombre" />
+                                                        id="nombreEs" placeholder="Nombre" />
                                             <form:errors path="nombre" element="div" class="alert-danger pad-10" />
 
                                         </div>
                                         <div class="form-group">
                                             <label>Tiempo</label>
-                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
-                                                        id="nombreN" placeholder="Nombre" />
-                                            <form:errors path="nombre" element="div" class="alert-danger pad-10" />
+                                            <form:input path="tiempo" name="tiempo" type="text" class="form-control" 
+                                                        id="tiempoEs" placeholder="Tiempo" />
+                                            <form:errors path="tiempo" element="div" class="alert-danger pad-10" />
 
                                         </div>  
                                         <div class="form-group">
                                             <label>Descripcion</label>
-                                            <form:input path="nombre" name="nombre" type="text" class="form-control" 
-                                                        id="nombreN" placeholder="Nombre" />
-                                            <form:errors path="nombre" element="div" class="alert-danger pad-10" />
+                                            <form:input path="descripcion" name="descripcion" type="text" class="form-control" 
+                                                        id="descripcionEs" placeholder="Descripcion" />
+                                            <form:errors path="descripcion" element="div" class="alert-danger pad-10" />
 
                                         </div>
                                     </div>
@@ -76,12 +77,10 @@
                                             <div class="form-group">
                                                 <label>Linea de produccion</label>
                                                 <div class="form-group input-group">
-                                                    <select path="estado" id="etados" class="form-control selectpicker show-tick show-menu-arrow" data-size="6">
-                                                        <!--<option value="0" label="Seleccione uno" />-->
-                                                        <option> Produccion uno </option>
-                                                        <option> Produccion dos </option>
-                                                        <option> Produccion tres </option>
-                                                    </select>
+                                                    <form:select   path="lineaproduccionIdlineaproduccion.idlineaproduccion" name="lineaproduccionIdlineaproduccion" class="form-control" data-size="6">                                                                                                                                                                        
+                                                        <form:option value=" " label="Seleccione una"/>
+                                                        <form:options items="${lLineas}" itemValue="idlineaproduccion" itemLabel="nombre"/>                                                        
+                                                    </form:select>
                                                 </div>
                                             </div>
                                         </div>

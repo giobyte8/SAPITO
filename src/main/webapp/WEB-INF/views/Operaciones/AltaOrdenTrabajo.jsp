@@ -4,7 +4,9 @@
     Author     : zgm_e_000
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,6 +28,9 @@
         <link href="${pageContext.request.contextPath}/resources/css/libs/sb-admin.css" rel="stylesheet" type="text/css">
         <!-- Custom Fonts -->
         <link href="resources/css/libs/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- PARA FECHA -->
+        <link href="resources/css/activofijo/jquery-ui.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -40,58 +45,60 @@
                     </div>
                 </div>
                 <div class="row-fluid">
-                    <div class="col-lg-12 text-left">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Datos de Referencia</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-lg-6 text-left">
-                                    <div class="form-group">
-                                        <label>Fecha de Pedido </label>
-                                        <input class="form-control" placeholder="Nombre" onkeypress="return soloNumeros()(event);"  maxlength="30" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Fecha de entrega</label>
-                                        <input class="form-control" placeholder="Tiempo" onkeypress="return soloNumeros()(event);"  maxlength="30" required>
-                                    </div>  
-                                    <div class="form-group">
-                                        <label>Descripcion</label>
-                                        <input class="form-control" id="numInt" placeholder="Descripci&oacute;n"  maxlength="30" onkeypress="return soloTexto(event);"required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Auditor</label>
-                                        <input class="form-control" placeholder="Auditor" onkeypress="return soloNumeros(event);" maxlength="4" required>
-                                    </div>
+
+                    <form:form id="nuv-ordenTrabajo" commandName="Ordentrabajo" action="AltaOrdenTrabajo" method="POST">
+                        <div class="col-lg-12 text-left">
+                            <div class="panel panel-green">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Datos de Referencia</h3>
                                 </div>
-                                <div class="col-lg-6 text-left">                               
-                                    <div class="form-group">
-                                        <label>Estacion</label>
-                                        <div class="form-group input-group">
-                                            <select path="estado" id="etados" class="form-control selectpicker show-tick show-menu-arrow" data-size="6">
-                                                <!--<option value="0" label="Seleccione uno" />-->
-                                                <option> Estacion uno </option>
-                                                <option> Estacion dos </option>
-                                                <option> Estacion tres </option>
-                                            </select>
+                                <div class="panel-body">    
+                                    <div class="col-lg-6 text-left">
+                                        <div class="form-group">
+                                            <label>Fecha de Pedido </label>                                        
+                                            <form:input path="fechapedido" id="fechaP" name="fechapedido" class="form-control" placeholder="Fecha de Pedido" />
                                         </div>
                                         <div class="form-group">
-                                            <label>Prioridad</label>
-                                            <input class="form-control" placeholder="Responsable" onkeypress="return soloNumeros(event);" maxlength="4" required>
+                                            <label>Fecha de entrega</label>
+                                            <form:input path="fechaentrega" id="fechaE" name="fechaentrega" class="form-control" placeholder="Fecha de Entrega"/>
+                                        </div>  
+                                        <div class="form-group">
+                                            <label>Descripción</label>
+                                            <form:input path="descripcion" name="descripcion" class="form-control"  placeholder="Descripción" />
                                         </div>
                                         <div class="form-group">
-                                            <label>Comentarios</label>
-                                            <input class="form-control" placeholder="Escribir comentarios" onkeypress="return soloNumeros(event);" maxlength="4" required>
+                                            <label>Auditor</label>
+                                            <form:input path="auditor" name="auditor" class="form-control" placeholder="Auditor" />
                                         </div>
-                                    </div>                                
+                                    </div>
+                                    <div class="col-lg-6 text-left">                               
+                                        <div class="form-group">
+                                            <label>Linea producción</label>
+                                            <div class="form-group input-group">
+                                                <form:select  path="lineaproduccionIdlineaproduccion.idlineaproduccion" class="form-control" >
+                                                    <form:option value="Seleccione Una"/>                                                                                                
+                                                    <form:options  items="${lLineas}" itemValue="idlineaproduccion"  itemLabel="nombre"/>                                                
+                                                </form:select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Prioridad</label>
+                                                <form:input path="prioridad" name="prioridad" class="form-control" placeholder="Prioridad" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Comentarios</label>
+                                                <form:input path="comentario" name="comentario" class="form-control" placeholder="Escribir comentarios" />
+                                            </div>
+                                        </div>                                
+                                    </div>
+
                                 </div>
                             </div>
+                            <div align="right">
+                                <button type="submit" class="btn btn-primary">Aceptar</button>                                            
+                            </div>
+                            <br/>
                         </div>
-                        <div align="right">
-                            <button type="submit" class="btn btn-primary">Aceptar</button>                                            
-                        </div>
-                        <br/>
-                    </div>
+                    </form:form>
                 </div>
 
                 <!-- /#page-wrapper -->
@@ -110,5 +117,20 @@
         <!-- Custom Theme JavaScript -->
         <script src="resources/js/libs/sb-admin-2.js"></script>
 
+        <script type="text/javascript" src="resources/js/activofijo/jquery-ui.js"></script>        
+        <script type="text/javascript">
+                    function fechas(id) {
+                $(id).datepicker({
+                    dateFormat: "dd-mm-yy",
+                    dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+                });
+                }
+            $(document).ready(function () {         
+                fechas("#fechaP");
+                fechas("#fechaE");
+            });
+        </script>
     </body>
 </html>

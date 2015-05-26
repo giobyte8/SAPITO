@@ -18,86 +18,7 @@
     </div>
 
     <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
-        <!-- Messages -->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-
-        </li>
-
-        <!-- Alerts -->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu message-dropdown">
-                <li class="message-preview">
-                    <a href="#">
-                        <div class="media">
-                            <span class="pull-left">
-                                <img class="media-object" src="http://placehold.it/50x50" alt="">
-                            </span>
-                            <div class="media-body">
-                                <h5 class="media-heading"><strong>Alejandro Medina</strong>
-                                </h5>
-                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="message-preview">
-                    <a href="#">
-                        <div class="media">
-                            <span class="pull-left">
-                                <img class="media-object" src="http://placehold.it/50x50" alt="">
-                            </span>
-                            <div class="media-body">
-                                <h5 class="media-heading"><strong>Otros </strong>
-                                </h5>
-                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="message-footer">
-                    <a href="#">Read All New Messages</a>
-                </li>
-            </ul>
-        </li>
-
-        <!-- Alerts -->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu alert-dropdown">
-                <li>
-                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">View All</a>
-                </li>
-            </ul>
-        </li>
-
+    <ul class="nav navbar-right top-nav">                      
         <!-- User menu -->
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Operaciones <b class="caret"></b></a>
@@ -120,7 +41,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav"  id="side-menu">
             <li id="nb-dashboard" class="">
-                <a href="operaciones"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="operaciones"><i class="fa fa-fw fa-dashboard"></i> Operaciones</a>
             </li>
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#produccion-submenus">
@@ -139,10 +60,10 @@
                 </ul>               
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#produccion-submenus">
+                <a href="javascript:;" data-toggle="collapse" data-target="#ordenes-submenus">
                     <i class="fa fa-fw fa-folder-open"></i> Ordenes de Trabajo <i class="fa fa-fw fa-caret-down"></i>
                 </a>
-                <ul id="clientes-submenus" class="collapse">
+                <ul id="ordenes-submenus" class="collapse">
                     <li id="nb-nvo">
                         <a href="AltaOrdenTrabajo"><i class="fa fa-fw fa-file-text-o"></i> Nueva Orden de Trabajo</a>
                     </li>
@@ -150,15 +71,15 @@
                         <a href="AdminOrdenTrabajo"><i class="fa fa-fw fa-list-alt"></i> Administrar Ordenes de trabajo</a>
                     </li>
                     <li>                                        
-                        <a href="BuscarLineaProduccion"><i class="fa fa-fw fa-upload"></i> Consulta Lineas de Producci&oacute;n</a>
+                        <a href="BuscarOrdenTrabajo"><i class="fa fa-fw fa-upload"></i> Consulta Ordenes de Trabajo</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#produccion-submenus">
+                <a href="javascript:;" data-toggle="collapse" data-target="#estacion-submenus">
                     <i class="fa fa-fw fa-shekel"></i> Estaciones <i class="fa fa-fw fa-caret-down"></i>
                 </a>
-                <ul id="clientes-submenus" class="collapse">
+                <ul id="estacion-submenus" class="collapse">
                     <li id="nb">
                         <a href="AltaEstacion"><i class="fa fa-fw fa-file-text-o"></i> Nueva Estacion</a>
                     </li>
@@ -166,7 +87,7 @@
                         <a href="AdminEstaciones"><i class="fa fa-fw fa-list-alt"></i> Administrar Estaciones</a>
                     </li>
                     <li>                                        
-                        <a href="BuscarLineaProduccion"><i class="fa fa-fw fa-upload"></i> Consulta Estaciones</a>
+                        <a href="BuscarEstacion"><i class="fa fa-fw fa-upload"></i> Consulta Estaciones</a>
                     </li>
                 </ul>
             </li> 
